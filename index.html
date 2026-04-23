@@ -245,6 +245,18 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
+/* Mobile-first overrides para o título principal */
+@media (max-width: 600px) {
+  .hero-titulo {
+    font-size: clamp(28pt, 11vw, 40pt);
+    letter-spacing: 4px;
+  }
+  .hero-titulo span {
+    font-size: clamp(7pt, 2.8vw, 9.5pt);
+    letter-spacing: 3px;
+  }
+}
+
 .hero-vol-label {
   font-family: 'Oswald', sans-serif;
   font-size: 10pt;
@@ -641,10 +653,13 @@ body {
   .hero { padding: 48px 16px 64px; min-height: 100svh; }
   .hero-titulo { letter-spacing: 4px; }
   .hero-divisor { width: min(240px,100%); margin: 20px auto; }
-  .hero-sub { font-size: 12.5pt; max-width: 100%; }
+  .hero-sub { font-size: 11.5pt; max-width: 100%; }
+  .hero-vol-label { font-size: 9pt; letter-spacing: 2.5px; }
+  .hero-selo { font-size: 8pt; letter-spacing: 3px; padding: 5px 14px; }
   .vol-btn { font-size: 7.5pt; padding: 7px 14px; }
   .editorial { padding: 52px 18px 40px; }
-  .editorial-corpo { font-size: 13pt; }
+  .editorial-corpo { font-size: 12.5pt; }
+  .editorial-corpo p:first-child::first-letter { font-size: 38pt; }
   .licoes-section { padding: 48px 14px 64px; }
   .grid-licoes { grid-template-columns: 1fr; gap: 14px; }
   .vol-section-num { font-size: 36pt; }
@@ -653,9 +668,14 @@ body {
 
 @media (max-width: 480px) {
   .hero { padding: 40px 14px 52px; }
-  .hero-meta { font-size: 8pt; letter-spacing: 1.5px; }
+  .hero-sub { font-size: 10.5pt; }
+  .hero-meta { font-size: 7.5pt; letter-spacing: 1.5px; }
+  .hero-vol-label { font-size: 8pt; letter-spacing: 2px; }
+  .hero-divisor { margin: 14px auto; }
   .vol-nav-ancora { gap: 6px; }
   .ancora-btn { font-size: 7pt; padding: 6px 12px; }
+  .editorial-corpo { font-size: 11.5pt; line-height: 1.75; }
+  .editorial-corpo p:first-child::first-letter { font-size: 32pt; }
 }
 </style>
 </head>
