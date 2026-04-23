@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d1a">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<title>Eschaton Vol. II · Lição 06 — A Mulher, o Dragão e a Besta · Edição do Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    /* cores base — Vol. II vermelho (espelho do aluno lição 06) */
+    --cor:#9b2010;
+    --grad1:#1a0808; --grad2:#280a08;
+    --ouro:#c9a84c; --ouro-claro:#e8d5a0;
+    --vermelho:#8b1a1a;
+    --ct:#2a2a2a;
+    --branco:#fdfbf7; --pergaminho:#f8f2e8; --creme:#f0e8d8; --cc:#ddd8cc;
+    /* cores exclusivas do professor — verde docente */
+    --prof:#1a6b35;
+    --prof-vivo:#27ae60;
+    --prof-claro:#e6f4ed;
+    --prof-borda:rgba(26,107,53,0.35);
+    --topo-prof:#0a1a0d;
+    /* auxiliares pedagógicos */
+    --verde-tip:#2e6b4f;
+    --verde-claro:#e6f4ed;
+    --verde-borda:rgba(46,107,79,0.35);
+    --laranja:#b85c1a;
+    --laranja-claro:#fdf0e6;
+    --laranja-borda:rgba(184,92,26,0.35);
+    --azul:#2c5f8a;
+    --azul-claro:#e8f0f8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#120506;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#0a0305 0%,#180808 60%,#0a0305 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:54px;height:54px;border:1px solid rgba(155,32,16,0.5);
+    transform:rotate(45deg);margin:0 auto 30px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(155,32,16,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:30px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(155,32,16,0.35);
+    border-radius:2px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;
+    color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(155,32,16,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.senha-btn{
+    width:100%;background:var(--prof);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#080202,#120506);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(201,168,76,0.8);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--pergaminho);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA DO ALUNO (espelho) ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(155,32,16,0.55) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.15) 0%,transparent 45%),radial-gradient(ellipse at 55% 85%,rgba(80,10,5,0.4) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(201,168,76,1) 24px,rgba(201,168,76,1) 25px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#280808,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(160deg,#0d0202,var(--cor) 50%,#ff8060);opacity:0.38;}
+.clh{position:absolute;top:57%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.75;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+/* Faixa PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:18pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:10px;}
+.cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== PÁGINAS DO ALUNO (espelho) ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(155,32,16,0.15);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(155,32,16,0.055) 23px,rgba(155,32,16,0.055) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#5a1a10;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.texto-biblico{background:#fff;border:1px solid rgba(155,32,16,0.2);border-left:4px solid var(--cor);padding:12px 14px;margin:12px 0;position:relative;z-index:1;}
+.texto-biblico-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.texto-biblico-ref::after{content:'';flex:1;height:1px;background:rgba(155,32,16,0.2);}
+.texto-biblico p{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#2a0808;line-height:1.7;margin-bottom:4px;text-align:left;}
+.texto-biblico .ref-final{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco-ctx{background:rgba(155,32,16,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-ctx-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bloco-teo{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-teo-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-apl{background:linear-gradient(135deg,rgba(155,32,16,0.05),rgba(201,168,76,0.06));border:1px solid rgba(155,32,16,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-apl-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.memorizar{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.memorizar-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.memorizar p{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#2a0808;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+.obj ul li::before{content:'\2192';position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(155,32,16,0.2);height:20px;margin-top:3px;}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(155,32,16,0.2);height:22px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+
+/* blocos do aluno */
+.bloco-aluno-refletir{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.35);border-top:3px solid var(--ouro);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-refletir-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-refletir-titulo::before{content:'✦';font-size:7pt;}
+.bloco-aluno-refletir p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);font-style:italic;line-height:1.6;margin-bottom:6px;}
+.bloco-aluno-refletir .lra{border-bottom:1px solid rgba(201,168,76,0.3);height:22px;margin-top:4px;}
+
+.bloco-aluno-conexao{background:rgba(155,32,16,0.05);border:1px solid rgba(155,32,16,0.25);border-left:4px solid var(--cor);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-conexao-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-conexao-titulo::before{content:'✦';font-size:7pt;}
+.bloco-aluno-conexao p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:6px;}
+.bloco-aluno-conexao .ref-bib{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;color:var(--cor);text-transform:uppercase;margin-top:4px;}
+.bloco-aluno-conexao .lra{border-bottom:1px solid rgba(155,32,16,0.2);height:22px;margin-top:4px;}
+
+.bloco-aluno-sabia{background:linear-gradient(135deg,rgba(26,8,8,0.04),rgba(201,168,76,0.07));border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-sabia-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-sabia-titulo::before{content:'?';font-family:'Cinzel',serif;font-size:10pt;font-weight:700;color:var(--ouro);line-height:1;}
+.bloco-aluno-sabia p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:0;}
+
+.bloco-aluno-pense{background:#fff;border:1px solid rgba(155,32,16,0.18);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;text-align:center;}
+.bloco-aluno-pense-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;}
+.bloco-aluno-pense-icone{font-size:16pt;color:var(--ouro);margin-bottom:4px;display:block;}
+.bloco-aluno-pense p{font-family:'EB Garamond',serif;font-size:10.5pt;font-style:italic;color:#2a0808;line-height:1.65;text-align:center;margin-bottom:0;}
+.bloco-aluno-pense .lra{border-bottom:1px solid rgba(155,32,16,0.2);height:22px;margin-top:6px;text-align:left;}
+
+.bloco-aluno-leve{background:linear-gradient(135deg,rgba(155,32,16,0.06),rgba(201,168,76,0.07));border:1px solid rgba(155,32,16,0.22);border-radius:2px;padding:12px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-leve-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-leve-titulo::before{content:'→';font-size:10pt;color:var(--ouro);}
+.bloco-aluno-leve p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:6px;}
+.bloco-aluno-leve .lra{border-bottom:1px solid rgba(155,32,16,0.2);height:22px;margin-top:4px;}
+
+.lra{border-bottom:1px solid rgba(155,32,16,0.2);height:22px;margin-top:4px;}
+
+.bloco-qr{margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;}
+
+/* ===== PÁGINAS DO PROFESSOR ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fafff8;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--prof-vivo),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(26,107,53,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(26,107,53,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);border-left:4px solid var(--prof);
+    padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+.bloco-guia{background:#f0faf3;border:1px solid var(--prof-borda);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1a3d28;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+.bloco-dica{background:var(--verde-claro);border:1px solid var(--verde-borda);border-left:4px solid var(--verde-tip);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--verde-tip);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+.bloco-teo-prof{background:var(--laranja-claro);border:1px solid var(--laranja-borda);border-left:4px solid var(--laranja);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo-prof .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo-prof .bk::before{content:'◉';font-size:7pt;}
+.bloco-teo-prof p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e08;}
+
+.alerta{background:#fff5f5;border:1px solid rgba(139,26,26,0.25);border-left:4px solid var(--vermelho);border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-debate{background:var(--azul-claro);border:1px solid rgba(44,95,138,0.25);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.6;color:#1a3050;font-style:italic;}
+
+.bloco-soc{background:#f9fcff;border:1px solid rgba(44,95,138,0.2);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:var(--azul);font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:10pt;color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-tempo{background:#fafafa;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--prof);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.3;}
+
+.bloco-mapa{background:#f8faf8;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:2px;padding:7px 9px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.45;margin-bottom:0;}
+
+.bloco-perf{background:#f0faf3;border:1px solid rgba(26,107,53,0.2);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:start;padding:4px 0;border-bottom:1px solid rgba(26,107,53,0.08);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:1px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.45;}
+
+.bloco-aval{background:#fffef0;border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#4a3a10;}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+.bloco-resp{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.resp-item{padding:7px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;}
+
+.bloco-mat{background:var(--creme);border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ct);margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;color:#fff;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+.bloco-fio{background:linear-gradient(135deg,rgba(26,107,53,0.04),rgba(201,168,76,0.04));border:1px dashed rgba(26,107,53,0.3);border-radius:3px;padding:9px 12px;margin:10px 0;display:flex;align-items:flex-start;gap:10px;}
+.bloco-fio-icon{font-size:14pt;flex-shrink:0;margin-top:1px;color:var(--prof);line-height:1;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:10pt;font-style:italic;color:#1a3d28;line-height:1.55;}
+.bloco-fio-txt strong{font-style:normal;font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;color:var(--prof);text-transform:uppercase;display:block;margin-bottom:3px;}
+
+.cit-autor{border:1px solid rgba(26,107,53,0.25);background:rgba(26,107,53,0.03);border-radius:3px;padding:10px 12px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#1a3d28;line-height:1.6;}
+.cit-autor cite{display:block;margin-top:6px;font-size:8.5pt;font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--prof);}
+
+.bloco-cult{background:#f5f5ff;border:1px solid rgba(80,60,160,0.2);border-left:4px solid #5a3ea0;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#5a3ea0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-cult .bk::before{content:'🌐';font-size:9pt;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a1e55;}
+
+.bloco-ponte{background:rgba(155,32,16,0.04);border:1px solid rgba(155,32,16,0.2);border-top:3px solid var(--cor);border-radius:2px;padding:10px 12px;margin:10px 0;}
+.bloco-ponte .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-ponte .bk::before{content:'⇢';font-size:10pt;}
+.bloco-ponte p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a0810;}
+
+.tag-sens{display:inline-block;font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1.5px;text-transform:uppercase;border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;vertical-align:middle;}
+.tag-sens.delicado{background:#fde8e8;color:#8b1a1a;}
+.tag-sens.tecnico{background:#e8f0fd;color:#1a3a8b;}
+.tag-sens.aplicacao{background:#e8fde8;color:#1a5a1a;}
+.tag-sens.debate{background:#fdf5e8;color:#8b5a1a;}
+
+/* Grade Hermenêutica */
+.bloco-hermeneutica{background:#fdf8f0;border:1px solid rgba(155,32,16,0.25);border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-hermeneutica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-hermeneutica .bk::before{content:'⚖';font-size:9pt;}
+.herm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;}
+.herm-col{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:2px;padding:8px 9px;}
+.herm-col-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;text-align:center;}
+.herm-col p{font-family:'EB Garamond',serif;font-size:9pt;color:var(--ct);line-height:1.4;margin-bottom:0;text-align:left;}
+
+/* Rodapé páginas do professor */
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(26,107,53,0.04);}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+/* PRINT */
+@media print{
+    body{background:none;}
+    #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof,.int-linhas{display:none;}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;}
+    .pag{width:100%;max-width:148mm;min-height:auto;}
+    .int,.int-prof{padding:12mm 5vw 16mm 5vw;min-height:auto;}
+    h2{font-size:11pt;}
+    h3{font-size:9pt;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .mapa-grid,.herm-grid{grid-template-columns:1fr;}
+    .rod,.rod-prof{position:relative;}
+}
+@media (max-width:480px){
+    .btn{padding:7px 10px;font-size:7.5pt;}
+    .area{margin-top:96px;}
+}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(26,107,53,0.05);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+    <div class="senha-caixa">
+        <div class="senha-icone"></div>
+        <div class="senha-titulo">ESCHATON</div>
+        <div class="senha-sub">Vol. II · Edição do Professor</div>
+        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
+        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+            onkeydown="if(event.key==='Enter')verificarSenha()">
+        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo-principal">
+
+<div class="painel">
+    <div class="marca">ESCHATON VOL. II
+        <span>Lição 06 · A Mulher, o Dragão e a Besta</span>
+        <em>Edição do Professor</em>
+    </div>
+    <span class="badge-prof">✦ Professor</span>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index-professor.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- ══════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (espelho integral)
+     ══════════════════════════════════ -->
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa da Lição</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">06</div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+    <div class="capa-prof-faixa">Edição do Professor</div>
+    <div class="ccon">
+        <div class="cser">Eschaton · A Palavra que Não Passará</div>
+        <div class="cref">Apocalipse 12:1 — 13:18</div>
+        <div class="ctit">A Mulher, o Dragão e a Besta</div>
+        <div class="cver">
+            "E houve no céu uma grande batalha: Miguel e os seus anjos batalhavam contra o dragão... E foi lançado fora o grande dragão, a antiga serpente, chamada o Diabo e Satanás, o qual engana todo o mundo."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 12:7-9</span>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>Introdução</h2>
+    <p class="cap">No coração do Apocalipse, João recebe uma visão que desvela o pano de fundo invisível de toda a história humana: uma mulher em dores de parto, um dragão vermelho à espreita e uma besta que sobe do mar com poder usurpado. Não se trata de fantasia literária — é a explicação teológica de por que a Igreja sofre, por que os impérios perseguem e por que o testemunho cristão custa tanto.</p>
+    <p>Esta lição convida ao que toda boa exegese exige: ler Apocalipse 12–13 à luz do Antigo Testamento e da situação concreta das igrejas do século I, sem perder de vista a relevância perene da mensagem para cada geração que vive entre a cruz e a consumação.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Uma guerra já decidida</div>
+        <p>O elemento mais surpreendente de Apocalipse 12 não é a grandiosidade da batalha cósmica — é o tempo verbal usado para descrevê-la. A derrota do dragão não é futura: já aconteceu. A cruz de Cristo foi o campo de batalha onde Satanás foi expulso de sua posição de acusador. O que o cristão enfrenta hoje não é uma guerra de resultado incerto, mas os estertores de um inimigo já derrotado.</p>
+    </div>
+    <h3>O Fio Condutor desta Lição</h3>
+    <p>Examinaremos a identidade dos três personagens centrais — a Mulher, o Dragão e a Besta —, o contexto veterotestamentário que os fundamenta, a exegese versículo a versículo da passagem e as implicações teológicas e práticas da vitória já conquistada em Cristo, culminando na fórmula de Apocalipse 12:11.</p>
+    <div class="bloco-aluno-refletir">
+        <div class="bloco-aluno-refletir-titulo">Para Você Refletir</div>
+        <p>Se a guerra cósmica de Apocalipse 12 já foi decidida na cruz — e Satanás age como um inimigo derrotado —, por que tantos cristãos vivem como se o resultado ainda fosse incerto? Como essa certeza deveria mudar sua postura diante dos desafios espirituais desta semana?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 TEXTO BÍBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">3</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>A Passagem-Base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Apocalipse 12:1-5, 7-9</div>
+        <p>"E apareceu no céu um grande sinal: uma mulher vestida do sol, tendo a lua debaixo dos seus pés e uma coroa de doze estrelas sobre a sua cabeça. E estava grávida, e clamava, com dores de parto, angustiada para dar à luz."</p>
+        <p>"E apareceu outro sinal no céu, e eis um grande dragão vermelho, que tinha sete cabeças e dez chifres, e sobre as suas cabeças sete diademas... E ela deu à luz um filho homem, que havia de reger todas as nações com vara de ferro."</p>
+        <p>"E houve no céu uma grande batalha: Miguel e os seus anjos batalhavam contra o dragão... E foi lançado fora o grande dragão, a antiga serpente, chamada o Diabo e Satanás, o qual engana todo o mundo."</p>
+        <span class="ref-final">Apocalipse 12:1-5, 7-9</span>
+    </div>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Apocalipse 12:11</div>
+        <p>"E eles o venceram pelo sangue do Cordeiro e pela palavra do seu testemunho; e não amaram as suas vidas até à morte."</p>
+        <span class="ref-final">Apocalipse 12:11</span>
+    </div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Identificar os três personagens centrais: a Mulher, o Dragão e a Besta</li>
+            <li>Compreender a guerra cósmica de Apocalipse 12 como pano de fundo da história cristã</li>
+            <li>Examinar a "queda de Satanás" e suas implicações para o cristão no presente</li>
+            <li>Aplicar a fórmula da vitória de Apocalipse 12:11 ao testemunho cristão hoje</li>
+        </ul>
+    </div>
+    <div class="bloco-aluno-conexao">
+        <div class="bloco-aluno-conexao-titulo">Conexão Bíblica</div>
+        <p>Compare Apocalipse 12:7-9 com João 12:31, Colossenses 2:15 e Lucas 10:18. Nesses três textos, Jesus fala da derrota de Satanás como algo já acontecido ou prestes a acontecer. O que eles revelam em conjunto sobre o momento decisivo em que o poder do dragão foi quebrado?</p>
+        <div class="ref-bib">Jo 12:31 · Cl 2:15 · Lc 10:18 · Ap 12:7-9</div>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 I — CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · I — Contexto Original</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">4</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>I-O Contexto do Conflito Cósmico</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Grande Conflito Cósmico</div>
+        <p>Apocalipse 12–13 é o coração teológico do livro — a revelação do conflito real por trás de toda a história humana. João recebe uma visão do drama cósmico que explica por que a Igreja sofre: há uma guerra espiritual de dimensões universais, e o cristão está no centro dela. Não por acidente, mas por desígnio — o dragão persegue a mulher e sua descendência precisamente porque o Filho dela destruiu seu poder.</p>
+    </div>
+    <h3>A Mulher — Quem é Ela?</h3>
+    <p>A mulher "vestida do sol, com a lua debaixo dos pés e coroa de doze estrelas" ecoa o sonho de José em Gênesis 37:9 — sol, lua e estrelas representando a família de Israel. A mulher é o povo de Deus em sua totalidade: o Israel do AT que dá à luz o Messias, e a Igreja do NT que é sua continuação. Ela não é Maria individualmente — é a comunidade de fé através dos séculos da qual o Messias nasceu.</p>
+    <h3>O Dragão — A Antiga Serpente</h3>
+    <p>João não deixa dúvida: o dragão vermelho com sete cabeças e dez chifres "é a antiga serpente, chamada o Diabo e Satanás" (Ap 12:9). A conexão com Gênesis 3 é explícita — o mesmo inimigo que tentou destruir a humanidade no jardim do Éden agora tenta destruir o povo de Deus na história. Suas sete cabeças simbolizam poder político universal; seus dez chifres, autoridade militar; seus sete diademas, pretensão ao domínio legítimo que pertence só a Deus.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">A Besta do Mar — Apocalipse 13</div>
+        <p>A besta que sobe do mar (Ap 13:1) recebe seu poder do dragão — é o agente terreno do poder de Satanás. Para os leitores do século I, ela representava o Império Romano, com Nero como figura típica. Mas é também o padrão de todo sistema político que exige adoração absoluta e persegue o povo de Deus. A segunda besta (Ap 13:11) — o falso profeta — é o poder religioso a serviço do poder político.</p>
+    </div>
+    <div class="bloco-aluno-sabia">
+        <div class="bloco-aluno-sabia-titulo">Sabia Que?</div>
+        <p>O número 666 (Ap 13:18) corresponde, pelo sistema hebraico de <em>gematria</em> — em que cada letra tem valor numérico —, ao nome "Nero César" escrito em hebraico (<em>nrwn qsr</em>). Alguns manuscritos antigos trazem 616, que é a grafia latina do mesmo nome. Isso sugere que João escrevia para leitores que reconheceriam o código imediatamente — não uma previsão de um indivíduo futuro desconhecido, mas a identificação do padrão de poder imperial que já ameaçava as igrejas da Ásia Menor no século I.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 EXEGESE DA PASSAGEM -->
+<div class="lbl">Página 5 · II — Exegese da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">5</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>II-Exegese da Passagem</h2>
+    <h3>"Um filho homem que havia de reger com vara de ferro" — 12:5</h3>
+    <p>A citação do Salmo 2:9 identifica o filho da mulher como o Messias — Cristo. O dragão tenta devorar o filho antes que nasça (ecoando a matança dos inocentes por Herodes em Mt 2:16), mas fracassa: o filho é "arrebatado para Deus e para o seu trono" (v.5) — referência direta à ressurreição e ascensão de Cristo. Em um versículo, João resume toda a encarnação, paixão e exaltação de Jesus.</p>
+    <h3>"Houve no céu uma grande batalha" — 12:7-9</h3>
+    <p>A guerra no céu não é futura — é o passado. O verbo grego está no aoristo, indicando um evento já ocorrido: a derrota de Satanás foi consumada na cruz e ressurreição de Cristo (cf. Jo 12:31 — "agora o príncipe deste mundo será lançado fora"). Satanás foi "lançado" — expulso de sua posição de acusador diante de Deus (cf. Jó 1:6-12; Zc 3:1-2). Ele ainda age na terra, mas seu poder foi fundamentalmente quebrado.</p>
+    <h3>"Ai da terra e do mar" — 12:12</h3>
+    <p>Expulso do céu, Satanás desce com "grande ira, sabendo que tem pouco tempo." Sua fúria intensificada é sinal de seu desespero, não de seu poder. O cristão que compreende isso não teme o diabo como um poder soberano — teme a Deus e enfrenta o diabo como um inimigo já derrotado que faz barulho.</p>
+    <h3>"Venceram pelo sangue do Cordeiro" — 12:11</h3>
+    <p>A fórmula da vitória cristã tem três elementos indissociáveis: o sangue do Cordeiro (fundamento objetivo da vitória — a cruz), a palavra do testemunho (a proclamação fiel do evangelho) e o não amar a vida até à morte (a disposição ao martírio). A vitória não é mágica — é a participação ativa na vitória de Cristo por meio da fé, do testemunho e da disposição ao sacrifício.</p>
+    <div class="bloco-aluno-pense">
+        <span class="bloco-aluno-pense-icone">✦</span>
+        <div class="bloco-aluno-pense-titulo">Pense Nisso</div>
+        <p>A fórmula de vitória de Ap 12:11 tem três elementos inseparáveis: sangue do Cordeiro, palavra do testemunho e não amar a vida até à morte. Qual dos três você mais negligencia? O que seria diferente na sua vida cristã se esse elemento estivesse mais presente?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 III — TEOLOGIA DA PASSAGEM -->
+<div class="lbl">Página 6 · III — Teologia da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>III-Teologia da Passagem</h2>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>Deus é o Senhor da história cósmica — incluindo a guerra espiritual. O dragão age, mas dentro de limites estabelecidos por Deus: ele não pode devorar o filho (v.5), a mulher é protegida por "asas de águia" dadas por Deus (v.14 — eco do Êxodo, Ex 19:4), e a água que vomita é absorvida pela terra (v.16). Em cada ponto de aparente vitória do inimigo, a soberania de Deus preserva o seu povo. O cristão não está em um combate de resultados incertos — está em uma guerra cujo resultado já foi decidido na cruz.</p>
+    </div>
+    <h3>A Queda de Satanás e Suas Implicações</h3>
+    <p>A expulsão de Satanás do céu (Ap 12:9) não é um evento futuro — é o resultado da obra redentora de Cristo (Jo 12:31; Cl 2:15; Lc 10:18). Isso tem implicações práticas imediatas: Satanás não pode mais acusar os irmãos "diante de Deus" (Ap 12:10) — esse escritório foi fechado pela justificação em Cristo. O cristão comparece diante de Deus não como réu, mas como filho.</p>
+    <h3>A Trindade Invertida de Apocalipse 13</h3>
+    <p>Apocalipse 13 apresenta uma paródia diabólica da Trindade: o dragão (falso pai), a besta do mar (falso filho — recebe o poder do dragão, assim como o Filho recebe do Pai) e a besta da terra/falso profeta (falso espírito — faz a humanidade adorar a besta, assim como o Espírito glorifica Cristo). Toda oposição ao evangelho é essencialmente uma imitação deformada da obra de Deus.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">A Resistência Cristã é Possível</div>
+        <p>"E foi dada autoridade à besta sobre toda tribo, povo, língua e nação" (Ap 13:7) — parece total. Mas Apocalipse 13:8 ressalva: "todos os que habitam na terra a adorarão, cujos nomes não estão escritos no livro da vida." Os que têm seus nomes no Livro não adoram a besta. A graça que protege é a mesma que sustenta o testemunho fiel.</p>
+    </div>
+    <div class="bloco-aluno-leve">
+        <div class="bloco-aluno-leve-titulo">Leve para a Sua Vida</div>
+        <p>Satanás "acusava os irmãos diante de Deus de dia e de noite" — mas esse escritório foi fechado pela justificação em Cristo. Identifique uma acusação que você carrega sobre si mesmo. Escreva aqui a verdade da Palavra que a responde diretamente — e releia-a toda vez que a acusação voltar esta semana.</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG AS INTERPRETAÇÕES PRINCIPAIS -->
+<div class="lbl">Página 7 · IV — As Interpretações Principais</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>IV-As Interpretações Principais</h2>
+    <h3>A Interpretação Futurista da Besta</h3>
+    <p>O dispensacionalismo identifica a besta de Apocalipse 13 como um governante mundial futuro — o Anticristo — que surgirá durante a Grande Tribulação. O número 666 seria a identificação numérica desse indivíduo ainda desconhecido. Nessa leitura, a perseguição descrita no capítulo ainda não ocorreu e pertence integralmente a um período futuro após o arrebatamento da Igreja.</p>
+    <h3>A Interpretação Histórico-Simbólica</h3>
+    <p>Adotada pelo amilenarismo reformado e pelo preterismo parcial, esta leitura identifica a besta primariamente com o Império Romano e Nero (cujo nome em hebraico soma 666 pelo sistema de gematria). Porém, a besta não é apenas Nero — é o <em>padrão</em> de todo poder imperial que exige lealdade absoluta em lugar de Deus. Cada geração reconhece sua própria "besta". O mérito desta leitura é a coerência com o gênero apocalíptico e a relevância imediata para os leitores do século I.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Que as Interpretações Têm em Comum</div>
+        <p>Independentemente da escola interpretativa, todas concordam nos pontos centrais: há um poder hostil ao povo de Deus que age pelo poder de Satanás; esse poder exige lealdade que compete com Cristo; e a vitória sobre ele é possível — não pela força humana, mas pelo sangue do Cordeiro e pela fidelidade do testemunho. A divergência está no quando e no quem — não no como vencer.</p>
+    </div>
+    <h3>A Marca da Besta</h3>
+    <p>A marca de 666 na testa ou na mão (Ap 13:16-18) é o contraponto deliberado ao selo de Deus nos 144.000 (Ap 7). Assim como o selo de Deus é a posse e proteção divina, a marca da besta é a lealdade ao sistema que se opõe a Deus. No contexto do século I, era a participação nos cultos imperiais; em qualquer era, é a conformidade com os sistemas que substituem a soberania de Cristo.</p>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- PG 8 CONCLUSÃO -->
+<div class="lbl">Página 8 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">8</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>Conclusão</h2>
+    <p class="cap">Apocalipse 12–13 não foi escrito para aterrorizar — foi escrito para esclarecer. O que parece, na superfície da história, uma vitória do mal sobre o bem é, à luz desta visão, os estertores de um inimigo já derrotado. O dragão persegue a mulher com grande ira — "sabendo que tem pouco tempo." A Igreja que compreende isso não é paralisada pelo medo; é libertada para testemunhar.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+        <p>Aprendemos que a mulher representa o povo de Deus em sua continuidade desde Israel até a Igreja. Vimos que o dragão é Satanás, já derrotado na cruz, agindo com fúria crescente por saber que seu tempo é curto. Examinamos a besta como o padrão histórico de todo poder que usurpa a lealdade devida a Deus. E contemplamos a fórmula infalível da vitória cristã: sangue do Cordeiro, palavra do testemunho e disposição ao sacrifício.</p>
+    </div>
+    <h3>A Certeza que Permanece</h3>
+    <p>Apocalipse 12:11 é a fórmula mais concisa de vitória cristã em toda a Bíblia. Três elementos, nenhum opcional: o sangue do Cordeiro sem o testemunho é fideísmo quietista; o testemunho sem o sangue do Cordeiro é ativismo humano; os dois sem a disposição ao custo são conveniência mascarada de fé. A vitória está garantida — mas exige participação ativa.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
+        <p>As lições seguintes apresentarão a grande Babilônia — o sistema religioso, econômico e cultural que seduz o mundo a se afastar de Deus. O que estudamos hoje sobre a besta e sua exigência de lealdade absoluta será o fundamento para compreender por que a Babilônia é condenada e por que o chamado ao povo de Deus é "sai dela, povo meu" (Ap 18:4).</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
+
+<!-- PG 9 APLICAÇÃO DIRETA -->
+<div class="lbl">Página 9 · Aplicação Direta</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">9</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>Aplicação Direta</h2>
+    <p class="cap">Apocalipse 12:11 é a fórmula mais concisa de vitória cristã em toda a Bíblia: "Venceram pelo sangue do Cordeiro e pela palavra do seu testemunho; e não amaram as suas vidas até à morte." Três elementos, nenhum opcional. O sangue do Cordeiro sem o testemunho é fideísmo quietista. O testemunho sem o sangue do Cordeiro é ativismo humano. Os dois sem a disposição ao custo são conveniência mascarada de fé.</p>
+    <div class="bloco-apl">
+        <div class="bloco-apl-titulo">Para esta semana</div>
+        <p>Primeiro: Satanás "acusava os irmãos diante de Deus de dia e de noite" (Ap 12:10) — e esse escritório foi fechado pela justificação em Cristo. Há acusações que você carrega sobre si mesmo que não vêm de Deus, mas do "acusador dos irmãos"? Como a verdade da justificação responde a essas acusações especificamente? Segundo: a besta recebe adoração universal de "toda tribo, povo, língua e nação." Quais sistemas de valores, lealdades ou poderes em seu contexto exigem uma lealdade que compete com Cristo? Terceiro: "não amaram as suas vidas até à morte" — disposição ao custo. Há algo que você não está disposto a perder por causa do testemunho de Cristo?</p>
+    </div>
+    <div class="sep"><span>&#10022;</span></div>
+    <h3>Para Refletir</h3>
+    <p>João escreve para cristãos que viviam sob o Império Romano — um sistema que exigia adoração ao imperador como condição de participação social e econômica. A marca da besta (Ap 13:16-17) privava de comprar e vender quem não se curvasse. Como essa pressão de conformidade social e econômica se manifesta hoje para o cristão que recusa comprometer seu testemunho?</p>
+    <div class="memorizar">
+        <div class="memorizar-titulo">&#10022; Versículo para Memorizar</div>
+        <p>"E eles o venceram pelo sangue do Cordeiro e pela palavra do seu testemunho; e não amaram as suas vidas até à morte."</p>
+        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 12:11</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
+
+<!-- PG 10 QUESTÕES -->
+<div class="lbl">Página 10 · Questões e Anotações</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">10</div>
+    <div class="ph"><span class="phl">Lição 06 · Vol. II</span><span class="pht">A Mulher, o Dragão e a Besta</span></div>
+    <h2>Questões para Reflexão</h2>
+    <div class="q">
+        <div class="qn">Questão 01</div>
+        <div class="qt">A mulher de Apocalipse 12 é identificada com Israel do AT e a Igreja do NT — o povo de Deus em sua continuidade. Como essa interpretação afeta a compreensão da relação entre Israel e Igreja ao longo da história da salvação?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 02</div>
+        <div class="qt">João 12:31 diz que a expulsão do príncipe deste mundo ocorreu na cruz — não no futuro. Como a derrota já consumada de Satanás muda a postura do cristão na guerra espiritual presente? O que muda quando você enfrenta um inimigo já derrotado?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 03</div>
+        <div class="qt">A fórmula de vitória de Apocalipse 12:11 tem três elementos: sangue do Cordeiro, palavra do testemunho e não amar a vida até à morte. Qual desses três elementos é mais fraco em sua vida cristã atual? O que precisaria mudar?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 04</div>
+        <div class="qt">A besta exigia adoração universal e controlava quem podia comprar e vender (Ap 13:16-17). Quais formas contemporâneas de pressão econômica, social ou cultural funcionam de forma similar — exigindo conformidade em troca de participação e aceitação?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="bloco-qr" style="margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;">
+        <div id="qrDiv" style="width:72px;height:72px;flex-shrink:0;border:1px solid rgba(201,168,76,0.2);background:#fff;display:flex;align-items:center;justify-content:center;"></div>
+        <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;">▶ Assista</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:9.5pt;color:var(--ct);line-height:1.4;"><em>A Mulher e o Dragão</em> (Ap 12.1–18)</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;margin-top:2px;">Augustus Nicodemus · YouTube</div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var url="https://www.youtube.com/watch?v=kfXlJUMIRrM";
+        var script=document.createElement('script');
+        script.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+        script.onload=function(){
+            new QRCode(document.getElementById('qrDiv'),{
+                text:url,width:70,height:70,
+                colorDark:'#1a0808',colorLight:'#ffffff',
+                correctLevel:QRCode.CorrectLevel.M
+            });
+        };
+        document.head.appendChild(script);
+    })();
+    </script>
+    <h3 style="margin-top:12px;">Anotações</h3>
+    <div class="lins">
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL -->
+<div class="lbl lbl-prof">Página P1 · Visão Geral para o Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 06 · Visão Geral</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Visão Geral para o Professor</h2>
+    <p>Esta é a sexta lição do Volume II. O foco escatológico se aprofunda: saímos do testemunho profético da Igreja (lição 05) e chegamos ao pano de fundo cósmico que explica <em>por que</em> a Igreja é perseguida. Seu papel aqui é igualmente duplo: <em>exegeta</em> — guie o aluno pela identificação precisa dos três personagens (Mulher, Dragão, Besta) a partir das fontes veterotestamentárias — e <em>pastor</em> — a revelação da derrota já consumada de Satanás precisa gerar coragem e liberdade, não paranoia nem subestimação da guerra espiritual.</p>
+    <p>O maior risco desta lição é duplo: (1) alunos com formação carismática podem usar a passagem para construir uma pneumatologia excessivamente focada na "guerra espiritual" como atividade mística autossuficiente, perdendo o vínculo com a justificação como fundamento da vitória; (2) alunos que chegam com a interpretação dispensacionalista do 666 e do Anticristo podem resistir fortemente à leitura histórico-simbólica. Antecipe e mapeie — não ridicularize.</p>
+    <div class="bloco-mapa">
+        <div class="bk">Mapa de Competências da Lição</div>
+        <div class="mapa-grid">
+            <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar a Mulher (povo de Deus: Israel + Igreja), o Dragão (Satanás / Gn 3) e a Besta (poder imperial / Nero / padrão histórico); compreender a gematria de 666</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Conectar Gn 37:9 à Mulher; Jo 12:31 / Cl 2:15 à queda do dragão; e Ap 13 à "trindade invertida" — dragão, besta do mar, falso profeta</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Coragem fundamentada na derrota já consumada de Satanás; clareza para identificar "bestas" contemporâneas que disputam lealdade; disposição aos três elementos de Ap 12:11</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno articula por que o tempo verbal do aoristo em Ap 12:9 importa teologicamente e explica o que muda no cristão que enfrenta um inimigo já derrotado</p></div>
+        </div>
+    </div>
+    <div class="bloco-tempo">
+        <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura com dinâmica: "Se você soubesse que o resultado da batalha já foi decidido a seu favor, o que mudaria na forma de lutar?"</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução, a guerra "já decidida" como chave hermenêutica, leitura conjunta da passagem-base</span></div>
+        <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 4-5 — Identificação dos três personagens com base no AT + exegese versículo a versículo (aoristo, queda, ira do dragão)</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Escada socrática + debate da trindade invertida e das interpretações futurista vs. histórico-simbólica da besta</span></div>
+        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 8-9 — Conclusão, fórmula de Ap 12:11 (três elementos) e aplicação prática às "bestas" contemporâneas</span></div>
+        <div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Pg. 10 — 1-2 questões em aula; restante como tarefa + QR do vídeo de Augustus Nicodemus</span></div>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Objetivos Pedagógicos do Professor</div>
+        <ul>
+            <li>Demonstrar que a derrota de Satanás em Ap 12 é um evento passado (aoristo grego), não futuro — e que isso muda radicalmente a postura do cristão</li>
+            <li>Usar Gênesis 37:9 como prova textual da identificação da Mulher com o povo de Deus (não apenas Maria)</li>
+            <li>Apresentar a "trindade invertida" de Ap 13 como chave hermenêutica para o padrão de toda oposição ao evangelho</li>
+            <li>Conduzir o aluno a identificar "bestas contemporâneas" sem sensacionalismo — sistemas de lealdade que competem com Cristo</li>
+            <li>Encerrar com a fórmula tripla de Ap 12:11 como síntese prática da lição</li>
+        </ul>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">⇢</div>
+        <div class="bloco-fio-txt"><strong>Fio Condutor do Vol. II — Lição 06</strong>As Duas Testemunhas (lição 05) descrevem <em>como</em> a Igreja testemunha. A Mulher, o Dragão e a Besta (lição 06) revelam <em>por que</em> esse testemunho custa — e quem está por trás da oposição. A conexão é direta: o dragão que persegue a mulher (lição 06) é o mesmo poder que mata as Testemunhas (lição 05). As lições seguintes mostrarão a Babilônia — o sistema que seduz onde a besta falha em intimidar.</div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 06 · Dinâmica &amp; Teologia</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
+    <div class="bloco-debate">
+        <div class="bk">A Batalha Já Decidida — antes de abrir o material</div>
+        <p>"Imagine que você está no meio de uma guerra. Mas você recebe uma mensagem do futuro dizendo que o resultado já foi decidido — e você ganhou. O que essa mensagem muda na forma como você luta? Você luta com menos intensidade ou com mais liberdade? Apocalipse 12 é exatamente essa mensagem. João não escreve para anunciar uma batalha futura — ele revela uma batalha passada. E isso muda tudo sobre como o cristão vive hoje."</p>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Como conduzir</div>
+        <ul>
+            <li>Deixe 2-3 alunos responderem à pergunta do "resultado já decidido" antes de revelar a conexão com Ap 12</li>
+            <li>Escreva no quadro: "Ap 12:9 — tempo verbal: PASSADO." Deixe esse dado visível durante toda a aula</li>
+            <li>O objetivo é que o aluno chegue à questão 02 (pg. 10) já tendo internalizado que a derrota de Satanás é passado — não probabilidade ou esperança futura</li>
+            <li>Se houver alunos de fundo carismático, não confronte diretamente a prática de "guerra espiritual" — redirecione o fundamento: "a vitória começa na cruz, não na nossa oração"</li>
+        </ul>
+    </div>
+    <div class="bloco-soc">
+        <div class="bk">Escada de Perguntas Socráticas</div>
+        <div class="soc-item">
+            <p>Nível 1 — Textual: "O verbo de Apocalipse 12:9 ('foi lançado fora') está no aoristo grego — tempo do evento ocorrido. João 12:31 usa futuro imediato referindo-se à cruz: 'agora... será lançado fora.' Se os dois textos descrevem o mesmo evento, quando exatamente Satanás foi expulso? O que isso implica para a compreensão da guerra espiritual hoje?"</p>
+            <div class="soc-espera">Espera: identificação da cruz como o campo de batalha decisivo — a guerra espiritual não é a decisão da guerra, é a aplicação de uma vitória já conquistada</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 2 — Teológico: "Apocalipse 12:10 diz que Satanás 'acusava os irmãos diante de Deus de dia e de noite' — mas agora esse escritório foi fechado. Se o acusador não tem mais acesso a Deus para nos acusar, de onde vêm as acusações que os cristãos carregam sobre si mesmos? O que a justificação tem a ver com a guerra espiritual?"</p>
+            <div class="soc-espera">Espera: percepção de que as acusações internas não vêm mais de Satanás diante de Deus, mas de Satanás agindo internamente — e que a justificação é a resposta teológica direta</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 3 — Aplicação: "A besta de Ap 13 exige adoração e controla o mercado — 'não pode comprar nem vender' sem a marca. Se toda geração tem sua própria 'besta' — seu sistema de lealdade que compete com Cristo —, qual é a 'besta' mais específica do contexto de vocês? Que lealdade ela exige? O que ela ameaça tirar de quem não se curva?"</p>
+            <div class="soc-espera">Espera: identificação concreta de sistemas contemporâneos — redes sociais, cultura de cancelamento, pressão profissional, conformidade ideológica — sem escorregar para sensacionalismo ou paranoia conspiracionista</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+    <div class="bloco-teo-prof">
+        <div class="bk">A Trindade Invertida — Argumento Exegético</div>
+        <p>Apocalipse 13 apresenta uma paródia deliberada da Trindade. O dragão ocupa o lugar do Pai — é a fonte do poder da besta (v.2: "o dragão lhe deu o seu poder"). A besta do mar ocupa o lugar do Filho — recebe autoridade delegada, tem ferida mortal que foi curada (v.3: paródia da ressurreição) e é adorada em conjunto com o dragão. A besta da terra / falso profeta ocupa o lugar do Espírito Santo — sua função é fazer a humanidade adorar a besta, exatamente como o Espírito glorifica Cristo (Jo 16:14). Para turmas teológicas, use este argumento para mostrar que toda idolatria é essencialmente anti-trinitária — não apenas a adoração de ídolos, mas a lealdade a qualquer sistema que estrutura uma falsa trindade de poder, mensagem e culto.</p>
+    </div>
+    <div class="bloco-hermeneutica">
+        <div class="bk">A Besta — Duas Hermenêuticas em Diálogo</div>
+        <div class="herm-grid">
+            <div class="herm-col">
+                <div class="herm-col-tit">Futurista / Dispensacionalista</div>
+                <p>Anticristo individual futuro que surgirá após o arrebatamento. 666 = código numérico de identidade ainda desconhecida. A perseguição de Ap 13 ainda não ocorreu — pertence à Grande Tribulação.</p>
+            </div>
+            <div class="herm-col">
+                <div class="herm-col-tit">Histórico-Simbólica / Amilenista</div>
+                <p>Besta = Império Romano / Nero (gematria: 666 = <em>nrwn qsr</em> em hebraico). Porém é também o <em>padrão</em> de todo poder imperial em qualquer era. A perseguição já estava ocorrendo no século I — e recorre na história.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cit-autor">
+        "O que João faz em Apocalipse 12–13 não é revelar o futuro — é revelar o presente. Ele levanta a cortina da história para que os cristãos perseguidos vejam o que realmente está acontecendo e por que. A visão não aterroriza — liberta."
+        <cite>— G.K. Beale, <em>The Book of Revelation</em> (NIGTC)</cite>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 06 · Pedagogia &amp; Gestão</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dicas Pedagógicas</h2>
+    <div class="bloco-dica">
+        <div class="bk">Para Tornar o Conteúdo Concreto</div>
+        <ul>
+            <li><strong>O mapa dos três personagens:</strong> antes de interpretar, escreva no quadro três colunas: "Mulher", "Dragão", "Besta". Peça à turma que identifique no texto de Ap 12–13 o que cada um representa. A descoberta ativa é mais eficaz do que a exposição passiva — o aluno que conecta Gn 37:9 à Mulher por conta própria dificilmente esquece o argumento.</li>
+            <li><strong>O verbo como argumento:</strong> escreva no quadro "Ap 12:9 — AORISTO = evento ocorrido." Explique brevemente que o grego usa o aoristo para eventos pontuais já completados. Depois pergunte: "Se a derrota de Satanás é passado, o que você ainda está esperando que já aconteceu?" O argumento gramatical simples pode ser a virada de perspectiva mais poderosa da aula.</li>
+            <li><strong>A "besta contemporânea" como exercício aplicado:</strong> após apresentar a besta como padrão de poder que exige lealdade, proponha em pequenos grupos: "Qual sistema em nosso contexto exige que você se curve em troca de participação — no trabalho, na escola, nas redes?" Deixe os grupos compartilharem. Valide os exemplos concretos. Cuidado: não transforme isso em sessão de paranoia política — o foco é o padrão teológico, não a identificação de inimigos.</li>
+        </ul>
+    </div>
+    <div class="bloco-cult">
+        <div class="bk">Conexão com a Cultura Contemporânea</div>
+        <p>No Brasil evangélico atual, o tema da "guerra espiritual" frequentemente se desenvolve em duas direções problemáticas: (1) a militarização mística — a ideia de que o cristão enfrenta Satanás como poder soberano ainda não derrotado, resultando em orações de "batalha" que pressupõem um resultado incerto; e (2) o sensacionalismo profético — a identificação de figuras políticas contemporâneas com o Anticristo ou com a besta, produzindo ansiedade e divisão. A passagem interpela ambos: a derrota de Satanás já foi consumada (aoristo), mas a besta ainda age — e agir pelo padrão da trindade invertida, não pela identidade de um indivíduo futuro. Reoriente: da batalha de resultado incerto para a aplicação de uma vitória já garantida.</p>
+    </div>
+    <div class="bloco-perf">
+        <div class="bk">Diferenciação por Perfil de Turma</div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Ansiosa</div>
+            <div class="perf-txt">Comece pelo aoristo e pela soberania: "A batalha foi vencida. Satanás age com ira porque sabe que seu tempo é curto — não porque ainda há dúvida sobre quem vai ganhar." Ancore na certeza antes de nomear os perigos contemporâneos. Ansiedade espiritual cresce quando o inimigo parece maior do que a vitória de Cristo.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Sensacionalista</div>
+            <div class="perf-txt">Evite nomear figuras políticas específicas como "a besta". Se alguém o fizer, redirecione gentilmente: "O padrão importa mais do que a identidade — o que é mais útil para o cristão: saber quem é a besta agora, ou saber reconhecer o padrão em qualquer era?" Use o preterismo parcial como ferramenta: Nero foi a besta histórica, mas o padrão se repete.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Teológica</div>
+            <div class="perf-txt">Aprofunde a trindade invertida de Ap 13 (ver P2) e a relação entre justificação e vitória espiritual — Satanás não pode mais acusar "diante de Deus" (Ap 12:10), e isso é a base da liberdade cristã. Proponha: "Se toda idolatria estrutura uma falsa trindade de poder, mensagem e culto, onde você identifica essa estrutura nos sistemas de valores contemporâneos?"</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Mista</div>
+            <div class="perf-txt">Use o exercício do "mapa dos três personagens" no quadro como ferramenta democrática — funciona com qualquer perfil e cria engajamento antes da explicação. O exercício da "besta contemporânea" em pequenos grupos também nivela a participação entre os mais e menos experientes teologicamente.</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Gestão de Tensões</h2>
+    <div class="alerta">
+        <div class="bk">Situação Comum — "Mas 666 não é a marca do Anticristo futuro? Vi um documentário dizendo que é um chip eletrônico."</div>
+        <p>Valide a pergunta sem ridicularizar: "Você está tocando em um dos textos mais debatidos de toda a Bíblia. Vamos olhar o que o próprio texto de João diz." Apresente a gematria: "Nero César" em hebraico = 666 (e 616 em latim, como alguns manuscritos trazem). Pergunte: "Para que serve uma profecia que seus destinatários do século I não poderiam entender? O Apocalipse foi escrito para consolar igrejas perseguidas agora — o código precisava ser reconhecível por eles." Não feche a questão — mas recentre no princípio: o padrão importa mais do que a identidade do indivíduo futuro.</p>
+    </div>
+    <div class="alerta">
+        <div class="bk">Situação Comum — Aluno que usa a lição para construir uma lista de "inimigos" políticos ou culturais</div>
+        <p>O risco real desta lição: o conceito de "besta como padrão" pode facilmente escorregar para identificações políticas partidárias — "a besta é o PT / o PT é a besta / a besta é a esquerda / a direita." Se perceber esse movimento, corrija com precisão e sem confronto: a besta é um padrão teológico (exige lealdade em lugar de Deus, usa poder coercitivo, persegue o povo de Deus) — e esse padrão pode aparecer em qualquer lado do espectro político, em qualquer era, em qualquer ideologia. João não escreveu para fazer campanha — escreveu para fortalecer a fidelidade de Cristo em meio à pressão, venha ela de onde vier.</p>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Encerramento Ideal da Aula</div>
+        <ul>
+            <li>Retorne ao quadro onde escreveu "Ap 12:9 — AORISTO" e conecte: "O tempo verbal mais importante da sua vida espiritual. A batalha foi vencida."</li>
+            <li>Leia Apocalipse 12:11 em voz alta como bênção de encerramento — os três elementos como desafio concreto para a semana</li>
+            <li>Proponha o exercício devocional: identificar uma "acusação que carrego" (pg. 6 — bloco Leve para a Sua Vida) e escrever a verdade que a responde</li>
+            <li>Conecte à próxima lição: "Conhecemos quem é a besta — que intimida e persegue. Na próxima lição vamos conhecer a Babilônia — que seduz e encanta. São dois braços do mesmo dragão."</li>
+        </ul>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Sinal de Alerta Pedagógico</div>
+        <p>Se a aula derivar para identificações sensacionalistas do 666 em tecnologias, políticos ou instituições contemporâneas, redirecione com firmeza e leveza: "João usou um código que seus leitores do século I reconheciam imediatamente. A pergunta mais fecunda não é 'quem é 666 hoje' — é 'qual é o padrão que 666 revela, e onde ele se repete?' O padrão teológico tem mais poder de discernimento do que qualquer identificação específica." O sensacionalismo identificacionista transforma o Apocalipse em enigma cifrado e esvazia sua interpelação pastoral urgente.</p>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 06 · Respostas &amp; Recursos</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 10</h2>
+    <div class="bloco-resp">
+        <div class="bk">Gabarito Orientativo</div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 01</div>
+            <div class="resp-txt">O argumento mais forte é a continuidade do povo de Deus: a mulher vestida com os símbolos de Israel (Gn 37:9 — sol, lua, doze estrelas) que dá à luz o Messias é o Israel do AT; a "descendência restante" que o dragão persegue (Ap 12:17) é a Igreja do NT — a continuação do mesmo povo. Isso implica que Israel e Igreja não são dois planos distintos e paralelos (como no dispensacionalismo), mas uma única comunidade de fé ao longo da história da salvação. Valorize alunos que percebem a implicação eclesiológica: a Igreja não substituiu Israel — ela é Israel cumprido e continuado.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 02</div>
+            <div class="resp-txt">Os argumentos internos mais fortes: (a) o aoristo de Ap 12:9 indica evento passado completado; (b) João 12:31 coloca a expulsão de Satanás como consequência imediata da cruz; (c) Colossenses 2:15 usa linguagem militar de triunfo — "despojou os principados"; (d) Lucas 10:18 usa o imperfeito para descrever o que Jesus "via" acontecer já durante o ministério dos 70. O que muda: o cristão não enfrenta um inimigo soberano de resultado incerto, mas um inimigo já derrotado que faz barulho. A guerra espiritual é aplicação de vitória, não disputa de resultado. Valorize alunos que distinguem "derrotado definitivamente" de "inativo" — Satanás age, mas sem autonomia soberana.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 03</div>
+            <div class="resp-txt">Questão de autoavaliação — não há gabarito único. O valor está na especificidade e na honestidade. Os três elementos se implicam mutuamente: o sangue do Cordeiro sem testemunho é privatismo fideísta; o testemunho sem o sangue é moralismo ativista; os dois sem a disposição ao custo são conveniência mascarada de fé. Se o aluno identifica qual dos três é mais fraco em sua vida, conecte diretamente à identidade: "O que isso revela sobre como você entende fundamentalmente a vitória de Cristo — como garantia de conforto ou como base de missão?" Cuidado com o movimento inverso: não transforme isso em pressão culpabilizadora sobre alunos que estão em estações de vida difíceis.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 04</div>
+            <div class="resp-txt">Questão aplicativa — o único critério de qualidade é a especificidade e o discernimento teológico do padrão. Exemplos válidos que respondem ao padrão de Ap 13: redes sociais que exigem conformidade de opinião em troca de aceitação; ambientes profissionais que exigem cumplicidade ética em troca de emprego; sistemas educacionais que exigem adesão ideológica em troca de reconhecimento; qualquer sistema que ameaça exclusão ("não pode comprar nem vender") para quem recusa a conformidade. O critério teológico do padrão: exige lealdade que compete com Cristo; opera por coerção ou exclusão; apresenta autoridade usurpada. Afirme publicamente qualquer aluno que aplica o padrão com discernimento — independentemente do exemplo específico que escolheu.</div>
+        </div>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">↻</div>
+        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 a 02, o raciocínio textual e os argumentos apresentados importam tanto quanto a conclusão. Afirme publicamente qualquer aluno que demonstre método consistente de leitura, mesmo que conclua diferente de você. Nas Questões 03 e 04, o único critério de qualidade é a especificidade e a honestidade. Respostas genéricas ("preciso ter mais fé" ou "a mídia é a besta") devem ser gentilmente desafiadas: "Quem especificamente? Em qual contexto? O que te impediu de nomear algo mais concreto?"</div>
+    </div>
+    <div class="bloco-aval">
+        <div class="bk">Seguimento Pós-Lição</div>
+        <ul>
+            <li>Envie Apocalipse 12:11 no grupo da turma durante a semana com a pergunta: "Dos três elementos — sangue do Cordeiro, testemunho, disposição ao custo —, qual você quer fortalecer esta semana? Por quê?"</li>
+            <li>Proponha leitura devocional: Colossenses 2:13-15 completo (o triunfo de Cristo sobre os principados) + Salmo 2 completo (a soberania do Messias sobre as nações que se revoltam)</li>
+            <li>Anote alunos que demonstraram ansiedade espiritual excessiva ou visão de Satanás como poder soberano — podem precisar de aprofundamento na doutrina da justificação como resposta às acusações internas</li>
+            <li>Avalie se a aula produziu clareza sobre o padrão da besta — não listas de inimigos políticos, mas discernimento para identificar sistemas de lealdade que competem com Cristo no cotidiano</li>
+        </ul>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Materiais Complementares</h2>
+    <div class="bloco-mat">
+        <div class="bk">Recursos Recomendados ao Professor</div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. O comentário técnico mais completo. As seções sobre Ap 12–13 demonstram exaustivamente a identificação da Mulher com o povo de Deus, a gematria de 666 como Nero César, e a estrutura da "trindade invertida" de Ap 13. Indispensável para o professor que precisa fundamentar teologicamente a leitura histórico-simbólica contra objeções dispensacionalistas.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Dennis Johnson — <em>Triumph of the Lamb</em>. P&amp;R Publishing. Comentário pastoral sobre o Apocalipse — excelente para preparar a aplicação da vitória de Cristo (Ap 12:11) e para apresentar a besta como padrão histórico recorrente sem sensacionalismo. Linguagem clara e pastoral.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Sinclair Ferguson — <em>In Christ Alone</em>. Reformation Trust. Não é um comentário do Apocalipse, mas aborda a justificação como fundamento da vitória espiritual — leitura estratégica para o professor que quer aprofundar a conexão entre Ap 12:10 (acusador fechado) e a doutrina da justificação como resposta às acusações internas.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">Augustus Nicodemus — <em>A Mulher e o Dragão</em> (Ap 12.1–18) (YouTube — QR na pg. 10). Abordagem exegética sólida e acessível por um dos principais exegetas reformados brasileiros. Ideal para recomendar aos alunos como complemento pós-aula, especialmente os que chegaram com a leitura futurista do dragão e da besta e precisam de uma segunda voz confiável.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">BibleProject: <em>Apocalipse — Visão Geral</em> (YouTube, PT, 2 partes). Panorama visual da estrutura do Apocalipse — ideal para mostrar antes de entrar na lição, pois situa Ap 12–13 dentro do arco narrativo central do livro e mostra graficamente como os três personagens (Mulher, Dragão, Besta) são o centro da narrativa, não um episódio isolado.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo site">Digital</span>
+            <span class="mat-info">thegospelcoalition.org/pt — busca "besta Apocalipse 13" e "Dragão Apocalipse 12". Artigos de Beale e outros comentaristas reformados oferecem resumos acessíveis da identificação histórico-simbólica da besta e da gematria de 666. Útil para o professor que quer consolidar a fundamentação exegética antes de ministrar e para recomendar a alunos de perfil mais teológico.</span>
+        </div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v2_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit() {
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el => {
+        if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul'))
+            el.contentEditable = edit ? 'true' : 'false';
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+</body>
+</html>
