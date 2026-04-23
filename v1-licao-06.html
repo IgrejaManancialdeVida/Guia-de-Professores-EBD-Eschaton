@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1020">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
+<title>Eschaton · Lição 06 — EDIÇÃO DO PROFESSOR</title>
+
+<meta name="theme-color" content="#0d1020">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--cor:#a09020;--grad1:#1a1a08;--grad2:#282808;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--creme:#f5f0e8;--cc:#e0ddd8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#111;font-family:'EB Garamond',Georgia,serif;}
+.painel{position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0a0a0a,#1a1a1a);border-bottom:2px solid #7a6e10 !important;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:8pt;color:#666;letter-spacing:1px;display:block;font-weight:300;}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+.area{margin-top:60px;padding:24px 16px 60px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--branco);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#555;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+/* CAPA */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 60%,rgba(160,144,32,0.4) 0%,transparent 55%),radial-gradient(ellipse at 78% 22%,rgba(201,168,76,0.2) 0%,transparent 45%),radial-gradient(ellipse at 55% 85%,rgba(100,80,0,0.3) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:18px 18px;}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#3a3000,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#0d0d00,var(--cor) 50%,#ffe060);opacity:0.38;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,#3a3000,var(--cor),var(--ouro),transparent);opacity:0.7;}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.cnd{font-family:'Cinzel',serif;font-size:36pt;font-weight:900;color:#fff;opacity:0.1;position:absolute;top:20mm;right:12mm;line-height:1;}
+.ctit{font-family:'Cinzel',serif;font-size:24pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:12px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+.capa-prof-faixa{position:absolute;top:0;right:0;z-index:10;background:#7a6e10;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;color:#fff;padding:5px 14px;writing-mode:vertical-rl;transform:rotate(180deg);}
+/* PÁGINAS ALUNO */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--branco);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3a3000,var(--cor),var(--ouro) 70%,transparent);}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.035);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);border-left:4px solid var(--cor);padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1px;color:var(--ct);text-transform:uppercase;margin-bottom:6px;margin-top:12px;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.bver{background:var(--creme);border-left:3px solid var(--ouro);padding:10px 12px;margin:12px 0;font-style:italic;font-size:10pt;color:#555;line-height:1.55;font-family:'EB Garamond',serif;}
+.bver cite{display:block;font-size:8.5pt;font-style:normal;color:var(--ouro);margin-top:4px;font-family:'Oswald',sans-serif;letter-spacing:1px;}
+.bvp{border:1px solid rgba(160,144,32,0.35);background:rgba(160,144,32,0.05);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bvr{border:1px solid rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.vl{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;font-weight:600;}
+.bvp .vl{color:var(--cor);}.bvr .vl{color:#8a6a20;}
+.vt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.35;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cc);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.obj{background:var(--creme);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+ul li::before{content:'\2192' !important;position:absolute !important;left:0 !important;color:var(--cor) !important;font-size:9pt !important;display:inline-block !important;}
+.apl{background:linear-gradient(135deg,rgba(160,144,32,0.06),rgba(201,168,76,0.07));border:1px solid rgba(160,144,32,0.25);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.apl .at{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.q{margin-bottom:14px;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid #ddd;height:20px;margin-top:3px;}
+.lit{margin-top:10px;padding-top:10px;border-top:1px solid var(--cc);}
+.lit .lt{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:var(--ouro);text-transform:uppercase;margin-bottom:6px;}
+.lit ul{list-style:none;padding:0;}
+.lit ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#666;padding:1px 0 1px 12px;position:relative;}
+.lit ul li::before{content:'·';position:absolute;left:2px;color:var(--ouro);}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#bbb;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;}
+.lin{border-bottom:1px solid #ddd;height:22px;}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(160,144,32,0.05);border-radius:2px;}
+[contenteditable="true"]:focus{background:rgba(160,144,32,0.09);border-radius:2px;}
+
+/* ENTRADA DA REVISTA */
+.capa-entrada{background:#050505;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;min-height:210mm;}
+.capa-entrada::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.0) 40%,rgba(0,0,0,0.3) 100%);pointer-events:none;}
+.capa-entrada img{display:block;width:100%;height:100%;object-fit:cover;position:relative;z-index:1;}
+.entrada-cta{position:absolute;left:50%;bottom:16mm;transform:translateX(-50%);z-index:2;background:rgba(5,5,5,0.72);color:var(--ouro-claro);border:1px solid rgba(201,168,76,0.35);padding:9px 16px;border-radius:2px;font-family:'Oswald',sans-serif;font-size:8.5pt;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;backdrop-filter:blur(2px);}
+#conteudoLicao{display:none;}
+body.licao-iniciada #conteudoLicao{display:contents;}
+body.licao-iniciada #capaEntradaRevista{display:none;}
+
+@media (max-width: 768px){
+    .painel{padding:8px 10px;gap:8px;}
+    .marca{font-size:10pt;letter-spacing:2px;}
+    .marca span{font-size:7pt;}
+    .btn{font-size:8pt;padding:7px 10px;letter-spacing:1px;}
+    .area{margin-top:74px;padding:12px 10px 40px;gap:12px;}
+    .pag{width:100%;min-height:auto;}
+    .lbl{margin-left:0;align-self:stretch;}
+    .capa-entrada{min-height:calc(100dvh - 98px);max-height:calc(100dvh - 98px);}
+    .capa-entrada img{object-fit:contain;background:#050505;}
+    .entrada-cta{bottom:14px;font-size:8pt;letter-spacing:1.5px;padding:8px 12px;width:calc(100% - 24px);text-align:center;}
+    .capa,.int{min-height:auto;}
+    .ccon{padding:0 8vw 10vw 10vw;}
+    .cnd{top:12vw;right:7vw;font-size:22vw;}
+    .cnbg{font-size:38vw;right:-2vw;bottom:-5vw;}
+    .ctit{font-size:clamp(18pt,8vw,22pt);}
+    .cver{font-size:9.5pt;}
+    .ph{gap:8px;align-items:flex-start;}
+    .phl,.pht{font-size:7.5pt;}
+    h2{font-size:11pt;letter-spacing:1.5px;}
+    h3{font-size:9pt;}
+    p,.vt,.obj ul li,.qt{font-size:10pt;line-height:1.55;}
+    .bver,.bvp,.bvr,.obj,.apl{padding:10px;}
+    .rod{position:relative;padding:14px 8vw 8vw 10vw;margin-top:18px;}
+    .wm{display:none;}
+}
+@media print{
+  body{background:none;}
+  #tela-senha{display:none!important;}
+  #conteudo-principal{display:block!important;}
+  .painel,.lbl,.lbl-prof{display:none!important;}
+  .area{margin-top:0;padding:0;gap:0;}
+  .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+  .wm,.wm-prof{display:none;}
+}
+/* ===== TELA DE SENHA ===== */
+#tela-senha{position:fixed;inset:0;z-index:99999;background:linear-gradient(160deg,#0d0d00 0%,#1a1a08 60%,#0a0a00 100%);display:flex;align-items:center;justify-content:center;}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{width:56px;height:56px;border:1px solid rgba(160,144,32,0.55);transform:rotate(45deg);margin:0 auto 32px;position:relative;}
+.senha-icone::after{content:"";position:absolute;inset:10px;background:rgba(160,144,32,0.2);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:#a09020;margin-bottom:8px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,144,32,0.4);border-radius:2px;padding:12px 16px;font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;}
+.senha-campo:focus{border-color:rgba(160,144,32,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{width:100%;background:#7a6e10;border:none;color:#fff;font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;}
+.senha-btn:hover{filter:brightness(1.3);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+/* ===== PAINEL PROFESSOR ===== */
+.badge-prof{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;background:#7a6e10;color:#fff;padding:4px 12px;border-radius:2px;}
+/* ===== ESTRUTURA PROFESSOR ===== */
+.lbl-prof{color:#7a6e10;font-weight:600;}
+.int-prof{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:#fffdf5;}
+.int-prof::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#3a3000,#a09020,#c9a84c,transparent);}
+.wm-prof{position:absolute;bottom:12mm;right:8mm;font-family:'Cinzel',serif;font-size:36pt;font-weight:900;color:rgba(122,110,16,0.06);line-height:1;user-select:none;pointer-events:none;writing-mode:vertical-rl;transform:rotate(180deg);}
+.ph-prof{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(122,110,16,0.2);display:flex;justify-content:space-between;align-items:baseline;}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:#7a6e10;letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:#7a6e10;color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+h2.prof{font-family:'Oswald',sans-serif;font-weight:600;font-size:11.5pt;letter-spacing:2px;text-transform:uppercase;color:#7a6e10;border-left:4px solid #7a6e10;padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+/* blocos professor */
+.bloco-guia{background:#fdf8e0;border:1px solid rgba(122,110,16,0.3);border-left:4px solid #7a6e10;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#7a6e10;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:"▶";font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a2800;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:"◆" !important;position:absolute;left:0;color:#7a6e10;font-size:5pt;top:5px;}
+.bloco-dica{background:#e6f4ed;border:1px solid rgba(46,107,79,0.3);border-left:4px solid #2e6b4f;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:"✦" !important;font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:"→" !important;position:absolute;left:0;color:#2e6b4f;}
+.bloco-teo{background:#fffdf0;border:1px solid rgba(160,144,32,0.25);border-left:4px solid #a09020;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#a09020;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo .bk::before{content:"✝" !important;font-size:8pt;}
+.bloco-teo p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a2800;}
+.bloco-debate{background:#fefbe8;border:1px solid rgba(160,144,32,0.3);border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:"?" !important;font-family:'Cinzel',serif;font-weight:900;font-size:10pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;font-style:italic;line-height:1.6;color:#1a1800;margin-bottom:0;}
+.bloco-resp{background:#fffdf5;border:1px solid rgba(201,168,76,0.3);border-left:4px solid #c9a84c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-resp .bk::before{content:"✓" !important;font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.12);}
+.resp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;color:#c9a84c;letter-spacing:1px;margin-bottom:2px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:#4a3a10;}
+.bloco-tempo{background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:"◷" !important;font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--cor);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:10pt;color:#2a2a2a;line-height:1.3;}
+.bloco-mat{background:#f5f0e8;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2a2a2a;margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+.cit-autor{border:1px solid rgba(122,110,16,0.25);background:rgba(122,110,16,0.03);border-radius:3px;padding:10px 12px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#2a2800;line-height:1.6;}
+.cit-autor cite{display:block;margin-top:6px;font-size:8.5pt;font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:#7a6e10;}
+.alerta{background:#fff9e6;border:1px solid rgba(160,144,32,0.3);border-left:4px solid #a09020;border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#7a6e10;margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#3a3000;line-height:1.55;margin-bottom:0;}
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(122,110,16,0.04);}
+.rod-prof::before{content:"";position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,#7a6e10,#c9a84c,transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#7a6e10;letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:#7a6e10;}
+/* tabela comparativa */
+.tabela-comp{width:100%;border-collapse:collapse;margin:10px 0;font-size:9pt;}
+.tabela-comp th{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#7a6e10;padding:6px 8px;text-align:left;}
+.tabela-comp th:first-child{background:#4a4200;}
+.tabela-comp td{font-family:'EB Garamond',serif;font-size:9.5pt;color:#2a2a2a;padding:5px 8px;border-bottom:1px solid rgba(0,0,0,0.06);vertical-align:top;line-height:1.4;}
+.tabela-comp tr:nth-child(even) td{background:rgba(160,144,32,0.04);}
+.tabela-comp td:first-child{font-family:'Oswald',sans-serif;font-size:8pt;color:#7a6e10;font-weight:600;letter-spacing:1px;white-space:nowrap;}
+
+/* ===== MOBILE ===== */
+@media screen and (max-width: 768px) {
+    .painel{padding:8px 12px;gap:8px;}
+    .marca{font-size:10pt;}
+    .marca span, .marca em{font-size:7pt;}
+    .badge-prof{font-size:7pt;padding:3px 8px;}
+    .btn{padding:6px 10px;font-size:7.5pt;letter-spacing:1px;}
+    .area{margin-top:54px;padding:12px 8px 60px;gap:12px;}
+    .pag{width:100% !important;min-height:unset;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+    .lbl{margin-left:8px;}
+    .int, .int-prof{padding:6vw 5vw 10vw 5vw;min-height:unset;}
+    .ccon{padding:0 5vw 8vw 5vw;}
+    .ctit{font-size:clamp(16pt,6vw,22pt);}
+    .cver{font-size:9.5pt;}
+    .cnd{font-size:26pt;top:14mm;right:8mm;}
+    h2{font-size:10.5pt;}
+    h3{font-size:9.5pt;}
+    p{font-size:9.5pt;line-height:1.6;hyphens:auto;}
+    .cap::first-letter{font-size:28pt;}
+    .bloco-guia, .bloco-dica, .bloco-teo, .bloco-debate, .bloco-herme{padding:8px 10px;}
+    .bloco-guia .bt, .bloco-dica .bt, .bloco-teo .bt,
+    .bloco-debate .bt, .bloco-herme .bt{font-size:7pt;}
+    .tabela-comp{font-size:8.5pt;}
+    .tabela-comp th, .tabela-comp td{padding:5px 6px;}
+    .rod{padding:5px 5vw 5vw 5vw;position:relative;}
+    .rod::before{left:5vw;right:5vw;}
+    .wm{display:none;}
+    .capa-prof-faixa{font-size:6pt;padding:4px 10px;}
+}
+@media screen and (max-width: 480px) {
+    .painel{flex-wrap:wrap;}
+    .area{margin-top:96px;}
+    .int, .int-prof{padding:5vw 4vw 8vw 4vw;}
+    h2{font-size:10pt;letter-spacing:1px;}
+    p{font-size:9pt;}
+    .btn{padding:5px 8px;font-size:7pt;}
+}
+
+/* ===== BLOCOS-ALUNO ===== */
+.bloco-aluno{border-left:4px solid var(--cor);background:rgba(160,144,32,0.05);border-radius:0 3px 3px 0;padding:10px 12px;margin:12px 0;}
+.bloco-aluno .ba-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aluno .ba-titulo::before{content:'✦';font-size:7pt;color:var(--cor);}
+.bloco-aluno .ba-txt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:var(--ct);margin-bottom:0;}
+.bloco-aluno .ba-nota{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;color:#888;margin-top:6px;padding-top:6px;border-top:1px solid rgba(160,144,32,0.2);}
+
+/* ===== NOVOS BLOCOS PEDAGÓGICOS ===== */
+.bloco-comp{background:#fdf8e0;border:1px solid rgba(122,110,16,0.2);border-radius:4px;padding:10px 12px;margin:10px 0;}
+.bloco-comp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#7a6e10;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-comp .bk::before{content:"◈";font-size:8pt;}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.comp-cell{background:#fff;border:1px solid rgba(122,110,16,0.15);border-radius:3px;padding:7px 9px;}
+.comp-cell .cc-titulo{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#7a6e10;margin-bottom:3px;display:flex;align-items:center;gap:5px;}
+.comp-cell .cc-titulo::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#7a6e10;flex-shrink:0;}
+.comp-cell.verde .cc-titulo{color:#2e6b4f;}.comp-cell.verde .cc-titulo::before{background:#2e6b4f;}
+.comp-cell.azul  .cc-titulo{color:#3b5e8a;}.comp-cell.azul  .cc-titulo::before{background:#3b5e8a;}
+.comp-cell.ouro  .cc-titulo{color:#8a6a20;}.comp-cell.ouro  .cc-titulo::before{background:#c9a84c;}
+.comp-cell p{font-family:'EB Garamond',serif;font-size:9.5pt;color:#2a2a2a;line-height:1.45;margin-bottom:0;}
+.bloco-fio{background:linear-gradient(135deg,rgba(122,110,16,0.05),rgba(201,168,76,0.07));border:1px solid rgba(201,168,76,0.3);border-top:3px solid #c9a84c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-fio .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-fio .bk::before{content:"⟿";font-size:11pt;line-height:1;}
+.bloco-fio p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a2a00;margin-bottom:0;}
+.bloco-fio .fio-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
+.bloco-fio .fio-tag{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:#8a6a20;padding:2px 8px;border-radius:2px;}
+.bloco-socratico{background:#f7f2fc;border:1px solid rgba(75,0,130,0.18);border-left:4px solid #6a1b9a;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-socratico .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#6a1b9a;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-socratico .bk::before{content:"❓";font-size:8pt;}
+.soc-nivel{margin-bottom:8px;padding:7px 10px;border-radius:3px;border:1px solid rgba(106,27,154,0.12);}
+.soc-nivel:last-child{margin-bottom:0;}
+.soc-nivel.n1{background:rgba(106,27,154,0.05);}
+.soc-nivel.n2{background:rgba(106,27,154,0.09);}
+.soc-nivel.n3{background:rgba(106,27,154,0.13);}
+.soc-label{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#6a1b9a;margin-bottom:3px;}
+.soc-pergunta{font-family:'EB Garamond',serif;font-size:10pt;font-style:italic;color:#2a0a40;line-height:1.5;margin-bottom:4px;}
+.soc-resp{font-family:'EB Garamond',serif;font-size:9.5pt;color:#4a3a60;line-height:1.45;padding-left:10px;border-left:2px solid rgba(106,27,154,0.3);}
+.bloco-diferenc{background:#f0f7f4;border:1px solid rgba(46,107,79,0.22);border-left:4px solid #2e6b4f;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-diferenc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-diferenc .bk::before{content:"⊕";font-size:10pt;}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.dif-item{background:#fff;border:1px solid rgba(46,107,79,0.15);border-radius:3px;padding:7px 9px;}
+.dif-tipo{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#2e6b4f;margin-bottom:3px;font-weight:600;}
+.dif-acao{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1e3a2a;line-height:1.45;}
+.bloco-aval{background:#fffbf0;border:1px solid rgba(201,168,76,0.3);border-left:4px solid #c9a84c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:"☑";font-size:10pt;}
+.aval-check{list-style:none;padding:0;margin:0;}
+.aval-check li{font-family:'EB Garamond',serif;font-size:10pt;color:#3a2a00;padding:3px 0 3px 18px;position:relative;line-height:1.45;border-bottom:1px solid rgba(201,168,76,0.12);}
+.aval-check li:last-child{border-bottom:none;}
+.aval-check li::before{content:"□";position:absolute;left:0;color:#c9a84c;font-size:11pt;line-height:1;}
+.bloco-gabarito-uso{background:#f8f5ff;border:1px solid rgba(100,60,180,0.2);border-left:4px solid #7c4dff;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-gabarito-uso .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#5e35b1;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-gabarito-uso .bk::before{content:"★";font-size:8pt;}
+.bloco-gabarito-uso p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a0a50;margin-bottom:0;}
+.bloco-posticao{background:#e8f5e9;border:1px solid rgba(46,125,50,0.25);border-left:4px solid #388e3c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-posticao .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2e7d32;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-posticao .bk::before{content:"↗";font-size:10pt;}
+.bloco-posticao ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-posticao ul li{padding:2px 0 2px 14px;position:relative;font-family:'EB Garamond',serif;font-size:10pt;color:#1b3a1e;line-height:1.55;}
+.bloco-posticao ul li::before{content:"→" !important;position:absolute;left:0;color:#388e3c;}
+
+/* mobile novos blocos */
+@media screen and (max-width:768px){
+  .bloco-comp,.bloco-fio,.bloco-socratico,.bloco-diferenc,.bloco-aval,.bloco-gabarito-uso,.bloco-posticao,.bloco-aluno{padding:8px 10px;}
+  .comp-grid,.dif-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+  <div class="senha-caixa">
+    <div class="senha-icone"></div>
+    <div class="senha-titulo">Eschaton</div>
+    <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+    <div class="senha-desc">Este material é exclusivo para docentes.<br>Insira a senha fornecida pela coordenação.</div>
+    <input class="senha-campo" id="senha-input" type="password" placeholder="••••••••" maxlength="20" autocomplete="off" onkeydown="if(event.key==='Enter') verificarSenha()">
+    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
+  </div>
+</div>
+
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">ESCHATON<span>Edição do Professor · Lição 06 · Israel e a Profecia</span></div>
+  <span class="badge-prof">📘 Edição do Professor</span>
+  <button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<div class="area">
+
+<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 06">
+    <img src="capa-revista.png" alt="Capa da revista Eschaton">
+    <div class="entrada-cta">Toque para entrar na lição</div>
+</div>
+
+<!-- PG 1 — CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">06</div><div class="cnd">06</div>
+  <div class="capa-prof-faixa">Edição do Professor</div>
+  <div class="ccon">
+    <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+    <div class="ctit">Israel e a Profecia</div>
+    <div class="cver">
+      "Porque não quero, irmãos, que ignoreis este mistério, para que não presumais de vós mesmos: que o endurecimento veio em parte sobre Israel, até que a plenitude dos gentios haja entrado."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Romanos 11:25</span>
+    </div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 — INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+  <div class="wm">2</div>
+  <div class="ph"><span class="phl">Lição 06</span><span class="pht">Israel e a Profecia</span></div>
+  <h2>Introdução</h2>
+  <p class="cap">Em 14 de maio de 1948, o Estado de Israel foi proclamado — e o mundo evangélico brasileiro entrou em efervescência profética. Para muitos, a restauração nacional judaica era o cumprimento literal de Ezequiel 37 e o "sinal da figueira" de Mateus 24:32. Para outros, era um evento político importante, mas sem significado profético especial. Essa divisão toca o coração do debate escatológico contemporâneo: qual é o papel de Israel no plano profético de Deus?</p>
+  <p>Convém alertar a classe, desde o início, que este é o tema da série com maior potencial de confundir convicção teológica com posicionamento político. Seu papel como professor é separar esses dois planos — uma posição sobre Romanos 11 não determina automaticamente uma posição sobre o conflito no Oriente Médio.</p>
+  <p>Comece pelo texto bíblico e pelo contexto histórico da questão, mostrando que o debate é hermenêutico antes de ser geopolítico. Isso reduz a carga emocional e abre espaço para escuta mútua.</p>
+  <div class="bver">"Assim diz o Senhor Deus: Eis que eu tomarei os filhos de Israel dentre as nações para onde foram... e os congregarei de todos os lados, e os trarei para a sua própria terra." <cite>Ezequiel 37:21</cite></div>
+  <div class="obj">
+    <div class="ot">Objetivos desta lição</div>
+    <ul>
+      <li>Compreender o pacto abraâmico e suas implicações proféticas para Israel</li>
+      <li>Examinar Romanos 9-11 como texto central sobre o futuro de Israel</li>
+      <li>Analisar a relação entre Israel e Igreja nas duas grandes tradições teológicas</li>
+      <li>Avaliar o significado do Estado de Israel (1948) para a escatologia cristã</li>
+    </ul>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <p>Nenhum outro tópico da escatologia tem implicações tão diretas para a política, a ética cristã e o relacionamento com o judaísmo quanto este. Por isso, um estudo rigoroso — mais do que uma afirmação apressada de qualquer lado — é o caminho mais honesto e frutífero.</p>
+  <p>Convém ainda ressaltar que o compromisso do cristão deve ser com a interpretação fiel das Escrituras, reconhecendo a centralidade de Cristo em todo o plano redentor. A maneira como entendemos Israel afeta diretamente a forma como lemos a história da salvação — e deve impulsionar a missão, não alimentar divisões.</p>
+    <div class="bloco-aluno">
+        <div class="ba-titulo">Para Você Refletir — Sua Visão Foi Formada pela Bíblia ou pela Tradição?</div>
+        <div class="ba-txt">A maioria dos cristãos brasileiros cresceu ouvindo que o retorno de Israel em 1948 é o maior sinal profético da história moderna. Mas essa convicção vem de uma leitura pessoal e cuidadosa das Escrituras — ou de pregadores, filmes e tradições recebidas sem exame? Esta lição não pede que você abandone sua posição: pede que você saiba <em>por que</em> a sustenta. Exegese antes de entusiasmo.</div>
+        <div class="ba-nota">✦ Bloco para o aluno · Pg. 2 — Introdução</div>
+    </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 — TÓPICO I -->
+<div class="lbl">Página 3 · Tópico I</div>
+<div class="pag int">
+  <div class="wm">3</div>
+  <div class="ph"><span class="phl">Lição 06</span><span class="pht">Israel e a Profecia</span></div>
+  <h2>I-O Pacto e as Promessas</h2>
+  <p>O ponto de partida é inevitável: o pacto de Deus com Abraão em Gênesis 12:1-3 e 15:18-21. Deus promete a Abraão uma terra, uma descendência e uma bênção que alcançará todas as famílias da terra. A questão teológica central é: essas promessas são cumpridas <em>literalmente</em> no povo étnico judaico e na terra geográfica de Canaã, ou são cumpridas <em>tipologicamente</em> em Cristo e na Igreja?</p>
+  <p>Ao introduzir o pacto abraâmico, ajude a turma a perceber que essa não é uma pergunta trivial. A resposta determina toda a leitura escatológica posterior: o que se entende por "Israel", o que se entende por "terra prometida" e como se lê o Antigo Testamento em relação ao Novo.</p>
+  <h3>O Pacto Abraâmico: Condicional ou Incondicional?</h3>
+  <p>O dispensacionalismo afirma que o pacto abraâmico é incondicionalmente eterno — as promessas territoriais e nacionais a Israel não foram transferidas para a Igreja e aguardam cumprimento literal no reino milenial. A teologia da aliança reformada entende que as promessas encontram seu "sim e amém" em Cristo (2 Co 1:20) — a terra de Canaã era tipo da herança eterna e celestial (Hb 11:10,16).</p>
+  <div class="bver">"Porque todas as promessas de Deus são nele sim, e nele amém, para glória de Deus por nós." <cite>2 Coríntios 1:20</cite></div>
+  <h3>Os Profetas e a Restauração de Israel</h3>
+  <p>Ezequiel 36-37, Zacarias 12-14 e Jeremias 31 descrevem a restauração de Israel com imagens poderosas. O dispensacionalismo as interpreta como profecias ainda por cumprir-se literalmente. A leitura reformada vê seu cumprimento em Cristo e na missão da Igreja — o "Israel de Deus" ampliado (Gl 6:16) — sem excluir necessariamente uma conversão futura de judeus em grande número.</p>
+  <p>Para o professor, é útil destacar que essa diferença não é pequena — envolve o modo como as promessas do Antigo Testamento devem ser lidas à luz da vinda de Cristo. Como os apóstolos interpretam a Lei, os Profetas e as alianças? Essa pergunta hermenêutica é o coração da questão e merece ser feita à turma antes de apresentar respostas prontas.</p>
+    <div class="bloco-aluno">
+        <div class="ba-titulo">Conexão Bíblica — Cristo, o Sim de Todas as Promessas</div>
+        <div class="ba-txt">Paulo afirma em 2 Coríntios 1:20 que "todas as promessas de Deus são nele sim, e nele amém." Hebreus 11:10 diz que Abraão "esperava a cidade que tem fundamentos, cujo artífice e construtor é Deus" — não uma faixa de terra no Oriente Médio. Antes de decidir se as promessas a Israel são literais ou tipológicas, pergunte: o que o Novo Testamento faz com elas? A resposta muda tudo.</div>
+        <div class="ba-nota">✦ Bloco para o aluno · Pg. 3 — O Pacto e as Promessas</div>
+    </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 — TÓPICO II -->
+<div class="lbl">Página 4 · Tópico II</div>
+<div class="pag int">
+  <div class="wm">4</div>
+  <div class="ph"><span class="phl">Lição 06</span><span class="pht">Israel e a Profecia</span></div>
+  <h2>II-Romanos 9-11: O Texto Decisivo</h2>
+  <p>Nenhuma passagem é mais central para esse debate do que Romanos 9-11. Paulo enfrenta diretamente a questão: a palavra de Deus falhou em relação a Israel? (Rm 9:6). Sua resposta exige atenção cuidadosa — e é recusada por simplificações de ambos os lados.</p>
+  <p>Ao trabalhar Romanos 9-11, oriente a turma a resistir à tentação de ir direto para Romanos 11:26 ("todo o Israel será salvo") sem antes percorrer o argumento completo. Paulo constrói um raciocínio progressivo — e os capítulos 9 e 10 são indispensáveis para entender o 11.</p>
+  <h3>O Israel Dentro de Israel</h3>
+  <p>Em Romanos 9:6-8, Paulo afirma que "nem todos os que são de Israel são israelitas". Há um Israel étnico e um Israel espiritual — o remanescente segundo a eleição da graça (Rm 11:5). A salvação nunca foi automática por descendência física; sempre foi pela fé, desde Abraão (Rm 4:11-12).</p>
+  <div class="bver">"E assim todo o Israel será salvo, como está escrito: Virá de Sião o Libertador, e desviará de Jacó as impiedades." <cite>Romanos 11:26</cite></div>
+  <div class="sep"><span>✦</span></div>
+  <h3>A Oliveira e os Galhos: Rm 11:17-24</h3>
+  <p>Paulo usa a metáfora da oliveira para descrever a relação entre Israel e a Igreja. Galhos naturais (judeus incrédulos) foram cortados; galhos silvestres (gentios) foram enxertados. Mas os galhos naturais podem ser reenxertados — pois Deus é poderoso para isso (Rm 11:23). Isso sugere uma abertura futura de Israel ao evangelho, sem necessariamente implicar um programa nacional separado da Igreja.</p>
+  <h3>1948: Sinal Profético ou Evento Político?</h3>
+  <p>O dispensacionalismo vê na fundação do Estado de Israel o cumprimento de Ez 37 e o início da "geração" de Mt 24:34. A teologia reformada reconhece o evento como historicamente significativo, mas questiona sua validade como cumprimento profético específico — a restauração prometida pelos profetas era espiritual, não apenas política e geográfica.</p>
+  <p>Romanos 11 impede conclusões apressadas em ambas as direções. Paulo não autoriza arrogância gentílica nem desprezo ao povo judeu, mas aponta para a soberania de Deus na história e para a possibilidade real de reenxerto dos ramos naturais. A pergunta central não é apenas o que acontecerá com Israel, mas como Deus demonstra sua fidelidade às promessas sem comprometer a centralidade de Cristo.</p>
+    <div class="bloco-aluno">
+        <div class="ba-titulo">Sabia Que? — "Todo o Israel Será Salvo" Não é Unanimidade</div>
+        <div class="ba-txt">Romanos 11:26 — "todo o Israel será salvo" — é um dos versículos mais debatidos da escatologia. Interpretações sérias incluem: (1) o Israel étnico em conversão futura em massa; (2) o conjunto dos eleitos judeus ao longo de toda a história; (3) o povo de Deus completo, judeus e gentios. Nenhuma dessas leituras é fácil de descartar. O texto exige humildade — e muito estudo.</div>
+        <div class="ba-nota">✦ Bloco para o aluno · Pg. 4 — Romanos 9–11: O Texto Decisivo</div>
+    </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 — TÓPICO III -->
+<div class="lbl">Página 5 · Tópico III</div>
+<div class="pag int">
+  <div class="wm">5</div>
+  <div class="ph"><span class="phl">Lição 06</span><span class="pht">Israel e a Profecia</span></div>
+  <h2>III-Visões em Diálogo</h2>
+  <p>O papel profético de Israel é talvez o ponto de maior ruptura entre o dispensacionalismo pentecostal e a teologia da aliança reformada. As consequências dessa divergência se estendem da hermenêutica bíblica até a ética política contemporânea. Apresentar as duas posições com igual respeito é condição para um debate maduro.</p>
+  <div class="bvp">
+    <div class="vl">✦ Perspectiva Pentecostal</div>
+    <div class="vt">Para o pentecostalismo dispensacionalista, Israel e a Igreja são dois povos distintos de Deus, com programas proféticos separados. As promessas territoriais do AT ainda aguardam cumprimento literal no reino milenial. A fundação do Estado de Israel, em 1948, é sinal profético inequívoco. Israel será o centro do reino de Cristo durante o milênio. Os 144.000 de Apocalipse 7 são judeus literais que evangelizarão o mundo durante a Tribulação. Essa visão fundamenta um forte apoio evangélico ao Estado de Israel como obrigação teológica.</div>
+  </div>
+  <div class="bvr">
+    <div class="vl">✦ Perspectiva Reformada</div>
+    <div class="vt">Para a teologia da aliança, Israel e a Igreja formam um único povo de Deus sob alianças progressivas — a Igreja não substituiu Israel, mas é o cumprimento e expansão do Israel bíblico (Rm 11; Gl 3:29; Ef 2:11-22). As promessas territoriais encontram seu cumprimento em Cristo e na nova criação (Hb 11:10,16). Romanos 11:26 aponta para uma conversão futura, em grande número, de judeus ao evangelho — não para um programa nacional separado. Apoio político a Israel não é mandato teológico, mas questão de ética e justiça como qualquer outra nação.</div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <p>Ambas as tradições afirmam o amor de Deus pelo povo judeu, o cumprimento das promessas abraâmicas em Cristo e a abertura do evangelho para todos — judeus e gentios — como a grande missão da Igreja até o fim dos tempos.</p>
+  <p>Quando a Igreja mantém Cristo no centro, ela consegue tratar Israel com seriedade bíblica, amor fraterno e prudência pastoral. Esse ponto de convergência impede que o debate seja conduzido de forma ideológica ou que produza rivalidades estéreis entre escolas de interpretação.</p>
+    <div class="bloco-aluno">
+        <div class="ba-titulo">Pense Nisso — Teologia com Consequências Éticas</div>
+        <div class="ba-txt">A visão que você adota sobre Israel e a profecia não fica só no papel. Ela influencia como você ora, como vota, como compreende a missão da Igreja e como se relaciona com o judaísmo. Dispensacionalistas e teólogos da aliança chegam a posições políticas muito distintas a partir das mesmas Escrituras. Isso não significa que "tanto faz" — significa que a exegese responsável tem peso real no mundo real.</div>
+        <div class="ba-nota">✦ Bloco para o aluno · Pg. 5 — Visões em Diálogo</div>
+    </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 — CONCLUSÃO -->
+<div class="lbl">Página 6 · Conclusão</div>
+<div class="pag int">
+  <div class="wm">6</div>
+  <div class="ph"><span class="phl">Lição 06</span><span class="pht">Israel e a Profecia</span></div>
+  <h2>Conclusão</h2>
+  <p>A teologia sobre Israel tem consequências éticas reais e imediatas. Quando a escatologia determina posições políticas sem espaço para nuances, o resultado pode ser um apoio acrítico a ações injustas, ou uma rejeição igualmente acrítica de um povo com história e dignidade próprias. O cristão maduro precisa separar convicções teológicas de posicionamentos políticos automáticos.</p>
+  <p>Ao concluir a aula, enfatize que o estudo de Israel na profecia não deve produzir tribalismo teológico, mas humildade diante do mistério de Deus e urgência missionária. Paulo mesmo — o autor de Romanos 11 — conclui com adoração: "Ó profundidade das riquezas, tanto da sabedoria como do conhecimento de Deus!" (Rm 11:33). Esse deve ser também o tom do encerramento.</p>
+  <div class="apl">
+    <div class="at">Aplicação</div>
+    <p>Primeiro: leia Romanos 11 completo de uma vez — sem parar para debater — e deixe Paulo falar sobre o mistério da história da salvação em sua própria voz. Segundo: reflita sobre como sua posição sobre Israel foi formada — pela exegese cuidadosa ou pela tradição de sua denominação e pelos pregadores que você ouve? Terceiro: ore pelo povo judeu, como Paulo fazia (Rm 10:1) — não como peça de um tabuleiro profético, mas como pessoas pelas quais Cristo morreu.</p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h3>Para Refletir</h3>
+  <p>Paulo escreve: "a dureza veio em parte sobre Israel, até que a plenitude dos gentios haja entrado" (Rm 11:25). Isso sugere que a missão entre os gentios — incluindo nós, brasileiros — faz parte do plano de Deus para provocar ciúme em Israel (Rm 11:11). Como isso deve moldar a urgência missionária da sua Igreja?</p>
+  <div class="bver">"Porque não há distinção entre judeu e grego; porque um mesmo é o Senhor de todos, rico para todos os que o invocam." <cite>Romanos 10:12</cite></div>
+  <p>A questão de Israel na profecia deve levar o cristão a uma postura de humildade diante das Escrituras, zelo pela verdade e amor por judeus e gentios igualmente necessitados da graça de Deus. A escatologia bíblica não existe para alimentar curiosidades, mas para fortalecer a fé, sustentar a esperança e impulsionar a missão.</p>
+  <p>Na próxima lição enfrentaremos uma das controvérsias mais antigas do protestantismo: <strong>O Milênio</strong> — pré, a e pós-milenismo em perspectiva comparada.</p>
+    <div class="bloco-aluno">
+        <div class="ba-titulo">Leve Para a Vida — Ore como Paulo Orou</div>
+        <div class="ba-txt">Em Romanos 10:1, Paulo escreve: <em>"Irmãos, o desejo do meu coração e a minha súplica a Deus por Israel é para salvação."</em> Independente da sua posição escatológica, essa oração não é opcional. O povo judeu não é peça de um tabuleiro profético — é um povo amado por Deus, por quem Cristo morreu. A melhor resposta ao estudo de hoje não é uma tese, mas uma oração.</div>
+        <div class="ba-nota">✦ Bloco para o aluno · Pg. 6 — Conclusão e Aplicação</div>
+    </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 — QUESTÕES -->
+<div class="lbl">Página 7 · Questões &amp; Anotações</div>
+<div class="pag int">
+  <div class="wm">7</div>
+  <div class="ph"><span class="phl">Lição 06</span><span class="pht">Israel e a Profecia</span></div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">O pacto abraâmico é condicional ou incondicional? Como a resposta a essa pergunta muda completamente a leitura das profecias sobre Israel no Antigo Testamento?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">Em Romanos 9:6, Paulo afirma que "nem todos os que são de Israel são israelitas". O que ele quer dizer? Como isso afeta a leitura de Romanos 11:26 — "todo o Israel será salvo"?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">O dispensacionalismo vê na fundação do Estado de Israel, em 1948, o cumprimento de Ezequiel 37. A teologia da aliança discorda. Quais argumentos exegéticos cada lado apresenta? Com qual você se identifica mais?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">Paulo diz que a missão entre os gentios é parte do plano de Deus para provocar ciúme em Israel (Rm 11:11-14). Como isso deve moldar a visão missionária da sua Igreja local?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="lit">
+    <div class="lt">Leituras Complementares</div>
+    <ul>
+      <li>John Stott — <em>Romans</em> (exposição de Rm 9-11, perspectiva evangélica equilibrada)</li>
+      <li>Barry Horner — <em>Future Israel</em> (defesa dispensacionalista do papel futuro de Israel)</li>
+      <li>Leitura devocional: Gênesis 12:1-3 + Romanos 9-11 completo + Gálatas 3:26-29</li>
+    </ul>
+  </div>
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+
+<!-- ═══════════════════════════ PÁGINAS DO PROFESSOR ═══════════════════════════ -->
+
+<!-- PG P1 — GUIA GERAL -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 06 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Esta é a lição com maior potencial de gerar confusão entre convicção teológica e posicionamento político. O papel do professor é ensinar a diferença — e conduzir o debate com rigor exegético, maturidade pastoral e distância saudável das manchetes do dia. Resistir à tentação de transformar uma aula de EBD em comentário geopolítico é um ato de fidelidade ao texto.</p>
+  <p>O núcleo da lição é hermenêutico: como ler as promessas do Antigo Testamento à luz da vinda de Cristo? Essa pergunta antecede qualquer posição sobre o Estado de Israel moderno — e deve ser apresentada com clareza antes que o debate específico comece.</p>
+  <p>Romanos 9-11 é o texto-âncora. Conduza a turma por ele antes de entrar nas visões em diálogo. Paulo constrói um argumento progressivo que precisa ser seguido com paciência — simplificações de qualquer lado trairão o texto.</p>
+
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: "O que você sente quando ouve 'Israel' em um contexto profético — esperança, confusão, ou pressão política?"</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: separar teologia de geopolítica; a questão como debate hermenêutico antes de político</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Tópico I: pacto abraâmico — condicional ou incondicional? Literal ou tipológico? Use a tabela da Pg. P2.</span></div>
+    <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 4 — Tópico II: Romanos 9-11 — o Israel dentro de Israel, a oliveira, e o significado de 1948</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 5 — Tópico III: Visões em Diálogo — dispensacionalista vs. reformada; ética e teologia separadas</span></div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Conclusão: encerre com Rm 11:33 e oração pelo povo judeu — missão, não especulação</span></div>
+  </div>
+
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Mostrar que o debate é primariamente hermenêutico — não político ou emocional</li>
+      <li>Conduzir Romanos 9-11 como argumento progressivo, não como repertório de versículos isolados</li>
+      <li>Distinguir com clareza o que é certeza bíblica compartilhada do que é debate interpretativo</li>
+      <li>Encerrar com missão e oração pelo povo judeu — não com polêmica ou posicionamento político</li>
+    </ul>
+  </div>
+
+  <div class="bloco-comp">
+    <div class="bk">Mapa de Competências da Lição 06</div>
+    <div class="comp-grid">
+      <div class="comp-cell">
+        <div class="cc-titulo">Conhecimento</div>
+        <p>Identificar o pacto abraâmico, Romanos 9-11 e as duas tradições (dispensacionalista / aliança) sobre o papel profético de Israel.</p>
+      </div>
+      <div class="comp-cell verde">
+        <div class="cc-titulo">Habilidade</div>
+        <p>Distinguir argumento hermenêutico de posicionamento político; ler Rm 9-11 como progressão lógica, não como repertório de versículos isolados.</p>
+      </div>
+      <div class="comp-cell azul">
+        <div class="cc-titulo">Atitude</div>
+        <p>Substituir entusiasmo acrítico por reverência diante do mistério soberano de Deus (Rm 11:33) e amor missionário pelo povo judeu.</p>
+      </div>
+      <div class="comp-cell ouro">
+        <div class="cc-titulo">Avaliação</div>
+        <p>O aluno separa teologia de geopolítica e sabe articular pelo menos uma diferença exegética entre as duas tradições?</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloco-fio">
+    <div class="bk">Fio Condutor — Série Eschaton</div>
+    <p>Esta lição aprofunda a tensão entre promessa e cumprimento: Deus é fiel às suas alianças — mas o modo do cumprimento é revelado progressivamente em Cristo. Conecta-se à <strong>Lição 05</strong> (Anticristo — contexto da apostasia e do engano) e prepara a <strong>Lição 07</strong> (O Milênio — pré, a e pós-milenismo). O eixo teológico: a soberania de Deus sobre a história da salvação, desde Abraão até a consumação.</p>
+    <div class="fio-tags">
+      <span class="fio-tag">← Lição 05: Anticristo</span>
+      <span class="fio-tag">Lição 06: Israel</span>
+      <span class="fio-tag">Lição 07: Milênio →</span>
+    </div>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção — Teologia e Geopolítica Não São a Mesma Coisa</div>
+    <p>Se a discussão derivar para o conflito israelo-palestino, redirecione com firmeza e gentileza: <em>"Essa é uma questão de ética e direito internacional — não de exegese de Romanos 11. Hoje estamos estudando o que a Bíblia diz sobre o papel de Israel na história da salvação. O que Deus pensa sobre qualquer conflito armado é uma pergunta séria, mas diferente desta."</em></p>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — TABELA COMPARATIVA + EXEGESE -->
+<div class="lbl lbl-prof">Página P2 · Hermenêutica &amp; Tabela Comparativa</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 06 · Exegese &amp; Comparação</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Romanos 11 — Mapa do Argumento para o Professor</h2>
+  <div class="bloco-teo">
+    <div class="bk">Estrutura Progressiva de Romanos 9-11</div>
+    <p><strong>Rm 9 — A soberania da eleição:</strong> A palavra de Deus não falhou — o "Israel dentro de Israel" sempre existiu (v.6). A eleição é soberana, não automática por descendência. <strong>Rm 10 — A universalidade do evangelho:</strong> Não há distinção entre judeu e grego — a fé em Cristo é o único caminho (v.12-13). Israel ouviu, mas não respondeu (v.16-21). <strong>Rm 11 — O mistério da história:</strong> O remanescente eleito persiste (v.5). Gentios foram enxertados para provocar ciúme (v.11). Reenxerto dos galhos naturais é possível (v.23). "Todo o Israel será salvo" — conversão futura em grande número (v.26). Conclusão: adoração diante do insondável (v.33-36).</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Orientação Exegética — Rm 11:26: "Todo o Israel Será Salvo"</div>
+    <p>Três interpretações principais: (1) <strong>Dispensacionalista:</strong> Israel étnico nacional convertido em massa durante ou ao final da Tribulação. (2) <strong>Reformada tradicional:</strong> "Todo o Israel" = a totalidade do povo de Deus — judeus e gentios eleitos ao longo da história. (3) <strong>Reformada aberta:</strong> Uma conversão futura e significativa de judeus étnicos ao evangelho, inserida no avanço missionário da Igreja. Apresente as três antes de tomar partido — cada uma tem exegetas sérios.</p>
+  </div>
+
+  <h2 class="prof" style="margin-top:10px;">Dispensacionalista vs. Teologia da Aliança — Tabela Comparativa</h2>
+  <table class="tabela-comp">
+    <tr>
+      <th>Critério</th>
+      <th>Dispensacionalismo</th>
+      <th>Teologia da Aliança</th>
+    </tr>
+    <tr>
+      <td>Israel e Igreja</td>
+      <td>Dois povos distintos, programas separados</td>
+      <td>Um único povo de Deus sob alianças progressivas</td>
+    </tr>
+    <tr>
+      <td>Pacto Abraâmico</td>
+      <td>Incondicional; promessas territoriais literais</td>
+      <td>Cumprido tipologicamente em Cristo (Hb 11:10)</td>
+    </tr>
+    <tr>
+      <td>1948</td>
+      <td>Cumprimento profético de Ez 37 / sinal do fim</td>
+      <td>Evento histórico significativo, sem validade profética específica</td>
+    </tr>
+    <tr>
+      <td>Rm 11:26</td>
+      <td>Conversão nacional literal de Israel étnico</td>
+      <td>Remanescente eleito ou grande conversão futura de judeus</td>
+    </tr>
+    <tr>
+      <td>144.000 (Ap 7)</td>
+      <td>Judeus literais evangelizadores na Tribulação</td>
+      <td>Símbolo da totalidade do povo de Deus (12×12×1000)</td>
+    </tr>
+    <tr>
+      <td>Apoio a Israel</td>
+      <td>Obrigação teológica fundamentada na profecia</td>
+      <td>Questão ética e política — não mandato teológico específico</td>
+    </tr>
+  </table>
+  <div class="cit-autor">
+    "Paulo não está dizendo que Israel como nação terá um papel especial no fim dos tempos. Está dizendo que Deus não rejeitou seu povo — e que o evangelho é para o judeu primeiro e também para o grego."
+    <cite>— John Stott, <em>Romans</em> (The Bible Speaks Today)</cite>
+  </div>
+
+  <div class="bloco-socratico">
+    <div class="bk">Escada de Perguntas Socráticas — 3 Níveis</div>
+    <div class="soc-nivel n1">
+      <div class="soc-label">Nível 1 · Diagnóstico</div>
+      <div class="soc-pergunta">"O que você sente quando ouve que 'o retorno de Israel em 1948 cumpriu a profecia de Ezequiel 37'? De onde vem essa certeza?"</div>
+      <div class="soc-resp"><strong>Esperado:</strong> Convicção herdada de pregadores, filmes, tradição familiar. Aceite sem julgar — revela o ponto de partida real da turma.</div>
+    </div>
+    <div class="soc-nivel n2">
+      <div class="soc-label">Nível 2 · Conceitual</div>
+      <div class="soc-pergunta">"Lendo Hebreus 11:10 e Gálatas 3:16, o que Paulo e o autor de Hebreus fazem com as promessas a Abraão? Elas são literais ou têm cumprimento maior?"</div>
+      <div class="soc-resp"><strong>Esperado:</strong> Cristo é a semente; a herança é celestial e eterna, não territorial. A pergunta não cancela Israel — reposiciona o debate.</div>
+    </div>
+    <div class="soc-nivel n3">
+      <div class="soc-label">Nível 3 · Aplicação</div>
+      <div class="soc-pergunta">"Se Romanos 11 proíbe tanto o desprezo ao povo judeu quanto a especulação arrogante sobre seu destino, o que sobra para o cristão fazer? Apenas orar como Paulo (Rm 10:1)?"</div>
+      <div class="soc-resp"><strong>Esperado:</strong> Missão concreta, oração pelo povo judeu, humildade diante do mistério — não certeza geopolítica nem curiosidade ociosa.</div>
+    </div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DINÂMICA + PEDAGOGIA -->
+<div class="lbl lbl-prof">Página P3 · Dinâmica &amp; Dicas Pedagógicas</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 06 · Pedagogia</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Dinâmica de Abertura — "De Onde Vem a Sua Leitura?"</h2>
+  <div class="bloco-dica">
+    <div class="bk">Como conduzir — 5 minutos iniciais</div>
+    <ul>
+      <li>Pergunte: <em>"O que você sente quando ouve 'Israel' em um contexto profético — esperança imediata, confusão ou pressão para tomar partido?"</em></li>
+      <li>Deixe 3-4 respostas honestas — não corrija nenhuma nesse momento</li>
+      <li>Pergunte em seguida: <em>"De onde veio essa leitura? Da Bíblia estudada com cuidado, ou de pregadores, redes sociais e tradição recebida?"</em></li>
+      <li>Diga: <em>"Hoje vamos fazer exatamente isso — voltar ao texto, especialmente Romanos 9-11, e deixar Paulo falar por si mesmo."</em></li>
+      <li>Objetivo: criar disposição para rever posições a partir do texto, não defende-las por tradição</li>
+    </ul>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivo da Dinâmica</div>
+    <p>Criar uma disposição de abertura exegética antes de entrar no conteúdo. Muitos alunos chegam com posições formadas por influência midiática ou denominacional — e a dinâmica ajuda a identificar isso sem constrangimento, abrindo espaço para uma leitura mais honesta do texto.</p>
+  </div>
+  <div class="bloco-debate">
+    <div class="bk">Pergunta Central para o Debate da Pg. 5</div>
+    <p>"Se o pacto abraâmico é cumprido tipologicamente em Cristo — como Hebreus 11:10,16 sugere —, o que ainda resta de promessas não cumpridas para o povo judeu étnico? E se há promessas ainda pendentes, como isso se relaciona com a missão evangelística e não com o apoio político?"</p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <p>Considere encerrar a aula com a doxologia de Romanos 11:33-36 lida em voz alta. Esse gesto pastoral mostra que o objetivo do estudo não é resolver o debate, mas crescer em reverência diante do mistério soberano de Deus — e em amor pelo povo judeu como destinatário do evangelho.</p>
+  <div class="bloco-dica">
+    <div class="bk">Como Trabalhar a Oliveira de Rm 11:17-24</div>
+    <ul>
+      <li>Desenhe a oliveira no quadro antes da aula — raiz, galhos naturais cortados, galhos silvestres enxertados</li>
+      <li>Pergunte: <em>"O que essa metáfora nos diz sobre a continuidade entre Israel e a Igreja? Sobre a possibilidade de reenxerto?"</em></li>
+      <li>Destaque: a raiz é a mesma — Abraão, as promessas, o Deus fiel. A Igreja não é uma oliveira nova, mas enxertada na mesma</li>
+      <li>Aplique: <em>"Paulo usa essa imagem para nos advertir contra arrogância — 'não te ensoberbeças, mas teme' (v.20). Como isso modela nossa atitude em relação ao povo judeu hoje?"</em></li>
+    </ul>
+  </div>
+  <div class="bloco-dica">
+    <div class="bk">Conectando com a Missão — Rm 10:1 e Rm 11:11</div>
+    <ul>
+      <li>Leia Rm 10:1: "Irmãos, o desejo do meu coração e a minha súplica a Deus por Israel é para salvação." — Paulo ora, não especula</li>
+      <li>Pergunte: <em>"Quantas pessoas da sua lista de oração são judias? Se a missão para judeus provoca ciúme em Israel (Rm 11:11), como sua Igreja está participando disso?"</em></li>
+      <li>Mencione organizações missionárias dedicadas ao evangelismo judaico como Chosen People Ministries e Jews for Jesus</li>
+      <li>Objetivo: converter o debate escatológico em responsabilidade missionária concreta</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "Mas Deus não prometeu a terra a Israel para sempre?"</div>
+    <p>Resposta sugerida: <em>"Essa é exatamente a questão central — e a resposta depende de como você lê o Antigo Testamento à luz do Novo. Hebreus 11:10 diz que Abraão aguardava 'uma cidade que tem fundamentos, cujo artífice e construtor é Deus'. Paulo em Gálatas 3:16 diz que a promessa foi feita 'à tua semente', e que essa semente é Cristo. Isso não cancela a promessa — a amplia e cumpre em dimensão maior. O debate honesto começa aqui."</em></p>
+  </div>
+
+  <div class="bloco-diferenc">
+    <div class="bk">Diferenciação por Perfil de Turma</div>
+    <div class="dif-grid">
+      <div class="dif-item">
+        <div class="dif-tipo">Turma Iniciante</div>
+        <div class="dif-acao">Foque em Rm 9:6 e na metáfora da oliveira. Evite a tabela comparativa antes de fixar que o debate é hermenêutico, não político.</div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-tipo">Turma Avançada</div>
+        <div class="dif-acao">Explore as três interpretações de Rm 11:26 e o debate sobre o <em>katechon</em>. Permita discussão aberta; exija argumentação exegética.</div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-tipo">Turma Ansiosa</div>
+        <div class="dif-acao">Comece e encerre com Rm 11:33-36 (doxologia). Evite detalhes sobre conflitos geopolíticos sem preparar o terreno emocional antes.</div>
+      </div>
+      <div class="dif-item">
+        <div class="dif-tipo">Turma Cética</div>
+        <div class="dif-acao">Use a tabela comparativa como ponto de entrada. Mostre que ambas as tradições têm exegetas sérios — nenhuma é apenas emocional.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloco-aval">
+    <div class="bk">Avaliação Formativa Rápida — Checklist do Professor</div>
+    <ul class="aval-check">
+      <li>O aluno distingue o pacto abraâmico nas leituras dispensacionalista e da aliança?</li>
+      <li>O aluno lê Rm 9-11 como argumento progressivo, não como repertório de versículos isolados?</li>
+      <li>O aluno separa teologia profética de posicionamento político sobre o Estado de Israel?</li>
+      <li>O aluno articula ao menos uma diferença exegética entre as duas tradições estudadas?</li>
+      <li>O aluno aplica Rm 10:1 como postura de oração — e não apenas de debate — pelo povo judeu?</li>
+      <li>A aula produziu reverência e urgência missionária — ou disputa ideológica? (autoavaliação)</li>
+    </ul>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Leia Romanos 11:33-36 devagar: <em>"Ó profundidade das riquezas, tanto da sabedoria como do conhecimento de Deus!"</em></li>
+      <li>Diga: <em>"Esse é o tom que Paulo quer — não certeza arrogante, mas adoração reverente diante do mistério de Deus na história."</em></li>
+      <li>Convide a turma a orar pelo povo judeu — como Paulo em Rm 10:1 — não como peça profética, mas como pessoas amadas por Deus</li>
+      <li>Anuncie a Lição 07: <em>O Milênio — pré, a e pós-milenismo em perspectiva comparada</em></li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 06 · Respostas &amp; Recursos</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01 — O pacto abraâmico: condicional ou incondicional?</div>
+      <div class="resp-txt">O dispensacionalismo o entende como incondicional e eterno — as promessas territoriais e nacionais permanecem para Israel étnico. A teologia da aliança o entende como unilateralmente iniciado por Deus, mas com sua plenitude e herança definitivas reveladas progressivamente em Cristo (Hb 11:10,16; Gl 3:16). A resposta à pergunta muda completamente se as promessas de "terra" e "nação" são lidas geograficamente ou tipologicamente. Valorize respostas que percebam a dimensão hermenêutica antes de tomar partido.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02 — Rm 9:6 e Rm 11:26</div>
+      <div class="resp-txt">Em Rm 9:6, Paulo distingue Israel étnico de Israel espiritual — o remanescente da eleição. A salvação nunca foi automática por nascimento, mas sempre pela fé. "Todo o Israel será salvo" (Rm 11:26) é debatido: (1) o Israel espiritual completo — judeus e gentios eleitos; (2) uma conversão futura significativa de judeus étnicos ao evangelho. Rm 11 proíbe que a expressão seja lida como universalismo ou como salvação étnica automática. Valorize respostas que mostrem que Paulo usa "Israel" com nuances ao longo dos capítulos.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03 — 1948 e Ez 37</div>
+      <div class="resp-txt">Dispensacionalista: Ez 37 ("ossos secos") profetizou o retorno físico nacional do povo judeu à terra — cumprido em 1948. É o "sinal da figueira". Reformada: Ez 37 encontrou cumprimento primário no retorno do exílio babilônico (séc. VI a.C.) e seu cumprimento espiritual pleno na ressurreição e na comunidade messiânica. O Estado de Israel moderno é politicamente significativo, mas não profeticamente determinante para a escatologia. Nenhuma posição é sem dificuldades — valorize o argumento exegético sobre a intuição imediata.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04 — Missão e Rm 11:11</div>
+      <div class="resp-txt">Paulo afirma que a evangelização dos gentios faz parte do plano de Deus para provocar ciúme em Israel e assim precipitar a sua salvação (Rm 11:11,14). Isso transforma a missão entre não-judeus em ato de amor indireta e diretamente pelo povo judeu. A Igreja local deveria ter em sua agenda missionária tanto gentios quanto judeus — e orar pelo povo judeu com a mesma urgência de Paulo em Rm 10:1. Resposta pessoal; valorize concretude e conexão com a realidade local.</div>
+    </div>
+  </div>
+
+  <div class="bloco-gabarito-uso">
+    <div class="bk">Como Usar Este Gabarito em Aula</div>
+    <p>As respostas são <strong>orientativas</strong>, não definitivas. Valorize respostas pessoais com raciocínio bíblico honesto — mesmo quando divergem da síntese sugerida. Questões sobre Israel costumam provocar silêncio carregado: antes de dar a resposta, pergunte <em>"O que tornou essa pergunta difícil?"</em> — esse silêncio é dado pedagógico valioso. Evite fechar o debate com sua posição pessoal; prefira encerrar com a doxologia de Rm 11:33-36.</p>
+  </div>
+
+  <div class="bloco-posticao">
+    <div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
+    <ul>
+      <li><strong>Até terça:</strong> Envie pelo grupo: <em>"Leia Romanos 11 completo de uma vez — sem parar. O que surpreendeu você?"</em></li>
+      <li><strong>Até quinta:</strong> Recomende o vídeo do BibleProject sobre Romanos 9-11 (disponível no YouTube em PT).</li>
+      <li><strong>Na próxima EBD:</strong> Retome 2 minutos: "Alguém reviu sua posição sobre Israel — ou encontrou uma pergunta nova?" Continuidade entre lições.</li>
+      <li><strong>Preparação Lição 07:</strong> Leia Apocalipse 20:1-10 e 1 Coríntios 15:20-28 como base para O Milênio.</li>
+      <li><strong>Ação missional:</strong> Sugira que a turma inclua o povo judeu na lista de oração missionária — como Paulo em Rm 10:1.</li>
+    </ul>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <p>Ao sugerir recursos, oriente a classe a buscar obras que tratem o tema com rigor exegético — há muita literatura popular sobre Israel que é mais ideológica do que bíblica. O critério é sempre: o autor parte do texto ou parte de uma conclusão política?</p>
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">John Stott — <em>Romans</em> (The Bible Speaks Today). IVP. A exposição mais equilibrada e pastoral de Rm 9-11 em perspectiva evangélica não-dispensacionalista.</span></div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Barry Horner — <em>Future Israel</em>. B&amp;H Academic. A defesa mais rigorosa e respeitável do papel profético futuro de Israel étnico — essencial para entender o argumento dispensacionalista em seu melhor nível.</span></div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">O. Palmer Robertson — <em>The Israel of God</em>. P&amp;R Publishing. Exposição reformada da relação entre Israel e Igreja a partir de Romanos, Gálatas e Efésios — rigorosa e acessível.</span></div>
+    <div class="mat-item"><span class="mat-tipo video">Vídeo</span><span class="mat-info">BibleProject — vídeo <em>Romanos 9-11</em>. YouTube, PT. Explica o argumento de Paulo com clareza visual; ideal como pré-aula ou pós-aula.</span></div>
+    <div class="mat-item"><span class="mat-tipo audio">Podcast</span><span class="mat-info">Ligonier Ministries — série <em>Romans</em> com R.C. Sproul (caps. 9-11). Spotify / ligonier.org. Perspectiva reformada clara e profunda — útil para o professor preparar a exegese antes de ensinar.</span></div>
+    <div class="mat-item"><span class="mat-tipo site">Digital</span><span class="mat-info">chosenpeople.com — Chosen People Ministries. Organização missionária dedicada ao evangelismo judaico; recurso útil para mostrar como a teologia se converte em missão concreta.</span></div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v1_auth';
+function verificarSenha(){
+  const input=document.getElementById('senha-input');
+  const erro=document.getElementById('senha-erro');
+  const val=input.value.trim().toLowerCase();
+  if(val===SENHA_CORRETA){
+    sessionStorage.setItem(CHAVE_SESSION,'1');
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+    input.classList.remove('erro');erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro');erro.classList.add('vis');input.value='';
+    setTimeout(()=>input.classList.remove('erro'),400);
+  }
+}
+(function(){
+  if(sessionStorage.getItem(CHAVE_SESSION)==='1'){
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+  }
+})();
+
+function entrarLicao(){
+    document.body.classList.add('licao-iniciada');
+    window.scrollTo({top: 0, behavior: 'instant'});
+}
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit(){
+  edit=!edit;
+  document.querySelectorAll('.pag *').forEach(el=>{
+    if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul'))
+      el.contentEditable=edit?'true':'false';
+  });
+  document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+</script>
+<script src="navegacao.js"></script>
+</body>
+</html>

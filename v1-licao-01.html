@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1020">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
+<title>Eschaton Vol. I · Lição 01 — O Que é Escatologia? · Edição do Professor</title>
+
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+    /* cores base da série */
+    --cor: #4a7fa5; --grad1: #0a1628; --grad2: #1a2a4a;
+    --ouro: #c9a84c; --ouro-claro: #e8d5a0; --vermelho: #8b1a1a;
+    --ct: #2a2a2a; --branco: #fdfbf7; --creme: #f5f0e8; --cc: #e0ddd8;
+    /* cores exclusivas do professor */
+    --prof: #5a3e8a;          /* violeta docente */
+    --prof-claro: #ede6f8;
+    --prof-borda: rgba(90,62,138,0.35);
+    --verde-tip: #2e6b4f;
+    --verde-claro: #e6f4ed;
+    --verde-borda: rgba(46,107,79,0.35);
+    --laranja: #b85c1a;
+    --laranja-claro: #fdf0e6;
+    --laranja-borda: rgba(184,92,26,0.35);
+    --azul-fundo: #e8f0f8;
+    --topo-prof: #3b2566;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#111;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#0d0820 0%,#1a1030 60%,#0a0a18 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:56px;height:56px;border:1px solid rgba(90,62,138,0.5);
+    transform:rotate(45deg);margin:0 auto 32px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(90,62,138,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:#5a3e8a;margin-bottom:8px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(90,62,138,0.4);
+    border-radius:2px;padding:12px 16px;font-family:'Oswald',sans-serif;
+    font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;
+    outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(90,62,138,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{
+    width:100%;background:#5a3e8a;border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#0d0820,#1a1030);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(90,62,138,0.9);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#aaa;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.bg{background:var(--cor);color:#fff;}.bg:hover{filter:brightness(1.2);}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--branco);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA (idêntica ao aluno + faixa docente) ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 15% 70%,rgba(74,127,165,0.35) 0%,transparent 55%),radial-gradient(ellipse at 85% 20%,rgba(201,168,76,0.12) 0%,transparent 45%);}
+.cgrd{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:20px 20px;}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:55%;background:linear-gradient(160deg,var(--grad1),var(--cor) 60%,var(--ouro-claro));opacity:0.4;}
+.clh{position:absolute;top:52%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.6;}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.cnd{font-family:'Cinzel',serif;font-size:36pt;font-weight:900;color:#fff;opacity:0.15;position:absolute;top:20mm;right:12mm;line-height:1;}
+.ctit{font-family:'Cinzel',serif;font-size:22pt;font-weight:700;color:#fff;line-height:1.15;text-transform:uppercase;margin-bottom:12px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== CAPA DE ENTRADA DA REVISTA (imagem capa-revista.png) ===== */
+.pag.capa-entrada{
+    width:148mm;
+    /* altura proporcional A5 (148×210mm) */
+    height:210mm;
+    min-height:210mm;
+    max-height:210mm;
+    padding:0;
+    background:#111;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    overflow:hidden;
+    position:relative;
+}
+.pag.capa-entrada img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;      /* preenche sem distorcer */
+    object-position:center top;
+    display:block;
+}
+.pag.capa-entrada .entrada-cta{
+    position:relative;
+    z-index:2;
+    margin-bottom:24px;
+    font-family:'Oswald',sans-serif;
+    font-size:9pt;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#fff;
+    background:rgba(0,0,0,0.55);
+    border:1px solid rgba(201,168,76,0.55);
+    padding:10px 22px;
+    border-radius:2px;
+    backdrop-filter:blur(4px);
+}
+/* Mobile: mantém proporção sem distorcer */
+@media (max-width:768px){
+    .pag.capa-entrada{
+        width:100%;
+        max-width:420px;
+        /* altura proporcional ao A5 via aspect-ratio */
+        height:auto;
+        min-height:unset;
+        max-height:unset;
+        aspect-ratio:148/210;
+    }
+    .pag.capa-entrada img{
+        object-fit:cover;
+    }
+}
+
+/* Faixa EDIÇÃO DO PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    height:auto;
+}
+
+/* ===== PÁGINAS INTERNAS — BASE ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--branco);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.035);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+
+h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);border-left:4px solid var(--cor);padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1px;color:var(--ct);text-transform:uppercase;margin-bottom:6px;margin-top:12px;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.bv{background:var(--creme);border-left:3px solid var(--ouro);padding:10px 12px;margin:12px 0;font-style:italic;font-size:10pt;color:#555;line-height:1.55;font-family:'EB Garamond',serif;}
+.bv cite{display:block;font-size:8.5pt;font-style:normal;color:var(--ouro);margin-top:4px;font-family:'Oswald',sans-serif;letter-spacing:1px;}
+.bvp{border:1px solid rgba(74,127,165,0.35);background:rgba(74,127,165,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bvr{border:1px solid rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.vl{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;font-weight:600;}
+.bvp .vl{color:var(--cor);}.bvr .vl{color:#8a6a20;}
+.vt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.35;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cc);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.obj{background:var(--creme);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+.obj ul li::before{content:'→';position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.apl{background:linear-gradient(135deg,rgba(74,127,165,0.06),rgba(201,168,76,0.06));border:1px solid rgba(74,127,165,0.2);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.apl .at{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.q{margin-bottom:14px;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid #ddd;height:20px;margin-top:3px;}
+.lit{margin-top:10px;padding-top:10px;border-top:1px solid var(--cc);}
+.lit .lt{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:var(--ouro);text-transform:uppercase;margin-bottom:6px;}
+.lit ul{list-style:none;padding:0;}
+.lit ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#666;padding:1px 0 1px 12px;position:relative;}
+.lit ul li::before{content:'·';position:absolute;left:2px;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;}
+.lin{border-bottom:1px solid #ddd;height:22px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#bbb;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+
+/* ===== PÁGINAS DO PROFESSOR — estilo diferenciado ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fdfbff;
+}
+/* barra roxa no topo das páginas do professor */
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--ouro),transparent);
+}
+/* marca d'água PROFESSOR */
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(90,62,138,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+/* cabeçalho das páginas do professor */
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(90,62,138,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    color:var(--prof);letter-spacing:2px;text-transform:uppercase;
+}
+.ph-prof-r{
+    font-family:'Oswald',sans-serif;font-size:7pt;
+    background:var(--prof);color:#fff;
+    padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* Títulos nas páginas do professor */
+h2.prof{
+    color:var(--prof);border-left-color:var(--prof);
+    font-size:11.5pt;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+
+/* Bloco: Guia do Professor */
+.bloco-guia{
+    background:#f5f0fc;
+    border:1px solid var(--prof-borda);
+    border-left:4px solid var(--prof);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:10px 0;
+}
+.bloco-guia .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p, .bloco-guia li{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    line-height:1.6;color:#3a2a55;
+}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+/* Bloco: Dica Pedagógica */
+.bloco-dica{
+    background:var(--verde-claro);
+    border:1px solid var(--verde-borda);
+    border-left:4px solid var(--verde-tip);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:10px 0;
+}
+.bloco-dica .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--verde-tip);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    line-height:1.6;color:#1e4535;
+}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+/* Bloco: Aprofundamento Teológico */
+.bloco-teo{
+    background:var(--laranja-claro);
+    border:1px solid var(--laranja-borda);
+    border-left:4px solid var(--laranja);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:10px 0;
+}
+.bloco-teo .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--laranja);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-teo .bk::before{content:'✝';font-size:8pt;}
+.bloco-teo p,.bloco-teo li{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    line-height:1.6;color:#4a2005;
+}
+.bloco-teo ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-teo ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-teo ul li::before{content:'·';position:absolute;left:2px;color:var(--laranja);}
+
+/* Bloco: Pergunta-chave para debate */
+.bloco-debate{
+    background:var(--azul-fundo);
+    border:1px solid rgba(74,127,165,0.3);
+    border-left:4px solid var(--cor);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:10px 0;
+}
+.bloco-debate .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--cor);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-debate .bk::before{content:'?';font-family:'Cinzel',serif;font-weight:900;font-size:10pt;}
+.bloco-debate p{
+    font-family:'EB Garamond',serif;font-size:10.5pt;
+    font-style:italic;line-height:1.6;color:#0d2a44;
+    margin-bottom:0;
+}
+
+/* Bloco: Respostas Sugeridas */
+.bloco-resp{
+    background:#fffdf5;
+    border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:10px 0;
+}
+.bloco-resp .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:#8a6a20;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-resp .bk::before{content:'✓';font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;}
+.resp-num{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    color:var(--ouro);letter-spacing:1px;margin-bottom:2px;
+}
+.resp-txt{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    line-height:1.55;color:#4a3a10;
+}
+
+/* Bloco: Tempo & Estrutura */
+.bloco-tempo{
+    background:#f8f8f8;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:10px 0;
+}
+.bloco-tempo .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:#555;margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{
+    display:flex;align-items:baseline;gap:10px;
+    padding:4px 0;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{
+    font-family:'Oswald',sans-serif;font-size:9pt;
+    font-weight:600;color:var(--cor);min-width:42px;
+    flex-shrink:0;
+}
+.tempo-desc{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    color:var(--ct);line-height:1.3;
+}
+
+/* Bloco: Material Complementar */
+.bloco-mat{
+    background:var(--creme);
+    border:1px solid rgba(0,0,0,0.08);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-mat .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--ct);margin-bottom:8px;
+}
+.mat-item{
+    padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);
+    display:flex;gap:10px;align-items:flex-start;
+}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{
+    font-family:'Oswald',sans-serif;font-size:7pt;
+    background:var(--cor);color:#fff;
+    padding:2px 6px;border-radius:1px;
+    letter-spacing:1px;text-transform:uppercase;
+    flex-shrink:0;margin-top:2px;
+    white-space:nowrap;
+}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{
+    font-family:'EB Garamond',serif;font-size:9.5pt;
+    color:#444;line-height:1.4;
+}
+.mat-info em{font-style:italic;color:#666;}
+
+/* Caixa teológica citação de autor */
+.cit-autor{
+    border:1px solid rgba(90,62,138,0.25);
+    background:rgba(90,62,138,0.03);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+    font-family:'EB Garamond',serif;font-style:italic;
+    font-size:10pt;color:#3a2a55;line-height:1.6;
+}
+.cit-autor cite{
+    display:block;margin-top:6px;font-size:8.5pt;font-style:normal;
+    font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--prof);
+}
+
+/* Alerta / Atenção do professor */
+.alerta{
+    background:#fff5f5;border:1px solid rgba(139,26,26,0.25);
+    border-left:4px solid var(--vermelho);
+    border-radius:3px;padding:8px 12px;margin:10px 0;
+}
+.alerta .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--vermelho);margin-bottom:4px;
+}
+.alerta p{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    color:#5a1010;line-height:1.55;margin-bottom:0;
+}
+
+/* Rodapé páginas do professor */
+.rod-prof{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:5px 12mm 5mm 14mm;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(90,62,138,0.04);
+}
+.rod-prof::before{
+    content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;
+    background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;
+}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+    @media (max-width:768px){
+    .intro-capa{padding:72px 14px 18px;min-height:100dvh;}
+    .intro-wrap{width:min(100%,420px);aspect-ratio:auto;height:calc(100dvh - 110px);min-height:calc(100dvh - 110px);max-height:calc(100dvh - 110px);}
+    .intro-cover img{object-fit:contain;background:#111;}
+        .intro-btn{font-size:8pt;letter-spacing:1.5px;padding:9px 14px;}
+}
+/* Print */
+@media print{
+    body{background:none;}
+    .painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof{display:none;}
+}
+
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(90,62,138,0.05);border-radius:2px;}
+
+/* MOBILE */
+@media (max-width: 768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;letter-spacing:2px;line-height:1.2;}
+    .marca span{font-size:7pt;letter-spacing:0.8px;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;font-size:7pt;letter-spacing:1.4px;}
+    .pag{width:100%;max-width:148mm;min-height:auto;height:auto;}
+    .ccon{padding:0 8vw 10vw 10vw;}
+    .cser{font-size:7pt;letter-spacing:3px;gap:8px;margin-bottom:12px;}
+    .cser::before{width:16px;}
+    .cnd{font-size:22vw;top:18mm;right:8vw;}
+    .cnbg{font-size:42vw;right:-6px;bottom:-12px;}
+    .ctit{font-size:clamp(18pt,8vw,22pt);margin-bottom:10px;}
+    .cver{font-size:9.5pt;line-height:1.5;padding-left:8px;}
+    .int{padding:12mm 6vw 16mm 6vw;min-height:auto;}
+    .wm{font-size:30vw;right:4vw;bottom:12mm;}
+    .ph{margin-bottom:12px;padding-bottom:8px;gap:10px;flex-wrap:wrap;}
+    h2{font-size:11pt;letter-spacing:1.3px;padding-left:8px;margin-bottom:10px;}
+    h3{font-size:9pt;margin-top:10px;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .cap::first-letter{font-size:32pt;margin-right:4px;}
+    .bv,.bvp,.bvr,.obj,.apl{padding:9px 10px;margin:10px 0;}
+    .vt,.obj ul li,.qt,.lit ul li{font-size:9.5pt;}
+    .lr{height:18px;}
+    .lins{gap:14px;}
+    .lin{height:18px;}
+    .rod{padding:6px 6vw 5vw 6vw;}
+    .rod::before{left:6vw;right:6vw;}
+}
+
+@media (max-width: 480px){
+    .painel{padding:8px;}
+    .btn{padding:7px 10px;font-size:7.5pt;letter-spacing:1px;}
+    .area{margin-top:96px;padding:14px 8px 32px;}
+    .pag{border-radius:2px;}
+    .ctit{font-size:clamp(16pt,8.5vw,20pt);}
+    .cver{font-size:9pt;}
+    .phl{font-size:7pt;}
+    .pht{font-size:8pt;}
+    p{font-size:9.7pt;}
+}
+
+/* ===== BLOCOS-ALUNO (inseridos nas páginas do aluno) ===== */
+.bloco-aluno{
+    background:rgba(74,127,165,0.06);
+    border:1px solid rgba(74,127,165,0.25);
+    border-left:4px solid var(--cor);
+    border-radius:3px;
+    padding:10px 12px;
+    margin:12px 0 10px;
+}
+.bloco-aluno .ba-titulo{
+    font-family:'Oswald',sans-serif;
+    font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;
+    color:var(--cor);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-aluno .ba-titulo::before{content:'✦';font-size:7pt;color:var(--cor);}
+.bloco-aluno p{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    line-height:1.6;color:var(--ct);margin-bottom:0;
+}
+
+/* ===== MELHORIAS PEDAGÓGICAS DO PROFESSOR ===== */
+
+/* Indicador de competência pedagógica */
+.tag-comp{
+    display:inline-block;
+    font-family:'Oswald',sans-serif;font-size:6.5pt;
+    letter-spacing:1.5px;text-transform:uppercase;
+    border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;
+    vertical-align:middle;
+}
+.tag-comp.conhecimento{background:#dbeafe;color:#1e40af;}
+.tag-comp.habilidade{background:#dcfce7;color:#166534;}
+.tag-comp.atitude{background:#fef9c3;color:#854d0e;}
+
+/* Bloco de roteiro de pergunta socrática */
+.bloco-soc{
+    background:#f9f5ff;
+    border:1px solid rgba(90,62,138,0.2);
+    border-left:4px solid var(--prof);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-soc .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{
+    padding:5px 0 5px 14px;
+    border-bottom:1px solid rgba(90,62,138,0.08);
+    position:relative;
+}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{
+    content:'→';position:absolute;left:0;
+    color:var(--prof);font-size:9pt;top:5px;
+}
+.bloco-soc .soc-item p{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    color:#3a2a55;line-height:1.5;margin-bottom:2px;
+}
+.bloco-soc .soc-espera{
+    font-family:'Oswald',sans-serif;font-size:7pt;
+    letter-spacing:1px;color:#7a5fa0;text-transform:uppercase;
+    margin-top:1px;
+}
+
+/* Bloco de conexão entre páginas (fio condutor) */
+.bloco-fio{
+    background:linear-gradient(135deg,rgba(90,62,138,0.04),rgba(74,127,165,0.04));
+    border:1px dashed rgba(90,62,138,0.3);
+    border-radius:3px;padding:9px 12px;margin:10px 0;
+    display:flex;align-items:flex-start;gap:10px;
+}
+.bloco-fio-icon{
+    font-size:14pt;flex-shrink:0;margin-top:1px;
+    color:var(--prof);line-height:1;
+}
+.bloco-fio-txt{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    font-style:italic;color:#3a2a55;line-height:1.55;
+}
+.bloco-fio-txt strong{
+    font-style:normal;font-family:'Oswald',sans-serif;
+    font-size:7.5pt;letter-spacing:1px;color:var(--prof);
+    text-transform:uppercase;display:block;margin-bottom:3px;
+}
+
+/* Bloco de diferenciação por perfil */
+.bloco-perf{
+    background:#f0f7ff;
+    border:1px solid rgba(74,127,165,0.2);
+    border-left:4px solid var(--cor);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-perf .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--cor);margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{
+    display:grid;grid-template-columns:90px 1fr;
+    gap:6px 10px;align-items:start;
+    padding:4px 0;border-bottom:1px solid rgba(74,127,165,0.1);
+}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{
+    font-family:'Oswald',sans-serif;font-size:7pt;
+    background:var(--cor);color:#fff;
+    padding:2px 6px;border-radius:1px;
+    letter-spacing:1px;text-transform:uppercase;
+    text-align:center;margin-top:1px;
+}
+.perf-txt{
+    font-family:'EB Garamond',serif;font-size:9.5pt;
+    color:var(--ct);line-height:1.45;
+}
+
+/* Bloco de avaliação formativa rápida */
+.bloco-aval{
+    background:#fffef0;
+    border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-aval .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:#8a6a20;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{
+    font-family:'EB Garamond',serif;font-size:10pt;
+    line-height:1.6;color:#4a3a10;
+}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+/* Bloco de mapeamento de aprendizagem */
+.bloco-mapa{
+    background:#f8f9fa;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-mapa .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:#444;margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{
+    background:#fff;border:1px solid rgba(0,0,0,0.08);
+    border-radius:2px;padding:7px 9px;
+}
+.mapa-cel-tit{
+    font-family:'Oswald',sans-serif;font-size:7pt;
+    letter-spacing:1.5px;text-transform:uppercase;
+    color:#888;margin-bottom:4px;
+}
+.mapa-cel p{
+    font-family:'EB Garamond',serif;font-size:9.5pt;
+    color:#333;line-height:1.4;margin-bottom:0;
+    text-align:left;
+}
+
+</style>
+</head>
+<body>
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+<div class="senha-caixa">
+<div class="senha-icone"></div>
+<div class="senha-titulo">Eschaton</div>
+<div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+<div class="senha-desc">Este material é exclusivo para docentes.<br/>Insira a senha fornecida pela coordenação.</div>
+<input autocomplete="off" class="senha-campo" id="senha-input" maxlength="20" onkeydown="if(event.key==='Enter') verificarSenha()" placeholder="••••••••" type="password"/>
+<button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+<div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+<div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
+</div>
+</div>
+<!-- CONTEÚDO PRINCIPAL (oculto até senha correta) -->
+<div id="conteudo-principal">
+<div class="painel">
+<div class="marca">
+        ESCHATON
+        <span>Edição do Professor · Lição 01</span>
+<em>O Que é Escatologia?</em>
+</div>
+<span class="badge-prof">📘 Edição do Professor</span>
+<button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+<a href="index.html"><button class="btn bv" style="border:1px solid #333">← Hub</button></a>
+</div>
+<div class="area">
+
+<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 01">
+    <img src="capa-revista.png" alt="Capa da revista Eschaton">
+    <div class="entrada-cta">Toque para entrar na lição</div>
+</div>
+<!-- ══════════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (reproduzidas)
+     ══════════════════════════════════════ -->
+<!-- PG 1 — CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">01</div><div class="cnd">01</div>
+<div class="capa-prof-faixa">Edição do Professor</div>
+<div class="ccon">
+<div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+<div class="ctit">O Que é Escatologia?</div>
+<div class="cver">
+            "Porque eu sei os pensamentos que tenho a vosso respeito, diz o Senhor; pensamentos de paz, e não de mal, para vos dar o fim que esperais."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Jeremias 29:11</span>
+</div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+</div>
+<!-- PG 2 — INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+<div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 01</span><span class="pht">O Que é Escatologia?</span></div>
+<h2>Introdução</h2>
+<p class="cap">Escatologia — do grego <em>eschatos</em> (último) e <em>logos</em> (estudo) — é o ramo da teologia cristã que investiga os eventos finais da história humana e do cosmos. Longe de ser uma curiosidade especulativa, ela responde às perguntas mais profundas de toda geração: para onde o mundo caminha? O que espera cada ser humano além da morte?</p>
+<p>Ao apresentar esse tema, convém deixar claro à classe que a escatologia não ocupa um lugar marginal na fé cristã. Ela se relaciona diretamente com a esperança, com a perseverança e com a forma como a Igreja interpreta a história. O professor deve combater, desde o início, dois extremos: o medo sensacionalista e a indiferença doutrinária.</p>
+<div class="bv">"Porque para mim o viver é Cristo, e o morrer é lucro." <cite>Filipenses 1:21</cite></div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Compreender o significado e o escopo da escatologia bíblica</li>
+<li>Identificar os principais temas escatológicos do Antigo e do Novo Testamento</li>
+<li>Conhecer os métodos interpretativos da profecia bíblica</li>
+<li>Avaliar a relevância da escatologia para a vida cristã prática hoje</li>
+</ul>
+</div>
+<div class="sep"><span>✦</span></div>
+<p>A geração de jovens adultos de hoje enfrenta crises climáticas, guerras transmitidas ao vivo e um fluxo incessante de notícias apocalípticas. Diante disso, o estudo sério da escatologia bíblica não é evasão — é orientação. É aprender a ler a história com os olhos da eternidade.</p>
+<p>Vale mostrar que a curiosidade contemporânea sobre o fim quase sempre nasce de ansiedade coletiva. A resposta bíblica, porém, não é alimentar pânico, mas formar discernimento. Esta lição deve estabelecer esse tom para toda a série.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Para Você Refletir — O que é Escatologia?</div>
+<p>A palavra <em>escatologia</em> vem do grego <em>eschatos</em> (último) + <em>logos</em> (estudo): literalmente, o estudo das últimas coisas. Não é um tema reservado a especialistas — é a pergunta que toda pessoa já fez: "O que será de mim? Para onde vai o mundo?" A Bíblia responde a essas perguntas com esperança fundamentada, não com especulação ansiosa.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+<!-- PG 3 — DESENVOLVIMENTO I -->
+<div class="lbl">Página 3 · Desenvolvimento I</div>
+<div class="pag int">
+<div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 01</span><span class="pht">O Que é Escatologia?</span></div>
+<h2>I — Fundamentos Bíblicos da Escatologia</h2>
+<p>A esperança escatológica percorre toda a Bíblia como um fio condutor — do Gênesis, com a promessa do Redentor (Gn 3:15), até o Apocalipse, com a visão da nova criação (Ap 21). A escatologia não é um apêndice da teologia, mas seu horizonte necessário.</p>
+<p>Ao comentar esse ponto, ajude a turma a perceber que a narrativa bíblica inteira aponta para um desfecho preparado por Deus. Não se trata apenas de acontecimentos futuros isolados, mas da consumação do propósito divino iniciado na criação e desenvolvido ao longo da história da redenção.</p>
+<h3>A Escatologia no Antigo Testamento</h3>
+<p>Os profetas hebreus — Isaías, Daniel, Ezequiel e Zacarias — foram os primeiros articuladores de uma visão escatológica coerente. Isaías vislumbrou a renovação cósmica (Is 65:17-25); Daniel recebeu visões de reinos sucessivos e do estabelecimento eterno do Reino de Deus (Dn 7:13-14).</p>
+<p>É útil destacar que, no AT, juízo e esperança caminham juntos. Deus denuncia o pecado das nações, corrige seu povo e, ao mesmo tempo, preserva a promessa de restauração. Essa tensão ajuda o aluno a entender por que a escatologia bíblica é moralmente exigente e espiritualmente consoladora.</p>
+<div class="bv">"E naquele tempo se levantará Miguel, o grande príncipe... e muitos dos que dormem no pó da terra ressuscitarão." <cite>Daniel 12:1-2</cite></div>
+<h3>A Escatologia no Novo Testamento</h3>
+<p>Jesus inaugurou o Reino de Deus no presente ("já") enquanto apontava para sua consumação futura ("ainda não"). Os apóstolos Paulo e João desenvolveram a doutrina — Paulo em 1 Tessalonicenses 4–5 e 1 Coríntios 15; João no Apocalipse, a grande síntese profética do cânon cristão.</p>
+<p>Enfatize que a ressurreição de Cristo é a chave da escatologia cristã. Ela garante que o futuro prometido por Deus não é hipótese religiosa, mas realidade fundada em um acontecimento histórico. Esse ponto fortalece a confiança do aluno na objetividade da esperança cristã.</p>
+<div class="sep"><span>✦</span></div>
+<p>Compreender esse panorama é essencial antes de mergulhar nos debates específicos sobre o arrebatamento, o milênio e o juízo final — que ocuparão as lições seguintes.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Conexão Bíblica — O Fio da Esperança</div>
+<p>De Gênesis 3:15 — a primeira promessa de redenção — ao "Amém, vem, Senhor Jesus" de Apocalipse 22:20, a Bíblia inteira é costurada pelo mesmo fio de esperança. O Antigo Testamento anuncia; o Novo Testamento revela. Os dois testamentos não se contradizem: juntos, eles contam uma única história com um único fim glorioso.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+<!-- PG 4 — DESENVOLVIMENTO II -->
+<div class="lbl">Página 4 · Desenvolvimento II</div>
+<div class="pag int">
+<div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 01</span><span class="pht">O Que é Escatologia?</span></div>
+<h2>II — Principais Abordagens de Interpretação</h2>
+<p>Cristãos ortodoxos divergem significativamente em suas leituras proféticas não por descaso com as Escrituras, mas por adotando métodos hermenêuticos distintos. Reconhecer essa pluralidade é o primeiro passo para um diálogo teológico maduro e respeitoso.</p>
+<p>O professor deve usar esse momento para formar postura. Antes de tomar partido, a turma precisa aprender a ouvir, comparar e testar argumentos. Essa disciplina evita caricaturas e reduz a chance de debates improdutivos já na primeira lição.</p>
+<h3>Interpretação Literal vs. Simbólica</h3>
+<p>A abordagem <em>literalista</em> — característica do dispensacionalismo — interpreta as profecias bíblicas em seu sentido natural e histórico. A abordagem <em>tipológica/alegórica</em> — mais comum na tradição reformada — entende que pessoas, eventos e instituições do AT prefiguram realidades superiores cumpridas em Cristo e na Igreja.</p>
+<p>Mostre exemplos simples para a classe perceber que a diferença não é apenas teórica. A leitura de Israel, do templo, do milênio e da grande tribulação costuma depender do método adotado. Isso ajuda o aluno a entender por que intérpretes fiéis chegam a conclusões distintas.</p>
+<div class="sep"><span>✦</span></div>
+<h3>Os Principais Sistemas Escatológicos</h3>
+<p>Três grandes sistemas organizam o debate moderno: o <strong>Premilenismo</strong> (Cristo volta antes de um reinado literal de mil anos); o <strong>Amilenismo</strong> (o milênio é a era presente da Igreja); e o <strong>Pós-milenismo</strong> (a Igreja avança o Reino até que Cristo volte em triunfo). Cada um será examinado em profundidade na Lição 07.</p>
+<p>Nesta fase, o ideal é apresentar cada sistema de modo descritivo, sem transformar a aula em disputa. O objetivo é dar mapa conceitual. Muitos conflitos surgem quando o aluno conhece o nome da posição, mas não entende sua lógica interna.</p>
+<div class="bv">"Toda a Escritura é divinamente inspirada e proveitosa para ensinar, para redarguir, para corrigir, para instruir em justiça." <cite>2 Timóteo 3:16</cite></div>
+<div class="bloco-aluno">
+<div class="ba-titulo">Sabia Que? — Os Sistemas e a Humildade Teológica</div>
+<p>Cristãos que amam as Escrituras e têm vida devotada chegaram a conclusões diferentes sobre o milênio, o arrebatamento e os eventos finais. Calvino, Spurgeon, Agostinho e Charles Wesley — todos divergiam em pontos escatológicos. Isso não é fraqueza da fé; é evidência de que a Bíblia é rica demais para caber em um único esquema. A humildade teológica não é dúvida — é maturidade.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+<!-- PG 5 — VISÕES EM DIÁLOGO -->
+<div class="lbl">Página 5 · Desenvolvimento III</div>
+<div class="pag int">
+<div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 01</span><span class="pht">O Que é Escatologia?</span></div>
+<h2>III — Visões em Diálogo</h2>
+<p>Duas das mais influentes tradições do protestantismo brasileiro — a pentecostal e a reformada — partem de pressupostos hermenêuticos distintos que moldam toda a sua leitura escatológica.</p>
+<p>Esse bloco pode ser especialmente sensível em turmas mistas. Por isso, insista que a finalidade aqui é compreensão comparativa. O aluno deve aprender a reconhecer ênfases, pressupostos e consequências práticas de cada tradição, sem transformar a sala em tribunal confessionário.</p>
+<div class="bvp">
+<div class="vl">✦ Perspectiva Pentecostal</div>
+<div class="vt">A tradição pentecostal tende ao premilenismo dispensacionalista: Israel e Igreja são entidades proféticas distintas; o arrebatamento pré-tribulacional retira a Igreja antes dos julgamentos do Apocalipse. Os dons do Espírito — especialmente línguas e profecia — são vistos como sinal escatológico do derramamento prometido em Joel 2:28-29.</div>
+<div class="vt">Observe com a turma que essa leitura costuma produzir forte senso de urgência espiritual. A expectativa iminente da volta de Cristo influencia a pregação, a vigilância moral e o apelo missionário. Isso ajuda o aluno a perceber que sistemas escatológicos também moldam práticas e ênfases eclesiásticas.</div>
+</div>
+<div class="bvr">
+<div class="vl">✦ Perspectiva Reformada</div>
+<div class="vt">A tradição reformada adota predominantemente o amilenismo: o milênio representa a era presente da Igreja. Israel e Igreja formam um único povo de Deus sob alianças progressivas. A hermenêutica tipológica lê a profecia à luz do cumprimento em Cristo, evitando cronogramas detalhados.</div>
+<div class="vt">Nessa leitura, a ênfase recai sobre a centralidade de Cristo e sobre a continuidade do plano redentor. O professor pode mostrar que essa perspectiva busca proteger a unidade da revelação e evitar leituras excessivamente fragmentadas da história bíblica.</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<p>Apesar das divergências, ambas confessam os pilares inegociáveis: o retorno pessoal e visível de Cristo, a ressurreição dos mortos, o juízo final e a vida eterna.</p>
+<div class="bloco-guia"><div class="bk">Subsídio ao Professor</div><p>Estimule comparação respeitosa entre tradições. O objetivo não é escolher um vencedor às pressas, mas formar critérios de leitura bíblica.</p></div>
+<div class="bloco-guia"><div class="bk">Subsídio ao Professor</div><p>Uma boa pergunta para esse momento é: “Quais convicções cada tradição considera centrais para sua leitura do futuro?”. Isso desloca o debate da mera opinião para o campo dos pressupostos bíblicos e hermenêuticos.</p></div>
+<div class="bloco-aluno">
+<div class="ba-titulo">Pense Nisso — O Que Une e o Que Divide</div>
+<p>Pentecostais e reformados discordam sobre o milênio e o arrebatamento — mas concordam no que é inegociável: Cristo voltará pessoalmente e visivelmente, os mortos ressuscitarão, haverá julgamento final, e os remidos viverão com Deus para sempre. Aprenda a distinguir o que é fundamento do que é interpretação. Você pode discordar sobre o “como” sem perder a comunhão sobre o “Quem”.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+<!-- PG 6 — APLICAÇÃO -->
+<div class="lbl">Página 6 · Conclusão</div>
+<div class="pag int">
+<div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 01</span><span class="pht">O Que é Escatologia?</span></div>
+<h2>Conclusão</h2>
+<p>Vivemos em uma era de sobrecarga informacional e ansiedade existencial. Vídeos prometem revelar "a data do fim do mundo"; pastores monetizam cronogramas proféticos. Nesse contexto, o estudo sério da escatologia bíblica é necessidade pastoral urgente.</p>
+<p>Na conclusão, reforce que a escatologia bíblica não foi dada para alimentar fascínio por crises, mas para produzir perseverança. A boa aula termina quando o aluno entende que o futuro revelado por Deus ilumina o presente e o chama à fidelidade.</p>
+<div class="apl">
+<div class="at">Para a sua semana</div>
+<p>Identifique uma afirmação escatológica que circula nas suas redes sociais e avalie-a com base nos critérios aprendidos. Leia Apocalipse 1:1-8 como introdução ao grande livro profético do NT. Converse com alguém de tradição diferente sobre o que ele espera do futuro — ouça antes de responder.</p>
+</div>
+<div class="sep"><span>✦</span></div>
+<h3>Para Refletir</h3>
+<p>O teólogo Herman Bavinck escreveu que "a escatologia não é o capítulo final da teologia, mas o pano de fundo de toda ela". O que muda na sua maneira de estudar a Bíblia e se relacionar com as pessoas?</p>
+<p>Essa pergunta pode render aplicação pastoral profunda. Estimule respostas concretas: prioridades, ética, modo de sofrer, modo de servir. O aluno precisa perceber que a esperança futura reorganiza o presente.</p>
+<div class="bv">"Aguardando a bendita esperança e a manifestação da glória do grande Deus e Salvador nosso Jesus Cristo." <cite>Tito 2:13</cite></div>
+<p>Na próxima lição: <strong>Os Sinais dos Tempos</strong> — Mateus 24 e suas implicações para hoje.</p>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Na conclusão, amarre esperança futura e responsabilidade presente para evitar um estudo meramente teórico.</p></div>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Se houver tempo, peça que cada aluno formule em uma frase o que aprendeu sobre a utilidade prática da escatologia. Isso ajuda a verificar se a classe saiu do campo da curiosidade para o da formação espiritual.</p></div>
+<div class="bloco-aluno">
+<div class="ba-titulo">Leve Para a Vida — A Esperança que Transforma</div>
+<p>A escatologia não é teoria para o futuro — é combustível para o presente. Quem crê que Cristo voltará vive de forma diferente: serve com mais generosidade, suporta o sofrimento com mais firmeza, perdoa com mais facilidade e evangeliza com mais urgência. A esperança bíblica não faz você escapar do mundo; ela te envia de volta ao mundo com propósito eterno.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+<!-- PG 7 — QUESTÕES -->
+<div class="lbl">Página 7 · Questões &amp; Anotações</div>
+<div class="pag int">
+<div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 01</span><span class="pht">O Que é Escatologia?</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">O que significa a palavra "escatologia" e por que esse estudo é relevante para um cristão jovem?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">Como Antigo e Novo Testamento se complementam na construção de uma esperança escatológica? Cite ao menos um texto de cada testamento.</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">Qual a diferença entre os métodos literalista e tipológico/alegórico de interpretar a profecia?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">De que forma o estudo da escatologia pode transformar sua perspectiva sobre o presente?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="lit">
+<div class="lt">Leituras Complementares</div>
+<ul>
+<li>Anthony Hoekema — <em>A Bíblia e o Futuro</em> (reformada/amilenista)</li>
+<li>John F. Walvoord — <em>The Prophecy Knowledge Handbook</em> (dispensacionalista)</li>
+<li>Leitura devocional: Daniel 7 + Apocalipse 1 + 1 Coríntios 15:20-28</li>
+</ul>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+<!-- ══════════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════════ -->
+<!-- PG P1 — GUIA DO PROFESSOR -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral da Lição</div>
+<div class="pag int-prof">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 01 · Guia do Professor</span>
+<span class="ph-prof-r">Edição Docente</span>
+</div>
+<h2 class="prof">Visão Geral para o Professor</h2>
+<p>Esta lição inaugura toda a série ESCHATON. Seu papel aqui não é o de especialista em profecias, mas o de <em>orientador de um processo de descoberta.</em> Muitos alunos chegarão com bagagem de conteúdo sensacionalista — vídeos de YouTube, aplicativos de "sinais do fim" — e precisam ser conduzidos a um chão firme sem sentir que sua fé está sendo questionada.</p>
+<div class="bloco-mapa">
+<div class="bk">Mapa de Competências da Lição</div>
+<div class="mapa-grid">
+<div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Definir escatologia; identificar os três sistemas principais; distinguir AT e NT na narrativa profética</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Comparar posições com respeito; diferenciar fundamentos de interpretações secundárias</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Cultivar humildade teológica; conectar esperança futura à fidelidade presente</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno consegue explicar por que cristãos divergem em escatologia sem perder a unidade essencial?</p></div>
+</div>
+</div>
+<div class="bloco-tempo">
+<div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: pergunta provocadora inicial (ver página P2)</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução e objetivos. Deixe os alunos lerem em voz alta.</span></div>
+<div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 3-4 — Panorama profético e sistemas escatológicos</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Visões em Diálogo: momento de debate entre tradições</span></div>
+<div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 6 — Aplicação prática e para refletir</span></div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 7 — Questões: responder 1-2 em aula, restante como tarefa</span></div>
+</div>
+<div class="bloco-guia">
+<div class="bk">Objetivos Pedagógicos do Professor</div>
+<ul>
+<li>Criar um ambiente de curiosidade intelectual e respeito às diferenças de tradição</li>
+<li>Desmistificar a escatologia como tema "perigoso" ou exclusivamente especulativo</li>
+<li>Introduzir o vocabulário técnico básico de forma acessível e contextualizada</li>
+<li>Estabelecer o tom da série: rigor bíblico, abertura ao diálogo, aplicação prática</li>
+</ul>
+</div>
+<div class="alerta">
+<div class="bk">Atenção do Professor</div>
+<p>Evite tomar partido abertamente entre as posições premilenista e amilenista nesta primeira lição. O objetivo é apresentar o mapa do debate, não resolver o debate. A tomada de posição prematura pode inibir alunos de tradições diferentes de se engajarem livremente nas próximas semanas.</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Leitura da Turma</div>
+<p>Ao perceber sinais de ansiedade, volte sempre à centralidade de Cristo. Quando a aula gira apenas em torno de datas, cenários ou crises internacionais, o aluno tende a sair impressionado, mas não necessariamente edificado. A função pastoral do professor é recolocar a esperança cristã em seu eixo bíblico.</p>
+</div>
+<div class="bloco-fio">
+<div class="bloco-fio-icon">⇢</div>
+<div class="bloco-fio-txt"><strong>Fio Condutor da Série</strong>Esta lição estabelece o vocabulário e o método que toda a série usará. O que for plantado aqui — humildade hermenêutica, centralidade de Cristo, conexão doutrina–vida — crescerá em cada lição seguinte. Invista nesta base.</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+<!-- PG P2 — DINÂMICA DE ABERTURA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 01 · Dinâmica &amp; Teologia</span>
+<span class="ph-prof-r">Edição Docente</span>
+</div>
+<h2 class="prof">Dinâmica de Abertura</h2>
+<div class="bloco-debate">
+<div class="bk">Pergunta Inicial — antes de abrir o material</div>
+<p>"Se você tivesse certeza de que Jesus voltaria amanhã, o que faria diferente hoje? E se tivesse certeza de que levaria ainda 500 anos?"</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">Como conduzir</div>
+<ul>
+<li>Dê 2 minutos para reflexão individual em silêncio</li>
+<li>Peça 3-4 voluntários para compartilhar brevemente</li>
+<li>Observe: as respostas revelam a teologia prática implícita de cada aluno</li>
+<li>Use as respostas como gancho para introduzir a definição de escatologia</li>
+<li>Diga: "O que acabamos de fazer é exatamente o que a escatologia bíblica se propõe — perguntar o que o futuro revela sobre o presente."</li>
+</ul>
+</div>
+<div class="bloco-soc">
+<div class="bk">Escada de Perguntas Socráticas — Introdução</div>
+<div class="soc-item">
+<p>Nível 1 — Diagnóstico: "O que você já ouviu sobre o fim do mundo que te deixou com dúvida ou com medo?"</p>
+<div class="soc-espera">Espera: respostas revelam bagagem prévia e abertura à correção</div>
+</div>
+<div class="soc-item">
+<p>Nível 2 — Conceitual: "Se a Bíblia fala tanto sobre o futuro, qual seria o principal propósito disso — informar ou transformar?"</p>
+<div class="soc-espera">Espera: percepção de que escatologia é formativa, não apenas informativa</div>
+</div>
+<div class="soc-item">
+<p>Nível 3 — Aplicação: "Que diferença faz para o seu cotidiano saber que a história tem um fim ordenado por Deus?"</p>
+<div class="soc-espera">Espera: conexão entre doutrina e ética de vida; perseverança, generosidade, urgência</div>
+</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Aprofundamento Teológico</h2>
+<div class="bloco-teo">
+<div class="bk">A Tensão "Já e Ainda Não" — Oscar Cullmann</div>
+<p>O teólogo suíço Oscar Cullmann desenvolveu na obra <em>Cristo e o Tempo</em> (1946) a metáfora do "D-Day e V-Day": a morte e ressurreição de Cristo representam o dia decisivo da guerra (D-Day), cujo resultado já está selado — mas a rendição formal ainda não chegou (V-Day). O cristão vive no intervalo. Esta tensão estrutura toda a escatologia do NT e ajuda a explicar por que Paulo fala do Reino como algo presente <em>e</em> futuro ao mesmo tempo (Rm 8:23-24; 1 Co 15:24-28).</p>
+</div>
+<div class="bloco-teo">
+<div class="bk">Por que Há Tantos Sistemas? — Geerhardus Vos</div>
+<p>Geerhardus Vos, pai da teologia bíblica reformada, argumentou em <em>Biblical Theology</em> (1948) que a multiplicidade de sistemas escatológicos reflete a riqueza estrutural da própria revelação progressiva. A Bíblia não foi escrita como manual sistemático; ela revela o plano de Deus gradualmente, criando espaço legítimo para diferentes sínteses. Reconhecer isso afasta o professor e o aluno do fundamentalismo cronológico sem cair no relativismo teológico.</p>
+</div>
+<div class="bloco-teo">
+<div class="bk">Ponto de Equilíbrio</div>
+<p>Ao lidar com sistemas escatológicos, lembre a turma de que o compromisso primário do intérprete é com o texto bíblico e com a fé cristã histórica. Um bom critério pedagógico é perguntar: esta leitura preserva a centralidade de Cristo, a autoridade das Escrituras e a esperança da consumação final?</p>
+</div>
+<div class="cit-autor">
+        "A esperança cristã não é o otimismo do progresso humano, nem o pessimismo da fuga do mundo — é a certeza de que o Deus que começou a boa obra a completará."
+        <cite>— Herman Bavinck, <em>Reformed Dogmatics</em>, vol. 4</cite>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO DE CONFLITOS -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 01 · Pedagogia</span>
+<span class="ph-prof-r">Edição Docente</span>
+</div>
+<h2 class="prof">Dicas Pedagógicas</h2>
+<div class="bloco-dica">
+<div class="bk">Para Tornar o Conteúdo Concreto</div>
+<ul>
+<li><strong>Linha do tempo visual:</strong> desenhe no quadro uma linha de Gênesis ao Apocalipse e marque os grandes momentos proféticos enquanto fala sobre o panorama do AT e NT (pg. 3). Alunos visuais respondem muito bem.</li>
+<li><strong>Analogia dos mapas:</strong> ao apresentar os três sistemas escatológicos, use a analogia de diferentes mapas do mesmo território — todos tentam representar a mesma realidade bíblica, mas enfatizam elementos distintos.</li>
+<li><strong>Nuvem de palavras:</strong> peça que cada aluno escreva em um papel a primeira palavra que vem à cabeça quando ouve "fim do mundo". Cole no quadro e analise juntos. Serve como diagnóstico e ponto de partida.</li>
+</ul>
+</div>
+<div class="bloco-perf">
+<div class="bk">Diferenciação por Perfil de Turma</div>
+<div class="perf-linha">
+<div class="perf-tipo">18–22 anos</div>
+<div class="perf-txt">Enfatize relevância contemporânea: ansiedade climática, IA, pandemias. A escatologia responde ao que eles já sentem. Use referências culturais recentes para criar ponte.</div>
+</div>
+<div class="perf-linha">
+<div class="perf-tipo">25–35 anos</div>
+<div class="perf-txt">Aprofunde os sistemas interpretativos. Eles têm repertório teológico e podem suportar nuance. Instigue comparação crítica entre as tradições.</div>
+</div>
+<div class="perf-linha">
+<div class="perf-tipo">Mista</div>
+<div class="perf-txt">Privilegie "Visões em Diálogo" (pg. 5). Peça que grupos defendam a perspectiva oposta à sua — exercício de empatia hermenêutica.</div>
+</div>
+<div class="perf-linha">
+<div class="perf-tipo">Ansioso</div>
+<div class="perf-txt">Reduza ritmo. Comece pela dimensão pastoral: "Esta lição existe para dar paz, não ansiedade." Ancora na soberania de Deus antes de tratar de sistemas.</div>
+</div>
+</div>
+<div class="bloco-aval">
+<div class="bk">Avaliação Formativa Rápida — Antes de Encerrar</div>
+<p>Verifique se os seguintes objetivos foram alcançados antes de encerrar:</p>
+<ul>
+<li>O aluno consegue definir "escatologia" com suas próprias palavras?</li>
+<li>Ele distingue pelo menos dois sistemas escatológicos sem caricaturar nenhum?</li>
+<li>Ele articula uma implicação prática da esperança bíblica para sua vida?</li>
+<li>A turma manteve tom de diálogo respeitoso ao longo da lição?</li>
+</ul>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Gestão de Tensões</h2>
+<div class="alerta">
+<div class="bk">Situação Comum — O Aluno Dogmático</div>
+<p>Alguns alunos pentecostais podem resistir à apresentação do amilenismo como posição legítima, e vice-versa. Resposta sugerida: "Você está em boa companhia — homens como Calvino e Spurgeon pensavam assim. E o aluno ao seu lado também está em boa companhia. Esta série nos convida a entender antes de julgar."</p>
+</div>
+<div class="alerta">
+<div class="bk">Situação Comum — "Mas qual é a posição certa?"</div>
+<p>Quando pressionado a revelar sua posição pessoal, o professor pode responder: "Tenho minhas convicções, e as compartilharei na lição certa para isso. Por agora, meu trabalho é equipar vocês para que cada um forme a sua própria — com base na Escritura, não em modismos."</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Encerramento Ideal da Aula</div>
+<ul>
+<li>Recapitule os três sistemas em uma frase cada</li>
+<li>Leia Apocalipse 22:20 em voz alta como conclusão: "Certamente venho em breve. Amém! Vem, Senhor Jesus!"</li>
+<li>Ore pedindo humildade intelectual e fé prática à turma</li>
+<li>Anuncie o tema da próxima lição: <em>Os Sinais dos Tempos — Mateus 24</em></li>
+</ul>
+</div>
+<div class="bloco-dica">
+<div class="bk">Sinal de alerta</div>
+<p>Quando a discussão começar a girar apenas em torno de “quem está certo”, interrompa e retorne ao texto. A meta desta lição é formar leitura responsável, não vencer disputa de tradição.</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+<!-- PG P4 — RESPOSTAS SUGERIDAS + MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 01 · Respostas &amp; Recursos</span>
+<span class="ph-prof-r">Edição Docente</span>
+</div>
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+<div class="bloco-resp">
+<div class="bk">Gabarito Orientativo</div>
+<div class="resp-item">
+<div class="resp-num">Questão 01</div>
+<div class="resp-txt">Escatologia vem do grego <em>eschatos</em> (último) + <em>logos</em> (estudo): estudo das últimas coisas. É relevante porque orienta o cristão sobre o sentido da história, a esperança diante do sofrimento e as prioridades da vida presente. Para jovens, enfrenta diretamente a ansiedade existencial contemporânea com uma esperança fundamentada.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 02</div>
+<div class="resp-txt">AT: os profetas (Is 65:17; Dn 12:1-2; Zc 14) anunciam a renovação cósmica e a ressurreição. NT: Jesus anuncia o Reino já inaugurado (Lc 4:21) e ainda não consumado (Mt 24:30); Paulo desenvolve a ressurreição em 1 Co 15 e a esperança em 1 Ts 4:13-18; João sintetiza no Apocalipse. Os dois testamentos formam uma única narrativa escatológica progressiva.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 03</div>
+<div class="resp-txt">O método literalista interpreta as profecias no sentido natural e histórico das palavras, reservando sentido figurado apenas quando exigido pelo texto. O tipológico/alegórico entende que pessoas e eventos do AT prefiguram realidades superiores em Cristo. A diferença impacta diretamente a leitura do milênio, de Israel e do Apocalipse.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 04</div>
+<div class="resp-txt">Respostas pessoais variadas. Espere respostas que conectem urgência missionária, liberdade das ansiedades materiais, ética do cuidado (sabendo que o mundo terá fim), generosidade e oração. Valorize qualquer resposta que demonstre que o aluno conectou doutrina à prática de vida.</div>
+</div>
+</div>
+<div class="bloco-fio">
+<div class="bloco-fio-icon">↻</div>
+<div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>As respostas sugeridas são orientativas, não definitivas. Valorize respostas pessoais que demonstrem conexão bíblica genuína. Na Questão 04, especialmente, respostas inesperadas e criativas merecem afirmação pública — revelam que o aluno internalizou a doutrina em vez de apenas repeti-la.</div>
+</div>
+<div class="bloco-aval">
+<div class="bk">Seguimento Pós-Lição</div>
+<ul>
+<li>Envie um versículo de esperança escatológica no grupo da turma durante a semana (sugestão: Ap 21:5)</li>
+<li>Proponha a leitura devocional de Daniel 7 + 1 Coríntios 15:20-28 antes da próxima lição</li>
+<li>Registre nomes de alunos que demonstraram interesse especial ou resistência — ambos precisam de atenção pastoral diferenciada</li>
+<li>Avalie se o tom desta lição preparou bem o terreno para a Lição 02 (Os Sinais dos Tempos)</li>
+</ul>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-mat">
+<div class="bk">Recursos Recomendados ao Professor</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Anthony Hoekema — <em>A Bíblia e o Futuro</em>. Cultura Cristã. Melhor introdução ao amilenismo reformado em português.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Oscar Cullmann — <em>Cristo e o Tempo</em>. Melhor explicação da tensão "já e ainda não" no NT.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Hernandes Dias Lopes — <em>Apocalipse: o livro das boas-vindas</em>. Hagnos. Perspectiva reformada acessível, boa para o professor de base pentecostal que quer ampliar repertório.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo video">Vídeo</span>
+<span class="mat-info">BibleProject: série <em>Apocalíptico</em> (YouTube, legendado em PT). Excelente introdução visual ao gênero apocalíptico para usar antes ou depois da aula.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo audio">Podcast</span>
+<span class="mat-info">Ligonier Ministries — <em>Escatologia com R.C. Sproul</em>. Disponível no Spotify. Perspectiva reformada sólida para o professor aprofundar sua base.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo site">Digital</span>
+<span class="mat-info">thegospelcoalition.org/pt — seção Escatologia. Artigos curtos e bem fundamentados para leitura rápida durante a semana.</span>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+</div><!-- /area -->
+<script>
+
+function entrarLicao(){
+    document.body.classList.add('licao-iniciada');
+    window.scrollTo({top: 0, behavior: 'instant'});
+}
+function entrarLicao(){
+    document.body.classList.add('licao-iniciada');
+    window.scrollTo({top: 0, behavior: 'instant'});
+}
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit(){
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el=>{
+        if(TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul')){
+            el.contentEditable = edit ? 'true' : 'false';
+        }
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+<script>
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v1_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro = document.getElementById('senha-erro');
+    const val = input.value.trim().toLowerCase();
+
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+
+// Mantém acesso durante a sessão
+(function() {
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+</script>
+<script src="navegacao.js"></script>
+</body>
+</html>

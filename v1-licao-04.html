@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1020">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
+<title>Eschaton · Lição 04 — EDIÇÃO DO PROFESSOR</title>
+
+<meta name="theme-color" content="#0d1020">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+
+:root{--cor:#c06020;--grad1:#281408;--grad2:#3a1a08;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--creme:#f5f0e8;--cc:#e0ddd8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#111;font-family:'EB Garamond',Georgia,serif;}
+.painel{position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0a0a0a,#1a1a1a);border-bottom:1px solid rgba(192,96,32,0.4);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:8pt;color:#666;letter-spacing:1px;display:block;font-weight:300;}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+.area{margin-top:60px;padding:24px 16px 60px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--branco);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#555;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 65%,rgba(192,96,32,0.45) 0%,transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(201,168,76,0.15) 0%,transparent 45%),radial-gradient(ellipse at 50% 40%,rgba(139,26,26,0.3) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:20px 20px;}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,var(--vermelho),var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.035);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#1a0800,var(--cor) 55%,#ffaa60);opacity:0.4;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--vermelho),var(--cor),var(--ouro),transparent);opacity:0.7;}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.cnd{font-family:'Cinzel',serif;font-size:36pt;font-weight:900;color:#fff;opacity:0.12;position:absolute;top:20mm;right:12mm;line-height:1;}
+.ctit{font-family:'Cinzel',serif;font-size:22pt;font-weight:700;color:#fff;line-height:1.15;text-transform:uppercase;margin-bottom:12px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--branco);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--vermelho),var(--cor),var(--ouro) 70%,transparent);}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.035);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);border-left:4px solid var(--cor);padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1px;color:var(--ct);text-transform:uppercase;margin-bottom:6px;margin-top:12px;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.bver{background:var(--creme);border-left:3px solid var(--ouro);padding:10px 12px;margin:12px 0;font-style:italic;font-size:10pt;color:#555;line-height:1.55;font-family:'EB Garamond',serif;}
+.bver cite{display:block;font-size:8.5pt;font-style:normal;color:var(--ouro);margin-top:4px;font-family:'Oswald',sans-serif;letter-spacing:1px;}
+.bvp{border:1px solid rgba(192,96,32,0.35);background:rgba(192,96,32,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bvr{border:1px solid rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.vl{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;font-weight:600;}
+.bvp .vl{color:var(--cor);}.bvr .vl{color:#8a6a20;}
+.vt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.35;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cc);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.obj{background:var(--creme);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+ul li::before { 
+    content: '\2192' !important; 
+    position: absolute; 
+    left: 0; 
+    color: var(--cor); 
+    font-size: 9pt; 
+}
+.apl{background:linear-gradient(135deg,rgba(192,96,32,0.06),rgba(201,168,76,0.06));border:1px solid rgba(192,96,32,0.2);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.apl .at{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.q{margin-bottom:14px;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid #ddd;height:20px;margin-top:3px;}
+.lit{margin-top:10px;padding-top:10px;border-top:1px solid var(--cc);}
+.lit .lt{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:var(--ouro);text-transform:uppercase;margin-bottom:6px;}
+.lit ul{list-style:none;padding:0;}
+.lit ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#666;padding:1px 0 1px 12px;position:relative;}
+.lit ul li::before{content:'&#183;';position:absolute;left:2px;color:var(--ouro);}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#bbb;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;}
+.lin{border-bottom:1px solid #ddd;height:22px;}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(192,96,32,0.06);border-radius:2px;}
+[contenteditable="true"]:focus{background:rgba(192,96,32,0.09);border-radius:2px;}
+
+/* ENTRADA DA REVISTA */
+.capa-entrada{background:#050505;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;min-height:210mm;}
+.capa-entrada::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.0) 40%,rgba(0,0,0,0.3) 100%);pointer-events:none;}
+.capa-entrada img{display:block;width:100%;height:100%;object-fit:cover;position:relative;z-index:1;}
+.entrada-cta{position:absolute;left:50%;bottom:16mm;transform:translateX(-50%);z-index:2;background:rgba(5,5,5,0.72);color:var(--ouro-claro);border:1px solid rgba(201,168,76,0.35);padding:9px 16px;border-radius:2px;font-family:'Oswald',sans-serif;font-size:8.5pt;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;backdrop-filter:blur(2px);}
+#conteudoLicao{display:none;}
+body.licao-iniciada #conteudoLicao{display:contents;}
+body.licao-iniciada #capaEntradaRevista{display:none;}
+
+@media (max-width: 768px){
+    .painel{padding:8px 10px;gap:8px;}
+    .marca{font-size:10pt;letter-spacing:2px;}
+    .marca span{font-size:7pt;}
+    .btn{font-size:8pt;padding:7px 10px;letter-spacing:1px;}
+    .area{margin-top:74px;padding:12px 10px 40px;gap:12px;}
+    .pag{width:100%;min-height:auto;}
+    .lbl{margin-left:0;align-self:stretch;}
+    .capa-entrada{min-height:calc(100dvh - 98px);max-height:calc(100dvh - 98px);}
+    .capa-entrada img{object-fit:contain;background:#050505;}
+    .entrada-cta{bottom:14px;font-size:8pt;letter-spacing:1.5px;padding:8px 12px;width:calc(100% - 24px);text-align:center;}
+    .capa,.int{min-height:auto;}
+    .ccon{padding:0 8vw 10vw 10vw;}
+    .cnd{top:12vw;right:7vw;font-size:22vw;}
+    .cnbg{font-size:38vw;right:-2vw;bottom:-5vw;}
+    .ctit{font-size:clamp(18pt,8vw,22pt);}
+    .cver{font-size:9.5pt;}
+    .ph{gap:8px;align-items:flex-start;}
+    .phl,.pht{font-size:7.5pt;}
+    h2{font-size:11pt;letter-spacing:1.5px;}
+    h3{font-size:9pt;}
+    p,.vt,.obj ul li,.qt{font-size:10pt;line-height:1.55;}
+    .bver,.bvp,.bvr,.obj,.apl{padding:10px;}
+    .rod{position:relative;padding:14px 8vw 8vw 10vw;margin-top:18px;}
+    .wm{display:none;}
+}
+    
+@media print{
+    body{background:none;}
+    .painel,.lbl{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm{display:none;}
+}
+
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{position:fixed;inset:0;z-index:99999;background:linear-gradient(160deg,#140800 0%,#281408 60%,#100600 100%);display:flex;align-items:center;justify-content:center;}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{width:56px;height:56px;border:1px solid rgba(192,96,32,0.55);transform:rotate(45deg);margin:0 auto 32px;position:relative;}
+.senha-icone::after{content:"";position:absolute;inset:10px;background:rgba(192,96,32,0.25);}
+.senha-titulo{font-family:"Cinzel",serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:"Oswald",sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:#c06020;margin-bottom:8px;}
+.senha-desc{font-family:"EB Garamond",serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(192,96,32,0.4);border-radius:2px;padding:12px 16px;font-family:"Oswald",sans-serif;font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;}
+.senha-campo:focus{border-color:rgba(192,96,32,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{width:100%;background:#a04e18;border:none;color:#fff;font-family:"Oswald",sans-serif;font-size:9pt;letter-spacing:3px;text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:"EB Garamond",serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:"Oswald",sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL PROFESSOR ===== */
+.painel{border-bottom:2px solid #a04e18 !important;}
+.badge-prof{font-family:"Oswald",sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;background:#a04e18;color:#fff;padding:4px 12px;border-radius:2px;}
+
+/* ===== ESTRUTURA PROFESSOR ===== */
+.lbl-prof{color:#a04e18;font-weight:600;}
+.int-prof{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:#fffcf8;}
+.int-prof::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#8b1a1a,#c06020,#c9a84c,transparent);}
+.wm-prof{position:absolute;bottom:12mm;right:8mm;font-family:"Cinzel",serif;font-size:36pt;font-weight:900;color:rgba(160,78,24,0.06);line-height:1;user-select:none;pointer-events:none;writing-mode:vertical-rl;transform:rotate(180deg);}
+.ph-prof{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(160,78,24,0.2);display:flex;justify-content:space-between;align-items:baseline;}
+.ph-prof-l{font-family:"Oswald",sans-serif;font-size:7.5pt;color:#a04e18;letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:"Oswald",sans-serif;font-size:7pt;background:#a04e18;color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+h2.prof{font-family:"Oswald",sans-serif;font-weight:600;font-size:11.5pt;letter-spacing:2px;text-transform:uppercase;color:#a04e18;border-left:4px solid #a04e18;padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+.capa-prof-faixa{position:absolute;top:0;right:0;z-index:10;background:#a04e18;font-family:"Oswald",sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;color:#fff;padding:5px 14px;writing-mode:vertical-rl;transform:rotate(180deg);}
+
+/* blocos professor */
+.bloco-guia{background:#fdf2ea;border:1px solid rgba(160,78,24,0.35);border-left:4px solid #a04e18;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#a04e18;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:"▶";font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:"EB Garamond",serif;font-size:10pt;line-height:1.6;color:#3a1a08;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:"◆" !important;position:absolute;left:0;color:#a04e18;font-size:5pt;top:5px;}
+
+.bloco-dica{background:#e6f4ed;border:1px solid rgba(46,107,79,0.3);border-left:4px solid #2e6b4f;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:"✦" !important;font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:"EB Garamond",serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:"→" !important;position:absolute;left:0;color:#2e6b4f;}
+
+.bloco-teo{background:#fff8f0;border:1px solid rgba(160,78,24,0.25);border-left:4px solid #c06020;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#c06020;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo .bk::before{content:"✝" !important;font-size:8pt;}
+.bloco-teo p{font-family:"EB Garamond",serif;font-size:10pt;line-height:1.6;color:#3a1a08;}
+
+.bloco-debate{background:#fef6ee;border:1px solid rgba(192,96,32,0.3);border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:"?" !important;font-family:"Cinzel",serif;font-weight:900;font-size:10pt;}
+.bloco-debate p{font-family:"EB Garamond",serif;font-size:10.5pt;font-style:italic;line-height:1.6;color:#281408;margin-bottom:0;}
+
+.bloco-resp{background:#fffdf5;border:1px solid rgba(201,168,76,0.3);border-left:4px solid #c9a84c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-resp .bk::before{content:"✓" !important;font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.12);}
+.resp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.resp-num{font-family:"Oswald",sans-serif;font-size:7.5pt;color:#c9a84c;letter-spacing:1px;margin-bottom:2px;}
+.resp-txt{font-family:"EB Garamond",serif;font-size:10pt;line-height:1.55;color:#4a3a10;}
+
+.bloco-tempo{background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:"◷" !important;font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:"Oswald",sans-serif;font-size:9pt;font-weight:600;color:var(--cor);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:"EB Garamond",serif;font-size:10pt;color:#2a2a2a;line-height:1.3;}
+
+.bloco-mat{background:#f5f0e8;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2a2a2a;margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:"Oswald",sans-serif;font-size:7pt;color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:"EB Garamond",serif;font-size:9.5pt;color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+.cit-autor{border:1px solid rgba(160,78,24,0.25);background:rgba(160,78,24,0.03);border-radius:3px;padding:10px 12px;margin:10px 0;font-family:"EB Garamond",serif;font-style:italic;font-size:10pt;color:#3a1a08;line-height:1.6;}
+.cit-autor cite{display:block;margin-top:6px;font-size:8.5pt;font-style:normal;font-family:"Oswald",sans-serif;letter-spacing:1px;color:#a04e18;}
+
+.alerta{background:#fff5f5;border:1px solid rgba(139,26,26,0.25);border-left:4px solid #8b1a1a;border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8b1a1a;margin-bottom:4px;}
+.alerta p{font-family:"EB Garamond",serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(160,78,24,0.04);}
+.rod-prof::before{content:"";position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,#a04e18,#c9a84c,transparent);opacity:0.3;}
+.rod-prof .rt{font-family:"Oswald",sans-serif;font-size:7pt;color:#a04e18;letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:"Cinzel",serif;font-size:9pt;color:#a04e18;}
+
+/* linha do tempo Daniel 9 */
+.linha-tempo{margin:10px 0;padding:10px 12px;background:#fdf6ee;border:1px solid rgba(192,96,32,0.18);border-radius:3px;}
+.lt-titulo{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:10px;}
+.lt-items{display:flex;gap:0;align-items:stretch;}
+.lt-item{flex:1;text-align:center;position:relative;}
+.lt-item::after{content:"";position:absolute;top:18px;right:0;width:100%;height:2px;background:rgba(192,96,32,0.3);z-index:0;}
+.lt-item:last-child::after{display:none;}
+.lt-num{font-family:"Cinzel",serif;font-size:11pt;font-weight:900;color:var(--cor);position:relative;z-index:1;background:#fdf6ee;display:inline-block;padding:0 4px;}
+.lt-label{font-family:"Oswald",sans-serif;font-size:7pt;color:#555;letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.lt-desc{font-family:"EB Garamond",serif;font-size:8.5pt;color:#3a1a08;line-height:1.3;margin-top:3px;padding:0 4px;}
+
+/* tabela hermenêutica */
+.tabela-comp{width:100%;border-collapse:collapse;margin:10px 0;font-size:9pt;}
+.tabela-comp th{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#a04e18;padding:6px 8px;text-align:left;}
+.tabela-comp th:first-child{background:#7a3010;}
+.tabela-comp td{font-family:"EB Garamond",serif;font-size:9.5pt;color:#2a2a2a;padding:5px 8px;border-bottom:1px solid rgba(0,0,0,0.06);vertical-align:top;line-height:1.4;}
+.tabela-comp tr:nth-child(even) td{background:rgba(192,96,32,0.04);}
+.tabela-comp td:first-child{font-family:"Oswald",sans-serif;font-size:8pt;color:#a04e18;font-weight:600;letter-spacing:1px;white-space:nowrap;}
+
+@media print{
+    body{background:none;}
+    #tela-senha{display:none!important;}
+    #conteudo-principal{display:block!important;}
+    .painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof{display:none;}
+}
+/* ===== MOBILE ===== */
+@media screen and (max-width: 768px) {
+    .painel{padding:8px 12px;gap:8px;}
+    .marca{font-size:10pt;}
+    .marca span, .marca em{font-size:7pt;}
+    .badge-prof{font-size:7pt;padding:3px 8px;}
+    .btn{padding:6px 10px;font-size:7.5pt;letter-spacing:1px;}
+    .area{margin-top:54px;padding:12px 8px 60px;gap:12px;}
+    .pag{width:100% !important;min-height:unset;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+    .lbl{margin-left:8px;}
+    .int, .int-prof{padding:6vw 5vw 10vw 5vw;min-height:unset;}
+    .ccon{padding:0 5vw 8vw 5vw;}
+    .ctit{font-size:clamp(16pt,6vw,22pt);}
+    .cver{font-size:9.5pt;}
+    .cnd{font-size:26pt;top:14mm;right:8mm;}
+    h2{font-size:10.5pt;}
+    h3{font-size:9.5pt;}
+    p{font-size:9.5pt;line-height:1.6;hyphens:auto;}
+    .cap::first-letter{font-size:28pt;}
+    .bloco-guia, .bloco-dica, .bloco-teo, .bloco-debate, .bloco-herme{padding:8px 10px;}
+    .bloco-guia .bt, .bloco-dica .bt, .bloco-teo .bt,
+    .bloco-debate .bt, .bloco-herme .bt{font-size:7pt;}
+    .tabela-comp{font-size:8.5pt;}
+    .tabela-comp th, .tabela-comp td{padding:5px 6px;}
+    .rod{padding:5px 5vw 5vw 5vw;position:relative;}
+    .rod::before{left:5vw;right:5vw;}
+    .wm{display:none;}
+    .capa-prof-faixa{font-size:6pt;padding:4px 10px;}
+}
+@media screen and (max-width: 480px) {
+    .painel{flex-wrap:wrap;}
+    .area{margin-top:96px;}
+    .int, .int-prof{padding:5vw 4vw 8vw 4vw;}
+    h2{font-size:10pt;letter-spacing:1px;}
+    p{font-size:9pt;}
+    .btn{padding:5px 8px;font-size:7pt;}
+}
+
+/* ===== BLOCOS-ALUNO (replicados do material do aluno) ===== */
+.bloco-aluno{border-left:4px solid var(--cor);background:rgba(192,96,32,0.05);border-radius:0 3px 3px 0;padding:10px 12px;margin:12px 0;}
+.bloco-aluno .ba-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aluno .ba-titulo::before{content:'✦';font-size:7pt;color:var(--cor);}
+.bloco-aluno .ba-txt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:var(--ct);margin-bottom:0;}
+.bloco-aluno .ba-nota{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;color:#888;margin-top:6px;padding-top:6px;border-top:1px solid rgba(192,96,32,0.2);}
+
+/* ===== MAPA DE COMPETÊNCIAS (P1) ===== */
+.mapa-comp{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0;}
+.mapa-celula{border:1px solid rgba(160,78,24,0.25);border-radius:3px;padding:8px 10px;background:#fdf6ee;}
+.mapa-celula .mc-titulo{font-family:"Oswald",sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:#a04e18;margin-bottom:4px;}
+.mapa-celula .mc-txt{font-family:"EB Garamond",serif;font-size:9.5pt;color:#3a1a08;line-height:1.45;}
+
+/* ===== FIO CONDUTOR (P1) ===== */
+.bloco-fio{background:linear-gradient(135deg,rgba(160,78,24,0.07),rgba(201,168,76,0.07));border:1px dashed rgba(160,78,24,0.35);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-fio .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#a04e18;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-fio .bk::before{content:"⟶";font-size:9pt;}
+.bloco-fio p{font-family:"EB Garamond",serif;font-size:10pt;line-height:1.6;color:#3a1a08;margin-bottom:0;}
+
+/* ===== ESCADA SOCRÁTICA (P2) ===== */
+.escada-socratica{margin:10px 0;}
+.escada-degrau{padding:8px 12px;margin-bottom:6px;border-radius:3px;position:relative;padding-left:48px;}
+.escada-degrau .ed-num{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-family:"Cinzel",serif;font-size:14pt;font-weight:900;line-height:1;}
+.escada-degrau .ed-nivel{font-family:"Oswald",sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.escada-degrau .ed-pergunta{font-family:"EB Garamond",serif;font-size:10pt;font-style:italic;line-height:1.5;color:#281408;margin-bottom:4px;}
+.escada-degrau .ed-resp{font-family:"EB Garamond",serif;font-size:9pt;color:#444;line-height:1.4;}
+.escada-degrau.d1{background:#fdf2ea;border-left:3px solid #a04e18;}
+.escada-degrau.d1 .ed-num{color:rgba(160,78,24,0.2);}
+.escada-degrau.d1 .ed-nivel{color:#a04e18;}
+.escada-degrau.d2{background:#fae9d8;border-left:3px solid #8a3a10;}
+.escada-degrau.d2 .ed-num{color:rgba(138,58,16,0.2);}
+.escada-degrau.d2 .ed-nivel{color:#8a3a10;}
+.escada-degrau.d3{background:#f5dfc8;border-left:3px solid #6a2a08;}
+.escada-degrau.d3 .ed-num{color:rgba(106,42,8,0.2);}
+.escada-degrau.d3 .ed-nivel{color:#6a2a08;}
+
+/* ===== DIFERENCIAÇÃO POR PERFIL (P3) ===== */
+.diferenciacao{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0;}
+.dif-item{border:1px solid rgba(160,78,24,0.2);border-radius:3px;padding:8px 10px;background:#fdf6ee;}
+.dif-tipo{font-family:"Oswald",sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#a04e18;margin-bottom:4px;}
+.dif-acao{font-family:"EB Garamond",serif;font-size:9.5pt;color:#3a1a08;line-height:1.4;}
+
+/* ===== AVALIAÇÃO FORMATIVA (P3) ===== */
+.aval-form{background:#fdf2ea;border:1px solid rgba(160,78,24,0.3);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.aval-form .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#a04e18;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.aval-form .bk::before{content:"☑" !important;font-size:9pt;}
+.aval-check{display:flex;align-items:flex-start;gap:8px;padding:3px 0;border-bottom:1px solid rgba(160,78,24,0.1);}
+.aval-check:last-child{border-bottom:none;}
+.aval-check .ac-box{width:14px;height:14px;border:1.5px solid #a04e18;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.aval-check .ac-txt{font-family:"EB Garamond",serif;font-size:9.5pt;color:#3a1a08;line-height:1.4;}
+
+/* ===== GABARITO USO (P4) ===== */
+.bloco-gabarito-uso{background:#fdf2ea;border:1px solid rgba(160,78,24,0.3);border-left:4px solid #a04e18;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-gabarito-uso .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#a04e18;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-gabarito-uso .bk::before{content:"◐" !important;font-size:8pt;}
+.bloco-gabarito-uso p{font-family:"EB Garamond",serif;font-size:10pt;line-height:1.6;color:#3a1a08;margin-bottom:0;}
+
+/* ===== SEGUIMENTO PÓS-LIÇÃO (P4) ===== */
+.bloco-seg{background:#fffdf5;border:1px solid rgba(201,168,76,0.35);border-left:4px solid #c9a84c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-seg .bk{font-family:"Oswald",sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-seg .bk::before{content:"↗" !important;font-size:10pt;font-weight:900;}
+.bloco-seg ul{list-style:none;padding:0;}
+.bloco-seg ul li{font-family:"EB Garamond",serif;font-size:10pt;color:#4a3a10;padding:3px 0 3px 16px;position:relative;line-height:1.45;border-bottom:1px solid rgba(201,168,76,0.1);}
+.bloco-seg ul li:last-child{border-bottom:none;}
+.bloco-seg ul li::before{content:"◆" !important;position:absolute;left:0;color:#c9a84c;font-size:5pt;top:7px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+  <div class="senha-caixa">
+    <div class="senha-icone"></div>
+    <div class="senha-titulo">Eschaton</div>
+    <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+    <div class="senha-desc">Este material é exclusivo para docentes.<br>Insira a senha fornecida pela coordenação.</div>
+    <input class="senha-campo" id="senha-input" type="password" placeholder="••••••••" maxlength="20" autocomplete="off" onkeydown="if(event.key==='Enter') verificarSenha()">
+    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
+  </div>
+</div>
+
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">ESCHATON<span>Edição do Professor · Lição 04 · A Grande Tribulação</span></div>
+  <span class="badge-prof">📘 Edição do Professor</span>
+  <button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<div class="area">
+<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 04">
+    <img src="capa-revista.png" alt="Capa da revista Eschaton">
+    <div class="entrada-cta">Toque para entrar na lição</div>
+</div>
+
+<!-- PG 1 — CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">04</div><div class="cnd">04</div>
+  <div class="capa-prof-faixa">Edição do Professor</div>
+  <div class="ccon">
+    <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+    <div class="ctit">A Grande Tribulação</div>
+    <div class="cver">
+      "Porque haverá então grande tribulação, como nunca houve desde o princípio do mundo até agora, nem tampouco haverá. E, se aqueles dias não fossem abreviados, nenhuma carne se salvaria; mas por causa dos escolhidos serão abreviados aqueles dias."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Mateus 24:21-22</span>
+    </div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 — INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+  <div class="wm">2</div>
+  <div class="ph"><span class="phl">Lição 04</span><span class="pht">A Grande Tribulação</span></div>
+  <h2>Introdução</h2>
+  <p class="cap">Nenhum tema da escatologia bíblica evoca imagens mais perturbadoras do que a Grande Tribulação. Filmes, séries e literatura popular a retratam como um período de catástrofes globais, perseguição religiosa e julgamentos sobrenaturais. Mas o que exatamente a Bíblia descreve? Qual é a natureza, a duração e o propósito desse período singular na história da humanidade?</p>
+  <p>Convém deixar claro à classe que a Grande Tribulação não deve ser tratada como tema marginal. Ela integra o ensino bíblico sobre juízo, santidade e consumação da história, e por isso precisa ser exposta com seriedade pastoral e precisão doutrinária.</p>
+  <p>Evite iniciar a aula pelo imaginário popular. Comece pelo texto bíblico, mostrando que a intenção da lição é compreender o propósito de Deus e não estimular especulação sensacionalista.</p>
+  <div class="bver">"Ai! Porque aquele dia será grande, de sorte que nenhum outro será semelhante a ele; e é o tempo da angústia de Jacó, mas dele será salvo." <cite>Jeremias 30:7</cite></div>
+  <div class="obj">
+    <div class="ot">Objetivos desta lição</div>
+    <ul>
+      <li>Compreender as origens bíblicas da doutrina da Grande Tribulação</li>
+      <li>Examinar a estrutura profética de Daniel 9 e as "setenta semanas"</li>
+      <li>Analisar a natureza e o propósito redentor do período tribulacional</li>
+      <li>Avaliar as distintas leituras pentecostal e reformada sobre o tema</li>
+    </ul>
+  </div>
+  <p>Nesse ponto, convém mostrar que a ausência de arrependimento em Apocalipse não diminui a legitimidade do juízo; antes, evidencia o quanto o coração humano pode resistir até mesmo sob advertências extremas. Esse dado pode gerar boa discussão sobre pecado, consciência e endurecimento espiritual.</p>
+  <div class="sep"><span>✦</span></div>
+  <p>A Grande Tribulação não é apenas horror profético — é, antes de tudo, o palco do julgamento justo de Deus sobre uma humanidade que persistentemente rejeitou sua graça. Entendê-la exige tanto rigor exegético quanto sensibilidade teológica para não transformar o sofrimento alheio em espetáculo.</p>
+  <p>Acrescente à exposição que a Tribulação também revela a seriedade com que Deus trata o pecado na história. Em sala, isso ajuda a combater a noção de que o juízo divino é incompatível com o amor de Deus. A Escritura mostra o contrário: o mesmo Deus que salva em Cristo também julga com justiça aquilo que se levanta contra sua santidade.</p>
+  <p>Convém ainda ressaltar que o tema deve produzir vigilância espiritual e compaixão pastoral. Quanto mais o aluno compreende a gravidade do juízo, mais deve crescer em temor reverente, intercessão e urgência evangelística.</p>
+
+<div class="bloco-aluno">
+<div class="ba-titulo">Para Você Refletir — O que é a Grande Tribulação?</div>
+<div class="ba-txt">A Bíblia não apresenta a Grande Tribulação como um espetáculo profético para curiosos, mas como o palco do julgamento justo de Deus e da misericórdia que ainda convida ao arrependimento. Antes de perguntar <em>quando</em> ela ocorrerá, pergunte: <em>o que ela revela sobre Deus</em> — e sobre o coração humano?</div>
+<div class="ba-nota">✦ Bloco para o aluno · Pg. 2 — Introdução</div>
+</div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 — DESENVOLVIMENTO I -->
+<div class="lbl">Página 3 · Desenvolvimento I</div>
+<div class="pag int">
+  <div class="wm">3</div>
+  <div class="ph"><span class="phl">Lição 04</span><span class="pht">A Grande Tribulação</span></div>
+  <h2>I. As Raízes Proféticas</h2>
+  <p>A Grande Tribulação não nasce no Apocalipse — suas raízes estão fincadas no Antigo Testamento. O profeta Jeremias chamou de "angústia de Jacó" (Jr 30:7); Daniel a descreveu como um tempo de angústia sem precedentes (Dn 12:1); e Joel vislumbrou o "Dia do Senhor" como trevas e não luz (Jl 2:2). Jesus foi o primeiro a usar a expressão "grande tribulação" em Mateus 24:21.</p>
+  <p>Ao introduzir as raízes proféticas, mostre que os textos de Jeremias, Daniel, Joel e o sermão profético de Jesus formam um pano de fundo coerente. Isso ajuda o aluno a perceber que a doutrina não nasce de uma passagem isolada, mas de uma linha profética que se desenvolve ao longo da revelação.</p>
+  <h3>As Setenta Semanas de Daniel</h3>
+  <p>O texto-chave para compreender a estrutura temporal da Tribulação é Daniel 9:24-27 — a profecia das "setenta semanas". O anjo Gabriel revela a Daniel um cronograma de 490 anos dividido em três segmentos. Para o dispensacionalismo, a última "semana" de sete anos ainda está por cumprir-se — e corresponde ao período tribulacional. A Igreja foi "arrebatada" antes desse período, e Deus volta a tratar prioritariamente com Israel.</p>
+  <p>Para o professor, é útil destacar que Daniel 9 funciona como ponto de convergência entre história, profecia e esperança messiânica. Ainda que existam leituras divergentes sobre a última semana, o texto afirma que Deus conhece e governa o desenrolar da história até sua consumação.</p>
+  <div class="bver">"E confirmará o pacto com muitos por uma semana; e no meio da semana fará cessar o sacrifício e a oblação." <cite>Daniel 9:27</cite></div>
+  <h3>A Abominação da Desolação</h3>
+  <p>No meio da semana final, a "abominação da desolação" é estabelecida no Templo — evento referenciado por Jesus em Mateus 24:15. Historicamente associada à profanação do Templo por Antíoco IV Epifânio em 167 a.C., ela aponta para uma realidade escatológica futura ainda maior. Sua identificação exata permanece um dos debates mais vivos da teologia profética.</p>
+  <p>Na explicação da abominação da desolação, vale mostrar aos alunos que certos eventos históricos podem funcionar como antecipações tipológicas de realidades escatológicas maiores. Esse recurso ajuda a compreender como a profecia pode ter um cumprimento histórico parcial e, ao mesmo tempo, apontar para um clímax futuro.</p>
+  <p>Ao trabalhar esse ponto, procure distinguir entre tipologia, cumprimento parcial e consumação final. Essa distinção evita simplificações e ajuda a classe a perceber que a linguagem profética pode operar em camadas, sem perder sua verdade histórica nem sua expectativa futura.</p>
+  <p>Também é útil lembrar que a expressão de Jesus em Mateus 24 retoma Daniel para interpretar o futuro à luz da revelação anterior. Isso reforça a unidade da Escritura e mostra que a escatologia bíblica deve ser lida em conexão entre Antigo e Novo Testamento.</p>
+
+<div class="bloco-aluno">
+<div class="ba-titulo">Conexão Bíblica — O Fio Profético do AT ao NT</div>
+<div class="ba-txt">Jeremias, Daniel, Joel, Jesus e João descrevem o mesmo horizonte com linguagens distintas. A "angústia de Jacó", as "setenta semanas", o "Dia do Senhor" e a "grande tribulação" não são profecias isoladas — são elos de uma corrente que revela a coerência do plano redentor de Deus ao longo de toda a Escritura.</div>
+<div class="ba-nota">✦ Bloco para o aluno · Pg. 3 — Base Profética</div>
+</div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 — DESENVOLVIMENTO II -->
+<div class="lbl">Página 4 · Desenvolvimento II</div>
+<div class="pag int">
+  <div class="wm">4</div>
+  <div class="ph"><span class="phl">Lição 04</span><span class="pht">A Grande Tribulação</span></div>
+  <h2>II. Natureza e Propósito</h2>
+  <p>O Apocalipse descreve a Tribulação por meio de três séries de julgamentos: os sete selos (Ap 6–8), as sete trombetas (Ap 8–11) e as sete taças (Ap 15–16), cada série crescendo em intensidade. Esses julgamentos possuem propósito redentor e judicial preciso — não são catástrofes arbitrárias.</p>
+  <p>Explique que as séries de juízos em Apocalipse não são mero recurso dramático. Elas revelam progressão, intensidade e finalidade moral. O professor pode sublinhar que o juízo divino responde à persistência do pecado e manifesta a justiça de Deus diante da rebeldia humana.</p>
+  <h3>Julgamento Sobre a Humanidade Rebelde</h3>
+  <p>O primeiro propósito da Tribulação é o julgamento divino sobre uma humanidade que, mesmo diante de sinais inequívocos, recusa o arrependimento. Apocalipse 9:20-21 descreve com assombro como, mesmo após os julgamentos das trombetas, os sobreviventes "não se arrependeram das obras de suas mãos". O endurecimento humano revela a profundidade da depravação e a justiça do julgamento de Deus.</p>
+  <div class="bver">"E os outros homens que não foram mortos com estas pragas não se arrependeram das obras de suas mãos." <cite>Apocalipse 9:20</cite></div>
+  <div class="sep"><span>✦</span></div>
+  <h3>Purificação e Conversão de Israel</h3>
+  <p>O segundo propósito, presente em Zacarias 13:8-9 e Romanos 11:25-27, é a purificação e conversão do remanescente de Israel. Dois terços serão cortados, mas um terço passará pelo fogo como prata refinada. Para Paulo, a plenitude dos gentios precede e precipita essa conversão nacional — o mistério da história da salvação se revela em seu clímax.</p>
+  <p>Quando tratar da purificação de Israel, procure relacionar juízo e fidelidade da aliança. O objetivo é mostrar que a disciplina divina não contradiz a promessa, mas opera dentro do próprio plano de redenção revelado nas Escrituras.</p>
+  <h3>Duração: Sete Anos ou Período Simbólico?</h3>
+  <p>O dispensacionalismo calcula sete anos literais baseado em Daniel 9:27 e Apocalipse 11:3 (1.260 dias / 42 meses). O amilenismo reformado entende os números como simbólicos, representando a plenitude do julgamento divino — não um calendário astronômico literal.</p>
+  <p>Ao comparar sete anos literais com leitura simbólica, evite transformar a aula em disputa estéril. O melhor caminho é mostrar quais textos sustentam cada posição e, ao mesmo tempo, preservar o ponto central comum: Deus julga o mal, preserva os seus e conduz a história ao fim determinado.</p>
+  <p>Nesta seção, vale enfatizar que os juízos apocalípticos não são descontrolados nem caprichosos. Eles obedecem à soberania divina e revelam uma ordem moral no universo: o mal não permanecerá impune, e a história caminha para uma prestação de contas diante do Senhor.</p>
+  <p>Do ponto de vista pastoral, essa verdade consola os crentes que sofrem injustiça. A doutrina da Tribulação, corretamente ensinada, recorda que Deus vê a violência, conhece a opressão e responderá em justiça perfeita.</p>
+
+<div class="bloco-aluno">
+<div class="ba-titulo">Sabia Que? — A Tribulação Tem Propósito Redentor</div>
+<div class="ba-txt">Os julgamentos da Tribulação não são arbitrários: servem para julgar a rebeldia humana <em>e</em> para purificar e converter o remanescente de Israel (Zc 13:9). Deus não envia o juízo sem propósito — mesmo no período mais sombrio da história, há uma misericórdia que convida ao arrependimento (Ap 9:20-21).</div>
+<div class="ba-nota">✦ Bloco para o aluno · Pg. 4 — Propósitos e Duração</div>
+</div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 — VISÕES EM DIÁLOGO -->
+<div class="lbl">Página 5 · Visões em Diálogo</div>
+<div class="pag int">
+  <div class="wm">5</div>
+  <div class="ph"><span class="phl">Lição 04</span><span class="pht">A Grande Tribulação</span></div>
+  <h2>Visões em Diálogo</h2>
+  <p>A compreensão da Grande Tribulação é profundamente moldada pelo sistema teológico adotado. Pentecostais e reformados chegam a leituras radicalmente distintas, especialmente quanto ao papel da Igreja nesse período.</p>
+  <p>Esta seção pede cuidado didático. O professor deve apresentar as diferenças sem caricaturar nenhuma tradição. Isso melhora o discernimento da classe e evita que o debate seja reduzido a slogans teológicos.</p>
+  <div class="bvp">
+    <div class="vl">✦ Perspectiva Pentecostal</div>
+    <div class="vt">Para o pentecostalismo dispensacionalista, a Grande Tribulação é um período literal de sete anos ainda futuro, iniciado com o arrebatamento pré-tribulacional da Igreja. Os 144.000 de Apocalipse 7 são judeus literais que evangelizarão o mundo nesse período. As pragas das taças e trombetas são julgamentos literais sobre a terra. O Anticristo governará um império global por 3,5 anos. A Igreja, já arrebatada, não passa pela ira divina (1 Ts 5:9) — esta é uma das razões centrais para o pré-tribulacionismo pentecostal.</div>
+  </div>
+  <div class="bvr">
+    <div class="vl">✦ Perspectiva Reformada</div>
+    <div class="vt">Para o amilenismo reformado, a "Grande Tribulação" de Mateus 24 encontrou seu principal cumprimento histórico na destruição de Jerusalém em 70 d.C. As imagens apocalípticas de Apocalipse são simbólicas — linguagem de crise intensa, não cronograma literal. A Igreja presente na história enfrenta tribulação contínua (Jo 16:33), mas não um período escatológico distinto de sete anos. Teólogos como G.K. Beale e Meredith Kline demonstraram a coerência literária e teológica da leitura simbólica do Apocalipse.</div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <p>Ambas as tradições reconhecem a soberania de Deus sobre os eventos mais sombrios da história, a certeza do julgamento divino sobre a iniquidade humana e a preservação dos escolhidos até o fim — seja pelo arrebatamento, seja pela proteção divina na tribulação.</p>
+  <p>Como reforço pedagógico, vale pedir aos alunos que identifiquem quais pressupostos hermenêuticos aparecem em cada visão. Isso torna o debate mais claro e evita que as diferenças pareçam arbitrárias.</p>
+  <p>Você pode ainda mostrar que a divergência entre as tradições não nasce, em primeiro lugar, de maior ou menor respeito pela Bíblia, mas de diferentes maneiras de ler o gênero apocalíptico e a relação entre Israel, Igreja e cumprimento profético. Essa observação reduz polarizações desnecessárias e qualifica o debate.</p>
+  <p>Se houver tempo, peça à turma que identifique o que permanece inegociável nas duas leituras: a soberania de Deus, a realidade do juízo, a perseverança dos santos e a vitória final do Cordeiro. Esse exercício ajuda a distinguir núcleo doutrinário de sistema interpretativo.</p>
+
+<div class="bloco-aluno">
+<div class="ba-titulo">Pense Nisso — O Que Une e o Que Divide</div>
+<div class="ba-txt">Pentecostais e reformados divergem profundamente na <em>leitura</em> da Tribulação — literal ou simbólica, futura ou parcialmente cumprida. Mas ambos concordam no essencial: Deus é soberano sobre a história, a iniquidade será julgada, e os escolhidos serão preservados. Maturidade teológica é saber discernir onde está o fundamento e onde está a interpretação.</div>
+<div class="ba-nota">✦ Bloco para o aluno · Pg. 5 — Visões em Diálogo</div>
+</div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 — APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação Prática</div>
+<div class="pag int">
+  <div class="wm">6</div>
+  <div class="ph"><span class="phl">Lição 04</span><span class="pht">A Grande Tribulação</span></div>
+  <h2>Aplicação Prática</h2>
+  <p>Há um risco real na escatologia popular: transformar o sofrimento do mundo em espetáculo profético. Quando guerras, pandemias e catástrofes são recebidas com entusiasmo como "sinais do fim", perdemos a compaixão que o Evangelho exige. O estudo da Tribulação deve nos tornar mais compassivos, não mais calculistas.</p>
+  <p>Na aplicação prática, enfatize que uma escatologia saudável jamais celebra o sofrimento humano. O estudo do juízo deve produzir sobriedade, intercessão e senso de responsabilidade missionária.</p>
+  <div class="apl">
+    <div class="at">Para a sua semana</div>
+    <p>Primeiro: leia Apocalipse 6 — a abertura dos selos — e pergunte-se: qual é a resposta que essa passagem deveria provocar em você? Fascínio profético ou intercessão urgente? Segundo: reflita sobre como cristãos que vivem em zonas de guerra hoje experimentam algo próximo ao descrito na Tribulação — e o que isso exige de você em termos de solidariedade e oração. Terceiro: identifique em que áreas da sua vida você ainda resiste ao arrependimento, à semelhança dos habitantes da terra em Apocalipse 9:20.</p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h3>Para Refletir</h3>
+  <p>Se os julgamentos da Tribulação têm como propósito o arrependimento (Ap 9:20-21) e a purificação (Zc 13:9), o que isso revela sobre o caráter de Deus? Como a soberania de Deus sobre os eventos mais sombrios da história pode ser ao mesmo tempo aterrorizante e reconfortante para o cristão?</p>
+  <p>O professor pode concluir esta página reforçando que o horizonte final da escatologia cristã não é o desastre, mas a vitória do Cordeiro. Mesmo os textos mais severos do Apocalipse devem ser ensinados em conexão com perseverança, redenção e esperança.</p>
+  <p>Ao encerrar, convém ligar a lição à realidade espiritual da classe. Pergunte de forma direta em quais áreas o medo, a curiosidade excessiva ou a indiferença têm ocupado o lugar da fé vigilante. Essa aplicação torna a escatologia menos abstrata e mais pastoral.</p>
+  <p>Também é recomendável concluir com intercessão pelos cristãos perseguidos. Isso alinha a resposta da igreja ao propósito ético do estudo: menos especulação, mais solidariedade; menos fascínio pelo juízo, mais fidelidade diante do sofrimento.</p>
+
+  <div class="bver">"Estas são as que vieram da grande tribulação, e lavaram as suas vestes e as alvejaram no sangue do Cordeiro." <cite>Apocalipse 7:14</cite></div>
+  <p>Na próxima lição, identificaremos o personagem central desse período: <strong>O Anticristo</strong> — sua identidade, ascensão e queda definitiva.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Leve Para a Vida — Compaixão, não Especulação</div>
+<div class="ba-txt">O conhecimento da Tribulação não foi dado para nos tornar curiosos proféticos, mas para nos tornar mais compassivos e fiéis. Hoje mesmo existem cristãos que vivem o que esta doutrina descreve — perseguição, perda, pressão extrema. A resposta correta ao estudo da Tribulação é <em>intercessão</em> e <em>solidariedade</em>, não fascínio especulativo.</div>
+<div class="ba-nota">✦ Bloco para o aluno · Pg. 6 — Conclusão e Aplicação</div>
+</div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 — QUESTÕES -->
+<div class="lbl">Página 7 · Questões &amp; Anotações</div>
+<div class="pag int">
+  <div class="wm">7</div>
+  <div class="ph"><span class="phl">Lição 04</span><span class="pht">A Grande Tribulação</span></div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">A profecia das "setenta semanas" de Daniel 9:24-27 é central para a teologia dispensacionalista da Tribulação. Como o dispensacionalismo interpreta a "semana final"? Essa leitura é exegeticamente sólida?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">Quais são os dois propósitos principais da Grande Tribulação segundo as Escrituras? Como esses propósitos revelam o caráter de Deus — ao mesmo tempo justo e misericordioso?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">Compare a leitura literal/dispensacionalista com a leitura simbólica/reformada do Apocalipse. Quais são os pontos fortes e as limitações de cada abordagem hermenêutica?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">Como o estudo da Grande Tribulação deveria moldar sua postura diante do sofrimento no mundo hoje — seja de cristãos perseguidos, seja de populações em zonas de conflito?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="lit">
+    <div class="lt">Leituras Complementares</div>
+    <ul>
+      <li>John F. Walvoord — <em>The Tribulation Period</em> (perspectiva dispensacionalista)</li>
+      <li>G.K. Beale — <em>The Book of Revelation</em>, NIGTC (exegese reformada do Apocalipse)</li>
+      <li>Leitura devocional: Daniel 9:24-27 + Mateus 24:15-31 + Apocalipse 6–7</li>
+    </ul>
+  </div>
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+
+<!-- ═══════════════════════════ PÁGINAS DO PROFESSOR ═══════════════════════════ -->
+
+<!-- PG P1 — GUIA GERAL -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 04 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Ao preparar esta aula, procure equilibrar densidade doutrinária e sensibilidade pastoral. A temática da Grande Tribulação pode despertar medo, curiosidade ou resistência; por isso, a exposição precisa mostrar que o objetivo da Escritura é formar convicção, reverência e esperança.</p>
+  <p>Esta lição trabalha o tema mais sombrio da série — e também o mais propenso a gerar dois erros opostos: o <em>fascínio sensacionalista</em> (entusiasmo com o horror profético) e a <em>evasão teológica</em> (minimizar os julgamentos por desconforto). Seu papel é conduzir o grupo por um caminho do meio: rigor exegético com sensibilidade pastoral, especialmente porque cristãos em zonas de conflito real hoje experimentam algo próximo ao descrito na Tribulação.</p>
+  <p>Outra tarefa importante do professor é mostrar que a doutrina da Tribulação não foi dada para produzir ansiedade cronológica, mas discernimento espiritual. A aula deve ajudar o aluno a lidar melhor com textos difíceis, reconhecendo que a revelação bíblica sobre o fim é suficientemente clara em seus pontos centrais, ainda que existam divergências legítimas em detalhes.</p>
+
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: pergunta direta — "Quando você lê sobre guerras e catástrofes, qual é sua primeira reação: compaixão ou cálculo profético?"</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: raízes no Antigo Testamento (Jr 30, Dn 12, Jl 2) e advertência contra transformar sofrimento em espetáculo</span></div>
+    <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 3 — As raízes proféticas e Daniel 9. Use a linha do tempo da Pg. P2.</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — Natureza e propósito: os dois fins da Tribulação (julgamento e purificação)</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 5 — Visões em Diálogo: literal versus simbólico — use a tabela da Pg. P2</span></div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Aplicação: conclua com Ap 7:14 — os mártires que "lavaram suas vestes no sangue do Cordeiro"</span></div>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Distinguir claramente os dois propósitos bíblicos da Tribulação: julgamento e purificação</li>
+      <li>Apresentar Daniel 9:24-27 com honestidade sobre as disputas interpretativas</li>
+      <li>Confrontar o fascínio escatológico com a exigência de compaixão pelo sofrimento real</li>
+      <li>Mostrar que a hermenêutica (literal vs. simbólica) determina toda a leitura do Apocalipse</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção — O Perigo do Espetáculo Profético</div>
+    <p>Se algum aluno demonstrar entusiasmo com os julgamentos descritos no Apocalipse, redirecione gentilmente: <em>"Ap 6:10 mostra os mártires clamando por justiça — não por curiosidade. O texto convida à intercessão, não ao fascínio. Cristãos que vivem sob perseguição hoje não leem o Apocalipse como entretenimento."</em></p>
+  </div>
+
+  <h2 class="prof" style="margin-top:12px;">Mapa de Competências</h2>
+  <div class="mapa-comp">
+    <div class="mapa-celula">
+      <div class="mc-titulo">Conhecimento</div>
+      <div class="mc-txt">Identificar as raízes veterotestamentárias da Tribulação; conhecer a estrutura das setenta semanas (Dn 9) e os dois propósitos bíblicos do período</div>
+    </div>
+    <div class="mapa-celula">
+      <div class="mc-titulo">Habilidade</div>
+      <div class="mc-txt">Comparar as leituras literal e simbólica do Apocalipse; distinguir hermenêutica profética (Dn 9) de sistema teológico (dispensacionalismo vs. amilenismo)</div>
+    </div>
+    <div class="mapa-celula">
+      <div class="mc-titulo">Atitude</div>
+      <div class="mc-txt">Substituir fascínio especulativo por compaixão pastoral; reconhecer que cristãos perseguidos hoje vivem algo próximo ao descrito na Tribulação</div>
+    </div>
+    <div class="mapa-celula">
+      <div class="mc-titulo">Avaliação</div>
+      <div class="mc-txt">Responder às questões da Pg. 7 com argumentos bíblicos explícitos; na Q4, demonstrar mudança de postura — de espectador a intercessor</div>
+    </div>
+  </div>
+  <div class="bloco-fio">
+    <div class="bk">Fio Condutor — Lição 04 na Série</div>
+    <p>A Lição 03 estabeleceu o debate sobre o <em>quando</em> do arrebatamento em relação à Tribulação. <strong>Lição 04</strong> entra no interior desse período: sua origem profética, seus propósitos e sua interpretação. A Lição 05 (O Anticristo) depende da clareza conquistada aqui sobre o papel da "besta", os 144.000 e a hermenêutica do Apocalipse.</p>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — LINHA DO TEMPO + TABELA -->
+<div class="lbl lbl-prof">Página P2 · Daniel 9 &amp; Tabela Hermenêutica</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 04 · Exegese &amp; Comparação</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Escada de Perguntas Socráticas — Pg. 2 (Introdução)</h2>
+  <div class="escada-socratica">
+    <div class="escada-degrau d1">
+      <div class="ed-num">1</div>
+      <div class="ed-nivel">Diagnóstico — o que o aluno já sabe</div>
+      <div class="ed-pergunta">"Quando você ouve a expressão 'Grande Tribulação', qual imagem vem à mente? De onde ela vem?"</div>
+      <div class="ed-resp"><strong>Resposta esperada:</strong> filmes, pregações sobre fim dos tempos, imagens de catástrofe. Anote no quadro — isso mapeia o imaginário popular antes de abrir o texto.</div>
+    </div>
+    <div class="escada-degrau d2">
+      <div class="ed-num">2</div>
+      <div class="ed-nivel">Conceitual — o que o texto diz</div>
+      <div class="ed-pergunta">"Quais são os dois propósitos que a Bíblia atribui ao período tribulacional? Cite ao menos um texto para cada."</div>
+      <div class="ed-resp"><strong>Resposta esperada:</strong> (1) julgamento da humanidade rebelde — Ap 9:20-21; (2) purificação e conversão de Israel — Zc 13:8-9 e Rm 11:25-27. A Tribulação não é arbitrária: tem finalidade moral e redentora.</div>
+    </div>
+    <div class="escada-degrau d3">
+      <div class="ed-num">3</div>
+      <div class="ed-nivel">Aplicação — o que o aluno faz com isso</div>
+      <div class="ed-pergunta">"Se a Tribulação visa provocar arrependimento e os homens ainda assim endurecem (Ap 9:21), o que isso nos ensina sobre o coração humano — e sobre como evangelizamos hoje?"</div>
+      <div class="ed-resp"><strong>Resposta esperada:</strong> a depravação humana é mais profunda do que julgamos; o Evangelho não pode depender de pressão ou medo — precisa da obra do Espírito. Urgência missionária sem manipulação.</div>
+    </div>
+  </div>
+  <h2 class="prof">As Setenta Semanas de Daniel 9 — Para o Professor</h2>
+  <div class="linha-tempo">
+    <div class="lt-titulo">Daniel 9:24-27 — Estrutura das 70 "Semanas" (shabua = períodos de 7)</div>
+    <div class="lt-items">
+      <div class="lt-item">
+        <div class="lt-num">7</div>
+        <div class="lt-label">Semanas</div>
+        <div class="lt-desc">Reconstrução de Jerusalém após o exílio babilônico</div>
+      </div>
+      <div class="lt-item">
+        <div class="lt-num">62</div>
+        <div class="lt-label">Semanas</div>
+        <div class="lt-desc">Período até o Messias — "o ungido será cortado" (v.26)</div>
+      </div>
+      <div class="lt-item">
+        <div class="lt-num">1</div>
+        <div class="lt-label">Semana Final</div>
+        <div class="lt-desc">Dispensacionalista: ainda futura (a Tribulação). Reformada: cumprida em Cristo e 70 d.C.</div>
+      </div>
+    </div>
+  </div>
+  <div class="bloco-teo">
+    <div class="bk">A "Semana Final" — O Ponto Central do Debate</div>
+    <p>O dispensacionalismo introduz um "intervalo" entre a 69ª e a 70ª semana — a era da Igreja — para que a semana final seja reservada a Israel no futuro. Críticos (como E.J. Young e O. Palmer Robertson) argumentam que esse intervalo não tem base no texto de Daniel; a profecia flui continuamente. Para eles, a 70ª semana foi cumprida com a confirmação do novo pacto por Cristo e o julgamento sobre Jerusalém em 70 d.C. Essa diferença hermenêutica é a raiz de toda a divergência sobre a Tribulação.</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Orientação Exegética</div>
+    <p>Ao expor Daniel 9, evite apresentar soluções simplistas para um texto historicamente debatido. O ganho pedagógico está em mostrar onde a divergência começa e como ela repercute nas demais peças da escatologia. Isso ensina a classe a pensar biblicamente, e não apenas a repetir fórmulas.</p>
+  </div>
+
+  <h2 class="prof" style="margin-top:10px;">Literal vs. Simbólico — Tabela Comparativa</h2>
+  <table class="tabela-comp">
+    <tr>
+      <th>Critério</th>
+      <th>Leitura Literal (Dispensac.)</th>
+      <th>Leitura Simbólica (Reformada)</th>
+    </tr>
+    <tr>
+      <td>Duração</td>
+      <td>7 anos literais (Dn 9:27)</td>
+      <td>Período simbólico de plenitude</td>
+    </tr>
+    <tr>
+      <td>144.000</td>
+      <td>Judeus literais evangelizadores</td>
+      <td>Totalidade do povo de Deus (12×12×1000)</td>
+    </tr>
+    <tr>
+      <td>Besta</td>
+      <td>Anticristo político futuro</td>
+      <td>Poder imperial opressor (Roma; qualquer era)</td>
+    </tr>
+    <tr>
+      <td>Selos/Trombetas</td>
+      <td>Julgamentos literais futuros</td>
+      <td>Linguagem apocalíptica de crises históricas</td>
+    </tr>
+    <tr>
+      <td>Igreja na Tribulação</td>
+      <td>Arrebatada antes</td>
+      <td>Presente e protegida por Deus</td>
+    </tr>
+    <tr>
+      <td>Hermenêutica-base</td>
+      <td>Literalismo profético</td>
+      <td>Gênero apocalíptico / tipologia</td>
+    </tr>
+  </table>
+  <div class="cit-autor">
+    "O Apocalipse não é um jornal do futuro — é uma pastoral para a Igreja sob pressão, escrita na linguagem que o Espírito escolheu: visões, símbolos e imagens."
+    <cite>— G.K. Beale, <em>The Book of Revelation</em> (NIGTC)</cite>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DINÂMICA + PEDAGOGIA -->
+<div class="lbl lbl-prof">Página P3 · Dinâmica &amp; Dicas Pedagógicas</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 04 · Pedagogia</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Dinâmica de Abertura — "Reação ou Compaixão?"</h2>
+  <div class="bloco-dica">
+    <div class="bk">Como conduzir — 5 minutos iniciais</div>
+    <ul>
+      <li>Mostre (ou descreva) uma manchete real sobre guerra, fome ou catástrofe atual</li>
+      <li>Pergunte: <em>"Qual é a sua primeira reação ao ver isso? Compaixão e oração? Ou tentativa de encaixar no cronograma profético?"</em></li>
+      <li>Deixe 2-3 respostas honestas — não julgue nenhuma</li>
+      <li>Diga: <em>"Essa tensão entre compaixão e cálculo profético é exatamente o que vamos trabalhar hoje. Ap 6:10 mostra os mártires clamando — não calculando."</em></li>
+      <li>Use como fio condutor ao longo de toda a aula: a doutrina deve gerar intercessão, não fascínio</li>
+    </ul>
+
+  <div class="bloco-guia">
+    <div class="bk">Objetivo da Dinâmica</div>
+    <p>Essa abertura serve para deslocar a turma do imaginário sensacionalista para uma postura pastoral. O foco não é vencer um debate sobre cronologia, mas perceber como a escatologia molda a maneira cristã de reagir ao sofrimento e à injustiça.</p>
+  </div>
+  <div class="bloco-debate">
+    <div class="bk">Pergunta Central para o Debate da Pg. 5</div>
+    <p>"O Apocalipse foi escrito para cristãos do século I sob perseguição romana. O que é mais natural: que Deus lhes enviasse um manual de eventos do século XXI, ou uma mensagem pastoral em linguagem de crise que eles entendessem imediatamente?"</p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <p>Considere revisar com a turma, ao final, quais pontos da lição pertencem ao núcleo doutrinário compartilhado e quais dependem de sistema interpretativo. Essa distinção reduz confusão e fortalece a maturidade bíblica da classe.</p>
+  <div class="bloco-dica">
+    <div class="bk">Como Usar a Linha do Tempo de Daniel 9 (Pg. P2)</div>
+    <ul>
+      <li>Desenhe os três blocos (7 + 62 + 1) no quadro antes da aula — simples, sem detalhes</li>
+      <li>Pergunte antes de explicar: <em>"Quando vocês veem 'setenta semanas', pensam em semanas literais de 7 dias?"</em> — as respostas revelam a hermenêutica implícita</li>
+      <li>Explique que <em>shabua</em> significa "grupo de sete" — pode ser dias, anos ou períodos simbólicos</li>
+      <li>Apresente as duas interpretações da "semana final" com igual respeito antes de apontar as tensões</li>
+    </ul>
+  </div>
+  <h2 class="prof">Diferenciação por Perfil de Turma</h2>
+  <div class="diferenciacao">
+    <div class="dif-item">
+      <div class="dif-tipo">Turma Pentecostal</div>
+      <div class="dif-acao">Não questione o pré-tribulacionismo diretamente. Comece pelos propósitos da Tribulação — os dois pontos são comuns a todas as posições — antes de entrar nas diferenças hermenêuticas.</div>
+    </div>
+    <div class="dif-item">
+      <div class="dif-tipo">Turma Reformada</div>
+      <div class="dif-acao">Apresente o literalismo dispensacionalista com os seus melhores argumentos antes de apontar as fragilidades. Evite o tom de "finalmente a leitura correta".</div>
+    </div>
+    <div class="dif-item">
+      <div class="dif-tipo">Turma Mista</div>
+      <div class="dif-acao">Use a tabela comparativa (Pg. P2) como terreno neutro. Deixe que os próprios alunos identifiquem pontos fortes e fraquezas de cada posição antes de o professor concluir.</div>
+    </div>
+    <div class="dif-item">
+      <div class="dif-tipo">Turma Ansiosa</div>
+      <div class="dif-acao">Reoriente para a soberania de Deus: <em>"Deus preservou Israel nas pragas do Egito sem retirá-los do contexto. Proteção divina não depende de ausência de sofrimento."</em> Ancore na confiança, não na cronologia.</div>
+    </div>
+  </div>
+  <div class="aval-form">
+    <div class="bk">Avaliação Formativa Rápida — Cheque ao Final da Aula</div>
+    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno consegue citar pelo menos um texto do AT que antecipa a Tribulação?</div></div>
+    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno distingue os dois propósitos bíblicos do período — julgamento e purificação?</div></div>
+    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno compreende que a divergência entre posições está na hermenêutica, não apenas na cronologia?</div></div>
+    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno demonstrou postura de compaixão — e não de fascínio especulativo — ao tratar do sofrimento descrito?</div></div>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "Qual das posições é a verdadeira?"</div>
+    <p>Resposta sugerida: <em>"A diferença está na hermenêutica — na forma de ler o gênero literário do Apocalipse. Ambas têm eruditos sérios. O que podemos afirmar com certeza: Deus julga a iniquidade, a história tem um fim, e os escolhidos serão preservados. Isso é o que consola — independente do calendário."</em></p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Leia Apocalipse 7:14 devagar: <em>"Estas são as que vieram da grande tribulação, e lavaram as suas vestes e as alvejaram no sangue do Cordeiro."</em></li>
+      <li>Diga: <em>"Independente de quando isso acontece ou como é lido — literal ou simbólico — há pessoas hoje que estão vivendo sua grande tribulação. Elas precisam da nossa oração, não da nossa curiosidade."</em></li>
+      <li>Encerre com oração de intercessão pelos cristãos perseguidos no mundo</li>
+      <li>Anuncie a Lição 05: <em>O Anticristo — identidade, ascensão e queda do homem da iniquidade</em></li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 04 · Respostas &amp; Recursos</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01 — Daniel 9 e a "semana final"</div>
+      <div class="resp-txt">O dispensacionalismo interpreta a 70ª semana como um período de 7 anos ainda futuro, separado das 69 anteriores por um "intervalo" que seria a era da Igreja. A leitura é coerente internamente, mas exige o pressuposto do intervalo — que não está explícito no texto de Daniel. Exegetas como E.J. Young e O. Palmer Robertson argumentam que a profecia flui continuamente e que a 70ª semana foi cumprida com Cristo e o julgamento de 70 d.C. Valorize respostas que percebam a questão hermenêutica de base antes de tomar partido.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02 — Os dois propósitos da Tribulação</div>
+      <div class="resp-txt">(1) Julgamento da humanidade rebelde: Ap 9:20-21 mostra que os julgamentos visam provocar arrependimento — e o endurecimento humano revela a profundidade da depravação e a justiça divina. (2) Purificação e conversão de Israel: Zc 13:8-9 e Rm 11:25-27 descrevem o refinamento de um remanescente. Deus revela-se simultaneamente justo (julga sem concessão) e misericordioso (purifica para salvar). Valorize respostas que citem os textos, não apenas os conceitos.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03 — Literal vs. Simbólico</div>
+      <div class="resp-txt">Literal/Dispensacionalista: ponto forte — respeita o sentido natural das palavras e a esperança de Israel; limitação — pode ignorar o gênero apocalíptico e produzir cronogramas que o texto não exige. Simbólico/Reformado: ponto forte — leva a sério o gênero literário e o contexto histórico do século I; limitação — pode minimizar demais a dimensão futura e os julgamentos reais. Nenhuma das posições é sem dificuldades — o debate é honesto e persistente entre eruditos sérios.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04 — Postura diante do sofrimento</div>
+      <div class="resp-txt">Resposta pessoal e de consciência. Espere: solidariedade concreta com cristãos perseguidos; oração de intercessão em vez de fascínio profético; rejeição da postura de "espectador" da tribulação alheia; generosidade com organizações de auxílio às vítimas de conflito. A pergunta mais transformadora: o aluno já fez algo concreto pela realidade de sofrimento que existe hoje — ou apenas debate sobre o sofrimento futuro?</div>
+    </div>
+  </div>
+  <div class="bloco-gabarito-uso">
+    <div class="bk">Como Usar o Gabarito</div>
+    <p>As respostas sugeridas são <em>orientativas</em>, não prescritivas. Para Q1–Q3, valorize qualquer resposta que cite o texto bíblico explicitamente e identifique a questão hermenêutica de base. Para Q4 (postura diante do sofrimento), trate como resposta de consciência — acolha honestidade mesmo que incomode. A pergunta mais transformadora: <em>"O aluno já fez algo concreto pelo sofrimento que existe hoje — ou apenas debate sobre o sofrimento futuro?"</em></p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <p>Ao sugerir materiais extras, oriente a classe a priorizar obras que tratem o tema com fidelidade bíblica e equilíbrio pastoral. Nem todo conteúdo escatológico disponível ajuda a formar discernimento; muito dele apenas intensifica medo ou especulação.</p>
+  <p>Se considerar oportuno, destaque aos alunos que boas leituras complementares não servem para inflar curiosidade, mas para aprofundar reverência, clareza doutrinária e responsabilidade espiritual. Esse critério ajuda a filtrar materiais que exploram o tema de maneira alarmista.</p>
+
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. Uma das exposições reformadas mais completas do Apocalipse; obra de referência acadêmica essencial.</span></div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">John F. Walvoord — <em>The Tribulation Period</em>. Perspectiva dispensacionalista; leitura importante para entender o argumento pré-trib em seu melhor nível.</span></div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">O. Palmer Robertson — <em>The Christ of the Covenants</em>. P&amp;R Publishing. Apresenta a hermenêutica pactual reformada que sustenta a leitura simbólica de Daniel e Apocalipse.</span></div>
+    <div class="mat-item"><span class="mat-tipo video">Vídeo</span><span class="mat-info">BibleProject — série <em>Apocalipse</em> e vídeo <em>Gênero Literário: Apocalíptico</em>. YouTube, PT. Explica a linguagem simbólica do Apocalipse para uso em sala ou como pré-aula.</span></div>
+    <div class="mat-item"><span class="mat-tipo audio">Podcast</span><span class="mat-info">Ligonier Ministries — série <em>Daniel</em> com R.C. Sproul. Spotify / ligonier.org. Excelente para o professor entender Daniel 9 na perspectiva reformada antes de ensinar.</span></div>
+    <div class="mat-item"><span class="mat-tipo site">Digital</span><span class="mat-info">portasabertas.org.br — Relatório Mundial de Perseguição (Open Doors). Dados reais sobre cristãos perseguidos; use para contextualizar a Tribulação no presente.</span></div>
+  </div>
+
+  <div class="bloco-seg">
+    <div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
+    <ul>
+      <li>Envie ao grupo da turma Apocalipse 7:14 com a pergunta: <em>"Você conhece alguém que está vivendo sua 'grande tribulação' hoje? O que você pode fazer por essa pessoa esta semana?"</em></li>
+      <li>Sugira a leitura devocional: Dn 9:24-27 + Mt 24:15-31 + Ap 6–7 — lidos com foco nos propósitos de Deus, não em cronogramas</li>
+      <li>Indique o Relatório Mundial de Perseguição da Open Doors (portasabertas.org.br) como instrumento de intercessão informada</li>
+      <li>Prepare a introdução da Lição 05 (O Anticristo) conectando ao debate hermenêutico conquistado aqui: <em>a identidade da "besta" depende de como lemos o Apocalipse — literal ou simbólico</em></li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v1_auth';
+function verificarSenha(){
+  const input=document.getElementById('senha-input');
+  const erro=document.getElementById('senha-erro');
+  const val=input.value.trim().toLowerCase();
+  if(val===SENHA_CORRETA){
+    sessionStorage.setItem(CHAVE_SESSION,'1');
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+    input.classList.remove('erro');erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro');erro.classList.add('vis');input.value='';
+    setTimeout(()=>input.classList.remove('erro'),400);
+  }
+}
+(function(){
+  if(sessionStorage.getItem(CHAVE_SESSION)==='1'){
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+  }
+})();
+
+function entrarLicao(){
+    document.body.classList.add('licao-iniciada');
+    window.scrollTo({top: 0, behavior: 'instant'});
+}    
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit(){
+  edit=!edit;
+  document.querySelectorAll('.pag *').forEach(el=>{
+    if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul'))
+      el.contentEditable=edit?'true':'false';
+  });
+  document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+</script>
+<script src="navegacao.js"></script>
+</body>
+</html>

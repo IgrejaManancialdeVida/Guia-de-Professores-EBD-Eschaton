@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1020">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
+<title>Eschaton · Lição 12 — EDIÇÃO DO PROFESSOR</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--cor:#6080c0;--grad1:#0a1020;--grad2:#101828;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--creme:#f5f0e8;--cc:#e0ddd8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#111;font-family:'EB Garamond',Georgia,serif;}
+.painel{position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#0a0a0a,#1a1a1a);border-bottom:2px solid #3a5090 !important;padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:8pt;color:#666;letter-spacing:1px;display:block;font-weight:300;}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+.area{margin-top:60px;padding:24px 16px 60px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--branco);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#555;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+/* CAPA */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 55%,rgba(96,128,192,0.45) 0%,transparent 55%),radial-gradient(ellipse at 78% 22%,rgba(201,168,76,0.22) 0%,transparent 45%),radial-gradient(ellipse at 52% 85%,rgba(20,40,80,0.4) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:18px 18px;}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#101828,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#050810,var(--cor) 55%,#c0d8ff);opacity:0.4;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,#101828,var(--cor),var(--ouro),transparent);opacity:0.7;}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.cnd{font-family:'Cinzel',serif;font-size:36pt;font-weight:900;color:#fff;opacity:0.1;position:absolute;top:20mm;right:12mm;line-height:1;}
+.ctit{font-family:'Cinzel',serif;font-size:20pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:12px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+.capa-prof-faixa{position:absolute;top:0;right:0;z-index:10;background:#3a5090;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;color:#fff;padding:5px 14px;writing-mode:vertical-rl;transform:rotate(180deg);}
+/* PÁGINAS ALUNO */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--branco);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#101828,var(--cor),var(--ouro) 70%,transparent);}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.035);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);border-left:4px solid var(--cor);padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1px;color:var(--ct);text-transform:uppercase;margin-bottom:6px;margin-top:12px;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.bver{background:var(--creme);border-left:3px solid var(--ouro);padding:10px 12px;margin:12px 0;font-style:italic;font-size:10pt;color:#555;line-height:1.55;font-family:'EB Garamond',serif;}
+.bver cite{display:block;font-size:8.5pt;font-style:normal;color:var(--ouro);margin-top:4px;font-family:'Oswald',sans-serif;letter-spacing:1px;}
+.bvp{border:1px solid rgba(96,128,192,0.35);background:rgba(96,128,192,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bvr{border:1px solid rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.vl{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;font-weight:600;}
+.bvp .vl{color:var(--cor);}.bvr .vl{color:#8a6a20;}
+.vt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.35;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cc);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.obj{background:var(--creme);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+ul li::before{content:'\2192' !important;position:absolute !important;left:0 !important;color:var(--cor) !important;font-size:9pt !important;display:inline-block !important;}
+.lit ul li::before{content:'\2022' !important;position:absolute;left:2px;color:var(--ouro) !important;}
+.apl{background:linear-gradient(135deg,rgba(96,128,192,0.06),rgba(201,168,76,0.06));border:1px solid rgba(96,128,192,0.2);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.apl .at{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.q{margin-bottom:14px;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid #ddd;height:20px;margin-top:3px;}
+.lit{margin-top:10px;padding-top:10px;border-top:1px solid var(--cc);}
+.lit .lt{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:var(--ouro);text-transform:uppercase;margin-bottom:6px;}
+.lit ul{list-style:none;padding:0;}
+.lit ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#666;padding:1px 0 1px 12px;position:relative;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#bbb;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;}
+.lin{border-bottom:1px solid #ddd;height:22px;}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(96,128,192,0.05);border-radius:2px;}
+[contenteditable="true"]:focus{background:rgba(96,128,192,0.08);border-radius:2px;}
+
+/* ENTRADA DA REVISTA */
+.capa-entrada{background:#050505;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;min-height:210mm;}
+.capa-entrada::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.08) 0%,rgba(0,0,0,0.0) 40%,rgba(0,0,0,0.3) 100%);pointer-events:none;}
+.capa-entrada img{display:block;width:100%;height:100%;object-fit:cover;position:relative;z-index:1;}
+.entrada-cta{position:absolute;left:50%;bottom:16mm;transform:translateX(-50%);z-index:2;background:rgba(5,5,5,0.72);color:var(--ouro-claro);border:1px solid rgba(201,168,76,0.35);padding:9px 16px;border-radius:2px;font-family:'Oswald',sans-serif;font-size:8.5pt;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;backdrop-filter:blur(2px);}
+#conteudoLicao{display:none;}
+body.licao-iniciada #conteudoLicao{display:contents;}
+body.licao-iniciada #capaEntradaRevista{display:none;}
+
+@media (max-width: 768px){
+    .painel{padding:8px 10px;gap:8px;}
+    .marca{font-size:10pt;letter-spacing:2px;}
+    .marca span{font-size:7pt;}
+    .btn{font-size:8pt;padding:7px 10px;letter-spacing:1px;}
+    .area{margin-top:74px;padding:12px 10px 40px;gap:12px;}
+    .pag{width:100%;min-height:auto;}
+    .lbl{margin-left:0;align-self:stretch;}
+    .capa-entrada{min-height:calc(100dvh - 98px);max-height:calc(100dvh - 98px);}
+    .capa-entrada img{object-fit:contain;background:#050505;}
+    .entrada-cta{bottom:14px;font-size:8pt;letter-spacing:1.5px;padding:8px 12px;width:calc(100% - 24px);text-align:center;}
+    .capa,.int{min-height:auto;}
+    .ccon{padding:0 8vw 10vw 10vw;}
+    .cnd{top:12vw;right:7vw;font-size:22vw;}
+    .cnbg{font-size:38vw;right:-2vw;bottom:-5vw;}
+    .ctit{font-size:clamp(18pt,8vw,22pt);}
+    .cver{font-size:9.5pt;}
+    .ph{gap:8px;align-items:flex-start;}
+    .phl,.pht{font-size:7.5pt;}
+    h2{font-size:11pt;letter-spacing:1.5px;}
+    h3{font-size:9pt;}
+    p,.vt,.obj ul li,.qt{font-size:10pt;line-height:1.55;}
+    .bver,.bvp,.bvr,.obj,.apl{padding:10px;}
+    .rod{position:relative;padding:14px 8vw 8vw 10vw;margin-top:18px;}
+    .wm{display:none;}
+}
+@media print{
+  body{background:none;}
+  #tela-senha{display:none!important;}
+  #conteudo-principal{display:block!important;}
+  .painel,.lbl,.lbl-prof{display:none!important;}
+  .area{margin-top:0;padding:0;gap:0;}
+  .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+  .wm,.wm-prof{display:none;}
+}
+/* ===== TELA DE SENHA ===== */
+#tela-senha{position:fixed;inset:0;z-index:99999;background:linear-gradient(160deg,#050810 0%,#0a1020 60%,#030508 100%);display:flex;align-items:center;justify-content:center;}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{width:56px;height:56px;border:1px solid rgba(96,128,192,0.55);transform:rotate(45deg);margin:0 auto 32px;position:relative;}
+.senha-icone::after{content:"";position:absolute;inset:10px;background:rgba(96,128,192,0.2);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:#6080c0;margin-bottom:8px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(96,128,192,0.4);border-radius:2px;padding:12px 16px;font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;}
+.senha-campo:focus{border-color:rgba(96,128,192,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{width:100%;background:#3a5090;border:none;color:#fff;font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;}
+.senha-btn:hover{filter:brightness(1.3);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+/* ===== PAINEL PROFESSOR ===== */
+.badge-prof{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;background:#3a5090;color:#fff;padding:4px 12px;border-radius:2px;}
+/* ===== ESTRUTURA PROFESSOR ===== */
+.lbl-prof{color:#3a5090;font-weight:600;}
+.int-prof{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:#f8faff;}
+.int-prof::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#101828,#6080c0,#c9a84c,transparent);}
+.wm-prof{position:absolute;bottom:12mm;right:8mm;font-family:'Cinzel',serif;font-size:36pt;font-weight:900;color:rgba(58,80,144,0.06);line-height:1;user-select:none;pointer-events:none;writing-mode:vertical-rl;transform:rotate(180deg);}
+.ph-prof{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(58,80,144,0.2);display:flex;justify-content:space-between;align-items:baseline;}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:#3a5090;letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:#3a5090;color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+h2.prof{font-family:'Oswald',sans-serif;font-weight:600;font-size:11.5pt;letter-spacing:2px;text-transform:uppercase;color:#3a5090;border-left:4px solid #3a5090;padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;}
+/* blocos professor */
+.bloco-guia{background:#eef2fa;border:1px solid rgba(58,80,144,0.3);border-left:4px solid #3a5090;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#3a5090;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:"▶";font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#0a1020;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:"◆" !important;position:absolute;left:0;color:#3a5090;font-size:5pt;top:5px;}
+.bloco-dica{background:#e6f4ed;border:1px solid rgba(46,107,79,0.3);border-left:4px solid #2e6b4f;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:"✦" !important;font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:"→" !important;position:absolute;left:0;color:#2e6b4f;}
+.bloco-teo{background:#f0f5ff;border:1px solid rgba(96,128,192,0.25);border-left:4px solid #6080c0;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#6080c0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo .bk::before{content:"✝" !important;font-size:8pt;}
+.bloco-teo p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#0a1020;}
+.bloco-debate{background:#f5f8ff;border:1px solid rgba(96,128,192,0.3);border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:"?" !important;font-family:'Cinzel',serif;font-weight:900;font-size:10pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;font-style:italic;line-height:1.6;color:#0a1020;margin-bottom:0;}
+.bloco-resp{background:#fffdf5;border:1px solid rgba(201,168,76,0.3);border-left:4px solid #c9a84c;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-resp .bk::before{content:"✓" !important;font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.12);}
+.resp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;color:#c9a84c;letter-spacing:1px;margin-bottom:2px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:#4a3a10;}
+.bloco-tempo{background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:"◷" !important;font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--cor);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:10pt;color:#2a2a2a;line-height:1.3;}
+.bloco-mat{background:#f5f0e8;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2a2a2a;margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#3a5090;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+.cit-autor{border:1px solid rgba(58,80,144,0.25);background:rgba(58,80,144,0.03);border-radius:3px;padding:10px 12px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#0a1020;line-height:1.6;}
+.cit-autor cite{display:block;margin-top:6px;font-size:8.5pt;font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:#3a5090;}
+.alerta{background:#f0f5ff;border:1px solid rgba(96,128,192,0.3);border-left:4px solid #6080c0;border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#3a5090;margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#0a1828;line-height:1.55;margin-bottom:0;}
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(58,80,144,0.04);}
+.rod-prof::before{content:"";position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,#3a5090,#c9a84c,transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#3a5090;letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:#3a5090;}
+/* tabela comparativa — versão cards por linha (sem corte lateral) */
+.comp-cards{margin:10px 0;display:flex;flex-direction:column;gap:5px;}
+.comp-card{border:1px solid rgba(58,80,144,0.18);border-radius:3px;overflow:hidden;}
+.comp-criterio{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:#1a3060;padding:5px 9px;font-weight:600;}
+.comp-linha{display:flex;align-items:flex-start;gap:0;border-top:1px solid rgba(58,80,144,0.12);}
+.comp-trad{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;color:#fff;padding:5px 7px;min-width:72px;flex-shrink:0;line-height:1.3;}
+.comp-trad.dispensac{background:#3a5090;}
+.comp-trad.reforma{background:#5570a8;}
+.comp-texto{font-family:'EB Garamond',serif;font-size:9.5pt;color:#2a2a2a;padding:5px 8px;line-height:1.4;flex:1;}
+
+/* ===== MOBILE ===== */
+@media screen and (max-width: 768px) {
+    .painel{padding:8px 12px;gap:8px;}
+    .marca{font-size:10pt;}
+    .marca span, .marca em{font-size:7pt;}
+    .badge-prof{font-size:7pt;padding:3px 8px;}
+    .btn{padding:6px 10px;font-size:7.5pt;letter-spacing:1px;}
+    .area{margin-top:54px;padding:12px 8px 60px;gap:12px;}
+    .pag{width:100% !important;min-height:unset;box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+    .lbl{margin-left:8px;}
+    .int, .int-prof{padding:6vw 5vw 10vw 5vw;min-height:unset;}
+    .ccon{padding:0 5vw 8vw 5vw;}
+    .ctit{font-size:clamp(16pt,6vw,22pt);}
+    .cver{font-size:9.5pt;}
+    .cnd{font-size:26pt;top:14mm;right:8mm;}
+    h2{font-size:10.5pt;}
+    h3{font-size:9.5pt;}
+    p{font-size:9.5pt;line-height:1.6;hyphens:auto;}
+    .cap::first-letter{font-size:28pt;}
+    .bloco-guia, .bloco-dica, .bloco-teo, .bloco-debate, .bloco-herme{padding:8px 10px;}
+    .rod{padding:5px 5vw 5vw 5vw;position:relative;}
+    .rod::before{left:5vw;right:5vw;}
+    .wm{display:none;}
+    .capa-prof-faixa{font-size:6pt;padding:4px 10px;}
+}
+@media screen and (max-width: 480px) {
+    .painel{flex-wrap:wrap;}
+    .area{margin-top:96px;}
+    .int, .int-prof{padding:5vw 4vw 8vw 4vw;}
+    h2{font-size:10pt;letter-spacing:1px;}
+    p{font-size:9pt;}
+    .btn{padding:5px 8px;font-size:7pt;}
+}
+
+/* ── BLOCOS DO ALUNO — Lição 12 (replicados na edição do professor) ── */
+.baluno{border-radius:3px;padding:9px 12px;margin-top:12px;margin-bottom:2px;position:relative;}
+.baluno-ico{font-size:10pt;margin-right:6px;vertical-align:middle;}
+.baluno-tag{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px;}
+.baluno-corpo{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);}
+.baluno-linha{border-bottom:1px solid rgba(0,0,0,0.12);height:22px;margin-top:6px;}
+.ba-refletir{background:rgba(96,128,192,0.07);border-left:3px solid var(--cor);}
+.ba-refletir .baluno-tag{color:var(--cor);}
+.ba-biblica{background:rgba(201,168,76,0.07);border-left:3px solid var(--ouro);}
+.ba-biblica .baluno-tag{color:#8a6a20;}
+.ba-sabia{background:rgba(20,35,70,0.06);border-left:3px solid #2e4a8e;}
+.ba-sabia .baluno-tag{color:#2e4a8e;}
+.ba-pense{background:rgba(96,128,192,0.04);border:1px dashed rgba(96,128,192,0.35);border-left:3px solid var(--cor);}
+.ba-pense .baluno-tag{color:var(--cor);}
+.ba-vida{background:linear-gradient(135deg,rgba(96,128,192,0.06),rgba(201,168,76,0.06));border:1px solid rgba(201,168,76,0.30);border-left:3px solid var(--ouro);}
+.ba-vida .baluno-tag{color:#8a6a20;}
+
+/* ── MELHORIAS PEDAGÓGICAS — P1 a P4 ── */
+/* Mapa de Competências (P1) */
+.mapa-comp{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0;}
+.mc-celula{border-radius:3px;padding:8px 10px;}
+.mc-celula.conhecimento{background:rgba(58,80,144,0.08);border:1px solid rgba(58,80,144,0.25);}
+.mc-celula.habilidade{background:rgba(46,107,79,0.08);border:1px solid rgba(46,107,79,0.25);}
+.mc-celula.atitude{background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.30);}
+.mc-celula.avaliacao{background:rgba(96,128,192,0.06);border:1px dashed rgba(96,128,192,0.35);}
+.mc-label{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:4px;}
+.mc-celula.conhecimento .mc-label{color:#3a5090;}
+.mc-celula.habilidade .mc-label{color:#2e6b4f;}
+.mc-celula.atitude .mc-label{color:#8a6a20;}
+.mc-celula.avaliacao .mc-label{color:var(--cor);}
+.mc-texto{font-family:'EB Garamond',serif;font-size:9pt;line-height:1.5;color:var(--ct);}
+/* Fio Condutor (P1) */
+.bloco-fio{background:linear-gradient(135deg,rgba(58,80,144,0.07),rgba(201,168,76,0.07));border:1px solid rgba(201,168,76,0.25);border-left:4px solid var(--ouro);border-radius:3px;padding:9px 12px;margin:10px 0;}
+.bloco-fio .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.bloco-fio .bk::before{content:"⟶";font-size:9pt;}
+.bloco-fio p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);margin-bottom:0;}
+/* Escada Socrática (P2) */
+.escada-socratica{margin:10px 0;display:flex;flex-direction:column;gap:5px;}
+.es-degrau{border-radius:3px;padding:8px 11px;}
+.es-degrau.nivel-1{background:rgba(46,107,79,0.07);border-left:3px solid #2e6b4f;margin-left:0;}
+.es-degrau.nivel-2{background:rgba(58,80,144,0.08);border-left:3px solid #3a5090;margin-left:10px;}
+.es-degrau.nivel-3{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);margin-left:20px;}
+.es-nivel-tag{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:3px;}
+.es-degrau.nivel-1 .es-nivel-tag{color:#2e6b4f;}
+.es-degrau.nivel-2 .es-nivel-tag{color:#3a5090;}
+.es-degrau.nivel-3 .es-nivel-tag{color:#8a6a20;}
+.es-pergunta{font-family:'EB Garamond',serif;font-size:10pt;font-style:italic;line-height:1.5;color:var(--ct);margin-bottom:3px;}
+.es-resposta{font-family:'EB Garamond',serif;font-size:9pt;line-height:1.45;color:#555;}
+.es-resposta::before{content:"→ ";color:#aaa;font-style:normal;}
+/* Diferenciação por Perfil (P3) */
+.diferenciacao-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0;}
+.dp-celula{background:#f5f8ff;border:1px solid rgba(96,128,192,0.2);border-radius:3px;padding:8px 10px;}
+.dp-tipo{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:#3a5090;font-weight:600;margin-bottom:3px;}
+.dp-acao{font-family:'EB Garamond',serif;font-size:9.5pt;line-height:1.45;color:var(--ct);}
+/* Avaliação Formativa (P3) */
+.bloco-avaliacao{background:#f0f5ff;border:1px solid rgba(58,80,144,0.25);border-left:4px solid #3a5090;border-radius:3px;padding:9px 12px;margin:10px 0;}
+.bloco-avaliacao .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#3a5090;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-avaliacao .bk::before{content:"✓";font-weight:900;}
+.check-item{display:flex;align-items:flex-start;gap:8px;padding:3px 0;font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.4;}
+.check-box{width:13px;height:13px;border:1px solid rgba(58,80,144,0.5);border-radius:2px;flex-shrink:0;margin-top:2px;}
+/* Seguimento Pós-Lição (P4) */
+.bloco-seguimento{background:#eef8f3;border:1px solid rgba(46,107,79,0.25);border-left:4px solid #2e6b4f;border-radius:3px;padding:9px 12px;margin:10px 0;}
+.bloco-seguimento .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-seguimento .bk::before{content:"◆";font-size:6pt;position:relative;top:-1px;}
+.seg-acao{display:flex;gap:10px;padding:4px 0;border-bottom:1px solid rgba(46,107,79,0.10);align-items:flex-start;}
+.seg-acao:last-child{border-bottom:none;}
+.seg-dia{font-family:'Oswald',sans-serif;font-size:7.5pt;color:#2e6b4f;font-weight:600;min-width:40px;flex-shrink:0;margin-top:2px;}
+.seg-desc{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.4;}
+/* Orientação de gabarito (P4) */
+.bloco-orientacao-gab{background:#fffdf5;border:1px solid rgba(201,168,76,0.25);border-left:4px solid #c9a84c;border-radius:3px;padding:9px 12px;margin:10px 0;}
+.bloco-orientacao-gab .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.bloco-orientacao-gab .bk::before{content:"★";font-size:8pt;}
+.bloco-orientacao-gab p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.55;color:var(--ct);margin-bottom:0;}
+
+@media (max-width:768px){
+    .baluno{padding:8px 10px;}
+    .baluno-corpo{font-size:9.5pt;}
+    .mapa-comp,.diferenciacao-grid{grid-template-columns:1fr;}
+}
+@media print{
+    .baluno,.mapa-comp,.escada-socratica,.diferenciacao-grid,.bloco-fio,
+    .bloco-avaliacao,.bloco-seguimento,.bloco-orientacao-gab{
+        -webkit-print-color-adjust:exact;print-color-adjust:exact;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+  <div class="senha-caixa">
+    <div class="senha-icone"></div>
+    <div class="senha-titulo">Eschaton</div>
+    <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+    <div class="senha-desc">Este material é exclusivo para docentes.<br>Insira a senha fornecida pela coordenação.</div>
+    <input class="senha-campo" id="senha-input" type="password" placeholder="••••••••" maxlength="20" autocomplete="off" onkeydown="if(event.key==='Enter') verificarSenha()">
+    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
+  </div>
+</div>
+
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">ESCHATON<span>Edição do Professor · Lição 12 · O Céu e a Nova Jerusalém</span></div>
+  <span class="badge-prof">📘 Edição do Professor</span>
+  <button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<div class="area">
+<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 12">
+    <img src="capa-revista.png" alt="Capa da revista Eschaton">
+    <div class="entrada-cta">Toque para entrar na lição</div>
+</div>
+
+<!-- PG 1 — CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">12</div><div class="cnd">12</div>
+  <div class="capa-prof-faixa">Edição do Professor</div>
+  <div class="ccon">
+    <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+    <div class="ctit">O Céu e a Nova Jerusalém</div>
+    <div class="cver">
+      "E vi o céu novo e a terra nova; porque o primeiro céu e a primeira terra passaram, e o mar já não existia. E eu, João, vi a cidade santa, a nova Jerusalém, que descia do céu de Deus, adornada como uma esposa ataviada para o seu marido."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 21:1-2</span>
+    </div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 — INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+  <div class="wm">2</div>
+  <div class="ph"><span class="phl">Lição 12</span><span class="pht">O Céu e a Nova Jerusalém</span></div>
+  <h2>Introdução</h2>
+  <p class="cap">A maioria dos cristãos imagina o céu como uma existência etérea — nuvens, harpas, anjos flutuando em brancura infinda. Essa imagem, mais grega e platônica do que bíblica, rouba do céu sua grandiosidade real. A Bíblia descreve algo muito mais concreto, rico e surpreendente: uma nova criação material e gloriosa, uma cidade de dimensões cósmicas, e — acima de tudo — a presença plena e direta de Deus com sua criatura amada, para sempre.</p>
+  <p>Convém orientar a turma, desde o início, que esta lição trabalha a última grande promessa da série: o destino eterno dos redimidos. O professor deve conduzir o tema com reverência e alegria — não como especulação curiosa, mas como âncora concreta da esperança cristã. O objetivo é que os alunos saiam com a imagem bíblica do céu mais rica, mais material e mais teocêntrica do que trouxeram.</p>
+  <div class="bver">"E ouvi uma grande voz do trono, dizendo: Eis o tabernáculo de Deus com os homens... e Deus mesmo estará com eles e será o seu Deus. E Deus enxugará de seus olhos toda lágrima." <cite>Apocalipse 21:3-4</cite></div>
+  <div class="obj">
+    <div class="ot">Objetivos desta lição</div>
+    <ul>
+      <li>Distinguir o céu intermediário (estado atual dos mortos em Cristo) da nova criação final</li>
+      <li>Examinar Apocalipse 21-22 como a grande visão bíblica do destino eterno dos redimidos</li>
+      <li>Compreender a Nova Jerusalém como renovação e não aniquilação da criação presente</li>
+      <li>Avaliar as perspectivas pentecostal e reformada sobre a natureza da vida eterna</li>
+    </ul>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <p>N.T. Wright observa que o destino final dos redimidos não é "ir para o céu quando morrer" — é a ressurreição dos mortos e a vida na nova criação de Deus na terra renovada. "O céu" como destino final é uma simplificação; a nova criação é o quadro completo e mais glorioso.</p>
+  <p>Essa esperança corrige a imaginação cristã e nos impede de reduzir a eternidade a uma fuga espiritual do mundo. A promessa bíblica aponta para a plenitude da redenção: Deus reconciliando consigo todas as coisas e conduzindo seu povo à vida perfeita em sua presença. Nos tópicos seguintes, examinaremos a distinção entre o estado intermediário e o destino final, a riqueza da visão de João em Apocalipse 21-22, e o diálogo entre as tradições sobre a natureza da Nova Jerusalém.</p>
+
+  <div class="baluno ba-refletir">
+    <div class="baluno-tag"><span class="baluno-ico">&#9670;</span> Para você refletir</div>
+    <div class="baluno-corpo">A maioria das pessoas imagina o céu como nuvens e harpas — uma existência etérea e desmaterializada. Ao descobrir que a Bíblia descreve uma nova criação concreta e gloriosa, sua esperança mudou? O que seria mais difícil de abandonar: a visão popular do céu ou a visão bíblica de uma nova terra renovada pela presença de Deus?</div>
+    <div class="baluno-linha"></div>
+    <div class="baluno-linha"></div>
+  </div>
+
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 — TÓPICO I -->
+<div class="lbl">Página 3 · Tópico I</div>
+<div class="pag int">
+  <div class="wm">3</div>
+  <div class="ph"><span class="phl">Lição 12</span><span class="pht">O Céu e a Nova Jerusalém</span></div>
+  <h2>I-O Céu Agora e o Céu Final</h2>
+  <p>É importante distinguir dois estádios da esperança cristã. O primeiro é o <em>céu intermediário</em> — o estado atual dos crentes que morreram, que estão "com Cristo" (Fp 1:23) em estado de comunhão consciente e bem-aventurada, aguardando a ressurreição. O segundo é o <em>céu final</em> — a nova criação descrita em Apocalipse 21-22, inaugurada após a ressurreição dos mortos e o julgamento final.</p>
+  <p>Ao apresentar essa distinção, ajude a turma a perceber que ela não diminui a consolação imediata da morte — "hoje estarás comigo no paraíso" (Lc 23:43) é uma promessa real e gloriosa. Ela simplesmente mostra que essa fase, por mais bem-aventurada que seja, ainda não é o quadro completo. A ressurreição corporal e a nova criação são o horizonte mais amplo para o qual a esperança cristã aponta.</p>
+  <h3>O Estado Intermediário: Já com Cristo</h3>
+  <p>Paulo descreve o estado intermediário com anseio genuíno: "tenho o desejo de partir e estar com Cristo, o que é muito melhor" (Fp 1:23). "Estar ausente do corpo é estar presente com o Senhor" (2 Co 5:8). Os crentes que morrem estão conscientes, em paz, na presença de Cristo — mas sem o corpo ressurreto, que aguarda a ressurreição. O ladrão na cruz recebeu a promessa: "hoje estarás comigo no paraíso" (Lc 23:43).</p>
+  <div class="bver">"Porque para mim o viver é Cristo, e o morrer é lucro... tenho o desejo de partir e estar com Cristo, o que é muito melhor." <cite>Filipenses 1:21,23</cite></div>
+  <h3>A Nova Criação: O Destino Final</h3>
+  <p>O destino último dos redimidos não é uma existência celeste desencarnada — é a nova criação: "céu novo e terra nova" (Ap 21:1; 2 Pe 3:13; Is 65:17). Deus não abandona sua criação original — ele a renova e glorifica. A nova terra é contínua com esta, assim como o corpo ressurreto é contínuo com o atual. A criação, que geme aguardando a revelação dos filhos de Deus (Rm 8:19-22), será liberta e transformada.</p>
+  <p>A distinção entre o estado intermediário e a nova criação final tem grande valor pastoral. Ela consola o crente enlutado com a certeza de que os que morreram em Cristo já estão com o Senhor, mas também preserva a integridade da esperança bíblica, que aguarda a ressurreição do corpo e a restauração plena de todas as coisas. Essa verdade reafirma igualmente a bondade da criação: Deus não trata o corpo e o mundo material como descartáveis — em Cristo, ele garante que sua obra será renovada e glorificada.</p>
+
+  <div class="baluno ba-biblica">
+    <div class="baluno-tag"><span class="baluno-ico">&#9998;</span> Conexão Bíblica</div>
+    <div class="baluno-corpo">Leia Filipenses 1:21-23 e 1 Tessalonicenses 4:13-18 lado a lado. O que Paulo revela sobre o estado intermediário e sobre a esperança da ressurreição? Como a distinção entre "estar com Cristo agora" e "a nova criação final" aparece nesses textos? De que forma eles se complementam em vez de se contradizer?</div>
+    <div class="baluno-linha"></div>
+    <div class="baluno-linha"></div>
+  </div>
+
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 — TÓPICO II -->
+<div class="lbl">Página 4 · Tópico II</div>
+<div class="pag int">
+  <div class="wm">4</div>
+  <div class="ph"><span class="phl">Lição 12</span><span class="pht">O Céu e a Nova Jerusalém</span></div>
+  <h2>II-A Nova Jerusalém: Apocalipse 21-22</h2>
+  <p>A visão de João em Apocalipse 21-22 é a mais rica descrição bíblica do destino eterno dos redimidos. A Nova Jerusalém não é uma cidade no céu — ela <em>desce do céu</em> para a nova terra (Ap 21:2), unindo o celestial e o terrestre de forma definitiva e gloriosa.</p>
+  <p>Ao trabalhar esse texto, chame a atenção para o movimento descendente da cidade: não somos nós que subimos para o céu de Deus — é o céu de Deus que desce para nós. Isso confirma o padrão bíblico da encarnação e da nova criação: Deus vem habitar com os seus, não para nos arrancar do mundo, mas para renovar o mundo em sua presença.</p>
+  <h3>As Dimensões e os Materiais</h3>
+  <p>A cidade é descrita como um cubo perfeito de 12.000 estádios de lado — aproximadamente 2.200 km em cada dimensão. O cubo remete ao Santo dos Santos do Templo (1 Rs 6:20) — toda a cidade é o lugar da presença de Deus. As fundações são adornadas com doze pedras preciosas; as ruas são de ouro puro transparente como vidro. Essa riqueza de detalhes aponta para uma realidade que supera em glória tudo que o olho humano já viu (1 Co 2:9).</p>
+  <div class="bver">"E não vi nela templo algum; porque o Senhor Deus Todo-Poderoso e o Cordeiro são o seu templo. E a cidade não necessita de sol nem de lua que a iluminem; porque a glória de Deus a iluminou." <cite>Apocalipse 21:22-23</cite></div>
+  <div class="sep"><span>✦</span></div>
+  <h3>O Que Não Haverá Mais</h3>
+  <p>Apocalipse 21:4 lista o que será eliminado para sempre: morte, pranto, clamor e dor. Não haverá mais maldição (Ap 22:3), noite (Ap 22:5), nem necessidade de templo (Ap 21:22) — pois Deus mesmo habitará plenamente com os seus. O rio da água da vida e a árvore da vida (Ap 22:1-2) retomam as imagens do Éden e as superam infinitamente — a história é circular, mas em espiral ascendente: o fim é mais glorioso que o começo.</p>
+  <h3>A Presença de Deus: O Bem Supremo</h3>
+  <p>O centro absoluto da nova criação não são as ruas de ouro nem as pedras preciosas — é a presença direta e ininterrupta de Deus com sua criatura: "e eles serão os seus povos, e Deus mesmo estará com eles" (Ap 21:3). "E verão a sua face" (Ap 22:4) — a <em>visio Dei</em>, a visão direta de Deus, é o bem supremo para o qual o ser humano foi criado e redimido. Enfatize esse ponto ao fechar a seção: o maior dom do céu não é a cidade — é o próprio Deus.</p>
+
+  <div class="baluno ba-sabia">
+    <div class="baluno-tag"><span class="baluno-ico">&#9654;</span> Sabia que?</div>
+    <div class="baluno-corpo">A expressão <em>visio Dei</em> — "visão de Deus" — foi o maior debate da teologia medieval. Tomás de Aquino a chamou de <em>beatitudo</em>, o bem-aventurado fim supremo do ser humano. A promessa de Apocalipse 22:4 — "e verão a sua face" — resolve aquilo que Moisés não pôde ver (Êx 33:20): na nova criação, a presença de Deus não será mediada por véus, templos ou sacramentos, mas direta, plena e eterna.</div>
+  </div>
+
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 — TÓPICO III -->
+<div class="lbl">Página 5 · Tópico III</div>
+<div class="pag int">
+  <div class="wm">5</div>
+  <div class="ph"><span class="phl">Lição 12</span><span class="pht">O Céu e a Nova Jerusalém</span></div>
+  <h2>III-Visões em Diálogo</h2>
+  <p>Sobre a realidade da vida eterna e da nova criação, há consenso profundo entre as tradições. As diferenças se concentram na natureza da Nova Jerusalém — literal ou simbólica — e na relação entre Israel, a Igreja e o céu eterno. Apresente as duas posições com respeito e precisão antes de apontar os pontos de tensão.</p>
+  <div class="bvp">
+    <div class="vl">✦ Perspectiva Pentecostal</div>
+    <div class="vt">Para o dispensacionalismo pentecostal, a Nova Jerusalém de Apocalipse 21-22 é uma cidade literal e futura que descerá do céu para a nova terra após o milênio e o julgamento final. Suas dimensões, materiais e estrutura são descritos literalmente. Durante o milênio, a Igreja reinará com Cristo nos céus enquanto Israel e as nações vivem na terra restaurada; na nova criação, a Nova Jerusalém será a morada eterna tanto da Igreja quanto do Israel redimido. A glória da nova criação supera tudo que o ser humano imagina — inclusive as experiências místicas e os dons espirituais do presente.</div>
+  </div>
+  <div class="bvr">
+    <div class="vl">✦ Perspectiva Reformada</div>
+    <div class="vt">Para o amilenismo reformado, a Nova Jerusalém é uma imagem simbólica da plenitude da comunhão entre Deus e seu povo na nova criação — não necessariamente uma cidade geográfica com dimensões astronômicas literais. O simbolismo é intencional: o cubo perfeito evoca o Santo dos Santos; as pedras preciosas evocam o peitoral do sumo sacerdote. A nova criação é a renovação e glorificação do cosmos presente — não sua aniquilação e substituição. N.T. Wright, Anthony Hoekema e Herman Bavinck enfatizam a continuidade entre a criação presente e a nova criação, fundamentada na ressurreição corporal de Cristo.</div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <p>O núcleo eterno e inegociável: Deus habitará plenamente com os redimidos, toda lágrima será enxugada, a morte não existirá mais, e os redimidos verão a face de Deus para sempre — esse é o cume de toda esperança cristã e o destino para o qual toda a criação anseia.</p>
+  <p>As diferenças de leitura entre abordagens mais literais e mais simbólicas não anulam a certeza central da promessa. Em qualquer das interpretações ortodoxas, a vida eterna é real, a comunhão com Deus é plena, e a morte jamais voltará a ameaçar os redimidos. Esse ponto comum deve produzir reverência e esperança — e não disputa estéril.</p>
+
+  <div class="baluno ba-pense">
+    <div class="baluno-tag"><span class="baluno-ico">&#8857;</span> Pense nisso</div>
+    <div class="baluno-corpo">Pentecostais tendem a ler a Nova Jerusalém literalmente — uma cidade física de ouro e pedras preciosas; reformados tendem a ler simbolicamente — uma imagem da comunhão plena com Deus. Mas ambos concordam no essencial: Deus habitará com seus redimidos para sempre. Essa convergência profunda importa mais que a divergência sobre os detalhes? Como você equilibra fidelidade exegética e humildade interpretativa diante de um texto tão rico?</div>
+    <div class="baluno-linha"></div>
+    <div class="baluno-linha"></div>
+  </div>
+
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 — CONCLUSÃO -->
+<div class="lbl">Página 6 · Conclusão</div>
+<div class="pag int">
+  <div class="wm">6</div>
+  <div class="ph"><span class="phl">Lição 12</span><span class="pht">O Céu e a Nova Jerusalém</span></div>
+  <h2>Conclusão</h2>
+  <p>A visão da nova criação não é escapismo — é o maior motivador para o engajamento presente. Se Deus vai renovar e glorificar a criação, e não destruí-la, então o cuidado com a criação, a beleza, a arte, a justiça e o amor ao próximo têm valor eterno. Nada do que é feito no Senhor é vão — porque a nova criação é a redenção, não a negação, do presente (1 Co 15:58).</p>
+  <p>Ao encerrar, enfatize que concluir essa doutrina corretamente é reconhecer que a esperança futura transforma a vida presente. Quem crê que Deus fará novas todas as coisas aprende a sofrer sem desespero, a trabalhar sem cinismo e a amar sem medo de perda definitiva, porque sabe que o Senhor conduz tudo para sua consumação gloriosa.</p>
+  <div class="apl">
+    <div class="at">Para a sua semana</div>
+    <p>Primeiro: leia Apocalipse 21:1-8 devagar, como uma carta de amor de Deus ao seu povo — deixe cada promessa aterrissar em sua vida concreta. Qual delas você mais precisa ouvir esta semana — que não haverá mais morte, pranto, clamor ou dor? Segundo: reflita sobre como a visão da nova criação muda seu relacionamento com o mundo presente — você tende ao desapego indiferente ("isso vai acabar mesmo") ou ao cuidado esperançoso ("Deus está redimindo isso")? Terceiro: leia Romanos 8:18-25 e perceba que a criação toda anseia pela mesma redenção que nós ansiamos — isso muda sua responsabilidade diante do cuidado com a criação.</p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h3>Para Refletir</h3>
+  <p>Apocalipse 21:5 contém uma das afirmações mais poderosas da Bíblia: "Eis que faço novas todas as coisas." Não "faço coisas novas" — mas "faço <em>novas</em> todas as coisas." É renovação, não substituição. Como essa distinção sutil muda radicalmente a maneira como você vê seu corpo, seu trabalho, seus relacionamentos e sua cultura — tudo o que você ama neste mundo?</p>
+  <div class="bver">"E o que estava assentado no trono disse: Eis que faço novas todas as coisas... estas palavras são fiéis e verdadeiras." <cite>Apocalipse 21:5</cite></div>
+  <p>Assim, a nova criação não é apenas consolo para depois da morte, mas fundamento para uma vida santa, firme e esperançosa agora. O cristão caminha no mundo com os olhos postos na eternidade, não para fugir da realidade, mas para viver nela à luz da promessa fiel de Deus.</p>
+  <p>Na última lição desta série, aplicaremos tudo o que aprendemos: <strong>Vivendo à Luz da Eternidade</strong> — como a escatologia transforma o presente.</p>
+
+  <div class="baluno ba-vida">
+    <div class="baluno-tag"><span class="baluno-ico">&#10022;</span> Leve para a vida</div>
+    <div class="baluno-corpo">Esta semana, deixe a visão da nova criação gerar um fruto concreto: escolha uma área da sua vida — seu trabalho, um relacionamento, um hábito — e pergunte: "Como posso cuidar disso como quem sabe que Deus vai fazer novas todas as coisas?" Anote aqui essa área e um passo prático que você vai dar, à luz da esperança eterna:</div>
+    <div class="baluno-linha"></div>
+    <div class="baluno-linha"></div>
+  </div>
+
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 — QUESTÕES -->
+<div class="lbl">Página 7 · Questões &amp; Anotações</div>
+<div class="pag int">
+  <div class="wm">7</div>
+  <div class="ph"><span class="phl">Lição 12</span><span class="pht">O Céu e a Nova Jerusalém</span></div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">Qual a diferença entre o "céu intermediário" — estado atual dos crentes que morreram — e a "nova criação" final descrita em Apocalipse 21-22? Por que essa distinção importa para uma teologia bíblica completa da esperança cristã?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">Apocalipse 21:5 diz "faço novas todas as coisas" — renovação, não substituição. Como esse princípio de continuidade com transformação se aplica ao corpo ressurreto, à criação e à história humana na nova criação?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">O dispensacionalismo interpreta a Nova Jerusalém literalmente; o amilenismo a interpreta simbolicamente. Quais elementos internos do texto de Apocalipse 21 sugerem cada abordagem? Como você decide qual método aplicar?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">Se o centro da nova criação é "ver a face de Deus" (Ap 22:4) — a comunhão direta e plena com o Criador — o que isso revela sobre o propósito último do ser humano? Como isso reorienta suas prioridades e desejos agora?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="lit">
+    <div class="lt">Leituras Complementares</div>
+    <ul>
+      <li>N.T. Wright — <em>Surpreendido pela Esperança</em>, cap. 7-11 (nova criação como destino final)</li>
+      <li>Anthony Hoekema — <em>A Bíblia e o Futuro</em>, cap. 15 (a nova terra na perspectiva reformada)</li>
+      <li>Leitura devocional: Apocalipse 21-22 completo + Romanos 8:18-25 + Isaías 65:17-25</li>
+    </ul>
+  </div>
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+
+<!-- ═══════════════════════════ PÁGINAS DO PROFESSOR ═══════════════════════════ -->
+
+<!-- PG P1 — GUIA GERAL -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 12 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Esta é a penúltima lição da série e talvez a mais contemplativa. O tema — o destino eterno dos redimidos — deve ser tratado com reverência, alegria e precisão bíblica. O principal desafio pastoral é substituir a imagem platônica e etérea do céu (nuvens, harpas, desencarnação) pela imagem bíblica: nova criação concreta, material, teocêntrica e gloriosa.</p>
+  <p>A distinção entre estado intermediário e nova criação final é o coração teológico da lição. Ensine-a com clareza: consolação imediata para os que choram (o morto em Cristo já está com o Senhor) e esperança integral para a Igreja (a ressurreição e a nova terra são o destino pleno). Nenhuma das duas verdades deve ser sacrificada pela outra.</p>
+  <p>O fio condutor pastoral é Apocalipse 21:5: "Eis que faço novas todas as coisas." A palavra-chave é <em>novas</em> — renovação, não substituição. Isso tem implicações práticas imediatas: o trabalho, os relacionamentos, o corpo, a arte e a justiça têm valor eterno porque serão redimidos, não descartados.</p>
+
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: "Descreva o céu em três palavras." — colete as respostas e use-as para mostrar onde a imagem popular difere da bíblica</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: a imagem platônica vs. a imagem bíblica; Wright e a correção da esperança cristã</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Tópico I: estado intermediário vs. nova criação final — consolo e esperança integral</span></div>
+    <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 4 — Tópico II: Apocalipse 21-22 em detalhe — o cubo, os materiais, o que não haverá, e a <em>visio Dei</em></span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 5 — Tópico III: literal vs. simbólico — use a tabela da Pg. P2; núcleo confessional compartilhado</span></div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Conclusão: Ap 21:5 e a teologia da renovação; encerre com Ap 22:20 e oração de adoração</span></div>
+  </div>
+
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Desconstruir a imagem platônica do céu e substituí-la pela imagem bíblica da nova criação</li>
+      <li>Ensinar a distinção estado intermediário / nova criação com valor pastoral concreto</li>
+      <li>Mostrar que a Nova Jerusalém desce — Deus vem a nós, não nos arranca do mundo</li>
+      <li>Conectar a esperança da nova criação com engajamento ético e criativo no presente</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção — O Perigo do Desengajamento Espiritualista</div>
+    <p>Se algum aluno expressar que "não adianta investir no mundo porque tudo vai acabar", corrija gentilmente: <em>"Paulo diz exatamente o contrário em 1 Coríntios 15:58: 'sede firmes... sabendo que o vosso trabalho não é vão no Senhor.' É porque Deus vai renovar — e não destruir — que o trabalho feito em Cristo tem valor eterno."</em></p>
+  </div>
+
+  <h2 class="prof" style="margin-top:10px;">Mapa de Competências</h2>
+  <div class="mapa-comp">
+    <div class="mc-celula conhecimento">
+      <div class="mc-label">Conhecimento</div>
+      <div class="mc-texto">Distinguir estado intermediário da nova criação; identificar os elementos de Apocalipse 21-22 e o debate literal/simbólico</div>
+    </div>
+    <div class="mc-celula habilidade">
+      <div class="mc-label">Habilidade</div>
+      <div class="mc-texto">Relacionar a esperança da nova criação com decisões e práticas concretas do cotidiano — trabalho, cuidado, arte e relacionamentos</div>
+    </div>
+    <div class="mc-celula atitude">
+      <div class="mc-label">Atitude</div>
+      <div class="mc-texto">Cultivar reverência e alegria diante do destino eterno dos redimidos; evitar tanto o escapismo quanto o cinismo sobre o mundo presente</div>
+    </div>
+    <div class="mc-celula avaliacao">
+      <div class="mc-label">Avaliação</div>
+      <div class="mc-texto">O aluno consegue articular a diferença entre platonismo e esperança bíblica, e nomear uma área da vida transformada pela nova criação?</div>
+    </div>
+  </div>
+
+  <div class="bloco-fio">
+    <div class="bk">Fio Condutor da Série</div>
+    <p>Esta é a penúltima lição da série <em>Eschaton</em>. Após tratar o retorno de Cristo (L9), o milênio (L10) e o inferno (L11), chegamos ao destino glorioso dos redimidos. A lição seguinte — <em>Vivendo à Luz da Eternidade</em> — fechará o ciclo aplicando tudo o que foi estudado à vida presente. O professor pode usar este momento para mostrar aos alunos que a série forma um arco: da segunda vinda à consumação, do juízo à renovação de todas as coisas.</p>
+  </div>
+
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — EXEGESE + TABELA COMPARATIVA -->
+<div class="lbl lbl-prof">Página P2 · Exegese de Apocalipse 21-22 &amp; Tabela Comparativa</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 12 · Exegese &amp; Comparação</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Exegese de Apocalipse 21-22 — Para o Professor</h2>
+  <div class="bloco-teo">
+    <div class="bk">Elementos-Chave de Apocalipse 21-22</div>
+    <p><strong>"Desce do céu" (21:2):</strong> Movimento descendente — Deus vem à nova terra, não nos leva para longe dela. Padrão da encarnação repetido em escala cósmica. <strong>O Cubo Perfeito (21:16):</strong> 12.000 estádios em todas as dimensões — o mesmo formato do Santo dos Santos (1 Rs 6:20). A cidade inteira é a presença de Deus; nenhum templo separado é necessário. <strong>As 12 Pedras (21:19-20):</strong> Correspondem às doze pedras do peitoral do sumo sacerdote (Êx 28:17-20). A cidade incorpora o sacerdócio; todos os redimidos vivem na presença sacerdotal de Deus. <strong>"Faço novas todas as coisas" (21:5):</strong> Em grego <em>kainòs</em> (nova qualidade), não <em>néos</em> (nova no tempo). Renovação qualitativa — não substituição cronológica. <strong>"Verão a sua face" (22:4):</strong> A <em>visio Dei</em> — o bem supremo da teologia cristã, antes reservado a Moisés em grau parcial. Na nova criação, será plena e contínua para todos os redimidos.</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Orientação Exegética — O Simbolismo Intencional</div>
+    <p>Ao apresentar o debate literal/simbólico, mostre que o simbolismo em Apocalipse não é arbitrário — ele é rico em referências ao Antigo Testamento. Números como 12.000 (12 × 1.000), 144.000 (12² × 1.000) e estruturas como o cubo perfeito carregam significado teológico preciso. O argumento reformado não é que a cidade "não existe", mas que suas dimensões comunicam realidades teológicas — a plenitude, a perfeição, a presença universal de Deus — que transcendem a geometria literal.</p>
+  </div>
+
+  <h2 class="prof" style="margin-top:10px;">Literal vs. Simbólico — Tabela Comparativa</h2>
+  <div class="comp-cards">
+    <div class="comp-card">
+      <div class="comp-criterio">Nova Jerusalém</div>
+      <div class="comp-linha"><span class="comp-trad dispensac">Dispensac.</span><span class="comp-texto">Cidade literal com dimensões astronômicas reais</span></div>
+      <div class="comp-linha"><span class="comp-trad reforma">Reformado</span><span class="comp-texto">Imagem simbólica da comunhão plena de Deus com seu povo</span></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-criterio">Dimensões (12.000 estádios)</div>
+      <div class="comp-linha"><span class="comp-trad dispensac">Dispensac.</span><span class="comp-texto">Medidas literais — ≈ 2.200 km × 2.200 km × 2.200 km</span></div>
+      <div class="comp-linha"><span class="comp-trad reforma">Reformado</span><span class="comp-texto">Número simbólico: 12 (povo de Deus) × 1.000 (plenitude)</span></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-criterio">Israel e Igreja</div>
+      <div class="comp-linha"><span class="comp-trad dispensac">Dispensac.</span><span class="comp-texto">Destinos distintos na nova criação</span></div>
+      <div class="comp-linha"><span class="comp-trad reforma">Reformado</span><span class="comp-texto">Um único povo unido na nova criação</span></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-criterio">"Faz novas" (21:5)</div>
+      <div class="comp-linha"><span class="comp-trad dispensac">Dispensac.</span><span class="comp-texto">Nova criação após destruição da atual (2 Pe 3:10)</span></div>
+      <div class="comp-linha"><span class="comp-trad reforma">Reformado</span><span class="comp-texto">Renovação e glorificação do cosmos presente</span></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-criterio">Continuidade com o presente</div>
+      <div class="comp-linha"><span class="comp-trad dispensac">Dispensac.</span><span class="comp-texto">Menor — nova criação é radicalmente diferente</span></div>
+      <div class="comp-linha"><span class="comp-trad reforma">Reformado</span><span class="comp-texto">Maior — fundada na ressurreição corporal de Cristo</span></div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-criterio">Referências-chave</div>
+      <div class="comp-linha"><span class="comp-trad dispensac">Dispensac.</span><span class="comp-texto">Ap 21:1 ("passou"), 2 Pe 3:10-12 (fogo)</span></div>
+      <div class="comp-linha"><span class="comp-trad reforma">Reformado</span><span class="comp-texto">Rm 8:21 (libertação), Is 65:17 (continuidade), Ap 21:5 (<em>kainós</em>)</span></div>
+    </div>
+  </div>
+  <div class="cit-autor">
+    "A nova criação não é uma destruição e recriação, mas uma renovação e glorificação. Assim como o corpo de Cristo ressurreto era o mesmo corpo, transformado — a nova terra será esta terra, glorificada."
+    <cite>— Anthony Hoekema, <em>A Bíblia e o Futuro</em></cite>
+  </div>
+
+  <h2 class="prof" style="margin-top:10px;">Escada de Perguntas Socráticas</h2>
+  <p style="font-size:9.5pt;color:#555;margin-bottom:6px;font-family:'EB Garamond',serif;">Use esta sequência para conduzir a turma do diagnóstico à aplicação. Cada nível pressupõe o anterior.</p>
+  <div class="escada-socratica">
+    <div class="es-degrau nivel-1">
+      <div class="es-nivel-tag">Nível 1 — Diagnóstico</div>
+      <div class="es-pergunta">"Quando você pensa no céu, a primeira imagem que vem à mente é concreta ou abstrata? De onde ela veio?"</div>
+      <div class="es-resposta">Espera-se: imagens etéreas (nuvens, harpas, luz difusa) vindas de filmes, músicas ou pregações populares — abrindo espaço para a correção bíblica.</div>
+    </div>
+    <div class="es-degrau nivel-2">
+      <div class="es-nivel-tag">Nível 2 — Conceitual</div>
+      <div class="es-pergunta">"Por que João descreve a Nova Jerusalém descendo do céu para a terra, e não os redimidos subindo para longe dela?"</div>
+      <div class="es-resposta">Espera-se: percepção do movimento descendente como padrão bíblico (encarnação → nova criação); Deus que vem habitar, não arrancar.</div>
+    </div>
+    <div class="es-degrau nivel-3">
+      <div class="es-nivel-tag">Nível 3 — Aplicação</div>
+      <div class="es-pergunta">"Se Deus vai renovar e não descartar este mundo, o que muda na forma como você cuida do seu trabalho, dos seus relacionamentos e do seu corpo esta semana?"</div>
+      <div class="es-resposta">Espera-se: conexão pessoal e concreta entre a esperança da nova criação e escolhas práticas — combatendo tanto o escapismo quanto a indiferença.</div>
+    </div>
+  </div>
+
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DINÂMICA + PEDAGOGIA -->
+<div class="lbl lbl-prof">Página P3 · Dinâmica &amp; Dicas Pedagógicas</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 12 · Pedagogia</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Dinâmica de Abertura — "Descreva o Céu"</h2>
+  <div class="bloco-dica">
+    <div class="bk">Como conduzir — 5 minutos iniciais</div>
+    <ul>
+      <li>Peça que cada aluno escreva três palavras que descrevem o céu — sem consultar a Bíblia</li>
+      <li>Colete as respostas em voz alta e escreva no quadro os termos mais comuns</li>
+      <li>Pergunte: <em>"De onde veio essa imagem? Da Bíblia, de filmes, de músicas, de pregações?"</em></li>
+      <li>Diga: <em>"Hoje vamos deixar João falar sobre o destino eterno dos redimidos — e a imagem dele é muito mais concreta, mais rica e mais gloriosa do que qualquer nuvem com harpas."</em></li>
+      <li>Ao final da aula, volte às palavras do quadro e pergunte o que mudou</li>
+    </ul>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivo da Dinâmica</div>
+    <p>Identificar o imaginário popular sobre o céu e criar disposição para ser surpreendido pela imagem bíblica. A maioria dos alunos trará imagens platônicas ou cinematográficas — a dinâmica abre espaço para a correção bíblica sem constrangimento, tornando a lição uma descoberta, não uma correção imposta.</p>
+  </div>
+  <div class="bloco-debate">
+    <div class="bk">Pergunta Central para o Debate do Tópico III</div>
+    <p>"Se Apocalipse 21:5 diz que Deus fará 'novas todas as coisas' — e não 'coisas novas' —, o que na sua vida presente você gostaria de saber que será redimido e renovado, e não simplesmente descartado na nova criação?"</p>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <p>Use a descida da Nova Jerusalém (Ap 21:2) como imagem central da aula. Ela inverte o movimento que a maioria imagina — não somos nós que subimos para o céu de Deus; é o céu de Deus que desce para nós. Isso conecta a encarnação de Cristo com a nova criação: o mesmo padrão, a mesma direção, a mesma graça em escala cósmica.</p>
+  <div class="bloco-dica">
+    <div class="bk">Como Trabalhar a Distinção Estado Intermediário / Nova Criação (Pg. 3)</div>
+    <ul>
+      <li>Desenhe uma linha do tempo no quadro: Morte → Estado Intermediário ("com Cristo") → Ressurreição → Julgamento → Nova Criação</li>
+      <li>Pergunte: <em>"O que acontece com um crente no momento em que morre? Ele já está com Cristo — mas tem o corpo ressurreto?"</em></li>
+      <li>Mostre que o estado intermediário é real e glorioso — mas incompleto. A plenitude da esperança é a ressurreição do corpo e a nova terra</li>
+      <li>Aplique pastoralmente: <em>"Quando alguém que amamos morre em Cristo, podemos ter certeza de que está bem — e também certa de que a história ainda não acabou. A ressurreição é o capítulo final."</em></li>
+    </ul>
+  </div>
+  <div class="bloco-dica">
+    <div class="bk">Conectando a Nova Criação com o Presente — 1 Co 15:58</div>
+    <ul>
+      <li>Leia 1 Coríntios 15:58: "sede firmes... sabendo que o vosso trabalho não é vão no Senhor"</li>
+      <li>Pergunte: <em>"O que Paulo está dizendo? Que tipo de trabalho tem valor eterno na nova criação?"</em></li>
+      <li>Explore: arte, cuidado com a criação, educação, medicina, amizades — tudo feito no Senhor carrega semente da nova criação</li>
+      <li>Desafio final: cada aluno nomeia uma coisa concreta em sua vida que ganha novo significado à luz da nova criação</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "O céu é literal ou simbólico?"</div>
+    <p>Resposta sugerida: <em>"O debate honesto não é entre 'real' e 'irreal', mas entre dois modos de ler o gênero apocalíptico. Os dois lados afirmam que a nova criação é absolutamente real. A diferença é se as dimensões de 2.200 km comunicam uma verdade geométrica ou uma verdade teológica — a plenitude, a perfeição e a presença universal de Deus. O que nenhum lado questiona: Deus estará lá, você estará lá, e será mais glorioso do que qualquer imagem consegue descrever."</em></p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Leia Apocalipse 22:20 em voz alta: <em>"Certamente venho sem demora. Amém! Vem, Senhor Jesus."</em></li>
+      <li>Volte às palavras escritas no quadro no início da aula e pergunte: <em>"O que mudou na sua imagem do céu?"</em></li>
+      <li>Diga: <em>"O Deus que prometeu fazer novas todas as coisas é o mesmo que prometeu estar com você agora. A esperança do destino final transforma a qualidade do caminho."</em></li>
+      <li>Anuncie a Lição 13: <em>Vivendo à Luz da Eternidade — como a escatologia transforma o presente</em></li>
+    </ul>
+  </div>
+
+  <h2 class="prof" style="margin-top:10px;">Diferenciação por Perfil</h2>
+  <div class="diferenciacao-grid">
+    <div class="dp-celula">
+      <div class="dp-tipo">Turma analítica</div>
+      <div class="dp-acao">Concentre mais tempo na tabela comparativa (Pg. P2) e no debate literal/simbólico; proponha que cada aluno defenda uma posição com argumentos textuais antes de revelar sua própria leitura.</div>
+    </div>
+    <div class="dp-celula">
+      <div class="dp-tipo">Turma prática</div>
+      <div class="dp-acao">Vá direto à pergunta: "O que muda na sua vida se Deus vai renovar e não descartar o mundo?" Use o bloco <em>Leve para a vida</em> como eixo e deixe a teologia emergir das respostas.</div>
+    </div>
+    <div class="dp-celula">
+      <div class="dp-tipo">Turma enlutada</div>
+      <div class="dp-acao">Enfatize com cuidado o estado intermediário: "Quem morreu em Cristo já está com o Senhor — consciente, em paz." Reserve espaço para perguntas pessoais antes de avançar para a nova criação.</div>
+    </div>
+    <div class="dp-celula">
+      <div class="dp-tipo">Turma ansiosa</div>
+      <div class="dp-acao">Comece com Ap 21:4 — "não haverá mais morte, nem pranto, nem clamor, nem dor." Ancore a aula na segurança da promessa antes de tratar debates interpretativos; evite detalhes que gerem ansiedade apocalíptica.</div>
+    </div>
+  </div>
+
+  <div class="bloco-avaliacao">
+    <div class="bk">Avaliação Formativa Rápida — Checklist de Objetivos</div>
+    <div class="check-item"><div class="check-box"></div>O aluno distingue estado intermediário de nova criação final com precisão?</div>
+    <div class="check-item"><div class="check-box"></div>O aluno percebe que a Nova Jerusalém desce — não subimos para longe do mundo?</div>
+    <div class="check-item"><div class="check-box"></div>O aluno compreende a diferença entre <em>kainós</em> (nova qualidade) e a simples substituição?</div>
+    <div class="check-item"><div class="check-box"></div>O aluno conecta a esperança da nova criação com engajamento ético no presente?</div>
+    <div class="check-item"><div class="check-box"></div>O aluno nomeou uma área concreta da própria vida transformada por esta esperança?</div>
+  </div>
+
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof"><span class="ph-prof-l">Lição 12 · Respostas &amp; Recursos</span><span class="ph-prof-r">Edição Docente</span></div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01 — Céu intermediário vs. nova criação</div>
+      <div class="resp-txt">O céu intermediário é o estado atual dos crentes mortos — conscientes, em paz, na presença de Cristo (Fp 1:23; 2 Co 5:8; Lc 23:43), mas sem o corpo ressurreto. A nova criação é o destino final: ressurreição corporal, nova terra, comunhão plena e direta com Deus para sempre (Ap 21-22). A distinção importa porque: (1) consolida a certeza sobre os mortos amados — estão com o Senhor; (2) preserva a esperança integral — o corpo e a terra criada serão redimidos, não descartados. Valorize respostas que conectem a teologia com a pastoral.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02 — "Novas todas as coisas" — renovação, não substituição</div>
+      <div class="resp-txt">O termo grego é <em>kainós</em> (nova qualidade), não <em>néos</em> (novo no tempo). Aplicado ao corpo ressurreto: o mesmo corpo transformado, como o de Cristo — reconhecível, porém glorificado. Aplicado à criação: a nova terra não é outra terra, mas esta liberta da corrupção (Rm 8:21). Aplicado à história: as obras feitas no Senhor têm valor eterno (1 Co 15:58). O princípio de continuidade com transformação é o coração da esperança bíblica — e seu fundamento é a ressurreição corporal de Cristo como primícias.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03 — Nova Jerusalém: literal ou simbólico?</div>
+      <div class="resp-txt">Elementos que sugerem literalismo: dimensões precisas, materiais específicos, estrutura descrita com detalhes. Elementos que sugerem simbolismo: dimensões astronômicas impossíveis geograficamente, referências deliberadas ao Santo dos Santos (cubo perfeito) e ao peitoral do sumo sacerdote (12 pedras), números com padrão teológico (12 × 1.000). A decisão metodológica depende da hermenêutica do gênero apocalíptico: o simbolismo em Apocalipse é rico, sistemático e enraizado no AT — ignorá-lo empobrece a leitura. Valorize o raciocínio apresentado sobre o método.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04 — Ver a face de Deus como propósito último</div>
+      <div class="resp-txt">A <em>visio Dei</em> — ver a face de Deus (Ap 22:4) — é o telos para o qual o ser humano foi criado: amor, conhecimento e comunhão direta com o Criador, sem barreiras. Isso revela que o ser humano foi feito para Deus — e que tudo o mais (prazer, conquista, relacionamentos) é bem quando aponta para esse centro, e ídolo quando toma o lugar dele. Aplicação imediata: reorientação das prioridades — o que eu persigo com mais energia? A resposta bíblica: nada no presente satisfaz plenamente porque fomos feitos para o Face-a-face que só a nova criação oferece.</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <p>Esta lição se beneficia especialmente de obras que conectam a esperança da nova criação com a vida prática e o engajamento ético no presente. Oriente a classe a buscar autores que façam essa ponte — não apenas obras de descrição do destino eterno.</p>
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">N.T. Wright — <em>Surpreendido pela Esperança</em>. Thomas Nelson. Caps. 7-11 são a melhor exposição popular da nova criação como destino final — essencial para desconstruir o platonismo e reconstruir a esperança bíblica.</span></div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Anthony Hoekema — <em>A Bíblia e o Futuro</em>. Fiel/Cultura Cristã. Cap. 15 trata a nova terra com rigor reformado; fundamento teológico indispensável para o professor preparar a exegese.</span></div>
+    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Randy Alcorn — <em>O Paraíso</em>. Editora Shedd. Perspectiva mais literal e popular sobre o céu e a nova criação — útil para entender o imaginário que os alunos trazem e dialogar com ele.</span></div>
+    <div class="mat-item"><span class="mat-tipo video">Vídeo</span><span class="mat-info">BibleProject — vídeo <em>Nova Criação</em> e série <em>Apocalipse</em>. YouTube, PT. Contextualiza o vocabulário de "novo céu e nova terra" no cânon inteiro; ideal como pré-aula ou pós-aula.</span></div>
+    <div class="mat-item"><span class="mat-tipo audio">Podcast</span><span class="mat-info">Ligonier Ministries — série <em>The Last Things: Heaven</em> com R.C. Sproul. Spotify / ligonier.org. Trata a <em>visio Dei</em> e a nova criação com profundidade reformada clássica.</span></div>
+    <div class="mat-item"><span class="mat-tipo site">Digital</span><span class="mat-info">thegospelcoalition.org — artigo <em>"What Will Heaven Be Like?"</em> (Trevin Wax). Síntese clara da nova criação em perspectiva bíblica — boa leitura preparatória para o professor e para alunos interessados.</span></div>
+  </div>
+
+  <div class="bloco-orientacao-gab">
+    <div class="bk">Orientação sobre o Uso do Gabarito</div>
+    <p>As respostas sugeridas acima são orientativas, não definitivas. Nas questões 03 e 04 especialmente — sobre o método hermenêutico e o propósito último do ser humano — valorize o raciocínio apresentado e a honestidade da reflexão pessoal acima da correspondência com o gabarito. Um aluno que diverge com argumentos sólidos demonstra mais maturidade teológica do que aquele que reproduz a resposta esperada sem genuíno processo de pensamento. Use o gabarito para checar se os conceitos centrais foram compreendidos, não para padronizar a reflexão.</p>
+  </div>
+
+  <div class="bloco-seguimento">
+    <div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
+    <div class="seg-acao">
+      <div class="seg-dia">Dia 1–2</div>
+      <div class="seg-desc">Envie ao grupo uma pergunta simples: <em>"O que você mais gostou de descobrir sobre o céu nesta lição?"</em> — isso fixa o aprendizado e cria ponte para a próxima aula.</div>
+    </div>
+    <div class="seg-acao">
+      <div class="seg-dia">Dia 3–4</div>
+      <div class="seg-desc">Sugira a leitura devocional de Apocalipse 21:1-8 + Romanos 8:18-25 — dois textos que se iluminam mutuamente sobre criação, gemido e esperança.</div>
+    </div>
+    <div class="seg-acao">
+      <div class="seg-dia">Dia 5–7</div>
+      <div class="seg-desc">Prepare a abertura da Lição 13 (<em>Vivendo à Luz da Eternidade</em>) retomando o bloco <em>Leve para a vida</em> desta lição: peça que dois ou três alunos compartilhem o passo concreto que anotaram e o que aconteceu durante a semana.</div>
+    </div>
+  </div>
+
+  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v1_auth';
+function verificarSenha(){
+  const input=document.getElementById('senha-input');
+  const erro=document.getElementById('senha-erro');
+  const val=input.value.trim().toLowerCase();
+  if(val===SENHA_CORRETA){
+    sessionStorage.setItem(CHAVE_SESSION,'1');
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+    input.classList.remove('erro');erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro');erro.classList.add('vis');input.value='';
+    setTimeout(()=>input.classList.remove('erro'),400);
+  }
+}
+(function(){
+  if(sessionStorage.getItem(CHAVE_SESSION)==='1'){
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+  }
+})();
+
+function entrarLicao(){
+    document.body.classList.add('licao-iniciada');
+    window.scrollTo({top: 0, behavior: 'instant'});
+}
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit(){
+  edit=!edit;
+  document.querySelectorAll('.pag *').forEach(el=>{
+    if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul'))
+      el.contentEditable=edit?'true':'false';
+  });
+  document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+</script>
+<script src="navegacao.js"></script>
+</body>
+</html>
