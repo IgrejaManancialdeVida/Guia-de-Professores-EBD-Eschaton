@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d1a">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<title>Eschaton Vol. II · Lição 05 — As Duas Testemunhas · Edição do Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    /* cores base — Vol. II roxo (espelho do aluno lição 05) */
+    --cor:#6b2060;
+    --grad1:#1a0a14; --grad2:#280a20;
+    --ouro:#c9a84c; --ouro-claro:#e8d5a0;
+    --vermelho:#8b1a1a;
+    --ct:#2a2a2a;
+    --branco:#fdfbf7; --pergaminho:#f8f2e8; --creme:#f0e8d8; --cc:#ddd8cc;
+    /* cores exclusivas do professor — verde docente */
+    --prof:#1a6b35;
+    --prof-vivo:#27ae60;
+    --prof-claro:#e6f4ed;
+    --prof-borda:rgba(26,107,53,0.35);
+    --topo-prof:#0a1a0d;
+    /* auxiliares pedagógicos */
+    --verde-tip:#2e6b4f;
+    --verde-claro:#e6f4ed;
+    --verde-borda:rgba(46,107,79,0.35);
+    --laranja:#b85c1a;
+    --laranja-claro:#fdf0e6;
+    --laranja-borda:rgba(184,92,26,0.35);
+    --azul:#2c5f8a;
+    --azul-claro:#e8f0f8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#100810;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#0a0510 0%,#180a14 60%,#0a0510 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:54px;height:54px;border:1px solid rgba(107,32,96,0.5);
+    transform:rotate(45deg);margin:0 auto 30px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(107,32,96,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:30px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(107,32,96,0.35);
+    border-radius:2px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;
+    color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(107,32,96,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.senha-btn{
+    width:100%;background:var(--prof);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#050408,#100810);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(201,168,76,0.8);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--pergaminho);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA DO ALUNO (espelho) ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(107,32,96,0.5) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.15) 0%,transparent 45%),radial-gradient(ellipse at 55% 85%,rgba(40,8,32,0.4) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(201,168,76,1) 24px,rgba(201,168,76,1) 25px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#280820,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#0a0408,var(--cor) 50%,#e080d0);opacity:0.35;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.7;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+/* Faixa PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:22pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:10px;}
+.cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== PÁGINAS DO ALUNO (espelho) ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(107,32,96,0.15);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(107,32,96,0.055) 23px,rgba(107,32,96,0.055) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#4a1a48;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.texto-biblico{background:#fff;border:1px solid rgba(107,32,96,0.2);border-left:4px solid var(--cor);padding:12px 14px;margin:12px 0;position:relative;z-index:1;}
+.texto-biblico-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.texto-biblico-ref::after{content:'';flex:1;height:1px;background:rgba(107,32,96,0.2);}
+.texto-biblico p{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#2a1028;line-height:1.7;margin-bottom:4px;text-align:left;}
+.texto-biblico .ref-final{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco-ctx{background:rgba(107,32,96,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-ctx-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bloco-teo{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-teo-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-apl{background:linear-gradient(135deg,rgba(107,32,96,0.05),rgba(201,168,76,0.06));border:1px solid rgba(107,32,96,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-apl-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.memorizar{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.memorizar-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.memorizar p{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#2a1028;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+.obj ul li::before{content:'\2192';position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(107,32,96,0.2);height:20px;margin-top:3px;}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(107,32,96,0.2);height:22px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+
+/* blocos do aluno */
+.bloco-aluno-refletir{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.35);border-top:3px solid var(--ouro);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-refletir-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-refletir-titulo::before{content:'✦';font-size:7pt;}
+.bloco-aluno-refletir p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);font-style:italic;line-height:1.6;margin-bottom:6px;}
+.lra{border-bottom:1px solid rgba(107,32,96,0.2);height:22px;margin-top:4px;}
+
+.bloco-aluno-conexao{background:rgba(107,32,96,0.05);border:1px solid rgba(107,32,96,0.25);border-left:4px solid var(--cor);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-conexao-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-conexao-titulo::before{content:'✦';font-size:7pt;}
+.bloco-aluno-conexao p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:6px;}
+.bloco-aluno-conexao .ref-bib{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;color:var(--cor);text-transform:uppercase;margin-top:4px;}
+.bloco-aluno-conexao .lra{border-bottom:1px solid rgba(107,32,96,0.2);height:22px;margin-top:4px;}
+
+.bloco-aluno-sabia{background:linear-gradient(135deg,rgba(26,10,20,0.04),rgba(201,168,76,0.07));border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-sabia-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-sabia-titulo::before{content:'?';font-family:'Cinzel',serif;font-size:10pt;font-weight:700;color:var(--ouro);line-height:1;}
+.bloco-aluno-sabia p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:0;}
+
+.bloco-aluno-pense{background:#fff;border:1px solid rgba(107,32,96,0.18);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;text-align:center;}
+.bloco-aluno-pense-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;}
+.bloco-aluno-pense-icone{font-size:16pt;color:var(--ouro);margin-bottom:4px;display:block;}
+.bloco-aluno-pense p{font-family:'EB Garamond',serif;font-size:10.5pt;font-style:italic;color:#2a1028;line-height:1.65;text-align:center;margin-bottom:0;}
+.bloco-aluno-pense .lra{border-bottom:1px solid rgba(107,32,96,0.2);height:22px;margin-top:6px;text-align:left;}
+
+.bloco-aluno-leve{background:linear-gradient(135deg,rgba(107,32,96,0.06),rgba(201,168,76,0.07));border:1px solid rgba(107,32,96,0.22);border-radius:2px;padding:12px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-leve-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-leve-titulo::before{content:'→';font-size:10pt;color:var(--ouro);}
+.bloco-aluno-leve p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:6px;}
+.bloco-aluno-leve .lra{border-bottom:1px solid rgba(107,32,96,0.2);height:22px;margin-top:4px;}
+
+.bloco-qr{margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;}
+
+/* ===== PÁGINAS DO PROFESSOR ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fafff8;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--prof-vivo),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(26,107,53,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(26,107,53,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);border-left:4px solid var(--prof);
+    padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+.bloco-guia{background:#f0faf3;border:1px solid var(--prof-borda);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1a3d28;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+.bloco-dica{background:var(--verde-claro);border:1px solid var(--verde-borda);border-left:4px solid var(--verde-tip);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--verde-tip);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+.bloco-teo-prof{background:var(--laranja-claro);border:1px solid var(--laranja-borda);border-left:4px solid var(--laranja);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo-prof .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo-prof .bk::before{content:'◉';font-size:7pt;}
+.bloco-teo-prof p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e08;}
+
+.alerta{background:#fff5f5;border:1px solid rgba(139,26,26,0.25);border-left:4px solid var(--vermelho);border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-debate{background:var(--azul-claro);border:1px solid rgba(44,95,138,0.25);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.6;color:#1a3050;font-style:italic;}
+
+.bloco-soc{background:#f9fcff;border:1px solid rgba(44,95,138,0.2);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:var(--azul);font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:10pt;color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-tempo{background:#fafafa;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--prof);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.3;}
+
+.bloco-mapa{background:#f8faf8;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:2px;padding:7px 9px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.45;margin-bottom:0;}
+
+.bloco-perf{background:#f0faf3;border:1px solid rgba(26,107,53,0.2);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:start;padding:4px 0;border-bottom:1px solid rgba(26,107,53,0.08);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:1px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.45;}
+
+.bloco-aval{background:#fffef0;border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#4a3a10;}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+.bloco-resp{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.resp-item{padding:7px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;}
+
+.bloco-mat{background:var(--creme);border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ct);margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;color:#fff;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+.bloco-fio{background:linear-gradient(135deg,rgba(26,107,53,0.04),rgba(201,168,76,0.04));border:1px dashed rgba(26,107,53,0.3);border-radius:3px;padding:9px 12px;margin:10px 0;display:flex;align-items:flex-start;gap:10px;}
+.bloco-fio-icon{font-size:14pt;flex-shrink:0;margin-top:1px;color:var(--prof);line-height:1;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:10pt;font-style:italic;color:#1a3d28;line-height:1.55;}
+.bloco-fio-txt strong{font-style:normal;font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;color:var(--prof);text-transform:uppercase;display:block;margin-bottom:3px;}
+
+.cit-autor{border:1px solid rgba(26,107,53,0.25);background:rgba(26,107,53,0.03);border-radius:3px;padding:10px 12px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#1a3d28;line-height:1.6;}
+.cit-autor cite{display:block;margin-top:6px;font-size:8.5pt;font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--prof);}
+
+.bloco-cult{background:#f5f5ff;border:1px solid rgba(80,60,160,0.2);border-left:4px solid #5a3ea0;border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#5a3ea0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-cult .bk::before{content:'🌐';font-size:9pt;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a1e55;}
+
+.bloco-ponte{background:rgba(107,32,96,0.04);border:1px solid rgba(107,32,96,0.2);border-top:3px solid var(--cor);border-radius:2px;padding:10px 12px;margin:10px 0;}
+.bloco-ponte .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-ponte .bk::before{content:'⇢';font-size:10pt;}
+.bloco-ponte p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a1028;}
+
+.tag-sens{display:inline-block;font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1.5px;text-transform:uppercase;border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;vertical-align:middle;}
+.tag-sens.delicado{background:#fde8e8;color:#8b1a1a;}
+.tag-sens.tecnico{background:#e8f0fd;color:#1a3a8b;}
+.tag-sens.aplicacao{background:#e8fde8;color:#1a5a1a;}
+.tag-sens.debate{background:#fdf5e8;color:#8b5a1a;}
+
+/* Grade Hermenêutica */
+.bloco-hermeneutica{background:#fdf8f0;border:1px solid rgba(107,32,96,0.25);border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-hermeneutica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-hermeneutica .bk::before{content:'⚖';font-size:9pt;}
+.herm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;}
+.herm-col{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:2px;padding:8px 9px;}
+.herm-col-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;text-align:center;}
+.herm-col p{font-family:'EB Garamond',serif;font-size:9pt;color:var(--ct);line-height:1.4;margin-bottom:0;text-align:left;}
+
+/* Rodapé páginas do professor */
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(26,107,53,0.04);}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+/* PRINT */
+@media print{
+    body{background:none;}
+    #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof,.int-linhas{display:none;}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;}
+    .pag{width:100%;max-width:148mm;min-height:auto;}
+    .int,.int-prof{padding:12mm 5vw 16mm 5vw;min-height:auto;}
+    h2{font-size:11pt;}
+    h3{font-size:9pt;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .mapa-grid,.herm-grid{grid-template-columns:1fr;}
+    .rod,.rod-prof{position:relative;}
+}
+@media (max-width:480px){
+    .btn{padding:7px 10px;font-size:7.5pt;}
+    .area{margin-top:96px;}
+}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(26,107,53,0.05);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+    <div class="senha-caixa">
+        <div class="senha-icone"></div>
+        <div class="senha-titulo">ESCHATON</div>
+        <div class="senha-sub">Vol. II · Edição do Professor</div>
+        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
+        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+            onkeydown="if(event.key==='Enter')verificarSenha()">
+        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo-principal">
+
+<div class="painel">
+    <div class="marca">ESCHATON VOL. II
+        <span>Lição 05 · As Duas Testemunhas</span>
+        <em>Edição do Professor</em>
+    </div>
+    <span class="badge-prof">✦ Professor</span>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index-professor.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- ══════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (espelho integral)
+     ══════════════════════════════════ -->
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa da Lição</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">05</div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+    <div class="capa-prof-faixa">Edição do Professor</div>
+    <div class="ccon">
+        <div class="cser">Eschaton · A Palavra que Não Passará</div>
+        <div class="cref">Apocalipse 11:1-14</div>
+        <div class="ctit">As Duas Testemunhas</div>
+        <div class="cver">
+            "E darei aos meus dois testemunhos que profetizem, vestidos de sacos, mil duzentos e sessenta dias. Estes são os dois oliveiros e os dois castiçais que estão em pé diante do Senhor da terra."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 11:3-4</span>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>Introdução</h2>
+    <p class="cap">Duas figuras enigmáticas aparecem no coração do Apocalipse: vestidas de sacos, empunhando poder profético, mortas por uma besta que sobe do abismo — e ressuscitadas diante dos olhos do mundo incrédulo. Quem são as Duas Testemunhas? E o que a sua trajetória de profecia, morte e ressurreição revela sobre a natureza do testemunho cristão no mundo?</p>
+    <p>Esta lição convida ao que toda boa exegese exige: ler Apocalipse 11 à luz do Antigo Testamento, com atenção à estrutura literária do livro e ao propósito pastoral que João tinha ao escrever para igrejas sob pressão. As Testemunhas não são uma curiosidade profética — são um espelho do que significa testemunhar de Cristo em um mundo hostil.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Uma imagem, uma missão</div>
+        <p>Os "dois castiçais" e os "dois oliveiros" de Apocalipse 11:4 remetem diretamente à visão de Zacarias 4, onde representam o poder do Espírito de Deus sustentando o ministério fiel de seus servos. A Igreja não testemunha por força própria — testemunha pelo poder daquele que a envia. Entender isso é o ponto de partida desta lição.</p>
+    </div>
+    <h3>O Fio Condutor desta Lição</h3>
+    <p>Examinaremos o contexto literário e histórico das Duas Testemunhas, os paralelos do Antigo Testamento que constroem sua identidade, a teologia que emerge da sequência profecia-morte-ressurreição, e o desafio que ela lança ao discípulo chamado a testemunhar em um mundo hostil.</p>
+    <div class="bloco-aluno-refletir">
+        <div class="bloco-aluno-refletir-titulo">Para Você Refletir</div>
+        <p>O testemunho das Duas Testemunhas é descrito como urgente e penitencial — "vestidas de sacos". Como você descreveria o tom do seu próprio testemunho hoje: urgente, confortável ou inexistente? O que isso revela sobre como você entende o momento em que vivemos?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 TEXTO BÍBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">3</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>A Passagem-Base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Apocalipse 11:3-7, 11-12</div>
+        <p>"E darei aos meus dois testemunhos que profetizem, vestidos de sacos, mil duzentos e sessenta dias. Estes são os dois oliveiros e os dois castiçais que estão em pé diante do Senhor da terra."</p>
+        <p>"E se alguém lhes quiser fazer dano, sai fogo da sua boca e devora os seus inimigos... Estes têm poder para fechar o céu, para que não chova nos dias da sua profecia; e têm poder sobre as águas, para as converter em sangue, e para ferir a terra com toda a sorte de pragas, tantas vezes quantas quiserem."</p>
+        <p>"E quando tiverem acabado o seu testemunho, a besta que sobe do abismo lhes fará guerra, e os vencerá, e os matará."</p>
+        <p>"E ao fim dos três dias e meio o espírito de vida, que vinha de Deus, entrou neles, e puseram-se em pé sobre os seus pés... E subiram ao céu numa nuvem, e os seus inimigos os viram."</p>
+        <span class="ref-final">Apocalipse 11:3-7, 11-12</span>
+    </div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Examinar a identidade das Duas Testemunhas — indivíduos históricos ou símbolo da Igreja?</li>
+            <li>Compreender os paralelos com Moisés, Elias e Zacarias 4 que fundamentam a passagem</li>
+            <li>Analisar a sequência: profecia, morte, ressurreição e ascensão como padrão do testemunho cristão</li>
+            <li>Aplicar o chamado ao testemunho fiel mesmo diante da hostilidade e da morte</li>
+        </ul>
+    </div>
+    <div class="bloco-aluno-conexao">
+        <div class="bloco-aluno-conexao-titulo">Conexão Bíblica</div>
+        <p>Leia Zacarias 4:1-6, 11-14. Os "dois oliveiros" e os "dois castiçais" da visão de Zacarias são a fonte direta de Apocalipse 11:4. Qual é a mensagem central de Zacarias 4:6 — e como ela define o poder pelo qual as Duas Testemunhas realizam seu ministério?</p>
+        <div class="ref-bib">Zc 4:1-6, 11-14 · Ap 11:3-4 · Dt 19:15</div>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 I — CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · I — Contexto Original</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">4</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>I-O Contexto das Testemunhas</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Apocalipse 11 no Contexto do Livro</div>
+        <p>Apocalipse 11 é o clímax da segunda visão do livro (Ap 10–11). O capítulo começa com João medindo o templo — uma ação simbólica que separa o espaço sagrado do espaço profano, os fiéis dos que "pisarão a cidade santa" (Ap 11:2). Nesse contexto de hostilidade externa ao povo de Deus, as Duas Testemunhas são suscitadas — o ministério profético da Igreja no período de tribulação.</p>
+    </div>
+    <h3>Os Paralelos do Antigo Testamento</h3>
+    <p>João constrói a identidade das Testemunhas a partir de três textos veterotestamentários que seus leitores reconheceriam imediatamente. O fogo que sai da boca (v.5) remete a Elias (2 Rs 1:10-12). O poder de fechar o céu sem chuva (v.6a) remete ao ministério de Elias (1 Rs 17:1; Tg 5:17). O poder de converter águas em sangue e ferir com pragas (v.6b) remete a Moisés no Egito (Ex 7:17-20). Os dois castiçais e os dois oliveiros (v.4) citam diretamente Zacarias 4:2-3, 11-14 — onde representam o poder do Espírito de Deus (Zc 4:6).</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Princípio das Duas Testemunhas</div>
+        <p>Na lei judaica, dois testemunhos eram necessários para que um fato fosse estabelecido como verdadeiro (Dt 19:15; Mt 18:16; Jo 8:17). As Duas Testemunhas representam o testemunho juridicamente válido — suficiente, completo e irrefutável — que a Igreja dá ao mundo sobre Jesus Cristo.</p>
+    </div>
+    <h3>Os 1.260 Dias</h3>
+    <p>O período de 1.260 dias (= 42 meses = três anos e meio) aparece múltiplas vezes no Apocalipse (11:2-3; 12:6, 14; 13:5). Remete a Daniel 7:25 e ao período de tribulação de Antíoco IV Epifânio (167–164 a.C.) como tipo. O número não é necessariamente literal — representa o período completo entre a primeira e a segunda vinda de Cristo, durante o qual a Igreja exerce seu ministério profético.</p>
+    <div class="bloco-aluno-sabia">
+        <div class="bloco-aluno-sabia-titulo">Sabia Que?</div>
+        <p>O período de 1.260 dias equivale exatamente a 42 meses de 30 dias cada — ou três anos e meio. Esse número remete ao tempo em que o profeta Elias fechou o céu sem chuva (1 Rs 17:1; Tg 5:17). No Apocalipse, ele aparece em seis passagens diferentes (Ap 11:2-3; 12:6, 14; 13:5; Dn 7:25; 12:7), sempre descrevendo o período de tribulação do povo de Deus. A repetição é intencional: João quer que o leitor reconheça que estamos sempre dentro desse período — e que ele tem limite certo.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 II — EXEGESE DA PASSAGEM -->
+<div class="lbl">Página 5 · II — Exegese da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">5</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>II — Exegese da Passagem</h2>
+    <h3>"Vestidos de sacos" — v.3</h3>
+    <p>O saco era a veste dos profetas do AT em tempos de luto, penitência e clamor urgente (Is 20:2; Jr 4:8; Dn 9:3). As Testemunhas profetizam com urgência penitencial — a mensagem não é de triunfo cultural, mas de chamado ao arrependimento diante do julgamento iminente. É o perfil do testemunho cristão em tempos de hostilidade.</p>
+    <h3>"Fogo sai de sua boca" — v.5</h3>
+    <p>Jeremias recebeu a promessa: "farei as minhas palavras fogo na tua boca" (Jr 5:14). O fogo que sai da boca das Testemunhas é a Palavra de Deus proclamada com poder profético — não um milagre físico literal, mas a força sobrenatural do evangelho que julga e transforma. A Palavra de Deus é simultaneamente salvação para quem a recebe e julgamento para quem a rejeita.</p>
+    <h3>"A besta... os vencerá e os matará" — v.7</h3>
+    <p>A sequência é crucial: as Testemunhas só podem ser mortas depois de terem "acabado o seu testemunho" (v.7). A besta não pode tocá-las antes — é a soberania de Deus sobre o martírio. Nenhum servo de Deus morre antes de cumprir sua missão. Essa sequência é o modelo de toda a história do martírio cristão — desde Estêvão até os mártires contemporâneos.</p>
+    <h3>"O espírito de vida entrou neles" — v.11</h3>
+    <p>A linguagem ecoa Ezequiel 37:10 — os ossos secos que recebem o espírito e se levantam. A ressurreição das Testemunhas após três dias e meio (eco da ressurreição de Cristo em três dias) é o sinal definitivo de que o testemunho da Igreja não pode ser silenciado permanentemente. O mundo celebra a sua morte (v.10) — e é surpreendido pela sua ressurreição (v.11).</p>
+    <div class="bloco-aluno-pense">
+        <span class="bloco-aluno-pense-icone">✦</span>
+        <div class="bloco-aluno-pense-titulo">Pense Nisso</div>
+        <p>As Testemunhas só podem ser mortas depois de terem "acabado o seu testemunho". Se nenhum servo de Deus morre antes de cumprir sua missão, o que isso libera em você diante do medo de testemunhar? Que risco você tem evitado por não acreditar nessa soberania?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 III — TEOLOGIA DA PASSAGEM -->
+<div class="lbl">Página 6 · III — Teologia da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>III-Teologia da Passagem</h2>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>Deus não abandona o seu povo na tribulação — ele o comissiona para testemunhar dentro dela. As Testemunhas não são arrebatadas antes da perseguição — são enviadas para dentro dela, com poder sobrenatural para cumprir sua missão. O Deus das Duas Testemunhas é aquele que sustenta o testemunho de seu povo mesmo quando o mundo parece ter vencido — e que ressuscita o que parecia morto para silenciar o inimigo.</p>
+    </div>
+    <h3>Quem São as Duas Testemunhas?</h3>
+    <p>A identificação das Duas Testemunhas divide os intérpretes. A interpretação <strong>individual histórica</strong> sugere Elias e Moisés (cf. Mt 17:3) ou Elias e Enoque — os dois homens que não morreram no AT. A interpretação <strong>simbólica eclesial</strong> — dominante na hermenêutica reformada — vê as Duas Testemunhas como a Igreja em seu ministério profético completo durante toda a era entre as duas vindas de Cristo: duas porque dois testemunhos bastam para estabelecer a verdade (Dt 19:15); vestidas de saco porque o testemunho cristão é de arrependimento e urgência.</p>
+    <h3>O Padrão do Testemunho Cristão</h3>
+    <p>A trajetória das Testemunhas — profecia, morte, ressurreição, ascensão — é o padrão da própria vida de Cristo e, por extensão, de todo testemunho cristão genuíno. O testemunho que não custa nada não é o testemunho das Duas Testemunhas. A morte aparente do testemunho cristão — pela perseguição, pelo silenciamento cultural, pela marginalidade — precede invariavelmente a sua ressurreição poderosa na história.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">A Celebração do Mundo e o Julgamento</div>
+        <p>"Os que habitam na terra alegrar-se-ão sobre eles e festejarão" (v.10) — o mundo celebra o silenciamento do testemunho cristão. Mas o julgamento vem no mesmo momento (v.13). A história repete o padrão: onde o testemunho é silenciado, o julgamento avança.</p>
+    </div>
+    <div class="bloco-aluno-leve">
+        <div class="bloco-aluno-leve-titulo">Leve para a Sua Vida</div>
+        <p>O testemunho que parece morto pode ser ressuscitado. Identifique uma pessoa, relacionamento ou contexto onde você desistiu de testemunhar. Esta semana, dê um passo concreto de retomada — uma mensagem, uma visita, uma conversa. Registre aqui o que você planeja fazer.</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 IV — AS INTERPRETAÇÕES PRINCIPAIS -->
+<div class="lbl">Página 7 · IV — As Interpretações Principais</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>IV-As Interpretações Principais</h2>
+    <h3>A Interpretação Individual — Elias e Moisés</h3>
+    <p>A leitura mais antiga e mais difundida no dispensacionalismo identifica as Duas Testemunhas como dois profetas individuais que aparecerão durante a Grande Tribulação. Os candidatos mais citados são Elias e Moisés — presentes juntos na Transfiguração (Mt 17:3) — ou Elias e Enoque, os dois homens que partiram sem morrer no AT. O mérito desta interpretação é a coerência com certos detalhes literais do texto; sua fragilidade é ignorar o padrão simbólico que governa todo o gênero apocalíptico.</p>
+    <h3>A Interpretação Simbólico-Eclesial</h3>
+    <p>Adotada pelo amilenarismo reformado, esta leitura vê as Duas Testemunhas como a Igreja em seu ministério profético coletivo durante toda a era entre os dois adventos de Cristo. Os argumentos internos do texto favorecem esta leitura: os "dois castiçais" de Ap 11:4 remetem às sete igrejas de Ap 1-3 (castiçais); os 1.260 dias representam o período completo da era da Igreja; e o "dois" remete ao princípio jurídico do testemunho suficiente (Dt 19:15), não a dois indivíduos.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Que as Interpretações Têm em Comum</div>
+        <p>Independentemente da escola interpretativa, todas concordam nos pontos centrais: o testemunho fiel enfrenta oposição mortal; Deus preserva os seus até que cumpram sua missão; a morte aparente do testemunho cristão não é definitiva; e a ressurreição e a ascensão são a palavra final sobre qualquer testemunho que foi silenciado. A divergência está na identidade — não na mensagem.</p>
+    </div>
+    <h3>O Sinal da Ressurreição para a Igreja Perseguida</h3>
+    <p>Para as igrejas do século I sob Domiciano — e para as igrejas perseguidas em todo o mundo hoje — a visão das Testemunhas ressuscitadas não é especulação teológica. É a garantia de que nenhuma voz fiel ao Cordeiro será silenciada para sempre. O que o mundo enterra, Deus ressuscita.</p>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- PG 8 CONCLUSÃO -->
+<div class="lbl">Página 8 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">8</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>Conclusão</h2>
+    <p class="cap">As Duas Testemunhas não são figuras distantes de um futuro especulativo — são o retrato do que a Igreja foi chamada a ser em cada geração: uma voz profética fiel, vestida da urgência penitencial do evangelho, sustentada pelo Espírito de Deus, capaz de enfrentar a morte e incapaz de ser silenciada permanentemente. A trajetória delas é a trajetória de Cristo — e, por extensão, a de todo discípulo genuíno.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+        <p>Aprendemos que as Duas Testemunhas são construídas a partir de Moisés, Elias e Zacarias 4, e que seu testemunho representa o ministério profético completo e juridicamente suficiente da Igreja. Vimos que "vestidos de sacos" descreve o tom do testemunho cristão — urgente, penitencial, não triunfalista. Examinamos a soberania de Deus sobre o martírio: as Testemunhas só morrem depois de cumprir sua missão. E contemplamos a ressurreição como a resposta definitiva de Deus ao silenciamento do testemunho fiel.</p>
+    </div>
+    <h3>A Certeza que Permanece</h3>
+    <p>A Igreja que testemunha "vestida de sacos" — sem prestígio cultural, sem poder político, às vezes sem liberdade — é a Igreja que mais se parece com as Duas Testemunhas. E é essa Igreja que Deus ressuscita. A questão não é se o testemunho cristão vai sobreviver — é se você está disposto a fazê-lo enquanto custa algo.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
+        <p>As lições seguintes introduzirão os grandes símbolos do Apocalipse — o dragão, a besta e a grande Babilônia. O que estudamos hoje sobre o testemunho fiel será o contraponto direto da apostasia e da idolatria que esses símbolos representam. Conhecer as Testemunhas é conhecer o que significa recusar a marca da besta.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
+
+<!-- PG 9 APLICAÇÃO DIRETA -->
+<div class="lbl">Página 9 · Aplicação Direta</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">9</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>Aplicação Direta</h2>
+    <p class="cap">As Duas Testemunhas são identificadas com os "dois castiçais" — e Jesus disse que sua Igreja é a luz do mundo (Mt 5:14). O castiçal não é a luz em si — é o suporte que sustenta e exibe a luz. A Igreja não é a mensagem — é a portadora da mensagem de Cristo ao mundo. Sua função é testemunhar, mesmo vestida de saco, mesmo diante da besta, mesmo aparentemente derrotada.</p>
+    <div class="bloco-apl">
+        <div class="bloco-apl-titulo">Para esta semana</div>
+        <p>Primeiro: as Testemunhas profetizam "vestidas de sacos" — com urgência penitencial, não com arrogância triunfalista. Examine o tom do seu testemunho: você testemunha com a urgência de quem sabe que o tempo é curto, ou com a comodidade de quem acha que o mundo vai durar para sempre? Segundo: as Testemunhas só são mortas depois de "acabarem o seu testemunho" — ninguém morre antes de cumprir sua missão. Como essa soberania de Deus sobre o tempo de cada vida muda sua coragem diante do risco de testemunhar? Terceiro: o mundo celebrou a morte das Testemunhas — e foi surpreendido pela ressurreição. Há algo em sua vida ministerial ou missionária que parece "morto" mas que Deus pode ressuscitar?</p>
+    </div>
+    <div class="sep"><span>&#10022;</span></div>
+    <h3>Para Refletir</h3>
+    <p>Em muitos países hoje, o testemunho cristão é silenciado por lei, por perseguição ou por pressão cultural. A Igreja nesses contextos está literalmente "vestida de sacos." Como a visão das Duas Testemunhas — que profetizam, morrem e ressuscitam — sustenta a fé dos cristãos perseguidos? E como ela deveria mudar sua gratidão pela liberdade religiosa que ainda existe em seu contexto?</p>
+    <div class="memorizar">
+        <div class="memorizar-titulo">&#10022; Versículo para Memorizar</div>
+        <p>"E quando tiverem acabado o seu testemunho, a besta que sobe do abismo lhes fará guerra... Mas ao fim dos três dias e meio o espírito de vida, que vinha de Deus, entrou neles."</p>
+        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 11:7, 11</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
+
+<!-- PG 10 QUESTÕES -->
+<div class="lbl">Página 10 · Questões e Anotações</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">10</div>
+    <div class="ph"><span class="phl">Lição 05 · Vol. II</span><span class="pht">As Duas Testemunhas</span></div>
+    <h2>Questões para Reflexão</h2>
+    <div class="q">
+        <div class="qn">Questão 01</div>
+        <div class="qt">Os paralelos das Duas Testemunhas com Moisés (pragas, águas em sangue) e Elias (fogo, céu fechado) são deliberados. O que isso sugere sobre a natureza do ministério das Testemunhas — e por que João usa esses dois personagens especificamente como modelo profético?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 02</div>
+        <div class="qt">A interpretação individual identifica as Testemunhas como Elias e Moisés (ou Enoque); a interpretação simbólica as vê como a Igreja em seu testemunho profético. Quais elementos internos do texto de Apocalipse 11 apoiam cada leitura? Qual você considera mais coerente?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 03</div>
+        <div class="qt">As Testemunhas só podem ser mortas "quando tiverem acabado o seu testemunho" (v.7). Como essa soberania de Deus sobre o martírio — ninguém morre antes de cumprir sua missão — é confirmada pela história da Igreja e pelos exemplos bíblicos de mártires?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 04</div>
+        <div class="qt">O mundo celebra a morte das Testemunhas (v.10) e é surpreendido pela ressurreição (v.11). Há alguma situação em sua vida — pessoal, ministerial ou comunitária — onde um "testemunho morto" pode ser candidato à ressurreição pelo poder de Deus?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="bloco-qr" style="margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;">
+        <div id="qrDiv" style="width:72px;height:72px;flex-shrink:0;border:1px solid rgba(201,168,76,0.2);background:#fff;display:flex;align-items:center;justify-content:center;"></div>
+        <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;">▶ Assista</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:9.5pt;color:var(--ct);line-height:1.4;">Quem São as Duas Testemunhas?</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;margin-top:2px;">Leandro Lima · YouTube</div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var url="https://www.youtube.com/watch?v=dSqnCHE4bXM";
+        var script=document.createElement('script');
+        script.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+        script.onload=function(){
+            new QRCode(document.getElementById('qrDiv'),{
+                text:url,width:70,height:70,
+                colorDark:'#1a0808',colorLight:'#ffffff',
+                correctLevel:QRCode.CorrectLevel.M
+            });
+        };
+        document.head.appendChild(script);
+    })();
+    </script>
+    <h3 style="margin-top:12px;">Anotações</h3>
+    <div class="lins">
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL -->
+<div class="lbl lbl-prof">Página P1 · Visão Geral para o Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 05 · Visão Geral</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Visão Geral para o Professor</h2>
+    <p>Esta é a quinta lição do Volume II. O foco escatológico se desloca: saímos das sete trombetas (a ação judicial de Deus na história) e chegamos ao testemunho profético da Igreja diante da tribulação. Seu papel aqui é igualmente duplo: <em>exegeta</em> — guie o aluno pela riqueza das alusões veterotestamentárias que constroem a identidade das Testemunhas — e <em>pastor</em> — o tema do martírio e da perseguição precisa gerar coragem, não paralisia ou romantização irresponsável do sofrimento.</p>
+    <p>O maior risco desta lição é duplo: (1) alunos que já chegam com a interpretação dispensacionalista fortemente formada podem resistir à leitura simbólico-eclesial com a sensação de que estão "perdendo algo concreto"; (2) a questão do martírio pode gerar ansiedade ou, pelo contrário, uma espiritualidade de sofrimento não saudável. Seu trabalho é manter o foco no <em>padrão</em> — profecia, morte, ressurreição — como descrição da vocação da Igreja, não como glamorização do sofrimento.</p>
+    <div class="bloco-mapa">
+        <div class="bk">Mapa de Competências da Lição</div>
+        <div class="mapa-grid">
+            <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar os paralelos AT das Testemunhas (Moisés, Elias, Zc 4); compreender o princípio do duplo testemunho (Dt 19:15); situar os 1.260 dias no contexto do Apocalipse</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Comparar as interpretações individual e simbólico-eclesial com argumentos textuais; usar Zacarias 4 como chave de leitura de Ap 11; identificar o padrão Cristo-Testemunhas-Igreja</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Coragem para testemunhar com urgência penitencial; confiança na soberania de Deus sobre o martírio; disponibilidade para retomar testemunhos aparentemente "mortos"</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno articula por que "vestidos de sacos" define o tom do testemunho cristão e explica a diferença entre as duas principais interpretações com argumentos do texto</p></div>
+        </div>
+    </div>
+    <div class="bloco-tempo">
+        <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura com a dinâmica do testemunho silenciado — o que acontece quando alguém que deveria falar é forçado a calar?</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução, Zacarias 4 como chave hermenêutica, passagem-base (leitura conjunta)</span></div>
+        <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 4-5 — Contexto e paralelos AT (Moisés, Elias, fogo, sacos) e exegese versículo a versículo</span></div>
+        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Escada socrática + debate das interpretações: individual vs. simbólico-eclesial com argumentos textuais</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 8-9 — Conclusão, padrão profecia-morte-ressurreição e aplicação ao testemunho pessoal</span></div>
+        <div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Pg. 10 — 1-2 questões em aula; restante como tarefa pessoal + QR do vídeo</span></div>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Objetivos Pedagógicos do Professor</div>
+        <ul>
+            <li>Demonstrar que João constrói as Testemunhas a partir de três textos do AT — nenhum detalhe é arbitrário</li>
+            <li>Usar o princípio do duplo testemunho (Dt 19:15) como argumento textual interno para a interpretação simbólica</li>
+            <li>Conduzir a discussão sobre as interpretações sem ridicularizar a posição dispensacionalista — o aluno precisa ver os argumentos de cada lado</li>
+            <li>Encerrar com o padrão profecia-morte-ressurreição como vocação presente da Igreja — não especulação sobre dois profetas futuros</li>
+        </ul>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">⇢</div>
+        <div class="bloco-fio-txt"><strong>Fio Condutor do Vol. II — Lição 05</strong>As trombetas (lição 04) descrevem como Deus age judicialmente na história. As Duas Testemunhas (lição 05) descrevem como a Igreja age profeticamente dentro dessa mesma história. A conexão é direta: o povo selado (lição 03) testemunha sob as trombetas (lição 04) através do ministério das Duas Testemunhas (lição 05). As lições seguintes mostrarão as forças que se opõem a esse testemunho: o dragão, a besta, Babilônia.</div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 05 · Dinâmica &amp; Teologia</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
+    <div class="bloco-debate">
+        <div class="bk">O Testemunho que Custa — antes de abrir o material</div>
+        <p>"Pense em uma vez que você tinha algo importante a dizer — algo verdadeiro, necessário — e se calou. O que te impediu? Agora pense: se alguém te dissesse que você não pode ser silenciado até ter dito tudo o que precisa dizer, o que você teria a coragem de falar? Apocalipse 11 começa com duas figuras que não têm essa dúvida — elas falam. E falam vestidas de sacos, sem glamour, em meio à hostilidade. Essa é a imagem da Igreja."</p>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Como conduzir</div>
+        <ul>
+            <li>Colete 2-3 relatos de silêncio — a maioria das turmas tem experiências concretas de calar o testemunho por medo ou comodidade</li>
+            <li>Não resolva ainda a tensão: "Vamos ver o que o Apocalipse diz sobre quem faz o testemunho — e o que ele tem a ver com vocês"</li>
+            <li>Escreva no quadro: "Testemunho → ?" e revele ao final que a resposta do Apocalipse é: "Ressurreição"</li>
+            <li>O objetivo é que o aluno chegue à questão 04 (pg. 10) com a pergunta do início ainda ativa: que testemunho morto pode ser ressuscitado?</li>
+        </ul>
+    </div>
+    <div class="bloco-soc">
+        <div class="bk">Escada de Perguntas Socráticas</div>
+        <div class="soc-item">
+            <p>Nível 1 — Textual: "Se os 'dois oliveiros' e 'dois castiçais' de Ap 11:4 vêm de Zacarias 4, e Zacarias 4:6 diz que o poder vem 'não por força nem por poder, mas pelo meu Espírito' — o que isso implica sobre a natureza do poder das Testemunhas? É força sobrenatural ou é o poder da Palavra do Espírito?"</p>
+            <div class="soc-espera">Espera: reconhecimento de que o "fogo da boca" é a Palavra de Deus, não pirotecnia literal — o Espírito sustenta o testemunho, não a força humana</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 2 — Hermenêutico: "Se 'dois' remete ao princípio jurídico de Deuteronômio 19:15 — dois testemunhos para estabelecer a verdade — por que isso favorece a interpretação simbólico-eclesial sobre a individual? O que 'dois indivíduos' resolve que 'a Igreja toda' não resolve?"</p>
+            <div class="soc-espera">Espera: percepção de que o 'dois' é hermenêutico, não demográfico — a Igreja como um todo constitui o testemunho suficiente, não dois profetas isolados</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 3 — Aplicação: "As Testemunhas só são mortas depois de 'acabarem o seu testemunho'. Se isso é verdade — se nenhum servo de Deus é silenciado antes de cumprir sua missão — o que isso muda na sua avaliação do risco de testemunhar? Você está vivendo como se essa soberania fosse real, ou como se dependesse de você sobreviver para testemunhar?"</p>
+            <div class="soc-espera">Espera: reapropriação da soberania de Deus sobre o tempo e a missão de cada vida — não temeridade, mas coragem fundamentada na providência</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+    <div class="bloco-teo-prof">
+        <div class="bk">O Padrão Cristológico das Testemunhas — Argumento Exegético</div>
+        <p>A sequência das Duas Testemunhas — profecia (v.3-6), morte (v.7-10), ressurreição (v.11), ascensão (v.12) — é deliberadamente estruturada sobre o padrão da vida de Cristo. João não está apenas descrevendo dois profetas: está afirmando que todo testemunho cristão genuíno replica o padrão pascal. A "ascensão numa nuvem" (v.12) ecoa a ascensão de Cristo em Atos 1:9. Para turmas teológicas, isso abre a discussão sobre a <em>theologia crucis</em>: a glória cristã não contorna a cruz — passa por ela. Use este argumento com cuidado: pode gerar uma teologia do sofrimento em que qualquer dificuldade é espiritualizada como "martírio". O foco deve ser o padrão vocacional, não a glorificação do sofrimento.</p>
+    </div>
+    <div class="bloco-hermeneutica">
+        <div class="bk">As Duas Testemunhas — Duas Hermenêuticas em Diálogo</div>
+        <div class="herm-grid">
+            <div class="herm-col">
+                <div class="herm-col-tit">Individual / Dispensacionalista</div>
+                <p>Dois profetas literais (Elias + Moisés ou Enoque) que voltarão durante a Grande Tribulação. Base: Mt 17:3 (Transfiguração); o 'não morreu' de Elias e Enoque; detalhes literais do texto (corpo nas ruas de Jerusalém).</p>
+            </div>
+            <div class="herm-col">
+                <div class="herm-col-tit">Simbólico-Eclesial / Amilenista</div>
+                <p>A Igreja em seu ministério profético coletivo durante toda a era presente. Base: Dt 19:15 (dois testemunhos = suficiência jurídica); Ap 1:20 (castiçais = igrejas); 1.260 dias = era da Igreja; Zc 4:6 (poder do Espírito, não de indivíduos).</p>
+            </div>
+        </div>
+    </div>
+    <div class="cit-autor">
+        "As Duas Testemunhas não são dois personagens à espera de uma cena futura — são o autorretrato que o Apocalipse dá à Igreja em cada geração que ousa falar de Cristo em um mundo que prefere o silêncio."
+        <cite>— G.K. Beale, <em>The Book of Revelation</em> (NIGTC)</cite>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 05 · Pedagogia &amp; Gestão</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dicas Pedagógicas</h2>
+    <div class="bloco-dica">
+        <div class="bk">Para Tornar o Conteúdo Concreto</div>
+        <ul>
+            <li><strong>O mapa do AT no texto:</strong> antes de interpretar, escreva no quadro três colunas: "Elias", "Moisés", "Zacarias 4". Peça à turma que encontre no texto de Ap 11:3-7 cada referência. A descoberta ativa é mais eficaz do que a explicação passiva — o aluno que encontra o paralelo por conta própria dificilmente esquece.</li>
+            <li><strong>O "dois" como argumento:</strong> escreva no quadro "Dt 19:15: dois testemunhos bastam". Pergunte: "Se 'dois' é jurídico — não demográfico — quem são os dois? Dois indivíduos específicos ou a Igreja inteira como testemunha suficiente?" Deixe a pergunta aberta antes de responder — ela já contém o argumento.</li>
+            <li><strong>"Vestidos de sacos" como exame de consciência:</strong> depois de explicar que o saco era veste de luto e urgência profética, pergunte silenciosamente (sem exigir resposta pública): "Como está o tom do seu testemunho — urgente como quem sabe que o tempo é curto, ou confortável como quem acha que sempre haverá tempo?" O silêncio reflexivo é uma ferramenta pedagógica mais poderosa do que a discussão acelerada.</li>
+        </ul>
+    </div>
+    <div class="bloco-cult">
+        <div class="bk">Conexão com a Cultura Contemporânea</div>
+        <p>No Brasil evangélico atual, o tema do testemunho enfrenta dois extremos problemáticos: (1) igrejas que transformaram o testemunho em marketing pessoal — "minha vitória, minha bênção, meu crescimento" — perdendo completamente o tom penitencial e urgente das Duas Testemunhas; e (2) cristãos que, diante da crescente hostilidade cultural ao Evangelho, recuam para o silêncio ou para a bolha religiosa. A passagem interpela ambos: o testemunho das Duas Testemunhas é despojado de glamour (sacos) e ininterrupto até o fim da missão (soberania sobre o martírio). Não é marketing e não é silêncio — é proclamação fiel que aceita o custo.</p>
+    </div>
+    <div class="bloco-perf">
+        <div class="bk">Diferenciação por Perfil de Turma</div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Ansiosa</div>
+            <div class="perf-txt">Comece pela soberania de Deus sobre o martírio: "As Testemunhas só morrem depois de acabarem seu testemunho — ninguém morre antes de cumprir sua missão." Essa verdade dissolve a ansiedade sobre perseguição antes de entrar nos detalhes difíceis do texto. Ancore antes de explorar.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Indiferente</div>
+            <div class="perf-txt">Use a pergunta da dinâmica com mais vigor: "O que você tinha a dizer e se calou? Há alguém em sua vida esperando uma palavra verdadeira de você?" A indiferença em relação ao testemunho geralmente esconde medo do custo — identifique o medo concreto antes de atacar a indiferença.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Teológica</div>
+            <div class="perf-txt">Aprofunde o padrão cristológico das Testemunhas (ver P2) e o argumento hermenêutico do "dois" como suficiência jurídica. Proponha: "Se a Igreja é as Duas Testemunhas, o que a morte e a ressurreição das Testemunhas dizem sobre os períodos históricos em que o testemunho cristão pareceu morto — a China sob Mao, a URSS, a América Latina sob ditaduras?" A história confirma o padrão.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Mista</div>
+            <div class="perf-txt">Use o mapa AT do quadro (Elias/Moisés/Zc4) como ferramenta democrática — não exige conhecimento prévio, só atenção ao texto e às colunas. O exercício de "encontrar o paralelo" funciona com qualquer perfil e cria engajamento antes da explicação.</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Gestão de Tensões</h2>
+    <div class="alerta">
+        <div class="bk">Situação Comum — "Mas Apocalipse 11:8 fala em 'ruas da grande cidade, que espiritualmente se chama Sodoma e Egito'. Isso não prova que é Jerusalém literal — e que são dois profetas individuais futuros?"</div>
+        <p>Valide a observação textual — o aluno foi cuidadoso com o texto: "Você identificou um detalhe real e importante. Repare, porém, no advérbio: 'espiritualmente se chama Sodoma e Egito' — João mesmo sinaliza que usa o nome geograficamente, não literalmente. A 'grande cidade' do Apocalipse é usado para Babilônia (Ap 18:10), para o sistema hostil ao povo de Deus, não necessariamente para Jerusalém literal. O advérbio 'espiritualmente' é a chave hermenêutica que João coloca no texto para avisar que o gênero é simbólico." Nunca ridicularize — afirme a atenção ao texto e redirecione com o advérbio.</p>
+    </div>
+    <div class="alerta">
+        <div class="bk">Situação Comum — Aluno que romantiza o martírio a partir da lição</div>
+        <p>O risco real desta lição: alunos que chegam com fragilidade emocional ou experiências de sofrimento podem usar a teologia do martírio para validar situações de abuso, sofrimento não redentor ou passividade diante do mal. Se perceber esse padrão, corrija com precisão: as Testemunhas sofrem pelo testemunho — não por qualquer sofrimento. O martírio bíblico tem propósito (profecia) e direção (testemunho ao mundo); ele não valida todo sofrimento como vocação. A soberania de Deus sobre o martírio não é um convite à passividade — é uma garantia de proteção até a missão ser cumprida.</p>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Encerramento Ideal da Aula</div>
+        <ul>
+            <li>Retorne ao quadro onde escreveu "Testemunho → ?" e complete agora: "→ Ressurreição"</li>
+            <li>Leia Apocalipse 11:11-12 em voz alta como bênção de encerramento: "o espírito de vida... entrou neles... e subiram ao céu"</li>
+            <li>Proponha o exercício devocional da semana: identificar um "testemunho morto" na sua vida e dar um passo concreto de retomada</li>
+            <li>Conecte à próxima lição: "Conhecemos quem são as Testemunhas. Nas próximas lições vamos conhecer quem é a besta que as mata — e por que o Apocalipse faz questão que saibamos os dois."</li>
+        </ul>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Sinal de Alerta Pedagógico</div>
+        <p>Se a aula derivar para debates sobre "qual dos dois é Elias e qual é Moisés" ou "onde exatamente ficam os corpos nas ruas", redirecione com firmeza e leveza: "João escreve para igrejas perseguidas no século I usando simbolismo do AT que elas reconheciam. A primeira pergunta não é quem são literalmente as duas figuras — é o que o padrão delas revela sobre a vocação da Igreja e o que isso demanda de nós hoje." O detalhismo identificacionista transforma o Apocalipse em enigma biográfico e esvazia sua interpelação moral e missionária urgente.</p>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 05 · Respostas &amp; Recursos</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 10</h2>
+    <div class="bloco-resp">
+        <div class="bk">Gabarito Orientativo</div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 01</div>
+            <div class="resp-txt">O argumento mais importante aqui é o da intenção autoral: João não cria paralelismos acidentais — cada alusão ao AT é deliberada. Moisés e Elias são os dois grandes mediadores do AT: Moisés da Lei, Elias dos Profetas — o mesmo par que aparece na Transfiguração (Mt 17:3) validando Jesus como cumprimento de ambos. As Testemunhas representam, portanto, o ministério profético completo — Lei e Profetas — exercido pela Igreja. Valorize alunos que percebem a conexão com a Transfiguração como argumento de identidade.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 02</div>
+            <div class="resp-txt">Os argumentos internos mais fortes para a leitura simbólico-eclesial: (a) os castiçais de Ap 11:4 remetem aos sete castiçais de Ap 1:20, que são as igrejas; (b) o "dois" de Dt 19:15 é jurídico, não demográfico — dois testemunhos suficientes, não dois indivíduos específicos; (c) os 1.260 dias aparecem em contextos que descrevem o período inteiro da era da Igreja, não apenas um período tribulacionista futuro. Os argumentos para a leitura individual: a Transfiguração (Mt 17:3), o fato de Elias e Enoque não terem morrido, detalhes literais como "corpos nas ruas de Jerusalém". Valorize alunos que apresentam argumentos dos dois lados antes de concluir.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 03</div>
+            <div class="resp-txt">O padrão bíblico é rico: Estêvão (At 7) cumpre sua proclamação antes de ser apedrejado; Paulo percorre todo o itinerário missionário que sente ser sua chamada antes de ser martirizado (2 Tm 4:7: "combati o bom combate... terminei a carreira"); os mártires do Apocalipse (Ap 6:9-11) são instruídos a aguardar até que o número de seus irmãos mártires se complete — há um número soberanamente determinado, uma missão cumprida. Historicamente: Polcarpo de Esmirna (†156 d.C.), que escapou da perseguição por décadas antes de ser martirizado quando seu testemunho era mais necessário à Igreja. Questão aplicada: o que muda se você acredita que não pode ser silenciado antes de cumprir sua missão?</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 04</div>
+            <div class="resp-txt">Questão aplicativa — não há gabarito único. O valor está na identificação concreta: "desisti de testemunhar para X" é mais honesto e útil do que "às vezes me sinto desanimado no ministério". Valorize a especificidade. Se o aluno identificar um relacionamento específico onde desistiu de testemunhar, conecte diretamente à soberania das Testemunhas: o que parece morto pode ser ressuscitado se Deus determinar que o testemunho não acabou. Cuidado com o movimento inverso: não transforme isso em pressão para retomar testemunhos que foram corretamente encerrados por razões de saúde, segurança ou limite saudável.</div>
+        </div>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">↻</div>
+        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 a 03, o raciocínio textual e os argumentos apresentados importam tanto quanto a conclusão — afirme publicamente qualquer aluno que demonstre método consistente de leitura, mesmo que conclua diferente de você. Na Questão 04, o único critério de qualidade é a especificidade e a honestidade. Respostas genéricas ("preciso testemunhar mais") devem ser gentilmente desafiadas: "Quem especificamente? Em qual contexto? O que te impediu até agora?"</div>
+    </div>
+    <div class="bloco-aval">
+        <div class="bk">Seguimento Pós-Lição</div>
+        <ul>
+            <li>Envie Apocalipse 11:11 no grupo da turma durante a semana com a pergunta: "O que em sua vida parece morto mas pode ser ressuscitado pelo poder de Deus?"</li>
+            <li>Proponha leitura devocional: Zacarias 4 completo (a fonte das Duas Testemunhas) + Salmo 22 (o padrão sofrimento-ressurreição que antecipa o de Cristo e das Testemunhas)</li>
+            <li>Anote alunos que demonstraram romantização do sofrimento na aula — podem precisar de acompanhamento pastoral para distinguir vocação ao testemunho fiel de teologia do sofrimento não saudável</li>
+            <li>Avalie se a aula produziu coragem para testemunhar fundamentada na soberania de Deus — não heroísmo ingênuo nem paralisia por medo do custo</li>
+        </ul>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Materiais Complementares</h2>
+    <div class="bloco-mat">
+        <div class="bk">Recursos Recomendados ao Professor</div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. O comentário técnico mais completo sobre o Apocalipse. As seções sobre Ap 11:1-14 são indispensáveis — Beale demonstra de forma exaustiva a construção das Testemunhas a partir de Moisés, Elias e Zacarias 4, e o argumento hermenêutico do "dois" como suficiência jurídica do duplo testemunho.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Dennis Johnson — <em>Triumph of the Lamb</em>. P&amp;R Publishing. Comentário pastoral sobre o Apocalipse — menos técnico que Beale, mais aplicado. Excelente para preparar a aplicação do padrão profecia-morte-ressurreição como vocação da Igreja e para entender as Testemunhas dentro do arco narrativo completo do livro.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Vern Poythress — <em>The Returning King: A Guide to the Book of Revelation</em>. P&amp;R Publishing. Introdução acessível à hermenêutica amilenista do Apocalipse — útil especialmente para o professor que precisa explicar a interpretação simbólico-eclesial para alunos acostumados ao dispensacionalismo, com linguagem clara e sem jargão técnico excessivo.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">Leandro Lima — <em>Quem São as Duas Testemunhas?</em> (YouTube — QR na pg. 10). Abordagem exegética acessível e bem fundamentada, apresentando os argumentos textuais para a interpretação simbólico-eclesial. Ideal para recomendar aos alunos como complemento pós-aula, especialmente para os que chegaram com a leitura futurista individual e precisam de uma segunda voz confiável.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">BibleProject: <em>Apocalipse — Visão Geral</em> (YouTube, PT, 2 partes). Panorama visual da estrutura do Apocalipse — ideal para mostrar antes de entrar nas Testemunhas, pois situa Ap 11 dentro da segunda visão (Ap 10-11) e mostra graficamente como a passagem é o clímax do ciclo, não um episódio isolado.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo site">Digital</span>
+            <span class="mat-info">thegospelcoalition.org/pt — busca "Duas Testemunhas" e "Apocalipse 11". Artigos de Beale e outros comentaristas reformados oferecem resumos acessíveis da interpretação simbólico-eclesial. Útil para o professor consolidar a fundamentação exegética antes de ministrar e para recomendar a alunos de perfil mais teológico que querem aprofundar.</span>
+        </div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v2_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit() {
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el => {
+        if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul'))
+            el.contentEditable = edit ? 'true' : 'false';
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+</body>
+</html>
