@@ -1179,25 +1179,28 @@ body {
   }
 })();
 
-/* ── 2. SISTEMA DE TEMAS ── */
+/* ── 2. SISTEMA DE TEMAS + VISIBILIDADE DE VOLUMES ── */
 const TEMAS = {
   v1: {
     classe: 'tema-v1',
-    cor: '#0d1020',
-    label: 'Volume I · Eschaton Fundamentos — Perspectivas Pentecostal & Reformada',
-    meta: '13 Lições · Fundamentos da Escatologia Bíblica'
+    cor:    '#0d1020',
+    label:  'Volume I · Eschaton Fundamentos — Perspectivas Pentecostal & Reformada',
+    meta:   '13 Lições · Fundamentos da Escatologia Bíblica',
+    bloco:  'vol-i'
   },
   v2: {
     classe: 'tema-v2',
-    cor: '#1a0d05',
-    label: 'Volume II · A Palavra que Não Passará — Estudos Escatológicos Temáticos',
-    meta: '13 Lições · Temas Proféticos em Profundidade'
+    cor:    '#1a0d05',
+    label:  'Volume II · A Palavra que Não Passará — Estudos Escatológicos Temáticos',
+    meta:   '13 Lições · Temas Proféticos em Profundidade',
+    bloco:  'vol-ii'
   },
   v3: {
-    classe: 'tema-v3', // vazio: usa o :root padrão
-    cor: '#0a2a1a',
-    label: 'Volume III · O Futuro Chegou — Série sobre o Apocalipse',
-    meta: '39 Lições · 3 Volumes · Perspectivas Pentecostal & Reformada'
+    classe: '',        // usa o :root padrão (verde)
+    cor:    '#0a2a1a',
+    label:  'Volume III · O Futuro Chegou — Série sobre o Apocalipse',
+    meta:   '13 Lições · Série sobre o Apocalipse',
+    bloco:  'vol-iii'
   }
 };
 
@@ -1208,20 +1211,18 @@ function setTema(vol) {
   const tema = TEMAS[vol];
   if (!tema) return;
 
-  // Remove todas as classes de tema
+  // ── Cores: remove classes anteriores e aplica a nova ──
   root.classList.remove('tema-v1', 'tema-v2');
-  if (tema.classe && tema.classe !== 'tema-v3') {
-    root.classList.add(tema.classe);
-  }
+  if (tema.classe) root.classList.add(tema.classe);
 
-  // Atualiza meta theme-color
+  // ── meta theme-color para PWA / barra do sistema ──
   document.getElementById('meta-theme-color').setAttribute('content', tema.cor);
 
-  // Atualiza label e meta no hero
+  // ── Textos do Hero ──
   document.getElementById('vol-label').textContent = tema.label;
   document.getElementById('hero-meta').textContent = tema.meta;
 
-  // Atualiza botões ativos
+  // ── Botões: marca o activo ──
   document.querySelectorAll('.vol-btn').forEach(btn => {
     btn.classList.remove('ativo');
     btn.setAttribute('aria-selected', 'false');
@@ -1232,7 +1233,28 @@ function setTema(vol) {
     btnAtivo.setAttribute('aria-selected', 'true');
   }
 
-  // Persiste a escolha
+  // ── VISIBILIDADE: mostra só o bloco do volume activo ──
+  ['vol-i', 'vol-ii', 'vol-iii'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (id === tema.bloco) {
+      // Entrada suave
+      el.style.display  = 'block';
+      el.style.opacity  = '0';
+      el.style.transform = 'translateY(16px)';
+      requestAnimationFrame(() => {
+        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        el.style.opacity    = '1';
+        el.style.transform  = 'translateY(0)';
+      });
+    } else {
+      el.style.display    = 'none';
+      el.style.opacity    = '0';
+      el.style.transition = 'none';
+    }
+  });
+
+  // ── Persiste a escolha no localStorage ──
   localStorage.setItem('eschaton-tema', vol);
   temaAtual = vol;
 }
