@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1a0d">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<title>Eschaton Vol. II · Lição 02 — A Apostasia dos Últimos Tempos · Edição do Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    /* cores base — Vol. II sépia/vermelho (espelho do aluno) */
+    --cor:#8b5020;
+    --grad1:#1a1008; --grad2:#2a1808;
+    --ouro:#c9a84c; --ouro-claro:#e8d5a0;
+    --vermelho:#8b1a1a;
+    --ct:#2a2a2a;
+    --branco:#fdfbf7; --pergaminho:#f8f2e8; --creme:#f0e8d8; --cc:#ddd8cc;
+    /* cores exclusivas do professor — verde */
+    --prof:#1a6b35;
+    --prof-vivo:#27ae60;
+    --prof-claro:#e6f4ed;
+    --prof-borda:rgba(26,107,53,0.35);
+    --topo-prof:#0a1a0d;
+    /* auxiliares pedagógicos */
+    --verde-tip:#2e6b4f;
+    --verde-claro:#e6f4ed;
+    --verde-borda:rgba(46,107,79,0.35);
+    --laranja:#b85c1a;
+    --laranja-claro:#fdf0e6;
+    --laranja-borda:rgba(184,92,26,0.35);
+    --azul:#2c5f8a;
+    --azul-claro:#e8f0f8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1a0f;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#050f07 0%,#0d1e10 60%,#050f07 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:54px;height:54px;border:1px solid rgba(39,174,96,0.5);
+    transform:rotate(45deg);margin:0 auto 30px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(26,107,53,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--prof-vivo);margin-bottom:6px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:30px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(39,174,96,0.35);
+    border-radius:2px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;
+    color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(39,174,96,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.senha-btn{
+    width:100%;background:var(--prof);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#050f07,#0a1a0d);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(39,174,96,0.8);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--pergaminho);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA DO ALUNO (espelho) ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(139,80,32,0.5) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.15) 0%,transparent 45%);}
+.cgrd{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(201,168,76,1) 24px,rgba(201,168,76,1) 25px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#3a2008,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#0d0800,var(--cor) 50%,#ffa040);opacity:0.35;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.7;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+/* Faixa PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:20pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:10px;}
+.cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== PÁGINAS DO ALUNO (espelho) ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(139,80,32,0.12);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(139,80,32,0.055) 23px,rgba(139,80,32,0.055) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#5a3a1a;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.texto-biblico{background:#fff;border:1px solid rgba(139,80,32,0.2);border-left:4px solid var(--cor);padding:12px 14px;margin:12px 0;position:relative;z-index:1;}
+.texto-biblico-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.texto-biblico-ref::after{content:'';flex:1;height:1px;background:rgba(139,80,32,0.2);}
+.texto-biblico p{font-style:italic;font-size:10.5pt;color:#3a2010;line-height:1.7;margin-bottom:4px;text-align:left;}
+.texto-biblico .ref-final{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco-ctx{background:rgba(139,80,32,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-ctx-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bloco-teo-al{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-teo-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-apl{background:linear-gradient(135deg,rgba(139,80,32,0.06),rgba(201,168,76,0.06));border:1px solid rgba(139,80,32,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-apl-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.memorizar{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.memorizar-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.memorizar p{font-style:italic;font-size:10pt;color:#3a2010;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+.obj ul li::before{content:'\2192';position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(139,80,32,0.2);height:20px;margin-top:3px;}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(139,80,32,0.2);height:22px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+
+/* blocos do aluno */
+.bloco-aluno-refletir{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.35);border-top:3px solid var(--ouro);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-refletir-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-refletir-titulo::before{content:'✦';font-size:7pt;}
+.bloco-aluno-refletir p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);font-style:italic;line-height:1.6;margin-bottom:6px;}
+.lra{border-bottom:1px solid rgba(139,80,32,0.2);height:22px;margin-top:4px;}
+
+.bloco-aluno-conexao{background:rgba(139,80,32,0.05);border:1px solid rgba(139,80,32,0.25);border-left:4px solid var(--cor);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-conexao-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-conexao-titulo::before{content:'✦';font-size:7pt;}
+.bloco-aluno-conexao p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:6px;}
+.bloco-aluno-conexao .ref-bib{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;color:var(--cor);text-transform:uppercase;margin-top:4px;}
+
+.bloco-aluno-sabia{background:linear-gradient(135deg,rgba(26,16,8,0.04),rgba(201,168,76,0.07));border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-sabia-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-sabia-titulo::before{content:'?';font-family:'Cinzel',serif;font-size:10pt;font-weight:700;color:var(--ouro);line-height:1;}
+.bloco-aluno-sabia p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:0;}
+
+.bloco-aluno-pense{background:#fff;border:1px solid rgba(139,80,32,0.18);border-radius:2px;padding:11px 13px;margin:12px 0;position:relative;z-index:1;text-align:center;}
+.bloco-aluno-pense-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;}
+.bloco-aluno-pense-icone{font-size:16pt;color:var(--ouro);margin-bottom:4px;display:block;}
+.bloco-aluno-pense p{font-family:'EB Garamond',serif;font-size:10.5pt;font-style:italic;color:#3a2010;line-height:1.65;text-align:center;margin-bottom:0;}
+.bloco-aluno-pense .lra{border-bottom:1px solid rgba(139,80,32,0.2);height:22px;margin-top:6px;text-align:left;}
+
+.bloco-aluno-leve{background:linear-gradient(135deg,rgba(139,80,32,0.07),rgba(201,168,76,0.08));border:1px solid rgba(139,80,32,0.22);border-radius:2px;padding:12px 13px;margin:12px 0;position:relative;z-index:1;}
+.bloco-aluno-leve-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.bloco-aluno-leve-titulo::before{content:'→';font-size:10pt;color:var(--ouro);}
+.bloco-aluno-leve p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:6px;}
+
+.bloco-qr{margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;}
+
+/* ===== PÁGINAS DO PROFESSOR ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fafff8;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--prof-vivo),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(26,107,53,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(26,107,53,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);border-left:4px solid var(--prof);
+    padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+
+/* Guia / instrução */
+.bloco-guia{
+    background:#f0faf3;border:1px solid var(--prof-borda);
+    border-left:4px solid var(--prof);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-guia .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;
+    text-transform:uppercase;color:var(--prof);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1a3d28;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+/* Dica pedagógica */
+.bloco-dica{
+    background:var(--verde-claro);border:1px solid var(--verde-borda);
+    border-left:4px solid var(--verde-tip);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-dica .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;
+    text-transform:uppercase;color:var(--verde-tip);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+/* Aprofundamento teológico */
+.bloco-teo{
+    background:var(--laranja-claro);border:1px solid var(--laranja-borda);
+    border-left:4px solid var(--laranja);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-teo .bk{
+    font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;
+    text-transform:uppercase;color:var(--laranja);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-teo .bk::before{content:'◉';font-size:7pt;}
+.bloco-teo p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e08;}
+
+/* Alerta */
+.alerta{
+    background:#fff5f5;border:1px solid rgba(139,26,26,0.25);
+    border-left:4px solid var(--vermelho);border-radius:3px;
+    padding:8px 12px;margin:10px 0;
+}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+/* Debate / dinâmica */
+.bloco-debate{
+    background:var(--azul-claro);border:1px solid rgba(44,95,138,0.25);
+    border-left:4px solid var(--azul);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.6;color:#1a3050;font-style:italic;}
+
+/* Perguntas socráticas */
+.bloco-soc{
+    background:#f9fcff;border:1px solid rgba(44,95,138,0.2);
+    border-left:4px solid var(--azul);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:var(--azul);font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:10pt;color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+/* Tempo */
+.bloco-tempo{
+    background:#fafafa;border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--prof);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.3;}
+
+/* Mapa de competências */
+.bloco-mapa{background:#f8faf8;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:2px;padding:7px 9px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.45;margin-bottom:0;}
+
+/* Perfil de turma */
+.bloco-perf{background:#f0faf3;border:1px solid rgba(26,107,53,0.2);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:start;padding:4px 0;border-bottom:1px solid rgba(26,107,53,0.08);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:1px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.45;}
+
+/* Avaliação formativa */
+.bloco-aval{background:#fffef0;border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#4a3a10;}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+/* Respostas sugeridas */
+.bloco-resp{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.resp-item{padding:7px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;}
+
+/* Material complementar */
+.bloco-mat{background:var(--creme);border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ct);margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;color:#fff;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+/* Fio condutor */
+.bloco-fio{
+    background:linear-gradient(135deg,rgba(26,107,53,0.04),rgba(201,168,76,0.04));
+    border:1px dashed rgba(26,107,53,0.3);border-radius:3px;
+    padding:9px 12px;margin:10px 0;display:flex;align-items:flex-start;gap:10px;
+}
+.bloco-fio-icon{font-size:14pt;flex-shrink:0;margin-top:1px;color:var(--prof);line-height:1;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:10pt;font-style:italic;color:#1a3d28;line-height:1.55;}
+.bloco-fio-txt strong{font-style:normal;font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;color:var(--prof);text-transform:uppercase;display:block;margin-bottom:3px;}
+
+/* Citação de autor */
+.cit-autor{
+    border:1px solid rgba(26,107,53,0.25);background:rgba(26,107,53,0.03);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+    font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#1a3d28;line-height:1.6;
+}
+.cit-autor cite{display:block;margin-top:6px;font-size:8.5pt;font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--prof);}
+
+/* Contexto Cultural */
+.bloco-cult{
+    background:#f5f5ff;border:1px solid rgba(80,60,160,0.2);
+    border-left:4px solid #5a3ea0;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#5a3ea0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-cult .bk::before{content:'🌐';font-size:9pt;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#2a1e55;}
+
+/* Ponte com o Aluno */
+.bloco-ponte{
+    background:rgba(139,80,32,0.04);border:1px solid rgba(139,80,32,0.2);
+    border-top:3px solid var(--cor);border-radius:2px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-ponte .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-ponte .bk::before{content:'⇢';font-size:10pt;}
+.bloco-ponte p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e10;}
+
+/* Tags de sensibilidade */
+.tag-sens{display:inline-block;font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1.5px;text-transform:uppercase;border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;vertical-align:middle;}
+.tag-sens.delicado{background:#fde8e8;color:#8b1a1a;}
+.tag-sens.tecnico{background:#e8f0fd;color:#1a3a8b;}
+.tag-sens.aplicacao{background:#e8fde8;color:#1a5a1a;}
+.tag-sens.debate{background:#fdf5e8;color:#8b5a1a;}
+
+/* NOVO — Bloco Comparação Hermenêutica (específico para esta lição) */
+.bloco-hermeneutica{
+    background:#fdf8f0;border:1px solid rgba(139,80,32,0.25);
+    border-left:4px solid var(--cor);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-hermeneutica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-hermeneutica .bk::before{content:'⚖';font-size:9pt;}
+.herm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;}
+.herm-col{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:2px;padding:8px 9px;}
+.herm-col-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;text-align:center;}
+.herm-col p{font-family:'EB Garamond',serif;font-size:9pt;color:var(--ct);line-height:1.4;margin-bottom:0;text-align:left;}
+
+/* Rodapé páginas do professor */
+.rod-prof{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:5px 12mm 5mm 14mm;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(26,107,53,0.04);
+}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+/* PRINT */
+@media print{
+    body{background:none;}
+    #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof,.int-linhas{display:none;}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;}
+    .pag{width:100%;max-width:148mm;min-height:auto;}
+    .int,.int-prof{padding:12mm 5vw 16mm 5vw;min-height:auto;}
+    h2{font-size:11pt;}
+    h3{font-size:9pt;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .mapa-grid,.herm-grid{grid-template-columns:1fr;}
+    .rod,.rod-prof{position:relative;}
+}
+@media (max-width:480px){
+    .btn{padding:7px 10px;font-size:7.5pt;}
+    .area{margin-top:96px;}
+}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(26,107,53,0.05);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+    <div class="senha-caixa">
+        <div class="senha-icone"></div>
+        <div class="senha-titulo">ESCHATON</div>
+        <div class="senha-sub">Vol. II · Edição do Professor</div>
+        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
+        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+            onkeydown="if(event.key==='Enter')verificarSenha()">
+        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo-principal">
+
+<div class="painel">
+    <div class="marca">ESCHATON VOL. II
+        <span>Lição 02 · A Apostasia dos Últimos Tempos</span>
+        <em>Edição do Professor</em>
+    </div>
+    <span class="badge-prof">✦ Professor</span>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index-professor.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- ══════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (espelho integral)
+     ══════════════════════════════════ -->
+
+<!-- CAPA -->
+<div class="lbl">Página 1 · Capa da Lição</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">02</div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+    <div class="capa-prof-faixa">Edição do Professor</div>
+    <div class="ccon">
+        <div class="cser">Lição 02 · Eschaton Vol. II</div>
+        <div class="cref">2 Tessalonicenses 2:1-12 · 1 Timóteo 4:1-3</div>
+        <div class="ctit">A Apostasia dos Últimos Tempos</div>
+        <div class="cver">"Não vos enganeis de maneira alguma; porque isso não acontecerá sem que antes venha a apostasia, e se manifeste o homem do pecado, o filho da perdição."<br><span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">2 Tessalonicenses 2:3</span></div>
+    </div>
+</div>
+
+<!-- PG 2 INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>Introdução</h2>
+    <p class="cap">Em toda geração, a Igreja enfrenta vozes que desviam da fé. Mas a Bíblia não apenas registra essa realidade — ela a anuncia como sinal profético dos últimos tempos. Antes da volta de Cristo, o apóstolo Paulo afirma que uma grande apostasia marcará o cenário escatológico: um abandono massivo e deliberado da verdade do evangelho.</p>
+    <p>Esta lição não é um exercício de pessimismo — é um ato de vigilância. Conhecer os padrões do engano é a melhor proteção contra ele. Paulo não alertou os tessalonicenses para paralisá-los com medo, mas para firmá-los na verdade. O mesmo objetivo guia este estudo.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Por que estudar a apostasia?</div>
+        <p>Porque ela já está operando. Paulo afirma que "o mistério da iniquidade já está em ação" (2 Ts 2:7). Não se trata de um evento puramente futuro — é um processo presente que culminará num evento escatológico final. Identificar seus padrões é missão urgente para a Igreja contemporânea.</p>
+    </div>
+    <h3>O Fio Condutor desta Lição</h3>
+    <p>Examinaremos dois textos paulinos complementares: 2 Tessalonicenses 2, que trata da apostasia em escala cósmica e histórica; e 1 Timóteo 4, que a descreve em escala individual e eclesial. Juntos, eles formam um diagnóstico preciso do desvio doutrinário — e uma vacina contra ele.</p>
+    <div class="bloco-aluno-refletir">
+        <div class="bloco-aluno-refletir-titulo">Para Você Refletir</div>
+        <p>Você já percebeu vozes ao seu redor que desviam sutilmente da fé? Como você distingue entre um erro honesto e uma apostasia deliberada?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 TEXTO BÍBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>A Passagem-Base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">2 Tessalonicenses 2:1-4, 9-10</div>
+        <p>"Ora, irmãos, com respeito à vinda de nosso Senhor Jesus Cristo e à nossa reunião com ele, rogamos-vos que não vos movais facilmente do vosso propósito..."</p>
+        <p>"Não vos enganeis de maneira alguma; porque isso não acontecerá sem que antes venha a apostasia, e se manifeste o homem do pecado, o filho da perdição, o qual se opõe e se levanta contra tudo o que se chama Deus ou se adora; de sorte que ele se assenta no templo de Deus, ostentando-se como se fosse Deus."</p>
+        <p>"Aquele cuja vinda é segundo a eficácia de Satanás, com todo o poder, e sinais, e prodígios de mentira, e com todo o engano de injustiça para os que se perdem; porque não receberam o amor da verdade para serem salvos."</p>
+        <span class="ref-final">2 Tessalonicenses 2:1-4, 9-10</span>
+    </div>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">1 Timóteo 4:1-2</div>
+        <p>"Mas o Espírito expressamente diz que nos últimos tempos alguns apostatarão da fé, dando ouvidos a espíritos enganadores e a doutrinas de demônios; pela hipocrisia de homens que falam mentiras e têm a sua própria consciência cauterizada."</p>
+        <span class="ref-final">1 Timóteo 4:1-2</span>
+    </div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Compreender o significado bíblico de "apostasia" — abandono deliberado da fé</li>
+            <li>Examinar 2 Tessalonicenses 2 como texto central sobre o "homem do pecado"</li>
+            <li>Identificar os sinais da apostasia dos últimos tempos segundo Paulo e as cartas</li>
+            <li>Aplicar o discernimento bíblico diante do desvio doutrinário contemporâneo</li>
+        </ul>
+    </div>
+    <div class="bloco-aluno-conexao">
+        <div class="bloco-aluno-conexao-titulo">Conexão Bíblica</div>
+        <p>Compare 2 Tessalonicenses 2:3 com Hebreus 6:4-6 e 2 Pedro 2:20-22. O que esses textos revelam sobre a gravidade do abandono deliberado da fé? Que elemento comum você identifica neles?</p>
+        <div class="ref-bib">Hb 6:4-6 · 2 Pe 2:20-22 · 2 Ts 2:3</div>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · Contexto Original</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">3</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>II-Contexto Original</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">A Crise em Tessalônica</div>
+        <p>Paulo escreveu 2 Tessalonicenses por volta de 51-52 d.C., poucos meses após a primeira carta. A Igreja em Tessalônica estava em confusão — alguém havia espalhado a ideia de que "o dia do Senhor já chegou" (2 Ts 2:2). Alguns membros haviam parado de trabalhar, esperando o fim iminente. Paulo responde com urgência: não, o Dia ainda não chegou — pois dois eventos precederão: a apostasia e a manifestação do homem do pecado.</p>
+    </div>
+    <h3>O Que é Apostasia?</h3>
+    <p>A palavra grega <em>apostasia</em> — da qual vem o termo português — significa "afastamento", "abandono deliberado de uma posição anteriormente mantida". No contexto bíblico, é o abandono deliberado da fé cristã por parte de quem a professava. Não é incredulidade de quem nunca creu — é traição de quem conheceu a verdade e a rejeitou conscientemente (cf. Hb 6:4-6; 2 Pe 2:20-22).</p>
+    <h3>Paulo e Timóteo — Dois Ângulos</h3>
+    <p>Em 2 Tessalonicenses 2, Paulo trata da apostasia em escala cósmica — ligada ao surgimento do "homem do pecado" no palco da história. Em 1 Timóteo 4:1-3, o mesmo Paulo descreve a apostasia em escala eclesiástica e individual: pessoas que abandonam a fé "dando ouvidos a espíritos enganadores" e a "doutrinas de demônios". Os dois ângulos são complementares — a grande apostasia começa em corações individuais e se expande até o colapso institucional da fé.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O "Obstaculizador" — o Katechon</div>
+        <p>Paulo menciona em 2 Ts 2:6-7 uma força que "retém" a manifestação do homem do pecado. Em grego, <em>katechon</em> — "o que retém". A identidade desse obstaculizador é um dos maiores enigmas da teologia bíblica. Propostas históricas incluem: o Império Romano, a pregação do evangelho, o Espírito Santo, a Igreja ou o exercício legítimo da autoridade civil. O texto não permite identificação definitiva — apenas a certeza de que a apostasia final está sendo retida por algo que Deus controla.</p>
+    </div>
+    <div class="bloco-aluno-sabia">
+        <div class="bloco-aluno-sabia-titulo">Sabia Que?</div>
+        <p>A palavra grega <em>katechon</em> aparece apenas duas vezes no Novo Testamento — ambas em 2 Tessalonicenses 2:6-7 — e é um dos termos mais debatidos de toda a teologia bíblica. Ao longo dos séculos, teólogos como Tertuliano, João Crisóstomo, Agostinho e Karl Barth propuseram interpretações distintas, sem que o consenso tenha sido alcançado até hoje.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 EXEGESE -->
+<div class="lbl">Página 5 · Exegese Versículo a Versículo</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">4</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>II-Exegese da Passagem</h2>
+    <h3>"Não vos movais facilmente do vosso propósito" — 2:2</h3>
+    <p>O verbo grego <em>saleuo</em> — "ser abalado", "sacudido" — é usado para a ação do vento sobre um mastro de navio. Paulo adverte contra a instabilidade doutrinária causada por fontes não verificadas: "por espírito, por palavra ou por carta como se fosse nossa" (2 Ts 2:2). Três canais de desinformação — revelação espiritualista, pregação oral e documentos escritos. A lista é atualíssima no contexto das redes sociais e do sensacionalismo profético.</p>
+    <h3>"A apostasia" — 2:3</h3>
+    <p>O artigo definido grego — <em>he apostasia</em> — indica que Paulo se refere a uma apostasia específica, conhecida pelos tessalonicenses. Não é qualquer desvio, mas o grande abandono escatológico da fé — o colapso massivo da profissão cristã antes da manifestação do homem do pecado. A questão é: isso é um evento futuro ainda por cumprir-se, ou descreve um processo já em andamento desde o século I?</p>
+    <h3>"O homem do pecado... se assenta no templo de Deus" — 2:4</h3>
+    <p>A expressão "templo de Deus" é central e controvertida. Para o dispensacionalismo, é um Templo físico reconstruído em Jerusalém. Para a hermenêutica reformada, "templo de Deus" no NT sempre se refere à Igreja (1 Co 3:16; 2 Co 6:16; Ef 2:21) — o homem do pecado invadiria a própria comunidade cristã, não um edifício em Jerusalém.</p>
+    <h3>"Doutrinas de demônios" — 1 Tm 4:1</h3>
+    <p>Paulo especifica em 1 Timóteo 4:3 dois exemplos concretos dessas doutrinas: proibir o casamento e ordenar abstinência de alimentos. O princípio é amplo: qualquer ensinamento que adiciona condições humanas à graça de Deus ou distorce a criação boa de Deus é potencialmente "doutrina de demônio" — independentemente de quão espiritual soe.</p>
+    <div class="bloco-aluno-pense">
+        <span class="bloco-aluno-pense-icone">✦</span>
+        <div class="bloco-aluno-pense-titulo">Pense Nisso</div>
+        <p>Se Paulo já identificava "três canais de desinformação" no século I — revelação espiritualista, pregação oral e documentos escritos —, quantos canais existem hoje? Como o cristão pode desenvolver discernimento sem cair no cinismo ou no isolamento?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 TEOLOGIA -->
+<div class="lbl">Página 6 · Teologia da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">5</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>III-Teologia da Passagem</h2>
+    <div class="bloco-teo-al">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>A soberania de Deus sobre a apostasia é absoluta: o homem do pecado só se manifesta quando Deus remove o obstaculizador (2 Ts 2:7-8). Nenhum desvio ocorre fora do controle divino. Mais profundamente: a apostasia é permitida como julgamento sobre aqueles que "não receberam o amor da verdade" (2 Ts 2:10) — Deus honra a rejeição humana da verdade enviando "operação de erro" (2 Ts 2:11). Deus não é cruel: ele confirma a escolha que as pessoas já fizeram livremente.</p>
+    </div>
+    <h3>A Apostasia como Processo e como Evento</h3>
+    <p>A Bíblia apresenta a apostasia em dois níveis: como <em>processo contínuo</em> — "já está operando o mistério da iniquidade" (2 Ts 2:7) — e como <em>evento escatológico final</em> — "a apostasia" que precede a manifestação do homem do pecado. A Igreja de todos os séculos enfrenta o processo; o evento final aguarda o momento determinado por Deus.</p>
+    <h3>A Cauterização da Consciência</h3>
+    <p>A imagem de 1 Timóteo 4:2 é médica e assustadora: "consciência cauterizada" — como tecido queimado que perde sensibilidade. O processo da apostasia não é repentino: é uma série de comprometimentos graduais com a mentira que progressivamente anestesia a capacidade de distinguir o verdadeiro do falso. Isso explica por que apóstatas frequentemente não percebem que apostataram — a consciência já não funciona como alerta.</p>
+    <div class="bloco-teo-al">
+        <div class="bloco-teo-titulo">A Resposta de Deus à Apostasia</div>
+        <p>O Senhor destruirá o homem do pecado "pelo sopro de sua boca" (2 Ts 2:8) — a mesma Palavra que criou o cosmos bastará para destruir a obra máxima do pecado. A apostasia não é a última palavra — a Parusia é.</p>
+    </div>
+    <div class="bloco-aluno-leve">
+        <div class="bloco-aluno-leve-titulo">Leve para a Sua Vida</div>
+        <p>A cauterização da consciência começa com pequenas concessões. Esta semana, identifique uma área em que você tem "negociado" com a verdade — algo que antes incomodava e agora já não incomoda tanto. O que você fará a respeito?</p>
+        <div class="lra"></div>
+        <div class="lra"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 CONCLUSÃO -->
+<div class="lbl">Página 7 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>Conclusão</h2>
+    <p class="cap">A apostasia não é uma surpresa para Deus — é um evento anunciado, controlado e limitado por ele. Paulo não escreve para semear terror, mas para produzir firmeza. O cristão que compreende o território do engano está muito melhor posicionado para não ser enganado e para ajudar outros a permanecerem na fé.</p>
+    <div class="bloco-teo-al">
+        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+        <p>Vimos que a apostasia é ao mesmo tempo um processo já em curso — "o mistério da iniquidade já está em ação" — e um evento escatológico futuro. Analisamos o "katechon" como a força retentora que Deus usa para controlar o ritmo da história. E aprendemos que a cauterização da consciência é o mecanismo interno da apostasia — gradual, silenciosa e, por isso, especialmente perigosa.</p>
+    </div>
+    <h3>A Garantia que Permanece</h3>
+    <p>Diante de todo o cenário da apostasia, Paulo não termina em desespero — termina em doxologia: "Deus vos escolheu desde o princípio para a salvação" (2 Ts 2:13). A eleição divina é o fundamento inabalável sobre o qual a Igreja permanece de pé enquanto o mundo ao redor oscila.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
+        <p>Nas lições seguintes, continuaremos examinando os sinais dos últimos tempos — os 144.000, as trombetas, as duas testemunhas. A apostasia estudada hoje é o pano de fundo sobre o qual todos esses eventos se desenvolvem. Conhecê-la é condição para interpretar o restante com sabedoria.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- PG 8 APLICAÇÃO -->
+<div class="lbl">Página 8 · Aplicação Direta</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>Aplicação Direta</h2>
+    <p class="cap">Paulo não escreve sobre a apostasia para assustar — escreve para vacinar. O cristão que conhece o território do engano está melhor equipado para não ser enganado. A advertência apostólica não é para alimentar paranoia, mas para cultivar discernimento — a capacidade de distinguir o espírito da verdade do espírito do erro (1 Jo 4:6).</p>
+    <div class="bloco-apl">
+        <div class="bloco-apl-titulo">Para esta semana</div>
+        <p>Primeiro: Paulo diz que a apostasia começa em quem "não recebeu o amor da verdade" (2 Ts 2:10). Examine sua própria relação com a Palavra de Deus — você a ama, ou apenas a usa quando é conveniente? O amor pela verdade é o maior antídoto contra o engano. Segundo: identifique uma "doutrina de demônio" que circula no evangelicalismo brasileiro hoje — algum ensinamento que distorce a graça ou acrescenta condições humanas à salvação. Como você responderia a ela com base no texto? Terceiro: a consciência "cauterizada" perde a sensibilidade gradualmente. Há alguma área em sua vida onde você percebe que sua sensibilidade espiritual diminuiu nos últimos meses?</p>
+    </div>
+    <div class="sep"><span>&#10022;</span></div>
+    <h3>Para Refletir</h3>
+    <p>Paulo diz que o Senhor destruirá o homem do pecado "pelo sopro de sua boca e pelo esplendor da sua vinda" (2 Ts 2:8). A Palavra de Deus é suficiente para destruir qualquer sistema de engano — não importa quão sofisticado. Como isso deve moldar sua confiança na proclamação simples e fiel do evangelho em uma era de sofisticação ideológica e relativismo religioso?</p>
+    <div class="memorizar">
+        <div class="memorizar-titulo">&#10022; Versículo para Memorizar</div>
+        <p>"Mas nós devemos dar graças a Deus sempre por vós, irmãos amados do Senhor, porque Deus vos escolheu desde o princípio para a salvação, em santificação do Espírito e fé da verdade."</p>
+        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">2 Tessalonicenses 2:13</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
+
+<!-- PG 9 QUESTÕES -->
+<div class="lbl">Página 9 · Questões e Anotações</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 02 · Vol. II</span><span class="pht">A Apostasia dos Últimos Tempos</span></div>
+    <h2>Questões para Reflexão</h2>
+    <div class="q">
+        <div class="qn">Questão 01</div>
+        <div class="qt">Qual é a diferença entre incredulidade — nunca ter crido — e apostasia — ter crido e abandonado deliberadamente? Por que essa distinção importa teologicamente e pastoralmente?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 02</div>
+        <div class="qt">Paulo menciona o "katechon" — o obstaculizador que retém a manifestação do homem do pecado (2 Ts 2:6-7). Quais são as principais interpretações da identidade desse obstaculizador? Qual você considera mais plausível biblicamente?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 03</div>
+        <div class="qt">A expressão "templo de Deus" em 2 Ts 2:4 é interpretada como o Templo físico de Jerusalém (dispensacionalismo) ou como a Igreja (amilenismo). Quais textos do NT sustentam cada interpretação? Qual parece mais coerente com o uso paulino do termo?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 04</div>
+        <div class="qt">Paulo diz que os que se perdem "não receberam o amor da verdade" (2 Ts 2:10). Como o amor — e não apenas o conhecimento — pela verdade bíblica protege o cristão da apostasia? Qual é a diferença prática entre essas duas posturas?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="bloco-qr">
+        <div id="qrDiv" style="width:72px;height:72px;flex-shrink:0;border:1px solid rgba(201,168,76,0.2);background:#fff;display:flex;align-items:center;justify-content:center;"></div>
+        <div>
+            <div style="font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;">▶ Assista</div>
+            <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:9.5pt;color:var(--ct);line-height:1.4;">1º Timóteo 4.1–5 · A Apostasia nos Últimos Tempos</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;margin-top:2px;">Rev. Augustus Nicodemus · YouTube</div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var url="https://www.youtube.com/watch?v=zgNhrh_00w8";
+        var script=document.createElement('script');
+        script.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+        script.onload=function(){
+            new QRCode(document.getElementById('qrDiv'),{
+                text:url,width:70,height:70,
+                colorDark:'#1a0808',colorLight:'#ffffff',
+                correctLevel:QRCode.CorrectLevel.M
+            });
+        };
+        document.head.appendChild(script);
+    })();
+    </script>
+    <h3 style="margin-top:12px;">Anotações</h3>
+    <div class="lins">
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL -->
+<div class="lbl lbl-prof">Página P1 · Visão Geral para o Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 02 · Visão Geral</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Visão Geral para o Professor</h2>
+    <p>Esta é a segunda lição do Volume II. O terreno muda: saímos de Joel e Pedro (linguagem profética cósmica) e entramos em Paulo (teologia apostólica precisa). Seu papel aqui é o de <em>pastor-exegeta</em>: conduzir o aluno a distinguir o que a Escritura afirma sobre a apostasia do que circula em vídeos sensacionalistas e especulações de redes sociais.</p>
+    <p>O risco pastoral desta lição é duplo: alunos que <em>romantizam</em> a resistência à apostasia (senso de superioridade espiritual) e alunos que ficam <em>paralisados pelo medo</em> de apostatar involuntariamente. Seu encerramento deve produzir firmeza — não paranoia, não orgulho.</p>
+    <div class="bloco-mapa">
+        <div class="bk">Mapa de Competências da Lição</div>
+        <div class="mapa-grid">
+            <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Definir apostasia biblicamente; distinguir processo e evento; identificar o katechon e suas interpretações</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Comparar interpretações dispensacionalista e reformada do "templo de Deus"; aplicar hermenêutica paulina</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Firmeza doutrinária sem paranoia; amor pela verdade como antídoto prático; confiança na eleição divina</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno explica por que Paulo termina em doxologia (2 Ts 2:13) mesmo após descrever o cenário da apostasia</p></div>
+        </div>
+    </div>
+    <div class="bloco-tempo">
+        <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura com a dinâmica do "teste de resistência" (ver P2)</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução, passagem-base e objetivos (leitura conjunta)</span></div>
+        <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 4-5 — Contexto histórico, katechon e exegese versículo a versículo</span></div>
+        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Escada socrática sobre processo vs. evento + templo de Deus (ver P2)</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 6-8 — Teologia, conclusão e aplicação prática</span></div>
+        <div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Pg. 9 — 1-2 questões em aula; restante como tarefa pessoal</span></div>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Objetivos Pedagógicos do Professor</div>
+        <ul>
+            <li>Criar precisão conceitual: apostasia ≠ dúvida, ≠ pecado, ≠ fraqueza — é abandono deliberado</li>
+            <li>Expor a estrutura dual da apostasia: processo já em curso + evento escatológico futuro</li>
+            <li>Usar o katechon como oportunidade de modelar humildade hermenêutica: nem tudo tem resposta definitiva</li>
+            <li>Terminar na doxologia de Paulo: a eleição é o fundamento — não a vigilância humana</li>
+        </ul>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">⇢</div>
+        <div class="bloco-fio-txt"><strong>Fio Condutor do Vol. II — Lição 02</strong>A apostasia é o pano de fundo escuro sobre o qual todas as lições seguintes se desenrolam. Trombetas, taças, besta, batalha final — tudo ocorre dentro do contexto do abandono progressivo da fé que Paulo já anunciou. Se o aluno sair desta lição com essa moldura, o Apocalipse fará muito mais sentido.</div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 02 · Dinâmica &amp; Teologia</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
+    <div class="bloco-debate">
+        <div class="bk">O Teste de Resistência — antes de abrir o material</div>
+        <p>"Se um pregador famoso que você admira começasse a ensinar algo que contradiz claramente a Bíblia — você perceberia? Você reagiria? O que te impediria de simplesmente continuar seguindo?"</p>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Como conduzir</div>
+        <ul>
+            <li>Peça que cada aluno escreva a resposta em silêncio antes de verbalizar — isso evita respostas performáticas</li>
+            <li>Colete as respostas oralmente: identifique padrões (confiança no líder? medo de conflito? falta de enraizamento na Palavra?)</li>
+            <li>Diga: "Paulo escreve exatamente para pessoas que amavam a verdade — e ainda assim estavam sendo abaladas. O problema não era má-fé, era desinformação. É isso que vamos estudar hoje."</li>
+            <li>Anote as respostas — elas servirão para o encerramento da aula</li>
+        </ul>
+    </div>
+    <div class="bloco-soc">
+        <div class="bk">Escada de Perguntas Socráticas</div>
+        <div class="soc-item">
+            <p>Nível 1 — Diagnóstico: "Você já viu alguém que parecia muito firme na fé abandonar o evangelho? O que aconteceu — foi de uma vez ou foi gradual?"</p>
+            <div class="soc-espera">Espera: percepção de que a apostasia é quase sempre um processo gradual, não uma virada abrupta</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 2 — Textual: "Paulo diz que a apostasia atinge quem 'não recebeu o amor da verdade' — não o conhecimento, o amor. Qual é a diferença entre amar a verdade e apenas conhecê-la?"</p>
+            <div class="soc-espera">Espera: distinção entre relação intelectual e relação afetiva com a Escritura como proteção prática</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 3 — Aplicação: "Paulo termina o trecho não com uma lista de regras anti-apostasia, mas com doxologia — 'Deus vos escolheu para a salvação' (2:13). Por que a eleição, e não a vigilância, é a garantia final?"</p>
+            <div class="soc-espera">Espera: compreensão de que a segurança não vem do esforço humano, mas da soberania divina — produz firmeza sem orgulho</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+    <div class="bloco-teo">
+        <div class="bk">O Katechon na História da Teologia — De Tertuliano a Barth</div>
+        <p>Tertuliano (séc. II) identificou o <em>katechon</em> com o Império Romano — a ordem civil que continha o caos. Agostinho deslocou para a presença da Igreja no mundo. Calvino preferiu deixar a questão em aberto, reconhecendo que Paulo foi deliberadamente vago. No séc. XX, Carl Schmitt (politicamente controverso) e Karl Barth debateram o tema — o primeiro ligando-o à soberania política, o segundo à proclamação do Evangelho. Para o professor: use o enigma do katechon para ensinar que <em>humildade hermenêutica</em> é virtude — nem toda pergunta bíblica tem resposta certa no presente.</p>
+    </div>
+    <div class="bloco-hermeneutica">
+        <div class="bk">O "Templo de Deus" — Duas Hermenêuticas em Diálogo</div>
+        <div class="herm-grid">
+            <div class="herm-col">
+                <div class="herm-col-tit">Dispensacionalista</div>
+                <p>Templo físico reconstruído em Jerusalém. O homem do pecado seria uma figura política futura que literalmente profanará o Templo. Base: Daniel 9:27; Mt 24:15.</p>
+            </div>
+            <div class="herm-col">
+                <div class="herm-col-tit">Reformada / Amilenista</div>
+                <p>Templo = Igreja de Cristo. Paulo usa "naos theou" em 1 Co 3:16; 2 Co 6:16; Ef 2:21 sempre para a comunidade cristã. A profanação seria infiltração na própria Igreja.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cit-autor">
+        "A apostasia não começa na doutrina — começa na devoção. Quando o coração esfria em relação a Deus, a mente logo encontrará razões para justificar o afastamento."
+        <cite>— J.I. Packer, <em>Knowing God</em></cite>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 02 · Pedagogia &amp; Gestão</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dicas Pedagógicas</h2>
+    <div class="bloco-dica">
+        <div class="bk">Para Tornar o Conteúdo Concreto</div>
+        <ul>
+            <li><strong>A linha do tempo da apostasia:</strong> desenhe no quadro uma linha horizontal com dois pontos — "processo em curso" (desde o séc. I) e "evento final" (escatológico). Entre eles, peça que os alunos citem exemplos históricos de grandes apostasias coletivas (liberalismo protestante do séc. XIX, Shoá e silêncio das igrejas, movimentos de prosperidade que negam o evangelho). Isso torna a dualidade processo/evento visualmente clara.</li>
+            <li><strong>Exercício da cauterização:</strong> peça que os alunos identifiquem em silêncio uma área em que sua sensibilidade espiritual diminuiu. Não compartilhe em público — é um exercício de auto-exame pessoal. Apenas pergunte: "Há algo que antes te incomodava no espelho espiritual que agora não incomoda mais?" Isso encarna a metáfora médica de 1 Tm 4:2.</li>
+            <li><strong>Contraste amor vs. conhecimento:</strong> leia João 14:15 ("se me amais, guardareis meus mandamentos") ao lado de 2 Ts 2:10 ("não receberam o amor da verdade"). O fio que conecta os dois textos é que obediência e permanência na fé são frutos de amor — não de esforço cognitivo. Isso reorienta o aluno de uma postura defensiva para uma postura afetiva.</li>
+        </ul>
+    </div>
+    <div class="bloco-cult">
+        <div class="bk">Conexão com a Cultura Contemporânea</div>
+        <p>No Brasil evangélico atual, a apostasia frequentemente não vem pela negação explícita do evangelho — vem pela <em>substituição gradual</em>: o evangelho da prosperidade substitui o da cruz; a experiência emocional substitui a Palavra; o pregador carismático substitui o texto bíblico como autoridade. Paulo identificaria os "três canais de desinformação" de 2 Ts 2:2 perfeitamente nesse cenário: revelação espiritualista (profetas de plantão), pregação oral (mensagens desvinculadas da Escritura) e documentos escritos (best-sellers teológicos questionáveis). Use esse paralelo para mostrar que o texto não é antigo — é diagnóstico atual.</p>
+    </div>
+    <div class="bloco-perf">
+        <div class="bk">Diferenciação por Perfil de Turma</div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Ansiosa</div>
+            <div class="perf-txt">Comece pelo versículo 13: "Deus vos escolheu para a salvação." A eleição é o porto antes da tempestade descritiva dos versículos anteriores. Não deixe a apostasia ser o último sabor da aula.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Indiferente</div>
+            <div class="perf-txt">Use a dinâmica do pregador famoso (P2) com mais vigor. Nomeie sem nomear: "Pense em alguém com milhões de seguidores que mudou gradualmente a mensagem. O que aconteceu?" Isso torna o tema urgente sem ser especulativo.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Teológica</div>
+            <div class="perf-txt">Aprofunde a comparação hermenêutica do templo de Deus (P2). Proponha análise textual: como Paulo usa <em>naos</em> (santuário interior) vs. <em>hieron</em> (complexo do templo) nas cartas? Essa distinção grega é decisiva para a interpretação.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Mista</div>
+            <div class="perf-txt">Use a escada socrática (P2) e permita que as tensões entre alunos teológicos e práticos se complementem. O primeiro explica o katechon; o segundo aplica o amor à verdade à vida real.</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Gestão de Tensões</h2>
+    <div class="alerta">
+        <div class="bk">Situação Comum — "Mas então eu posso perder a salvação?"</div>
+        <p>A apostasia em Paulo não é sobre perda involuntária da salvação — é sobre abandono deliberado e persistente da fé. Retorne ao texto: "os que se perdem são os que não receberam o amor da verdade" (2:10) — não os que duvidam, tropeçam ou lutam. A distinção entre processo de santificação com lutas e apostasia deliberada é pastoral e teologicamente crítica. Use Jd 24: "Aquele que é poderoso para vos guardar sem tropeço."</p>
+    </div>
+    <div class="alerta">
+        <div class="bk">Situação Comum — Identificação do "homem do pecado" com figuras políticas atuais</div>
+        <p>Quando alunos começarem a identificar o "homem do pecado" com presidentes, papas ou líderes internacionais, redirecione com o texto: "Paulo disse que o mistério da iniquidade 'já estava em ação' no séc. I. Isso nos diz que o princípio é muito maior do que qualquer figura individual." Mantenha o foco na dinâmica espiritual, não na especulação política.</p>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Encerramento Ideal da Aula</div>
+        <ul>
+            <li>Leia 2 Ts 2:13-14 em voz alta como bênção de encerramento — a doxologia de Paulo é o tom certo</li>
+            <li>Retome as respostas da dinâmica de abertura e pergunte: "O que mudaria em sua resposta agora, após o estudo?"</li>
+            <li>Anuncie o tema da próxima lição: <em>Os 144.000 — Apocalipse 7 e 14</em></li>
+            <li>Sugira leitura devocional da semana: 2 Tessalonicenses 2 completo + Judas completo (apenas 25 versículos)</li>
+        </ul>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Sinal de Alerta Pedagógico</div>
+        <p>Se a aula derivar para listas de igrejas "apóstatas" ou denominações "falsas", redirecione imediatamente: "Paulo escreve para dentro da Igreja de Tessalônica — para pessoas que precisavam examinar sua própria relação com a verdade, não apontar dedos para fora. O primeiro destinatário do texto somos nós mesmos." A apostasia estudada em sala deve sempre produzir auto-exame, nunca julgamento externo.</p>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 02 · Respostas &amp; Recursos</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 9</h2>
+    <div class="bloco-resp">
+        <div class="bk">Gabarito Orientativo</div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 01</div>
+            <div class="resp-txt">Incredulidade é a condição de quem nunca creu — não há traição, há ignorância ou rejeição sem conhecimento prévio. Apostasia é o abandono deliberado de uma fé anteriormente professada — implica conhecimento da verdade e rejeição consciente (Hb 6:4-6 fala de quem "foi iluminado", "provou o dom celestial" e depois caiu). A distinção importa pastoralmente porque o trato com um incrédulo e com um apóstata é diferente: o primeiro precisa de evangelização; o segundo, de confronto firme e chamado ao arrependimento.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 02</div>
+            <div class="resp-txt">As principais interpretações: (a) Império Romano — Tertuliano, base histórica sólida; (b) Espírito Santo — alguns reformados, dado que só Deus pode "reter" eficazmente; (c) Igreja com sua missão evangelizadora — Mt 24:14 como paralelo; (d) autoridade civil legítima — Calvino e Agostinho. Respostas pessoais variadas. O mais importante é que o aluno reconheça a legitimidade do debate e não adote posição dogmática onde o texto não impõe certeza.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 03</div>
+            <div class="resp-txt">Dispensacionalista: base em Daniel 9:27 e Mt 24:15 ("abominação da desolação no lugar santo"). Reformada: Paulo usa <em>naos theou</em> (santuário de Deus) em 1 Co 3:16; 2 Co 6:16; Ef 2:21 sempre referindo-se à Igreja/crentes — nunca ao Templo físico. O uso paulino consistente do termo no NT pesa fortemente para a interpretação eclesiológica. Valorize respostas que demonstrem uso dos próprios textos, não apenas posição confessional de memória.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 04</div>
+            <div class="resp-txt">Conhecer a verdade é proposicional — pode ser árido, defensivo, orgulhoso. Amar a verdade é relacional — produz deleite, obediência e perseverança. Quem apenas conhece a verdade pode abandoná-la quando o custo for alto demais; quem a ama a defende mesmo quando custa. Respostas pessoais — valorize especificidade: qual área concreta o aluno identifica onde o amor pela verdade é mais fraco do que o mero conhecimento.</div>
+        </div>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">↻</div>
+        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>As respostas são orientativas. Na Questão 03, afirme publicamente qualquer aluno que demonstre raciocínio textual — independentemente de qual posição adote. Isso sinaliza que o método importa tanto quanto a conclusão. Na Questão 04, valorize respostas que mencionem exemplos concretos e pessoais — o passo da doutrina à vida é o objetivo central.</div>
+    </div>
+    <div class="bloco-aval">
+        <div class="bk">Seguimento Pós-Lição</div>
+        <ul>
+            <li>Envie 2 Ts 2:13 no grupo da turma durante a semana com uma pergunta: "O que significa que Deus 'vos escolheu para a salvação desde o princípio'? Como isso te dá segurança esta semana?"</li>
+            <li>Proponha leitura devocional: 2 Tessalonicenses 2 completo + Judas (25 versículos sobre preservar a fé)</li>
+            <li>Anote alunos que demonstraram ansiedade sobre perder a salvação — precisam de atenção pastoral individual, não de mais doutrina em grupo</li>
+            <li>Avalie se o tom desta lição produziu firmeza e auto-exame — não paranoia sobre outras igrejas ou líderes</li>
+        </ul>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Materiais Complementares</h2>
+    <div class="bloco-mat">
+        <div class="bk">Recursos Recomendados ao Professor</div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">D.A. Carson / Douglas Moo — <em>Introdução ao Novo Testamento</em>. Vida Nova. Seção sobre 2 Tessalonicenses cobre o contexto histórico da crise tessalonicense e os principais debates sobre o katechon e o homem do pecado.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Anthony Hoekema — <em>A Bíblia e o Futuro</em>. Cultura Cristã. Cap. 6 e 7 tratam especificamente da apostasia e do homem do pecado a partir da perspectiva amilenista reformada — indispensável para a comparação hermenêutica desta lição.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">J.I. Packer — <em>Concise Theology</em>. Tyndale. Verbete "Apostasy" — definição precisa e distinção entre apostasia e perseverança dos santos, com base reformada sólida.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">Rev. Augustus Nicodemus — <em>1 Timóteo 4.1-5 · A Apostasia nos Últimos Tempos</em> (YouTube, QR na pg. 9). Abordagem exegética acessível, boa para recomendar aos alunos como complemento pós-aula.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">BibleProject: <em>2 Tessalonicenses</em> (YouTube, PT). Visão panorâmica de 8 minutos — ideal para passar no início da aula como contextualização da carta antes de entrar na exegese do cap. 2.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo site">Digital</span>
+            <span class="mat-info">thegospelcoalition.org/pt — busca "apostasia" e "homem do pecado". Artigos de D.A. Carson e Sam Storms sobre 2 Tessalonicenses 2 oferecem perspectivas complementares e embasadas para enriquecer o aprofundamento teológico.</span>
+        </div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+<script src="navegacao.js"></script>
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v2_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit() {
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el => {
+        if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul'))
+            el.contentEditable = edit ? 'true' : 'false';
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+</body>
+</html>
