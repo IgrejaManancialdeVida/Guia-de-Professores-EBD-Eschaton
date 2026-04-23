@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Capa Revista Escatologia</title>
+<style>
+  @page { size: 14cm 24cm; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .pagina {
+    width: 14cm;
+    height: 24cm;
+    overflow: hidden;
+    page-break-after: always;
+    background: #111;
+  }
+  .pagina img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  @media screen {
+    body { padding: 16px; background: #e9e9e9; }
+    .pagina { box-shadow: 0 8px 28px rgba(0,0,0,.18); }
+  }
+  @media (max-width: 768px) {
+    body {
+      padding: 0;
+      background: #111;
+      min-height: 100dvh;
+      align-items: center;
+    }
+    .pagina {
+      width: 100vw;
+      height: 100dvh;
+      box-shadow: none;
+    }
+    .pagina img { object-fit: contain; }
+  }
+  @media print {
+    body { padding: 0; background: #fff; }
+    .pagina { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="pagina">
+    <img alt="Capa da revista Escatologia" src="capa-revista.png" />
+  </div>
+</body>
+</html>
