@@ -1,2 +1,11 @@
 # Guia-de-Professores-EBD-Eschaton
-série de Estudos sobre escatologia ebd. imv. Revista dos professores. 
+Para o seu novo repositório unificado, o README.md precisa ser tão elegante quanto o portal, servindo como uma apresentação profissional do projeto. Como ele é focado na Edição do Professor, o texto deve transmitir autoridade e organização.Aqui está um modelo completo e formatado para você copiar:📖 ESCHATON — Hub do ProfessorBem-vindo ao repositório central da revista ESCHATON. Este projeto unifica 39 lições (3 volumes) de estudos escatológicos em uma única plataforma interativa, otimizada para professores da Escola Bíblica Dominical.🌟 Principais RecursosPortal Unificado: Acesso rápido aos 3 volumes (39 lições) em um único endereço.Temas Dinâmicos: Interface camaleônica que altera as cores (Verde, Roxo ou Azul) conforme o volume selecionado.Experiência PWA: Instalável como aplicativo no Android e iOS, funcionando em tela cheia (sem barra de navegador).Editorial Integrado: Espaço dedicado para palavras da redação e orientações pedagógicas.Navegação Fluida: Sistema de troca de lições (anterior/próxima) totalmente local e veloz.🎨 Identidade VisualO projeto utiliza uma estética de luxo baseada em tipografia clássica e cores profundas:VolumeTemaCor BaseSignificadoIIIVerde Esmeralda#0a2a1aEsperança e a Nova Criação (Principal)IRoxo Sépia#1a0a2aRealeza e Mistérios ProféticosIIAzul Petróleo#0a1a2aRevelação e Soberania Divina🛠️ Estrutura do RepositórioPlaintext/
+├── index.html              # Portal Principal (Hub)
+├── navegacao.js            # Lógica de rotas e transições
+├── manifest-professor.json # Configurações do Aplicativo (PWA)
+├── icon-prof-192.png       # Ícone oficial do app
+├── / (Raiz)
+│   ├── v1-licao-01.html...  # Lições do Volume I
+│   ├── v2-licao-01.html...  # Lições do Volume II
+│   └── v3-licao-01.html...  # Lições do Volume III
+🚀 Como VisualizarAcesse o link do GitHub Pages deste repositório.No celular, clique em "Adicionar à tela de início" para instalar como aplicativo.Navegue entre os volumes através do menu superior para ver a troca dinâmica de cores.⚖️ Licença e UsoEste material é destinado exclusivamente para uso educacional e ministerial de professores. Todos os direitos reservados à Igreja Manancial de Vida."Estudando o fim para viver com propósito no presente."
