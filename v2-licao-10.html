@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d1a">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<title>Eschaton Vol. II · Lição 10 — A Batalha Final · Edição do Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+    /* cores base — Vol. II vermelho/bordô (espelho do aluno lição 10) */
+    --cor:#a02020;
+    --grad1:#200808; --grad2:#280808;
+    --ouro:#c9a84c; --ouro-claro:#e8d5a0;
+    --vermelho:#8b1a1a;
+    --ct:#2a2a2a;
+    --branco:#fdfbf7; --pergaminho:#f8f2e8; --creme:#f0e8d8; --cc:#ddd8cc;
+    /* cores exclusivas do professor — verde docente */
+    --prof:#1a6b35;
+    --prof-vivo:#27ae60;
+    --prof-claro:#e6f4ed;
+    --prof-borda:rgba(26,107,53,0.35);
+    --topo-prof:#0a1a0d;
+    /* auxiliares pedagógicos */
+    --verde-tip:#2e6b4f;
+    --verde-claro:#e6f4ed;
+    --verde-borda:rgba(46,107,79,0.35);
+    --laranja:#b85c1a;
+    --laranja-claro:#fdf0e6;
+    --laranja-borda:rgba(184,92,26,0.35);
+    --azul:#2c5f8a;
+    --azul-claro:#e8f0f8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#120404;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#080202 0%,#180808 60%,#080202 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:54px;height:54px;border:1px solid rgba(160,32,32,0.5);
+    transform:rotate(45deg);margin:0 auto 30px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(160,32,32,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:30px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(160,32,32,0.35);
+    border-radius:2px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;
+    color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(160,32,32,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.senha-btn{
+    width:100%;background:var(--prof);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#080202,#120404);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(201,168,76,0.8);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--pergaminho);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(160,32,32,0.55) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.18) 0%,transparent 45%),radial-gradient(ellipse at 55% 85%,rgba(80,10,10,0.5) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(201,168,76,1) 24px,rgba(201,168,76,1) 25px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#280808,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(160deg,#0d0202,var(--cor) 50%,#ff9060);opacity:0.42;}
+.clh{position:absolute;top:57%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.75;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+/* Faixa PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:20pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:10px;}
+.cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== PÁGINAS DO ALUNO (espelho) ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(160,32,32,0.15);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(160,32,32,0.055) 23px,rgba(160,32,32,0.055) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#5a1010;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.texto-biblico{background:#fff;border:1px solid rgba(160,32,32,0.2);border-left:4px solid var(--cor);padding:12px 14px;margin:12px 0;position:relative;z-index:1;}
+.texto-biblico-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.texto-biblico-ref::after{content:'';flex:1;height:1px;background:rgba(160,32,32,0.2);}
+.texto-biblico p{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#2a0808;line-height:1.7;margin-bottom:4px;text-align:left;}
+.texto-biblico .ref-final{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco-ctx{background:rgba(160,32,32,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-ctx-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bloco-teo{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-teo-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-apl{background:linear-gradient(135deg,rgba(160,32,32,0.05),rgba(201,168,76,0.06));border:1px solid rgba(160,32,32,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-apl-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.memorizar{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.memorizar-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.memorizar p{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#2a0808;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+ul li::before{content:'\2192' !important;position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(160,32,32,0.2);height:20px;margin-top:3px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(160,32,32,0.2);height:22px;}
+
+/* Blocos do aluno (v2 — estrutura da lição 10) */
+.bloco-aluno{position:relative;z-index:1;margin:12px 0;border-radius:2px;overflow:hidden;}
+.bloco-aluno-cab{display:flex;align-items:center;gap:8px;padding:7px 12px 6px;position:relative;}
+.bloco-aluno-icone{font-size:13pt;line-height:1;flex-shrink:0;}
+.bloco-aluno-label{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;}
+.bloco-aluno-corpo{padding:0 12px 10px 12px;}
+.bloco-aluno-corpo p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;margin-bottom:0;text-align:left;}
+.bloco-aluno-linhas{padding:4px 12px 10px 12px;display:flex;flex-direction:column;gap:17px;}
+.bloco-aluno-lin{border-bottom:1px solid rgba(0,0,0,0.15);height:18px;}
+
+.bloco-refletir{background:rgba(160,32,32,0.06);border:1px solid rgba(160,32,32,0.22);border-left:4px solid var(--cor);}
+.bloco-refletir .bloco-aluno-cab{background:rgba(160,32,32,0.08);}
+.bloco-refletir .bloco-aluno-label{color:var(--cor);}
+.bloco-refletir .bloco-aluno-lin{border-bottom-color:rgba(160,32,32,0.18);}
+
+.bloco-biblica{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.30);border-left:4px solid var(--ouro);}
+.bloco-biblica .bloco-aluno-cab{background:rgba(201,168,76,0.10);}
+.bloco-biblica .bloco-aluno-label{color:#8a6a20;}
+.bloco-biblica .bloco-aluno-lin{border-bottom-color:rgba(201,168,76,0.22);}
+
+.bloco-sabia{background:rgba(60,80,120,0.05);border:1px solid rgba(60,80,120,0.18);border-left:4px solid #4a6090;}
+.bloco-sabia .bloco-aluno-cab{background:rgba(60,80,120,0.08);}
+.bloco-sabia .bloco-aluno-label{color:#3a5080;}
+
+.bloco-pense{background:rgba(40,80,50,0.05);border:1px solid rgba(40,80,50,0.18);border-left:4px solid #3a6045;}
+.bloco-pense .bloco-aluno-cab{background:rgba(40,80,50,0.08);}
+.bloco-pense .bloco-aluno-label{color:#2e4f38;}
+.bloco-pense .bloco-aluno-lin{border-bottom-color:rgba(40,80,50,0.15);}
+
+.bloco-leve{background:rgba(90,40,120,0.05);border:1px solid rgba(90,40,120,0.20);border-left:4px solid #6a3090;}
+.bloco-leve .bloco-aluno-cab{background:rgba(90,40,120,0.08);}
+.bloco-leve .bloco-aluno-label{color:#5a2878;}
+.bloco-leve .bloco-aluno-lin{border-bottom-color:rgba(90,40,120,0.15);}
+
+/* QR Code */
+.bloco-qr{position:relative;z-index:1;margin:10px 0;display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(160,32,32,0.04),rgba(201,168,76,0.06));border:1px solid rgba(160,32,32,0.18);border-left:4px solid var(--ouro);border-radius:2px;padding:10px 12px;}
+.bloco-qr-canvas{flex-shrink:0;width:68px;height:68px;background:#fff;border:2px solid rgba(201,168,76,0.35);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.bloco-qr-canvas canvas,.bloco-qr-canvas img{width:64px!important;height:64px!important;display:block;}
+.bloco-qr-info{flex:1;min-width:0;}
+.bloco-qr-label{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;}
+.bloco-qr-titulo{font-family:'Cinzel',serif;font-size:8.5pt;font-weight:700;color:var(--ct);line-height:1.3;margin-bottom:3px;}
+.bloco-qr-desc{font-family:'EB Garamond',serif;font-size:9pt;color:#666;line-height:1.4;}
+.bloco-qr-url{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--cor);opacity:0.7;margin-top:3px;word-break:break-all;}
+
+/* ===== PÁGINAS DO PROFESSOR ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fafff8;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--prof-vivo),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(26,107,53,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(26,107,53,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);border-left:4px solid var(--prof);
+    padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+.bloco-guia{background:#f0faf3;border:1px solid var(--prof-borda);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1a3d28;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+.bloco-dica{background:var(--verde-claro);border:1px solid var(--verde-borda);border-left:4px solid var(--verde-tip);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--verde-tip);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+.bloco-teo-prof{background:var(--laranja-claro);border:1px solid var(--laranja-borda);border-left:4px solid var(--laranja);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo-prof .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo-prof .bk::before{content:'◉';font-size:7pt;}
+.bloco-teo-prof p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e08;}
+
+.alerta{background:#fff5f5;border:1px solid rgba(139,26,26,0.25);border-left:4px solid var(--vermelho);border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-debate{background:var(--azul-claro);border:1px solid rgba(44,95,138,0.25);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.6;color:#1a3050;font-style:italic;}
+
+.bloco-soc{background:#f9fcff;border:1px solid rgba(44,95,138,0.2);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:var(--azul);font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:10pt;color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-tempo{background:#fafafa;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--prof);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.45;}
+
+/* Mapa de competências */
+.bloco-mapa{background:#f5fff8;border:1px solid var(--prof-borda);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.mapa-cel{background:#fff;border:1px solid rgba(26,107,53,0.15);border-radius:2px;padding:8px 10px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--prof);margin-bottom:5px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:9pt;color:#2a3a2a;line-height:1.45;margin-bottom:0;text-align:left;}
+
+/* Hermenêutica comparada */
+.bloco-hermeneutica{background:#fffdf8;border:1px solid rgba(201,168,76,0.25);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-hermeneutica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;}
+.herm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.herm-col{background:#fff;border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:8px 10px;}
+.herm-col-tit{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:#7a5c10;margin-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:4px;}
+.herm-col p{font-family:'EB Garamond',serif;font-size:9pt;color:#3a2a05;line-height:1.45;margin-bottom:0;text-align:left;}
+
+/* Materiais */
+.bloco-mat{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.mat-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.mat-tipo.livro{background:rgba(160,32,32,0.10);color:var(--cor);}
+.mat-tipo.video{background:rgba(139,26,26,0.12);color:var(--vermelho);}
+.mat-tipo.site{background:rgba(44,95,138,0.12);color:var(--azul);}
+.mat-info{font-family:'EB Garamond',serif;font-size:9pt;color:var(--ct);line-height:1.5;}
+
+/* Fio condutor */
+.bloco-fio{background:linear-gradient(135deg,rgba(160,32,32,0.04),rgba(201,168,76,0.06));border:1px solid rgba(160,32,32,0.18);border-radius:3px;padding:10px 12px;margin:10px 0;display:flex;gap:10px;align-items:flex-start;}
+.bloco-fio-icon{font-size:14pt;color:var(--cor);flex-shrink:0;line-height:1.2;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.55;}
+.bloco-fio-txt strong{font-family:'Oswald',sans-serif;font-size:8.5pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);display:block;margin-bottom:3px;}
+
+/* Citação de autor */
+.cit-autor{background:rgba(201,168,76,0.06);border-left:3px solid var(--ouro);padding:10px 14px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#3a2a05;line-height:1.65;}
+.cit-autor cite{font-style:normal;font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;color:var(--ouro);display:block;text-align:right;margin-top:6px;}
+
+/* Tags de sensibilidade */
+.tag-sens{font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;}
+.tag-sens.debate{background:rgba(44,95,138,0.12);color:var(--azul);}
+.tag-sens.tecnico{background:rgba(184,92,26,0.12);color:var(--laranja);}
+
+/* Perfil de turma */
+.bloco-perf{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.perf-linha{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;background:rgba(26,107,53,0.12);color:var(--prof);padding:2px 7px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:#333;line-height:1.5;}
+
+/* Cultura contemporânea */
+.bloco-cult{background:#fffff8;border:1px solid rgba(201,168,76,0.2);border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:10pt;color:#3a2a05;line-height:1.6;}
+
+/* Respostas sugeridas */
+.bloco-resp{background:#f8fff8;border:1px solid rgba(26,107,53,0.2);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;}
+.resp-item{padding:6px 0 6px 0;border-bottom:1px solid rgba(26,107,53,0.1);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--prof);margin-bottom:4px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1a3520;line-height:1.55;}
+
+/* Avaliação e seguimento */
+.bloco-aval{background:#f5fff8;border:1px solid var(--prof-borda);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;}
+.bloco-aval ul{list-style:none;padding:0;}
+.bloco-aval ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1a3d28;line-height:1.55;padding:3px 0 3px 14px;position:relative;border-bottom:1px solid rgba(26,107,53,0.07);}
+.bloco-aval ul li:last-child{border-bottom:none;}
+.bloco-aval ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:6px;}
+
+/* Rodapé páginas do professor */
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(26,107,53,0.04);}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+/* PRINT */
+@media print{
+    body{background:none;}
+    #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof,.int-linhas{display:none;}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;}
+    .pag{width:100%;max-width:148mm;min-height:auto;}
+    .int,.int-prof{padding:12mm 5vw 16mm 5vw;min-height:auto;}
+    h2{font-size:11pt;}
+    h3{font-size:9pt;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .mapa-grid,.herm-grid{grid-template-columns:1fr;}
+    .rod,.rod-prof{position:relative;}
+}
+@media (max-width:480px){
+    .btn{padding:7px 10px;font-size:7.5pt;}
+    .area{margin-top:96px;}
+}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(26,107,53,0.05);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+    <div class="senha-caixa">
+        <div class="senha-icone"></div>
+        <div class="senha-titulo">ESCHATON</div>
+        <div class="senha-sub">Vol. II · Edição do Professor</div>
+        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
+        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+            onkeydown="if(event.key==='Enter')verificarSenha()">
+        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo-principal">
+
+<div class="painel">
+    <div class="marca">ESCHATON VOL. II
+        <span>Lição 10 · A Batalha Final</span>
+        <em>Edição do Professor</em>
+    </div>
+    <span class="badge-prof">✦ Professor</span>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index-professor.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- ══════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (espelho integral)
+     ══════════════════════════════════ -->
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa da Lição</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">10</div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+    <div class="capa-prof-faixa">Edição do Professor</div>
+    <div class="ccon">
+        <div class="cser">Eschaton · A Palavra que Não Passará</div>
+        <div class="cref">Apocalipse 19:11-21 · Zacarias 14:1-9</div>
+        <div class="ctit">A Batalha Final</div>
+        <div class="cver">
+            "E vi o céu aberto, e eis um cavalo branco; e o que estava assentado sobre ele chama-se Fiel e Verdadeiro, e julga e peleja com justiça... E no seu manto e na sua coxa tem escrito este nome: REI DOS REIS E SENHOR DOS SENHORES."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 19:11,16</span>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>Introdução</h2>
+    <p class="cap">Há uma cena no Apocalipse que concentra toda a tensão acumulada ao longo do livro: o céu se abre, um cavaleiro avança sobre um cavalo branco, e o título inscrito em seu manto e em sua coxa responde de uma vez por todas à pergunta que percorre toda a Escritura — quem governa a história? A resposta é "REI DOS REIS E SENHOR DOS SENHORES."</p>
+    <p>Esta lição não é sobre estratégia militar. A batalha final de Apocalipse 19 não é travada com espadas e lanças — é travada com a Palavra de Deus que sai da boca do Cavaleiro. Isso muda tudo sobre como a Igreja entende seu papel no mundo: não como exército político, mas como testemunha fiel do Rei que já venceu.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Por que estudar a batalha final?</div>
+        <p>Porque a Igreja em cada geração é tentada a buscar a vitória pelos meios do mundo — poder político, coerção, força. Apocalipse 19 corrige essa tentação com uma visão: o Rei dos Reis vence pela Palavra, e seu exército veste linho, não armadura. Conhecer essa batalha é conhecer como Cristo governa — e como a Igreja deve segui-lo.</p>
+    </div>
+    <h3>O Fio Condutor desta Lição</h3>
+    <p>Examinaremos o contexto da visão e o paralelo com Zacarias 14, os quatro títulos do Cavaleiro e suas implicações teológicas, a natureza da "batalha" que não é uma batalha, e a seção IV sobre o destino final da besta, do falso profeta e de Satanás.</p>
+    <div class="bloco-aluno bloco-refletir">
+        <div class="bloco-aluno-cab">
+            <span class="bloco-aluno-icone">🪞</span>
+            <span class="bloco-aluno-label">Para Você Refletir</span>
+        </div>
+        <div class="bloco-aluno-corpo">
+            <p>Antes de começar esta lição, reflita: quando você enfrenta situações de injustiça ou ameaça, qual é a sua primeira reação? Em que você costuma depositar a esperança de vitória?</p>
+        </div>
+        <div class="bloco-aluno-linhas">
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 TEXTO BÍBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">3</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>A Passagem-Base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Apocalipse 19:11-16</div>
+        <p>"E vi o céu aberto, e eis um cavalo branco; e o que estava assentado sobre ele chama-se Fiel e Verdadeiro, e julga e peleja com justiça. E os seus olhos eram como chama de fogo, e na sua cabeça havia muitos diademas; e tinha um nome escrito que ninguém sabia, senão ele mesmo."</p>
+        <p>"E estava vestido de um manto tinto de sangue, e o seu nome é chamado: O Verbo de Deus. E os exércitos que estão no céu o seguiam em cavalos brancos, vestidos de linho fino, branco e puro."</p>
+        <p>"E da sua boca sai uma aguda espada, para com ela ferir as nações; e ele mesmo as apascentará com vara de ferro; e ele mesmo pisa o lagar do vinho do furor da ira do Deus Todo-Poderoso. E no seu manto e na sua coxa tem escrito este nome: REI DOS REIS E SENHOR DOS SENHORES."</p>
+        <span class="ref-final">Apocalipse 19:11-16</span>
+    </div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Examinar a descrição do Cavaleiro do Cavalo Branco e seus títulos em Ap 19:11-16</li>
+            <li>Compreender a "espada da boca" como Palavra de Deus que julga e vence</li>
+            <li>Analisar o paralelo com Zacarias 14 e o Dia do Senhor sobre os inimigos</li>
+            <li>Aplicar a certeza da vitória de Cristo ao engajamento corajoso do cristão hoje</li>
+        </ul>
+    </div>
+    <div class="bloco-aluno bloco-biblica">
+        <div class="bloco-aluno-cab">
+            <span class="bloco-aluno-icone">📖</span>
+            <span class="bloco-aluno-label">Conexão Bíblica</span>
+        </div>
+        <div class="bloco-aluno-corpo">
+            <p>Que outros textos das Escrituras você conhece que falam da soberania de Cristo sobre todas as nações? Escreva as referências e uma palavra-chave de cada uma.</p>
+        </div>
+        <div class="bloco-aluno-linhas">
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 I — CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · I — Contexto Original</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">4</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>I — Contexto Original</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Cavaleiro do Cavalo Branco — Quem é Ele?</div>
+        <p>O cavaleiro do cavalo branco de Apocalipse 19:11 não deve ser confundido com o cavaleiro do primeiro selo em Apocalipse 6:2, que muitos identificam como o Anticristo. Os dois textos são radicalmente distintos em contexto e descrição. O cavaleiro de Ap 19 é identificado por quatro títulos cumulativos: "Fiel e Verdadeiro" (v. 11), "O Verbo de Deus" (v. 13 — o mesmo título de João 1:1), um nome oculto (v. 12) e "Rei dos Reis e Senhor dos Senhores" (v. 16). Não há dúvida: este é Jesus Cristo em sua Parusia gloriosa.</p>
+    </div>
+    <h3>Zacarias 14 — O Paralelo Profético</h3>
+    <p>Zacarias 14 é o pano de fundo veterotestamentário mais direto de Apocalipse 19:11-21. O profeta descreve o Dia do Senhor sobre Jerusalém: as nações se reúnem contra a cidade, o próprio Senhor vai combater, seus pés tocam o Monte das Oliveiras (Zc 14:4), e "o Senhor será Rei sobre toda a terra" (Zc 14:9). João reinterpreta essa visão à luz da revelação completa em Cristo — o Senhor que vem é o próprio Jesus, o Noivo que acabou de celebrar as bodas (Ap 19:6-9).</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O "Exército" do Céu — Ap 19:14</div>
+        <p>Os exércitos que seguem o Cavaleiro "vestidos de linho fino, branco e puro" são os mesmos que a noiva usou no casamento (Ap 19:8). Eles não portam armas — pois a batalha será ganha pela espada da boca de Cristo, não por combate humano. A Igreja não vence pela força própria; ela participa da vitória de Cristo vestida de sua santidade.</p>
+    </div>
+    <h3>A Cena do Grande Banquete — Ap 19:17-18</h3>
+    <p>Antes da batalha, um anjo convoca as aves para o "grande banquete de Deus" — uma irônica inversão da Ceia das Bodas. Enquanto os redimidos celebram o banquete do Cordeiro, os inimigos se tornam o banquete das aves. A imagem ecoa Ezequiel 39:17-20 e a batalha de Gogue e Magogue. A inversão é deliberada e perturbadora.</p>
+    <div class="bloco-aluno bloco-sabia">
+        <div class="bloco-aluno-cab">
+            <span class="bloco-aluno-icone">💡</span>
+            <span class="bloco-aluno-label">Sabia Que?</span>
+        </div>
+        <div class="bloco-aluno-corpo">
+            <p>O título "Rei dos Reis e Senhor dos Senhores" era usado pelos imperadores persas e romanos para afirmar supremacia política absoluta. João usa exatamente esse título para Jesus — uma declaração direta de que todo poder humano é subautoridade diante de Cristo. Na época da perseguição sob Roma, essa afirmação era ato de coragem.</p>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 II — EXEGESE DA PASSAGEM -->
+<div class="lbl">Página 5 · II — Exegese da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">5</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>II-Exegese da Passagem</h2>
+    <h3>"Fiel e Verdadeiro" — Ap 19:11</h3>
+    <p>O primeiro título do Cavaleiro — "Fiel e Verdadeiro" — é uma declaração de caráter, não apenas de função. Ele julga "com justiça" porque é intrinsecamente fiel ao que prometeu e verdadeiro no que diz. O contraste com a besta e Babilônia — que enganam, seduzem e mentem — é total. O mundo final é governado por Quem é a Verdade em pessoa (Jo 14:6).</p>
+    <h3>"Da sua boca sai uma aguda espada" — Ap 19:15</h3>
+    <p>A arma de Cristo não é uma espada literal — é a Palavra de Deus. A mesma imagem aparece em Isaías 11:4 ("ferirá a terra com a vara de sua boca"), Hebreus 4:12 ("a palavra de Deus é viva e eficaz, e mais afiada do que qualquer espada de dois gumes") e Efésios 6:17 ("a espada do Espírito, que é a palavra de Deus"). Cristo vence seus inimigos com a proclamação da Palavra — não com violência militar. Isso define como a Igreja deve combater: com o evangelho, não com o poder político.</p>
+    <h3>"Manto tinto de sangue" — Ap 19:13</h3>
+    <p>O manto tinto de sangue é debatido: é o sangue de Cristo derramado na cruz, ou o sangue dos inimigos pisados no lagar da ira (eco de Is 63:1-6)? A linguagem de Isaías 63 apoia a segunda leitura — o guerreiro que "pisou o lagar sozinho" e cujas vestes foram tingidas pelo sangue dos inimigos. Mas em João, o Cordeiro já foi imolado — o sangue da cruz permeia toda a visão.</p>
+    <h3>"Rei dos Reis e Senhor dos Senhores" — Ap 19:16</h3>
+    <p>O título final está escrito no manto E na coxa — visível a todos enquanto o Cavaleiro avança. Toda autoridade humana — reis, presidentes, imperadores, parlamentos — é subautoridade sob esse título. Não há poder legítimo que não derive e não responda ao Rei dos Reis. A história inteira corre para esse reconhecimento universal.</p>
+    <div class="bloco-aluno bloco-pense">
+        <div class="bloco-aluno-cab">
+            <span class="bloco-aluno-icone">🤔</span>
+            <span class="bloco-aluno-label">Pense Nisso</span>
+        </div>
+        <div class="bloco-aluno-corpo">
+            <p>Se a arma de Cristo é a Palavra — e não a força —, o que isso significa para a forma como a Igreja deve agir em situações de conflito cultural, político ou social? Anote sua reflexão.</p>
+        </div>
+        <div class="bloco-aluno-linhas">
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 III — TEOLOGIA DA PASSAGEM -->
+<div class="lbl">Página 6 · III — Teologia da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>III-Teologia da Passagem</h2>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>O Deus que se revelou como Cordeiro imolado (Ap 5:6) é o mesmo que avança como Rei dos Reis (Ap 19:16). Não é uma contradição — é a plenitude do mesmo caráter. O Cordeiro que foi morto por amor e o Rei que vem em justiça são o mesmo Jesus. O amor que o levou à cruz é a mesma santidade que o leva ao campo de batalha. Quem entende a cruz entende por que o julgamento final é necessário e justo.</p>
+    </div>
+    <h3>A "Batalha" que Não é uma Batalha</h3>
+    <p>Apocalipse 19:19-21 descreve o confronto entre o Cavaleiro e os inimigos reunidos — mas não descreve uma batalha real. Não há estratégia, manobra ou combate. A besta e o falso profeta são simplesmente "lançados vivos no lago de fogo" (v. 20). O restante dos inimigos é morto "pela espada do que estava assentado sobre o cavalo, a espada que saiu de sua boca" (v. 21). A Palavra fala — e é feito. Não há resistência possível ao poder de Deus quando ele age em finalidade.</p>
+    <h3>Armagedom — Não uma Batalha Geográfica</h3>
+    <p>Armagedom (Ap 16:16) — a "batalha" para a qual os reis da terra são convocados — não é descrita como uma guerra terrena com exércitos e estratégia militar. É a confrontação final entre o poder de Cristo e todas as forças que se opuseram a ele ao longo da história. A questão não é geográfica — é teológica: quem é o soberano da história? A resposta de Apocalipse 19 é inequívoca: o Verbo de Deus, o Fiel e Verdadeiro, o Rei dos Reis.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O Fim do Anticristo e do Falso Profeta</div>
+        <p>A besta e o falso profeta — os dois agentes do dragão — são lançados no lago de fogo (Ap 19:20). Satanás será preso por mil anos (Ap 20:1-3) e depois lançado no mesmo lago (Ap 20:10). A trindade invertida tem o mesmo destino final: destruição eterna. O plano do inimigo não prospera — nem agora, nem nunca.</p>
+    </div>
+    <div class="bloco-aluno bloco-leve">
+        <div class="bloco-aluno-cab">
+            <span class="bloco-aluno-icone">🌱</span>
+            <span class="bloco-aluno-label">Leve para a Sua Vida</span>
+        </div>
+        <div class="bloco-aluno-corpo">
+            <p>O Cordeiro imolado e o Rei dos Reis são a mesma pessoa. Como essa verdade muda a maneira como você enfrenta suas lutas cotidianas? Escreva uma atitude concreta que você quer levar desta lição para esta semana.</p>
+        </div>
+        <div class="bloco-aluno-linhas">
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+            <div class="bloco-aluno-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 IV — O DESTINO FINAL DOS INIMIGOS -->
+<div class="lbl">Página 7 · IV — O Destino Final dos Inimigos</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>IV-O Destino Final dos Inimigos</h2>
+    <h3>A Besta e o Falso Profeta — Ap 19:20</h3>
+    <p>A besta e o falso profeta — os dois grandes agentes do dragão ao longo do Apocalipse — são capturados e "lançados vivos no lago de fogo que arde com enxofre." Não há julgamento, não há processo: a Palavra do Cavaleiro age e a sentença é executada instantaneamente. Os que enganaram as nações com sinais e prodígios (Ap 13:13-14) não têm defesa diante do Verbo de Deus.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Grande Banquete das Aves — Ap 19:17-18</div>
+        <p>Um anjo convoca as aves para o "grande banquete de Deus" — uma inversão irônica e perturbadora da Ceia das Bodas do Cordeiro (Ap 19:9). Enquanto os redimidos celebram à mesa do Rei, os inimigos se tornam o banquete das aves do céu. A imagem ecoa Ezequiel 39:17-20. O mesmo evento é glória para uns e destruição para outros — a distinção é a lealdade ao Cordeiro.</p>
+    </div>
+    <h3>Satanás — Preso e Depois Lançado — Ap 20:1-3, 10</h3>
+    <p>Satanás não é destruído junto com a besta e o falso profeta em Apocalipse 19 — ele é acorrentado por mil anos (Ap 20:1-3) e depois solto brevemente antes de ser lançado no lago de fogo (Ap 20:10). A trindade invertida — dragão, besta, falso profeta — tem o mesmo destino final: "serão atormentados de dia e de noite pelos séculos dos séculos." O mal não tem futuro; só tem fim.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">A Certeza que Sustenta o Presente</div>
+        <p>Para o cristão que vive sob pressão, perseguição ou desânimo, Apocalipse 19-20 oferece uma âncora: o destino dos inimigos de Deus já foi decretado. A história não termina em ambiguidade moral — termina com o Rei dos Reis reinando e todos os seus inimigos vencidos. Essa certeza não é evasão da realidade; é o fundamento para agir com coragem no presente.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- PG 8 CONCLUSÃO -->
+<div class="lbl">Página 8 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">8</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>Conclusão</h2>
+    <p class="cap">O Cavaleiro do Apocalipse 19 não é uma figura distante do futuro — é o mesmo Jesus que entrou em Jerusalém sobre um jumentinho, que lavou os pés dos discípulos, que foi crucificado entre dois ladrões. O Cordeiro e o Rei são a mesma pessoa. E por isso, a vitória que Apocalipse 19 descreve não é uma correção do caminho do Calvário — é sua consumação.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+        <p>Aprendemos que o Cavaleiro do Cavalo Branco é Jesus Cristo em quatro títulos progressivos: Fiel e Verdadeiro, O Verbo de Deus, nome oculto, Rei dos Reis. Vimos que sua arma é a Palavra — não violência militar —, que seu exército veste linho em vez de armadura, e que a "batalha" é travada e vencida instantaneamente pela Palavra que sai de sua boca. E vimos o destino final dos inimigos: o lago de fogo que encerra o projeto do mal para sempre.</p>
+    </div>
+    <h3>O que Isso Significa para a Igreja Hoje</h3>
+    <p>A Igreja que conhece o Rei dos Reis não precisa buscar a vitória pelos meios do mundo. Ela proclama a Palavra, veste a santidade da noiva, e segue o Cavaleiro — não com espadas, mas com fidelidade. Em um mundo que oferece poder, a Igreja oferece testemunho. Em um mundo que cobra lealdade, a Igreja confessa um único Soberano: o Fiel e Verdadeiro.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
+        <p>A vitória de Apocalipse 19 abre caminho para as lições finais: o milênio, o Grande Trono Branco, a Nova Jerusalém e a nova criação. A batalha foi vencida; o que vem a seguir é o reino. Estudar o reino exige primeiro entender o Rei — e isso é o que esta lição nos deu.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
+
+<!-- PG 9 APLICAÇÃO DIRETA -->
+<div class="lbl">Página 9 · Aplicação Direta</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">9</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>Aplicação Direta</h2>
+    <p class="cap">O exército do céu que segue o Cavaleiro usa o mesmo linho fino da noiva — não carrega armas. Cristo vence pela espada de sua boca — a Palavra. Isso define o armamento da Igreja em todas as eras: "as armas da nossa milícia não são carnais, mas poderosas em Deus" (2 Co 10:4). A Igreja que busca o poder político como sua arma principal trocou a espada da boca pelo poder da coerção — e perdeu sua arma mais eficaz.</p>
+    <div class="bloco-apl">
+        <div class="bloco-apl-titulo">Para esta semana</div>
+        <p>Primeiro: o Cavaleiro se chama "Fiel e Verdadeiro" — e julga "com justiça." Em que áreas da sua vida você precisa confiar no julgamento justo de Cristo, em vez de tomar a justiça nas próprias mãos? Segundo: Cristo vence pela "espada de sua boca" — a Palavra de Deus proclamada. Como isso deve moldar sua estratégia de influência no mundo: pela Palavra fielmente proclamada, ou por outros meios de poder? Terceiro: os exércitos do céu seguem vestidos de linho — a santidade da noiva. O cristão que quer participar da vitória de Cristo precisa primeiro participar da santidade de Cristo. O que em sua vida precisa ser purificado para que você seja parte desse exército?</p>
+    </div>
+    <div class="sep"><span>&#10022;</span></div>
+    <h3>Para Refletir</h3>
+    <p>Apocalipse 19:16 inscreve no manto do Cavaleiro: "REI DOS REIS E SENHOR DOS SENHORES" — em maiúsculas, visível a todos. Toda autoridade humana é contingente e temporária; esse título é eterno e absoluto. Como essa certeza — de que Cristo já é o Soberano de toda a história — muda sua ansiedade diante das crises políticas, sociais e geopolíticas do mundo hoje?</p>
+    <div class="memorizar">
+        <div class="memorizar-titulo">&#10022; Versículo para Memorizar</div>
+        <p>"E no seu manto e na sua coxa tem escrito este nome: REI DOS REIS E SENHOR DOS SENHORES."</p>
+        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 19:16</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
+
+<!-- PG 10 QUESTÕES -->
+<div class="lbl">Página 10 · Questões e Anotações</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">10</div>
+    <div class="ph"><span class="phl">Lição 10 · Vol. II</span><span class="pht">A Batalha Final</span></div>
+    <h2>Questões para Reflexão</h2>
+    <div class="q">
+        <div class="qn">Questão 01</div>
+        <div class="qt">O Cavaleiro do Cavalo Branco de Apocalipse 19 recebe quatro títulos. Qual é a importância teológica de cada um: "Fiel e Verdadeiro", "O Verbo de Deus", o nome oculto e "Rei dos Reis e Senhor dos Senhores"? O que cada título revela sobre o caráter de Cristo?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 02</div>
+        <div class="qt">A arma de Cristo na batalha final é "a espada que sai de sua boca" — a Palavra de Deus. Como esse detalhe define a estratégia de vitória da Igreja no presente — e o que acontece quando a Igreja troca essa arma por poder político ou coerção?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 03</div>
+        <div class="qt">Os exércitos do céu seguem o Cavaleiro vestidos do mesmo linho fino da noiva — sem armas próprias. O que isso revela sobre a natureza da participação do povo de Deus na vitória final de Cristo? O que distingue "seguir Cristo" de "lutar por Cristo" nos próprios termos?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 04</div>
+        <div class="qt">O título "Rei dos Reis e Senhor dos Senhores" é inscrito no manto — visível a todos. Como a soberania absoluta e já presente de Cristo sobre todos os reinos deve moldar a postura do cristão diante das autoridades políticas — nem subversão irresponsável nem lealdade idolátrica?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="bloco-qr">
+        <div class="bloco-qr-canvas" id="qrcode-licao10"></div>
+        <div class="bloco-qr-info">
+            <div class="bloco-qr-label">▶ Vídeo Complementar</div>
+            <div class="bloco-qr-titulo">Apocalipse 19 - Os Dois Banquetes do Fim do Mundo - Leandro Lima</div>
+            <div class="bloco-qr-desc">Aponte a câmera do celular para assistir ao vídeo de aprofundamento desta lição.</div>
+            <div class="bloco-qr-url">youtube.com · Lição 10 · Eschaton Vol. II</div>
+        </div>
+    </div>
+    <h3 style="margin-top:12px;">Anotações</h3>
+    <div class="lins">
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL -->
+<div class="lbl lbl-prof">Página P1 · Visão Geral para o Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 10 · Visão Geral</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Visão Geral para o Professor</h2>
+    <p>Esta é a décima lição do Volume II. Saímos da Ceia das Bodas do Cordeiro — o banquete da noiva amada (lição 09) — e chegamos à sua contrapartida sombria e necessária: a Batalha Final, o julgamento dos inimigos de Deus. Seu papel aqui é duplo — <em>exegeta</em>: conduza o aluno pelos quatro títulos cumulativos do Cavaleiro e pela natureza não-militar da "batalha" — e <em>pastor</em>: esta passagem tem uma dimensão profundamente libertadora para quem vive sob pressão, perseguição ou desânimo. Deixe espaço para que a soberania de Cristo se torne âncora afetiva e não apenas doutrina.</p>
+    <p>O maior risco desta lição é triplo: (1) alunos podem reduzir Armagedom a um cenário geopolítico ou militar, perdendo o ponto teológico central — a soberania da Palavra sobre toda força oposta; (2) a identificação do Cavaleiro com Jesus pode parecer óbvia, mas a distinção com o cavaleiro de Ap 6:2 precisa ser estabelecida com clareza — a confusão produz leituras erradas de toda a escatologia; (3) a tensão Igreja-política pode gerar debate acalorado — prepare-se para conduzir com firmeza e equilíbrio, sem tomar partido entre subversão e cumplicidade com o poder.</p>
+    <div class="bloco-mapa">
+        <div class="bk">Mapa de Competências da Lição</div>
+        <div class="mapa-grid">
+            <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar os quatro títulos do Cavaleiro e suas implicações; compreender a "espada da boca" como Palavra de Deus; distinguir o cavaleiro de Ap 19 do cavaleiro de Ap 6; relacionar Zc 14 como pano de fundo profético</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Articular por que a "batalha" não é uma batalha literal; conectar linho do exército ao linho da noiva (continuidade com lição 09); aplicar a soberania de Cristo à postura política do cristão; distinguir testemunho de poder coercitivo</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Coragem fundada na soberania de Cristo; recusa ao uso da força como estratégia da Igreja; lealdade exclusiva ao Rei dos Reis sem subversão irresponsável nem lealdade idolátrica ao poder político; perseverança no testemunho da Palavra</p></div>
+            <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno articula a diferença entre seguir Cristo e lutar por Cristo nos próprios termos; e consegue definir concretamente o que significa proclamar a "espada da boca" em seu contexto de vida e ministério</p></div>
+        </div>
+    </div>
+    <div class="bloco-tempo">
+        <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura provocativa: "Quando vocês pensam em 'Armagedom', qual imagem vem à mente? Misseis? Explosões? Exércitos?" — Colete as respostas sem corrigir. Reserve-as para o contraste com o que o texto realmente mostra: um Cavaleiro que vence com a espada de sua boca.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução + Passagem-Base: leitura conjunta de Ap 19:11-16; ênfase nos quatro títulos; versículo para memorizar (Ap 19:16); bloco "Conexão Bíblica" como exercício de participação</span></div>
+        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4-5 — Contexto + Exegese: distinção Ap 6:2 vs. Ap 19:11; paralelo com Zacarias 14; análise dos títulos (Fiel e Verdadeiro / Verbo de Deus / nome oculto / Rei dos Reis); espada da boca e suas referências paralelas</span></div>
+        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 6-7 — Teologia + Destino dos Inimigos: Cordeiro = Rei (mesma pessoa); batalha que não é batalha; Armagedom como questão teológica, não geográfica; trindade invertida e destino final</span></div>
+        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 8-9 — Conclusão + Aplicação: Igreja sem armas carnais; a questão da relação Igreja-política; versículo para memorizar como oração final e declaração de soberania</span></div>
+        <div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Pg. 10 — 1-2 questões em aula; restante como tarefa + QR do vídeo complementar</span></div>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Objetivos Pedagógicos do Professor</div>
+        <ul>
+            <li>Estabelecer com clareza os quatro títulos cumulativos do Cavaleiro como revelação progressiva do caráter e da autoridade de Cristo na consumação</li>
+            <li>Demonstrar que a "batalha" de Ap 19 não é descrita como combate real — a Palavra fala e é feito; conduzir o aluno a perceber que isso define a estratégia da Igreja</li>
+            <li>Construir a continuidade entre a lição 09 (linho da noiva) e a lição 10 (linho do exército) — o mesmo tecido, a mesma identidade, a mesma vitória</li>
+            <li>Apresentar a soberania de Cristo como fundamento da coragem cristã no presente, não como evasão do mundo — o Rei já reina, por isso o testemunho vale</li>
+            <li>Conectar à próxima lição: a vitória de Ap 19 inaugura o milênio — o próximo grande tema escatológico a ser estudado</li>
+        </ul>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">⇢</div>
+        <div class="bloco-fio-txt"><strong>Fio Condutor do Vol. II — Lição 10</strong>A Ceia das Bodas (lição 09) revelou o destino da noiva — comunhão eterna com o Cordeiro. A Batalha Final (lição 10) revela o destino dos inimigos — e confirma que a vitória já pertence ao Rei. O mesmo evento: glória para a noiva, julgamento para os adversários. As próximas lições (11+) revelarão o que vem depois da vitória — o milênio, o Grande Trono Branco e a Nova Criação.</div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 10 · Dinâmica &amp; Teologia</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
+    <div class="bloco-debate">
+        <div class="bk">O Cavaleiro que Não Carrega Espada — antes de abrir o material</div>
+        <p>"Imagine o maior guerreiro da história. Você provavelmente imaginou alguém com uma espada, um exército, uma estratégia. Agora leia Apocalipse 19:15: 'Da sua boca sai uma aguda espada.' A arma desse Rei não está na mão — está na boca. Não é força física — é Palavra. O que muda na batalha quando a arma é a Verdade proclamada e não a violência executada?" — Pausa. "Isso é o coração desta lição."</p>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Como conduzir</div>
+        <ul>
+            <li>Deixe 2-3 alunos responderem espontaneamente sobre a imagem de "guerreiro" que têm; não corrija ainda — apenas colete as imagens no quadro</li>
+            <li>Escreva no quadro: "Da sua boca sai uma aguda espada" (Ap 19:15). Mantenha visível durante toda a aula — é o eixo da lição</li>
+            <li>O objetivo é que o aluno chegue ao texto com a pergunta ativa: <em>se a arma é a Palavra, como eu a uso?</em> — não apenas como doutrina sobre Cristo, mas como definição da missão da Igreja</li>
+            <li>Se a turma tender ao entusiasmo profético-militar ("quando vai acontecer?"), redirecione: "João não escreveu essa visão para sabermos quando e onde — escreveu para sabermos Quem governa e com qual arma. O ponto mais urgente não é o cenário futuro — é a lealdade presente."</li>
+        </ul>
+    </div>
+    <div class="bloco-soc">
+        <div class="bk">Escada de Perguntas Socráticas</div>
+        <div class="soc-item">
+            <p>Nível 1 — Textual: "Ap 19:14 descreve os exércitos do céu 'vestidos de linho fino, branco e puro' — o mesmo linho da noiva em Ap 19:8. Eles não portam armas. Qual é o papel desses exércitos na batalha — se eles não lutam? O que significa 'seguir' o Cavaleiro sem combater com armas próprias?"</p>
+            <div class="soc-espera">Espera: percepção de que o povo de Deus participa da vitória de Cristo por identidade e lealdade, não por poder próprio. A santidade (linho) é a única vestimenta do exército — não armadura. Isso distingue o cristão do cruzado: um segue, o outro substitui</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 2 — Teológico: "O título 'Rei dos Reis e Senhor dos Senhores' era usado pelos imperadores persas e romanos. João aplica esse título a Jesus em plena perseguição imperial. O que essa escolha vocabular comunica aos primeiros leitores — e o que comunica hoje, em contextos em que a Igreja é tentada a se alinhar com o poder político para garantir sua influência?"</p>
+            <div class="soc-espera">Espera: consciência de que o título de Cristo não é uma aliança com o poder humano — é uma declaração de que todo poder humano é subautoridade. A Igreja que busca poder político como arma está confundindo o Cavaleiro com seus auxiliares. Cristo não precisa de aliados políticos para reinar — já reina</div>
+        </div>
+        <div class="soc-item">
+            <p>Nível 3 — Aplicação: "2 Coríntios 10:4 diz: 'as armas da nossa milícia não são carnais, mas poderosas em Deus.' Dê um exemplo concreto em que a Igreja — ou você pessoalmente — trocou a 'espada da boca' pela espada da coerção, do prestígio ou da influência política. O que se perdeu nessa troca?"</p>
+            <div class="soc-espera">Espera: reflexão pessoal e comunitária sobre os momentos em que a Igreja buscou a mudança pela pressão ou pelo poder em vez da proclamação fiel. O que torna a Palavra "poderosa em Deus" não é a eficiência imediata — é a fidelidade ao Cavaleiro que já venceu</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+    <div class="bloco-teo-prof">
+        <div class="bk">Os Quatro Títulos do Cavaleiro — Revelação Progressiva</div>
+        <p>Para turmas teológicas: os quatro títulos de Ap 19:11-16 formam uma estrutura progressiva de revelação. "Fiel e Verdadeiro" — caráter moral; "O Verbo de Deus" — identidade ontológica (eco deliberado de Jo 1:1-14 — para João, esse título é o mais alto possível); nome oculto — transcendência insondável (ninguém sabe, senão ele mesmo — a divindade em sua plenitude excede toda nomeação humana); "Rei dos Reis" — autoridade universal. O movimento é do caráter à identidade, da identidade ao mistério, do mistério à soberania. João não deixa nenhuma categoria sem Cristo.</p>
+    </div>
+    <div class="bloco-hermeneutica">
+        <div class="bk">A Batalha Final — Duas Leituras em Diálogo</div>
+        <div class="herm-grid">
+            <div class="herm-col">
+                <div class="herm-col-tit">Dispensacionalismo</div>
+                <p>Armagedom é uma batalha literal no Vale de Megido, no fim da Grande Tribulação, antes do milênio terrestre. Exércitos físicos se reúnem; Cristo intervém literalmente. O lago de fogo é o julgamento imediato da besta e do falso profeta como entidades pessoais concretas ao fim do período tribulacionista.</p>
+            </div>
+            <div class="herm-col">
+                <div class="herm-col-tit">Amilenarismo Reformado</div>
+                <p>Armagedom é simbólico — a confrontação final entre Cristo e todos os poderes hostis acumulados ao longo da história. "Megido" (campo de batalha do AT) funciona como símbolo tipológico, não localização geográfica. A vitória é pela Palavra; não há batalha descrita porque não há resistência possível ao poder de Deus em finalidade.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cit-autor">
+        "O Apocalipse não descreve uma batalha porque não há batalha. O Cavaleiro chega e os inimigos são destruídos pela Palavra de sua boca. João quer que o leitor entenda: quando Deus age em finalidade, não há resistência, não há negociação, não há suspense. Há apenas a Palavra que cria e a Palavra que julga — e as duas são a mesma Palavra."
+        <cite>— G.K. Beale, <em>The Book of Revelation</em> (NIGTC)</cite>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 10 · Pedagogia &amp; Gestão</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Dicas Pedagógicas</h2>
+    <div class="bloco-dica">
+        <div class="bk">Para Tornar o Conteúdo Concreto</div>
+        <ul>
+            <li><strong>Os quatro títulos como exercício visual:</strong> escreva no quadro os quatro títulos em sequência — "Fiel e Verdadeiro" / "O Verbo de Deus" / [nome oculto] / "Rei dos Reis e Senhor dos Senhores" — e peça à turma que classifique cada um: é sobre o <em>caráter</em> de Cristo? Sua <em>identidade</em>? Sua <em>transcendência</em>? Sua <em>autoridade</em>? Essa categorização transforma um exercício de memorização em análise teológica ativa.</li>
+            <li><strong>O contraste dos dois banquetes:</strong> leia Ap 19:9 (Ceia das Bodas — os redimidos à mesa) e Ap 19:17-18 (banquete das aves — os inimigos como prato) lado a lado. Pergunte: "O mesmo evento produz dois resultados radicalmente opostos. O que separa as duas mesas — e em qual você está sentado?" O contraste é impactante e memorável.</li>
+            <li><strong>A espada da boca como exercício de missão:</strong> peça à turma que identifique três situações concretas da semana em que poderiam usar a "espada da boca" — proclamação fiel da Palavra — em vez de recorrer a pressão, manipulação ou influência política. O exercício transforma a visão escatológica em compromisso missionário imediato.</li>
+        </ul>
+    </div>
+    <div class="bloco-cult">
+        <div class="bk">Conexão com a Cultura Contemporânea</div>
+        <p>No Brasil contemporâneo, a lição ressoa em pelo menos três registros que a turma provavelmente reconhecerá: (1) a <em>tentação do poder político religioso</em> — movimentos que buscam "tomar o poder" para "fazer o reino de Deus avançar" estão trocando a espada da boca pela espada da coerção; Apocalipse 19 não descreve a Igreja como exército armado, mas como noiva vestida de santidade que segue o Cavaleiro sem armas próprias; (2) a <em>ansiedade geopolítica</em> — alunos que consomem notícias e análises de conflitos mundiais podem estar lendo Apocalipse 19 com lentes de CNN ou de profecia popular; o texto não é um mapa de conflitos — é uma declaração de soberania; (3) a <em>postura de resignação</em> — alguns alunos podem concluir erroneamente que "Cristo já venceu, então não preciso fazer nada"; contra isso: os exércitos do céu <em>seguem</em> o Cavaleiro — participação ativa pelo testemunho, não passividade.</p>
+    </div>
+    <div class="bloco-perf">
+        <div class="bk">Diferenciação por Perfil de Turma</div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Profético</div>
+            <div class="perf-txt">Alunos com forte orientação profética e interesse em cronologia escatológica podem se fixar em "quando e onde é Armagedom". Redirecione: "João não escreveu um mapa geopolítico — escreveu uma declaração de soberania. A pergunta mais urgente não é 'onde será Armagedom' — é 'Quem é o Cavaleiro e o que eu faço com esse Rei?'"</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Político</div>
+            <div class="perf-txt">Alunos com engajamento político forte podem usar a lição para justificar ativismo cristão de qualquer espectro. Contraponha: "A Igreja do Apocalipse não é partido — é noiva. Ela não luta com armas do poder; proclama um Rei. Isso não é passividade — é fidelidade à arma certa." Equilibre entre subversão e cumplicidade.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Teológica</div>
+            <div class="perf-txt">Aprofunde o contraste dispensacionalismo/amilenarismo (P2) e a estrutura dos quatro títulos. Proponha: "O nome oculto de v.12 indica que a identidade de Cristo transcende toda nomeação humana. Como isso impacta a maneira como falamos de Jesus — deveria gerar reverência ou nos impede de falar?" Deixe o debate técnico robusto, mas sempre retorne à aplicação pastoral.</div>
+        </div>
+        <div class="perf-linha">
+            <div class="perf-tipo">Mista</div>
+            <div class="perf-txt">Use o exercício dos dois banquetes (P3) como denominador comum — funciona com qualquer nível de formação. O contraste dos dois convites (mesa do Cordeiro vs. banquete das aves) é vívido e não exige conhecimento técnico prévio; apenas leitura atenta e intuição.</div>
+        </div>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Gestão de Tensões</h2>
+    <div class="alerta">
+        <div class="bk">Situação Comum — "Armagedom vai acontecer em Israel / no Oriente Médio / em tal data?"</div>
+        <p>Não tome partido escatológico nem deixe a discussão consumir a aula. Valorize a pergunta e aponte o essencial: "Independentemente da interpretação — literal ou simbólica — todas as escolas concordam que Armagedom é a confrontação final entre Cristo e seus inimigos, e que Cristo vence. A divergência está no como e onde — não na certeza da vitória. Qual aprendizado prático você leva, sabendo que o Rei já tem a sentença proferida?"</p>
+    </div>
+    <div class="alerta">
+        <div class="bk">Situação Comum — "A Igreja deveria ter mais poder político para fazer o bem / resistir ao mal"</div>
+        <p>Essa tensão é pastoralmente significativa e deve ser tratada com cuidado, não suprimida. Valide o impulso: "O desejo de que o bem avance é legítimo." Então apresente a distinção do texto: os exércitos do céu vestem linho — não armadura — e não portam armas. A vitória é pela "espada da boca" — a Palavra proclamada. Ilumine com 2 Co 10:4: armas carnais não têm o poder divino de transformar. Não condene o engajamento cidadão, mas questione a substituição da Palavra pelo poder como arma primária da Igreja.</p>
+    </div>
+    <div class="bloco-guia">
+        <div class="bk">Encerramento Ideal da Aula</div>
+        <ul>
+            <li>Leia Apocalipse 19:16 em voz alta — "REI DOS REIS E SENHOR DOS SENHORES" — e pergunte: "O que muda na sua vida esta semana quando você parte sabendo que esse título já pertence ao Cavaleiro — e não ao imperador, ao presidente, ao sistema ou ao medo?"</li>
+            <li>Retorne ao quadro com a frase da abertura: "Da sua boca sai uma aguda espada." Pergunte: "Qual é a sua espada da boca esta semana — em casa, no trabalho, na escola, nas redes?"</li>
+            <li>Proponha que cada aluno escreva (em silêncio) uma declaração pessoal de lealdade ao Rei dos Reis — não política nem sentimental, mas como compromisso de testemunho fiel pela Palavra</li>
+            <li>Conecte à próxima lição: "A batalha foi vencida — o que vem depois é o reino. Na próxima lição estudaremos o milênio e o que significa Cristo reinar. A vitória de hoje é a preparação para o reino amanhã."</li>
+        </ul>
+    </div>
+    <div class="bloco-dica">
+        <div class="bk">Sinal de Alerta Pedagógico</div>
+        <p>Se a aula derivar para especulação sobre cenários geopolíticos atuais e profecias populares (Rússia, Israel, China, etc.), redirecione com firmeza e leveza: "João não escreveu um boletim de inteligência geopolítica — escreveu uma revelação de Cristo. Toda especulação sobre quem são os 'reis do norte' ou 'quando será' é secundária diante da pergunta central: você conhece o Cavaleiro, e o está seguindo? A lealdade ao Rei dos Reis é o ponto prático que esta visão exige — não a identificação dos atores." A exegese técnica serve à aplicação pastoral, não a substitui.</p>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 10 · Respostas &amp; Recursos</span>
+        <span class="ph-prof-r">Edição Docente</span>
+    </div>
+    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 10</h2>
+    <div class="bloco-resp">
+        <div class="bk">Gabarito Orientativo</div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 01</div>
+            <div class="resp-txt">O valor pedagógico desta questão está na análise de cada título como camada de revelação. "Fiel e Verdadeiro" revela o caráter moral do Cavaleiro — ele julga porque é intrinsecamente justo, não por capricho ou poder arbitrário; contrasta com a besta que engana. "O Verbo de Deus" revela a identidade ontológica — eco deliberado de Jo 1:1; o mesmo Logos da criação é o Cavaleiro do julgamento. O nome oculto revela a transcendência — o Filho ultrapassa toda nomeação; gera reverência. "Rei dos Reis" revela a autoridade universal — nenhum poder humano é paralelo ou superior. Valorize respostas que percebem a estrutura progressiva: do caráter à identidade, da identidade ao mistério, do mistério à soberania.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 02</div>
+            <div class="resp-txt">O argumento central é que a arma de Cristo define a arma da Igreja. Se Cristo vence pela Palavra, a Igreja só participa dessa vitória quando usa a mesma arma — proclamação fiel do evangelho. Quando troca a Palavra pelo poder político, pela coerção ou pelo prestígio cultural, ela perde o que a torna eficaz: o poder divino que acompanha a Palavra (cf. Rm 1:16 — "poder de Deus para salvação"; 1 Co 1:18 — "loucura para os que perecem, mas poder de Deus para nós"). Valorize alunos que apontam exemplos históricos ou contemporâneos de quando a Igreja trocou o testemunho pela coerção — e as consequências disso para a credibilidade do evangelho.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 03</div>
+            <div class="resp-txt">A chave exegética é a continuidade linho-linho entre Ap 19:8 (noiva) e Ap 19:14 (exército). O povo de Deus participa da vitória de Cristo não pela sua própria força, mas pela sua identidade — são a noiva transformada em exército; seu poder é a santidade recebida, não a violência exercida. "Seguir Cristo" é confiar na arma dele — a Palavra — e ser testemunha fiel; "lutar por Cristo" nos próprios termos é substituir a sua estratégia pela nossa, geralmente com meios que contradizem o caráter do Rei (engano, pressão, força). Valorize a distinção prática: o que você está fazendo quando "combate" — usando a espada da boca ou empunhando a espada da coerção?</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 04</div>
+            <div class="resp-txt">O argumento central é a dupla recusa: nem subversão irresponsável (o cristão desobedece toda autoridade humana porque só Cristo é Rei) nem lealdade idolátrica (o cristão identifica o Estado com o reino de Deus e lhe dá obediência absoluta). Rm 13:1-7 estabelece que as autoridades humanas existem por delegação de Deus — são subautoridades, não soberanas. Ap 13 mostra o Estado quando reclama soberania absoluta — e a Igreja que recusa esse reclame. A soberania de Cristo sobre os reis não elimina as autoridades humanas — as relativiza e as responsabiliza. Valorize alunos que conseguem navegar essa tensão com exemplos concretos de obediência relativa e resistência legítima.</div>
+        </div>
+    </div>
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">↻</div>
+        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 e 03, o critério de qualidade é a especificidade — respostas genéricas ("Cristo é poderoso") devem ser aprofundadas: "Como exatamente esse poder se manifesta na sua missão esta semana?" Nas Questões 02 e 04, valorize a capacidade de navegar tensões sem colapsar para um dos extremos — a Igreja nem foge do mundo nem se funde com o poder; proclama o Rei dos Reis com a espada da boca.</div>
+    </div>
+    <div class="bloco-aval">
+        <div class="bk">Seguimento Pós-Lição</div>
+        <ul>
+            <li>Envie Apocalipse 19:16 no grupo da turma durante a semana com a pergunta: "O Cavaleiro tem o título inscrito no manto — visível a todos. Como você 'inscreveu' a soberania de Cristo na sua semana? Uma situação concreta em que declarou — pela Palavra ou pelo testemunho — que há um Rei acima de todo poder."</li>
+            <li>Proponha leitura complementar: Zacarias 14 completo + Isaías 63:1-6 (o guerreiro que pisou o lagar) — leia os dois e observe como João os reinterpreta em Apocalipse 19. Identificar as fontes do AT enriquece a exegese e revela a unidade da Escritura</li>
+            <li>Anote alunos que demonstraram confusão entre a soberania presente de Cristo e a consumação futura — pode se beneficiar de conversa individual sobre o "já e ainda não" do reino: Cristo já é Rei dos Reis (título presente), mas a consumação da vitória ainda está por vir. Ambas as dimensões são verdadeiras simultaneamente</li>
+            <li>Avalie se a aula produziu a percepção pastoral central: a Batalha Final não é cenário de terror — é garantia de vitória que fundamenta a coragem no presente. O cristão que conhece o Rei dos Reis age com liberdade, não com medo. Esse é o fruto prático mais importante desta lição</li>
+        </ul>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h2 class="prof">Materiais Complementares</h2>
+    <div class="bloco-mat">
+        <div class="bk">Recursos Recomendados ao Professor</div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. O comentário técnico mais completo. As seções sobre Ap 19:11-21 tratam exaustivamente dos quatro títulos do Cavaleiro, da estrutura da "batalha" que não descreve combate, do paralelo com Zacarias 14 e da identidade da besta e do falso profeta no contexto histórico de João. Indispensável para o professor que quer fundamentar a exegese antes de ministrar.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Dennis Johnson — <em>Triumph of the Lamb</em>. P&amp;R Publishing. O capítulo sobre Ap 19:11-21 oferece o melhor tratamento pastoral compacto da batalha como vitória da Palavra sobre o poder. Linguagem acessível, conexão direta com a missão da Igreja contemporânea — ideal para o professor que quer preparar o coração antes de preparar o conteúdo.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Richard Bauckham — <em>The Theology of the Book of Revelation</em>. Cambridge University Press. O capítulo sobre o poder de Deus e a vitória de Cristo demonstra como João subverte a linguagem imperial para revelar que o verdadeiro poder é o do Cordeiro imolado — e não o da espada de Roma. A leitura política de Apocalipse, sem perder a dimensão teológica, é o ponto forte de Bauckham.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">Leandro Lima — <em>Apocalipse 19 - Os Dois Banquetes do Fim do Mundo</em> (YouTube — QR na pg. 10). Exposição bíblica que articula o contraste entre a Ceia das Bodas e o banquete das aves com clareza e aplicação pastoral. Ideal para recomendar aos alunos como complemento pós-aula, especialmente para consolidar o contraste dos dois destinos.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">BibleProject: <em>Apocalipse — Visão Geral</em> (YouTube, PT, 2 partes). O panorama visual da estrutura do Apocalipse mostra graficamente como a Batalha Final (Ap 19:11-21) se posiciona na narrativa após as Bodas e antes do milênio. Ideal para mostrar como introdução à lição ou como contextualização da estrutura do livro.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo site">Digital</span>
+            <span class="mat-info">thegospelcoalition.org/pt — busca "Armagedom" e "soberania de Cristo sobre as nações". Artigos de Beale, Bauckham e outros comentaristas reformados oferecem resumos acessíveis sobre a natureza não-literal de Armagedom, a identidade da besta e do falso profeta, e a relação entre Igreja e poder político à luz do Apocalipse. Útil para o professor que quer consolidar a fundamentação exegética antes de ministrar.</span>
+        </div>
+    </div>
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v2_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== QR CODE ===== */
+(function(){
+    var el = document.getElementById('qrcode-licao10');
+    if(el && typeof QRCode !== 'undefined'){
+        new QRCode(el, {
+            text: 'https://www.youtube.com/watch?v=lv0q-rwiDks',
+            width: 64,
+            height: 64,
+            colorDark: '#200808',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit() {
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el => {
+        if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul,table'))
+            el.contentEditable = edit ? 'true' : 'false';
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+</body>
+</html>
