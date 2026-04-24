@@ -419,6 +419,13 @@ h2.prof{
 .bloco-qr{margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;}
 
 /* PRINT */
+
+/* ajustes de compatibilidade dos blocos do aluno espelhados */
+.ba-refletir{background:rgba(139,32,32,0.05);border-left:3px solid var(--cor);}
+.ba-refletir .baluno-tag{color:var(--cor);}
+.ba-biblica{background:rgba(201,168,76,0.07);border-left:3px solid var(--ouro);}
+.ba-biblica .baluno-tag{color:#8a6a20;}
+
 @media print{
     body{background:none;}
     #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
@@ -487,160 +494,207 @@ h2.prof{
      PARTE I — PÁGINAS DO ALUNO (espelho)
      ══════════════════════════════════ -->
 
-<!-- CAPA -->
-<div class="lbl">Página 1 · Capa da Lição</div>
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa</div>
 <div class="pag capa">
-    <div class="catm"></div>
-    <div class="cgrd"></div>
-    <div class="cfx"></div>
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
     <div class="cnbg">01</div>
-    <div class="cimg"></div>
-    <div class="clh"></div>
-    <div class="cvol">
-        <div class="cvol-num">VOL. II</div>
-        <div class="cvol-linha"></div>
-    </div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
     <div class="capa-prof-faixa">Edição do Professor</div>
     <div class="ccon">
-        <div class="cser">Lição 01 · Eschaton Vol. II</div>
+        <div class="cser">Eschaton · A Palavra que Não Passará</div>
+        <div class="cref">Joel 2:1-11 · 2 Pedro 3:10 · Sofonias 1:14-18</div>
         <div class="ctit">O Dia do Senhor</div>
-        <div class="cref">Joel 2:1-11 · 2 Pedro 3:10</div>
-        <div class="cver">"O sol se converterá em trevas, e a lua em sangue, antes que venha o grande e terrível Dia do Senhor."<br><span style="font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;opacity:0.7;font-style:normal;">Joel 2:31</span></div>
+        <div class="cver">
+            "Tocai a trombeta em Sião, e dai o alarma no meu santo monte; tremam todos os habitantes da terra, porque vem o dia do Senhor, porque está próximo."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Joel 2:1</span>
+        </div>
     </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
 </div>
 
-<!-- PG 2 — INTRODUÇÃO -->
+<!-- PG 2 INTRODUCAO -->
 <div class="lbl">Página 2 · Introdução</div>
 <div class="pag int">
     <div class="int-linhas"></div>
     <div class="wm">2</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
     <h2>Introdução</h2>
-    <p class="cap">Existe uma expressão que percorre o cânon bíblico como um fio condutor solene, de Amós a Pedro — "o Dia do Senhor." Não é uma data no calendário. É um horizonte teológico: o momento em que Deus, o Senhor da história, intervém definitivamente para julgar o mal e consumar a redenção.</p>
-    <div class="texto-biblico">
-        <div class="texto-biblico-ref">Joel 2:1-2 · Passagem-Base</div>
-        <p>"Tocai a trombeta em Sião, e dai o alarma no meu santo monte; tremam todos os habitantes da terra, pois o Dia do Senhor vem, pois está perto — dia de trevas e de escuridão, dia de nuvens e de névoa densa."</p>
-        <span class="ref-final">Joel 2:1-2</span>
-    </div>
-    <div class="obj">
-        <div class="ot">Objetivos da Lição</div>
-        <ul>
-            <li>Identificar a expressão "Dia do Senhor" como tema central da profecia bíblica</li>
-            <li>Analisar Joel 2 e 2 Pedro 3 como textos complementares sobre esse evento</li>
-            <li>Compreender a tensão entre julgamento e salvação no mesmo Dia</li>
-            <li>Conectar a esperança do Dia do Senhor à vida cristã presente</li>
-        </ul>
+    <p class="cap">Toda geração pergunta: para onde a história caminha? O mundo parece avançar sem direção, acumulando guerras, colapsos e incertezas. A Bíblia, porém, não descreve a história como um ciclo sem saída nem como um progresso indefinido — ela aponta para um momento específico, determinado por Deus, em que tudo convergirá: o Dia do Senhor.</p>
+    <p>Essa expressão atravessa toda a Escritura como um fio vermelho. Não é uma ideia abstrata reservada a teólogos — é a convicção que moldou a pregação dos profetas, o testemunho dos apóstolos e a esperança da Igreja em todos os séculos. Compreendê-la é fundamental para qualquer estudo escatológico sério.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Por que estudar o Dia do Senhor?</div>
+        <p>Porque ele é o horizonte de toda a profecia bíblica. Joel, Amós, Sofonias, Pedro e João falam do mesmo evento com vozes distintas e complementares. Estudar essas vozes juntas é aprender a ver o fim da história com os olhos de Deus — não com medo paralisante, mas com esperança fundamentada e urgência missionária.</p>
     </div>
     <h3>O Fio Condutor desta Lição</h3>
-    <p>Esta é a lição inaugural do Volume II. O tema escolhido não é por acaso: o Dia do Senhor é o horizonte que ilumina todos os demais temas da série — as trombetas, a besta, a Babilônia, a batalha final. Sem esse horizonte, os demais temas ficam soltos. Com ele, formam uma narrativa coerente.</p>
+    <p>Partiremos da crise concreta vivida por Joel — uma invasão de gafanhotos que devastou Israel — e veremos como o profeta a usa como janela para revelar algo muito maior: o Dia em que o próprio Deus interviria de forma definitiva na história. Em seguida, ouviremos o apóstolo Pedro confirmar e ampliar essa mensagem séculos depois, conectando o Dia do Senhor à morte e ressurreição de Cristo e à consumação de todas as coisas.</p>
+
+    <div class="baluno ba-refletir">
+        <div class="baluno-tag"><span class="baluno-ico">&#9670;</span> Para você refletir</div>
+        <div class="baluno-corpo">Quando você pensa no futuro do mundo, o que vem à mente primeiro — esperança ou ansiedade? A ideia de que a história tem um dono e um destino muda algo na forma como você enfrenta as incertezas do presente? Anote sua resposta antes de continuar a lição.</div>
+        <div class="baluno-linha"></div>
+        <div class="baluno-linha"></div>
+    </div>
+
     <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
 </div>
 
-<!-- PG 3 — CONTEXTO -->
-<div class="lbl">Página 3 · Contexto e Passagem-Base</div>
+<!-- PG 3 TEXTO BIBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico</div>
 <div class="pag int">
     <div class="int-linhas"></div>
     <div class="wm">3</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
-    <h2>I — O Contexto Profético</h2>
-    <p>A expressão <em>Yom Yahweh</em> — "Dia do Senhor" — aparece mais de 20 vezes no Antigo Testamento. Profetas como Amós, Isaías, Sofonias, Ezequiel, Obadias e Joel a usam em contextos de crise histórica imediata, mas sempre apontando para além dela — para um evento cósmico definitivo.</p>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">Joel — O Profeta e Seu Contexto</div>
-        <p>Joel profetizou para Judá em um momento de devastação agrícola sem precedentes — uma praga de gafanhotos que destruiu toda a colheita. Mas Joel usa essa catástrofe local como plataforma para anunciar algo ainda maior: o Dia do Senhor cósmico. A invasão de gafanhotos prefigura o exército escatológico do próprio Deus.</p>
+    <h2>A Passagem-base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Joel 2:1-2, 10-11</div>
+        <p>"Tocai a trombeta em Sião, e dai o alarma no meu santo monte; tremam todos os habitantes da terra, porque vem o dia do Senhor, porque está próximo."</p>
+        <p>"Dia de trevas e de escuridão, dia de nuvens e de névoa densa, como a manhã estendida sobre os montes; um povo grande e forte, qual nunca houve desde a antiguidade, nem depois dele haverá pelos anos adiante."</p>
+        <p>"A terra treme diante dele, os céus se movem; o sol e a lua se escurecem, e as estrelas recolhem o seu resplendor. E o Senhor dá a sua voz diante do seu exército, porque muitíssimo grande é o seu campo."</p>
+        <span class="ref-final">Joel 2:1-2, 10-11</span>
     </div>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">2 Pedro 3 — A Perspectiva Apostólica</div>
-        <p>Pedro escreve para cristãos que duvidavam da promessa da vinda de Cristo — "onde está a promessa da sua vinda?" (2 Pe 3:4). Ele responde com a certeza do Dia do Senhor cósmico: o mesmo Deus que julgou o mundo com água no dilúvio o julgará com fogo. O Dia é certo; o atraso é misericórdia (2 Pe 3:9).</p>
+    <div class="texto-biblico" style="margin-top:8px;">
+        <div class="texto-biblico-ref">2 Pedro 3:10</div>
+        <p>"Mas o dia do Senhor virá como ladrão; no qual os céus passarão com grande estrondo, e os elementos, ardendo, se dissolverão, e a terra e as obras que há nela serão queimadas."</p>
+        <span class="ref-final">2 Pedro 3:10</span>
     </div>
-    <div class="baluno ba-sabia">
-        <div class="baluno-tag"><span class="baluno-ico">&#9654;</span> Sabia que?</div>
-        <div class="baluno-corpo">A palavra hebraica <em>Yom</em> ("dia") pode designar desde um período de 24 horas até uma era inteira. Isso explica por que o "Dia do Senhor" dos profetas pode ter múltiplos cumprimentos históricos antes do cumprimento final. Os reformadores chamavam isso de <em>sensus plenior</em> — o sentido mais pleno que o próprio autor humano não via por inteiro.</div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Identificar o "Dia do Senhor" como expressão profética central no AT e no NT</li>
+            <li>Examinar Joel 2 e 2 Pedro 3 como passagens-chave sobre esse evento</li>
+            <li>Compreender a dupla natureza do Dia — julgamento e salvação simultâneos</li>
+            <li>Aplicar a urgência profética ao compromisso com a santidade e a missão</li>
+        </ul>
     </div>
+
+    <div class="baluno ba-biblica">
+        <div class="baluno-tag"><span class="baluno-ico">&#9998;</span> Conexão Bíblica</div>
+        <div class="baluno-corpo">Leia Joel 2:32 e Romanos 10:13 lado a lado. Como Pedro usa Joel 2 em Atos 2:17-21 para interpretar o Pentecostes? O que esse padrão de cumprimento progressivo revela sobre como devemos ler as profecias do "Dia do Senhor"?</div>
+        <div class="baluno-linha"></div>
+        <div class="baluno-linha"></div>
+    </div>
+
     <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
 </div>
 
-<!-- PG 4 — EXEGESE -->
-<div class="lbl">Página 4 · Exegese da Passagem</div>
+<!-- PG 4 CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · Contexto Original</div>
 <div class="pag int">
     <div class="int-linhas"></div>
     <div class="wm">4</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
-    <h2>II — Exegese da Passagem</h2>
-    <h3>"Tocai a trombeta em Sião" — Joel 2:1</h3>
-    <p>A trombeta (<em>shofar</em>) em Israel tinha função dupla: convocar para guerra e anunciar festas sagradas. Joel usa a imagem para uma emergência máxima — não uma batalha humana, mas a aproximação do próprio Deus como Guerreiro. O convocado não é o exército — é toda a população: "tremam todos os habitantes da terra."</p>
-    <h3>"Dia de trevas e de escuridão" — Joel 2:2</h3>
-    <p>As imagens de escuridão, nuvens e névoa densa são linguagem teofânica clássica — a mesma usada no Sinai (Ex 19:16). Deus aparece velado em glória que os olhos humanos não suportam. O paralelo com o exército — "um povo grande e forte, qual nunca houve" — aponta para a magnitude sem precedentes desse julgamento.</p>
-    <h3>"O sol e a lua se escurecem" — Joel 2:10</h3>
-    <p>Pedro cita exatamente esse texto em Atos 2:20 como cumprido no Pentecostes. Joel usa convulsões cósmicas como linguagem metafórica de colapso de poderes — uma convenção profética bem estabelecida no AT (cf. Is 13:10). Isso não exclui cumprimento literal futuro, mas mostra que a linguagem tem alcance maior que o literal imediato.</p>
-    <h3>"Como ladrão" — 2 Pedro 3:10</h3>
-    <p>A metáfora do ladrão enfatiza a imprevisibilidade do momento. Jesus usou a mesma imagem (Mt 24:43). Nenhum cálculo cronológico capturará a hora exata do Dia do Senhor.</p>
-    <div class="baluno ba-pense">
-        <div class="baluno-tag"><span class="baluno-ico">&#8857;</span> Pense nisso</div>
-        <div class="baluno-corpo">Se o Dia do Senhor virá "como ladrão" — sem aviso prévio — o que isso diz sobre a futilidade de calcular datas? Como essa incerteza deveria moldar a postura do cristão: medo, indiferença ou algo diferente?</div>
-        <div class="baluno-linha"></div><div class="baluno-linha"></div>
+    <h2>I — Contexto Original</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Joel — O Profeta da Praga</div>
+        <p>Joel provavelmente profetizou em Judá entre os séculos IX e VIII a.C., embora a data exata seja debatida. Seu livro começa com uma crise imediata e devastadora: uma invasão de gafanhotos que destruiu completamente as colheitas de Israel. Joel usa essa calamidade presente como plataforma para uma mensagem de escopo cósmico: o "Dia do Senhor" que se aproxima é infinitamente maior e mais terrível do que qualquer praga de gafanhotos.</p>
     </div>
+    <h3>A Expressão "Dia do Senhor" na Bíblia</h3>
+    <p>A expressão <em>Yom Yahweh</em> — "Dia do Senhor" — aparece mais de 20 vezes no Antigo Testamento e é retomada no Novo Testamento. Ela não descreve um dia de 24 horas, mas um período ou evento de intervenção direta de Deus na história — para julgar os inimigos e salvar seu povo. Os profetas que a usam incluem Isaías, Jeremias, Ezequiel, Amós, Abdias, Sofonias, Zacarias e Malaquias.</p>
+    <h3>A Dupla Face do Dia</h3>
+    <p>Amós surpreendeu os israelitas ao declarar que o Dia do Senhor não seria de vitória para eles — mas de julgamento (Am 5:18-20). O Dia é sempre de trevas para os rebeldes e de luz para os fiéis. Essa tensão percorre toda a profecia bíblica: o mesmo evento é salvação para uns e condenação para outros.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">2 Pedro 3 — A Perspectiva Apostólica</div>
+        <p>Pedro escreve para cristãos que duvidavam da promessa da vinda de Cristo — "onde está a promessa da sua vinda?" (2 Pe 3:4). Ele responde com a certeza do Dia do Senhor cósmico: o mesmo Deus que julgou o mundo com água no dilúvio o julgará com fogo. O Dia é certo; o atraso é misericórdia (2 Pe 3:9).</p>
+    </div>
+
+    <div class="baluno ba-sabia">
+        <div class="baluno-tag"><span class="baluno-ico">&#9654;</span> Sabia que?</div>
+        <div class="baluno-corpo">A palavra hebraica <em>Yom</em> ("dia") pode designar desde um período de 24 horas até uma era inteira — como em Gênesis 2:4, onde "o dia" abrange toda a semana da criação. Isso explica por que o "Dia do Senhor" dos profetas pode ter múltiplos cumprimentos históricos antes do cumprimento final. Os reformadores chamavam isso de <em>sensus plenior</em> — o sentido mais pleno, que o próprio autor humano não via por inteiro.</div>
+    </div>
+
     <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
 </div>
 
-<!-- PG 5 — TEOLOGIA -->
-<div class="lbl">Página 5 · Teologia da Passagem</div>
+<!-- PG 5 EXEGESE -->
+<div class="lbl">Página 5 · Exegese Versículo a Versículo</div>
 <div class="pag int">
     <div class="int-linhas"></div>
     <div class="wm">5</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
-    <h2>III — Teologia da Passagem</h2>
-    <div class="bloco-teo-al">
-        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
-        <p>O Dia do Senhor revela que Deus não é um observador passivo da história — ele é o Senhor que age. Sua paciência tem um limite: o "atraso" não é fraqueza, é misericórdia (2 Pe 3:9). Quando ele age, não há poder humano ou cósmico que resista — "quem poderá suportar?" (Jl 2:11).</p>
+    <h2>II — Exegese da Passagem</h2>
+    <h3>"Tocai a trombeta em Sião" — Joel 2:1</h3>
+    <p>A trombeta (<em>shofar</em>) em Israel tinha função dupla: convocar para a guerra e anunciar festas sagradas. Joel usa a imagem para uma emergência máxima — não uma batalha humana, mas a aproximação do próprio Deus como Guerreiro. Sião, a colina sagrada de Jerusalém, é o ponto de irradiação do alarma. O convocado não é o exército — é toda a população: "tremam todos os habitantes da terra."</p>
+    <h3>"Dia de trevas e de escuridão" — Joel 2:2</h3>
+    <p>As imagens de escuridão, nuvens e névoa densa são linguagem teofânica clássica — a mesma usada no Sinai (Ex 19:16) e nas visões de Ezequiel (Ez 34:12). Deus aparece velado em glória que os olhos humanos não conseguem suportar. O paralelo com o exército — "um povo grande e forte, qual nunca houve" — aponta para a magnitude sem precedentes desse julgamento.</p>
+    <h3>"O sol e a lua se escurecem" — Joel 2:10</h3>
+    <p>Pedro cita exatamente esse texto em Atos 2:20 como cumprido no Pentecostes: o derramamento do Espírito é o início da era do Dia do Senhor. Joel usa convulsões cósmicas como linguagem metafórica de colapso de poderes e sistemas — uma convenção profética bem estabelecida no AT (cf. Is 13:10 sobre Babilônia). Isso não exclui um cumprimento literal futuro, mas mostra que a linguagem tem alcance maior que o literal imediato.</p>
+    <h3>"Como ladrão" — 2 Pedro 3:10</h3>
+    <p>A metáfora do ladrão enfatiza a imprevisibilidade do momento — não a natureza negativa do evento para o crente. Jesus usou a mesma imagem (Mt 24:43). O ladrão não avisa quando vem. Nenhum cálculo astronômico ou geopolítico capturará a hora exata do Dia do Senhor.</p>
+
+    <div class="baluno ba-pense">
+        <div class="baluno-tag"><span class="baluno-ico">&#8857;</span> Pense nisso</div>
+        <div class="baluno-corpo">Se o Dia do Senhor virá "como ladrão" — sem aviso prévio — o que isso diz sobre a futilidade de tentar calcular datas e sinais? Como essa incerteza deveria moldar a postura do cristão: medo constante, indiferença ou algo diferente? Qual seria esse "algo diferente" segundo Pedro em 2 Pe 3:11-14?</div>
+        <div class="baluno-linha"></div>
+        <div class="baluno-linha"></div>
     </div>
-    <h3>Julgamento e Salvação no Mesmo Dia</h3>
-    <p>Joel não termina o Dia do Senhor em julgamento — ele termina em restauração. Joel 2:28-32 promete o derramamento do Espírito sobre toda a carne e a salvação de "todo aquele que invocar o nome do Senhor" (Jl 2:32). Pedro cita exatamente essa passagem em Atos 2:17-21. O mesmo Dia que é "grande e terrível" é também o Dia da salvação.</p>
-    <h3>O Cumprimento Progressivo</h3>
-    <p>O Dia do Senhor tem cumprimentos históricos parciais — a queda de Babilônia (Is 13), a destruição de Jerusalém em 70 d.C. (Mt 24) — e um cumprimento escatológico final pleno. Pedro indica que o Dia cósmico final envolverá a dissolução dos elementos e a renovação da criação (2 Pe 3:12-13).</p>
-    <div class="bloco-teo-al">
-        <div class="bloco-teo-titulo">Conexão com o Novo Testamento</div>
-        <p>O Dia do Senhor é retomado em 1 Ts 5:2, 2 Ts 2:2 e Ap 6:17 ("o grande dia da ira deles"). Em todos os casos, a resposta esperada é a mesma: vigilância, sobriedade e esperança — não terror nem especulação.</p>
-    </div>
-    <div class="baluno ba-vida">
-        <div class="baluno-tag"><span class="baluno-ico">&#10022;</span> Leve para a sua vida</div>
-        <div class="baluno-corpo">Pedro diz que o atraso do Dia é misericórdia — "não querendo que alguns se percam" (2 Pe 3:9). Escreva o nome de uma pessoa ao seu redor que ainda não conhece o evangelho. O que você pode fazer esta semana?</div>
-        <div class="baluno-linha"></div><div class="baluno-linha"></div>
-    </div>
+
     <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
 </div>
 
-<!-- PG 6 — CONCLUSÃO -->
-<div class="lbl">Página 6 · Conclusão</div>
+<!-- PG 6 TEOLOGIA DA PASSAGEM -->
+<div class="lbl">Página 6 · Teologia da Passagem</div>
 <div class="pag int">
     <div class="int-linhas"></div>
     <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
+    <h2>III — Teologia da Passagem</h2>
+    <div class="bloco-teo-al">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>O Dia do Senhor revela que Deus não é um observador passivo da história — ele é o Senhor que age. Sua paciência tem um limite: o "atraso" não é fraqueza, é misericórdia (2 Pe 3:9). Quando ele age, não há poder humano ou cósmico que resista — "quem poderá suportar?" (Jl 2:11). Esse Deus que age no fim da história é o mesmo que agiu no Êxodo, no Calvário e no Pentecostes.</p>
+    </div>
+    <h3>Julgamento e Salvação no Mesmo Dia</h3>
+    <p>Joel não termina o Dia do Senhor em julgamento — ele termina em restauração. Joel 2:28-32 promete o derramamento do Espírito sobre toda a carne e a salvação de "todo aquele que invocar o nome do Senhor" (Jl 2:32). Pedro cita exatamente essa passagem em Atos 2:17-21. O mesmo Dia que é "grande e terrível" é também o Dia da salvação — e a cruz de Cristo que determina de qual lado cada pessoa estará.</p>
+    <h3>O Cumprimento Progressivo</h3>
+    <p>O Dia do Senhor tem cumprimentos históricos parciais — a queda de Babilônia (Is 13), a destruição de Jerusalém em 70 d.C. (Mt 24) — e um cumprimento escatológico final pleno. Cada "dia do Senhor" histórico é um sinal e uma prefiguração do Dia final. Pedro indica que o Dia cósmico final envolverá a dissolução dos elementos e a renovação da criação (2 Pe 3:12-13).</p>
+    <div class="bloco-teo-al">
+        <div class="bloco-teo-titulo">Conexão com o Novo Testamento</div>
+        <p>O Dia do Senhor é retomado em 1 Tessalonicenses 5:2, 2 Tessalonicenses 2:2 e Apocalipse 6:17 ("o grande dia da ira deles"). Em todos os casos, a resposta esperada é a mesma: vigilância, sobriedade e esperança — não terror nem especulação.</p>
+    </div>
+
+    <div class="baluno ba-vida">
+        <div class="baluno-tag"><span class="baluno-ico">&#10022;</span> Leve para a sua vida</div>
+        <div class="baluno-corpo">Pedro diz que o atraso do Dia é misericórdia — "não querendo que alguns se percam" (2 Pe 3:9). Escreva o nome de uma pessoa ao seu redor que ainda não conhece o evangelho. O que você pode fazer esta semana para que o "atraso misericordioso" chegue até ela?</div>
+        <div class="baluno-linha"></div>
+        <div class="baluno-linha"></div>
+    </div>
+
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 CONCLUSAO -->
+<div class="lbl">Página 7 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
     <h2>Conclusão</h2>
     <p class="cap">O Dia do Senhor não é uma ameaça lançada contra a humanidade — é a garantia de que a história tem um dono. Joel e Pedro, separados por séculos, convergem para a mesma certeza: Deus age, Deus julga e Deus salva. O mesmo Dia que é "grande e terrível" para os que vivem em rebeldia é o Dia da redenção plena para os que invocaram o nome do Senhor.</p>
     <div class="bloco-teo-al">
         <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
-        <p>Vimos que o "Dia do Senhor" é uma expressão profética central que percorre todo o cânon bíblico. Analisamos Joel 2 e 2 Pedro 3 como duas lentes complementares: a primeira revelando a magnitude do evento por imagens cósmicas; a segunda situando esse evento no horizonte da vinda de Cristo e da renovação da criação.</p>
+        <p>Vimos que o "Dia do Senhor" é uma expressão profética central que percorre todo o cânon bíblico. Analisamos Joel 2 e 2 Pedro 3 como duas lentes complementares: a primeira revelando a magnitude do evento por meio de imagens cósmicas e militares; a segunda situando esse evento no horizonte da vinda de Cristo e da renovação da criação.</p>
     </div>
     <h3>A Tensão que Devemos Guardar</h3>
-    <p>O estudo nos deixa com uma tensão saudável: o Dia do Senhor inspira tanto reverência quanto esperança. Ele não permite indiferença — "que pessoas deveis ser vós?" (2 Pe 3:11) — mas também não autoriza o desespero, pois "todo aquele que invocar o nome do Senhor será salvo" (Jl 2:32).</p>
+    <p>O estudo nos deixa com uma tensão saudável: o Dia do Senhor inspira tanto reverência quanto esperança. Ele não permite indiferença — "que pessoas deveis ser vós?" (2 Pe 3:11) — mas também não autoriza o desespero, pois "todo aquele que invocar o nome do Senhor será salvo" (Jl 2:32). Guardar essa tensão é o que define uma escatologia bíblica madura.</p>
     <div class="bloco-ctx">
         <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
-        <p>Nas lições seguintes, continuaremos desdobrando os grandes temas do fim dos tempos — a apostasia, os 144.000, as trombetas. O Dia do Senhor estudado hoje é o horizonte que ilumina todos esses temas.</p>
+        <p>Nas lições seguintes, continuaremos desdobrando os grandes temas do fim dos tempos — a apostasia, os 144.000, as trombetas e as taças — sempre a partir das passagens-chave das Escrituras. O Dia do Senhor estudado hoje é o horizonte que ilumina todos esses temas.</p>
     </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
 </div>
 
-<!-- PG 7 — APLICAÇÃO -->
-<div class="lbl">Página 7 · Aplicação Direta</div>
+<!-- PG 8 APLICACAO DIRETA -->
+<div class="lbl">Página 8 · Aplicação Direta</div>
 <div class="pag int">
     <div class="int-linhas"></div>
-    <div class="wm">7</div>
+    <div class="wm">8</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
     <h2>Aplicação Direta</h2>
     <p class="cap">Pedro tira a conclusão prática mais direta de toda a escatologia bíblica: "visto que todas essas coisas hão de se dissolver, que pessoas deveis ser vós em santo procedimento e piedade?" (2 Pe 3:11). Essa pergunta não é retórica — ela exige resposta concreta, pessoal e imediata.</p>
     <div class="bloco-apl">
         <div class="bloco-apl-titulo">Para esta semana</div>
-        <p>Primeiro: leia Joel 2:12-13 — a resposta que Deus quer ao anúncio do Dia do Senhor não é pânico nem especulação, mas arrependimento genuíno. Há algo em sua vida que precisa de arrependimento real? Segundo: releia 2 Pedro 3:11-14 e identifique as três atitudes que Pedro espera: santo procedimento, piedade e diligência para ser achado sem mácula. Qual dessas três é mais fraca em você? Terceiro: o Dia é "salvação para todo aquele que invocar o nome do Senhor" (Jl 2:32). Ore por três pessoas pelo nome — que o Dia seja de salvação para elas.</p>
+        <p>Primeiro: leia Joel 2:12-13 — a resposta que Deus quer ao anúncio do Dia do Senhor não é pânico nem especulação, mas arrependimento genuíno: "rasgai o vosso coração e não as vossas vestes." Há algo em sua vida que precisa de arrependimento real, não apenas emocional? Segundo: releia 2 Pedro 3:11-14 e identifique as três atitudes que Pedro espera do cristão que espera o Dia: santo procedimento, piedade e diligência para ser achado sem mácula. Qual dessas três é mais fraca em você? Terceiro: o Dia do Senhor é "salvação para todo aquele que invocar o nome do Senhor" (Jl 2:32). Ore por três pessoas pelo nome — que o Dia seja de salvação para elas.</p>
     </div>
     <div class="sep"><span>&#10022;</span></div>
     <h3>Para Refletir</h3>
@@ -650,14 +704,14 @@ h2.prof{
         <p>"Todo aquele, pois, que invocar o nome do Senhor será salvo."</p>
         <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Joel 2:32 · Romanos 10:13</p>
     </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
 </div>
 
-<!-- PG 8 — QUESTÕES -->
-<div class="lbl">Página 8 · Questões e Anotações</div>
+<!-- PG 9 QUESTOES -->
+<div class="lbl">Página 9 · Questões e Anotações</div>
 <div class="pag int">
     <div class="int-linhas"></div>
-    <div class="wm">8</div>
+    <div class="wm">9</div>
     <div class="ph"><span class="phl">Lição 01 · Vol. II</span><span class="pht">O Dia do Senhor</span></div>
     <h2>Questões para Reflexão</h2>
     <div class="q">
@@ -677,10 +731,10 @@ h2.prof{
     </div>
     <div class="q">
         <div class="qn">Questão 04</div>
-        <div class="qt">Joel 2:13 diz: "rasgai o vosso coração e não as vossas vestes." Qual é a diferença entre arrependimento externo e genuíno? Em que área da sua vida você precisa de um arrependimento mais profundo do que superficial?</div>
+        <div class="qt">Joel 2:13 diz: "rasgai o vosso coração e não as vossas vestes." Qual é a diferença entre arrependimento externo e arrependimento genuíno? Em que área da sua vida você precisa de um arrependimento mais profundo do que superficial?</div>
         <div class="lr"></div><div class="lr"></div>
     </div>
-    <div class="bloco-qr">
+    <div class="bloco-qr" style="margin:14px 0 10px;display:flex;align-items:center;gap:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--ouro);padding:10px 12px;position:relative;z-index:1;">
         <div id="qrDiv" style="width:72px;height:72px;flex-shrink:0;border:1px solid rgba(201,168,76,0.2);background:#fff;display:flex;align-items:center;justify-content:center;"></div>
         <div>
             <div style="font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;">▶ Assista</div>
@@ -688,12 +742,26 @@ h2.prof{
             <div style="font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;margin-top:2px;">Pr. Hélio Peixoto · YouTube</div>
         </div>
     </div>
-    <script>(function(){var url="https://www.youtube.com/watch?v=Lb6R8b8nxaI";var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=function(){new QRCode(document.getElementById('qrDiv'),{text:url,width:70,height:70,colorDark:'#1a0808',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});};document.head.appendChild(s);})();</script>
+    <script>
+    (function(){
+        var url="https://www.youtube.com/watch?v=Lb6R8b8nxaI";
+        var script=document.createElement('script');
+        script.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+        script.onload=function(){
+            new QRCode(document.getElementById('qrDiv'),{
+                text:url,width:70,height:70,
+                colorDark:'#1a0808',colorLight:'#ffffff',
+                correctLevel:QRCode.CorrectLevel.M
+            });
+        };
+        document.head.appendChild(script);
+    })();
+    </script>
     <h3 style="margin-top:12px;">Anotações</h3>
     <div class="lins">
-        <div class="lin"></div><div class="lin"></div><div class="lin"></div>
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
     </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
 </div>
 
 <!-- ══════════════════════════════════
@@ -723,7 +791,7 @@ h2.prof{
     <div class="bloco-tempo">
         <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
         <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura com a dinâmica da manchete (ver P2)</span></div>
-        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução e contexto profético (leitura conjunta)</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-4 — Introdução, passagem-base e contexto profético (leitura conjunta)</span></div>
         <div class="tempo-linha"><span class="tempo-min">12 min</span><span class="tempo-desc">Pg. 4-5 — Exegese versículo a versículo e teologia</span></div>
         <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Escada socrática sobre julgamento vs. salvação (ver P2)</span></div>
         <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 6-7 — Conclusão e aplicação prática</span></div>
@@ -873,7 +941,7 @@ h2.prof{
         <span class="ph-prof-l">Lição 01 · Respostas &amp; Recursos</span>
         <span class="ph-prof-r">Edição Docente</span>
     </div>
-    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 8</h2>
+    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 9</h2>
     <div class="bloco-resp">
         <div class="bk">Gabarito Orientativo</div>
         <div class="resp-item">
