@@ -1,20 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d1020">
-<link rel="manifest" href="manifest-professor.json">
-<link rel="apple-touch-icon" href="icon-professor-192.png">
-<link rel="icon" type="image/png" href="icon-professor-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0d1020" name="theme-color"/>
+<link href="manifest-professor.json" rel="manifest"/>
+<link href="icon-professor-192.png" rel="apple-touch-icon"/>
+<link href="icon-professor-192.png" rel="icon" type="image/png"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Eschaton I · Prof." name="apple-mobile-web-app-title"/>
 <title>Eschaton · Lição 03 — EDIÇÃO DO PROFESSOR</title>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <style>
 
 :root{--cor:#3a9a6a;--grad1:#0a2018;--grad2:#0d3020;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--creme:#f5f0e8;--cc:#e0ddd8;}
@@ -367,501 +366,477 @@ h2.prof{font-family:"Oswald",sans-serif;font-weight:600;font-size:11.5pt;letter-
 </style>
 </head>
 <body>
-
 <!-- TELA DE SENHA -->
 <div id="tela-senha">
-  <div class="senha-caixa">
-    <div class="senha-icone"></div>
-    <div class="senha-titulo">Eschaton</div>
-    <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
-    <div class="senha-desc">Este material é exclusivo para docentes.<br>Insira a senha fornecida pela coordenação.</div>
-    <input class="senha-campo" id="senha-input" type="password" placeholder="••••••••" maxlength="20" autocomplete="off" onkeydown="if(event.key==='Enter') verificarSenha()">
-    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
-    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
-    <div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
-  </div>
+<div class="senha-caixa">
+<div class="senha-icone"></div>
+<div class="senha-titulo">Eschaton</div>
+<div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+<div class="senha-desc">Este material é exclusivo para docentes.<br/>Insira a senha fornecida pela coordenação.</div>
+<input autocomplete="off" class="senha-campo" id="senha-input" maxlength="20" onkeydown="if(event.key==='Enter') verificarSenha()" placeholder="••••••••" type="password"/>
+<button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+<div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+<div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
 </div>
-
+</div>
 <div id="conteudo-principal">
-
 <div class="painel">
-  <div class="marca">ESCHATON<span>Edição do Professor · Lição 03 · O Arrebatamento</span></div>
-  <span class="badge-prof">📘 Edição do Professor</span>
-  <button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
-  <button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
-  <a href="index.html"><button class="btn bv">← Hub</button></a>
+<div class="marca">ESCHATON<span>Edição do Professor · Lição 03 · O Arrebatamento</span></div>
+<span class="badge-prof">📘 Edição do Professor</span>
+<button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+<a href="index.html"><button class="btn bv">← Hub</button></a>
 </div>
-
 <div class="area">
-<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 03">
-    <img src="capa-revista.png" alt="Capa da revista Eschaton">
-    <div class="entrada-cta">Toque para entrar na lição</div>
+<div aria-label="Abrir lição 03" class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()">
+<img alt="Capa da revista Eschaton" src="capa-revista.png"/>
+<div class="entrada-cta">Toque para entrar na lição</div>
 </div>
-
-<!-- PG 1 — CAPA -->
+ PG 1 — CAPA 
 <div class="lbl">Página 1 · Capa</div>
 <div class="pag capa">
-  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
-  <div class="cimg"></div><div class="clh"></div>
-  <div class="cnbg">03</div><div class="cnd">03</div>
-  <div class="capa-prof-faixa">Edição do Professor</div>
-  <div class="ccon">
-    <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
-    <div class="ctit">O Arrebatamento</div>
-    <div class="cver">
-      "Porque o mesmo Senhor descerá do céu com alarido, e com voz do arcanjo, e com a trombeta de Deus; e os mortos em Cristo ressuscitarão primeiro. Depois nós, os que ficarmos vivos, seremos arrebatados juntamente com eles nas nuvens."
-      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">1 Tessalonicenses 4:16-17</span>
-    </div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">03</div><div class="cnd">03</div><div class="capa-prof-faixa">Edição do Professor</div>
+<div class="ccon">
+<div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+<div class="ctit">O Arrebatamento</div>
+<div class="cver">
+            "Porque o mesmo Senhor descerá do céu com alarido, e com voz do arcanjo, e com a trombeta de Deus; e os mortos em Cristo ressuscitarão primeiro. Depois nós, os que ficarmos vivos, seremos arrebatados juntamente com eles nas nuvens."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">1 Tessalonicenses 4:16-17</span>
 </div>
-
-<!-- PG 2 — INTRODUÇÃO -->
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+ PG 2 — INTRODUÇÃO 
 <div class="lbl">Página 2 · Introdução</div>
 <div class="pag int">
-  <div class="wm">2</div>
-  <div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
-  <h2>Introdução</h2>
-  <p class="cap">Poucos temas escatológicos mobilizaram tanto a imaginação cristã quanto o arrebatamento. A palavra vem do latim <em>rapturo</em>, tradução da Vulgata para o grego <em>harpazo</em> — "arrebatar, tomar com força" — em 1 Tessalonicenses 4:17. Séries de livros, filmes como <em>Left Behind</em> e incontáveis pregações moldaram a percepção popular sobre o tema. Mas o que a Bíblia de fato ensina?</p>
-  <div class="bver">"Eis que vos digo um mistério: nem todos dormiremos, mas todos seremos transformados, num momento, num abrir e fechar de olhos, ao som da última trombeta." <cite>1 Coríntios 15:51-52</cite></div>
-  <div class="obj">
-    <div class="ot">Objetivos desta lição</div>
-    <ul>
-      <li>Compreender a base bíblica do arrebatamento em 1 Ts 4, Jo 14 e 1 Co 15</li>
-      <li>Conhecer a origem histórica da doutrina e o papel de John Nelson Darby</li>
-      <li>Analisar as três posições cronológicas: pré, mid e pós-tribulacionismo</li>
-      <li>Avaliar cada posição à luz das Escrituras com maturidade e equilíbrio</li>
-    </ul>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <p>Filmes e séries populares consolidaram no imaginário evangélico a ideia de um arrebatamento secreto, repentino e pré-tribulacional. Mas essa imagem tem apenas dois séculos de história teológica — o que torna o estudo de suas bases bíblicas ainda mais urgente e necessário.</p>
-  <p>Na condução da aula, vale alertar a classe para a diferença entre imaginário evangélico popular e formulação doutrinária. Muitos alunos chegam ao tema com imagens já prontas, mas sem perceber de onde elas vieram. O professor deve acolher esse repertório, porém conduzi-lo de volta ao texto bíblico.</p>
-  <p>Também convém destacar que o assunto toca áreas sensíveis da fé cristã, como morte, sofrimento, perseverança e esperança futura. Por isso, o tom da aula precisa ser pastoral, e não apenas polêmico.</p>
-  <div class="bloco-aluno">
-    <div class="ba-titulo">Para Você Refletir — O que é o Arrebatamento?</div>
-    <div class="ba-txt">A palavra <em>arrebatamento</em> vem do latim <em>rapturo</em> — tradução de <em>harpazo</em>, que significa "tomar com força". Paulo não usou essa palavra para explicar um calendário profético, mas para curar a dor de quem chorava. O que você esperava encontrar neste estudo — e o que a Bíblia realmente oferece?</div>
-    <div class="ba-nota">✦ Bloco para o aluno · Pg. 2 — Introdução</div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+<div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
+<h2>Introdução</h2>
+<p class="cap">Poucos temas escatológicos mobilizaram tanto a imaginação cristã quanto o arrebatamento. A palavra vem do latim <em>rapturo</em>, tradução da Vulgata para o grego <em>harpazo</em> — "arrebatar, tomar com força" — em 1 Tessalonicenses 4:17. Séries de livros, filmes como <em>Left Behind</em> e incontáveis pregações moldaram a percepção popular sobre o tema. Mas o que a Bíblia de fato ensina?</p>
+<div class="bver">"Eis que vos digo um mistério: nem todos dormiremos, mas todos seremos transformados, num momento, num abrir e fechar de olhos, ao som da última trombeta." <cite>1 Coríntios 15:51-52</cite></div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Compreender a base bíblica do arrebatamento em 1 Ts 4, Jo 14 e 1 Co 15</li>
+<li>Conhecer a origem histórica da doutrina e o papel de John Nelson Darby</li>
+<li>Analisar as três posições cronológicas: pré, mid e pós-tribulacionismo</li>
+<li>Avaliar cada posição à luz das Escrituras com maturidade e equilíbrio</li>
+</ul>
 </div>
-
-<!-- PG 3 — DESENVOLVIMENTO I -->
+<div class="sep"><span>✦</span></div>
+<p>Filmes e séries populares consolidaram no imaginário evangélico a ideia de um arrebatamento secreto, repentino e pré-tribulacional. Mas essa imagem tem apenas dois séculos de história teológica — o que torna o estudo de suas bases bíblicas ainda mais urgente e necessário.</p>
+<p>Isso exige que o estudante da Bíblia diferencie tradição popular, linguagem devocional e fundamento exegético. Nem toda imagem amplamente repetida nasce diretamente do texto bíblico, e por isso a Igreja precisa retornar às Escrituras com reverência e discernimento.</p>
+<p>Ao mesmo tempo, o tema não deve ser tratado apenas como assunto de controvérsia. A esperança da vinda de Cristo pertence ao centro da fé cristã e precisa ser estudada de modo que produza confiança, vigilância e consolo.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Para Você Refletir — Cultura ou Escritura?</div>
+<p>Filmes, séries e livros populares criaram uma imagem muito vívida do arrebatamento — aviões caindo, carros sem motoristas, pessoas desaparecendo. Mas essa imagem tem apenas dois séculos de história teológica, popularizada por Darby no século XIX. Isso não significa que está errada, mas significa que precisa ser avaliada pelo texto bíblico, não pelo filme. O que você crê sobre o arrebatamento vem da Escritura ou da cultura evangélica?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+ PG 3 — DESENVOLVIMENTO I 
 <div class="lbl">Página 3 · Desenvolvimento I</div>
 <div class="pag int">
-  <div class="wm">3</div>
-  <div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
-  <h2>I. A Base Bíblica</h2>
-  <p>As três passagens centrais sobre o arrebatamento são: <strong>1 Tessalonicenses 4:13-18</strong> — a mais explícita, escrita para consolar cristãos que temiam que os mortos perdessem a ressurreição; <strong>João 14:1-3</strong> — Jesus prometendo ir preparar lugar e voltar para buscar os seus; e <strong>1 Coríntios 15:51-52</strong> — Paulo descrevendo a transformação instantânea dos crentes vivos.</p>
-  <div class="bver">"Na casa de meu Pai há muitas moradas... Vou preparar-vos lugar. E quando eu for e vos preparar lugar, voltarei e vos tomarei para mim mesmo." <cite>João 14:2-3</cite></div>
-  <h3>A Origem Histórica da Doutrina</h3>
-  <p>A sistematização do arrebatamento <em>pré-tribulacional</em> como evento distinto da Segunda Vinda foi obra de John Nelson Darby (1800–1882), teólogo irlandês fundador dos Irmãos de Plymouth. Darby desenvolveu o dispensacionalismo — um sistema que divide a história em eras distintas e separa Israel da Igreja como entidades proféticas diferentes. O <em>Scofield Reference Bible</em> (1909) popularizou essas ideias nos EUA e, depois, no Brasil.</p>
-  <div class="sep"><span>✦</span></div>
-  <p>Antes de Darby, a tradição cristã histórica — dos pais da Igreja aos reformadores — não distinguia o arrebatamento da Segunda Vinda como dois eventos separados. Esse dado histórico não invalida o pré-tribulacionismo, mas exige que ele seja avaliado com o mesmo rigor exegético que qualquer posição.</p>
-  <p>Para o professor, esse ponto é estratégico: mostrar que uma posição recente não é automaticamente falsa, mas também não deve ser aceita sem exame. Isso ajuda a turma a distinguir tradição recebida de argumento bíblico demonstrado.</p>
-  <p>Ao explorar as passagens centrais, procure mostrar a função própria de cada texto. Em 1 Tessalonicenses 4, o foco é consolar; em João 14, sustentar a esperança dos discípulos; em 1 Coríntios 15, afirmar a transformação final. Essa distinção evita que um único versículo carregue sozinho todo o peso do sistema doutrinário.</p>
-  <div class="bloco-aluno">
-    <div class="ba-titulo">Conexão Bíblica — O Fio da Esperança</div>
-    <div class="ba-txt">Três textos, três contextos, um único fio: 1 Tessalonicenses 4 consola o luto; João 14 sustenta a fé antes da cruz; 1 Coríntios 15 proclama a vitória sobre a morte. A Bíblia não monta um cronograma — ela tece uma esperança. Antes de perguntar <em>quando</em>, pergunte: <em>em quem?</em></div>
-    <div class="ba-nota">✦ Bloco para o aluno · Pg. 3 — Base Bíblica e Origem Histórica</div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+<div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
+<h2>I-A Base Bíblica</h2>
+<p>As três passagens centrais sobre o arrebatamento são: <strong>1 Tessalonicenses 4:13-18</strong> — a mais explícita, escrita para consolar cristãos que temiam que os mortos perdessem a ressurreição; <strong>João 14:1-3</strong> — Jesus prometendo ir preparar lugar e voltar para buscar os seus; e <strong>1 Coríntios 15:51-52</strong> — Paulo descrevendo a transformação instantânea dos crentes vivos.</p>
+<div class="bver">"Na casa de meu Pai há muitas moradas... Vou preparar-vos lugar. E quando eu for e vos preparar lugar, voltarei e vos tomarei para mim mesmo." <cite>João 14:2-3</cite></div>
+<h3>A Origem Histórica da Doutrina</h3>
+<p>A sistematização do arrebatamento <em>pré-tribulacional</em> como evento distinto da Segunda Vinda foi obra de John Nelson Darby (1800–1882), teólogo irlandês fundador dos Irmãos de Plymouth. Darby desenvolveu o dispensacionalismo — um sistema que divide a história em eras distintas e separa Israel da Igreja como entidades proféticas diferentes. O <em>Scofield Reference Bible</em> (1909) popularizou essas ideias nos EUA e, depois, no Brasil.</p>
+<div class="sep"><span>✦</span></div>
+<p>Antes de Darby, a tradição cristã histórica — dos pais da Igreja aos reformadores — não distinguia o arrebatamento da Segunda Vinda como dois eventos separados. Esse dado histórico não invalida o pré-tribulacionismo, mas exige que ele seja avaliado com o mesmo rigor exegético que qualquer posição.</p>
+<p>Por isso, a base bíblica do arrebatamento precisa ser analisada com atenção ao contexto de cada passagem. Em 1 Tessalonicenses 4, por exemplo, Paulo fala a uma comunidade entristecida; em João 14, Cristo consola seus discípulos diante da sua partida; em 1 Coríntios 15, o enfoque recai sobre a transformação gloriosa dos santos. Essas passagens se complementam e ajudam a formar um quadro mais completo.</p>
+<p>Também é importante notar que a doutrina do arrebatamento está ligada à esperança da ressurreição. O encontro com Cristo não é um escape isolado da história, mas parte da consumação da redenção e da vitória final do Senhor sobre a morte.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Conexão Bíblica — O Consolo que Originou a Doutrina</div>
+<p>Paulo escreveu 1 Tessalonicenses 4:13-18 para cristãos que choravam a morte de irmãos na fé e temiam que eles perdessem a ressurreição. A resposta de Paulo não foi um cronograma — foi consolo: "os mortos em Cristo ressuscitarão primeiro." A doutrina do arrebatamento nasceu para curar o luto, não para alimentar debates cronológicos. Toda vez que você a usa para dividir ou especular, ela perdeu sua função original. Toda vez que ela te ajuda a enfrentar a morte com esperança, está cumprindo o propósito que Paulo tinha em mente.</p>
 </div>
-
-<!-- PG 4 — DESENVOLVIMENTO II -->
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+ PG 4 — DESENVOLVIMENTO II 
 <div class="lbl">Página 4 · Desenvolvimento II</div>
 <div class="pag int">
-  <div class="wm">4</div>
-  <div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
-  <h2>II. As Três Posições Cronológicas</h2>
-  <p>A controvérsia central não é <em>se</em> o arrebatamento ocorrerá, mas <em>quando</em> — em relação à Grande Tribulação de sete anos descrita no Apocalipse. Três posições principais organizam o debate:</p>
-  <h3>Pré-Tribulacionismo</h3>
-  <p>O arrebatamento ocorre <em>antes</em> dos sete anos de tribulação. A Igreja é poupada da ira divina (1 Ts 5:9) e retorna com Cristo ao fim do período. É a posição dominante no pentecostalismo e no dispensacionalismo clássico. Defensores: Darby, Scofield, Charles Ryrie, John Walvoord.</p>
-  <h3>Mid-Tribulacionismo</h3>
-  <p>O arrebatamento ocorre na metade da tribulação — após 3,5 anos — quando a "abominação da desolação" é estabelecida. A Igreja atravessa a primeira metade, mas é poupada da "Grande Tribulação" propriamente dita. Alguns associam o arrebatamento à sétima trombeta de Apocalipse 11:15.</p>
-  <div class="sep"><span>✦</span></div>
-  <h3>Pós-Tribulacionismo</h3>
-  <p>O arrebatamento coincide com a Segunda Vinda, ao final da tribulação. A Igreja atravessa o período inteiro sob proteção divina — assim como Israel foi preservado no Egito durante as pragas. Mateus 24:29-31 descreve a colheita dos eleitos após a tribulação. Defensores: George Ladd (<em>The Blessed Hope</em>), Douglas Moo, N.T. Wright.</p>
-  <p>Neste ponto, o professor pode ajudar a turma a perceber que as três posições tentam responder honestamente ao mesmo conjunto de textos. Em vez de simplificar caricaturas, convém apresentar o melhor argumento de cada lado. Isso amadurece a classe e reduz polarização.</p>
-  <p>Uma boa estratégia é perguntar: qual problema cada posição procura resolver? O pré-tribulacionismo enfatiza o livramento da ira; o mid-tribulacionismo tenta harmonizar proteção e sofrimento; o pós-tribulacionismo enfatiza a unidade da vinda de Cristo. Esse exercício ajuda os alunos a enxergarem a lógica interna de cada proposta.</p>
-  <div class="bver">"Logo após a tribulação daqueles dias... ele enviará os seus anjos com grande clamor de trombeta, e eles ajuntarão os seus escolhidos." <cite>Mateus 24:29-31</cite></div>
-  <div class="bloco-aluno">
-    <div class="ba-titulo">Sabia Que? — As Posições e a Humildade Teológica</div>
-    <div class="ba-txt">O pré-tribulacionismo tem menos de 200 anos. O mid-tribulacionismo surgiu no século XX. O pós-tribulacionismo é a posição mais antiga, presente nos pais da Igreja. Isso não decide o debate — mas mostra que nenhuma posição é "a interpretação óbvia" da Bíblia. Todas exigem exegese cuidadosa. E todas concordam: Cristo voltará.</div>
-    <div class="ba-nota">✦ Bloco para o aluno · Pg. 4 — As Três Posições Cronológicas</div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+<div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
+<h2>II-As Três Posições Cronológicas</h2>
+<p>A controvérsia central não é <em>se</em> o arrebatamento ocorrerá, mas <em>quando</em> — em relação à Grande Tribulação de sete anos descrita no Apocalipse. Três posições principais organizam o debate:</p>
+<h3>Pré-Tribulacionismo</h3>
+<p>O arrebatamento ocorre <em>antes</em> dos sete anos de tribulação. A Igreja é poupada da ira divina (1 Ts 5:9) e retorna com Cristo ao fim do período. É a posição dominante no pentecostalismo e no dispensacionalismo clássico. Defensores: Darby, Scofield, Charles Ryrie, John Walvoord.</p>
+<h3>Mid-Tribulacionismo</h3>
+<p>O arrebatamento ocorre na metade da tribulação — após 3,5 anos — quando a "abominação da desolação" é estabelecida. A Igreja atravessa a primeira metade, mas é poupada da "Grande Tribulação" propriamente dita. Alguns associam o arrebatamento à sétima trombeta de Apocalipse 11:15.</p>
+<div class="sep"><span>✦</span></div>
+<h3>Pós-Tribulacionismo</h3>
+<p>O arrebatamento coincide com a Segunda Vinda, ao final da tribulação. A Igreja atravessa o período inteiro sob proteção divina — assim como Israel foi preservado no Egito durante as pragas. Mateus 24:29-31 descreve a colheita dos eleitos após a tribulação. Defensores: George Ladd (<em>The Blessed Hope</em>), Douglas Moo, N.T. Wright.</p>
+<p>Ao comparar essas posições, o estudante cristão precisa agir com sobriedade. Cada linha de interpretação busca harmonizar textos difíceis e responder a perguntas legítimas sobre a relação entre Igreja, tribulação e vinda de Cristo. Por isso, a divergência cronológica não deve apagar a unidade da esperança cristã.</p>
+<p>Em todas as posições, permanece a certeza de que Cristo voltará, os mortos em Cristo ressuscitarão e o povo de Deus será reunido ao Senhor. Essa convergência é decisiva, porque preserva o núcleo da fé mesmo quando há diferenças na ordem dos acontecimentos.</p>
+<div class="bver">"Logo após a tribulação daqueles dias... ele enviará os seus anjos com grande clamor de trombeta, e eles ajuntarão os seus escolhidos." <cite>Mateus 24:29-31</cite></div>
+<div class="bloco-aluno">
+<div class="ba-titulo">Sabia Que? — Três Posições, Uma Esperança</div>
+<p>Pré, mid e pós-tribulacionistas discordam sobre o <em>quando</em> — mas todos confessam o <em>quê</em>: Cristo voltará, os mortos em Cristo ressuscitarão, e o povo de Deus será reunido ao Senhor. George Ladd (pós-trib.), John Walvoord (pré-trib.) e outros líderes estudaram as mesmas Escrituras com igual devoção e chegaram a conclusões diferentes. Isso não é falha da Bíblia — é evidência de que textos ricos admitem interpretações honestas distintas. O debate é sobre o mapa; a certeza da chegada ao destino é compartilhada por todos.</p>
 </div>
-
-<!-- PG 5 — VISÕES EM DIÁLOGO -->
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+ PG 5 — VISÕES EM DIÁLOGO 
 <div class="lbl">Página 5 · Visões em Diálogo</div>
 <div class="pag int">
-  <div class="wm">5</div>
-  <div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
-  <h2>Visões em Diálogo</h2>
-  <p>O tema do arrebatamento talvez seja o ponto de maior divergência entre pentecostais e reformados — não apenas na cronologia, mas nos pressupostos hermenêuticos que moldam toda a leitura profética.</p>
-  <div class="bvp">
-    <div class="vl">✦ Perspectiva Pentecostal</div>
-    <div class="vt">A esmagadora maioria das igrejas pentecostais e carismáticas adota o pré-tribulacionismo dispensacionalista. Israel e Igreja são entidades proféticas distintas — Deus tem um plano separado para cada uma. O arrebatamento retira a Igreja antes da tribulação, poupando-a da ira divina (1 Ts 5:9). Cristo volta primeiro secretamente para buscar a Igreja; depois, visivelmente, para reinar por mil anos. A série <em>Left Behind</em>, de Tim LaHaye e Jerry Jenkins, popularizou esse esquema para milhões de leitores.</div>
-  </div>
-  <div class="bvr">
-    <div class="vl">✦ Perspectiva Reformada</div>
-    <div class="vt">A tradição reformada rejeita o dispensacionalismo e a separação Israel/Igreja como entidades proféticas distintas. A Igreja é o Israel de Deus (Gl 6:16), herdeira das promessas pactais. O "arrebatamento" de 1 Ts 4 é entendido como o encontro da Igreja com Cristo na sua vinda única e final — não um evento prévio e secreto. George Ladd demonstrou que o pós-tribulacionismo tem raízes mais antigas e bases exegéticas mais sólidas do que o pré-tribulacionismo darbista.</div>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <p>O terreno comum e inegociável: Cristo voltará para buscar os seus, os mortos em Cristo ressuscitarão, e haverá uma reunião gloriosa entre o Senhor e sua Igreja. Esta esperança consola a todos — independente da posição cronológica.</p>
-  <p>Esse ponto deve ser sublinhado com força no fechamento da discussão comparativa. Sem ele, a aula corre o risco de transformar uma doutrina de esperança em mera disputa de calendário. O professor precisa mostrar que a unidade da fé cristã não está em resolver todos os detalhes, mas em permanecer firme na promessa do retorno de Cristo.</p>
-  <p>Esse também é o melhor momento para reforçar postura cristã no debate: firmeza sem agressividade, convicção sem arrogância, zelo bíblico sem espírito faccioso.</p>
-  <div class="bloco-aluno">
-    <div class="ba-titulo">Pense Nisso — O Que Une e o Que Divide</div>
-    <div class="ba-txt">Pentecostais e reformados discordam no <em>quando</em> — mas concordam no <em>quê</em>: Cristo voltará, os mortos em Cristo ressuscitarão, e haverá um encontro glorioso com o Senhor. O que é fundamento e o que é interpretação? Saber essa diferença é sinal de maturidade teológica — e de amor ao próximo.</div>
-    <div class="ba-nota">✦ Bloco para o aluno · Pg. 5 — Visões em Diálogo</div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+<div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
+<h2>III-Visões em Diálogo</h2>
+<p>O tema do arrebatamento talvez seja o ponto de maior divergência entre pentecostais e reformados — não apenas na cronologia, mas nos pressupostos hermenêuticos que moldam toda a leitura profética.</p>
+<div class="bvp">
+<div class="vl">✦ Perspectiva Pentecostal</div>
+<div class="vt">A esmagadora maioria das igrejas pentecostais e carismáticas adota o pré-tribulacionismo dispensacionalista. Israel e Igreja são entidades proféticas distintas — Deus tem um plano separado para cada uma. O arrebatamento retira a Igreja antes da tribulação, poupando-a da ira divina (1 Ts 5:9). Cristo volta primeiro secretamente para buscar a Igreja; depois, visivelmente, para reinar por mil anos. A série <em>Left Behind</em>, de Tim LaHaye e Jerry Jenkins, popularizou esse esquema para milhões de leitores.</div>
 </div>
-
-<!-- PG 6 — APLICAÇÃO -->
-<div class="lbl">Página 6 · Aplicação Prática</div>
+<div class="bvr">
+<div class="vl">✦ Perspectiva Reformada</div>
+<div class="vt">A tradição reformada rejeita o dispensacionalismo e a separação Israel/Igreja como entidades proféticas distintas. A Igreja é o Israel de Deus (Gl 6:16), herdeira das promessas pactais. O "arrebatamento" de 1 Ts 4 é entendido como o encontro da Igreja com Cristo na sua vinda única e final — não um evento prévio e secreto. George Ladd, teólogo batista conservador, demonstrou que o pós-tribulacionismo tem raízes mais antigas e exegéticas mais sólidas do que o pré-tribulacionismo darbista.</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<p>O terreno comum e inegociável: Cristo voltará para buscar os seus, os mortos em Cristo ressuscitarão, e haverá uma reunião gloriosa entre o Senhor e sua Igreja. Esta esperança consola a todos — independente da posição cronológica.</p>
+<p>Essa constatação é importante porque evita que o debate escatológico se transforme em motivo de soberba espiritual. Quando irmãos fiéis defendem posições diferentes, a postura correta não é ridicularizar, mas examinar as Escrituras com humildade e manter a comunhão no que é essencial.</p>
+<p>Assim, o estudo do arrebatamento deve ampliar tanto o entendimento quanto o caráter cristão. Não basta defender uma posição com firmeza; é necessário fazê-lo com espírito ensinável, amor à verdade e respeito pelos que também aguardam a bendita esperança.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Pense Nisso — O Que Toda Posição Confessa</div>
+<p>Pentecostais e reformados divergem sobre dispensacionalismo, sobre Israel e Igreja, sobre pré ou pós-tribulação. Mas ambos confessam: Cristo voltará pessoalmente, os mortos em Cristo ressuscitarão, e haverá uma reunião gloriosa do Senhor com o seu povo. A divisão está na cronologia — o consenso está na certeza e na esperança. Antes de defender sua posição com passagem e argumento, pergunte: <em>estou usando esta doutrina para consolar, como Paulo fez — ou para dividir?</em></p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+ PG 6 — Aplicação 
+<div class="lbl">Página 6 · Aplicação Prática </div>
 <div class="pag int">
-  <div class="wm">6</div>
-  <div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
-  <h2>Aplicação Prática</h2>
-  <p>É significativo que Paulo introduza o ensino sobre o arrebatamento em 1 Tessalonicenses 4 não como um cronograma profético, mas como consolo pastoral para cristãos enlutados. A doutrina nasceu para curar o luto, não para alimentar debates. Isso deveria orientar como a usamos.</p>
-  <div class="apl">
-    <div class="at">Para a sua semana</div>
-    <p>Primeiro: releia 1 Tessalonicenses 4:13-18 com o foco na função consolatória — Paulo a escreve para pessoas que choravam a morte de irmãos na fé. Como essa esperança pode ajudá-lo a consolar alguém enlutado hoje? Segundo: avalie honestamente se seu interesse no arrebatamento é motivado pela esperança de ver Cristo ou pelo desejo de escapar do sofrimento — são motivações muito diferentes. Terceiro: discuta com alguém de visão diferente da sua sobre o arrebatamento, praticando ouvir antes de responder.</p>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <h3>Para Refletir</h3>
-  <p>Se a doutrina do arrebatamento foi dada para consolar (1 Ts 4:18), o que isso diz sobre como ela tem sido usada para gerar medo, divisão e especulação cronológica? Que tipo de transformação pastoral seria necessária para devolver a essa doutrina sua função original?</p>
-  <div class="bver">"Aguardando a bendita esperança e a manifestação da glória do grande Deus e Salvador nosso Jesus Cristo." <cite>Tito 2:13</cite></div>
-  <p>Na próxima lição, examinaremos o período mais sombrio da profecia bíblica: <strong>A Grande Tribulação</strong> — sua natureza, duração e propósito redentor.</p>
-  <p>Como aplicação final, leve a classe a perceber que a doutrina do arrebatamento deve produzir preparo espiritual. A expectativa da vinda de Cristo não foi dada para alimentar curiosidade cronológica, mas para sustentar perseverança, santidade e esperança diante da morte.</p>
-  <p>Se houver tempo, encerre perguntando: “O estudo de hoje me deixou mais ansioso sobre eventos futuros ou mais confiante em Cristo?” Essa pergunta ajuda a medir se a aula cumpriu sua função pastoral.</p>
-  <div class="bloco-aluno">
-    <div class="ba-titulo">Leve Para a Vida — A Esperança que Consola</div>
-    <div class="ba-txt">Paulo encerrou o texto com uma ordem pastoral: <em>"Consolai-vos uns aos outros com estas palavras"</em> (1 Ts 4:18). A doutrina do arrebatamento não foi dada para produzir debates — foi dada para curar o luto. Esta semana, procure alguém enlutado ou ansioso e leve a essa pessoa a esperança do encontro com Cristo.</div>
-    <div class="ba-nota">✦ Bloco para o aluno · Pg. 6 — Aplicação Prática</div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+<div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
+<h2>Conclusão </h2>
+<p>É significativo que Paulo introduza o ensino sobre o arrebatamento em 1 Tessalonicenses 4 não como um cronograma profético, mas como consolo pastoral para cristãos enlutados. A doutrina nasceu para curar o luto, não para alimentar debates. Isso deveria orientar como a usamos.</p>
+<div class="apl">
+<div class="at">Para a sua semana</div>
+<p>Primeiro: releia 1 Tessalonicenses 4:13-18 com o foco na função consolatória — Paulo a escreve para pessoas que choravam a morte de irmãos na fé. Como essa esperança pode ajudá-lo a consolar alguém enlutado hoje? Segundo: avalie honestamente se seu interesse no arrebatamento é motivado pela esperança de ver Cristo ou pelo desejo de escapar do sofrimento — são motivações muito diferentes. Terceiro: discuta com alguém de visão diferente da sua sobre o arrebatamento, praticando ouvir antes de responder.</p>
 </div>
-
-<!-- PG 7 — QUESTÕES -->
+<div class="sep"><span>✦</span></div>
+<h3>Para Refletir</h3>
+<p>Se a doutrina do arrebatamento foi dada para consolar (1 Ts 4:18), o que isso diz sobre como ela tem sido usada para gerar medo, divisão e especulação cronológica? Que tipo de transformação pastoral seria necessária para devolver a essa doutrina sua função original?</p>
+<div class="bver">"Aguardando a bendita esperança e a manifestação da glória do grande Deus e Salvador nosso Jesus Cristo." <cite>Tito 2:13</cite></div>
+<p>Na próxima lição, examinaremos o período mais sombrio da profecia bíblica: <strong>A Grande Tribulação</strong> — sua natureza, duração e propósito redentor.</p>
+<p>Enquanto isso, a aplicação mais imediata desta doutrina é simples e profunda: viver preparados para encontrar o Senhor. A expectativa da sua vinda deve fortalecer a santidade, renovar a esperança e consolar o coração diante da morte e do sofrimento.</p>
+<p>O arrebatamento, portanto, não é apenas um tópico de debate cronológico. É uma lembrança constante de que a história caminha para a presença definitiva de Cristo com o seu povo.</p>
+<div class="bloco-aluno">
+<div class="ba-titulo">Leve Para a Vida — Doutrina que Cura</div>
+<p>Paulo encerrou o ensino sobre o arrebatamento com uma instrução prática: <em>"Consolai-vos, pois, uns aos outros com estas palavras"</em> (1 Ts 4:18). A melhor aplicação desta doutrina não é vencer um debate — é olhar para alguém enlutado, ansioso ou desesperançado e dizer com convicção: os mortos em Cristo ressuscitarão, e nós seremos reunidos ao Senhor para sempre. Esta semana, encontre alguém que precisa ouvir isso. Leve a esperança, não o cronograma.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+ PG 7 — QUESTÕES 
 <div class="lbl">Página 7 · Questões &amp; Anotações</div>
 <div class="pag int">
-  <div class="wm">7</div>
-  <div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
-  <h2>Questões para Reflexão</h2>
-  <div class="q">
-    <div class="qn">Questão 01</div>
-    <div class="qt">A sistematização do pré-tribulacionismo é atribuída a John Nelson Darby no século XIX. Isso enfraquece ou simplesmente contextualiza historicamente a posição? Como você avalia esse dado?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="q">
-    <div class="qn">Questão 02</div>
-    <div class="qt">Compare as três posições cronológicas (pré, mid, pós-tribulacionismo). Qual base bíblica você considera mais sólida? Cite ao menos um texto que sustente sua resposta.</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="q">
-    <div class="qn">Questão 03</div>
-    <div class="qt">A visão reformada rejeita a separação entre Israel e Igreja como entidades proféticas distintas. Como essa posição muda fundamentalmente a leitura das profecias escatológicas?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="q">
-    <div class="qn">Questão 04</div>
-    <div class="qt">Paulo diz "consolai-vos uns aos outros" com a doutrina do arrebatamento (1 Ts 4:18). Você usa essa esperança para consolar ou para debater posições? O que precisa mudar?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="lit">
-    <div class="lt">Leituras Complementares</div>
-    <ul>
-      <li>George E. Ladd — <em>The Blessed Hope</em> (argumento pós-tribulacionista clássico)</li>
-      <li>John F. Walvoord — <em>The Rapture Question</em> (defesa pré-tribulacionista)</li>
-      <li>Leitura devocional: 1 Ts 4:13-18 + Jo 14:1-6 + 1 Co 15:50-58</li>
-    </ul>
-  </div>
-  <h3 style="margin-top:12px;">Anotações</h3>
-  <div class="lins">
-    <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+<div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 03</span><span class="pht">O Arrebatamento</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">A sistematização do pré-tribulacionismo é atribuída a John Nelson Darby no século XIX. Isso enfraquece ou simplesmente contextualiza historicamente a posição? Como você avalia esse dado?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">Compare as três posições cronológicas (pré, mid, pós-tribulacionismo). Qual base bíblica você considera mais sólida? Cite ao menos um texto que sustente sua resposta.</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">A visão reformada rejeita a separação entre Israel e Igreja como entidades proféticas distintas. Como essa posição muda fundamentalmente a leitura das profecias escatológicas?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">Paulo diz "consolai-vos uns aos outros" com a doutrina do arrebatamento (1 Ts 4:18). Você usa essa esperança para consolar ou para debater posições? O que precisa mudar?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="lit">
+<div class="lt">Leituras Complementares</div>
+<ul>
+<li>George E. Ladd — <em>The Blessed Hope</em> (argumento pós-tribulacionista clássico)</li>
+<li>John F. Walvoord — <em>The Rapture Question</em> (defesa pré-tribulacionista)</li>
+<li>Leitura devocional: 1 Ts 4:13-18 + Jo 14:1-6 + 1 Co 15:50-58</li>
+</ul>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
 </div>
 
-
-<!-- ═══════════════════════════ PÁGINAS DO PROFESSOR ═══════════════════════════ -->
-
-<!-- PG P1 — GUIA GERAL -->
+ ═══════════════════════════ PÁGINAS DO PROFESSOR ═══════════════════════════ 
+ PG P1 — GUIA GERAL 
 <div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 03 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Visão Geral para o Professor</h2>
-  <p>Esta é a lição de maior tensão emocional da série. O arrebatamento não é apenas uma posição teológica — para muitos alunos pentecostais, é parte central de sua identidade de fé, cantada nos hinos e pregada desde a infância. Questionar o pré-tribulacionismo pode ser vivenciado como um ataque à fé, não como um exercício acadêmico. <em>Sua postura precisa ser de um guia respeitoso, não de um árbitro que decreta o vencedor.</em></p>
-  <div class="bloco-tempo">
-    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
-    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: leitura em voz alta de 1 Ts 4:13-18 — pergunte: "Paulo escreve isso para debater ou para consolar?"</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: origem da palavra <em>harpazo</em> e impacto cultural dos filmes Left Behind</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Base bíblica + origem histórica. Use a linha do tempo da Pg. P2.</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — As três posições. Use a tabela comparativa da Pg. P2.</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Visões em Diálogo: debate mediado (ver Pg. P3)</span></div>
-    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Aplicação: feche com a função consolatória de 1 Ts 4:18</span></div>
-  </div>
-  <div class="bloco-guia">
-    <div class="bk">Objetivos Pedagógicos do Professor</div>
-    <ul>
-      <li>Apresentar as três posições com igual respeito e rigor exegético</li>
-      <li>Ensinar o dado histórico sobre Darby sem usá-lo como arma contra o pré-tribulacionismo</li>
-      <li>Recuperar a função consolatória original da doutrina — 1 Ts 4:18 como encerramento</li>
-      <li>Distinguir o debate sobre o <em>quando</em> do consenso sobre o <em>que</em>: Cristo voltará e buscará os seus</li>
-    </ul>
-  </div>
-  <div class="alerta">
-    <div class="bk">Atenção — Alta Carga Emocional</div>
-    <p>Nunca use a origem darbista para ridicularizar o pré-tribulacionismo. A resposta correta quando um aluno disser "meu pastor ensina isso há anos": <em>"Seu pastor tem bases sérias para essa posição — ela domina a maioria das igrejas evangélicas. O que estamos fazendo é entender de onde vem e o que a Bíblia diz diretamente sobre o tema."</em></p>
-  </div>
-  <h2 class="prof" style="margin-top:12px;">Mapa de Competências</h2>
-  <div class="mapa-comp">
-    <div class="mapa-celula">
-      <div class="mc-titulo">Conhecimento</div>
-      <div class="mc-txt">Identificar as três posições cronológicas e sua base bíblica; reconhecer a origem histórica do pré-tribulacionismo darbista</div>
-    </div>
-    <div class="mapa-celula">
-      <div class="mc-titulo">Habilidade</div>
-      <div class="mc-txt">Comparar posições escatológicas sem caricaturá-las; usar o argumento histórico como contextualização, não como refutação</div>
-    </div>
-    <div class="mapa-celula">
-      <div class="mc-titulo">Atitude</div>
-      <div class="mc-txt">Debater com humildade teológica; priorizar a função consolatória da doutrina sobre a disputa cronológica</div>
-    </div>
-    <div class="mapa-celula">
-      <div class="mc-titulo">Avaliação</div>
-      <div class="mc-txt">Responder às questões da Pg. 7 com argumento bíblico explícito; demonstrar autoavaliação honesta na Q4</div>
-    </div>
-  </div>
-  <div class="bloco-fio">
-    <div class="bk">Fio Condutor — Lição 03 na Série</div>
-    <p>Lição 01 definiu escatologia; Lição 02 estabeleceu a Segunda Vinda como eixo. <strong>Lição 03</strong> aprofunda o debate sobre o <em>quando</em> do arrebatamento — introduzindo a tensão entre posições que percorrerá toda a série. A Lição 04 (Grande Tribulação) depende da clareza conquistada aqui sobre Israel, Igreja e cronologia profética.</p>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 03 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Visão Geral para o Professor</h2>
+<p>Esta é a lição de maior tensão emocional da série. O arrebatamento não é apenas uma posição teológica — para muitos alunos pentecostais, é parte central de sua identidade de fé, cantada nos hinos e pregada desde a infância. Questionar o pré-tribulacionismo pode ser vivenciado como um ataque à fé, não como um exercício acadêmico. <em>Sua postura precisa ser de um guia respeitoso, não de um árbitro que decreta o vencedor.</em></p>
+<div class="bloco-tempo">
+<div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: leitura em voz alta de 1 Ts 4:13-18 — pergunte: "Paulo escreve isso para debater ou para consolar?"</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: origem da palavra <em>harpazo</em> e impacto cultural dos filmes Left Behind</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Base bíblica + origem histórica. Use a linha do tempo da Pg. P2.</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — As três posições. Use a tabela comparativa da Pg. P2.</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Visões em Diálogo: debate mediado (ver Pg. P3)</span></div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Aplicação: feche com a função consolatória de 1 Ts 4:18</span></div>
 </div>
-
-<!-- PG P2 — TABELA + APROFUNDAMENTO -->
+<div class="bloco-guia">
+<div class="bk">Objetivos Pedagógicos do Professor</div>
+<ul>
+<li>Apresentar as três posições com igual respeito e rigor exegético</li>
+<li>Ensinar o dado histórico sobre Darby sem usá-lo como arma contra o pré-tribulacionismo</li>
+<li>Recuperar a função consolatória original da doutrina — 1 Ts 4:18 como encerramento</li>
+<li>Distinguir o debate sobre o <em>quando</em> do consenso sobre o <em>que</em>: Cristo voltará e buscará os seus</li>
+</ul>
+</div>
+<div class="alerta">
+<div class="bk">Atenção — Alta Carga Emocional</div>
+<p>Nunca use a origem darbista para ridicularizar o pré-tribulacionismo. A resposta correta quando um aluno disser "meu pastor ensina isso há anos": <em>"Seu pastor tem bases sérias para essa posição — ela domina a maioria das igrejas evangélicas. O que estamos fazendo é entender de onde vem e o que a Bíblia diz diretamente sobre o tema."</em></p>
+</div>
+<h2 class="prof" style="margin-top:12px;">Mapa de Competências</h2>
+<div class="mapa-comp">
+<div class="mapa-celula">
+<div class="mc-titulo">Conhecimento</div>
+<div class="mc-txt">Identificar as três posições cronológicas e sua base bíblica; reconhecer a origem histórica do pré-tribulacionismo darbista</div>
+</div>
+<div class="mapa-celula">
+<div class="mc-titulo">Habilidade</div>
+<div class="mc-txt">Comparar posições escatológicas sem caricaturá-las; usar o argumento histórico como contextualização, não como refutação</div>
+</div>
+<div class="mapa-celula">
+<div class="mc-titulo">Atitude</div>
+<div class="mc-txt">Debater com humildade teológica; priorizar a função consolatória da doutrina sobre a disputa cronológica</div>
+</div>
+<div class="mapa-celula">
+<div class="mc-titulo">Avaliação</div>
+<div class="mc-txt">Responder às questões da Pg. 7 com argumento bíblico explícito; demonstrar autoavaliação honesta na Q4</div>
+</div>
+</div>
+<div class="bloco-fio">
+<div class="bk">Fio Condutor — Lição 03 na Série</div>
+<p>Lição 01 definiu escatologia; Lição 02 estabeleceu a Segunda Vinda como eixo. <strong>Lição 03</strong> aprofunda o debate sobre o <em>quando</em> do arrebatamento — introduzindo a tensão entre posições que percorrerá toda a série. A Lição 04 (Grande Tribulação) depende da clareza conquistada aqui sobre Israel, Igreja e cronologia profética.</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+ PG P2 — TABELA + APROFUNDAMENTO 
 <div class="lbl lbl-prof">Página P2 · Tabela Comparativa &amp; Aprofundamento Teológico</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 03 · Tabela &amp; Teologia</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Escada de Perguntas Socráticas — Pg. 2 (Introdução)</h2>
-  <div class="escada-socratica">
-    <div class="escada-degrau d1">
-      <div class="ed-num">1</div>
-      <div class="ed-nivel">Diagnóstico — o que o aluno já sabe</div>
-      <div class="ed-pergunta">"Quando você ouve a palavra arrebatamento, qual imagem vem primeiro à cabeça?"</div>
-      <div class="ed-resp"><strong>Resposta esperada:</strong> filmes Left Behind, voos esvaziando, carros sem motorista — imaginário popular pré-tribulacionista. Anote no quadro: isso mede o ponto de partida da turma.</div>
-    </div>
-    <div class="escada-degrau d2">
-      <div class="ed-num">2</div>
-      <div class="ed-nivel">Conceitual — o que o texto diz</div>
-      <div class="ed-pergunta">"Por que Paulo escreve 1 Tessalonicenses 4:13-18? Qual problema pastoral ele está resolvendo?"</div>
-      <div class="ed-resp"><strong>Resposta esperada:</strong> cristãos em luto por mortos antes da vinda. Paulo escreve para consolar, não para montar um calendário profético (v.13 e v.18 são a moldura do texto).</div>
-    </div>
-    <div class="escada-degrau d3">
-      <div class="ed-num">3</div>
-      <div class="ed-nivel">Aplicação — o que o aluno faz com isso</div>
-      <div class="ed-pergunta">"Se Paulo deu essa doutrina para curar luto, o que isso muda na forma como você a usa no dia a dia?"</div>
-      <div class="ed-resp"><strong>Resposta esperada:</strong> uso consolatório em vez de argumentativo; levar 1 Ts 4 a quem está enlutado antes de levá-lo ao debate cronológico.</div>
-    </div>
-  </div>
-  <h2 class="prof">Tabela Comparativa das Três Posições</h2>
-  <table class="tabela-comp">
-    <tr>
-      <th>Critério</th>
-      <th>Pré-Trib.</th>
-      <th>Mid-Trib.</th>
-      <th>Pós-Trib.</th>
-    </tr>
-    <tr>
-      <td>Quando ocorre</td>
-      <td>Antes dos 7 anos</td>
-      <td>Na metade (3,5 anos)</td>
-      <td>Ao fim dos 7 anos</td>
-    </tr>
-    <tr>
-      <td>Igreja e tribulação</td>
-      <td>Igreja escapa antes</td>
-      <td>Igreja atravessa metade</td>
-      <td>Igreja atravessa tudo</td>
-    </tr>
-    <tr>
-      <td>Texto-chave</td>
-      <td>1 Ts 5:9; Jo 14:3</td>
-      <td>Ap 11:15; Dn 9:27</td>
-      <td>Mt 24:29-31; Ap 20</td>
-    </tr>
-    <tr>
-      <td>Defensores</td>
-      <td>Darby, Walvoord, Ryrie</td>
-      <td>Gleason Archer</td>
-      <td>Ladd, Moo, N.T. Wright</td>
-    </tr>
-    <tr>
-      <td>Origem histórica</td>
-      <td>Darby, séc. XIX</td>
-      <td>Séc. XX</td>
-      <td>Pais da Igreja; Reforma</td>
-    </tr>
-    <tr>
-      <td>Israel e Igreja</td>
-      <td>Entidades distintas</td>
-      <td>Distintas com nuances</td>
-      <td>Um só povo de Deus</td>
-    </tr>
-  </table>
-  <h2 class="prof" style="margin-top:12px;">Aprofundamento Teológico</h2>
-  <div class="bloco-teo">
-    <div class="bk">Darby e o Dispensacionalismo — O que o Professor Precisa Saber</div>
-    <p>John Nelson Darby (1800–1882) desenvolveu o dispensacionalismo a partir de uma interpretação literal de Ap 20 e Dn 9. Seu maior contribuição foi a separação radical entre Israel (programa terreno de Deus) e Igreja (programa celestial). A partir daí, um arrebatamento pré-tribulacional secreto tornou-se logicamente necessário para "retirar" a Igreja antes de Deus retomar seu programa com Israel. O <em>Scofield Reference Bible</em> de 1909 inseriu esse sistema nas notas de rodapé de milhões de Bíblias — tornando-o praticamente invisível como interpretação, parecendo o texto em si.</p>
-    <p>O professor pode usar esse dado para mostrar como sistemas teológicos se difundem não apenas por púlpitos e seminários, mas também por instrumentos de estudo aparentemente neutros. Isso ajuda a turma a perceber que toda leitura bíblica é acompanhada por pressupostos interpretativos, e que esses pressupostos precisam ser identificados e avaliados.</p>
-  </div>
-  <div class="bloco-teo">
-    <div class="bk">George Ladd e o Pós-Tribulacionismo Evangélico</div>
-    <p>George Eldon Ladd (1911–1982), professor do Fuller Seminary, escreveu <em>The Blessed Hope</em> (1956) como resposta ao dispensacionalismo. Seu argumento central: nenhum documento cristão anterior a Darby ensina um arrebatamento pré-tribulacional secreto. Os pais da Igreja (Ireneu, Tertuliano, Hipólito) esperavam que a Igreja atravessasse a tribulação sob proteção divina. Ladd mostrou que Mt 24:29-31 — "logo após a tribulação" — é o texto mais direto sobre o timing do arrebatamento.</p>
-    <p>Ao apresentar Ladd, é útil esclarecer que sua importância não depende de a turma concordar com ele em tudo. Seu valor está em ter recolocado o debate em bases exegéticas e históricas mais amplas, obrigando o evangelicalismo a justificar melhor suas certezas cronológicas.</p>
-  </div>
-  <div class="cit-autor">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 03 · Tabela &amp; Teologia</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Escada de Perguntas Socráticas — Pg. 2 (Introdução)</h2>
+<div class="escada-socratica">
+<div class="escada-degrau d1">
+<div class="ed-num">1</div>
+<div class="ed-nivel">Diagnóstico — o que o aluno já sabe</div>
+<div class="ed-pergunta">"Quando você ouve a palavra arrebatamento, qual imagem vem primeiro à cabeça?"</div>
+<div class="ed-resp"><strong>Resposta esperada:</strong> filmes Left Behind, voos esvaziando, carros sem motorista — imaginário popular pré-tribulacionista. Anote no quadro: isso mede o ponto de partida da turma.</div>
+</div>
+<div class="escada-degrau d2">
+<div class="ed-num">2</div>
+<div class="ed-nivel">Conceitual — o que o texto diz</div>
+<div class="ed-pergunta">"Por que Paulo escreve 1 Tessalonicenses 4:13-18? Qual problema pastoral ele está resolvendo?"</div>
+<div class="ed-resp"><strong>Resposta esperada:</strong> cristãos em luto por mortos antes da vinda. Paulo escreve para consolar, não para montar um calendário profético (v.13 e v.18 são a moldura do texto).</div>
+</div>
+<div class="escada-degrau d3">
+<div class="ed-num">3</div>
+<div class="ed-nivel">Aplicação — o que o aluno faz com isso</div>
+<div class="ed-pergunta">"Se Paulo deu essa doutrina para curar luto, o que isso muda na forma como você a usa no dia a dia?"</div>
+<div class="ed-resp"><strong>Resposta esperada:</strong> uso consolatório em vez de argumentativo; levar 1 Ts 4 a quem está enlutado antes de levá-lo ao debate cronológico.</div>
+</div>
+</div>
+<h2 class="prof">Tabela Comparativa das Três Posições</h2>
+<table class="tabela-comp">
+<tr>
+<th>Critério</th>
+<th>Pré-Trib.</th>
+<th>Mid-Trib.</th>
+<th>Pós-Trib.</th>
+</tr>
+<tr>
+<td>Quando ocorre</td>
+<td>Antes dos 7 anos</td>
+<td>Na metade (3,5 anos)</td>
+<td>Ao fim dos 7 anos</td>
+</tr>
+<tr>
+<td>Igreja e tribulação</td>
+<td>Igreja escapa antes</td>
+<td>Igreja atravessa metade</td>
+<td>Igreja atravessa tudo</td>
+</tr>
+<tr>
+<td>Texto-chave</td>
+<td>1 Ts 5:9; Jo 14:3</td>
+<td>Ap 11:15; Dn 9:27</td>
+<td>Mt 24:29-31; Ap 20</td>
+</tr>
+<tr>
+<td>Defensores</td>
+<td>Darby, Walvoord, Ryrie</td>
+<td>Gleason Archer</td>
+<td>Ladd, Moo, N.T. Wright</td>
+</tr>
+<tr>
+<td>Origem histórica</td>
+<td>Darby, séc. XIX</td>
+<td>Séc. XX</td>
+<td>Pais da Igreja; Reforma</td>
+</tr>
+<tr>
+<td>Israel e Igreja</td>
+<td>Entidades distintas</td>
+<td>Distintas com nuances</td>
+<td>Um só povo de Deus</td>
+</tr>
+</table>
+<h2 class="prof" style="margin-top:12px;">Aprofundamento Teológico</h2>
+<div class="bloco-teo">
+<div class="bk">Darby e o Dispensacionalismo — O que o Professor Precisa Saber</div>
+<p>John Nelson Darby (1800–1882) desenvolveu o dispensacionalismo a partir de uma interpretação literal de Ap 20 e Dn 9. Seu maior contribuição foi a separação radical entre Israel (programa terreno de Deus) e Igreja (programa celestial). A partir daí, um arrebatamento pré-tribulacional secreto tornou-se logicamente necessário para "retirar" a Igreja antes de Deus retomar seu programa com Israel. O <em>Scofield Reference Bible</em> de 1909 inseriu esse sistema nas notas de rodapé de milhões de Bíblias — tornando-o praticamente invisível como interpretação, parecendo o texto em si.</p>
+<p>O professor pode usar esse dado para mostrar como sistemas teológicos se difundem não apenas por púlpitos e seminários, mas também por instrumentos de estudo aparentemente neutros. Isso ajuda a turma a perceber que toda leitura bíblica é acompanhada por pressupostos interpretativos, e que esses pressupostos precisam ser identificados e avaliados.</p>
+</div>
+<div class="bloco-teo">
+<div class="bk">George Ladd e o Pós-Tribulacionismo Evangélico</div>
+<p>George Eldon Ladd (1911–1982), professor do Fuller Seminary, escreveu <em>The Blessed Hope</em> (1956) como resposta ao dispensacionalismo. Seu argumento central: nenhum documento cristão anterior a Darby ensina um arrebatamento pré-tribulacional secreto. Os pais da Igreja (Ireneu, Tertuliano, Hipólito) esperavam que a Igreja atravessasse a tribulação sob proteção divina. Ladd mostrou que Mt 24:29-31 — "logo após a tribulação" — é o texto mais direto sobre o timing do arrebatamento.</p>
+<p>Ao apresentar Ladd, é útil esclarecer que sua importância não depende de a turma concordar com ele em tudo. Seu valor está em ter recolocado o debate em bases exegéticas e históricas mais amplas, obrigando o evangelicalismo a justificar melhor suas certezas cronológicas.</p>
+</div>
+<div class="cit-autor">
     "A esperança bem-aventurada não é a esperança de escapar — é a esperança de ver aquele que amamos."
     <cite>— George E. Ladd, <em>The Blessed Hope</em></cite>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
 </div>
-
-<!-- PG P3 — DINÂMICA + PEDAGOGIA -->
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+ PG P3 — DINÂMICA + PEDAGOGIA 
 <div class="lbl lbl-prof">Página P3 · Dinâmica &amp; Dicas Pedagógicas</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 03 · Pedagogia</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Dinâmica de Abertura — "Por que Paulo Escreveu Isso?"</h2>
-  <div class="bloco-dica">
-    <div class="bk">Como conduzir — antes de qualquer debate</div>
-    <ul>
-      <li>Peça a um aluno que leia 1 Ts 4:13-18 em voz alta, devagar</li>
-      <li>Após a leitura, pergunte: <em>"Por que Paulo escreveu esse texto? Qual era o problema pastoral que ele estava resolvendo?"</em></li>
-      <li>Deixe os alunos responderem — a resposta está no v.13: eles estavam em luto por irmãos que morreram antes da vinda</li>
-      <li>Diga: <em>"Paulo deu essa doutrina como remédio para o luto, não como cronograma profético. Isso muda como devemos usá-la."</em></li>
-      <li>Use isso como ancoragem durante todo o debate: sempre que a discussão esquentar, volte a 1 Ts 4:18 — "consolai-vos uns aos outros"</li>
-      <li>Se a turma entrar rapidamente na pergunta "quando?", devolva primeiro a pergunta "para quê?" — isso recoloca a função pastoral da doutrina no centro</li>
-    </ul>
-  </div>
-  <div class="bloco-debate">
-    <div class="bk">Pergunta Central para o Debate da Pg. 5</div>
-    <p>"Se o pré-tribulacionismo foi sistematizado por Darby apenas no século XIX, o que isso implica para avaliar sua solidez bíblica? Um argumento histórico pode invalidar uma posição teológica?"</p>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <h2 class="prof">Dicas Pedagógicas</h2>
-  <div class="bloco-dica">
-    <div class="bk">Como Usar a Tabela Comparativa (Pg. P2)</div>
-    <ul>
-      <li>Reproduza as colunas no quadro — escreva apenas os títulos antes de começar a pg. 4</li>
-      <li>À medida que explica cada posição, vá preenchendo a tabela com a turma</li>
-      <li>Termine a tabela e pergunte: <em>"Em qual linha todas as colunas concordam?"</em> — a resposta é: Cristo voltará e os seus serão reunidos a ele</li>
-      <li>Esse é o terreno comum que deve encerrar o debate</li>
-    </ul>
-  </div>
-  <h2 class="prof">Diferenciação por Perfil de Turma</h2>
-  <div class="diferenciacao">
-    <div class="dif-item">
-      <div class="dif-tipo">Turma Pentecostal</div>
-      <div class="dif-acao">Apresente Ladd como evangélico conservador do Fuller Seminary — não como liberal. Isso reduz resistência antes de começar o argumento.</div>
-    </div>
-    <div class="dif-item">
-      <div class="dif-tipo">Turma Reformada</div>
-      <div class="dif-acao">Apresente o pré-tribulacionismo com seus melhores argumentos <em>antes</em> de apontar fragilidades. Evite o tom de "finalmente a verdade".</div>
-    </div>
-    <div class="dif-item">
-      <div class="dif-tipo">Turma Mista</div>
-      <div class="dif-acao">Use o exercício de inversão: cada grupo defende a posição oposta à sua. Força escuta real e reduz polarização.</div>
-    </div>
-    <div class="dif-item">
-      <div class="dif-tipo">Turma Ansiosa</div>
-      <div class="dif-acao">Reoriente para a soberania de Deus: "Israel atravessou as pragas sem ser atingido — proteção não depende de ausência de tribulação." Ancore na confiança, não na cronologia.</div>
-    </div>
-  </div>
-  <div class="aval-form">
-    <div class="bk">Avaliação Formativa Rápida — Cheque ao Final da Aula</div>
-    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno consegue nomear as três posições e citar um texto bíblico para cada uma?</div></div>
-    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno diferenciou argumento histórico (Darby) de argumento exegético?</div></div>
-    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno identificou o propósito consolatório de 1 Ts 4:18 como distinto do debate cronológico?</div></div>
-    <div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno demonstrou postura de humildade no debate — firmeza sem arrogância?</div></div>
-  </div>
-  <div class="alerta">
-    <div class="bk">Situação Comum — "Então vou sofrer a tribulação?"</div>
-    <p>Quando alunos ficarem ansiosos com o pós-tribulacionismo, responda com a analogia da lição: <em>"Israel atravessou as pragas no Egito sem ser atingido (Êx 8:22-23). A proteção divina não depende de ausência de tribulação — depende da presença de Deus."</em> Redirecione sempre da ansiedade para a confiança na soberania de Deus.</p>
-  </div>
-  <div class="bloco-guia">
-    <div class="bk">Encerramento Ideal da Aula</div>
-    <ul>
-      <li>Leia 1 Ts 4:16-17 em voz alta — "Seremos arrebatados juntamente com eles nas nuvens"</li>
-      <li>Diga: <em>"Independente do <strong>quando</strong>, este é o <strong>o quê</strong>: estaremos com o Senhor para sempre (v.17b). Isso é suficiente para consolar qualquer coração enlutado."</em></li>
-      <li>Ore agradecendo pela esperança da reunião com Cristo e com os que partiram na fé</li>
-      <li>Anuncie a Lição 04: <em>A Grande Tribulação — natureza, duração e propósito redentor</em></li>
-    </ul>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 03 · Pedagogia</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Dinâmica de Abertura — "Por que Paulo Escreveu Isso?"</h2>
+<div class="bloco-dica">
+<div class="bk">Como conduzir — antes de qualquer debate</div>
+<ul>
+<li>Peça a um aluno que leia 1 Ts 4:13-18 em voz alta, devagar</li>
+<li>Após a leitura, pergunte: <em>"Por que Paulo escreveu esse texto? Qual era o problema pastoral que ele estava resolvendo?"</em></li>
+<li>Deixe os alunos responderem — a resposta está no v.13: eles estavam em luto por irmãos que morreram antes da vinda</li>
+<li>Diga: <em>"Paulo deu essa doutrina como remédio para o luto, não como cronograma profético. Isso muda como devemos usá-la."</em></li>
+<li>Use isso como ancoragem durante todo o debate: sempre que a discussão esquentar, volte a 1 Ts 4:18 — "consolai-vos uns aos outros"</li>
+<li>Se a turma entrar rapidamente na pergunta "quando?", devolva primeiro a pergunta "para quê?" — isso recoloca a função pastoral da doutrina no centro</li>
+</ul>
 </div>
-
-<!-- PG P4 — RESPOSTAS + MATERIAIS -->
+<div class="bloco-debate">
+<div class="bk">Pergunta Central para o Debate da Pg. 5</div>
+<p>"Se o pré-tribulacionismo foi sistematizado por Darby apenas no século XIX, o que isso implica para avaliar sua solidez bíblica? Um argumento histórico pode invalidar uma posição teológica?"</p>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Dicas Pedagógicas</h2>
+<div class="bloco-dica">
+<div class="bk">Como Usar a Tabela Comparativa (Pg. P2)</div>
+<ul>
+<li>Reproduza as colunas no quadro — escreva apenas os títulos antes de começar a pg. 4</li>
+<li>À medida que explica cada posição, vá preenchendo a tabela com a turma</li>
+<li>Termine a tabela e pergunte: <em>"Em qual linha todas as colunas concordam?"</em> — a resposta é: Cristo voltará e os seus serão reunidos a ele</li>
+<li>Esse é o terreno comum que deve encerrar o debate</li>
+</ul>
+</div>
+<h2 class="prof">Diferenciação por Perfil de Turma</h2>
+<div class="diferenciacao">
+<div class="dif-item">
+<div class="dif-tipo">Turma Pentecostal</div>
+<div class="dif-acao">Apresente Ladd como evangélico conservador do Fuller Seminary — não como liberal. Isso reduz resistência antes de começar o argumento.</div>
+</div>
+<div class="dif-item">
+<div class="dif-tipo">Turma Reformada</div>
+<div class="dif-acao">Apresente o pré-tribulacionismo com seus melhores argumentos <em>antes</em> de apontar fragilidades. Evite o tom de "finalmente a verdade".</div>
+</div>
+<div class="dif-item">
+<div class="dif-tipo">Turma Mista</div>
+<div class="dif-acao">Use o exercício de inversão: cada grupo defende a posição oposta à sua. Força escuta real e reduz polarização.</div>
+</div>
+<div class="dif-item">
+<div class="dif-tipo">Turma Ansiosa</div>
+<div class="dif-acao">Reoriente para a soberania de Deus: "Israel atravessou as pragas sem ser atingido — proteção não depende de ausência de tribulação." Ancore na confiança, não na cronologia.</div>
+</div>
+</div>
+<div class="aval-form">
+<div class="bk">Avaliação Formativa Rápida — Cheque ao Final da Aula</div>
+<div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno consegue nomear as três posições e citar um texto bíblico para cada uma?</div></div>
+<div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno diferenciou argumento histórico (Darby) de argumento exegético?</div></div>
+<div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno identificou o propósito consolatório de 1 Ts 4:18 como distinto do debate cronológico?</div></div>
+<div class="aval-check"><div class="ac-box"></div><div class="ac-txt">O aluno demonstrou postura de humildade no debate — firmeza sem arrogância?</div></div>
+</div>
+<div class="alerta">
+<div class="bk">Situação Comum — "Então vou sofrer a tribulação?"</div>
+<p>Quando alunos ficarem ansiosos com o pós-tribulacionismo, responda com a analogia da lição: <em>"Israel atravessou as pragas no Egito sem ser atingido (Êx 8:22-23). A proteção divina não depende de ausência de tribulação — depende da presença de Deus."</em> Redirecione sempre da ansiedade para a confiança na soberania de Deus.</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Encerramento Ideal da Aula</div>
+<ul>
+<li>Leia 1 Ts 4:16-17 em voz alta — "Seremos arrebatados juntamente com eles nas nuvens"</li>
+<li>Diga: <em>"Independente do <strong>quando</strong>, este é o <strong>o quê</strong>: estaremos com o Senhor para sempre (v.17b). Isso é suficiente para consolar qualquer coração enlutado."</em></li>
+<li>Ore agradecendo pela esperança da reunião com Cristo e com os que partiram na fé</li>
+<li>Anuncie a Lição 04: <em>A Grande Tribulação — natureza, duração e propósito redentor</em></li>
+</ul>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+ PG P4 — RESPOSTAS + MATERIAIS 
 <div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 03 · Respostas &amp; Recursos</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
-  <div class="bloco-resp">
-    <div class="bk">Gabarito Orientativo</div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 01 — Darby e o argumento histórico</div>
-      <div class="resp-txt">A origem darbista não invalida automaticamente o pré-tribulacionismo — a Reforma também introduziu "novidades" em relação à tradição medieval. O dado histórico <em>contextualiza</em> a posição: ela não é a leitura "óbvia" do texto, mas uma sistematização do séc. XIX. Isso exige que seja submetida ao mesmo rigor exegético que qualquer outra posição, e não tratada como a interpretação padrão incontestável. Valorize respostas que separem argumento histórico de argumento exegético.</div>
-    </div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 02 — Comparação das três posições</div>
-      <div class="resp-txt">Pré: base em 1 Ts 5:9 ("não nos destinou para ira") e Jo 14:3; pressupõe separação Israel/Igreja. Mid: base em Ap 11:15 e Dn 9:27; a Igreja escapa da "grande" tribulação mas não do início. Pós: base em Mt 24:29-31 ("logo após a tribulação... ajuntarão os eleitos") e no padrão histórico de proteção divina no meio da tribulação (Israel no Egito). Valorize qualquer resposta que cite o texto bíblico, não apenas o nome da posição.</div>
-    </div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 03 — Israel e Igreja na visão reformada</div>
-      <div class="resp-txt">Se Israel e Igreja são um único povo de Deus (Gl 6:16; Rm 11:17-24), então não há necessidade lógica de um arrebatamento que "retire" a Igreja para Deus retomar um programa separado com Israel. Profecias do AT dirigidas a Israel são lidas como tendo cumprimento na Igreja. Isso elimina a distinção de "sete anos reservados a Israel" e torna o pré-tribulacionismo desnecessário como sistema. A mudança é hermenêutica antes de ser escatológica.</div>
-    </div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 04 — Consolar vs. debater</div>
-      <div class="resp-txt">Resposta pessoal e de consciência. O objetivo é provocar autoavaliação honesta. Qualquer resposta que reconheça a distância entre o uso pastoral original (consolo ao luto) e o uso atual (debate de cronologia) é excelente. A questão mais transformadora: o aluno conhece alguém enlutado a quem poderia levar 1 Ts 4:13-18 como palavra de esperança esta semana?</div>
-    </div>
-  </div>
-  <div class="bloco-gabarito-uso">
-    <div class="bk">Como Usar o Gabarito</div>
-    <p>As respostas sugeridas são <em>orientativas</em>, não prescritivas. Para as questões 1–3, valorize qualquer resposta que cite o texto bíblico explicitamente — o argumento importa mais que a conclusão. Para a questão 4 (uso consolatório vs. debate), trate como consciência pessoal: acolha respostas honestas mesmo que incomodem. A pergunta transformadora é sempre: <em>"O aluno conhece alguém enlutado a quem poderia levar 1 Ts 4:13-18 ainda esta semana?"</em></p>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <h2 class="prof">Materiais Complementares</h2>
-  <div class="bloco-mat">
-    <div class="bk">Recursos Recomendados ao Professor</div>
-    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">George E. Ladd — <em>The Blessed Hope</em>. Eerdmans. O argumento pós-tribulacionista mais influente do séc. XX; leitura essencial para o professor.</span></div>
-    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">John F. Walvoord — <em>The Rapture Question</em>. Zondervan. A melhor defesa pré-tribulacionista; importante para conhecer o argumento em seu melhor nível.</span></div>
-    <div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Douglas Moo — artigo "A Case for the Posttribulation Rapture" em <em>Three Views on the Rapture</em>. Zondervan. Excelente formato de debate entre as três posições num único volume.</span></div>
-    <div class="mat-item"><span class="mat-tipo video">Vídeo</span><span class="mat-info">BibleProject — série <em>Apocalíptico</em> e vídeo sobre 1 Tessalonicenses. YouTube, legendado em PT. Contextualiza o gênero e a função pastoral de 1 Ts 4.</span></div>
-    <div class="mat-item"><span class="mat-tipo audio">Podcast</span><span class="mat-info">Ligonier Ministries — episódios sobre o arrebatamento com R.C. Sproul e outros. Spotify / ligonier.org. Perspectiva reformada pós-tribulacionista.</span></div>
-    <div class="mat-item"><span class="mat-tipo site">Digital</span><span class="mat-info">thegospelcoalition.org/pt — artigo "O Arrebatamento: o que a Bíblia Ensina". Panorama acessível das três posições com linguagem para leigos.</span></div>
-  </div>
-  <div class="bloco-seg">
-    <div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
-    <ul>
-      <li>Envie ao grupo da turma 1 Ts 4:18 com a pergunta: <em>"Você já usou esse versículo para consolar alguém esta semana?"</em></li>
-      <li>Sugira a leitura devocional: 1 Ts 4:13-18 + Jo 14:1-6 + Tito 2:13 — lidos como consolo pastoral, não como mapa cronológico</li>
-      <li>Se houver alunos em luto na turma, entre em contato pessoal durante a semana e ofereça a esperança de 1 Ts 4:16-17</li>
-      <li>Prepare a introdução da Lição 04 (Grande Tribulação) conectando ao terreno comum conquistado aqui: <em>Cristo voltará — esse é o fundamento, independente do cronograma</em></li>
-    </ul>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 03 · Respostas &amp; Recursos</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+<div class="bloco-resp">
+<div class="bk">Gabarito Orientativo</div>
+<div class="resp-item">
+<div class="resp-num">Questão 01 — Darby e o argumento histórico</div>
+<div class="resp-txt">A origem darbista não invalida automaticamente o pré-tribulacionismo — a Reforma também introduziu "novidades" em relação à tradição medieval. O dado histórico <em>contextualiza</em> a posição: ela não é a leitura "óbvia" do texto, mas uma sistematização do séc. XIX. Isso exige que seja submetida ao mesmo rigor exegético que qualquer outra posição, e não tratada como a interpretação padrão incontestável. Valorize respostas que separem argumento histórico de argumento exegético.</div>
 </div>
-
+<div class="resp-item">
+<div class="resp-num">Questão 02 — Comparação das três posições</div>
+<div class="resp-txt">Pré: base em 1 Ts 5:9 ("não nos destinou para ira") e Jo 14:3; pressupõe separação Israel/Igreja. Mid: base em Ap 11:15 e Dn 9:27; a Igreja escapa da "grande" tribulação mas não do início. Pós: base em Mt 24:29-31 ("logo após a tribulação... ajuntarão os eleitos") e no padrão histórico de proteção divina no meio da tribulação (Israel no Egito). Valorize qualquer resposta que cite o texto bíblico, não apenas o nome da posição.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 03 — Israel e Igreja na visão reformada</div>
+<div class="resp-txt">Se Israel e Igreja são um único povo de Deus (Gl 6:16; Rm 11:17-24), então não há necessidade lógica de um arrebatamento que "retire" a Igreja para Deus retomar um programa separado com Israel. Profecias do AT dirigidas a Israel são lidas como tendo cumprimento na Igreja. Isso elimina a distinção de "sete anos reservados a Israel" e torna o pré-tribulacionismo desnecessário como sistema. A mudança é hermenêutica antes de ser escatológica.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 04 — Consolar vs. debater</div>
+<div class="resp-txt">Resposta pessoal e de consciência. O objetivo é provocar autoavaliação honesta. Qualquer resposta que reconheça a distância entre o uso pastoral original (consolo ao luto) e o uso atual (debate de cronologia) é excelente. A questão mais transformadora: o aluno conhece alguém enlutado a quem poderia levar 1 Ts 4:13-18 como palavra de esperança esta semana?</div>
+</div>
+</div>
+<div class="bloco-gabarito-uso">
+<div class="bk">Como Usar o Gabarito</div>
+<p>As respostas sugeridas são <em>orientativas</em>, não prescritivas. Para as questões 1–3, valorize qualquer resposta que cite o texto bíblico explicitamente — o argumento importa mais que a conclusão. Para a questão 4 (uso consolatório vs. debate), trate como consciência pessoal: acolha respostas honestas mesmo que incomodem. A pergunta transformadora é sempre: <em>"O aluno conhece alguém enlutado a quem poderia levar 1 Ts 4:13-18 ainda esta semana?"</em></p>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-mat">
+<div class="bk">Recursos Recomendados ao Professor</div>
+<div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">George E. Ladd — <em>The Blessed Hope</em>. Eerdmans. O argumento pós-tribulacionista mais influente do séc. XX; leitura essencial para o professor.</span></div>
+<div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">John F. Walvoord — <em>The Rapture Question</em>. Zondervan. A melhor defesa pré-tribulacionista; importante para conhecer o argumento em seu melhor nível.</span></div>
+<div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Douglas Moo — artigo "A Case for the Posttribulation Rapture" em <em>Three Views on the Rapture</em>. Zondervan. Excelente formato de debate entre as três posições num único volume.</span></div>
+<div class="mat-item"><span class="mat-tipo video">Vídeo</span><span class="mat-info">BibleProject — série <em>Apocalíptico</em> e vídeo sobre 1 Tessalonicenses. YouTube, legendado em PT. Contextualiza o gênero e a função pastoral de 1 Ts 4.</span></div>
+<div class="mat-item"><span class="mat-tipo audio">Podcast</span><span class="mat-info">Ligonier Ministries — episódios sobre o arrebatamento com R.C. Sproul e outros. Spotify / ligonier.org. Perspectiva reformada pós-tribulacionista.</span></div>
+<div class="mat-item"><span class="mat-tipo site">Digital</span><span class="mat-info">thegospelcoalition.org/pt — artigo "O Arrebatamento: o que a Bíblia Ensina". Panorama acessível das três posições com linguagem para leigos.</span></div>
+</div>
+<div class="bloco-seg">
+<div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
+<ul>
+<li>Envie ao grupo da turma 1 Ts 4:18 com a pergunta: <em>"Você já usou esse versículo para consolar alguém esta semana?"</em></li>
+<li>Sugira a leitura devocional: 1 Ts 4:13-18 + Jo 14:1-6 + Tito 2:13 — lidos como consolo pastoral, não como mapa cronológico</li>
+<li>Se houver alunos em luto na turma, entre em contato pessoal durante a semana e ofereça a esperança de 1 Ts 4:16-17</li>
+<li>Prepare a introdução da Lição 04 (Grande Tribulação) conectando ao terreno comum conquistado aqui: <em>Cristo voltará — esse é o fundamento, independente do cronograma</em></li>
+</ul>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
 </div><!-- /area -->
 </div><!-- /conteudo-principal -->
-
 <script>
 const SENHA_CORRETA = 'eschaton2025';
 const CHAVE_SESSION = 'eschaton_prof_v1_auth';
