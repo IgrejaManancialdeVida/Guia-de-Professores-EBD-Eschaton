@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d1020">
-<link rel="manifest" href="manifest-professor.json">
-<link rel="apple-touch-icon" href="icon-professor-192.png">
-<link rel="icon" type="image/png" href="icon-professor-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
-<title>Eschaton · Lição 10 —  EDIÇÃO DO PROFESSOR</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0d1020" name="theme-color"/>
+<link href="manifest-professor.json" rel="manifest"/>
+<link href="icon-professor-192.png" rel="apple-touch-icon"/>
+<link href="icon-professor-192.png" rel="icon" type="image/png"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Eschaton I · Prof." name="apple-mobile-web-app-title"/>
+<title>Eschaton · Lição 10 — Edição do Professor</title>
 
-<meta name="theme-color" content="#0d1020">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">  
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<meta content="#0d1020" name="theme-color"/>
+<link href="manifest.json" rel="manifest"/>
+<link href="icon-192.png" rel="apple-touch-icon"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <style>
   #tela-senha { display: none !important; }
   #conteudo-principal { display: block !important; }
 </style>
-  <style>
+<style>
 :root{--cor:#803020;--grad1:#200808;--grad2:#280808;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--creme:#f5f0e8;--cc:#e0ddd8;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#111;font-family:'EB Garamond',Georgia,serif;}
@@ -388,610 +387,548 @@ h2.prof{font-family:'Oswald',sans-serif;font-weight:600;font-size:11.5pt;letter-
 </style>
 </head>
 <body>
-
 <div id="conteudo-principal">
-
 <div class="painel">
-  <div class="marca">ESCHATON<span>Edição do Professor · Lição 10 · O Juízo Final</span></div>
-  <span class="badge-prof">📘 Edição do Professor</span>
-  <button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
-  <button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
-  <a href="index.html"><button class="btn bv">← Hub</button></a>
+<div class="marca">ESCHATON<span>Edição do Professor · Lição 10 · O Juízo Final</span></div>
+<span class="badge-prof">📘 Edição do Professor</span>
+<button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+<a href="index.html"><button class="btn bv">← Hub</button></a>
 </div>
-
 <div class="area">
-<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 09">
-    <img src="capa-revista.png" alt="Capa da revista Eschaton">
-    <div class="entrada-cta">Toque para entrar na lição</div>
+<div aria-label="Abrir lição 10" class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()">
+<img alt="Capa da revista Eschaton" src="capa-revista.png"/>
+<div class="entrada-cta">Toque para entrar na lição</div>
 </div>
-
 <!-- PG 1 — CAPA -->
 <div class="lbl">Página 1 · Capa</div>
-<div class="pag capa">
-  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
-  <div class="cimg"></div><div class="clh"></div>
-  <div class="cnbg">10</div><div class="cnd">10</div>
-  <div class="capa-prof-faixa">Edição do Professor</div>
-  <div class="ccon">
-    <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
-    <div class="ctit">O Juízo Final</div>
-    <div class="cver">
-      "E vi um grande trono branco e o que estava assentado sobre ele, de cuja face fugiu a terra e o céu; e não se achou lugar para eles. E vi os mortos, os grandes e os pequenos, em pé diante do trono."
-      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 20:11-12</span>
-    </div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+<div class="pag capa"><div class="capa-prof-faixa">Edição do Professor</div>
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">10</div><div class="cnd">10</div>
+<div class="ccon">
+<div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+<div class="ctit">O Juízo Final</div>
+<div class="cver">
+            "E vi um grande trono branco e o que estava assentado sobre ele, de cuja face fugiu a terra e o céu; e não se achou lugar para eles. E vi os mortos, os grandes e os pequenos, em pé diante do trono."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 20:11-12</span>
 </div>
-
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
 <!-- PG 2 — INTRODUÇÃO -->
 <div class="lbl">Página 2 · Introdução</div>
 <div class="pag int">
-  <div class="wm">2</div>
-  <div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
-  <h2>Introdução</h2>
-  <p class="cap">Em uma era que celebra a tolerância e desconfia de qualquer julgamento absoluto, a doutrina do Juízo Final é profundamente contracultural. Mas é precisamente por isso que ela é necessária. Se não há julgamento final, a história termina sem justiça — os assassinos triunfam sobre suas vítimas, os opressores nunca respondem por seus crimes, e o mal fica impune para sempre. O Juízo Final é a garantia de que a história tem um juiz e que a justiça divina é a última palavra.</p>
-  <p>O professor deve iniciar a aula contextualizando esse caráter contracultural da doutrina. Numa cultura que tende a relativizar o mal e desconfiar de qualquer instância de julgamento absoluto, afirmar que Deus julgará o mundo pode soar como intolerância. Esclareça que o Juízo Final não é vingança nem arbitrariedade, mas a manifestação pública e definitiva da santidade e da justiça de Deus perante toda a criação.</p>
-  <div class="bver">"Porque todos nós compareceremos ante o tribunal de Cristo, para que cada um receba segundo o que tiver feito por meio do corpo, seja bem ou seja mal." <cite>2 Coríntios 5:10</cite></div>
-  <div class="obj">
-    <div class="ot">Objetivos desta lição</div>
-    <ul>
-      <li>Compreender o Juízo Final como ato de justiça divina universal e definitivo</li>
-      <li>Examinar o Grande Trono Branco de Apocalipse 20:11-15 em seu contexto literário</li>
-      <li>Distinguir o julgamento dos crentes do julgamento dos incrédulos nas Escrituras</li>
-      <li>Avaliar as perspectivas pentecostal e reformada sobre a natureza e os efeitos do julgamento</li>
-    </ul>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <p>O julgamento não é vingança divina — é a afirmação pública e definitiva da justiça de Deus diante de toda a criação. Para os crentes, é a revelação da graça; para os incrédulos, é a condenação que eles próprios escolheram ao rejeitar o Salvador. Nenhum ser humano comparecerá ao tribunal de Cristo por acidente.</p>
-  <p>Por isso, falar do Juízo Final não é abandonar a linguagem do amor, mas afirmar que o amor de Deus jamais é indiferente ao mal. Um Deus que não julga a perversidade não consola verdadeiramente as vítimas nem vindica sua própria santidade. O juízo é a face pública da justiça divina.</p>
-  <p>Ao mesmo tempo, essa verdade impede tanto o desespero quanto a presunção. Desespero, porque nenhum mal ficará sem resposta; presunção, porque ninguém escapará do exame perfeito de Deus. Diante do trono, toda máscara cai e toda vida é trazida à luz.</p>
-  <!-- BLOCO DO ALUNO: Para você refletir (Pg 2 do aluno) -->
-  <div class="baluno ba-refletir">
-    <div class="baluno-tag"><span class="baluno-ico">&#9670;</span> Para você refletir</div>
-    <div class="baluno-corpo">Em uma cultura que relativiza o julgamento moral, como a certeza do Juízo Final muda o modo como você entende a justiça — tanto a injustiça que você sofre quanto a que você pratica? O que você sente ao saber que nenhuma ação humana ficará definitivamente sem resposta?</div>
-    <div class="baluno-linha"></div>
-    <div class="baluno-linha"></div>
-  </div>
-  <div class="nota-prof-bloco">
-    <div class="np-label">Nota para o professor</div>
-    <p>Este bloco aparece ao final da Pg 2 do aluno. Use-o como abertura de diálogo antes de prosseguir para o Tópico I. Deixe 2–3 minutos para reflexão silenciosa individual; depois convide um ou dois alunos a compartilhar voluntariamente. Não force respostas — a pergunta é intencionalmente pessoal e pode mobilizar emoções reais. Se a turma demonstrar ansiedade ou medo, ancore imediatamente em Romanos 8:1.</p>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+<div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
+<h2>Introdução</h2>
+<p class="cap">Em uma era que celebra a tolerância e desconfia de qualquer julgamento absoluto, a doutrina do Juízo Final é profundamente contracultural. Mas é precisamente por isso que ela é necessária. Se não há julgamento final, a história termina sem justiça — os assassinos triunfam sobre suas vítimas, os opressores nunca respondem por seus crimes, e o mal fica impune para sempre. O Juízo Final é a garantia de que a história tem um juiz e que a justiça divina é a última palavra.</p>
+<div class="bver">"Porque todos nos compareceremos ante o tribunal de Cristo, para que cada um receba segundo o que tiver feito por meio do corpo, seja bem ou seja mal." <cite>2 Coríntios 5:10</cite></div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Compreender o Juízo Final como ato de justiça divina universal e definitivo</li>
+<li>Examinar o Grande Trono Branco de Apocalipse 20:11-15 em seu contexto literário</li>
+<li>Distinguir o julgamento dos crentes do julgamento dos incrédulos nas Escrituras</li>
+<li>Avaliar as perspectivas pentecostal e reformada sobre a natureza e os efeitos do julgamento</li>
+</ul>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<p>O julgamento não é vingança divina — é a afirmação pública e definitiva da justiça de Deus diante de toda a criação. Para os crentes, é a revelação da graça; para os incrédulos, é a condenação que eles próprios escolheram ao rejeitar o Salvador. Nenhum ser humano comparecerá ao tribunal de Cristo por acidente.</p>
+<p>Por isso, falar do Juízo Final não é abandonar a linguagem do amor, mas afirmar que o amor de Deus jamais é indiferente ao mal. Um Deus que não julga a perversidade não consola verdadeiramente as vítimas nem vindica sua própria santidade. O juízo é a face pública da justiça divina.</p>
+<p>Ao mesmo tempo, essa verdade impede tanto o desespero quanto a presunção. Desespero, porque nenhum mal ficará sem resposta; presunção, porque ninguém escapará do exame perfeito de Deus. Diante do trono, toda máscara cai e toda vida é trazida à luz.</p>
+<div class="baluno ba-refletir">
+<div class="baluno-tag"><span class="baluno-ico">◆</span> Para você refletir</div>
+<div class="baluno-corpo">Em uma cultura que relativiza o julgamento moral, como a certeza do Juízo Final muda o modo como você entende a justiça — tanto a injustiça que você sofre quanto a que você prática? O que você sente ao saber que nenhuma ação humana ficará definitivamente sem resposta?</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
 <!-- PG 3 — TÓPICO I -->
 <div class="lbl">Página 3 · Tópico I</div>
 <div class="pag int">
-  <div class="wm">3</div>
-  <div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
-  <h2>I-O Grande Trono Branco</h2>
-  <p>Apocalipse 20:11-15 apresenta a cena mais solene de toda a Bíblia: um Grande Trono Branco, diante do qual "a terra e o céu fugiram" — toda a ordem presente se dissolve perante a santidade absoluta do Juiz. Os mortos, "grandes e pequenos", comparecem sem exceção. Os livros são abertos. O Livro da Vida é aberto. A sentença é proferida.</p>
-  <p>Ao trabalhar esse tópico, ajude a classe a perceber a linguagem visual de João. A fuga da terra e do céu diante do trono não é detalhe poético — é afirmação teológica: nada do que existe em sua forma atual pode suportar a presença plena do Juiz eterno. O branco do trono simboliza pureza absoluta e justiça sem mancha. É a imagem oposta a qualquer tribunal humano corrompível.</p>
-  <h3>O Juiz: Cristo</h3>
-  <p>O Novo Testamento é unânime: o Pai confiou todo o julgamento ao Filho (Jo 5:22,27). Cristo, que foi julgado injustamente pelos homens, será o Juiz justo de todos os homens. Isso não é ironia — é teologia profunda: o único ser humano que viveu perfeitamente é o único qualificado para julgar com justiça perfeita. "E nos ordenou que pregássemos ao povo e testificássemos que ele é o que Deus constituiu Juiz dos vivos e dos mortos" (At 10:42).</p>
-  <div class="bver">"Porque o Pai a ninguém julga, mas todo o julgamento deu ao Filho... e lhe deu autoridade para exercer o juízo, porque é o Filho do homem." <cite>João 5:22,27</cite></div>
-  <h3>Os Livros e o Livro da Vida</h3>
-  <p>Dois tipos de registros são abertos em Apocalipse 20:12: "os livros" — o registro das obras de cada ser humano — e "o Livro da Vida" — o registro dos redimidos. As obras não salvam, mas testemunham. A sentença final depende do Livro da Vida: quem não está nele é lançado no lago de fogo (Ap 20:15). Gratidão e temor reverente são as respostas adequadas a essa realidade.</p>
-  <p>A cena do Grande Trono Branco revela que o juízo final não será caótico nem arbitrário. Nada ficará oculto, nada será esquecido e nada será relativizado. O que os tribunais humanos não alcançaram, o Juiz perfeito trará à plena luz.</p>
-  <p>Há profundo consolo nisso para o povo de Deus. A fé cristã não ensina que os sofrimentos da história são irrelevantes, mas que todos serão finalmente avaliados diante daquele que conhece perfeitamente intenções, contextos e consequências. O juízo final é a resposta divina à impunidade aparente do mundo presente.</p>
-  <!-- BLOCO DO ALUNO: Conexão Bíblica (Pg 3 do aluno) -->
-  <div class="baluno ba-biblica">
-    <div class="baluno-tag"><span class="baluno-ico">&#9998;</span> Conexão Bíblica</div>
-    <div class="baluno-corpo">Leia Apocalipse 20:11-15 e João 5:22-29. Quais palavras descrevem a <em>universalidade</em> do julgamento — quem comparece, sem exceção? O que a presença do "Livro da Vida" ao lado dos "livros de obras" revela sobre a base final da sentença?</div>
-    <div class="baluno-linha"></div>
-    <div class="baluno-linha"></div>
-  </div>
-  <div class="nota-prof-bloco">
-    <div class="np-label">Nota para o professor</div>
-    <p>Este bloco está ao final da Pg 3 do aluno. Incentive a leitura dos dois textos em voz alta antes de solicitar as respostas. Palavras-chave esperadas para "universalidade": "todos", "grandes e pequenos", "os mortos", "nenhum deles" (Ap 20:13). A distinção entre "livros" e "Livro da Vida" é o eixo teológico central da página — certifique-se de que os alunos perceberam que a sentença final depende do Livro da Vida, não das obras registradas nos outros livros.</p>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+<div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
+<h2>I —O Grande Trono Branco</h2>
+<p>Apocalipse 20:11-15 apresenta a cena mais solene de toda a Bíblia: um Grande Trono Branco, diante do qual "a terra e o céu fugiram" — toda a ordem presente se dissolve perante a santidade absoluta do Juiz. Os mortos, "grandes e pequenos", comparecem sem exceção. Os livros são abertos. O Livro da Vida e aberto. A sentença e proferida.</p>
+<h3>O Juiz: Cristo</h3>
+<p>O Novo Testamento é unânime: o Pai confiou todo o julgamento ao Filho (Jo 5:22,27). Cristo, que foi julgado injustamente pelos homens, será o Juiz justo de todos os homens. Isso não é ironia — é teologia profunda: o único ser humano que viveu perfeitamente e o único qualificado para julgar com justiça perfeita. "E nos ordenou que pregassemos ao povo e testificassemos que ele e o que Deus constituiu Juiz dos vivos e dos mortos" (At 10:42).</p>
+<div class="bver">"Porque o Pai a ninguém julga, mas todo o julgamento deu ao Filho... e lhe deu autoridade para exercer o juízo, porque é o Filho do homem." <cite>João 5:22,27</cite></div>
+<h3>Os Livros e o Livro da Vida</h3>
+<p>Dois tipos de registros são abertos em Apocalipse 20:12: "os livros" — o registro das obras de cada ser humano — e "o Livro da Vida" — o registro dos redimidos. As obras não salvam, mas testemunham. A sentença final depende do Livro da Vida: quem não está nele é lançado no lago de fogo (Ap 20:15). Gratidao e tremor são as respostas adequadas a essa realidade.</p>
+<p>A cena do Grande Trono Branco revela que o juízo final não será caótico nem arbitrário. Nada ficará oculto, nada será esquecido e nada será relativizado. O que os tribunais humanos não alcançaram, o Juiz perfeito trará à plena luz.</p>
+<p>Há profundo consolo nisso para o povo de Deus. A fé cristã não ensina que os sofrimentos da história são irrelevantes, mas que todos serão finalmente avaliados diante daquele que conhece perfeitamente intenções, contextos e consequências. O juízo final é a resposta divina à impunidade aparente do mundo presente.</p>
+<div class="baluno ba-biblica">
+<div class="baluno-tag"><span class="baluno-ico">✎</span> Conexão Bíblica</div>
+<div class="baluno-corpo">Leia Apocalipse 20:11-15 e João 5:22-29. Quais palavras descrevem a <em>universalidade</em> do julgamento — quem comparece, sem exceção? O que a presença do "Livro da Vida" ao lado dos "livros de obras" revela sobre a base final da sentença?</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
 </div>
-
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
 <!-- PG 4 — TÓPICO II -->
 <div class="lbl">Página 4 · Tópico II</div>
 <div class="pag int">
-  <div class="wm">4</div>
-  <div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
-  <h2>II-O Julgamento dos Crentes e dos Incrédulos</h2>
-  <p>As Escrituras distinguem com clareza dois aspectos do julgamento final: o julgamento dos crentes, que não determina condenação, mas revelação e recompensa; e o julgamento dos incrédulos, que resulta em condenação eterna proporcional às suas obras.</p>
-  <p>Esse ponto merece atenção pastoral especial. Muitos crentes associam "julgamento" exclusivamente com condenação e se perguntam ansiosamente se serão condenados. Esclareça com firmeza: Romanos 8:1 é definitivo — "nenhuma condenação há para os que estão em Cristo Jesus." O Tribunal de Cristo para os crentes não é instância de condenação, mas de revelação da graça e da fidelidade de Deus em suas vidas.</p>
-  <h3>O Tribunal de Cristo para os Crentes</h3>
-  <p>Em 2 Coríntios 5:10, Paulo afirma que "todos nós compareceremos ante o tribunal de Cristo" — incluindo os crentes. Esse julgamento não é para condenação (Rm 8:1 — "nenhuma condenação há para os que estão em Cristo Jesus"), mas para avaliação das obras realizadas na vida cristã. Paulo usa a imagem do fogo que prova cada obra em 1 Coríntios 3:12-15: o crente será salvo, "mas como pelo fogo." Obras de qualidade perdurarão; obras superficiais serão consumidas. Há recompensas distintas no reino eterno.</p>
-  <div class="bver">"Se a obra de alguém se queimar, sofrerá perda; mas ele será salvo, todavia, como pelo fogo." <cite>1 Coríntios 3:15</cite></div>
-  <div class="sep"><span>✦</span></div>
-  <h3>O Julgamento dos Incrédulos</h3>
-  <p>Para os que rejeitaram o evangelho, o julgamento é condenação — proporcional ao conhecimento que tiveram e às obras que praticaram (Lc 12:47-48; Rm 2:6-11). Há graus de condenação assim como há graus de recompensa. Deus não é arbitrário: "cada um será remunerado segundo as suas obras" (Rm 2:6). A condenação é justa precisamente porque cada ser humano teve oportunidade de responder ao testemunho geral de Deus na criação (Rm 1:19-20) e ao testemunho especial do evangelho onde este chegou.</p>
-  <p>Essa distinção ajuda a preservar duas verdades bíblicas ao mesmo tempo: a salvação é inteiramente pela graça, e a vida do crente possui responsabilidade real diante de Deus. As obras não compram a redenção, mas evidenciam a realidade da fé e serão trazidas à memória para louvor da justiça e da misericórdia divinas.</p>
-  <p>Do lado dos incrédulos, o juízo final demonstra que a condenação não será genérica nem impessoal. Cada caso será perfeitamente julgado, e a sentença corresponderá à verdade integral da vida de cada um. Isso exclui qualquer ideia de injustiça em Deus e reforça a urgência do arrependimento enquanto dura o tempo da graça.</p>
-  <!-- BLOCO DO ALUNO: Sabia que? (Pg 4 do aluno) -->
-  <div class="baluno ba-sabia">
-    <div class="baluno-tag"><span class="baluno-ico">&#9654;</span> Sabia que?</div>
-    <div class="baluno-corpo">A palavra grega <em>bema</em> ("tribunal", usada em 2 Co 5:10) designava a plataforma elevada onde um magistrado romano proferia julgamentos ou onde um árbitro olímpico anunciava resultados e distribuía prêmios. Paulo usa esse termo para o julgamento dos crentes — não o banco dos réus, mas o estrado de premiação onde obras são avaliadas por Cristo.</div>
-  </div>
-  <div class="nota-prof-bloco">
-    <div class="np-label">Nota para o professor</div>
-    <p>Este bloco está ao final da Pg 4 do aluno. O dado sobre o <em>bema</em> é altamente eficaz para desfazer a associação automática entre "tribunal" e "condenação". Use-o como gancho oral: peça que imaginem um estádio grego e um árbitro entregando coroas de louros, não algemas. Isso abre espaço para a distinção entre salvação (garantida pela graça) e recompensa (avaliação fiel das obras). Se houver alunos com formação histórica, eles podem enriquecer o comentário sobre o contexto romano e olímpico do termo.</p>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+<div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
+<h2>II —O Julgamento dos Crentes e dos Incrédulos</h2>
+<p>As Escrituras distinguem com clareza dois aspectos do julgamento final: o julgamento dos crentes, que não determina condenação, mas revelação e recompensa; e o julgamento dos incrédulos, que resulta em condenação eterna proporcional às suas obras.</p>
+<h3>O Tribunal de Cristo para os Crentes</h3>
+<p>Em 2 Coríntios 5:10, Paulo afirma que "todos nos compareceremos ante o tribunal de Cristo" — incluindo os crentes. Esse julgamento não é para condenação (Rm 8:1 — "nenhuma condenação há para os que estão em Cristo Jesus"), mas para avaliação das obras realizadas na vida cristã. Paulo usa a imagem do fogo que prova cada obra em 1 Coríntios 3:12-15: o crente será salvo, "mas como pelo fogo." Obras de qualidade perdurarão; obras superficiais seráo consumidas. Ha recompensas distintas no reino eterno.</p>
+<div class="bver">"Se a obra de alguém se queimar, sofrerá perda; mas ele será salvo, todavia, como pelo fogo." <cite>1 Coríntios 3:15</cite></div>
+<div class="sep"><span>✦</span></div>
+<h3>O Julgamento dos Incredulos</h3>
+<p>Para os que rejeitaram o evangelho, o julgamento é condenação — proporcional ao conhecimento que tiveram e as obras que práticaram (Lc 12:47-48; Rm 2:6-11). Há graus de condenação assim como há graus de recompensa. Deus não é arbitrário: "cada um será remunerado segundo às suas obras" (Rm 2:6). A condenação e justa precisamente porque cada ser humano teve oportunidade de responder ao testemunho geral de Deus na criação (Rm 1:19-20) e ao testemunho especial do evangelho onde este chegou.</p>
+<p>Essa distinção ajuda a preservar duas verdades bíblicas ao mesmo tempo: a salvação é inteiramente pela graça, e a vida do crente possui responsabilidade real diante de Deus. As obras não compram a redenção, mas evidenciam a realidade da fé e serão trazidas à memória para louvor da justiça e da misericórdia divinas.</p>
+<p>Do lado dos incrédulos, o juízo final demonstra que a condenação não será genérica nem impessoal. Cada caso será perfeitamente julgado, e a sentença corresponderá à verdade integral da vida de cada um. Isso exclui qualquer ideia de injustiça em Deus e reforça a urgência do arrependimento enquanto dura o tempo da graça.</p>
+<div class="baluno ba-sabia">
+<div class="baluno-tag"><span class="baluno-ico">▶</span> Sabia que?</div>
+<div class="baluno-corpo">A palavra grega <em>bema</em> ("tribunal", usada em 2 Co 5:10) designava a plataforma elevada onde um magistrado romano proferia julgamentos ou onde um árbitro olímpico anunciava resultados e distribuía prêmios. Paulo usa esse termo para o julgamento dos crentes — não o banco dos réus, mas o estrado de premiação onde obras são avaliadas por Cristo.</div>
 </div>
-
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
 <!-- PG 5 — TÓPICO III -->
 <div class="lbl">Página 5 · Tópico III</div>
 <div class="pag int">
-  <div class="wm">5</div>
-  <div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
-  <h2>III-Visões em Diálogo</h2>
-  <p>Sobre a realidade do Juízo Final, há consenso entre todas as tradições cristãs ortodoxas. As diferenças se concentram na cronologia do julgamento e em sua relação com o milênio e as ressurreições sequenciais.</p>
-  <p>Apresente ao grupo que essa diferença de cronologia, embora real e digna de discussão séria, não compromete o núcleo da doutrina. Ambas as tradições afirmam: Cristo julgará, nenhuma injustiça ficará sem resposta, e quem está em Cristo não será condenado. Isso é o que importa para a vida e para a missão da Igreja.</p>
-  <div class="bvp">
-    <div class="vl">✦ Perspectiva Pentecostal</div>
-    <div class="vt">Para o dispensacionalismo pentecostal, há múltiplos julgamentos em sequência: (1) o Tribunal de Cristo (Bema) para os crentes arrebatados, nos céus durante a Tribulação — avalia obras, não salvação; (2) o julgamento das nações em Mateus 25:31-46, na vinda de Cristo, baseado no tratamento dado aos "irmãos" de Cristo (judeus da Tribulação); (3) o Grande Trono Branco de Apocalipse 20:11-15 após o milênio, exclusivamente para os incrédulos de todas as eras. Cada julgamento tem base, momento e consequências distintas dentro do esquema dispensacionalista.</div>
-  </div>
-  <div class="bvr">
-    <div class="vl">✦ Perspectiva Reformada</div>
-    <div class="vt">Para o amilenismo reformado, há um único julgamento universal — o Grande Julgamento — ao fim da história, quando Cristo voltar. Todos os seres humanos de todas as eras comparecem simultaneamente: crentes e incrédulos, vivos e ressuscitados. O "tribunal de Cristo" de 2 Coríntios 5:10 e o "Grande Trono Branco" de Apocalipse 20 descrevem o mesmo evento sob ângulos distintos. As obras dos crentes serão reveladas publicamente para glória de Deus, confirmando a graça; as obras dos incrédulos fundamentarão a justa condenação. Louis Berkhof e Herman Bavinck defendem essa leitura unitária.</div>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <p>Mesmo onde há diferença de cronologia, permanece o mesmo testemunho: ninguém escapará da justiça de Deus e ninguém que esteja em Cristo será lançado fora. O juízo final não ameaça a segurança do salvo; antes, manifesta publicamente a eficácia da obra redentora de Jesus em favor do seu povo.</p>
-  <p>Essa convergência é importante para a vida da igreja. Ela impede tanto a indiferença moral quanto o sensacionalismo escatológico. O foco das Escrituras não é alimentar especulação, mas chamar todos os homens ao arrependimento, à fé e à sobriedade diante daquele que julgará o mundo com justiça.</p>
-  <!-- BLOCO DO ALUNO: Pense nisso (Pg 5 do aluno) -->
-  <div class="baluno ba-pense">
-    <div class="baluno-tag"><span class="baluno-ico">&#8857;</span> Pense nisso</div>
-    <div class="baluno-corpo">Pentecostais e reformados divergem sobre a cronologia dos julgamentos, mas convergem no essencial: Cristo é o Juiz, as obras serão avaliadas, nenhuma injustiça ficará sem resposta. Essa convergência é suficiente para a unidade cristã? O debate sobre sequência muda algo na forma como você vive agora?</div>
-    <div class="baluno-linha"></div>
-    <div class="baluno-linha"></div>
-  </div>
-  <div class="nota-prof-bloco">
-    <div class="np-label">Nota para o professor</div>
-    <p>Este bloco está ao final da Pg 5 do aluno, após a apresentação das duas perspectivas. Ele funciona como síntese reflexiva do debate. A pergunta "muda algo na forma como você vive agora?" é deliberadamente prática: evita que o debate escatológico fique apenas no nível especulativo. Encoraje os alunos a distinguir o que é doutrina central (convergente) do que é debate periférico (cronologia). Se houver tensão na turma entre alunos das duas tradições, use a linha de convergência da tabela comparativa (Pg P3) como ponto de apoio para o diálogo respeitoso.</p>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+<div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
+<h2>III —Visões em Diálogo</h2>
+<p>Sobre a realidade do Juízo Final, há consenso entre todas as tradições cristãs ortodoxas. As diferenças se concentram na cronologia do julgamento e em sua relação com o milênio e as ressurreições sequênciais.</p>
+<div class="bvp">
+<div class="vl">✦ Perspectiva Pentecostal</div>
+<div class="vt">Para o dispensacionalismo pentecostal, há múltiplos julgamentos em sequência: (1) o Tribunal de Cristo (Bema) para os crentes arrebatados, nos céus durante a Tribulação — avalia obras, não salvação; (2) o julgamento das nações em Mateus 25:31-46, na vinda de Cristo, baseado no tratamento dado aos "irmãos" de Cristo (judeus da Tribulação); (3) o Grande Trono Branco de Apocalipse 20:11-15 apos o milênio, exclusivamente para os incrédulos de todas as eras. Cada julgamento tem base, momento e consequências distintas dentro do esquema dispensacionalista.</div>
+</div>Mesmo onde há diferença de cronologia, permanece o mesmo testemunho: ninguém escapará da justiça de Deus e ninguém que esteja em Cristo será lançado fora. O juízo final não ameaça a segurança do salvo; antes, manifesta publicamente a eficácia da obra redentora de Jesus em favor do seu povo.
+<p>Essa convergência é importante para a vida da igreja. Ela impede tanto a indiferença moral quanto o sensacionalismo escatológico. O foco das Escrituras não é alimentar especulação, mas chamar todos os homens ao arrependimento, à fé e à sobriedade diante daquele que julgará o mundo com justiça.</p>
+    &gt;
+    <div class="bvr">
+<div class="vl">✦ Perspectiva Reformada</div>
+<div class="vt">Para o amilenismo reformado, há um único julgamento universal — o Grande Julgamento — ao fim da história, quando Cristo voltar. Todos os seres humanos de todas as eras comparecem simultaneamente: crentes e incrédulos, vivos e ressuscitados. O "tribunal de Cristo" de 2 Coríntios 5:10 e o "Grande Trono Branco" de Apocalipse 20 descrevem o mesmo evento sob ângulos distintos. As obras dos crentes seráo reveladas publicamente para glória de Deus, confirmando a graça; as obras dos incrédulos fundamentarao a justa condenação. Louis Berkhof e Herman Bavinck defendem essa leitura unitaria.</div>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<p>O fundamento comum é inabalável: Deus e justo, Cristo é o Juiz, nenhuma injustica ficara sem resposta, nenhuma bondade ficara sem reconhecimento. O Juízo Final é a garantia de que a história tem sentido moral e que o mal não tera a ultima palavra.</p>
+<div class="baluno ba-pense">
+<div class="baluno-tag"><span class="baluno-ico">⊙</span> Pense nisso</div>
+<div class="baluno-corpo">Pentecostais e reformados divergem sobre a cronologia dos julgamentos, mas convergem no essencial: Cristo é o Juiz, as obras serão avaliadas, nenhuma injustiça ficará sem resposta. Essa convergência é suficiente para a unidade cristã? O debate sobre sequência muda algo na forma como você vive agora?</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
 <!-- PG 6 — CONCLUSÃO -->
 <div class="lbl">Página 6 · Conclusão e Aplicação</div>
 <div class="pag int">
-  <div class="wm">6</div>
-  <div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
-  <h2>Conclusão</h2>
-  <p>A doutrina do Juízo Final produz dois efeitos simultâneos no crente maduro: temor reverente e liberdade profunda. Temor, porque cada ação presente tem peso eterno e será examinada pelo olhar onisciente de Cristo. Liberdade, porque o crente não precisa mais julgar e se vingar — Deus é o Juiz, e sua justiça é perfeita. Essas duas atitudes, longe de se contradizer, se alimentam mutuamente.</p>
-  <p>Ao encerrar a aula, ajude a turma a perceber que o Juízo Final não é uma doutrina de terror para os crentes, mas de consolo e responsabilidade. Consolo, porque as injustiças sofridas não ficarão sem resposta. Responsabilidade, porque a maneira como vivemos agora tem peso eterno. Esses dois polos devem produzir sobriedade e missão — não ansiedade nem paralisia.</p>
-  <div class="apl">
-    <div class="at">Aplicação</div>
-    <p>Primeiro: leia Romanos 12:19 — "a mim pertence a vingança; eu recompensarei, diz o Senhor." Há alguém em sua vida que lhe fez mal e que você ainda quer ver "receber o que merece"? O Juízo Final libera você do fardo da vingança — entregue ao Juiz justo. Segundo: avalie suas obras à luz de 1 Coríntios 3:12-15 — o que você tem construído que sobreviveria ao fogo do julgamento? Terceiro: o conhecimento do julgamento deveria intensificar sua urgência missionária — compartilhar o evangelho é dar a cada pessoa a oportunidade de ter seu nome no Livro da Vida.</p>
-  </div>
-  <div class="sep"><span>✦</span></div>
-  <h3>Para Refletir</h3>
-  <p>Dostoiévski escreveu: "Se Deus não existe, tudo é permitido." O Juízo Final é a resposta cristã a esse dilema: Deus existe, a história tem um juiz, e nenhuma ação humana é moralmente neutra ou definitivamente impune. Como essa convicção deveria moldar suas escolhas éticas cotidianas — nos relacionamentos, no trabalho, no uso do dinheiro e do tempo?</p>
-  <div class="bver">"Não vos vingueis a vós mesmos, amados, mas dai lugar à ira de Deus; porque está escrito: A mim pertence a vingança; eu recompensarei, diz o Senhor." <cite>Romanos 12:19</cite></div>
-  <p>Nas próximas duas lições contemplaremos os dois destinos finais da humanidade: <strong>O Inferno</strong> e <strong>O Céu e a Nova Jerusalém</strong> — as duas realidades eternas que o Juízo Final determina.</p>
-  <p>Em conclusão, o Juízo Final deve conduzir o crente a uma vida de sobriedade, reconciliação e perseverança. Quem sabe que Deus julgará o mundo não precisa viver dominado pela ansiedade de resolver tudo com as próprias mãos, mas também não pode tratar o pecado como algo leve ou indiferente.</p>
-  <p>A doutrina do juízo final, portanto, não foi dada para alimentar pavor estéril, e sim para ordenar a vida diante de Deus. Ela chama a Igreja a andar em santidade, a anunciar o evangelho com urgência e a descansar na certeza de que a justiça perfeita do Senhor prevalecerá no fim.</p>
-  <!-- BLOCO DO ALUNO: Leve para a vida (Pg 6 do aluno) -->
-  <div class="baluno ba-vida">
-    <div class="baluno-tag"><span class="baluno-ico">&#10022;</span> Leve para a vida</div>
-    <div class="baluno-corpo">Esta semana, escolha uma atitude concreta motivada pela certeza do Juízo Final: libere alguém que te fez mal entregando ao Juiz justo (Rm 12:19); examine uma área da sua vida à luz de 1 Co 3:12-15; ou compartilhe o evangelho com alguém, sabendo que o tempo da graça é limitado. Anote aqui o que você vai fazer:</div>
-    <div class="baluno-linha"></div>
-    <div class="baluno-linha"></div>
-  </div>
-  <div class="nota-prof-bloco">
-    <div class="np-label">Nota para o professor</div>
-    <p>Este bloco é o encerramento prático da Pg 6 do aluno — o ponto de chegada de toda a lição. Leia-o em voz alta para a turma e conceda um minuto de silêncio para que cada aluno escreva individualmente. Não solicite que compartilhem o que escreveram — o compromisso é pessoal. Você pode encerrar com uma oração breve que incorpore os três eixos propostos: perdão/entrega, avaliação das obras e urgência missionária. Esse momento de escrita transforma a doutrina em decisão e é o principal veículo de mudança comportamental desta lição.</p>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+<div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
+<h2>Conclusão </h2>
+<p>A doutrina do Juízo Final produz dois efeitos simultaneos no crente maduro: temor reverente e liberdade profunda. Temor, porque cada ação presente tem péso eterno e será examinada pelo olhar onisciente de Cristo. Liberdade, porque o crente não precisa mais julgar e se vingar — Deus e o Juiz, e sua justiça e perfeita. Essas duas atitudes, longe de se contradizer, se alimentam mutuamente.</p>
+<div class="apl">
+<div class="at">Aplicação </div>
+<p>Primeiro: leia Romanos 12:19 — "a mim pertence a vingança; eu recompensarei, diz o Senhor." Ha alguém em sua vida que te fez mal e que você ainda quer ver "receber o que merece"? O Juízo Final libera você do fardo da vingança — entregue ao Juiz justo. Segundo: avalie suas obras à luz de 1 Coríntios 3:12-15 — o que você tem construido que sobreviveria ao fogo do julgamento? Terceiro: o conhecimento do julgamento deveria intensificar sua urgencia missionaria — compartilhar o evangelho e dar a cada pessoa a oportunidade de ter seu nome no Livro da Vida.</p>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<h3>Para Refletir</h3>
+<p>Dostoievski escreveu: "Se Deus não existe, tudo e permitido." O Juízo Final e a resposta cristã a esse dilema: Deus existe, a história tem um juiz, e nenhuma ação humana e moralmente neutra ou definitivamente impune. Como essa convicção deveria moldar suas escolhas eticas cotidianas — nos relacionamentos, no trabalho, no uso do dinheiro e do tempo?</p>
+<div class="bver">"Nao vos vingueis a vos mesmos, amados, mas dai lugar a ira de Deus; porque está escrito: A mim pertence a vingança; eu recompensarei, diz o Senhor." <cite>Romanos 12:19</cite></div>
+<p>Nas próximas duas licoes contemplaremos os dois destinos finais da humanidade: <strong>O Inferno</strong> e <strong>O Ceu e a Nova Jerusalem</strong> — as duas realidades eternas que o Juízo Final determina.</p>
+<p>Em conclusão, o Juízo Final deve conduzir o crente a uma vida de sobriedade, reconciliação e perseverança. Quem sabe que Deus julgará o mundo não precisa viver dominado pela ansiedade de resolver tudo com as próprias mãos, mas também não pode tratar o pecado como algo leve ou indiferente.</p>
+<p>A doutrina do juízo final, portanto, não foi dada para alimentar pavor estéril, e sim para ordenar a vida diante de Deus. Ela chama a igreja a andar em santidade, a anunciar o evangelho com urgência e a descansar na certeza de que a justiça perfeita do Senhor prevalecerá no fim.</p>
+<div class="baluno ba-vida">
+<div class="baluno-tag"><span class="baluno-ico">✦</span> Leve para a vida</div>
+<div class="baluno-corpo">Esta semana, escolha uma atitude concreta motivada pela certeza do Juízo Final: libere alguém que te fez mal entregando ao Juiz justo (Rm 12:19); examine uma área da sua vida à luz de 1 Co 3:12-15; ou compartilhe o evangelho com alguém, sabendo que o tempo da graça é limitado. Anote aqui o que você vai fazer:</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
 <!-- PG 7 — QUESTÕES -->
 <div class="lbl">Página 7 · Questões e Anotações</div>
 <div class="pag int">
-  <div class="wm">7</div>
-  <div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
-  <h2>Questões para Reflexão</h2>
-  <div class="q">
-    <div class="qn">Questão 01</div>
-    <div class="qt">Por que a doutrina do Juízo Final é profundamente necessária para que a história tenha sentido moral? Como a negação do julgamento final afeta a ética e a justiça na vida prática de uma sociedade?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="q">
-    <div class="qn">Questão 02</div>
-    <div class="qt">O julgamento dos crentes no "Tribunal de Cristo" (2 Co 5:10) não é para condenação, mas para avaliação de obras. O que isso revela sobre a relação entre graça e responsabilidade na vida cristã? Isso muda sua motivação para servir?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="q">
-    <div class="qn">Questão 03</div>
-    <div class="qt">O dispensacionalismo vê múltiplos julgamentos sequenciais; o amilenismo vê um julgamento universal único. Quais textos bíblicos cada posição usa como suporte? Como você avalia os argumentos de cada lado?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="q">
-    <div class="qn">Questão 04</div>
-    <div class="qt">Romanos 12:19 libera o crente da vingança pessoal porque Deus é o Juiz. Há situações em sua vida onde essa verdade está sendo difícil de aplicar? Como a certeza do Juízo Final pode trazer liberdade ao invés de ressentimento?</div>
-    <div class="lr"></div><div class="lr"></div>
-  </div>
-  <div class="lit">
-    <div class="lt">Leituras Complementares</div>
-    <ul>
-      <li>Herman Bavinck — <em>Reformed Dogmatics</em>, vol. 4 (o julgamento final na perspectiva reformada clássica)</li>
-      <li>D. A. Carson — <em>The Gagging of God</em>, cap. 12 (julgamento, pluralismo e exclusividade cristã)</li>
-      <li>Leitura devocional: Ap 20:11-15 + Jo 5:19-30 + 2 Co 5:6-10 + Rm 2:1-16</li>
-    </ul>
-  </div>
-  <h3 style="margin-top:12px;">Anotações</h3>
-  <div class="lins">
-    <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
-  </div>
-  <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+<div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 10</span><span class="pht">O Juízo Final</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questao 01</div>
+<div class="qt">Por que a doutrina do Juízo Final é profundamente necessária para que a história tenhá sentido moral? Como a negacao do julgamento final afeta a etica e a justiça na vida prática de uma sociedade?</div>
+<div class="lr"></div><div class="lr"></div>
 </div>
-
-
+<div class="q">
+<div class="qn">Questao 02</div>
+<div class="qt">O julgamento dos crentes no "Tribunal de Cristo" (2 Co 5:10) não e para condenação, mas para avaliação de obras. O que isso revela sobre a relação entre graça e responsabilidade na vida cristã? Isso muda sua motivacao para servir?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questao 03</div>
+<div class="qt">O dispensacionalismo ve múltiplos julgamentos sequênciais; o amilenismo ve um julgamento universal único. Quais textos biblicos cada posicao usa como suporte? Como você avalia os argumentos de cada lado?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questao 04</div>
+<div class="qt">Romanos 12:19 libera o crente da vingança pessoal porque Deus e o Juiz. Ha situações em sua vida onde essa verdade está sendo dificil de aplicar? Como a certeza do Juízo Final pode trazer liberdade ao inves de ressentimento?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="lit">
+<div class="lt">Leituras Complementares</div>
+<ul>
+<li>Herman Bavinck — Reformed Dogmatics, vol. 4 (o julgamento final na perspectiva reformada classica)</li>
+<li>D.A. Carson — The Gagging of God, cap. 12 (julgamento, pluralismo e exclusividade cristã)</li>
+<li>Leitura devocional: Ap 20:11-15 + Jo 5:19-30 + 2 Co 5:6-10 + Rm 2:1-16</li>
+</ul>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
 <!-- ═══════════════════════════ PÁGINAS DO PROFESSOR ═══════════════════════════ -->
-
 <!-- PG P1 — VISÃO GERAL -->
 <div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Visão Geral para o Professor</h2>
-  <div class="bloco-guia">
-    <div class="bk">Contexto na Série</div>
-    <p>A Lição 10 — O Juízo Final — é o coração moral e doutrinário da escatologia. Ela responde à pergunta mais urgente que a história levanta: "Haverá justiça?" Ao mesmo tempo, é a lição com maior potencial para dois erros opostos: o sensacionalismo (usar o juízo para assustar) e a minimização (tratar o julgamento como tema antiquado ou secundário). O professor precisa equilibrar rigor teológico com calor pastoral.</p>
-  </div>
-  <div class="bloco-teo">
-    <div class="bk">Eixo Teológico</div>
-    <p>O Juízo Final repousa sobre três afirmações bíblicas inegociáveis: <strong>(1)</strong> Deus é santo e justo — o mal não pode ser ignorado por Ele; <strong>(2)</strong> Cristo é o Juiz designado pelo Pai (Jo 5:22,27); <strong>(3)</strong> Toda vida humana será examinada e toda sentença será proporcional e perfeita. Para os crentes: graça confirmada publicamente. Para os incrédulos: condenação justa. Nenhum dos dois grupos comparece por acidente.</p>
-  </div>
-  <div class="bloco-guia">
-    <div class="bk">Tensão Exegética Central</div>
-    <p>A maior tensão da lição está na relação entre as passagens sobre "julgamento" dos crentes (2 Co 5:10; 1 Co 3:12-15) e a certeza de "nenhuma condenação" (Rm 8:1). Essas passagens não se contradizem — mas precisam ser articuladas com cuidado. O Tribunal de Cristo para os crentes não é instância de condenação, mas de revelação e recompensa. Esse ponto deve ser trabalhado com clareza antes de abordar o Grande Trono Branco.</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">Sensibilidade Pastoral</div>
-    <p>Alguns alunos podem carregar ansiedade espiritual sobre sua própria salvação. A doutrina do juízo, mal trabalhada, pode intensificar esse peso desnecessariamente. Comece e termine afirmando: para quem está em Cristo, o julgamento é revelação de graça, não ameaça de condenação. A liberdade do crente diante do trono é fundada na obra perfeita de Cristo — não no desempenho pessoal.</p>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Mapa de Competências -->
-  <div class="bloco-guia">
-    <div class="bk">Mapa de Competências da Lição</div>
-  </div>
-  <div class="mapa-comp">
-    <div class="comp-celula conhecimento">
-      <div class="comp-titulo">Conhecimento</div>
-      <div class="comp-desc">O aluno será capaz de identificar os textos-chave do Juízo Final (Ap 20:11-15; Jo 5:22,27; 2 Co 5:10; Rm 8:1) e enunciar os dois aspectos do julgamento (crentes e incrédulos).</div>
-    </div>
-    <div class="comp-celula habilidade">
-      <div class="comp-titulo">Habilidade</div>
-      <div class="comp-desc">O aluno será capaz de articular a distinção entre salvação pela graça e avaliação das obras, e de comparar as posições dispensacionalista e amilenista com argumentos bíblicos.</div>
-    </div>
-    <div class="comp-celula atitude">
-      <div class="comp-titulo">Atitude</div>
-      <div class="comp-desc">O aluno demonstrará disposição para entregar ressentimentos e desejos de vingança ao Juiz divino (Rm 12:19) e para viver com sobriedade ética diante do julgamento futuro.</div>
-    </div>
-    <div class="comp-celula avaliacao">
-      <div class="comp-titulo">Avaliação</div>
-      <div class="comp-desc">Observar participação na dinâmica de abertura, qualidade das respostas escritas e abertura pessoal nas questões 01 e 04 da Pg 7. Ver checklist na Pg P3.</div>
-    </div>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Fio Condutor -->
-  <div class="bloco-fio">
-    <div class="bk">Fio Condutor — Conexão com a Série</div>
-    <p>Esta lição é o eixo moral da série Eschaton: conecta a Ressurreição (L9) à destinação eterna (L11 — O Inferno; L12 — O Céu). Se a ressurreição responde "o quê acontece com o corpo", o Juízo Final responde "para quê ressuscitamos". A lição seguinte (O Inferno) pressupõe que o aluno compreendeu que a condenação é proporcional, justa e definitiva — não arbitrária. Reforce essa conexão ao encerrar.</p>
-  </div>
-
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P1</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Guia do Professor</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Visão Geral para o Professor</h2>
+<div class="bloco-guia">
+<div class="bk">Contexto na Série</div>
+<p>A Lição 10 — O Juízo Final — é o coração moral e doutrinário da escatologia. Ela responde à pergunta mais urgente que a história levanta: "Haverá justiça?" Ao mesmo tempo, é a lição com maior potencial para dois erros opostos: o sensacionalismo (usar o juízo para assustar) e a minimização (tratar o julgamento como tema antiquado ou secundário). O professor precisa equilibrar rigor teológico com calor pastoral.</p>
 </div>
-
+<div class="bloco-teo">
+<div class="bk">Eixo Teológico</div>
+<p>O Juízo Final repousa sobre três afirmações bíblicas inegociáveis: <strong>(1)</strong> Deus é santo e justo — o mal não pode ser ignorado por Ele; <strong>(2)</strong> Cristo é o Juiz designado pelo Pai (Jo 5:22,27); <strong>(3)</strong> Toda vida humana será examinada e toda sentença será proporcional e perfeita. Para os crentes: graça confirmada publicamente. Para os incrédulos: condenação justa. Nenhum dos dois grupos comparece por acidente.</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Tensão Exegética Central</div>
+<p>A maior tensão da lição está na relação entre as passagens sobre "julgamento" dos crentes (2 Co 5:10; 1 Co 3:12-15) e a certeza de "nenhuma condenação" (Rm 8:1). Essas passagens não se contradizem — mas precisam ser articuladas com cuidado. O Tribunal de Cristo para os crentes não é instância de condenação, mas de revelação e recompensa. Esse ponto deve ser trabalhado com clareza antes de abordar o Grande Trono Branco.</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">Sensibilidade Pastoral</div>
+<p>Alguns alunos podem carregar ansiedade espiritual sobre sua própria salvação. A doutrina do juízo, mal trabalhada, pode intensificar esse peso desnecessáriamente. Comece e termine afirmando: para quem está em Cristo, o julgamento é revelação de graça, não ameaça de condenação. A liberdade do crente diante do trono é fundada na obra perfeita de Cristo — não no desempenho pessoal.</p>
+</div>
+<!-- BLOCO ADICIONADO: Mapa de Competências -->
+<div class="bloco-guia">
+<div class="bk">Mapa de Competências da Lição</div>
+</div>
+<div class="mapa-comp">
+<div class="comp-celula conhecimento">
+<div class="comp-titulo">Conhecimento</div>
+<div class="comp-desc">O aluno será capaz de identificar os textos-chave do Juízo Final (Ap 20:11-15; Jo 5:22,27; 2 Co 5:10; Rm 8:1) e enunciar os dois aspectos do julgamento (crentes e incrédulos).</div>
+</div>
+<div class="comp-celula habilidade">
+<div class="comp-titulo">Habilidade</div>
+<div class="comp-desc">O aluno será capaz de articular a distinção entre salvação pela graça e avaliação das obras, e de comparar as posições dispensacionalista e amilenista com argumentos bíblicos.</div>
+</div>
+<div class="comp-celula atitude">
+<div class="comp-titulo">Atitude</div>
+<div class="comp-desc">O aluno demonstrará disposição para entregar ressentimentos e desejos de vingança ao Juiz divino (Rm 12:19) e para viver com sobriedade ética diante do julgamento futuro.</div>
+</div>
+<div class="comp-celula avaliacao">
+<div class="comp-titulo">Avaliação</div>
+<div class="comp-desc">Observar participação na dinâmica de abertura, qualidade das respostas escritas e abertura pessoal nas questões 01 e 04 da Pg 7. Ver checklist na Pg P3.</div>
+</div>
+</div>
+<!-- BLOCO ADICIONADO: Fio Condutor -->
+<div class="bloco-fio">
+<div class="bk">Fio Condutor — Conexão com a Série</div>
+<p>Esta lição é o eixo moral da série Eschaton: conecta a Ressurreição (L9) à destinação eterna (L11 — O Inferno; L12 — O Céu). Se a ressurreição responde "o quê acontece com o corpo", o Juízo Final responde "para quê ressuscitamos". A lição seguinte (O Inferno) pressupõe que o aluno compreendeu que a condenação é proporcional, justa e definitiva — não arbitrária. Reforce essa conexão ao encerrar.</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P1</span></div>
+</div>
 <!-- PG P2 — MAPA DO ARGUMENTO -->
 <div class="lbl lbl-prof">Página P2 · Mapa do Argumento Bíblico</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Mapa do Argumento</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">As Passagens-Chave — Mapa para o Professor</h2>
-  <div class="bloco-teo">
-    <div class="bk">Bloco 1 — O Juiz e a Cena do Julgamento</div>
-    <p><strong>João 5:22,27</strong> — O Pai delegou todo o julgamento ao Filho; Cristo é o Juiz por ser o Filho do Homem. <strong>Atos 10:42</strong> — Cristo foi constituído Juiz dos vivos e dos mortos. <strong>Apocalipse 20:11-15</strong> — A cena do Grande Trono Branco: fuga da criação, abertura dos livros, Livro da Vida, lago de fogo.</p>
-  </div>
-  <div class="bloco-teo">
-    <div class="bk">Bloco 2 — O Julgamento dos Crentes</div>
-    <p><strong>2 Coríntios 5:10</strong> — Todos comparecerão ante o tribunal de Cristo. <strong>Romanos 8:1</strong> — Nenhuma condenação para os que estão em Cristo. <strong>1 Coríntios 3:12-15</strong> — O fogo prova a qualidade das obras; o crente pode sofrer perda, mas será salvo. <strong>Romanos 14:10-12</strong> — Cada um prestará contas de si mesmo a Deus.</p>
-  </div>
-  <div class="bloco-teo">
-    <div class="bk">Bloco 3 — O Julgamento dos Incrédulos</div>
-    <p><strong>Romanos 2:6-11</strong> — Deus remunerará a cada um segundo as suas obras; há graus de condenação. <strong>Lucas 12:47-48</strong> — Aquele que sabia mais receberá castigo maior; proporcionalidade do julgamento. <strong>Romanos 1:19-20</strong> — O testemunho da criação deixa os incrédulos sem desculpa. <strong>Apocalipse 20:15</strong> — Quem não está no Livro da Vida é lançado no lago de fogo.</p>
-  </div>
-  <div class="bloco-debate">
-    <div class="bk">Pergunta para Debate em Aula</div>
-    <p>"Se as obras dos crentes serão avaliadas pelo fogo e algumas serão destruídas, como isso se harmoniza com a afirmação de que estamos 'justificados pela fé e não pelas obras' (Rm 3:28)? O que Paulo quer dizer quando separa 'salvação' de 'recompensa'?"</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">Como Conduzir o Debate</div>
-    <p>Quando a turma debater a questão acima, oriente para a distinção paulina clássica: a justificação é pela fé, pelo mérito de Cristo, sem obras; a glorificação e as recompensas eternas são distintas da salvação, mas respondem à fidelidade e às obras do crente na vida cristã. Não são duas formas de salvação — são duas dimensões da vida coram Deo.</p>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Escada de Perguntas Socráticas -->
-  <div class="bloco-guia">
-    <div class="bk">Escada de Perguntas Socráticas</div>
-  </div>
-  <div class="escada-socratica">
-    <div class="degrau diagnostico">
-      <div class="degrau-num">1</div>
-      <div class="degrau-corpo">
-        <div class="degrau-nivel">Nível 1 — Diagnóstico</div>
-        <div class="degrau-pergunta">"Quando você pensa na palavra 'julgamento', qual é o primeiro sentimento que surge — medo, alívio, raiva, indiferença? Por quê?"</div>
-        <div class="degrau-resposta"><strong>Resposta esperada:</strong> Respostas variadas e pessoais. O objetivo é revelar a bagagem emocional de cada aluno com o tema e criar abertura para a abordagem bíblica.</div>
-      </div>
-    </div>
-    <div class="degrau conceitual">
-      <div class="degrau-num">2</div>
-      <div class="degrau-corpo">
-        <div class="degrau-nivel">Nível 2 — Conceitual</div>
-        <div class="degrau-pergunta">"Se Deus é onisciente e já sabe o resultado de cada vida, por que as Escrituras descrevem um julgamento público com livros abertos e testemunhos — e não simplesmente uma sentença privada?"</div>
-        <div class="degrau-resposta"><strong>Resposta esperada:</strong> O julgamento público vincula a justiça de Deus diante de toda a criação; não é para informar Deus, mas para declarar publicamente que cada sentença é perfeita e incontestável — vindicação da santidade divina.</div>
-      </div>
-    </div>
-    <div class="degrau aplicacao-d">
-      <div class="degrau-num">3</div>
-      <div class="degrau-corpo">
-        <div class="degrau-nivel">Nível 3 — Aplicação</div>
-        <div class="degrau-pergunta">"Romanos 12:19 diz que a vingança pertence a Deus. Há alguma situação concreta — um relacionamento rompido, uma injustiça sofrida — onde acreditar no Juízo Final muda sua forma de agir esta semana?"</div>
-        <div class="degrau-resposta"><strong>Resposta esperada:</strong> Respostas pessoais. O professor não deve forçar confissão pública, mas pode abrir espaço para quem quiser compartilhar. A resposta adequada é qualquer reconhecimento de que o Juiz eterno libera da necessidade de ser executor da própria justiça.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P2</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Mapa do Argumento</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">As Passagens-Chave — Mapa para o Professor</h2>
+<div class="bloco-teo">
+<div class="bk">Bloco 1 — O Juiz e a Cena do Julgamento</div>
+<p><strong>João 5:22,27</strong> — O Pai delegou todo o julgamento ao Filho; Cristo é o Juiz por ser o Filho do Homem. <strong>Atos 10:42</strong> — Cristo foi constituído Juiz dos vivos e dos mortos. <strong>Apocalipse 20:11-15</strong> — A cena do Grande Trono Branco: fuga da criação, abertura dos livros, Livro da Vida, lago de fogo.</p>
 </div>
-
+<div class="bloco-teo">
+<div class="bk">Bloco 2 — O Julgamento dos Crentes</div>
+<p><strong>2 Coríntios 5:10</strong> — Todos comparecerão ante o tribunal de Cristo. <strong>Romanos 8:1</strong> — Nenhuma condenação para os que estão em Cristo. <strong>1 Coríntios 3:12-15</strong> — O fogo prova a qualidade das obras; o crente pode sofrer perda, mas será salvo. <strong>Romanos 14:10-12</strong> — Cada um prestará contas de si mesmo a Deus.</p>
+</div>
+<div class="bloco-teo">
+<div class="bk">Bloco 3 — O Julgamento dos Incrédulos</div>
+<p><strong>Romanos 2:6-11</strong> — Deus remunerará a cada um segundo às suas obras; há graus de condenação. <strong>Lucas 12:47-48</strong> — Aquele que sabia mais receberá castigo maior; proporcionalidade do julgamento. <strong>Romanos 1:19-20</strong> — O testemunho da criação deixa os incrédulos sem desculpa. <strong>Apocalipse 20:15</strong> — Quem não está no Livro da Vida é lançado no lago de fogo.</p>
+</div>
+<div class="bloco-debate">
+<div class="bk">Pergunta para Debate em Aula</div>
+<p>"Se as obras dos crentes serão avaliadas pelo fogo e algumas serão destruídas, como isso se harmoniza com a afirmação de que estamos 'justificados pela fé e não pelas obras' (Rm 3:28)? O que Paulo quer dizer quando separa 'salvação' de 'recompensa'?"</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">Como Conduzir o Debate</div>
+<p>Quando a turma debater a questão acima, oriente para a distinção paulina clássica: a justificação é pela fé, pelo mérito de Cristo, sem obras; a glorificação e as recompensas eternas são distintas da salvação, mas respondem à fidelidade e às obras do crente na vida cristã. Não são duas formas de salvação — são duas dimensões da vida coram Deo.</p>
+</div>
+<!-- BLOCO ADICIONADO: Escada de Perguntas Socráticas -->
+<div class="bloco-guia">
+<div class="bk">Escada de Perguntas Socráticas</div>
+</div>
+<div class="escada-socratica">
+<div class="degrau diagnostico">
+<div class="degrau-num">1</div>
+<div class="degrau-corpo">
+<div class="degrau-nivel">Nível 1 — Diagnóstico</div>
+<div class="degrau-pergunta">"Quando você pensa na palavra 'julgamento', qual é o primeiro sentimento que surge — medo, alívio, raiva, indiferença? Por quê?"</div>
+<div class="degrau-resposta"><strong>Resposta esperada:</strong> Respostas variadas e pessoais. O objetivo é revelar a bagagem emocional de cada aluno com o tema e criar abertura para a abordagem bíblica.</div>
+</div>
+</div>
+<div class="degrau conceitual">
+<div class="degrau-num">2</div>
+<div class="degrau-corpo">
+<div class="degrau-nivel">Nível 2 — Conceitual</div>
+<div class="degrau-pergunta">"Se Deus é onisciente e já sabe o resultado de cada vida, por que as Escrituras descrevem um julgamento público com livros abertos e testemunhos — e não simplesmente uma sentença privada?"</div>
+<div class="degrau-resposta"><strong>Resposta esperada:</strong> O julgamento público vincula a justiça de Deus diante de toda a criação; não é para informar Deus, mas para declarar publicamente que cada sentença é perfeita e incontestável — vindicação da santidade divina.</div>
+</div>
+</div>
+<div class="degrau aplicacao-d">
+<div class="degrau-num">3</div>
+<div class="degrau-corpo">
+<div class="degrau-nivel">Nível 3 — Aplicação</div>
+<div class="degrau-pergunta">"Romanos 12:19 diz que a vingança pertence a Deus. Há alguma situação concreta — um relacionamento rompido, uma injustiça sofrida — onde acreditar no Juízo Final muda sua forma de agir esta semana?"</div>
+<div class="degrau-resposta"><strong>Resposta esperada:</strong> Respostas pessoais. O professor não deve forçar confissão pública, mas pode abrir espaço para quem quiser compartilhar. A resposta adequada é qualquer reconhecimento de que o Juiz eterno libera da necessidade de ser executor da própria justiça.</div>
+</div>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P2</span></div>
+</div>
 <!-- PG P3 — TABELA COMPARATIVA -->
 <div class="lbl lbl-prof">Página P3 · Tabela Comparativa</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Tabela Comparativa</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Dispensacionalismo × Amilenismo — O Juízo Final</h2>
-  <table class="tabela-comp">
-    <tr>
-      <th>Aspecto</th>
-      <th>Dispensacionalismo Pentecostal</th>
-      <th>Amilenismo Reformado</th>
-    </tr>
-    <tr>
-      <td>Número de julgamentos</td>
-      <td>Múltiplos e sequenciais (ao menos três distintos)</td>
-      <td>Um único julgamento universal ao fim da história</td>
-    </tr>
-    <tr>
-      <td>Tribunal de Cristo (2 Co 5:10)</td>
-      <td>Julgamento dos crentes arrebatados, nos céus, durante a Tribulação — avalia obras, não salvação</td>
-      <td>Mesmo evento que o Grande Trono Branco, visto sob ângulo diferente — crentes e incrédulos juntos</td>
-    </tr>
-    <tr>
-      <td>Julgamento das nações (Mt 25)</td>
-      <td>Julgamento dos sobreviventes da Tribulação baseado no tratamento aos judeus</td>
-      <td>Descrição do julgamento final de toda a humanidade com base na resposta ao evangelho</td>
-    </tr>
-    <tr>
-      <td>Grande Trono Branco (Ap 20)</td>
-      <td>Após o milênio; exclusivamente para os incrédulos de todas as eras</td>
-      <td>Julgamento final único de toda a humanidade ressuscitada</td>
-    </tr>
-    <tr>
-      <td>Proporcionalidade</td>
-      <td>Graus de recompensa para crentes; graus de punição para incrédulos</td>
-      <td>Graus de recompensa para crentes; graus de punição para incrédulos</td>
-    </tr>
-    <tr>
-      <td>Ponto de convergência</td>
-      <td colspan="2" style="text-align:center;font-style:italic;color:#7a2010;">Cristo é o Juiz · a salvação é pela graça · o crente não é condenado · a justiça de Deus é perfeita e definitiva</td>
-    </tr>
-  </table>
-  <div class="alerta">
-    <div class="bk">⚠ Atenção ao Ensinar</div>
-    <p>A diferença mais sensível é a leitura de Mateus 25:31-46. O dispensacionalismo interpreta "estes meus irmãos" como judeus da Tribulação; a leitura reformada vê o povo de Deus em geral. Apresente ambas as leituras com respeito, mostrando os argumentos exegéticos de cada lado, sem desqualificar nenhuma tradição.</p>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Diferenciação por Perfil -->
-  <div class="bloco-guia">
-    <div class="bk">Diferenciação por Perfil de Turma</div>
-  </div>
-  <div class="grid-perfil">
-    <div class="perfil-card ansioso">
-      <div class="perfil-tipo">Turma Ansiosa</div>
-      <div class="perfil-acao">Inicie e encerre com Rm 8:1. Reduza o tempo nas imagens de condenação e amplie a segurança do crente. Evite linguagem sensacionalista. Cheque individualmente após a aula quem parece perturbado.</div>
-    </div>
-    <div class="perfil-card intelectual">
-      <div class="perfil-tipo">Perfil Intelectual</div>
-      <div class="perfil-acao">Aprofunde a tabela comparativa. Indique Bavinck e Carson para leitura independente. Proponha a pergunta de debate da Pg P2 como exercício escrito para casa.</div>
-    </div>
-    <div class="perfil-card pratico">
-      <div class="perfil-tipo">Perfil Prático</div>
-      <div class="perfil-acao">Foque na dinâmica de abertura e na aplicação de Rm 12:19. Convide relatos concretos de situações onde a crença no julgamento de Deus libertou alguém da vingança pessoal.</div>
-    </div>
-    <div class="perfil-card resistente">
-      <div class="perfil-tipo">Perfil Resistente / Cético</div>
-      <div class="perfil-acao">Aborde o argumento moral: sem julgamento final, a história é absurda (Dostoiévski). Use a cenário da dinâmica (ditador impune) como ponto de entrada — a resistência ao juízo muitas vezes coexiste com desejo profundo de justiça.</div>
-    </div>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Avaliação Formativa Rápida -->
-  <div class="bloco-aval">
-    <div class="bk">Avaliação Formativa Rápida — Checklist de Objetivos</div>
-    <ul class="checklist">
-      <li>O aluno distinguiu o Tribunal de Cristo (recompensa) do Grande Trono Branco (condenação)?</li>
-      <li>O aluno compreendeu que Rm 8:1 e 2 Co 5:10 não se contradizem?</li>
-      <li>O aluno identificou pelo menos um texto de suporte de cada tradição (dispensacionalismo e amilenismo)?</li>
-      <li>O aluno conectou a doutrina à libertação da vingança pessoal (Rm 12:19)?</li>
-      <li>O aluno demonstrou abertura para avaliar sua própria vida à luz de 1 Co 3:12-15?</li>
-    </ul>
-  </div>
-
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P3</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Tabela Comparativa</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Dispensacionalismo × Amilenismo — O Juízo Final</h2>
+<table class="tabela-comp">
+<tr>
+<th>Aspecto</th>
+<th>Dispensacionalismo Pentecostal</th>
+<th>Amilenismo Reformado</th>
+</tr>
+<tr>
+<td>Número de julgamentos</td>
+<td>Múltiplos e sequênciais (ao menos três distintos)</td>
+<td>Um único julgamento universal ao fim da história</td>
+</tr>
+<tr>
+<td>Tribunal de Cristo (2 Co 5:10)</td>
+<td>Julgamento dos crentes arrebatados, nos céus, durante a Tribulação — avalia obras, não salvação</td>
+<td>Mesmo evento que o Grande Trono Branco, visto sob ângulo diferente — crentes e incrédulos juntos</td>
+</tr>
+<tr>
+<td>Julgamento das nações (Mt 25)</td>
+<td>Julgamento dos sobreviventes da Tribulação baseado no tratamento aos judeus</td>
+<td>Descrição do julgamento final de toda a humanidade com base na resposta ao evangelho</td>
+</tr>
+<tr>
+<td>Grande Trono Branco (Ap 20)</td>
+<td>Após o milênio; exclusivamente para os incrédulos de todas as eras</td>
+<td>Julgamento final único de toda a humanidade ressuscitada</td>
+</tr>
+<tr>
+<td>Proporcionalidade</td>
+<td>Graus de recompensa para crentes; graus de punição para incrédulos</td>
+<td>Graus de recompensa para crentes; graus de punição para incrédulos</td>
+</tr>
+<tr>
+<td>Ponto de convergência</td>
+<td colspan="2" style="text-align:center;font-style:italic;color:#7a2010;">Cristo é o Juiz · a salvação é pela graça · o crente não é condenado · a justiça de Deus é perfeita e definitiva</td>
+</tr>
+</table>
+<div class="alerta">
+<div class="bk">⚠ Atenção ao Ensinar</div>
+<p>A diferença mais sensível é a leitura de Mateus 25:31-46. O dispensacionalismo interpreta "estes meus irmãos" como judeus da Tribulação; a leitura reformada vê o povo de Deus em geral. Apresente ambas as leituras com respeito, mostrando os argumentos exegéticos de cada lado, sem desqualificar nenhuma tradição.</p>
 </div>
-
+<!-- BLOCO ADICIONADO: Diferenciação por Perfil -->
+<div class="bloco-guia">
+<div class="bk">Diferenciação por Perfil de Turma</div>
+</div>
+<div class="grid-perfil">
+<div class="perfil-card ansioso">
+<div class="perfil-tipo">Turma Ansiosa</div>
+<div class="perfil-acao">Inicie e encerre com Rm 8:1. Reduza o tempo nas imagens de condenação e amplie a segurança do crente. Evite linguagem sensacionalista. Cheque individualmente após a aula quem parece perturbado.</div>
+</div>
+<div class="perfil-card intelectual">
+<div class="perfil-tipo">Perfil Intelectual</div>
+<div class="perfil-acao">Aprofunde a tabela comparativa. Indique Bavinck e Carson para leitura independente. Proponha a pergunta de debate da Pg P2 como exercício escrito para casa.</div>
+</div>
+<div class="perfil-card pratico">
+<div class="perfil-tipo">Perfil Prático</div>
+<div class="perfil-acao">Foque na dinâmica de abertura e na aplicação de Rm 12:19. Convide relatos concretos de situações onde a crença no julgamento de Deus libertou alguém da vingança pessoal.</div>
+</div>
+<div class="perfil-card resistente">
+<div class="perfil-tipo">Perfil Resistente / Cético</div>
+<div class="perfil-acao">Aborde o argumento moral: sem julgamento final, a história é absurda (Dostoiévski). Use a cenário da dinâmica (ditador impune) como ponto de entrada — a resistência ao juízo muitas vezes coexiste com desejo profundo de justiça.</div>
+</div>
+</div>
+<!-- BLOCO ADICIONADO: Avaliação Formativa Rápida -->
+<div class="bloco-aval">
+<div class="bk">Avaliação Formativa Rápida — Checklist de Objetivos</div>
+<ul class="checklist">
+<li>O aluno distinguiu o Tribunal de Cristo (recompensa) do Grande Trono Branco (condenação)?</li>
+<li>O aluno compreendeu que Rm 8:1 e 2 Co 5:10 não se contradizem?</li>
+<li>O aluno identificou pelo menos um texto de suporte de cada tradição (dispensacionalismo e amilenismo)?</li>
+<li>O aluno conectou a doutrina à libertação da vingança pessoal (Rm 12:19)?</li>
+<li>O aluno demonstrou abertura para avaliar sua própria vida à luz de 1 Co 3:12-15?</li>
+</ul>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P3</span></div>
+</div>
 <!-- PG P4 — DINÂMICA DE ABERTURA -->
 <div class="lbl lbl-prof">Página P4 · Dinâmica de Abertura</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Dinâmica de Abertura</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Dinâmica de Abertura — "Há Justiça?"</h2>
-  <div class="bloco-guia">
-    <div class="bk">Objetivo</div>
-    <p>Conectar a necessidade emocional e moral de justiça à doutrina do Juízo Final, antes de entrar nos textos. A maioria dos alunos já sente intuitivamente que "alguém deveria responder por isso" — a dinâmica torna essa intuição o ponto de entrada teológico.</p>
-  </div>
-  <div class="bloco-guia">
-    <div class="bk">Execução (5–8 minutos)</div>
-    <p>Leia em voz alta dois cenários breves para a classe. Peça que cada aluno reaja internamente antes de falar.</p>
-    <p><strong>Cenário 1:</strong> "Um ditador responsável pela morte de centenas de milhares de pessoas morre de causas naturais, nunca julgado, em paz, cercado de luxo. Nenhum tribunal o alcançou. A história segue em frente."</p>
-    <p><strong>Cenário 2:</strong> "Uma criança abusada durante anos por alguém de confiança da família nunca viu o agressor ser responsabilizado. Ele morreu antes do processo ser concluído."</p>
-    <p>Pergunte: "Se Deus não existisse ou se não houvesse julgamento final, como você se sentiria em relação a esses cenários? Há injustiça irreparável no universo?" Deixe dois ou três alunos responder brevemente, depois conecte: "A doutrina do Juízo Final é exatamente a resposta cristã a essa necessidade moral profunda que todos sentimos."</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">Dica Pedagógica</div>
-    <p>Não force respostas — o objetivo é criar espaço emocional para a doutrina antes de trabalhar os textos. O silêncio após os cenários também é pedagogicamente válido. Evite usar casos reais ou nominados de pessoas que possam ser conhecidas pelos alunos.</p>
-  </div>
-  <div class="bloco-tempo">
-    <div class="bk">Distribuição do Tempo (50 min)</div>
-    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Dinâmica de abertura + conexão com o tema</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Introdução — leitura da Pg 2 com comentários</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Tópico I — Grande Trono Branco (Pg 3)</span></div>
-    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Tópico II — Crentes × Incrédulos (Pg 4)</span></div>
-    <div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Tópico III — Visões em Diálogo (Pg 5)</span></div>
-    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Conclusão e aplicação (Pg 6)</span></div>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Uso do Gabarito -->
-  <div class="bloco-gabarito">
-    <div class="bk">Orientação para o Uso do Gabarito (Pg P6)</div>
-    <p>As respostas sugeridas na Pg P6 são orientadoras, não prescritivas. O objetivo do professor não é conduzir a turma a reproduzir a "resposta certa", mas a aprofundar o raciocínio próprio. Respostas pessoais e honestas — mesmo que incompletas ou tentativas — têm valor pedagógico superior a respostas tecnicamente corretas mas impessoais. Ao valorizar uma resposta pessoal, o professor fortalece a internalização da doutrina. Corrija apenas erros factuais (ex.: confundir o Tribunal de Cristo com condenação); o restante, acolha e aprofunde com perguntas de seguimento da Escada Socrática (Pg P2).</p>
-  </div>
-
-  <!-- BLOCO ADICIONADO: Seguimento Pós-Lição -->
-  <div class="bloco-seguimento">
-    <div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
-    <div class="seguimento-item">
-      <span class="seg-dia">Dia 1–2</span>
-      <span class="seg-acao">Envie uma mensagem ao grupo lembrando Romanos 12:19 e convidando a uma reflexão silenciosa sobre alguém a quem precisam "entregar ao Juiz".</span>
-    </div>
-    <div class="seguimento-item">
-      <span class="seg-dia">Dia 3–4</span>
-      <span class="seg-acao">Compartilhe uma frase curta de Bavinck ou Carson (use a Pg P7) com o grupo como leitura devocional rápida.</span>
-    </div>
-    <div class="seguimento-item">
-      <span class="seg-dia">Dia 5</span>
-      <span class="seg-acao">Leia pessoalmente Apocalipse 20:11-15 em voz alta, devagar, como oração de preparação para a Lição 11 (O Inferno).</span>
-    </div>
-    <div class="seguimento-item">
-      <span class="seg-dia">Pré-L11</span>
-      <span class="seg-acao">Avise a turma que a próxima lição abordará o Inferno — tema difícil que exige maturidade. Sugira que leiam 2 Ts 1:6-10 e Lc 16:19-31 antes da aula.</span>
-    </div>
-  </div>
-
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P4</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Dinâmica de Abertura</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Dinâmica de Abertura — "Há Justiça?"</h2>
+<div class="bloco-guia">
+<div class="bk">Objetivo</div>
+<p>Conectar a necessidade emocional e moral de justiça à doutrina do Juízo Final, antes de entrar nos textos. A maioria dos alunos já sente intuitivamente que "alguém deveria responder por isso" — a dinâmica torna essa intuição o ponto de entrada teológico.</p>
 </div>
-
+<div class="bloco-guia">
+<div class="bk">Execução (5–8 minutos)</div>
+<p>Leia em voz alta dois cenários breves para a classe. Peça que cada aluno reaja internamente antes de falar.</p>
+<p><strong>Cenário 1:</strong> "Um ditador responsável pela morte de centenas de milhares de pessoas morre de causas naturais, nunca julgado, em paz, cercado de luxo. Nenhum tribunal o alcançou. A história segue em frente."</p>
+<p><strong>Cenário 2:</strong> "Uma criança abusada durante anos por alguém de confiança da família nunca viu o agressor ser responsabilizado. Ele morreu antes do processo ser concluído."</p>
+<p>Pergunte: "Se Deus não existisse ou se não houvesse julgamento final, como você se sentiria em relação a esses cenários? Há injustiça irreparável no universo?" Deixe dois ou três alunos responder brevemente, depois conecte: "A doutrina do Juízo Final é exatamente a resposta cristã a essa necessidade moral profunda que todos sentimos."</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">Dica Pedagógica</div>
+<p>Não force respostas — o objetivo é criar espaço emocional para a doutrina antes de trabalhar os textos. O silêncio após os cenários também é pedagogicamente válido. Evite usar casos reais ou nominados de pessoas que possam ser conhecidas pelos alunos.</p>
+</div>
+<div class="bloco-tempo">
+<div class="bk">Distribuição do Tempo (50 min)</div>
+<div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Dinâmica de abertura + conexão com o tema</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Introdução — leitura da Pg 2 com comentários</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Tópico I — Grande Trono Branco (Pg 3)</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Tópico II — Crentes × Incrédulos (Pg 4)</span></div>
+<div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Tópico III — Visões em Diálogo (Pg 5)</span></div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Conclusão e aplicação (Pg 6)</span></div>
+</div>
+<!-- BLOCO ADICIONADO: Uso do Gabarito -->
+<div class="bloco-gabarito">
+<div class="bk">Orientação para o Uso do Gabarito (Pg P6)</div>
+<p>As respostas sugeridas na Pg P6 são orientadoras, não prescritivas. O objetivo do professor não é conduzir a turma a reproduzir a "resposta certa", mas a aprofundar o raciocínio próprio. Respostas pessoais e honestas — mesmo que incompletas ou tentativas — têm valor pedagógico superior a respostas tecnicamente corretas mas impessoais. Ao valorizar uma resposta pessoal, o professor fortalece a internalização da doutrina. Corrija apenas erros factuais (ex.: confundir o Tribunal de Cristo com condenação); o restante, acolha e aprofunde com perguntas de seguimento da Escada Socrática (Pg P2).</p>
+</div>
+<!-- BLOCO ADICIONADO: Seguimento Pós-Lição -->
+<div class="bloco-seguimento">
+<div class="bk">Seguimento Pós-Lição — Ações para a Semana</div>
+<div class="seguimento-item">
+<span class="seg-dia">Dia 1–2</span>
+<span class="seg-acao">Envie uma mensagem ao grupo lembrando Romanos 12:19 e convidando a uma reflexão silenciosa sobre alguém a quem precisam "entregar ao Juiz".</span>
+</div>
+<div class="seguimento-item">
+<span class="seg-dia">Dia 3–4</span>
+<span class="seg-acao">Compartilhe uma frase curta de Bavinck ou Carson (use a Pg P7) com o grupo como leitura devocional rápida.</span>
+</div>
+<div class="seguimento-item">
+<span class="seg-dia">Dia 5</span>
+<span class="seg-acao">Leia pessoalmente Apocalipse 20:11-15 em voz alta, devagar, como oração de preparação para a Lição 11 (O Inferno).</span>
+</div>
+<div class="seguimento-item">
+<span class="seg-dia">Pré-L11</span>
+<span class="seg-acao">Avise a turma que a próxima lição abordará o Inferno — tema difícil que exige maturidade. Sugira que leiam 2 Ts 1:6-10 e Lc 16:19-31 antes da aula.</span>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P4</span></div>
+</div>
 <!-- PG P5 — DICAS PEDAGÓGICAS -->
 <div class="lbl lbl-prof">Página P5 · Dicas Pedagógicas</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Dicas Pedagógicas</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Dicas Pedagógicas</h2>
-  <div class="bloco-dica">
-    <div class="bk">1. Não use o juízo para assustar</div>
-    <p>O sensacionalismo escatológico — usar a doutrina do julgamento primariamente para induzir medo — é um erro pastoral histórico. O medo produz conformidade superficial, não transformação genuína. A doutrina do Juízo Final deve produzir sobriedade, missão e liberdade do peso da vingança — não terror paralisante. Se um aluno reagir com ansiedade sobre sua própria salvação, referencie Romanos 8:1 com firmeza e calor.</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">2. Mantenha a distinção graça × obras</div>
-    <p>A imagem do "fogo que prova as obras" em 1 Coríntios 3 é potencialmente confusa para alunos que aprenderam que salvação é "só pela fé." Explique que Paulo está falando de recompensas e não de salvação. A salvação é fundamento (v. 11 — "ninguém pode pôr outro fundamento além do que foi posto, o qual é Jesus Cristo"); as obras são edificação sobre esse fundamento. O crente cujas obras são destruídas "sofre perda, mas é salvo."</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">3. A proporcionalidade do julgamento como fundamento de confiança</div>
-    <p>A ideia de que há graus de recompensa e graus de condenação (Lc 12:47-48; Rm 2:6) pode gerar desconforto. Apresente-a como evidência da perfeita justiça de Deus, não como ameaça. Um juiz que punisse todos igualmente, independentemente do grau de culpa, seria injusto. A proporcionalidade do julgamento divino é exatamente o que garante que Deus não é arbitrário.</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">4. Como tratar o debate dispensacional × amilenista</div>
-    <p>A diferença de cronologia (múltiplos julgamentos × julgamento único) não deve dominar a aula. Dedique no máximo 7 a 10 minutos. O objetivo não é resolver o debate, mas mostrar que ele existe dentro do campo evangélico conservador e que o núcleo doutrinário — Cristo como Juiz, salvação pela graça, condenação justa dos impenitentes — é partilhado por ambas as tradições.</p>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">5. Romanos 12:19 como chave de aplicação pastoral</div>
-    <p>A aplicação mais imediata do Juízo Final para a vida cotidiana é a libertação da vingança pessoal. Muitos alunos carregam ressentimentos profundos. Ao entregar o julgamento a Deus (Rm 12:19), o crente não está sendo passivo diante da injustiça — está reconhecendo que há um juiz mais capaz e mais justo do que ele próprio. Isso libera energia para amar e servir em vez de ruminar.</p>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P5</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Dicas Pedagógicas</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Dicas Pedagógicas</h2>
+<div class="bloco-dica">
+<div class="bk">1. Não use o juízo para assustar</div>
+<p>O sensacionalismo escatológico — usar a doutrina do julgamento primariamente para induzir medo — é um erro pastoral histórico. O medo produz conformidade superficial, não transformação genuína. A doutrina do Juízo Final deve produzir sobriedade, missão e liberdade do peso da vingança — não terror paralisante. Se um aluno reagir com ansiedade sobre sua própria salvação, referencie Romanos 8:1 com firmeza e calor.</p>
 </div>
-
+<div class="bloco-dica">
+<div class="bk">2. Mantenha a distinção graça × obras</div>
+<p>A imagem do "fogo que prova as obras" em 1 Coríntios 3 é potencialmente confusa para alunos que aprenderam que salvação é "só pela fé." Explique que Paulo está falando de recompensas e não de salvação. A salvação é fundamento (v. 11 — "ninguém pode pôr outro fundamento além do que foi posto, o qual é Jesus Cristo"); as obras são edificação sobre esse fundamento. O crente cujas obras são destruídas "sofre perda, mas é salvo."</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">3. A proporcionalidade do julgamento como fundamento de confiança</div>
+<p>A ideia de que há graus de recompensa e graus de condenação (Lc 12:47-48; Rm 2:6) pode gerar desconforto. Apresente-a como evidência da perfeita justiça de Deus, não como ameaça. Um juiz que punisse todos igualmente, independentemente do grau de culpa, seria injusto. A proporcionalidade do julgamento divino é exatamente o que garante que Deus não é arbitrário.</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">4. Como tratar o debate dispensacional × amilenista</div>
+<p>A diferença de cronologia (múltiplos julgamentos × julgamento único) não deve dominar a aula. Dedique no máximo 7 a 10 minutos. O objetivo não é resolver o debate, mas mostrar que ele existe dentro do campo evangélico conservador e que o núcleo doutrinário — Cristo como Juiz, salvação pela graça, condenação justa dos impenitentes — é partilhado por ambas as tradições.</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">5. Romanos 12:19 como chave de aplicação pastoral</div>
+<p>A aplicação mais imediata do Juízo Final para a vida cotidiana é a libertação da vingança pessoal. Muitos alunos carregam ressentimentos profundos. Ao entregar o julgamento a Deus (Rm 12:19), o crente não está sendo passivo diante da injustiça — está reconhecendo que há um juiz mais capaz e mais justo do que ele próprio. Isso libera energia para amar e servir em vez de ruminar.</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P5</span></div>
+</div>
 <!-- PG P6 — RESPOSTAS SUGERIDAS -->
 <div class="lbl lbl-prof">Página P6 · Respostas Sugeridas</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Respostas Sugeridas</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
-  <div class="bloco-resp">
-    <div class="bk">Respostas Orientadoras</div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 01</div>
-      <div class="resp-txt">Sem julgamento final, a história é moralmente absurda — os perpetradores de genocídios, torturas e opressão sistemática ficam sem resposta definitiva. O Juízo Final é o fundamento racional e moral da esperança por justiça. Socialmente, a negação do julgamento divino tende a produzir ou relativismo moral ("tudo é permitido") ou tentação de fazer justiça com as próprias mãos. A crença no Juiz eterno, paradoxalmente, é o que sustenta a capacidade de perdoar e de não se deixar consumir pelo ódio.</div>
-    </div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 02</div>
-      <div class="resp-txt">O Tribunal de Cristo para os crentes não avalia se serão salvos, mas como serviram. A graça garante a salvação; a fidelidade determina a recompensa. Isso não cria mérito — as próprias obras fiéis são fruto do Espírito (Fp 2:13). O efeito prático: a motivação para servir muda de "preciso ganhar a salvação" para "quero honrar aquele que me salvou gratuitamente."</div>
-    </div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 03</div>
-      <div class="resp-txt">O dispensacionalismo apoia os múltiplos julgamentos principalmente em Apocalipse 20 (lido sequencialmente após o milênio) e na separação Israel/Igreja que cria programas distintos. O amilenismo apoia o julgamento único em passagens que descrevem ressurreição geral (Jo 5:28-29; Dn 12:2) e no princípio hermenêutico de que 2 Co 5:10 e Ap 20:11-15 descrevem a mesma realidade sob metáforas diferentes. Nenhuma das posições resolve todas as tensões textuais com perfeição.</div>
-    </div>
-    <div class="resp-item">
-      <div class="resp-num">Questão 04</div>
-      <div class="resp-txt">Estimule os alunos a ser concretos. O ressentimento mantido em segredo — contra um pai ausente, um traidor, um agressor — frequentemente coexiste com uma fé de superfície. Romanos 12:19 não pede que a pessoa finja que a injustiça não aconteceu, mas que deixe de ser a própria instância de justiça. Confiar no Juiz perfeito libera emocionalmente para a reconciliação possível e para a missão. O professor pode compartilhar, com discrição, um exemplo de como essa verdade operou na vida de alguém.</div>
-    </div>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P6</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Respostas Sugeridas</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+<div class="bloco-resp">
+<div class="bk">Respostas Orientadoras</div>
+<div class="resp-item">
+<div class="resp-num">Questão 01</div>
+<div class="resp-txt">Sem julgamento final, a história é moralmente absurda — os perpetradores de genocídios, torturas e opressão sistemática ficam sem resposta definitiva. O Juízo Final é o fundamento racional e moral da esperança por justiça. Socialmente, a negação do julgamento divino tende a produzir ou relativismo moral ("tudo é permitido") ou tentação de fazer justiça com as próprias mãos. A crença no Juiz eterno, paradoxalmente, é o que sustenta a capacidade de perdoar e de não se deixar consumir pelo ódio.</div>
 </div>
-
+<div class="resp-item">
+<div class="resp-num">Questão 02</div>
+<div class="resp-txt">O Tribunal de Cristo para os crentes não avalia se serão salvos, mas como serviram. A graça garante a salvação; a fidelidade determina a recompensa. Isso não cria mérito — as próprias obras fiéis são fruto do Espírito (Fp 2:13). O efeito prático: a motivação para servir muda de "preciso ganhar a salvação" para "quero honrar aquele que me salvou gratuitamente."</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 03</div>
+<div class="resp-txt">O dispensacionalismo apoia os múltiplos julgamentos principalmente em Apocalipse 20 (lido sequêncialmente após o milênio) e na separação Israel/Igreja que cria programas distintos. O amilenismo apoia o julgamento único em passagens que descrevem ressurreição geral (Jo 5:28-29; Dn 12:2) e no princípio hermenêutico de que 2 Co 5:10 e Ap 20:11-15 descrevem a mesma realidade sob metáforas diferentes. Nenhuma das posições resolve todas as tensões textuais com perfeição.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 04</div>
+<div class="resp-txt">Estimule os alunos a ser concretos. O ressentimento mantido em segredo — contra um pai ausente, um traidor, um agressor — frequentemente coexiste com uma fé de superfície. Romanos 12:19 não pede que a pessoa finja que a injustiça não aconteceu, mas que deixe de ser a própria instância de justiça. Confiar no Juiz perfeito libera emocionalmente para a reconciliação possível e para a missão. O professor pode compartilhar, com discrição, um exemplo de como essa verdade operou na vida de alguém.</div>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P6</span></div>
+</div>
 <!-- PG P7 — MATERIAIS COMPLEMENTARES -->
 <div class="lbl lbl-prof">Página P7 · Materiais Complementares</div>
 <div class="pag int-prof">
-  <div class="wm-prof">PROF</div>
-  <div class="ph-prof"><span class="ph-prof-l">Lição 10 · Materiais Complementares</span><span class="ph-prof-r">Edição Docente</span></div>
-  <h2 class="prof">Materiais Complementares</h2>
-  <div class="bloco-mat">
-    <div class="bk">📚 Para o Professor Aprofundar</div>
-    <div class="mat-item">
-      <span class="mat-tipo livro">Livro</span>
-      <span class="mat-info">Herman Bavinck — <em>Reformed Dogmatics</em>, vol. 4, caps. sobre Escatologia. Tratamento clássico e completo do julgamento final na tradição reformada. Fundamental para o professor que quer dominar os argumentos do amilenismo.</span>
-    </div>
-    <div class="mat-item">
-      <span class="mat-tipo livro">Livro</span>
-      <span class="mat-info">D. A. Carson — <em>The Gagging of God</em>, cap. 12. Aborda o julgamento dentro do contexto do pluralismo religioso contemporâneo. Essencial para responder à objeção de que "um Deus de amor não julgaria ninguém."</span>
-    </div>
-    <div class="mat-item">
-      <span class="mat-tipo livro">Livro</span>
-      <span class="mat-info">Leon Morris — <em>The Biblical Doctrine of Judgment</em>. Excelente visão panorâmica da doutrina do julgamento em todo o cânon bíblico, do AT ao Apocalipse.</span>
-    </div>
-    <div class="mat-item">
-      <span class="mat-tipo livro">Livro</span>
-      <span class="mat-info">John Stott &amp; David Edwards — <em>Essentials</em>. Debate público sobre o inferno e o julgamento eterno entre um aneducacionalista (Stott) e um tradicional (Edwards) — excelente modelo de diálogo respeitoso sobre tema difícil.</span>
-    </div>
-    <div class="mat-item">
-      <span class="mat-tipo video">Vídeo</span>
-      <span class="mat-info">Tim Keller — "Justice and Judgment" (série de sermões sobre Romanos, disponível em kottage.keller.nyc). Perspectiva reformada aplicada pastoralmente ao contexto urbano contemporâneo.</span>
-    </div>
-    <div class="mat-item">
-      <span class="mat-tipo site">Artigo</span>
-      <span class="mat-info">Kevin DeYoung — "The Final Judgment in the New Testament" (The Gospel Coalition). Síntese acessível das passagens-chave com orientação exegética clara.</span>
-    </div>
-  </div>
-  <div class="cit-autor">
-    "O juízo final será o reconhecimento público e solene, por parte de Deus, de que cada ser humano recebeu exatamente o que a sua vida mereceu — nada a mais, nada a menos. Para os salvos, isso é a glorificação da graça. Para os condenados, é a confirmação de que preferiram a trevas à luz."
-    <cite>— Herman Bavinck, <em>Reformed Dogmatics</em>, vol. 4</cite>
-  </div>
-  <div class="bloco-dica">
-    <div class="bk">Para a Próxima Lição</div>
-    <p>A Lição 11 — O Inferno — aprofundará as consequências eternas para os incrédulos. Prepare a turma avisando que o tema é difícil e exige maturidade. A lição trabalhará três posições: o infernalismo tradicional (tormento eterno consciente), o aniquilacionismo (extinção final dos ímpios) e o universalismo (salvação universal). O professor deve ler com antecedência os argumentos de cada posição.</p>
-  </div>
-  <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P7</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 10 · Materiais Complementares</span><span class="ph-prof-r">Edição Docente</span></div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-mat">
+<div class="bk">📚 Para o Professor Aprofundar</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Herman Bavinck — <em>Reformed Dogmatics</em>, vol. 4, caps. sobre Escatologia. Tratamento clássico e completo do julgamento final na tradição reformada. Fundamental para o professor que quer dominar os argumentos do amilenismo.</span>
 </div>
-
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">D. A. Carson — <em>The Gagging of God</em>, cap. 12. Aborda o julgamento dentro do contexto do pluralismo religioso contemporâneo. Essencial para responder à objeção de que "um Deus de amor não julgaria ninguém."</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Leon Morris — <em>The Biblical Doctrine of Judgment</em>. Excelente visão panorâmica da doutrina do julgamento em todo o cânon bíblico, do AT ao Apocalipse.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">John Stott &amp; David Edwards — <em>Essentials</em>. Debate público sobre o inferno e o julgamento eterno entre um aniquilacionista (Stott) e um tradicional (Edwards) — excelente modelo de diálogo respeitoso sobre tema difícil.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo video">Vídeo</span>
+<span class="mat-info">Tim Keller — "Justice and Judgment" (série de sermões sobre Romanos, disponível em kottage.keller.nyc). Perspectiva reformada aplicada pastoralmente ao contexto urbano contemporâneo.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo site">Artigo</span>
+<span class="mat-info">Kevin DeYoung — "The Final Judgment in the New Testament" (The Gospel Coalition). Síntese acessível das passagens-chave com orientação exegética clara.</span>
+</div>
+</div>
+<div class="cit-autor">
+    "O juízo final será o reconhecimento público e solene, por parte de Deus, de que cada ser humano recebeu exatamente o que a sua vida mereceu — nada a mais, nada a menos. Para os salvos, isso é a glorificação da graça. Para os condenados, é a confirmação de que preferiram as trevas à luz."
+    <cite>— Herman Bavinck, <em>Reformed Dogmatics</em>, vol. 4</cite>
+</div>
+<div class="bloco-dica">
+<div class="bk">Para a Próxima Lição</div>
+<p>A Lição 11 — O Inferno — aprofundará as consequências eternas para os incrédulos. Prepare a turma avisando que o tema é difícil e exige maturidade. A lição trabalhará três posições: o infernalismo tradicional (tormento eterno consciente), o aniquilacionismo (extinção final dos ímpios) e o universalismo (salvação universal). O professor deve ler com antecedência os argumentos de cada posição.</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor · Lição 10</span><span class="rn">P7</span></div>
+</div>
 </div><!-- fim conteudo-principal -->
 </div><!-- fim area -->
-
 <script>
 const SENHA_HASH = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
 async function sha256(msg){
