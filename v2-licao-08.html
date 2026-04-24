@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0d1a">
-<link rel="manifest" href="manifest-professor.json">
-<link rel="apple-touch-icon" href="icon-professor-192.png">
-<link rel="icon" type="image/png" href="icon-professor-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0a0d1a" name="theme-color"/>
+<link href="manifest-professor.json" rel="manifest"/>
+<link href="icon-professor-192.png" rel="apple-touch-icon"/>
+<link href="icon-professor-192.png" rel="icon" type="image/png"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Eschaton II · Prof." name="apple-mobile-web-app-title"/>
 <title>Eschaton Vol. II · Lição 08 — A Queda da Babilônia · Edição do Professor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root{
@@ -403,588 +404,564 @@ h2.prof{
 </style>
 </head>
 <body>
-
 <!-- TELA DE SENHA -->
 <div id="tela-senha">
-    <div class="senha-caixa">
-        <div class="senha-icone"></div>
-        <div class="senha-titulo">ESCHATON</div>
-        <div class="senha-sub">Vol. II · Edição do Professor</div>
-        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
-        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
-            onkeydown="if(event.key==='Enter')verificarSenha()">
-        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
-        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
-        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
-    </div>
+<div class="senha-caixa">
+<div class="senha-icone"></div>
+<div class="senha-titulo">ESCHATON</div>
+<div class="senha-sub">Vol. II · Edição do Professor</div>
+<div class="senha-desc">Material restrito para uso docente.<br/>Digite a senha para continuar.</div>
+<input class="senha-campo" id="senha-input" onkeydown="if(event.key==='Enter')verificarSenha()" placeholder="••••••••••••" type="password"/>
+<button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+<div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+<div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
 </div>
-
+</div>
 <!-- CONTEÚDO PRINCIPAL -->
 <div id="conteudo-principal">
-
 <div class="painel">
-    <div class="marca">ESCHATON VOL. II
+<div class="marca">ESCHATON VOL. II
         <span>Lição 08 · A Queda da Babilônia</span>
-        <em>Edição do Professor</em>
-    </div>
-    <span class="badge-prof">✦ Professor</span>
-    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
-    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
-    <a href="index.html"><button class="btn bv">&#8592; Hub</button></a>
+<em>Edição do Professor</em>
 </div>
-
+<span class="badge-prof">✦ Professor</span>
+<button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖶 Imprimir</button>
+<a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
 <div class="area">
-
 <!-- ══════════════════════════════════
      PARTE I — PÁGINAS DO ALUNO (espelho integral)
      ══════════════════════════════════ -->
-
 <!-- PG 1 CAPA -->
 <div class="lbl">Página 1 · Capa da Lição</div>
-<div class="pag capa">
-    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
-    <div class="cimg"></div><div class="clh"></div>
-    <div class="cnbg">08</div>
-    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
-    <div class="capa-prof-faixa">Edição do Professor</div>
-    <div class="ccon">
-        <div class="cser">Eschaton · A Palavra que Não Passará</div>
-        <div class="cref">Apocalipse 17:1 — 18:24</div>
-        <div class="ctit">A Queda da Babilônia</div>
-        <div class="cver">
+<div class="pag capa"><div class="capa-prof-faixa">Edição do Professor</div>
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">08</div>
+<div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+<div class="ccon">
+<div class="cser">Eschaton · A Palavra que Não Passará</div>
+<div class="cref">Apocalipse 17:1 — 18:24</div>
+<div class="ctit">A Queda da Babilônia</div>
+<div class="cver">
             "Caiu, caiu a grande Babilônia, e se tornou morada de demônios, e covil de todo espírito imundo... porque todas as nações beberam do vinho da ira da sua fornicação."
             <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 18:2-3</span>
-        </div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
 </div>
-
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
 <!-- PG 2 INTRODUCAO -->
 <div class="lbl">Página 2 · Introdução</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">2</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>Introdução</h2>
-    <p class="cap">Há uma cidade que nunca existiu e, ao mesmo tempo, existe em cada século. Babilônia — o nome ecoa através da história bíblica como o símbolo supremo de tudo que se levanta contra Deus: o orgulho imperial, a sedução econômica, a idolatria travestida de prosperidade. No Apocalipse, João a desvela em toda a sua glória aparente — e em toda a sua podridão interior.</p>
-    <p>Esta lição não é um exercício de arqueologia histórica. É um espelho. Babilônia não morreu com Roma — ela ressurge em cada sistema que promete vida plena fora de Deus, que escraviza os vulneráveis e que exige adoração. Reconhecê-la é o primeiro passo para obedecer ao chamado: "Saí dela, povo meu."</p>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">Por que estudar a queda de Babilônia?</div>
-        <p>Porque a Igreja precisa de clareza sobre onde está e a quê serve. O cristão que não reconhece Babilônia é o cristão que já está dentro dela sem perceber. Estudar Apocalipse 17-18 é aprender a ver o mundo com os olhos de Deus — e a escolher lealdades com plena consciência das consequências.</p>
-    </div>
-    <h3>O Fio Condutor desta Lição</h3>
-    <p>Examinaremos o contexto histórico e literário de Babilônia, a exegese das passagens centrais de Apocalipse 18, a teologia do julgamento de Deus sobre sistemas políticos e econômicos, e uma seção específica sobre a lamentação e o aleluia que respondem à queda.</p>
-    <div class="bloco-aluno bloco-refletir">
-        <div class="bloco-aluno-header">
-            <div class="bloco-aluno-icone">&#9998;</div>
-            <span class="bloco-aluno-label">Para Você Refletir</span>
-        </div>
-        <p>Antes de estudar, pare um momento: em que área da sua vida você percebe que Babilônia tem mais influência — seus hábitos de consumo, suas ambições profissionais, seus valores culturais? Anote livremente.</p>
-        <div class="bloco-refletir-linha"></div>
-        <div class="bloco-refletir-linha"></div>
-        <div class="bloco-refletir-linha"></div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+<div class="int-linhas"></div>
+<div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>Introdução</h2>
+<p class="cap">Há uma cidade que nunca existiu e, ao mesmo tempo, existe em cada século. Babilônia — o nome ecoa através da história bíblica como o símbolo supremo de tudo que se levanta contra Deus: o orgulho imperial, a sedução econômica, a idolatria travestida de prosperidade. No Apocalipse, João a desvela em toda a sua glória aparente — e em toda a sua podridão interior.</p>
+<p>Esta lição não é um exercício de arqueologia histórica. É um espelho. Babilônia não morreu com Roma — ela ressurge em cada sistema que promete vida plena fora de Deus, que escraviza os vulneráveis e que exige adoração. Reconhecê-la é o primeiro passo para obedecer ao chamado: "Saí dela, povo meu."</p>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">Por que estudar a queda de Babilônia?</div>
+<p>Porque a Igreja precisa de clareza sobre onde está e a que serve. O cristão que não reconhece Babilônia é o cristão que já está dentro dela sem perceber. Estudar Apocalipse 17-18 é aprender a ver o mundo com os olhos de Deus — e a escolher lealdades com plena consciência das consequências.</p>
 </div>
-
+<h3>O Fio Condutor desta Lição</h3>
+<p>Examinaremos o contexto histórico e literário de Babilônia, a exegese das passagens centrais de Apocalipse 18, a teologia do julgamento de Deus sobre sistemas políticos e econômicos, e uma seção específica sobre a lamentação e o aleluia que respondem à queda.</p>
+<div class="bloco-aluno bloco-refletir">
+<div class="bloco-aluno-header">
+<div class="bloco-aluno-icone">✎</div>
+<span class="bloco-aluno-label">Para Você Refletir</span>
+</div>
+<p>Antes de estudar, pare um momento: em que área da sua vida você percebe que Babilônia tem mais influência — seus hábitos de consumo, suas ambições profissionais, seus valores culturais? Anote livremente.</p>
+<div class="bloco-refletir-linha"></div>
+<div class="bloco-refletir-linha"></div>
+<div class="bloco-refletir-linha"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
 <!-- PG 3 TEXTO BIBLICO -->
 <div class="lbl">Página 3 · Texto Bíblico</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">2</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>A Passagem-Base</h2>
-    <div class="texto-biblico">
-        <div class="texto-biblico-ref">Apocalipse 18:2-5</div>
-        <p>"Caiu, caiu a grande Babilônia, e se tornou morada de demônios, e covil de todo espírito imundo, e covil de toda ave imunda e aborrecível. Porque todas as nações beberam do vinho da ira da sua fornicação, e os reis da terra se prostituíram com ela, e os mercadores da terra se enriqueceram com a abundância das suas delícias."</p>
-        <p>"E ouvi outra voz do céu, que dizia: Saí dela, povo meu, para que não sejais participantes dos seus pecados, e para que não recebais das suas pragas. Porque os seus pecados amontoaram-se até ao céu, e Deus se lembrou das suas iniquidades."</p>
-        <span class="ref-final">Apocalipse 18:2-5</span>
-    </div>
-    <div class="texto-biblico">
-        <div class="texto-biblico-ref">Apocalipse 18:9-10</div>
-        <p>"E os reis da terra, que com ela se prostituíram e viveram em delícias, chorarão e lamentarão sobre ela, quando virem a fumaça do seu incêndio. Estando de longe por causa do medo do seu tormento, dizendo: Ai! ai! a grande cidade de Babilônia, a forte cidade! Pois em uma hora veio o teu julgamento."</p>
-        <span class="ref-final">Apocalipse 18:9-10</span>
-    </div>
-    <div class="obj">
-        <div class="ot">Objetivos desta lição</div>
-        <ul>
-            <li>Identificar Babilônia como símbolo do sistema mundial de corrupção e idolatria</li>
-            <li>Examinar as três vozes de Apocalipse 18 — julgamento, saída e lamento</li>
-            <li>Compreender o chamado "saí dela, povo meu" como separação cristã do mundo</li>
-            <li>Aplicar a crítica profética ao consumismo, ao poder e à corrupção no presente</li>
-        </ul>
-    </div>
-    <div class="bloco-aluno bloco-conexao">
-        <div class="bloco-aluno-header">
-            <div class="bloco-aluno-icone">&#9741;</div>
-            <span class="bloco-aluno-label">Conexão Bíblica</span>
-        </div>
-        <p>O chamado "Saí dela" ecoa passagens do Antigo Testamento. Leia e relacione com o texto de hoje:</p>
-        <cite>Isaías 48:20 — "Saí da Babilônia, fugi dos caldeus..."</cite>
-        <cite>Jeremias 51:45 — "Saí do meio dela, povo meu, e salve cada um a sua vida..."</cite>
-        <cite>2 Coríntios 6:17 — "...saí do meio deles, e apartai-vos, diz o Senhor..."</cite>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+<div class="int-linhas"></div>
+<div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>A Passagem-Base</h2>
+<div class="texto-biblico">
+<div class="texto-biblico-ref">Apocalipse 18:2-5</div>
+<p>"Caiu, caiu a grande Babilônia, e se tornou morada de demônios, e covil de todo espírito imundo, e covil de toda ave imunda e aborrecível. Porque todas as nações beberam do vinho da ira da sua fornicação, e os reis da terra se prostituíram com ela, e os mercadores da terra se enriqueceram com a abundância das suas delícias."</p>
+<p>"E ouvi outra voz do céu, que dizia: Saí dela, povo meu, para que não sejais participantes dos seus pecados, e para que não recebais das suas pragas. Porque os seus pecados amontoaram-se até ao céu, e Deus se lembrou das suas iniquidades."</p>
+<span class="ref-final">Apocalipse 18:2-5</span>
 </div>
-
+<div class="texto-biblico">
+<div class="texto-biblico-ref">Apocalipse 18:9-10</div>
+<p>"E os reis da terra, que com ela se prostituíram e viveram em delícias, chorarão e lamentarão sobre ela, quando virem a fumaça do seu incêndio. Estando de longe por causa do medo do seu tormento, dizendo: Ai! ai! a grande cidade de Babilônia, a forte cidade! Pois em uma hora veio o teu julgamento."</p>
+<span class="ref-final">Apocalipse 18:9-10</span>
+</div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Identificar Babilônia como símbolo do sistema mundial de corrupção e idolatria</li>
+<li>Examinar as três vozes de Apocalipse 18 — julgamento, saída e lamento</li>
+<li>Compreender o chamado "saí dela, povo meu" como separação cristã do mundo</li>
+<li>Aplicar a crítica profética ao consumismo, ao poder e à corrupção no presente</li>
+</ul>
+</div>
+<div class="bloco-aluno bloco-conexao">
+<div class="bloco-aluno-header">
+<div class="bloco-aluno-icone">☍</div>
+<span class="bloco-aluno-label">Conexão Bíblica</span>
+</div>
+<p>O chamado "Saí dela" ecoa passagens do Antigo Testamento. Leia e relacione com o texto de hoje:</p>
+<cite>Isaías 48:20 — "Saí da Babilônia, fugi dos caldeus..."</cite>
+<cite>Jeremias 51:45 — "Saí do meio dela, povo meu, e salve cada um a sua vida..."</cite>
+<cite>2 Coríntios 6:17 — "...saí do meio deles, e apartai-vos, diz o Senhor..."</cite>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
 <!-- PG 4 CONTEXTO ORIGINAL -->
 <div class="lbl">Página 4 · I — Contexto Original</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">3</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>I-Contexto Original</h2>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">Babilônia — Uma Cidade Real e um Símbolo</div>
-        <p>Babilônia foi a maior potência do mundo antigo no século VI a.C. — destruiu Jerusalém, incendiou o Templo e levou Israel ao cativeiro. Para os judeus, o nome evocava opressão, idolatria e arrogância imperial. No Apocalipse, "Babilônia" é um codinome para Roma — a potência que dominava o mundo de João e perseguia os cristãos. Mas é também um símbolo atemporal de todo sistema humano que se ergue contra Deus, explora os fracos e seduz as nações com prosperidade falsa.</p>
-    </div>
-    <h3>Isaías 47 e Jeremias 50-51 — O Pano de Fundo</h3>
-    <p>João constrói sua visão da queda de Babilônia a partir de dois grandes poemas proféticos: o lamento sobre a queda de Babilônia histórica em Isaías 47 e os oráculos de Jeremias 50-51. A linguagem é quase idêntica — o que confirma que João entende seu texto como o cumprimento escatológico dessas profecias veterotestamentárias. A "grande prostituta" de Apocalipse 17 ecoa o vocabulário de Jeremias sobre Babilônia como sedutora das nações.</p>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">Os Três Grupos de Lamentadores — Ap 18</div>
-        <p>Quando Babilônia cai, três grupos lamentam sua queda "de longe" — por medo do tormento. Os <strong>reis da terra</strong> (Ap 18:9-10) que se prostituíram com ela; os <strong>mercadores</strong> (Ap 18:11-17) que enriqueceram com seu comércio; e os <strong>marinheiros</strong> (Ap 18:17-19) que lucraram com seu transporte. Cada grupo lamenta a perda do próprio lucro, não a morte de pessoas — a crítica econômica de João é demolidora.</p>
-    </div>
-    <h3>"Saí Dela, Povo Meu" — O Chamado do Êxodo</h3>
-    <p>A voz de Ap 18:4 ecoa o chamado profético de Isaías 48:20 e Jeremias 51:45 para que Israel saísse da Babilônia histórica. Para a Igreja, o chamado não é geográfico — é uma separação de valores, lealdades e sistemas que competem com o senhorio de Cristo.</p>
-    <div class="bloco-aluno bloco-sabia">
-        <div class="bloco-aluno-header">
-            <div class="bloco-aluno-icone">&#9432;</div>
-            <span class="bloco-aluno-label">Sabia Que?</span>
-        </div>
-        <p>A palavra "Babilônia" aparece 6 vezes no Novo Testamento — todas no livro do Apocalipse, exceto uma menção em 1 Pedro 5:13. Historiadores debatem se Pedro escrevia literalmente de Babilônia (Mesopotamia) ou usando o codinome para Roma, assim como João. A maioria dos estudiosos entende que ambos os apóstolos usavam o nome como símbolo de resistência codificada sob perseguição imperial.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+<div class="int-linhas"></div>
+<div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>I — Contexto Original</h2>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">Babilônia — Uma Cidade Real e um Símbolo</div>
+<p>Babilônia foi a maior potência do mundo antigo no século VI a.C. — destruiu Jerusalém, incendiou o Templo e levou Israel ao cativeiro. Para os judeus, o nome evocava opressão, idolatria e arrogância imperial. No Apocalipse, "Babilônia" é um codinome para Roma — a potência que dominava o mundo de João e perseguia os cristãos. Mas é também um símbolo atemporal de todo sistema humano que se ergue contra Deus, explora os fracos e seduz as nações com prosperidade falsa.</p>
 </div>
-
+<h3>Isaías 47 e Jeremias 50-51 — O Pano de Fundo</h3>
+<p>João constrói sua visão da queda de Babilônia a partir de dois grandes poemas proféticos: o lamento sobre a queda de Babilônia histórica em Isaías 47 e os oráculos de Jeremias 50-51. A linguagem é quase idêntica — o que confirma que João entende seu texto como o cumprimento escatológico dessas profecias veterotestamentárias. A "grande prostituta" de Apocalipse 17 ecoa o vocabulário de Jeremias sobre Babilônia como sedutora das nações.</p>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">Os Três Grupos de Lamentadores — Ap 18</div>
+<p>Quando Babilônia cai, três grupos lamentam sua queda "de longe" — por medo do tormento. Os <strong>reis da terra</strong> (Ap 18:9-10) que se prostituíram com ela; os <strong>mercadores</strong> (Ap 18:11-17) que enriqueceram com seu comércio; e os <strong>marinheiros</strong> (Ap 18:17-19) que lucraram com seu transporte. Cada grupo lamenta a perda do próprio lucro, não a morte de pessoas — a crítica econômica de João é demolidora.</p>
+</div>
+<h3>"Saí Dela, Povo Meu" — O Chamado do Êxodo</h3>
+<p>A voz de Ap 18:4 ecoa o chamado profético de Isaías 48:20 e Jeremias 51:45 para que Israel saísse da Babilônia histórica. Para a Igreja, o chamado não é geográfico — é uma separação de valores, lealdades e sistemas que competem com o senhorio de Cristo.</p>
+<div class="bloco-aluno bloco-sabia">
+<div class="bloco-aluno-header">
+<div class="bloco-aluno-icone">ⓘ</div>
+<span class="bloco-aluno-label">Sabia Que?</span>
+</div>
+<p>A palavra "Babilônia" aparece 6 vezes no Novo Testamento — todas no livro do Apocalipse, exceto uma menção em 1 Pedro 5:13. Historiadores debatem se Pedro escrevia literalmente de Babilônia (Mesopotâmia) ou usando o codinome para Roma, assim como João. A maioria dos estudiosos entende que ambos os apóstolos usavam o nome como símbolo de resistência codificada sob perseguição imperial.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
 <!-- PG 5 EXEGESE -->
 <div class="lbl">Página 5 · II — Exegese da Passagem</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">4</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>II-Exegese da Passagem</h2>
-    <h3>"A Grande Prostituta" — Ap 17:1</h3>
-    <p>A imagem da prostituta — usada pelos profetas para descrever Israel infiel (Os 1-3; Ez 16; Jr 3) — é aqui aplicada ao sistema mundial que seduz as nações com promessas de prosperidade e prazer. A prostituta não é apenas um poder político — é um sistema de valores que faz as nações "beberem do vinho da ira da sua fornicação" (Ap 18:3). O vinho é sedutor; a ira é o que fica depois que a sedução passa.</p>
-    <h3>"Caiu, caiu" — Ap 18:2</h3>
-    <p>O duplo "caiu" ecoa Isaías 21:9 — o anúncio da queda da Babilônia histórica. No Apocalipse, a queda é anunciada no tempo passado antes de acontecer — a certeza profética é tão absoluta que o evento futuro pode ser descrito como já consumado. Deus já decretou a queda de todo sistema que se opõe a ele; a história apenas aguarda a execução do decreto.</p>
-    <h3>"Em uma hora" — Ap 18:10, 17, 19</h3>
-    <p>A expressão "em uma hora" aparece três vezes no lamento dos que perderam tudo com a queda de Babilônia. O que parecia eterno e sólido — o Império Romano, o sistema econômico global, a prosperidade das nações — desmorona em um instante. Isso é advertência: nada construído sobre a areia do sistema mundial é permanente.</p>
-    <h3>A Lista de Mercadorias — Ap 18:12-13</h3>
-    <p>A lista de mercadorias perdidas na queda de Babilônia é reveladora: ouro, prata, pedras preciosas, roupas finas, madeiras raras, marfim, bronze, ferro, mármore, especiarias, vinho, azeite, trigo, gado — e, por último, "corpos e almas de homens" (Ap 18:13). O sistema de Babilônia escraviza pessoas como mercadoria. A crítica de João ao comércio escravagista de Roma é explícita e demolidora.</p>
-    <div class="bloco-aluno bloco-pense">
-        <div class="bloco-aluno-header">
-            <div class="bloco-aluno-icone">&#8857;</div>
-            <span class="bloco-aluno-label">Pense Nisso</span>
-        </div>
-        <span class="bloco-pense-destaque">"Corpos e almas de homens" — Ap 18:13</span>
-        <p>A lista de mercadorias de Babilônia termina com pessoas. João coloca seres humanos na mesma categoria que ouro, marfim e especiarias. Quando um sistema econômico trata pessoas como recurso, insumo ou número — não como imagem de Deus — ele reproduz a lógica de Babilônia. Onde você vê isso hoje?</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+<div class="int-linhas"></div>
+<div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>II — Exegese da Passagem</h2>
+<h3>"A Grande Prostituta" — Ap 17:1</h3>
+<p>A imagem da prostituta — usada pelos profetas para descrever Israel infiel (Os 1-3; Ez 16; Jr 3) — é aqui aplicada ao sistema mundial que seduz as nações com promessas de prosperidade e prazer. A prostituta não é apenas um poder político — é um sistema de valores que faz as nações "beberem do vinho da ira da sua fornicação" (Ap 18:3). O vinho é sedutor; a ira é o que fica depois que a sedução passa.</p>
+<h3>"Caiu, caiu" — Ap 18:2</h3>
+<p>O duplo "caiu" ecoa Isaías 21:9 — o anúncio da queda da Babilônia histórica. No Apocalipse, a queda é anunciada no tempo passado antes de acontecer — a certeza profética é tão absoluta que o evento futuro pode ser descrito como já consumado. Deus já decretou a queda de todo sistema que se opõe a ele; a história apenas aguarda a execução do decreto.</p>
+<h3>"Em uma hora" — Ap 18:10, 17, 19</h3>
+<p>A expressão "em uma hora" aparece três vezes no lamento dos que perderam tudo com a queda de Babilônia. O que parecia eterno e sólido — o Império Romano, o sistema econômico global, a prosperidade das nações — desmorona em um instante. Isso é advertência: nada construído sobre a areia do sistema mundial é permanente.</p>
+<h3>A Lista de Mercadorias — Ap 18:12-13</h3>
+<p>A lista de mercadorias perdidas na queda de Babilônia é reveladora: ouro, prata, pedras preciosas, roupas finas, madeiras raras, marfim, bronze, ferro, mármore, especiarias, vinho, azeite, trigo, gado — e, por último, "corpos e almas de homens" (Ap 18:13). O sistema de Babilônia escraviza pessoas como mercadoria. A crítica de João ao comércio escravagista de Roma é explícita e demolidora.</p>
+<div class="bloco-aluno bloco-pense">
+<div class="bloco-aluno-header">
+<div class="bloco-aluno-icone">⊙</div>
+<span class="bloco-aluno-label">Pense Nisso</span>
 </div>
-
+<span class="bloco-pense-destaque">"Corpos e almas de homens" — Ap 18:13</span>
+<p>A lista de mercadorias de Babilônia termina com pessoas. João coloca seres humanos na mesma categoria que ouro, marfim e especiarias. Quando um sistema econômico trata pessoas como recurso, insumo ou número — não como imagem de Deus — ele reproduz a lógica de Babilônia. Onde você vê isso hoje?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
 <!-- PG 6 TEOLOGIA -->
 <div class="lbl">Página 6 · III — Teologia da Passagem</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">5</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>III-Teologia da Passagem</h2>
-    <div class="bloco-teo">
-        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
-        <p>Deus é o Senhor da economia e da política — não apenas da religião. Sua crítica ao sistema de Babilônia é econômica, política e social: ela "enriqueceu os mercadores" (Ap 18:3), "escravizou corpos e almas" (Ap 18:13) e "embriagou as nações" (Ap 18:3). O Deus do Apocalipse não é um Deus privatizado que cuida apenas da "espiritualidade" — é o Senhor de toda a realidade que julga sistemas econômicos e políticos com a mesma seriedade com que julga pecados individuais.</p>
-    </div>
-    <h3>Duas Respostas Distintas — Ap 18 e 19</h3>
-    <p>Diante da queda de Babilônia, dois grupos reagem de forma oposta. Os reis, mercadores e marinheiros choram e lamentam (Ap 18:9-19) — perderam seus lucros. O céu, os apóstolos e os profetas são convocados a regozijar-se (Ap 18:20) — a justiça foi feita. O mesmo evento é tragédia para os que investiram no sistema errado e aleluia para os que mantiveram sua lealdade ao Cordeiro.</p>
-    <h3>Babilônia como Realidade Presente</h3>
-    <p>Para os leitores de João, Babilônia era Roma — concreta, presente e opressiva. Para cada geração de cristãos, Babilônia assume a forma do sistema dominante que exige lealdade, seduz com prosperidade e persegue os fiéis. O critério para identificar Babilônia em cada época: qual sistema promete vida plena fora de Deus? Qual poder exige adoração? Qual economia escraviza os vulneráveis?</p>
-    <div class="bloco-teo">
-        <div class="bloco-teo-titulo">O Cântico do Aleluia — Ap 19:1-3</div>
-        <p>Imediatamente após a queda de Babilônia, o céu ecoa com "Aleluia!" — a única vez que essa palavra aparece no NT. A adoração é a resposta adequada ao julgamento justo de Deus. Não é grito de vingança — é celebração da santidade de Deus e da libertação dos seus servos.</p>
-    </div>
-    <div class="bloco-aluno bloco-leve">
-        <div class="bloco-aluno-header">
-            <div class="bloco-aluno-icone">&#10132;</div>
-            <span class="bloco-aluno-label">Leve para a Sua Vida</span>
-        </div>
-        <div class="bloco-leve-item">
-            <span class="bloco-leve-num">1</span>
-            <p><strong>Esta semana</strong>, identifique um "vinho de Babilônia" que tem exercido influência sobre você — uma promessa cultural, um hábito de consumo ou uma lealdade que compete com Cristo.</p>
-        </div>
-        <div class="bloco-leve-item">
-            <span class="bloco-leve-num">2</span>
-            <p><strong>Ore</strong> usando as palavras de Ap 18:4 como guia: peça ao Senhor clareza para reconhecer os valores do sistema que precisam ser abandonados.</p>
-        </div>
-        <div class="bloco-leve-item">
-            <span class="bloco-leve-num">3</span>
-            <p><strong>Compartilhe</strong> com um amigo ou familiar uma reflexão desta lição sobre como o julgamento de Deus sobre sistemas injustos traz esperança ao cristão.</p>
-        </div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+<div class="int-linhas"></div>
+<div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>III-Teologia da Passagem</h2>
+<div class="bloco-teo">
+<div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+<p>Deus é o Senhor da economia e da política — não apenas da religião. Sua crítica ao sistema de Babilônia é econômica, política e social: ela "enriqueceu os mercadores" (Ap 18:3), "escravizou corpos e almas" (Ap 18:13) e "embriagou as nações" (Ap 18:3). O Deus do Apocalipse não é um Deus privatizado que cuida apenas da "espiritualidade" — é o Senhor de toda a realidade que julga sistemas econômicos e políticos com a mesma seriedade com que julga pecados individuais.</p>
 </div>
-
+<h3>Duas Respostas Distintas — Ap 18 e 19</h3>
+<p>Diante da queda de Babilônia, dois grupos reagem de forma oposta. Os reis, mercadores e marinheiros choram e lamentam (Ap 18:9-19) — perderam seus lucros. O céu, os apóstolos e os profetas são convocados a regozijar-se (Ap 18:20) — a justiça foi feita. O mesmo evento é tragédia para os que investiram no sistema errado e aleluia para os que mantiveram sua lealdade ao Cordeiro.</p>
+<h3>Babilônia como Realidade Presente</h3>
+<p>Para os leitores de João, Babilônia era Roma — concreta, presente e opressiva. Para cada geração de cristãos, Babilônia assume a forma do sistema dominante que exige lealdade, seduz com prosperidade e persegue os fiéis. O critério para identificar Babilônia em cada época: qual sistema promete vida plena fora de Deus? Qual poder exige adoração? Qual economia escraviza os vulneráveis?</p>
+<div class="bloco-teo">
+<div class="bloco-teo-titulo">O Cântico do Aleluia — Ap 19:1-3</div>
+<p>Imediatamente após a queda de Babilônia, o céu ecoa com "Aleluia!" — a única vez que essa palavra aparece no NT. A adoração é a resposta adequada ao julgamento justo de Deus. Não é grito de vingança — é celebração da santidade de Deus e da libertação dos seus servos.</p>
+</div>
+<div class="bloco-aluno bloco-leve">
+<div class="bloco-aluno-header">
+<div class="bloco-aluno-icone">➔</div>
+<span class="bloco-aluno-label">Leve para a Sua Vida</span>
+</div>
+<div class="bloco-leve-item">
+<span class="bloco-leve-num">1</span>
+<p><strong>Esta semana</strong>, identifique um "vinho de Babilônia" que tem exercido influência sobre você — uma promessa cultural, um hábito de consumo ou uma lealdade que compete com Cristo.</p>
+</div>
+<div class="bloco-leve-item">
+<span class="bloco-leve-num">2</span>
+<p><strong>Ore</strong> usando as palavras de Ap 18:4 como guia: peça ao Senhor clareza para reconhecer os valores do sistema que precisam ser abandonados.</p>
+</div>
+<div class="bloco-leve-item">
+<span class="bloco-leve-num">3</span>
+<p><strong>Compartilhe</strong> com um amigo ou familiar uma reflexão desta lição sobre como o julgamento de Deus sobre sistemas injustos traz esperança ao cristão.</p>
+</div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
 <!-- PG 7 SECAO IV -->
 <div class="lbl">Página 7 · IV — A Lamentação e o Aleluia</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">7</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>IV-A Lamentação e o Aleluia</h2>
-    <h3>Os Três Grupos que Choram — Ap 18:9-19</h3>
-    <p>Três grupos lamentam a queda de Babilônia — todos de longe, todos por medo, e nenhum por amor. Os <strong>reis</strong> lamentam o poder perdido (vv. 9-10); os <strong>mercadores</strong> lamentam os lucros perdidos (vv. 11-17a); os <strong>marinheiros</strong> lamentam os fretes perdidos (vv. 17b-19). Em cada lamento, a mesma frase: "em uma hora." O que levou séculos para construir desmorona instantaneamente. E ninguém chora pelas pessoas — todos choram pelas mercadorias.</p>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">O Contraste Radical — Ap 18:20</div>
-        <p>"Alegra-te sobre ela, ó céu, e vós, santos apóstolos e profetas; porque Deus julgou a vossa causa contra ela." Enquanto o mundo chora, o céu canta. O mesmo evento é tragédia para os que apostaram no sistema errado e libertação para os que mantiveram sua lealdade ao Cordeiro. A perspectiva determina tudo.</p>
-    </div>
-    <h3>O Cântico do Aleluia — Ap 19:1-4</h3>
-    <p>"Aleluia!" — a única ocorrência desta palavra no Novo Testamento, repetida quatro vezes em Apocalipse 19:1-6. Não é um grito de vingança cruel — é a resposta santa de quem finalmente vê a justiça triunfar depois de séculos de opressão. O "Aleluia!" dos mártires e dos santos é a confirmação de que Deus ouviu o clamor dos que derramaram sangue sob o altar (Ap 6:9-10).</p>
-    <div class="bloco-teo">
-        <div class="bloco-teo-titulo">A Pedra no Mar — Ap 18:21</div>
-        <p>Um anjo lança uma pedra como moinho no mar: "Com tal ímpeto será lançada a grande Babilônia, e nunca mais será achada." A imagem ecoa Jeremias 51:63-64, onde o profeta atirou ao Eufrates o rolo com as profecias contra Babilônia. A queda é total, irreversível e definitiva — não haverá recuperação, negociação ou apelação.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+<div class="int-linhas"></div>
+<div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>IV — A Lamentação e o Aleluia</h2>
+<h3>Os Três Grupos que Choram — Ap 18:9-19</h3>
+<p>Três grupos lamentam a queda de Babilônia — todos de longe, todos por medo, e nenhum por amor. Os <strong>reis</strong> lamentam o poder perdido (vv. 9-10); os <strong>mercadores</strong> lamentam os lucros perdidos (vv. 11-17a); os <strong>marinheiros</strong> lamentam os fretes perdidos (vv. 17b-19). Em cada lamento, a mesma frase: "em uma hora." O que levou séculos para construir desmorona instantaneamente. E ninguém chora pelas pessoas — todos choram pelas mercadorias.</p>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">O Contraste Radical — Ap 18:20</div>
+<p>"Alegra-te sobre ela, ó céu, e vós, santos apóstolos e profetas; porque Deus julgou a vossa causa contra ela." Enquanto o mundo chora, o céu canta. O mesmo evento é tragédia para os que apostaram no sistema errado e libertação para os que mantiveram sua lealdade ao Cordeiro. A perspectiva determina tudo.</p>
 </div>
-
+<h3>O Cântico do Aleluia — Ap 19:1-4</h3>
+<p>"Aleluia!" — a única ocorrência desta palavra no Novo Testamento, repetida quatro vezes em Apocalipse 19:1-6. Não é um grito de vingança cruel — é a resposta santa de quem finalmente vê a justiça triunfar depois de séculos de opressão. O "Aleluia!" dos mártires e dos santos é a confirmação de que Deus ouviu o clamor dos que derramaram sangue sob o altar (Ap 6:9-10).</p>
+<div class="bloco-teo">
+<div class="bloco-teo-titulo">A Pedra no Mar — Ap 18:21</div>
+<p>Um anjo lança uma pedra como moinho no mar: "Com tal ímpeto será lançada a grande Babilônia, e nunca mais será achada." A imagem ecoa Jeremias 51:63-64, onde o profeta atirou ao Eufrates o rolo com as profecias contra Babilônia. A queda é total, irreversível e definitiva — não haverá recuperação, negociação ou apelação.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
 <!-- PG 8 CONCLUSAO -->
 <div class="lbl">Página 8 · Conclusão</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">8</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>Conclusão</h2>
-    <p class="cap">A queda de Babilônia não é uma notícia do futuro — é uma certeza do presente. Para quem lê o Apocalipse com fé, o decreto já foi assinado. A história ainda aguarda a execução, mas o resultado é tão certo que João pode descrevê-lo no passado: "Caiu, caiu." O cristão que sabe isso vive diferente: não investe no sistema errado, não chora quando o que sempre foi temporário finalmente acaba, e não se surpreende quando o que parecia eterno desmorona em uma hora.</p>
-    <div class="bloco-teo">
-        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
-        <p>Aprendemos que Babilônia é ao mesmo tempo uma realidade histórica — Roma no século I — e um símbolo atemporal de todo sistema que se opõe a Deus. Vimos que sua queda é anunciada com certeza profética absoluta, que os três grupos de lamentadores revelam a idolatria econômica do sistema, e que o chamado "Saí dela" é um chamado de separação de valores, não de fuga geográfica. E aprendemos que a resposta correta à queda de Babilônia é o "Aleluia!" — não a vingança, mas a adoração.</p>
-    </div>
-    <h3>A Pergunta que Permanece</h3>
-    <p>Cada geração precisa responder: onde está minha Babilônia? Qual sistema exige minha lealdade, seduz com seus vinhos e escraviza quem eu deveria amar? O critério não muda: todo poder que promete vida plena fora de Deus, que acumula riqueza às custas dos vulneráveis e que persegue os fiéis — esse é Babilônia. E a ela, o povo de Deus recebe um só comando: "Saí."</p>
-    <div class="bloco-ctx">
-        <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
-        <p>A queda de Babilônia prepara o cenário para a ceia das bodas do Cordeiro (Ap 19:6-10) — tema da próxima lição. Enquanto Babilônia cai, a noiva do Cordeiro se prepara. São dois destinos opostos para dois tipos de pessoas: os que viveram para Babilônia e os que viveram para o Cordeiro.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+<div class="int-linhas"></div>
+<div class="wm">8</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>Conclusão</h2>
+<p class="cap">A queda de Babilônia não é uma notícia do futuro — é uma certeza do presente. Para quem lê o Apocalipse com fé, o decreto já foi assinado. A história ainda aguarda a execução, mas o resultado é tão certo que João pode descrevê-lo no passado: "Caiu, caiu." O cristão que sabe isso vive diferente: não investe no sistema errado, não chora quando o que sempre foi temporário finalmente acaba, e não se surpreende quando o que parecia eterno desmorona em uma hora.</p>
+<div class="bloco-teo">
+<div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+<p>Aprendemos que Babilônia é ao mesmo tempo uma realidade histórica — Roma no século I — e um símbolo atemporal de todo sistema que se opõe a Deus. Vimos que sua queda é anunciada com certeza profética absoluta, que os três grupos de lamentadores revelam a idolatria econômica do sistema, e que o chamado "Saí dela" é um chamado de separação de valores, não de fuga geográfica. E aprendemos que a resposta correta à queda de Babilônia é o "Aleluia!" — não a vingança, mas a adoração.</p>
 </div>
-
+<h3>A Pergunta que Permanece</h3>
+<p>Cada geração precisa responder: onde está minha Babilônia? Qual sistema exige minha lealdade, seduz com seus vinhos e escraviza quem eu deveria amar? O critério não muda: todo poder que promete vida plena fora de Deus, que acumula riqueza às custas dos vulneráveis e que persegue os fiéis — essa é Babilônia. E a ela, o povo de Deus recebe um só comando: "Saí."</p>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
+<p>A queda de Babilônia prepara o cenário para a ceia das bodas do Cordeiro (Ap 19:6-10) — tema da próxima lição. Enquanto Babilônia cai, a noiva do Cordeiro se prepara. São dois destinos opostos para dois tipos de pessoas: os que viveram para Babilônia e os que viveram para o Cordeiro.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
 <!-- PG 9 APLICACAO -->
 <div class="lbl">Página 9 · Aplicação Direta</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">6</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>Aplicação Direta</h2>
-    <p class="cap">"Saí dela, povo meu" (Ap 18:4) — esse chamado não é monasticismo geográfico. O cristão não abandona o mundo; ele recusa a lógica do mundo. A diferença é entre habitação e participação: habitar o mundo é uma necessidade; participar de seus valores, lealdades e sistemas de idolatria é o que deve ser evitado. Essa distinção exige discernimento constante e coragem prática.</p>
-    <div class="bloco-apl">
-        <div class="bloco-apl-titulo">Para esta semana</div>
-        <p>Primeiro: a lista de mercadorias de Ap 18:12-13 termina com "corpos e almas de homens" — o sistema de Babilônia escraviza pessoas. Examine sua própria participação em sistemas econômicos: sua forma de consumir, investir e trabalhar explora ou dignifica os vulneráveis? Segundo: os mercadores lamentam "em uma hora" — a rapidez da queda do que parecia eterno. Quais certezas materiais ou profissionais você está tratando como permanentes, quando são temporárias? Terceiro: o céu é convocado a regozijar-se com a queda de Babilônia — a justiça foi feita. Há injustiças em sua vida ou comunidade que você precisa confiar ao Senhor, em vez de tentar resolver pelos próprios meios?</p>
-    </div>
-    <div class="sep"><span>&#10022;</span></div>
-    <h3>Para Refletir</h3>
-    <p>João descreve Babilônia como sedutora que faz as nações "beberem do vinho da sua fornicação" — o vinho é atraente; a ira é o que vem depois. Quais "vinhos" da cultura contemporânea são atrativos para você — formas de sucesso, prazer ou status que competem com o senhorio de Cristo — e que consequências esses vinhos carregam que raramente são mostradas?</p>
-    <div class="memorizar">
-        <div class="memorizar-titulo">&#10022; Versículo para Memorizar</div>
-        <p>"Saí dela, povo meu, para que não sejais participantes dos seus pecados, e para que não recebais das suas pragas."</p>
-        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 18:4</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+<div class="int-linhas"></div>
+<div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>Aplicação Direta</h2>
+<p class="cap">"Saí dela, povo meu" (Ap 18:4) — esse chamado não é monasticismo geográfico. O cristão não abandona o mundo; ele recusa a lógica do mundo. A diferença é entre habitação e participação: habitar o mundo é uma necessidade; participar de seus valores, lealdades e sistemas de idolatria é o que deve ser evitado. Essa distinção exige discernimento constante e coragem prática.</p>
+<div class="bloco-apl">
+<div class="bloco-apl-titulo">Para esta semana</div>
+<p>Primeiro: a lista de mercadorias de Ap 18:12-13 termina com "corpos e almas de homens" — o sistema de Babilônia escraviza pessoas. Examine sua própria participação em sistemas econômicos: sua forma de consumir, investir e trabalhar explora ou dignifica os vulneráveis? Segundo: os mercadores lamentam "em uma hora" — a rapidez da queda do que parecia eterno. Quais certezas materiais ou profissionais você está tratando como permanentes, quando são temporárias? Terceiro: o céu é convocado a regozijar-se com a queda de Babilônia — a justiça foi feita. Há injustiças em sua vida ou comunidade que você precisa confiar ao Senhor, em vez de tentar resolver pelos próprios meios?</p>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<h3>Para Refletir</h3>
+<p>João descreve Babilônia como sedutora que faz as nações "beberem do vinho da sua fornicação" — o vinho é atraente; a ira é o que vem depois. Quais "vinhos" da cultura contemporânea são atrativos para você — formas de sucesso, prazer ou status que competem com o senhorio de Cristo — e que consequências esses vinhos carregam que raramente são mostradas?</p>
+<div class="memorizar">
+<div class="memorizar-titulo">✦ Versículo para Memorizar</div>
+<p>"Saí dela, povo meu, para que não sejais participantes dos seus pecados, e para que não recebais das suas pragas."</p>
+<p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 18:4</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
 <!-- PG 10 QUESTOES -->
 <div class="lbl">Página 10 · Questões e Anotações</div>
 <div class="pag int">
-    <div class="int-linhas"></div>
-    <div class="wm">7</div>
-    <div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
-    <h2>Questões para Reflexão</h2>
-    <div class="q">
-        <div class="qn">Questão 01</div>
-        <div class="qt">Babilônia representa Roma para os leitores do século I, mas também todo sistema que se ergue contra Deus e escraviza os vulneráveis. Qual sistema contemporâneo — econômico, político ou cultural — você reconhece como manifestação do espírito de Babilônia? Quais são seus critérios de identificação?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 02</div>
-        <div class="qt">Os mercadores lamentam a queda de Babilônia porque perderam seus lucros — eles não choram por pessoas, mas por mercadorias. A lista termina com "corpos e almas de homens." Como essa crítica econômica de João dialoga com as estruturas de exploração presentes no Brasil contemporâneo?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 03</div>
-        <div class="qt">"Saí dela, povo meu" é um chamado de separação de valores, não de isolamento geográfico. Como o cristão pratica essa separação enquanto permanece no mundo — em seus relacionamentos, no trabalho, nas redes sociais e no consumo?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 04</div>
-        <div class="qt">O céu é convocado a regozijar-se com a queda de Babilônia (Ap 18:20), e o resultado é o "Aleluia!" de Ap 19:1. Como a certeza do julgamento justo de Deus sobre todos os sistemas de injustiça pode sustentar a fé do cristão que vive em meio à corrupção e à impunidade hoje?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="bloco-qr">
-        <div class="bloco-qr-canvas" id="qrcode-licao08"></div>
-        <div class="bloco-qr-info">
-            <div class="bloco-qr-label">▶ Vídeo Complementar</div>
-            <div class="bloco-qr-titulo">Apocalipse 18 e 19 — Sete Cenas da Queda de Babilônia</div>
-            <div class="bloco-qr-desc">Leandro Lima · Aponte a câmera do celular para assistir ao vídeo de aprofundamento desta lição.</div>
-            <div class="bloco-qr-url">youtube.com/watch?v=KvAs9LT4bhk</div>
-        </div>
-    </div>
-    <h3 style="margin-top:12px;">Anotações</h3>
-    <div class="lins">
-        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+<div class="int-linhas"></div>
+<div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 08 · Vol. II</span><span class="pht">A Queda da Babilônia</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">Babilônia representa Roma para os leitores do século I, mas também todo sistema que se ergue contra Deus e escraviza os vulneráveis. Qual sistema contemporâneo — econômico, político ou cultural — você reconhece como manifestação do espírito de Babilônia? Quais são seus critérios de identificação?</div>
+<div class="lr"></div><div class="lr"></div>
 </div>
-
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">Os mercadores lamentam a queda de Babilônia porque perderam seus lucros — eles não choram por pessoas, mas por mercadorias. A lista termina com "corpos e almas de homens." Como essa crítica econômica de João dialoga com as estruturas de exploração presentes no Brasil contemporâneo?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">"Saí dela, povo meu" é um chamado de separação de valores, não de isolamento geográfico. Como o cristão pratica essa separação enquanto permanece no mundo — em seus relacionamentos, no trabalho, nas redes sociais e no consumo?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">O céu é convocado a regozijar-se com a queda de Babilônia (Ap 18:20), e o resultado é o "Aleluia!" de Ap 19:1. Como a certeza do julgamento justo de Deus sobre todos os sistemas de injustiça pode sustentar a fé do cristão que vive em meio à corrupção e à impunidade hoje?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="bloco-qr">
+<div class="bloco-qr-canvas" id="qrcode-licao08"></div>
+<div class="bloco-qr-info">
+<div class="bloco-qr-label">▶ Vídeo Complementar</div>
+<div class="bloco-qr-titulo">Apocalipse 18 e 19 — Sete Cenas da Queda de Babilônia</div>
+<div class="bloco-qr-desc">Leandro Lima · Aponte a câmera do celular para assistir ao vídeo de aprofundamento desta lição.</div>
+<div class="bloco-qr-url">youtube.com/watch?v=KvAs9LT4bhk</div>
+</div>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+</div>
 <!-- ══════════════════════════════════
      PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
      ══════════════════════════════════ -->
-
 <!-- PG P1 — VISÃO GERAL -->
 <div class="lbl lbl-prof">Página P1 · Visão Geral para o Professor</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 08 · Visão Geral</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Visão Geral para o Professor</h2>
-    <p>Esta é a oitava lição do Volume II. Saímos das Sete Taças — o julgamento consumado (lição 07) — e chegamos ao objeto desse julgamento: Babilônia, o sistema que seduziu as nações. Seu papel aqui é duplo — <em>exegeta</em>: guie o aluno pela lógica simbólica do texto (Babilônia como Roma, como símbolo atemporal, como sistema econômico-político-idolátrico) — e <em>pastor</em>: a passagem tem dentes proféticos que podem incomodar quem está confortável dentro dos sistemas que o texto critica. Antecipe e equipe.</p>
-    <p>O maior risco desta lição é duplo: (1) alunos podem identificar Babilônia apenas como um fenômeno externo — "o comunismo", "a esquerda", "a direita" — sem reconhecer a participação própria nos sistemas que ela representa; (2) a crítica econômica de João (lista de mercadorias, "corpos e almas de homens") pode gerar desconforto em turmas de classe média que participam ativamente do consumismo — o texto é pastoralmente exigente, não apenas academicamente interessante.</p>
-    <div class="bloco-mapa">
-        <div class="bk">Mapa de Competências da Lição</div>
-        <div class="mapa-grid">
-            <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar Babilônia como Roma histórica e símbolo atemporal; distinguir os três grupos de lamentadores; conhecer as raízes em Is 47 e Jr 50-51</p></div>
-            <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Aplicar os critérios de identificação de Babilônia ao presente; articular a diferença entre separação de valores e isolamento geográfico; conectar a crítica econômica de João com injustiças contemporâneas</p></div>
-            <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Disposição para examinar a própria participação em sistemas injustos; capacidade de regozijar-se com o julgamento de Deus sem desejo de vingança pessoal; clareza sobre lealdades que competem com Cristo</p></div>
-            <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno articula critérios concretos para identificar Babilônia em contextos atuais — vai além de generalizações políticas e aponta estruturas específicas; e distingue separação ética de retirada do mundo</p></div>
-        </div>
-    </div>
-    <div class="bloco-tempo">
-        <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
-        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura com pergunta: "Pense em um sistema — econômico, cultural ou político — que parece oferecer tudo que você precisa, mas que exige que você ignore certos custos morais para participar. Que sistema é esse?" — porta de entrada para Babilônia sem nomear o texto ainda.</span></div>
-        <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução: Babilônia como espelho do presente + leitura conjunta da passagem-base e do versículo para memorizar (Ap 18:4)</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4-5 — Contexto Original + Exegese: Babilônia histórica → Roma → símbolo atemporal; percorra a lista de mercadorias com a turma, parando em "corpos e almas de homens"</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 6-7 — Teologia: Deus como Senhor da economia e da política; os dois grupos diante da queda; Aleluia como adoração, não vingança; a pedra no mar como símbolo da irreversibilidade</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 8-9 — Conclusão, separação como ética de vida, aplicação direta e versículo para memorizar</span></div>
-        <div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Pg. 10 — 1-2 questões em aula; restante como tarefa + QR do vídeo de aprofundamento</span></div>
-    </div>
-    <div class="bloco-guia">
-        <div class="bk">Objetivos Pedagógicos do Professor</div>
-        <ul>
-            <li>Estabelecer Babilônia como símbolo hermenêutico reutilizável — não apenas Roma no século I, mas qualquer sistema que concentra as três marcas: sedução das nações, exploração dos vulneráveis e perseguição dos fiéis</li>
-            <li>Conduzir o aluno à percepção de que a crítica de João é econômica tanto quanto espiritual — a lista de mercadorias encerra com "corpos e almas de homens" de forma deliberada</li>
-            <li>Distinguir "Saí dela" como ética de valores, não como retirada do mundo — o cristão habita Babilônia sem participar de sua lógica</li>
-            <li>Apresentar o "Aleluia!" de Ap 19 como resposta correta ao julgamento de Deus — adoração, não vingança</li>
-            <li>Conectar à próxima lição: a queda de Babilônia prepara a ceia das bodas do Cordeiro — dois destinos, dois tipos de lealdade</li>
-        </ul>
-    </div>
-    <div class="bloco-fio">
-        <div class="bloco-fio-icon">⇢</div>
-        <div class="bloco-fio-txt"><strong>Fio Condutor do Vol. II — Lição 08</strong>As Sete Taças (lição 07) consumaram o julgamento e anunciaram a queda de Babilônia (Ap 16:19). A Queda de Babilônia (lição 08) narra essa queda em detalhe — o sistema que seduziu as nações é desmontado, seus cúmplices lamentam, e o céu aleia. A próxima lição (09) revelará o que vem depois: a ceia das bodas do Cordeiro — o destino da noiva em contraste com o da prostituta.</div>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 08 · Visão Geral</span>
+<span class="ph-prof-r">Edição Docente</span>
 </div>
-
+<h2 class="prof">Visão Geral para o Professor</h2>
+<p>Esta é a oitava lição do Volume II. Saímos das Sete Taças — o julgamento consumado (lição 07) — e chegamos ao objeto deste julgamento: Babilônia, o sistema que seduziu as nações. Seu papel aqui é duplo — <em>exegeta</em>: guie o aluno pela lógica simbólica do texto (Babilônia como Roma, como símbolo atemporal, como sistema econômico-político-idolátrico) — e <em>pastor</em>: a passagem tem dentes proféticos que podem incomodar quem está confortável dentro dos sistemas que o texto critica. Antecipe e equipe.</p>
+<p>O maior risco desta lição é duplo: (1) alunos podem identificar Babilônia apenas como um fenômeno externo — "o comunismo", "a esquerda", "a direita" — sem reconhecer a participação própria nos sistemas que ela representa; (2) a crítica econômica de João (lista de mercadorias, "corpos e almas de homens") pode gerar desconforto em turmas de classe média que participam ativamente do consumismo — o texto é pastoralmente exigente, não apenas academicamente interessante.</p>
+<div class="bloco-mapa">
+<div class="bk">Mapa de Competências da Lição</div>
+<div class="mapa-grid">
+<div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar Babilônia como Roma histórica e símbolo atemporal; distinguir os três grupos de lamentadores; conhecer as raízes em Is 47 e Jr 50-51</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Aplicar os critérios de identificação de Babilônia ao presente; articular a diferença entre separação de valores e isolamento geográfico; conectar a crítica econômica de João com injustiças contemporâneas</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Disposição para examinar a própria participação em sistemas injustos; capacidade de regozijar-se com o julgamento de Deus sem desejo de vingança pessoal; clareza sobre lealdades que competem com Cristo</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno articula critérios concretos para identificar Babilônia em contextos atuais — vai além de generalizações políticas e aponta estruturas específicas; e distingue separação ética de retirada do mundo</p></div>
+</div>
+</div>
+<div class="bloco-tempo">
+<div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura com pergunta: "Pense em um sistema — econômico, cultural ou político — que parece oferecer tudo que você precisa, mas que exige que você ignore certos custos morais para participar. Que sistema é esse?" — porta de entrada para Babilônia sem nomear o texto ainda.</span></div>
+<div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2-3 — Introdução: Babilônia como espelho do presente + leitura conjunta da passagem-base e do versículo para memorizar (Ap 18:4)</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4-5 — Contexto Original + Exegese: Babilônia histórica → Roma → símbolo atemporal; percorra a lista de mercadorias com a turma, parando em "corpos e almas de homens"</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 6-7 — Teologia: Deus como Senhor da economia e da política; os dois grupos diante da queda; Aleluia como adoração, não vingança; a pedra no mar como símbolo da irreversibilidade</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 8-9 — Conclusão, separação como ética de vida, aplicação direta e versículo para memorizar</span></div>
+<div class="tempo-linha"><span class="tempo-min">7 min</span><span class="tempo-desc">Pg. 10 — 1-2 questões em aula; restante como tarefa + QR do vídeo de aprofundamento</span></div>
+</div>
+<div class="bloco-guia">
+<div class="bk">Objetivos Pedagógicos do Professor</div>
+<ul>
+<li>Estabelecer Babilônia como símbolo hermenêutico reutilizável — não apenas Roma no século I, mas qualquer sistema que concentra as três marcas: sedução das nações, exploração dos vulneráveis e perseguição dos fiéis</li>
+<li>Conduzir o aluno à percepção de que a crítica de João é econômica tanto quanto espiritual — a lista de mercadorias encerra com "corpos e almas de homens" de forma deliberada</li>
+<li>Distinguir "Saí dela" como ética de valores, não como retirada do mundo — o cristão habita Babilônia sem participar de sua lógica</li>
+<li>Apresentar o "Aleluia!" de Ap 19 como resposta correta ao julgamento de Deus — adoração, não vingança</li>
+<li>Conectar à próxima lição: a queda de Babilônia prepara a ceia das bodas do Cordeiro — dois destinos, dois tipos de lealdade</li>
+</ul>
+</div>
+<div class="bloco-fio">
+<div class="bloco-fio-icon">⇢</div>
+<div class="bloco-fio-txt"><strong>Fio Condutor do Vol. II — Lição 08</strong>As Sete Taças (lição 07) consumaram o julgamento e anunciaram a queda de Babilônia (Ap 16:19). A Queda de Babilônia (lição 08) narra essa queda em detalhe — o sistema que seduziu as nações é desmontado, seus cúmplices lamentam, e o céu entoa aleluias. A próxima lição (09) revelará o que vem depois: a ceia das bodas do Cordeiro — o destino da noiva em contraste com o da prostituta.</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
 <!-- PG P2 — DINÂMICA + APROFUNDAMENTO TEOLÓGICO -->
 <div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 08 · Dinâmica &amp; Teologia</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
-    <div class="bloco-debate">
-        <div class="bk">O Vinho que Não Aparece no Rótulo — antes de abrir o material</div>
-        <p>"Pense em algo que o mundo oferece com aparência de liberdade, sucesso ou prazer — mas que, quando você aceita as condições, percebe que exigiu lealdade, silêncio diante de injustiças ou participação em algo que machuca alguém. Que tipo de oferta é essa? João chama isso de 'o vinho da fornicação de Babilônia' — sedutor na entrada, devastador no fim."</p>
-    </div>
-    <div class="bloco-dica">
-        <div class="bk">Como conduzir</div>
-        <ul>
-            <li>Deixe 2-3 alunos responderem espontaneamente; não corrija nem aprofunde ainda — apenas colete exemplos no quadro</li>
-            <li>Escreva no quadro: "O vinho é sedutor; a ira é o que fica depois." (Ap 18:3 — paráfrase). Mantenha visível durante toda a aula — é a âncora temática</li>
-            <li>O objetivo é que o aluno chegue ao texto <em>reconhecendo</em> Babilônia antes de nomeá-la — a revelação de que João está descrevendo algo familiar produz impacto pastoral muito maior</li>
-            <li>Se os exemplos citados forem apenas políticos ou externos, pergunte: "E na sua vida pessoal, nas suas escolhas de consumo ou carreira — existe alguma versão menor disso?"</li>
-        </ul>
-    </div>
-    <div class="bloco-soc">
-        <div class="bk">Escada de Perguntas Socráticas</div>
-        <div class="soc-item">
-            <p>Nível 1 — Textual: "A lista de mercadorias de Ap 18:12-13 começa com ouro e prata e termina com 'corpos e almas de homens.' Por que João coloca pessoas no fim dessa lista — e o que isso diz sobre como o sistema de Babilônia enxerga os seres humanos?"</p>
-            <div class="soc-espera">Espera: percepção de que a posição final na lista não é descuido — é ênfase deliberada; Babilônia reduz seres humanos à condição de mercadoria, o maior crime econômico possível</div>
-        </div>
-        <div class="soc-item">
-            <p>Nível 2 — Teológico: "Os três grupos que lamentam — reis, mercadores, marinheiros — todos choram 'de longe, por medo.' Nenhum chora pelas pessoas que morreram no sistema. O que isso revela sobre a natureza do vínculo que tinham com Babilônia — e em que isso difere do luto genuíno?"</p>
-            <div class="soc-espera">Espera: articulação de que o lamento é por lucro perdido, não por amor — confirmando que a relação com Babilônia era transacional, não moral; o sistema une as pessoas pelo interesse, não pelo bem</div>
-        </div>
-        <div class="soc-item">
-            <p>Nível 3 — Aplicação: "Ap 18:20 convoca o céu a regozijar-se com a queda de Babilônia. Como você distingue esse regozijo do desejo de vingança? O que faz do 'Aleluia!' de Ap 19 uma resposta santa — e como isso deveria moldar nossa reação às injustiças que vemos ser julgadas?"</p>
-            <div class="soc-espera">Espera: distinção entre alegria com a justiça (que inclui compaixão pelas vítimas) e prazer com o sofrimento dos condenados; o "Aleluia!" celebra Deus, não a destruição dos inimigos</div>
-        </div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
-    <div class="bloco-teo-prof">
-        <div class="bk">A Prostituta e a Noiva — Contraste Estrutural em Ap 17-19</div>
-        <p>Apocalipse 17-19 é construído sobre um contraste deliberado entre dois sistemas femininos: a Grande Prostituta (Babilônia) e a Noiva do Cordeiro (a Igreja). A prostituta seduz com riqueza e poder; a noiva se veste de linho fino que são "as justiças dos santos" (Ap 19:8). Para turmas teológicas: use a distinção entre <em>pornē</em> (prostituta — relação transacional, baseada em interesse) e <em>numphē</em> (noiva — relação de aliança, baseada em amor e fidelidade) para aprofundar o contraste. A questão pastoral não é "você é cristão?" — é "em qual sistema você investiu sua lealdade fundamental?"</p>
-    </div>
-    <div class="bloco-hermeneutica">
-        <div class="bk">Babilônia — Duas Leituras em Diálogo</div>
-        <div class="herm-grid">
-            <div class="herm-col">
-                <div class="herm-col-tit">Histórico-Referencial</div>
-                <p>Babilônia = Roma imperial do século I. João escreve em código para comunidades perseguidas. Os detalhes (sete colinas, poder mundial, perseguição) apontam para Roma de Domiciano. O texto tem referente histórico específico e verificável.</p>
-            </div>
-            <div class="herm-col">
-                <div class="herm-col-tit">Simbólico-Atemporal</div>
-                <p>Babilônia = símbolo de qualquer sistema que concentra as três marcas: sedução das nações, exploração econômica dos vulneráveis e perseguição dos fiéis. Cada geração identifica sua Babilônia com base nesse critério — não apenas Roma.</p>
-            </div>
-        </div>
-    </div>
-    <div class="cit-autor">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 08 · Dinâmica &amp; Teologia</span>
+<span class="ph-prof-r">Edição Docente</span>
+</div>
+<h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
+<div class="bloco-debate">
+<div class="bk">O Vinho que Não Aparece no Rótulo — antes de abrir o material</div>
+<p>"Pense em algo que o mundo oferece com aparência de liberdade, sucesso ou prazer — mas que, quando você aceita as condições, percebe que exigiu lealdade, silêncio diante de injustiças ou participação em algo que machuca alguém. Que tipo de oferta é essa? João chama isso de 'o vinho da fornicação de Babilônia' — sedutor na entrada, devastador no fim."</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">Como conduzir</div>
+<ul>
+<li>Deixe 2-3 alunos responderem espontaneamente; não corrija nem aprofunde ainda — apenas colete exemplos no quadro</li>
+<li>Escreva no quadro: "O vinho é sedutor; a ira é o que fica depois." (Ap 18:3 — paráfrase). Mantenha visível durante toda a aula — é a âncora temática</li>
+<li>O objetivo é que o aluno chegue ao texto <em>reconhecendo</em> Babilônia antes de nomeá-la — a revelação de que João está descrevendo algo familiar produz impacto pastoral muito maior</li>
+<li>Se os exemplos citados forem apenas políticos ou externos, pergunte: "E na sua vida pessoal, nas suas escolhas de consumo ou carreira — existe alguma versão menor disso?"</li>
+</ul>
+</div>
+<div class="bloco-soc">
+<div class="bk">Escada de Perguntas Socráticas</div>
+<div class="soc-item">
+<p>Nível 1 — Textual: "A lista de mercadorias de Ap 18:12-13 começa com ouro e prata e termina com 'corpos e almas de homens.' Por que João coloca pessoas no fim dessa lista — e o que isso diz sobre como o sistema de Babilônia enxerga os seres humanos?"</p>
+<div class="soc-espera">Espera: percepção de que a posição final na lista não é descuido — é ênfase deliberada; Babilônia reduz seres humanos à condição de mercadoria, o maior crime econômico possível</div>
+</div>
+<div class="soc-item">
+<p>Nível 2 — Teológico: "Os três grupos que lamentam — reis, mercadores, marinheiros — todos choram 'de longe, por medo.' Nenhum chora pelas pessoas que morreram no sistema. O que isso revela sobre a natureza do vínculo que tinham com Babilônia — e em que isso difere do luto genuíno?"</p>
+<div class="soc-espera">Espera: articulação de que o lamento é por lucro perdido, não por amor — confirmando que a relação com Babilônia era transacional, não moral; o sistema une as pessoas pelo interesse, não pelo bem</div>
+</div>
+<div class="soc-item">
+<p>Nível 3 — Aplicação: "Ap 18:20 convoca o céu a regozijar-se com a queda de Babilônia. Como você distingue esse regozijo do desejo de vingança? O que faz do 'Aleluia!' de Ap 19 uma resposta santa — e como isso deveria moldar nossa reação às injustiças que vemos ser julgadas?"</p>
+<div class="soc-espera">Espera: distinção entre alegria com a justiça (que inclui compaixão pelas vítimas) e prazer com o sofrimento dos condenados; o "Aleluia!" celebra Deus, não a destruição dos inimigos</div>
+</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+<div class="bloco-teo-prof">
+<div class="bk">A Prostituta e a Noiva — Contraste Estrutural em Ap 17-19</div>
+<p>Apocalipse 17-19 é construído sobre um contraste deliberado entre dois sistemas femininos: a Grande Prostituta (Babilônia) e a Noiva do Cordeiro (a Igreja). A prostituta seduz com riqueza e poder; a noiva se veste de linho fino que são "as justiças dos santos" (Ap 19:8). Para turmas teológicas: use a distinção entre <em>pornē</em> (prostituta — relação transacional, baseada em interesse) e <em>numphē</em> (noiva — relação de aliança, baseada em amor e fidelidade) para aprofundar o contraste. A questão pastoral não é "você é cristão?" — é "em qual sistema você investiu sua lealdade fundamental?"</p>
+</div>
+<div class="bloco-hermeneutica">
+<div class="bk">Babilônia — Duas Leituras em Diálogo</div>
+<div class="herm-grid">
+<div class="herm-col">
+<div class="herm-col-tit">Histórico-Referencial</div>
+<p>Babilônia = Roma imperial do século I. João escreve em código para comunidades perseguidas. Os detalhes (sete colinas, poder mundial, perseguição) apontam para Roma de Domiciano. O texto tem referente histórico específico e verificável.</p>
+</div>
+<div class="herm-col">
+<div class="herm-col-tit">Simbólico-Atemporal</div>
+<p>Babilônia = símbolo de qualquer sistema que concentra as três marcas: sedução das nações, exploração econômica dos vulneráveis e perseguição dos fiéis. Cada geração identifica sua Babilônia com base nesse critério — não apenas Roma.</p>
+</div>
+</div>
+</div>
+<div class="cit-autor">
         "João não escreveu Apocalipse 18 para que soubéssemos o futuro — escreveu para que víssemos o presente. Babilônia não está no horizonte; está no sistema em que fazemos compras, investimos dinheiro e escolhemos onde trabalhar."
         <cite>— Richard Bauckham, <em>The Theology of the Book of Revelation</em></cite>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
 </div>
-
+<div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
 <!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO -->
 <div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 08 · Pedagogia &amp; Gestão</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Dicas Pedagógicas</h2>
-    <div class="bloco-dica">
-        <div class="bk">Para Tornar o Conteúdo Concreto</div>
-        <ul>
-            <li><strong>A lista de mercadorias como exercício:</strong> leia Ap 18:12-13 em voz alta devagar e peça à turma que identifique equivalentes modernos de cada item — "ouro e prata" (sistema financeiro), "roupas finas" (fast fashion), "madeiras raras" (desmatamento), "corpos e almas de homens" (trabalho análogo à escravidão, tráfico de pessoas). A atualização concreta da lista transforma um texto antigo em diagnóstico presente.</li>
-            <li><strong>Os três grupos em paralelo:</strong> escreva no quadro três colunas — "Reis / Mercadores / Marinheiros" — e peça à turma que identifique equivalentes contemporâneos em cada coluna. Quem são os "reis" que lamentam perder poder? Os "mercadores" que choram lucros? Os "marinheiros" que perdem seus contratos? A transposição ativa do texto produz compreensão muito mais profunda do que a exposição passiva.</li>
-            <li><strong>"Saí dela" como exercício prático:</strong> antes de encerrar, proponha que cada aluno escreva (em silêncio, sem compartilhar): "Uma lealdade ou prática na minha vida que preciso reexaminar à luz de Ap 18:4." Não peça para compartilhar — o exercício é entre o aluno e Deus. Mas anuncie que isso é o coração da aplicação.</li>
-        </ul>
-    </div>
-    <div class="bloco-cult">
-        <div class="bk">Conexão com a Cultura Contemporânea</div>
-        <p>No Brasil, a crítica de João a Babilônia ressoa em pelo menos três registros distintos que a turma provavelmente reconhecerá: (1) o <em>consumismo</em> como sistema de promessas — o mercado oferece identidade, status e pertencimento em troca de fidelidade financeira, exatamente como Babilônia "embriagava as nações"; (2) a <em>corrupção sistêmica</em> que beneficia "reis e mercadores" enquanto os vulneráveis pagam o custo — João nomearia isso de "corpos e almas de homens" nas listas de mercadoria; (3) as <em>redes sociais</em> como plataformas que monetizam atenção, conexão e até a imagem das pessoas, reduzindo relacionamentos humanos a insumo econômico. O professor não precisa fazer julgamentos políticos — basta apresentar os critérios do texto e deixar que o aluno aplique.</p>
-    </div>
-    <div class="bloco-perf">
-        <div class="bk">Diferenciação por Perfil de Turma</div>
-        <div class="perf-linha">
-            <div class="perf-tipo">Politizada</div>
-            <div class="perf-txt">Redirecione a tendência de identificar Babilônia com o lado político oposto: "O texto de João oferece critérios — não nomes. Qualquer sistema que seduz com prosperidade, explora vulneráveis e persegue fiéis pode ser Babilônia — independente de cor partidária." Evite que a aula se transforme em debate político; redirecione para os critérios textuais.</div>
-        </div>
-        <div class="perf-linha">
-            <div class="perf-tipo">Confortável</div>
-            <div class="perf-txt">Turmas de classe média podem resistir à crítica econômica — "mas eu não escravizo ninguém." Aprofunde: "João não está falando só de escravidão explícita. A lista de mercadorias inclui o sistema inteiro. A pergunta é: sua participação no sistema econômico dignifica ou explora os que estão na base? Você sabe quem produziu o que você usa?"</div>
-        </div>
-        <div class="perf-linha">
-            <div class="perf-tipo">Teológica</div>
-            <div class="perf-txt">Aprofunde o contraste <em>pornē</em> / <em>numphē</em> (P2) e a leitura simbólico-atemporal de Babilônia. Proponha: "Se cada geração tem sua Babilônia, quais são os critérios hermenêuticos que permitem identificá-la sem cair em aplicações arbitrárias? João oferece três marcas — qual delas é mais difícil de aplicar com precisão hoje?"</div>
-        </div>
-        <div class="perf-linha">
-            <div class="perf-tipo">Mista</div>
-            <div class="perf-txt">Use a dinâmica de abertura (o "vinho que não aparece no rótulo") como denominador comum — funciona com qualquer nível de formação. A lista de mercadorias como exercício coletivo também nivela a participação, pois não exige conhecimento prévio, apenas observação.</div>
-        </div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Gestão de Tensões</h2>
-    <div class="alerta">
-        <div class="bk">Situação Comum — "Babilônia é claramente [partido X / sistema Y / país Z]. João está falando de [___]."</div>
-        <p>Não entre no debate político. Valide a percepção sem confirmar a identificação: "Você está usando os critérios certos — sistema que explora e seduz. A questão é: esses critérios se aplicam a um único alvo, ou podem aparecer em formas diversas dependendo da época e do contexto?" Apresente o quadro hermenêutico (P2): Babilônia é Roma historicamente, mas o padrão é atemporal. Pergunte em retorno: "Se os critérios de João forem aplicados sem preferência política, o que eles revelam?" Isso transforma o debate político em exercício exegético.</p>
-    </div>
-    <div class="alerta">
-        <div class="bk">Situação Comum — "O 'Aleluia!' pela queda de Babilônia não é uma espécie de comemoração cruel da destruição dos outros?"</div>
-        <p>Essa é uma tensão legítima — não descarte. Valide: "Você está percebendo algo importante. O 'Aleluia!' incomoda se entendermos como prazer com o sofrimento alheio." Então apresente a distinção: o "Aleluia!" celebra a justiça de Deus, não a destruição dos condenados — assim como quem comemora a prisão de um torturador não celebra a dor, mas o triunfo da lei. Pergunte: "Você já sentiu alívio ou alegria ao saber que uma injustiça foi finalmente resolvida? Isso é diferente de desejar que o culpado sofra?"</p>
-    </div>
-    <div class="bloco-guia">
-        <div class="bk">Encerramento Ideal da Aula</div>
-        <ul>
-            <li>Leia Apocalipse 18:20 em voz alta — "Alegra-te sobre ela, ó céu..." — e pergunte: "Como você celebra a justiça de Deus sem transformá-la em desejo de vingança?"</li>
-            <li>Retorne ao quadro onde estão os exemplos de "vinho de Babilônia" coletados na abertura — pergunte: "Qual desses você reconhece na sua própria vida?"</li>
-            <li>Proponha o exercício silencioso da pg. 9 (Aplicação Direta): identificar uma lealdade ou prática a reexaminar à luz de Ap 18:4</li>
-            <li>Conecte à próxima lição: "Babilônia cai. Mas enquanto ela cai, a noiva do Cordeiro se prepara. Na próxima lição veremos o destino dos que escolheram a lealdade certa."</li>
-        </ul>
-    </div>
-    <div class="bloco-dica">
-        <div class="bk">Sinal de Alerta Pedagógico</div>
-        <p>Se a aula derivar para debate político, identificação de Babilônia com partidos ou governos específicos, ou julgamentos sobre quem "está dentro de Babilônia" — redirecione com firmeza e leveza: "João não nos dá uma lista de endereços — nos dá critérios. Nossa tarefa não é apontar quem está em Babilônia, mas examinar onde <em>nós</em> estamos. A pergunta mais frutífera não é 'quem é Babilônia?' — é 'em que medida eu participo da sua lógica?'" A profecia de João não é arma política; é espelho pastoral.</p>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 08 · Pedagogia &amp; Gestão</span>
+<span class="ph-prof-r">Edição Docente</span>
 </div>
-
+<h2 class="prof">Dicas Pedagógicas</h2>
+<div class="bloco-dica">
+<div class="bk">Para Tornar o Conteúdo Concreto</div>
+<ul>
+<li><strong>A lista de mercadorias como exercício:</strong> leia Ap 18:12-13 em voz alta devagar e peça à turma que identifique equivalentes modernos de cada item — "ouro e prata" (sistema financeiro), "roupas finas" (fast fashion), "madeiras raras" (desmatamento), "corpos e almas de homens" (trabalho análogo à escravidão, tráfico de pessoas). A atualização concreta da lista transforma um texto antigo em diagnóstico presente.</li>
+<li><strong>Os três grupos em paralelo:</strong> escreva no quadro três colunas — "Reis / Mercadores / Marinheiros" — e peça à turma que identifique equivalentes contemporâneos em cada coluna. Quem são os "reis" que lamentam perder poder? Os "mercadores" que choram lucros? Os "marinheiros" que perdem seus contratos? A transposição ativa do texto produz compreensão muito mais profunda do que a exposição passiva.</li>
+<li><strong>"Saí dela" como exercício prático:</strong> antes de encerrar, proponha que cada aluno escreva (em silêncio, sem compartilhar): "Uma lealdade ou prática na minha vida que preciso reexaminar à luz de Ap 18:4." Não peça para compartilhar — o exercício é entre o aluno e Deus. Mas anuncie que isso é o coração da aplicação.</li>
+</ul>
+</div>
+<div class="bloco-cult">
+<div class="bk">Conexão com a Cultura Contemporânea</div>
+<p>No Brasil, a crítica de João a Babilônia ressoa em pelo menos três registros distintos que a turma provavelmente reconhecerá: (1) o <em>consumismo</em> como sistema de promessas — o mercado oferece identidade, status e pertencimento em troca de fidelidade financeira, exatamente como Babilônia "embriagava as nações"; (2) a <em>corrupção sistêmica</em> que beneficia "reis e mercadores" enquanto os vulneráveis pagam o custo — João nomearia isso de "corpos e almas de homens" nas lista de mercadorias; (3) as <em>redes sociais</em> como plataformas que monetizam atenção, conexão e até a imagem das pessoas, reduzindo relacionamentos humanos a insumo econômico. O professor não precisa fazer julgamentos políticos — basta apresentar os critérios do texto e deixar que o aluno aplique.</p>
+</div>
+<div class="bloco-perf">
+<div class="bk">Diferenciação por Perfil de Turma</div>
+<div class="perf-linha">
+<div class="perf-tipo">Politizada</div>
+<div class="perf-txt">Redirecione a tendência de identificar Babilônia com o lado político oposto: "O texto de João oferece critérios — não nomes. Qualquer sistema que seduz com prosperidade, explora vulneráveis e persegue fiéis pode ser Babilônia — independentemente de cor partidária." Evite que a aula se transforme em debate político; redirecione para os critérios textuais.</div>
+</div>
+<div class="perf-linha">
+<div class="perf-tipo">Confortável</div>
+<div class="perf-txt">Turmas de classe média podem resistir à crítica econômica — "mas eu não escravizo ninguém." Aprofunde: "João não está falando só de escravidão explícita. A lista de mercadorias inclui o sistema inteiro. A pergunta é: sua participação no sistema econômico dignifica ou explora os que estão na base? Você sabe quem produziu o que você usa?"</div>
+</div>
+<div class="perf-linha">
+<div class="perf-tipo">Teológica</div>
+<div class="perf-txt">Aprofunde o contraste <em>pornē</em> / <em>numphē</em> (P2) e a leitura simbólico-atemporal de Babilônia. Proponha: "Se cada geração tem sua Babilônia, quais são os critérios hermenêuticos que permitem identificá-la sem cair em aplicações arbitrárias? João oferece três marcas — qual delas é mais difícil de aplicar com precisão hoje?"</div>
+</div>
+<div class="perf-linha">
+<div class="perf-tipo">Mista</div>
+<div class="perf-txt">Use a dinâmica de abertura (o "vinho que não aparece no rótulo") como denominador comum — funciona com qualquer nível de formação. A lista de mercadorias como exercício coletivo também nivela a participação, pois não exige conhecimento prévio, apenas observação.</div>
+</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Gestão de Tensões</h2>
+<div class="alerta">
+<div class="bk">Situação Comum — "Babilônia é claramente [partido X / sistema Y / país Z]. João está falando de [___]."</div>
+<p>Não entre no debate político. Valide a percepção sem confirmar a identificação: "Você está usando os critérios certos — sistema que explora e seduz. A questão é: esses critérios se aplicam a um único alvo, ou podem aparecer em formas diversas dependendo da época e do contexto?" Apresente o quadro hermenêutico (P2): Babilônia é Roma historicamente, mas o padrão é atemporal. Pergunte em retorno: "Se os critérios de João forem aplicados sem preferência política, o que eles revelam?" Isso transforma o debate político em exercício exegético.</p>
+</div>
+<div class="alerta">
+<div class="bk">Situação Comum — "O 'Aleluia!' pela queda de Babilônia não é uma espécie de comemoração cruel da destruição dos outros?"</div>
+<p>Essa é uma tensão legítima — não descarte. Valide: "Você está percebendo algo importante. O 'Aleluia!' incomoda se entendermos como prazer com o sofrimento alheio." Então apresente a distinção: o "Aleluia!" celebra a justiça de Deus, não a destruição dos condenados — assim como quem comemora a prisão de um torturador não celebra a dor, mas o triunfo da lei. Pergunte: "Você já sentiu alívio ou alegria ao saber que uma injustiça foi finalmente resolvida? Isso é diferente de desejar que o culpado sofra?"</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Encerramento Ideal da Aula</div>
+<ul>
+<li>Leia Apocalipse 18:20 em voz alta — "Alegra-te sobre ela, ó céu..." — e pergunte: "Como você celebra a justiça de Deus sem transformá-la em desejo de vingança?"</li>
+<li>Retorne ao quadro onde estão os exemplos de "vinho de Babilônia" coletados na abertura — pergunte: "Qual desses você reconhece na sua própria vida?"</li>
+<li>Proponha o exercício silencioso da pg. 9 (Aplicação Direta): identificar uma lealdade ou prática a reexaminar à luz de Ap 18:4</li>
+<li>Conecte à próxima lição: "Babilônia cai. Mas enquanto ela cai, a noiva do Cordeiro se prepara. Na próxima lição veremos o destino dos que escolheram a lealdade certa."</li>
+</ul>
+</div>
+<div class="bloco-dica">
+<div class="bk">Sinal de Alerta Pedagógico</div>
+<p>Se a aula derivar para debate político, identificação de Babilônia com partidos ou governos específicos, ou julgamentos sobre quem "está dentro de Babilônia" — redirecione com firmeza e leveza: "João não nos dá uma lista de endereços — nos dá critérios. Nossa tarefa não é apontar quem está em Babilônia, mas examinar onde <em>nós</em> estamos. A pergunta mais frutífera não é 'quem é Babilônia?' — é 'em que medida eu participo da sua lógica?'" A profecia de João não é arma política; é espelho pastoral.</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
 <!-- PG P4 — RESPOSTAS + MATERIAIS -->
 <div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 08 · Respostas &amp; Recursos</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 10</h2>
-    <div class="bloco-resp">
-        <div class="bk">Gabarito Orientativo</div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 01</div>
-            <div class="resp-txt">O valor pedagógico desta questão está nos <em>critérios</em> que o aluno utiliza, não no sistema que identifica. Os critérios corretos derivam do texto: (1) sedução com promessa de vida plena fora de Deus; (2) enriquecimento às custas dos vulneráveis ("corpos e almas de homens"); (3) exigência de lealdade que compete com o senhorio de Cristo. Valorize respostas que apresentem critérios claros e aplicação específica — e questione respostas que identifiquem Babilônia apenas com "o outro lado" sem autocrítica. A questão funciona melhor se o professor disser ao final: "Quantos de nós participamos de ao menos um dos sistemas identificados aqui?"</div>
-        </div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 02</div>
-            <div class="resp-txt">O argumento central é a estrutura da lista em Ap 18:12-13: João lista mercadorias em ordem de valor percebido pelo sistema de Babilônia, e os seres humanos estão no <em>fim</em> — não porque são menos importantes para João, mas porque são o ponto de chegada da lógica desumanizadora do sistema. No Brasil contemporâneo, equivalentes incluem: trabalho análogo à escravidão (presente em cadeias produtivas de agronegócio, confecção têxtil e construção civil), tráfico de pessoas, exploração de imigrantes vulneráveis, e modelos econômicos que priorizam crescimento de indicadores acima do bem-estar de trabalhadores. Valorize alunos que fazem a conexão estrutural (sistema → exploração), não apenas moral (maldade individual).</div>
-        </div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 03</div>
-            <div class="resp-txt">Questão pastoral de alta densidade prática. O princípio-chave é a distinção entre <em>habitação</em> e <em>participação</em>: o cristão habita o mundo (Jo 17:15) sem participar de seus sistemas de idolatria. Na prática, isso significa: discernimento nas escolhas de consumo (de quem compro? em quais condições foi produzido?); integridade nos relacionamentos de trabalho (quais práticas organizacionais eu recuso mesmo que custe?); seletividade no consumo de mídia e redes sociais (quais narrativas formo minha identidade?). Valorize respostas que apontam para práticas <em>concretas</em> e não apenas princípios abstratos — João escreveu para comunidades que precisavam sobreviver em Roma, não para leitores que apenas refletiam teoricamente sobre o assunto.</div>
-        </div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 04</div>
-            <div class="resp-txt">Questão de alta densidade teológica e pastoral. O argumento central: o "Aleluia!" de Ap 19:1-6 não é grito de vingança — é adoração que reconhece que a história não é aleatória nem injusta, mas governada por um Deus que age com precisão e memória perfeitas. Para o cristão que vive em meio à corrupção e impunidade, isso fundamenta uma postura de entrega escatológica: "Deus julgou a vossa causa contra ela" (Ap 18:20) — eu não preciso resolver tudo, não preciso me desesperar com a impunidade aparente. Valorize alunos que articulam a relação entre certeza escatológica e saúde emocional/pastoral no presente — não como passividade política, mas como fundamento de esperança que sustenta o engajamento sem desespero.</div>
-        </div>
-    </div>
-    <div class="bloco-fio">
-        <div class="bloco-fio-icon">↻</div>
-        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 e 02, o método importa mais do que a conclusão — o aluno que apresenta critérios bíblicos claros e os aplica com consistência demonstrou compreensão real. Nas Questões 03 e 04, o critério de qualidade é a especificidade prática: respostas genéricas ("ser diferente do mundo") devem ser aprofundadas: "Como exatamente? Em qual contexto específico da sua vida? Com qual custo?"</div>
-    </div>
-    <div class="bloco-aval">
-        <div class="bk">Seguimento Pós-Lição</div>
-        <ul>
-            <li>Envie Apocalipse 18:4 no grupo da turma durante a semana com a pergunta: "Identifique uma decisão pequena desta semana em que você pode 'sair' da lógica de Babilônia — mesmo que ninguém veja. O que seria isso para você?"</li>
-            <li>Proponha leitura devocional: Jeremias 51:45-64 completo (o rolo lançado no Eufrates) + Isaías 47 completo (o lamento sobre Babilônia histórica) — leia os dois e observe como João está relendo esses textos</li>
-            <li>Anote alunos que demonstraram resistência à autocrítica (tendência de identificar Babilônia apenas com "os outros") — podem se beneficiar de conversa individual sobre a distinção entre profecia como julgamento dos inimigos e profecia como espelho</li>
-            <li>Avalie se a aula produziu a percepção pastoral central: Babilônia não é apenas um evento futuro — é uma realidade presente que exige discernimento e separação de valores agora. Esse é o fruto prático mais importante desta lição</li>
-        </ul>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Materiais Complementares</h2>
-    <div class="bloco-mat">
-        <div class="bk">Recursos Recomendados ao Professor</div>
-        <div class="mat-item">
-            <span class="mat-tipo livro">Livro</span>
-            <span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. O comentário técnico mais completo. As seções sobre Ap 17–18 tratam exaustivamente do paralelo Babilônia-Roma, da estrutura literária dos lamentos, da intertextualidade com Is 47 e Jr 50-51, e da hermenêutica do símbolo atemporal. Indispensável para o professor que precisa fundamentar a leitura simbólica sem abrir mão da ancoragem histórica.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo livro">Livro</span>
-            <span class="mat-info">Richard Bauckham — <em>The Theology of the Book of Revelation</em>. Cambridge University Press. O capítulo sobre Babilônia e a crítica econômica de João é o melhor tratamento compacto do tema em língua inglesa. Bauckham demonstra como a lista de mercadorias de Ap 18:12-13 é uma crítica deliberada ao sistema econômico romano — e por que a posição de "corpos e almas de homens" no fim da lista é a afirmação teológica mais poderosa do capítulo.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo livro">Livro</span>
-            <span class="mat-info">Dennis Johnson — <em>Triumph of the Lamb</em>. P&amp;R Publishing. Comentário pastoral sobre o Apocalipse — excelente para preparar a distinção entre o "Aleluia!" como adoração santa e a tentação de transformá-lo em desejo de vingança. O capítulo sobre Ap 17–19 articula bem o contraste estrutural entre a prostituta e a noiva do Cordeiro como dois destinos possíveis para a lealdade humana.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo video">Vídeo</span>
-            <span class="mat-info">Leandro Lima — <em>Apocalipse 18 e 19 — Sete Cenas da Queda de Babilônia</em> (YouTube — QR na pg. 10). Abordagem exegética acessível e pastoralmente orientada. Ideal para recomendar aos alunos como complemento pós-aula, especialmente os que precisam de mais tempo para processar a crítica econômica do texto antes de aplicá-la.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo video">Vídeo</span>
-            <span class="mat-info">BibleProject: <em>Apocalipse — Visão Geral</em> (YouTube, PT, 2 partes). Panorama visual da estrutura do Apocalipse — mostra graficamente como Babilônia / Prostituta se posiciona em contraste com a Noiva / Jerusalém no arco narrativo final do livro. Ideal para mostrar como introdução à lição, contextualizando a queda de Babilônia dentro da estrutura maior antes de entrar nos detalhes.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo site">Digital</span>
-            <span class="mat-info">thegospelcoalition.org/pt — busca "Babilônia Apocalipse" e "crítica econômica Apocalipse 18". Artigos de Beale, Bauckham e outros comentaristas reformados oferecem resumos acessíveis da hermenêutica de Babilônia e da dimensão econômica do julgamento. Útil para o professor que quer consolidar a fundamentação exegética antes de ministrar e para recomendar a alunos de perfil mais teológico.</span>
-        </div>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 08 · Respostas &amp; Recursos</span>
+<span class="ph-prof-r">Edição Docente</span>
 </div>
-
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 10</h2>
+<div class="bloco-resp">
+<div class="bk">Gabarito Orientativo</div>
+<div class="resp-item">
+<div class="resp-num">Questão 01</div>
+<div class="resp-txt">O valor pedagógico desta questão está nos <em>critérios</em> que o aluno utiliza, não no sistema que identifica. Os critérios corretos derivam do texto: (1) sedução com promessa de vida plena fora de Deus; (2) enriquecimento às custas dos vulneráveis ("corpos e almas de homens"); (3) exigência de lealdade que compete com o senhorio de Cristo. Valorize respostas que apresentem critérios claros e aplicação específica — e questione respostas que identifiquem Babilônia apenas com "o outro lado" sem autocrítica. A questão funciona melhor se o professor disser ao final: "Quantos de nós participamos de ao menos um dos sistemas identificados aqui?"</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 02</div>
+<div class="resp-txt">O argumento central é a estrutura da lista em Ap 18:12-13: João lista mercadorias em ordem de valor percebido pelo sistema de Babilônia, e os seres humanos estão no <em>fim</em> — não porque são menos importantes para João, mas porque são o ponto de chegada da lógica desumanizadora do sistema. No Brasil contemporâneo, equivalentes incluem: trabalho análogo à escravidão (presente em cadeias produtivas de agronegócio, confecção têxtil e construção civil), tráfico de pessoas, exploração de imigrantes vulneráveis, e modelos econômicos que priorizam crescimento de indicadores acima do bem-estar de trabalhadores. Valorize alunos que fazem a conexão estrutural (sistema → exploração), não apenas moral (maldade individual).</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 03</div>
+<div class="resp-txt">Questão pastoral de alta densidade prática. O princípio-chave é a distinção entre <em>habitação</em> e <em>participação</em>: o cristão habita o mundo (Jo 17:15) sem participar de seus sistemas de idolatria. Na prática, isso significa: discernimento nas escolhas de consumo (de quem compro? em quais condições foi produzido?); integridade nos relacionamentos de trabalho (quais práticas organizacionais eu recuso mesmo que custe?); seletividade no consumo de mídia e redes sociais (com com quais narrativas formo minha identidade?). Valorize respostas que apontam para práticas <em>concretas</em> e não apenas princípios abstratos — João escreveu para comunidades que precisavam sobreviver em Roma, não para leitores que apenas refletiam teoricamente sobre o assunto.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 04</div>
+<div class="resp-txt">Questão de alta densidade teológica e pastoral. O argumento central: o "Aleluia!" de Ap 19:1-6 não é grito de vingança — é adoração que reconhece que a história não é aleatória nem injusta, mas governada por um Deus que age com precisão e memória perfeitas. Para o cristão que vive em meio à corrupção e impunidade, isso fundamenta uma postura de entrega escatológica: "Deus julgou a vossa causa contra ela" (Ap 18:20) — eu não preciso resolver tudo, não preciso me desesperar com a impunidade aparente. Valorize alunos que articulam a relação entre certeza escatológica e saúde emocional/pastoral no presente — não como passividade política, mas como fundamento de esperança que sustenta o engajamento sem desespero.</div>
+</div>
+</div>
+<div class="bloco-fio">
+<div class="bloco-fio-icon">↻</div>
+<div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 e 02, o método importa mais do que a conclusão — o aluno que apresenta critérios bíblicos claros e os aplica com consistência demonstrou compreensão real. Nas Questões 03 e 04, o critério de qualidade é a especificidade prática: respostas genéricas ("ser diferente do mundo") devem ser aprofundadas: "Como exatamente? Em qual contexto específico da sua vida? Com qual custo?"</div>
+</div>
+<div class="bloco-aval">
+<div class="bk">Seguimento Pós-Lição</div>
+<ul>
+<li>Envie Apocalipse 18:4 no grupo da turma durante a semana com a pergunta: "Identifique uma decisão pequena desta semana em que você pode 'sair' da lógica de Babilônia — mesmo que ninguém veja. O que seria isso para você?"</li>
+<li>Proponha leitura devocional: Jeremias 51:45-64 completo (o rolo lançado no Eufrates) + Isaías 47 completo (o lamento sobre Babilônia histórica) — leia os dois e observe como João está relendo esses textos</li>
+<li>Anote alunos que demonstraram resistência à autocrítica (tendência de identificar Babilônia apenas com "os outros") — podem se beneficiar de conversa individual sobre a distinção entre profecia como julgamento dos inimigos e profecia como espelho</li>
+<li>Avalie se a aula produziu a percepção pastoral central: Babilônia não é apenas um evento futuro — é uma realidade presente que exige discernimento e separação de valores agora. Esse é o fruto prático mais importante desta lição</li>
+</ul>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-mat">
+<div class="bk">Recursos Recomendados ao Professor</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. O comentário técnico mais completo. As seções sobre Ap 17–18 tratam exaustivamente do paralelo Babilônia-Roma, da estrutura literária dos lamentos, da intertextualidade com Is 47 e Jr 50-51, e da hermenêutica do símbolo atemporal. Indispensável para o professor que precisa fundamentar a leitura simbólica sem abrir mão da ancoragem histórica.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Richard Bauckham — <em>The Theology of the Book of Revelation</em>. Cambridge University Press. O capítulo sobre Babilônia e a crítica econômica de João é o melhor tratamento compacto do tema em língua inglesa. Bauckham demonstra como a lista de mercadorias de Ap 18:12-13 é uma crítica deliberada ao sistema econômico romano — e por que a posição de "corpos e almas de homens" no fim da lista é a afirmação teológica mais poderosa do capítulo.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Dennis Johnson — <em>Triumph of the Lamb</em>. P&amp;R Publishing. Comentário pastoral sobre o Apocalipse — excelente para preparar a distinção entre o "Aleluia!" como adoração santa e a tentação de transformá-lo em desejo de vingança. O capítulo sobre Ap 17–19 articula bem o contraste estrutural entre a prostituta e a noiva do Cordeiro como dois destinos possíveis para a lealdade humana.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo video">Vídeo</span>
+<span class="mat-info">Leandro Lima — <em>Apocalipse 18 e 19 — Sete Cenas da Queda de Babilônia</em> (YouTube — QR na pg. 10). Abordagem exegética acessível e pastoralmente orientada. Ideal para recomendar aos alunos como complemento pós-aula, especialmente os que precisam de mais tempo para processar a crítica econômica do texto antes de aplicá-la.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo video">Vídeo</span>
+<span class="mat-info">BibleProject: <em>Apocalipse — Visão Geral</em> (YouTube, PT, 2 partes). Panorama visual da estrutura do Apocalipse — mostra graficamente como Babilônia / Prostituta se posiciona em contraste com a Noiva / Jerusalém no arco narrativo final do livro. Ideal para mostrar como introdução à lição, contextualizando a queda de Babilônia dentro da estrutura maior antes de entrar nos detalhes.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo site">Digital</span>
+<span class="mat-info">thegospelcoalition.org/pt — busca "Babilônia Apocalipse" e "crítica econômica Apocalipse 18". Artigos de Beale, Bauckham e outros comentaristas reformados oferecem resumos acessíveis da hermenêutica de Babilônia e da dimensão econômica do julgamento. Útil para o professor que quer consolidar a fundamentação exegética antes de ministrar e para recomendar a alunos de perfil mais teológico.</span>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
 </div><!-- /area -->
-
 <script>
 /* ===== AUTENTICAÇÃO ===== */
 const SENHA_CORRETA = 'eschaton2025';
