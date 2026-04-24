@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d1a">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<title>Eschaton Vol. II · Lição 11 — O Livro de Daniel e o Fim · Edição do Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+    /* cores base — Vol. II roxo/violeta (espelho do aluno lição 11) */
+    --cor:#5030a0;
+    --grad1:#100818; --grad2:#180a28;
+    --ouro:#c9a84c; --ouro-claro:#e8d5a0;
+    --vermelho:#8b1a1a;
+    --ct:#2a2a2a;
+    --branco:#fdfbf7; --pergaminho:#f8f2e8; --creme:#f0e8d8; --cc:#ddd8cc;
+    /* cores exclusivas do professor — verde docente */
+    --prof:#1a6b35;
+    --prof-vivo:#27ae60;
+    --prof-claro:#e6f4ed;
+    --prof-borda:rgba(26,107,53,0.35);
+    --topo-prof:#0a1a0d;
+    /* auxiliares pedagógicos */
+    --verde-tip:#2e6b4f;
+    --verde-claro:#e6f4ed;
+    --verde-borda:rgba(46,107,79,0.35);
+    --laranja:#b85c1a;
+    --laranja-claro:#fdf0e6;
+    --laranja-borda:rgba(184,92,26,0.35);
+    --azul:#2c5f8a;
+    --azul-claro:#e8f0f8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#080510;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#050208 0%,#0e0618 60%,#050208 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:54px;height:54px;border:1px solid rgba(80,48,160,0.5);
+    transform:rotate(45deg);margin:0 auto 30px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(80,48,160,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:30px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(80,48,160,0.35);
+    border-radius:2px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;
+    color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(80,48,160,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.senha-btn{
+    width:100%;background:var(--prof);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#050208,#080510);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(201,168,76,0.8);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--pergaminho);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(80,48,160,0.55) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.18) 0%,transparent 45%),radial-gradient(ellipse at 55% 85%,rgba(40,10,80,0.5) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(201,168,76,1) 24px,rgba(201,168,76,1) 25px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#180a28,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#060310,var(--cor) 50%,#b090ff);opacity:0.38;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.7;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+/* Faixa PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:19pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:10px;}
+.cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== PÁGINAS DO ALUNO (espelho) ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(80,48,160,0.15);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(80,48,160,0.055) 23px,rgba(80,48,160,0.055) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#301860;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.texto-biblico{background:#fff;border:1px solid rgba(80,48,160,0.2);border-left:4px solid var(--cor);padding:12px 14px;margin:12px 0;position:relative;z-index:1;}
+.texto-biblico-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.texto-biblico-ref::after{content:'';flex:1;height:1px;background:rgba(80,48,160,0.2);}
+.texto-biblico p{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#180830;line-height:1.7;margin-bottom:4px;text-align:left;}
+.texto-biblico .ref-final{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco-ctx{background:rgba(80,48,160,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-ctx-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bloco-teo{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-teo-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-apl{background:linear-gradient(135deg,rgba(80,48,160,0.05),rgba(201,168,76,0.06));border:1px solid rgba(80,48,160,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-apl-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.memorizar{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.memorizar-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.memorizar p{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#180830;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+ul li::before{content:'\2192' !important;position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.tabela-reinos{width:100%;border-collapse:collapse;margin:10px 0;position:relative;z-index:1;font-size:9pt;}
+.tabela-reinos th{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);background:rgba(80,48,160,0.07);padding:5px 7px;border-bottom:2px solid var(--cor);text-align:left;}
+.tabela-reinos td{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);padding:4px 7px;border-bottom:1px solid rgba(80,48,160,0.1);vertical-align:top;line-height:1.4;}
+.tabela-reinos tr:last-child td{border-bottom:none;}
+.tabela-reinos td:first-child{font-family:'Oswald',sans-serif;font-weight:600;color:var(--cor);white-space:nowrap;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(80,48,160,0.2);height:20px;margin-top:3px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(80,48,160,0.2);height:22px;}
+
+/* Blocos do aluno */
+.bloco-aluno-refletir{background:linear-gradient(135deg,rgba(80,48,160,0.07),rgba(201,168,76,0.04));border:1px solid rgba(80,48,160,0.25);border-top:3px solid var(--cor);border-radius:2px;padding:11px 13px;margin:10px 0;position:relative;z-index:1;}
+.bloco-aluno-refletir-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2.5px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.bloco-aluno-refletir-titulo::before{content:'✦';font-size:7pt;color:var(--ouro);}
+.bloco-aluno-refletir .qa{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:4px;}
+.bloco-aluno-refletir .la{border-bottom:1px solid rgba(80,48,160,0.2);height:19px;margin-top:2px;}
+.bloco-aluno-conexao{background:#fff;border:1px solid rgba(80,48,160,0.18);border-left:4px solid var(--ouro);padding:11px 13px;margin:10px 0;position:relative;z-index:1;}
+.bloco-aluno-conexao-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2.5px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.bloco-aluno-conexao-titulo::before{content:'✦';font-size:7pt;color:var(--ouro);}
+.bloco-aluno-conexao p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.5;margin-bottom:5px;text-align:left;}
+.bloco-aluno-conexao .ref-cx{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--cor);display:block;margin-bottom:4px;}
+.bloco-aluno-conexao .la{border-bottom:1px solid rgba(201,168,76,0.3);height:19px;margin-top:2px;}
+.bloco-aluno-sabia{background:var(--creme);border:1px solid rgba(201,168,76,0.35);border-radius:2px;padding:11px 13px;margin:10px 0;position:relative;z-index:1;}
+.bloco-aluno-sabia-titulo{font-family:'Cinzel',serif;font-size:8.5pt;letter-spacing:1.5px;color:var(--ouro);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.bloco-aluno-sabia-titulo::before{content:'?';font-family:'Cinzel',serif;font-size:11pt;font-weight:700;color:var(--cor);width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;border:1.5px solid var(--cor);border-radius:50%;flex-shrink:0;line-height:1;}
+.bloco-aluno-sabia p{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;margin-bottom:5px;}
+.bloco-aluno-sabia .fato{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#301860;background:rgba(80,48,160,0.05);border-left:2px solid var(--cor);padding:6px 10px;margin:6px 0;}
+.bloco-aluno-pense{background:linear-gradient(135deg,rgba(80,48,160,0.06),rgba(80,48,160,0.02));border:1px dashed rgba(80,48,160,0.3);border-radius:2px;padding:11px 13px;margin:10px 0;position:relative;z-index:1;}
+.bloco-aluno-pense-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2.5px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.bloco-aluno-pense-titulo::before{content:'💭';font-size:9pt;}
+.bloco-aluno-pense .citacao{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#180830;line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;margin:6px 0;}
+.bloco-aluno-pense .la{border-bottom:1px solid rgba(80,48,160,0.2);height:19px;margin-top:2px;}
+.bloco-aluno-leve{background:linear-gradient(135deg,rgba(139,26,26,0.05),rgba(201,168,76,0.07));border:1px solid rgba(139,26,26,0.2);border-top:3px solid var(--vermelho);border-radius:2px;padding:11px 13px;margin:10px 0;position:relative;z-index:1;}
+.bloco-aluno-leve-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2.5px;text-transform:uppercase;color:var(--vermelho);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.bloco-aluno-leve-titulo::before{content:'✦';font-size:7pt;color:var(--vermelho);}
+.bloco-aluno-leve .compromisso{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.5;margin-bottom:5px;}
+.bloco-aluno-leve .la{border-bottom:1px solid rgba(139,26,26,0.2);height:19px;margin-top:2px;}
+.bloco-aluno-leve .assinatura{display:flex;align-items:flex-end;gap:16px;margin-top:10px;}
+.bloco-aluno-leve .assinatura .campo{flex:1;border-bottom:1px solid rgba(139,26,26,0.25);height:22px;position:relative;}
+.bloco-aluno-leve .assinatura .campo span{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;color:#aaa;position:absolute;bottom:-14px;left:0;}
+
+/* QR Code bloco aluno */
+.bloco-qr-al{display:flex;align-items:flex-start;gap:12px;background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:14px 0;position:relative;z-index:1;}
+.bloco-qr-al img{width:64px;height:64px;flex-shrink:0;border:2px solid rgba(80,48,160,0.15);border-radius:1px;}
+.bloco-qr-al-info{flex:1;}
+.bloco-qr-al-label{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:3px;}
+.bloco-qr-al-titulo{font-family:'Cinzel',serif;font-size:9pt;font-weight:700;color:var(--cor);line-height:1.3;margin-bottom:3px;}
+.bloco-qr-al-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#666;line-height:1.4;}
+.bloco-qr-al-url{font-family:'Oswald',sans-serif;font-size:6.5pt;color:#999;letter-spacing:0.5px;margin-top:4px;word-break:break-all;}
+
+/* ===== PÁGINAS DO PROFESSOR ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fafff8;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--prof-vivo),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(26,107,53,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(26,107,53,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);border-left:4px solid var(--prof);
+    padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+.bloco-guia{background:#f0faf3;border:1px solid var(--prof-borda);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1a3d28;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+.bloco-dica{background:var(--verde-claro);border:1px solid var(--verde-borda);border-left:4px solid var(--verde-tip);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--verde-tip);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+.bloco-teo-prof{background:var(--laranja-claro);border:1px solid var(--laranja-borda);border-left:4px solid var(--laranja);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo-prof .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo-prof .bk::before{content:'◉';font-size:7pt;}
+.bloco-teo-prof p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e08;}
+
+.alerta{background:#fff5f5;border:1px solid rgba(139,26,26,0.25);border-left:4px solid var(--vermelho);border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-debate{background:var(--azul-claro);border:1px solid rgba(44,95,138,0.25);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.6;color:#1a3050;font-style:italic;}
+
+.bloco-soc{background:#f9fcff;border:1px solid rgba(44,95,138,0.2);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:var(--azul);font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:10pt;color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-tempo{background:#fafafa;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--prof);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.45;}
+
+/* Mapa de competências */
+.bloco-mapa{background:#f5fff8;border:1px solid var(--prof-borda);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.mapa-cel{background:#fff;border:1px solid rgba(26,107,53,0.15);border-radius:2px;padding:8px 10px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--prof);margin-bottom:5px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:9pt;color:#2a3a2a;line-height:1.45;margin-bottom:0;text-align:left;}
+
+/* Hermenêutica comparada */
+.bloco-hermeneutica{background:#fffdf8;border:1px solid rgba(201,168,76,0.25);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-hermeneutica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;}
+.herm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.herm-col{background:#fff;border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:8px 10px;}
+.herm-col-tit{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:#7a5c10;margin-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:4px;}
+.herm-col p{font-family:'EB Garamond',serif;font-size:9pt;color:#3a2a05;line-height:1.45;margin-bottom:0;text-align:left;}
+
+/* Materiais */
+.bloco-mat{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.mat-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.mat-tipo.livro{background:rgba(80,48,160,0.10);color:var(--cor);}
+.mat-tipo.video{background:rgba(139,26,26,0.12);color:var(--vermelho);}
+.mat-tipo.site{background:rgba(44,95,138,0.12);color:var(--azul);}
+.mat-info{font-family:'EB Garamond',serif;font-size:9pt;color:var(--ct);line-height:1.5;}
+
+/* Fio condutor */
+.bloco-fio{background:linear-gradient(135deg,rgba(80,48,160,0.04),rgba(201,168,76,0.06));border:1px solid rgba(80,48,160,0.18);border-radius:3px;padding:10px 12px;margin:10px 0;display:flex;gap:10px;align-items:flex-start;}
+.bloco-fio-icon{font-size:14pt;color:var(--cor);flex-shrink:0;line-height:1.2;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.55;}
+.bloco-fio-txt strong{font-family:'Oswald',sans-serif;font-size:8.5pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);display:block;margin-bottom:3px;}
+
+/* Citação de autor */
+.cit-autor{background:rgba(201,168,76,0.06);border-left:3px solid var(--ouro);padding:10px 14px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#3a2a05;line-height:1.65;}
+.cit-autor cite{font-style:normal;font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;color:var(--ouro);display:block;text-align:right;margin-top:6px;}
+
+/* Tags de sensibilidade */
+.tag-sens{font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;}
+.tag-sens.debate{background:rgba(44,95,138,0.12);color:var(--azul);}
+.tag-sens.tecnico{background:rgba(184,92,26,0.12);color:var(--laranja);}
+
+/* Perfil de turma */
+.bloco-perf{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.perf-linha{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;background:rgba(26,107,53,0.12);color:var(--prof);padding:2px 7px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:#333;line-height:1.5;}
+
+/* Cultura contemporânea */
+.bloco-cult{background:#fffff8;border:1px solid rgba(201,168,76,0.2);border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:10pt;color:#3a2a05;line-height:1.6;}
+
+/* Respostas sugeridas */
+.bloco-resp{background:#f8fff8;border:1px solid rgba(26,107,53,0.2);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;}
+.resp-item{padding:6px 0 6px 0;border-bottom:1px solid rgba(26,107,53,0.1);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--prof);margin-bottom:4px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1a3520;line-height:1.55;}
+
+/* Avaliação e seguimento */
+.bloco-aval{background:#f5fff8;border:1px solid var(--prof-borda);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;}
+.bloco-aval ul{list-style:none;padding:0;}
+.bloco-aval ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1a3d28;line-height:1.55;padding:3px 0 3px 14px;position:relative;border-bottom:1px solid rgba(26,107,53,0.07);}
+.bloco-aval ul li:last-child{border-bottom:none;}
+.bloco-aval ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:6px;}
+
+/* QR Code do professor */
+.bloco-qr-prof{position:relative;z-index:1;margin:10px 0;display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(80,48,160,0.04),rgba(201,168,76,0.06));border:1px solid rgba(80,48,160,0.18);border-left:4px solid var(--ouro);border-radius:2px;padding:10px 12px;}
+.bloco-qr-canvas{flex-shrink:0;width:68px;height:68px;background:#fff;border:2px solid rgba(201,168,76,0.35);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.bloco-qr-canvas canvas,.bloco-qr-canvas img{width:64px!important;height:64px!important;display:block;}
+.bloco-qr-info{flex:1;min-width:0;}
+.bloco-qr-label{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;}
+.bloco-qr-titulo{font-family:'Cinzel',serif;font-size:8.5pt;font-weight:700;color:var(--ct);line-height:1.3;margin-bottom:3px;}
+.bloco-qr-desc{font-family:'EB Garamond',serif;font-size:9pt;color:#666;line-height:1.4;}
+.bloco-qr-url{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--cor);opacity:0.7;margin-top:3px;word-break:break-all;}
+
+/* Rodapé páginas do professor */
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(26,107,53,0.04);}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+/* PRINT */
+@media print{
+    body{background:none;}
+    #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof,.int-linhas{display:none;}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;}
+    .pag{width:100%;max-width:148mm;min-height:auto;}
+    .int,.int-prof{padding:12mm 5vw 16mm 5vw;min-height:auto;}
+    h2{font-size:11pt;}
+    h3{font-size:9pt;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .mapa-grid,.herm-grid{grid-template-columns:1fr;}
+    .rod,.rod-prof{position:relative;}
+}
+@media (max-width:480px){
+    .btn{padding:7px 10px;font-size:7.5pt;}
+    .area{margin-top:96px;}
+}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(26,107,53,0.05);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+    <div class="senha-caixa">
+        <div class="senha-icone"></div>
+        <div class="senha-titulo">ESCHATON</div>
+        <div class="senha-sub">Vol. II · Edição do Professor</div>
+        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
+        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+            onkeydown="if(event.key==='Enter')verificarSenha()">
+        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo-principal">
+
+<div class="painel">
+    <div class="marca">ESCHATON VOL. II
+        <span>Lição 11 · O Livro de Daniel e o Fim</span>
+        <em>Edição do Professor</em>
+    </div>
+    <span class="badge-prof">✦ Professor</span>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index-professor.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- ══════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (espelho integral)
+     ══════════════════════════════════ -->
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa da Lição</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">11</div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+    <div class="capa-prof-faixa">Edição do Professor</div>
+    <div class="ccon">
+        <div class="cser">Eschaton · A Palavra que Não Passará</div>
+        <div class="cref">Daniel 2 · Daniel 7 · Daniel 12</div>
+        <div class="ctit">O Livro de Daniel e o Fim</div>
+        <div class="cver">
+            "E no tempo desses reis, o Deus do céu suscitará um reino que não será jamais destruído... ele esmiuçará e consumirá todos esses reinos, mas ele próprio subsistirá para sempre."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Daniel 2:44</span>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>Introdução</h2>
+    <p class="cap">Um jovem judeu deportado para Babilônia, vivendo na corte do maior império do mundo antigo, recebe visões que revelam o destino de todas as nações — e a vitória inevitável do reino de Deus. O livro de Daniel é, ao mesmo tempo, um manual de fidelidade em tempos de perseguição e a espinha dorsal profética do Antigo Testamento para a escatologia cristã. Sem Daniel, o Apocalipse de João perde metade de seu vocabulário.</p>
+    <p>Esta lição convida ao que toda boa exegese exige: ler Daniel à luz de seu contexto histórico de exílio babilônico, com atenção ao gênero literário apocalíptico, e com olhos abertos para os cumprimentos cristológicos que Jesus mesmo identificou. Daniel não é um enigma a ser decifrado — é uma promessa a ser vivida.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O fio que une Daniel ao Apocalipse</div>
+        <p>João conhecia Daniel profundamente. As quatro bestas de Daniel 7 reaparecem fundidas em uma só besta em Apocalipse 13. O Ancião de Dias de Daniel 7 é o Cristo entronizado de Apocalipse 1. O tempo de angústia de Daniel 12:1 ressoa na Grande Tribulação de Mateus 24:21 e do Apocalipse. Em muitos sentidos, o Apocalipse é a releitura cristológica e consumatória de Daniel.</p>
+    </div>
+    <h3>O Fio Condutor desta Lição</h3>
+    <p>Examinaremos o contexto histórico de Daniel, os três textos escatológicos centrais — Daniel 2, 7 e 12 —, a sua exegese e teologia, as duas principais tradições interpretativas, e o desafio que a vida de Daniel lança ao discípulo que testemunha da soberania de Deus diante de poderes que parecem invencíveis.</p>
+    <div class="bloco-aluno-refletir">
+        <div class="bloco-aluno-refletir-titulo">Para Você Refletir</div>
+        <div class="qa">Qual é a sua reação quando vê poder humano que parece invencível? Como a certeza de que "os reinos passam" muda essa perspectiva?</div>
+        <div class="la"></div><div class="la"></div><div class="la"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 TEXTO BÍBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico e Objetivos</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">3</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>A Passagem-Base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Daniel 7:13-14</div>
+        <p>"Eu estava olhando nas visões da noite, e eis que vinha com as nuvens do céu um como o Filho do homem, e chegou até o Ancião de Dias, e o fizeram chegar perto dele. E foi-lhe dado o domínio, e a glória, e o reino, para que os povos, nações e línguas o servissem; o seu domínio é domínio eterno, que não passará, e o seu reino é o que não será destruído."</p>
+        <span class="ref-final">Daniel 7:13-14</span>
+    </div>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Daniel 12:1-3</div>
+        <p>"E naquele tempo se levantará Miguel, o grande príncipe... e será um tempo de angústia, qual nunca houve desde que houve uma nação até aquele tempo; mas naquele tempo o teu povo será libertado, todo aquele que for achado escrito no livro. E muitos dos que dormem no pó da terra ressuscitarão, uns para a vida eterna, e outros para vergonha e para confusão eterna. E os entendidos resplandecerão como o resplendor do firmamento; e os que ensinarem a justiça a muitos, como as estrelas sempre e eternamente."</p>
+        <span class="ref-final">Daniel 12:1-3</span>
+    </div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Examinar a estrutura profética de Daniel 2, 7 e 12 como espinha dorsal escatológica do AT</li>
+            <li>Compreender a visão do "Filho do Homem" em Daniel 7 e seu cumprimento em Jesus</li>
+            <li>Analisar Daniel 12 como a afirmação mais clara de ressurreição no Antigo Testamento</li>
+            <li>Identificar o fio condutor do reino de Deus que une Daniel ao Apocalipse</li>
+        </ul>
+    </div>
+    <div class="bloco-aluno-conexao">
+        <div class="bloco-aluno-conexao-titulo">Conexão Bíblica</div>
+        <span class="ref-cx">Mateus 26:64 — Jesus cita Daniel 7:13 ao Sumo Sacerdote</span>
+        <p>Jesus usou o título "Filho do Homem" mais do que qualquer outro ao se referir a si mesmo. Releia Daniel 7:13-14 e Mateus 26:64. O que essa conexão direta revela sobre como Jesus compreendia a sua própria identidade e missão?</p>
+        <div class="la"></div><div class="la"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 I — CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · I — Contexto Original</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">4</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>I-O Contexto de Daniel</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Daniel — O Profeta no Exílio</div>
+        <p>Daniel escreveu no exílio babilônico, no século VI a.C. Suas visões foram dadas a um jovem judeu que vivia sob o poder do maior império do mundo antigo — Babilônia. A mensagem central é radicalmente contracultural: os reinos humanos, por mais poderosos que sejam, são temporários; o reino de Deus é eterno. Essa mensagem sustentou fiéis sob Babilônia, Pérsia, Grécia e Roma — e sustenta cristãos sob qualquer poder opressor até hoje.</p>
+    </div>
+    <h3>Os Três Textos-Chave</h3>
+    <p>O livro de Daniel tem dois grandes blocos escatológicos. Daniel 2 apresenta a estátua dos reinos — cabeça de ouro, peito de prata, ventre de bronze, pernas de ferro, pés de barro — destruída pela pedra "cortada sem mãos." Daniel 7 reapresenta os mesmos reinos como quatro bestas e acrescenta a visão do Ancião de Dias e do Filho do Homem. Daniel 12 é o texto do AT mais explícito sobre ressurreição, tribulação final e a recompensa dos fiéis.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">A Conexão Daniel-Apocalipse</div>
+        <p>As quatro bestas de Daniel 7 reaparecem fundidas em uma só besta em Apocalipse 13. O Ancião de Dias de Daniel 7 corresponde ao Cristo entronizado de Apocalipse 1:14. O "tempo de angústia" de Daniel 12:1 ecoa na Grande Tribulação de Mateus 24:21. Os 1.260 dias e as "setenta semanas" de Daniel estruturam a cronologia simbólica do Apocalipse. Daniel é o dicionário do qual João retira boa parte do seu vocabulário profético.</p>
+    </div>
+    <h3>Gênero Literário: Apocalipse Judaico</h3>
+    <p>Daniel pertence ao gênero apocalíptico — literatura simbólica escrita em contexto de perseguição para comunicar esperança à comunidade de fé. Seus números, imagens e bestas não são fotografia literal do futuro, mas linguagem simbólica que o leitor do século VI a.C. reconhecia. Isso não diminui a realidade das promessas — muda o modo de lê-las.</p>
+    <div class="bloco-aluno-sabia">
+        <div class="bloco-aluno-sabia-titulo">Sabia Que?</div>
+        <div class="fato">O nome "Beltessazar" dado a Daniel em Babilônia (Dn 1:7) significa "príncipe de Bel" — o principal deus babilônico. Renomear era uma forma de apagar a identidade. Daniel manteve a sua fé mesmo com o nome trocado.</div>
+        <p>Assim como Daniel, os cristãos hoje são constantemente pressionados a adotar identidades que contradizem a sua fé. Em que áreas da sua vida você sente essa pressão de "renomear" quem você é?</p>
+        <div class="la"></div><div class="la"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 II — OS QUATRO REINOS -->
+<div class="lbl">Página 5 · II — Os Quatro Reinos e o Reino Eterno</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">5</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>II-Os Quatro Reinos e o Reino Eterno</h2>
+    <table class="tabela-reinos">
+        <tr>
+            <th>Material / Besta</th>
+            <th>Reino</th>
+            <th>Período</th>
+        </tr>
+        <tr>
+            <td>Ouro / Leão</td>
+            <td>Babilônia — Nabucodonosor</td>
+            <td>625–539 a.C.</td>
+        </tr>
+        <tr>
+            <td>Prata / Urso</td>
+            <td>Medo-Pérsia — Ciro</td>
+            <td>539–331 a.C.</td>
+        </tr>
+        <tr>
+            <td>Bronze / Leopardo</td>
+            <td>Grécia — Alexandre</td>
+            <td>331–63 a.C.</td>
+        </tr>
+        <tr>
+            <td>Ferro / Besta</td>
+            <td>Roma — Césares</td>
+            <td>63 a.C. — ...</td>
+        </tr>
+        <tr>
+            <td>Pedra / Filho do Homem</td>
+            <td>Reino de Deus — Cristo</td>
+            <td>Eterno</td>
+        </tr>
+    </table>
+    <h3>A Pedra Cortada Sem Mãos — Dn 2:34-35</h3>
+    <p>A pedra que destruiu a estátua foi "cortada sem mãos" — não por poder humano. Ela atinge os pés de barro e ferro, destrói toda a estátua e se torna um grande monte que enche toda a terra. A interpretação é dada pelo próprio texto: "o Deus do céu suscitará um reino que não será jamais destruído" (Dn 2:44). Jesus aplica essa imagem a si mesmo — ele é a pedra que os construtores rejeitaram (Mt 21:42-44).</p>
+    <h3>O Filho do Homem — Dn 7:13-14</h3>
+    <p>A visão mais importante de Daniel 7 é o "Filho do Homem" que se aproxima do Ancião de Dias e recebe domínio eterno. Jesus usou esse título para si mesmo mais do que qualquer outro — e ao ser interrogado pelo Sumo Sacerdote, citou exatamente Daniel 7:13 como descrição de sua própria identidade (Mt 26:64). A exaltação de Cristo à destra do Pai é o cumprimento inaugural dessa visão.</p>
+    <div class="bloco-aluno-pense">
+        <div class="bloco-aluno-pense-titulo">Pense Nisso</div>
+        <div class="citacao">"A pedra cortada sem mãos se tornou um grande monte que encheu toda a terra." — Daniel 2:35</div>
+        <p style="font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.5;margin:7px 0 4px;">O reino de Deus avança sem força humana. Em que projeto, ministério ou relacionamento você tem tentado "construir o reino" com as suas próprias mãos — quando o convite é confiar na pedra que cresce sozinha?</p>
+        <div class="la"></div><div class="la"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 III — TEOLOGIA DA PASSAGEM -->
+<div class="lbl">Página 6 · III — Teologia da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>III-Teologia da Passagem</h2>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>O Deus de Daniel é o Senhor da história universal — não apenas da história de Israel. Ele conhece o nome de cada rei pagão antes que nasçam (Is 44:28 — Ciro pelo nome, 150 anos antes); levanta e derruba reinos segundo o seu propósito; e o seu reino não pode ser detido por nenhum poder humano. Para Daniel, vivendo como exilado na corte de Nabucodonosor, essa certeza era o fundamento da fidelidade cotidiana. Para o cristão de hoje, é exatamente a mesma fonte de coragem.</p>
+    </div>
+    <h3>Daniel 12 — A Ressurreição no Antigo Testamento</h3>
+    <p>Daniel 12:2-3 é a declaração mais explícita de ressurreição corporal no Antigo Testamento: "muitos dos que dormem no pó da terra ressuscitarão, uns para a vida eterna, e outros para vergonha e para confusão eterna." Dois destinos, uma ressurreição universal. Os "entendidos" que ensinaram a justiça "resplandecerão como as estrelas" — a fidelidade ao ensino da Palavra tem recompensa eterna e cósmica.</p>
+    <h3>A Fidelidade de Daniel Como Modelo</h3>
+    <p>Daniel não apenas recebeu visões proféticas — ele as viveu. Recusou o alimento do rei (Dn 1), continuou orando quando lhe foi proibido (Dn 6) e permaneceu fiel mesmo diante dos leões. Sua escatologia não era especulação acadêmica — era o fundamento de sua coragem prática diante do poder imperial. O mesmo deve ser verdadeiro para o leitor cristão hoje.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O Reino que Cresce — Dn 2:35</div>
+        <p>A pedra que destruiu a estátua se tornou "um grande monte" que encheu toda a terra. Esse crescimento progressivo é compatível com a visão do pós-milenismo e do amilenarismo: o reino de Deus avança na história pela proclamação do evangelho, enchendo toda a terra — antes que o Rei venha em glória final.</p>
+    </div>
+    <div class="bloco-aluno-leve">
+        <div class="bloco-aluno-leve-titulo">Leve para a Sua Vida</div>
+        <div class="compromisso">Daniel 12:3 promete que "os que ensinarem a justiça a muitos resplandecerão como as estrelas." Essa semana, escolha uma pessoa — um familiar, amigo ou colega — e compartilhe com ela uma verdade das Escrituras que você aprendeu nesta lição.</div>
+        <p style="font-family:'EB Garamond',serif;font-size:9.5pt;color:#555;font-style:italic;margin:4px 0 6px;">Com quem você vai compartilhar? Escreva o nome abaixo e ore por essa pessoa.</p>
+        <div class="la"></div>
+        <div class="assinatura">
+            <div class="campo"><span>Nome</span></div>
+            <div class="campo"><span>Data</span></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 IV — AS INTERPRETAÇÕES PRINCIPAIS -->
+<div class="lbl">Página 7 · IV — As Interpretações Principais</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>IV-As Interpretações Principais</h2>
+    <h3>A Interpretação Dispensacionalista</h3>
+    <p>O dispensacionalismo lê as "setenta semanas" de Daniel 9 como um cronograma literal de 490 anos, com a 70ª semana ainda futura — um período de sete anos de Grande Tribulação após o arrebatamento da Igreja. A quarta besta de Daniel 7 representa o Império Romano revisitado no futuro como um império global sob o Anticristo. O "Filho do Homem" de Daniel 7 recebe o reino ao final dessa Tribulação, no início do milênio literal de Apocalipse 20. Para o dispensacionalismo, Daniel 2, 7 e 12 descrevem eventos ainda inteiramente futuros.</p>
+    <h3>A Interpretação Histórico-Progressiva Reformada</h3>
+    <p>O amilenarismo reformado vê os quatro reinos de Daniel 2 e 7 como Babilônia, Pérsia, Grécia e Roma — impérios históricos já passados. A pedra "cortada sem mãos" é o reino inaugurado na primeira vinda de Cristo, que cresce progressivamente até a consumação. O "Filho do Homem" recebe o reino na sua ascensão e entronização (cf. At 2:33-36). A "tribulação" de Daniel 12 é o período inteiro entre os dois advimentos, com intensificação no fim. Essa leitura é mais coerente com a declaração de Jesus de que "o reino de Deus chegou" (Mc 1:15) durante o seu ministério.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Que as Interpretações Têm em Comum</div>
+        <p>Independentemente da escola interpretativa, todas concordam nos pontos centrais: os reinos humanos são temporários e o reino de Deus é eterno; o "Filho do Homem" é Jesus Cristo; haverá ressurreição universal de justos e ímpios para destinos eternos distintos; e a fidelidade presente tem recompensa cósmica. A divergência está no quando — não no quê nem no quem.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- PG 8 CONCLUSÃO -->
+<div class="lbl">Página 8 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">8</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>Conclusão</h2>
+    <p class="cap">Daniel não escreveu para satisfazer a curiosidade teológica — escreveu para sustentar a fé de um povo sob pressão. A mensagem do livro é tão simples quanto profunda: os impérios passam, o reino de Deus permanece. Nabucodonosor passou. Ciro passou. Alexandre passou. Roma passou. O Cristo que recebeu o domínio eterno do Ancião de Dias permanece — e o seu reino não será destruído.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+        <p>Aprendemos que Daniel escreveu em contexto de exílio e perseguição, e que sua mensagem central é a soberania de Deus sobre toda a história imperial. Vimos que os três textos escatológicos centrais — Daniel 2, 7 e 12 — apresentam a pedra do reino de Deus, o Filho do Homem entronizado e a ressurreição universal. Examinamos como Jesus identificou a si mesmo com o Filho do Homem de Daniel 7:13. E descobrimos que a escatologia de Daniel não é especulação — é fundamento da fidelidade cotidiana.</p>
+    </div>
+    <h3>A Certeza que Permanece</h3>
+    <p>Daniel recebeu a ordem de "fechar e selar as palavras" da profecia "até o tempo do fim" (Dn 12:4). O anjo acrescentou: "os entendidos compreenderão" (v.10). A chave para compreender Daniel não é encontrar os cálculos corretos — é ser fiel enquanto se espera. Os que ensinam a justiça resplandecerão como estrelas. A escatologia de Daniel convida à fidelidade, não à especulação.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ponte para as próximas lições</div>
+        <p>As lições finais desta série fecharão o ciclo escatológico com a Nova Criação e o estado eterno. O que estudamos hoje sobre o reino eterno de Deus que supera todos os reinos humanos será o fundamento para compreender a promessa da Nova Jerusalém — onde o reino que Daniel viu na visão se tornará realidade plena e eterna.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
+
+<!-- PG 9 APLICAÇÃO DIRETA -->
+<div class="lbl">Página 9 · Aplicação Direta</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">9</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>Aplicação Direta</h2>
+    <p class="cap">Daniel viveu como fiel em uma corte pagã — não em isolamento monástico, mas em engajamento corajoso com o poder. Ele serviu como funcionário de três imperadores diferentes sem comprometer a sua fé. Sua escatologia — a certeza de que o reino de Deus é eterno e todos os outros são temporários — foi o que o capacitou a permanecer fiel sem sucumbir ao sistema.</p>
+    <div class="bloco-apl">
+        <div class="bloco-apl-titulo">Para esta semana</div>
+        <p>Primeiro: Daniel 12:3 diz que "os que ensinarem a justiça a muitos" resplandecerão como estrelas eternamente. O ensinamento fiel da Palavra — na família, na EBD, no trabalho — tem valor cósmico e eterno. Você está ensinando a justiça a alguém? Segundo: a pedra de Daniel 2 foi "cortada sem mãos" — o reino de Deus não avança por poder humano. Em que áreas você tem dependido de estratégia humana onde precisaria de dependência em Deus? Terceiro: Daniel continuou orando mesmo quando lhe foi proibido (Dn 6:10). Há alguma prática de fidelidade em sua vida que o contexto cultural ou profissional tenta silenciar? O que Daniel diria a você?</p>
+    </div>
+    <div class="sep"><span>✦</span></div>
+    <h3>Para Refletir</h3>
+    <p>Daniel recebeu a ordem de "fechar e selar as palavras" de sua profecia "até o tempo do fim" (Dn 12:4). O anjo lhe diz que "muitos percorrerão e o conhecimento se multiplicará." A multiplicação do conhecimento não é o cumprimento dessa profecia — é o sinal do contexto em que a profecia será finalmente compreendida. Como a humildade diante dos limites do nosso conhecimento profético deve moldar a postura do cristão diante de interpretações escatológicas conflitantes?</p>
+    <div class="memorizar">
+        <div class="memorizar-titulo">✦ Versículo para Memorizar</div>
+        <p>"E os entendidos resplandecerão como o resplendor do firmamento; e os que ensinarem a justiça a muitos, como as estrelas sempre e eternamente."</p>
+        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Daniel 12:3</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
+
+<!-- PG 10 QUESTÕES -->
+<div class="lbl">Página 10 · Questões e Anotações</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">10</div>
+    <div class="ph"><span class="phl">Lição 11 · Vol. II</span><span class="pht">O Livro de Daniel e o Fim</span></div>
+    <h2>Questões para Reflexão</h2>
+    <div class="q">
+        <div class="qn">Questão 01</div>
+        <div class="qt">A pedra de Daniel 2 foi "cortada sem mãos" — sem intervenção humana. O que isso revela sobre como o reino de Deus avança na história? Como isso difere das estratégias de poder político que muitas igrejas adotam para influenciar a cultura?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 02</div>
+        <div class="qt">Jesus usou o título "Filho do Homem" de Daniel 7:13 como sua autodesignação favorita. O que a visão de Daniel 7 — o Filho do Homem recebendo domínio eterno do Ancião de Dias — revela sobre a natureza da exaltação de Cristo após a ressurreição? Quando esse reino foi inaugurado?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 03</div>
+        <div class="qt">Daniel 12:2 afirma a ressurreição de "muitos" para dois destinos distintos. Como esse texto veterotestamentário antecipa e fundamenta o ensino do NT sobre a ressurreição universal de justos e ímpios? De que modo João 5:28-29 dialoga com Daniel 12:2?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 04</div>
+        <div class="qt">Daniel serviu fielmente sob imperadores pagãos sem comprometer a sua fé. Qual é a diferença entre "servir ao poder" e "ser corrompido pelo poder"? Como Daniel navegou essa tensão — e o que isso ensina ao cristão que trabalha em estruturas seculares hoje?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="bloco-qr-al">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAIAAABqcO2fAAAF1ElEQVR4nO3dMW5sNwwF0DjIIlJmKVl6lpLStSuXWYCCD0IQKfninHqemmZ8IcCERH18f33+Brl+vz0B6CXihBNxwok44USccCJOOBEnnIgTTsQJJ+KEE3HC/VH50F9//t08jV/59/OfjafWOa/j7H2vynz6Rq7Y++6nfudJlTlbxQkn4oQTccKJOOFEnHClisrq1P/+q7v/oa9O1WH2Ru6rsfR5LRtWccKJOOFEnHAiTjgRJ9xmRWU1uStj71199Yq9XSt3v8XenCf/Xqf+OlZxwok44USccCJOOBEn3LGKyl17+z0mT/28dqamr770Gqs44USccCJOOBEnnIgT7kdWVPpqI6c6kPTVTyojT+69eZ9VnHAiTjgRJ5yIE07ECXesovL+f9+Tp2wm+5acqsP0uft2qzjhRJxwIk44ESeciBNus6Jyt3/sqZ0kp04G3Z3P3TlXRr7LKk44ESeciBNOxAkn4oT7+P76vD2HIa/VPVZ7u036TjxVnnqfVZxwIk44ESeciBNOxAnX2Eelrz7QV8F4v2Jwt2PMKZPVG6s44USccCJOOBEnnIgTrrRHZfI0St/eib4ZVt5VcfcXe+1+IhUVKBFxwok44USccCJOuNIelckdDn1PnfoWfVWO1zqQrN6via2s4oQTccKJOOFEnHAiTrjLtyf3nbLZq4S8dqam7x7kyRNPe3WqU3dSW8UJJ+KEE3HCiTjhRJxwjRWVU2dGJnu6Ts65b+S9z5z6DV/rTmMVJ5yIE07ECSfihBNxwpUqKn2326wm7+c9ddJkcndHRd/ul74OwH0nnqzihBNxwok44USccCJOuGOdaStPrV67w7evVvP+yKfeNXm/sz4qIOKkE3HCiTjhRJxwpYpKxeT9xZM1hL63v38X0mv0UYH/IeKEE3HCiTjhRJxwo3tU+p6qjLOavMPoJ1ZC+nYiVcaxRwVKRJxwIk44ESeciBNus6KySt2RUjHZmfaUu336TjxVnnqfVZxwIk44ESeciBNOxAkn4oT7+P76vD2HIa/VPVZ7u036TjxVnnqfVZxwIk44ESeciBNOxAnX2Eelrz7QV8F4v2Jwt2PMKZPVG6s44USccCJOOBEnnIgTrrRHZfI0St/eib4ZVt5VcfcXe+1+IhUVKBFxwok44USccCJOuNIelckdDn1PnfoWfVWO1zqQrN6via2s4oQTccKJOOFEnHAiTrjLtyf3nbLZq4S8dqam7x7kyRNPe3WqU3dSW8UJJ+KEE3HCiTjhRJxwjRWVU2dGJnu6Ts65b+S9z5z6DV/rTmMVJ5yIE07ECSfihBNxwpUqKn2326wm7+c9ddJkcndHRd/ul74OwH0nnqzihBNxwok44USccCJOuGOdaStPrV67w7evVvP+yKfeNXm/sz4qIOKkE3HCiTjhRJxwpYpKxeT9xZM1hL63v38X0mv0UYH/IeKEE3HCiTjhRJxwo3tU+p6qjLOavMPoJ1ZC+nYiVcaxRwVKRJxwIk44ESeciBNus6KySt2RUjHZmfaUu336TjxVnnqfVZxwIk44ESeciBNOxAkn4oT7+P76vD2HIa/VPVZ7u036TjxVnnqfVZxwIk44ESeciBNOxAnX2Eelrz7QV8F4v2Jwt2PMKZPVG6s44USccCJOOBEnnIgTrrRHZfI0St/eib4ZVt5VcfcXe+1+IhUVKBFxwok44USccCJOuNIelckdDn1PnfoWfVWO1zqQrN6via2s4oQTccKJOOFEnHAiTrjLtyf3nbLZq4S8dqam7x7kyRNPe3WqU3dSW8UJJ+KEE3HCiTjhRJxwjRWVU2dGJnu6Ts65b+S9z5z6DV/rTmMVJ5yIE07ECSfihBNxwpUqKn2326wm7+c9ddJkcndHRd/ul74OwH0nnqzihBNxwok44USccCJOuGOdaStPrV67w7evVvP+yKfeNXm/sz4qIOKkE3HCiTjhRJxwpYpKxeT9xZM1hL63v38X0mv0UYH/IeKEE3HCiTjhRJxwo3tU+p6qjLOavMPoJ1ZC+nYiVcaxRwVKRJxwIk44ESeciBNus6KySt2RUjHZmfaUu336zz8AAAAASUVORK5CYII=" alt="QR Code — O Fim de Tudo! Daniel cap 10-12">
+        <div class="bloco-qr-al-info">
+            <div class="bloco-qr-al-label">🎧 Assista Também</div>
+            <div class="bloco-qr-al-titulo">O Fim de Tudo! | Daniel cap 10–12</div>
+            <div class="bloco-qr-al-sub">Escola do Discípulo — aprofunde o estudo desta lição com esta aula em vídeo.</div>
+            <div class="bloco-qr-al-url">youtube.com/watch?v=OdKwPcKDar8</div>
+        </div>
+    </div>
+    <h3 style="margin-top:12px;">Anotações</h3>
+    <div class="lins">
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════ -->
+
+<!-- PG P1 — GUIA DE CONDUÇÃO DA AULA -->
+<div class="lbl lbl-prof">Página P1 · Guia de Condução — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 11 · Guia Docente</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Guia de Condução da Aula</h2>
+
+    <div class="bloco-tempo">
+        <div class="bk">Distribuição Sugerida de Tempo · 60 minutos</div>
+        <div class="tempo-linha"><span class="tempo-min">0–8 min</span><span class="tempo-desc">Abertura e pergunta disparadora: "Qual é o maior poder humano que você conhece — histórico ou atual? Ele ainda existe?" Deixe 2–3 respostas espontâneas antes de contextualizar o exílio babilônico.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8–18 min</span><span class="tempo-desc">Leitura dos textos-base (Dn 7:13-14 e Dn 12:1-3) e apresentação da tabela dos quatro reinos. Explore a relação Daniel → Apocalipse brevemente.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">18–32 min</span><span class="tempo-desc">Exposição das seções I, II e III: contexto, os quatro reinos, teologia da passagem. Valorize a "pedra cortada sem mãos" e o "Filho do Homem" como eixos cristológicos centrais.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">32–45 min</span><span class="tempo-desc">Seção IV — Interpretações. Use o bloco hermenêutico comparado (pg. P2) para apresentar dispensacionalismo e amilenarismo com equanimidade. Evite polêmica desnecessária.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">45–57 min</span><span class="tempo-desc">Questões de reflexão em pares ou grupos de 3. O professor circula e observa a qualidade das respostas — especialmente nas Questões 01 e 04, que exigem maior elaboração.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">57–60 min</span><span class="tempo-desc">Versículo de memória (Dn 12:3) e oração de encerramento. Incentive o compromisso da pág. 6: nomear uma pessoa para compartilhar uma verdade desta lição.</span></div>
+    </div>
+
+    <div class="bloco-guia">
+        <div class="bk">Objetivo Central da Aula</div>
+        <p>Ao final desta lição, o aluno deve ser capaz de articular três coisas: (1) Daniel escreveu em exílio para sustentar fé sob pressão — não para satisfazer curiosidade profética; (2) a pedra de Daniel 2 e o Filho do Homem de Daniel 7 encontram cumprimento inaugural em Cristo; (3) a escatologia de Daniel não é chamado à especulação, mas à fidelidade cotidiana em estruturas seculares. Se o aluno sai com esses três pontos internalizados, a aula foi bem-sucedida.</p>
+    </div>
+
+    <div class="bloco-dica">
+        <div class="bk">Dica de Abertura — Pergunta Disparadora</div>
+        <p>Antes de abrir a lição, pergunte: "Se você fosse um jovem judeu deportado para Brasília, trabalhando no governo federal sob um presidente hostil à sua fé — o que sustentaria a sua fidelidade?" Deixe a pergunta em suspensão. Não a responda agora. Volte a ela ao final da aula, depois que Daniel tiver respondido.</p>
+    </div>
+
+    <div class="bloco-perf">
+        <div class="bk">Perfil da Turma — O que Esperar</div>
+        <div class="perf-linha">
+            <span class="perf-tipo">Leigo</span>
+            <span class="perf-txt">Provavelmente conhece Daniel "no fosso dos leões" e "na fornalha ardente" — mas não os textos escatológicos. Contextualize o exílio vividamente antes de entrar nos textos proféticos. Use analogias contemporâneas de pressão cultural.</span>
+        </div>
+        <div class="perf-linha">
+            <span class="perf-tipo">Dispensacionalista</span>
+            <span class="perf-txt">Pode reagir à interpretação histórico-progressiva como "liberal". Valorize o que as interpretações têm em comum (bloco-ctx pg. 7) antes de explorar as diferenças. Evite fazer disso uma "briga hermenêutica" — não é o objetivo desta lição.</span>
+        </div>
+        <div class="perf-linha">
+            <span class="perf-tipo">Estudante Avançado</span>
+            <span class="perf-txt">Pode querer ir fundo nas "setenta semanas" de Daniel 9 ou no "abomino da desolação." Reconheça a riqueza, mas conduza o grupo de volta ao foco pastoral: a fidelidade de Daniel como modelo, não a cronologia como puzzle.</span>
+        </div>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — HERMENÊUTICA COMPARADA E TEOLOGIA APROFUNDADA -->
+<div class="lbl lbl-prof">Página P2 · Hermenêutica Comparada — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 11 · Hermenêutica e Exegese</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Hermenêutica Comparada — Daniel</h2>
+
+    <div class="bloco-hermeneutica">
+        <div class="bk">Interpretações em Paralelo — Textos Centrais</div>
+        <div class="herm-grid">
+            <div class="herm-col">
+                <div class="herm-col-tit">Dispensacionalismo</div>
+                <p><strong>Dn 2 (pedra):</strong> Destrói o império romano revivido no futuro — ainda inteiramente futuro.<br><br><strong>Dn 7 (Filho do Homem):</strong> Recebe o reino no fim da Tribulação, não na ascensão.<br><br><strong>Dn 12 (ressurreição):</strong> Acontece ao final do período da Tribulação.<br><br><strong>70ª semana:</strong> Futura — o "intervalo" entre semana 69 e 70 é a Era da Igreja.</p>
+            </div>
+            <div class="herm-col">
+                <div class="herm-col-tit">Amilenarismo Reformado</div>
+                <p><strong>Dn 2 (pedra):</strong> Reino inaugurado na encarnação/ressurreição; cresce até a consumação — progressivo, já em curso.<br><br><strong>Dn 7 (Filho do Homem):</strong> Recebe o reino na ascensão (At 2:33); reino já entronizado.<br><br><strong>Dn 12 (ressurreição):</strong> Ressurreição final na parousia de Cristo.<br><br><strong>70ª semana:</strong> Cumprida no ministério e morte de Cristo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bloco-teo-prof">
+        <div class="bk">Exegese Aprofundada — "Filho do Homem" (Dn 7:13-14)</div>
+        <p>A expressão "Filho do Homem" (aramaico: <em>bar enash</em>) em Daniel 7:13 não é uma categoria cristológica óbvia para o leitor do século VI a.C. — é alguém "como" ser humano (não necessariamente humano), que recebe autoridade divina. O ponto exegético crucial: ele se aproxima do Ancião de Dias (uma cena de corte celestial, não terrena) e recebe domínio eterno. Jesus ao citar esse texto diante do Sumo Sacerdote (Mt 26:64) estava fazendo uma afirmação de divindade velada — e o Sumo Sacerdote entendeu: rasgou as vestes acusando de blasfêmia. Essa conexão é ouro pastoral: quando Jesus se auto-intitulava "Filho do Homem," estava convocando Daniel 7.</p>
+    </div>
+
+    <div class="bloco-teo-prof">
+        <div class="bk">Exegese Aprofundada — A Pedra "Cortada Sem Mãos" (Dn 2:34)</div>
+        <p>O detalhe "sem mãos" é tecnicamente importante: na linguagem do AT, obras "feitas por mãos" são obras humanas (especialmente ídolos — cf. Is 44:9-20). Uma pedra "cortada sem mãos" é uma obra exclusivamente divina. Jesus se identifica como essa pedra (Mt 21:42-44; cf. Sl 118:22) — a pedra que os construtores rejeitaram. A progressão da pedra que "encheu toda a terra" é compatível com a Grande Comissão: o reino avança pela proclamação, não pela coerção. O amilenarismo reformado vê isso como o crescimento presente da Igreja na história.</p>
+    </div>
+
+    <div class="alerta">
+        <div class="bk">⚠ Ponto Sensível — Não Entre nas "Setenta Semanas"</div>
+        <p>Daniel 9:24-27 ("setenta semanas") é o texto mais disputado do Antigo Testamento em hermenêutica profética. Dispensacionalistas e amilenaristas chegam a conclusões radicalmente diferentes — e ambos têm argumentos sofisticados. Se a turma perguntar, reconheça a complexidade, apresente as duas leituras brevemente, e redirecione para o foco pastoral desta lição: a fidelidade de Daniel, não a cronologia das semanas. Aprofundar Daniel 9 agora seria desviar a atenção do coração da aula.</p>
+    </div>
+
+    <div class="bloco-cult">
+        <div class="bk">Conexão com a Cultura Contemporânea</div>
+        <p>A tentação de "ler Daniel nos jornais" — identificar o Anticristo com líderes políticos atuais, ou as bestas com nações específicas — é recorrente em movimentos evangélicos populares. Vale a pena nomear isso diretamente: Daniel não foi escrito para identificar inimigos contemporâneos, mas para sustentar a fé de um povo sob pressão. A pergunta de Daniel não é "quem é o Anticristo?" — é "o que sustenta a fidelidade quando o poder parece invencível?" Essa pergunta é muito mais urgente e muito mais útil.</p>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — MAPA DE COMPETÊNCIAS E PERGUNTAS SOCRÁTICAS -->
+<div class="lbl lbl-prof">Página P3 · Mapa de Competências e Sócrates — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 11 · Perguntas e Competências</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Mapa de Competências e Perguntas Socráticas</h2>
+
+    <div class="bloco-mapa">
+        <div class="bk">O que o Aluno Deve Ser Capaz de Fazer ao Final</div>
+        <div class="mapa-grid">
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Reconhecer</div>
+                <p>Os três textos-chave de Daniel (cap. 2, 7 e 12) e o que cada um ensina sobre o reino de Deus, o Filho do Homem e a ressurreição.</p>
+            </div>
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Conectar</div>
+                <p>A visão do Filho do Homem de Daniel 7 com a autodesignação de Jesus e sua citação em Mateus 26:64 diante do Sumo Sacerdote.</p>
+            </div>
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Distinguir</div>
+                <p>As abordagens dispensacionalista e amilenarista — sabendo o que têm em comum e onde divergem — sem colapsar para uma ou recusar a outra por ignorância.</p>
+            </div>
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Aplicar</div>
+                <p>O modelo de fidelidade de Daniel (servindo sem se corromper) ao seu próprio contexto profissional, familiar e cultural contemporâneo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bloco-soc">
+        <div class="bk">Perguntas Socráticas por Seção</div>
+        <div class="soc-item">
+            <p><strong>Pg. 2 — Introdução:</strong> "Por que João precisou de Daniel para escrever o Apocalipse? O que a dependência de um livro do outro diz sobre a unidade da Escritura?"</p>
+            <div class="soc-espera">Espere: conexão entre os dois livros; vocabulário profético compartilhado.</div>
+        </div>
+        <div class="soc-item">
+            <p><strong>Pg. 4 — Contexto:</strong> "Se Daniel tivesse cedido e comido o alimento do rei (Dn 1), ele ainda receberia as visões proféticas de Dn 7 e 12? O que a fidelidade nas coisas pequenas tem a ver com a visão das grandes?"</p>
+            <div class="soc-espera">Espere: conexão entre obediência cotidiana e discernimento espiritual profético.</div>
+        </div>
+        <div class="soc-item">
+            <p><strong>Pg. 5 — Os Quatro Reinos:</strong> "Se a pedra já encheu toda a terra (como diz o texto), por que ainda existem reinos que parecem invencíveis? O que 'encher toda a terra' significa — geopolítica ou escatologia?"</p>
+            <div class="soc-espera">Espere: debate sobre realização progressiva vs. consumação futura; abertura para as duas tradições.</div>
+        </div>
+        <div class="soc-item">
+            <p><strong>Pg. 7 — Interpretações:</strong> "Se dispensacionalistas e amilenaristas concordam que Cristo é o Filho do Homem e que haverá ressurreição — o que essa concordância nos diz sobre o que é essencial e o que é periférico na fé cristã?"</p>
+            <div class="soc-espera">Espere: distinção entre dogma central e opinião hermenêutica; lição de humildade escatológica.</div>
+        </div>
+    </div>
+
+    <div class="bloco-debate">
+        <div class="bk">Pergunta de Debate — Para Turmas Avançadas</div>
+        <p>"Daniel serviu como funcionário de três imperadores pagãos — Nabucodonosor, Belsazar e Ciro — sem trair sua fé. Existe uma linha entre 'servir ao sistema' e 'ser corrompido pelo sistema'? Onde Daniel desenhou essa linha — e onde você desenha a sua?"</p>
+    </div>
+
+    <div class="cit-autor">
+        "Daniel não foi um profeta que recusou o mundo — foi um profeta que habitou o mundo sem ser absorvido por ele. Essa é a vocação da Igreja em cada geração."
+        <cite>— Adaptado de Graeme Goldsworthy, <em>Gospel and Kingdom</em></cite>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — GABARITO, AVALIAÇÃO E MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P4 · Gabarito e Seguimento — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 11 · Gabarito e Avaliação</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Gabarito — Respostas Orientadoras</h2>
+
+    <div class="bloco-resp">
+        <div class="bk">Respostas Sugeridas para as Questões de Reflexão</div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 01</div>
+            <div class="resp-txt">A chave é a ausência de agência humana — "cortada sem mãos" é a linguagem do exclusivamente divino no AT (cf. idolatria como obra "de mãos"). O reino de Deus avança por proclamação, convicção e transformação — não por poder político, lobby ou coerção. As igrejas que adotam estratégias de poder político estão contradizendo o próprio fundamento do reino que pregam: elas estão tentando "cortar a pedra com as mãos." Valorize respostas que distinguem influência cultural legítima de busca de poder coercitivo.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 02</div>
+            <div class="resp-txt">A cena de Daniel 7 é uma cena de corte celestial — o Filho do Homem se aproxima do Ancião de Dias e recebe domínio eterno. O cumprimento inaugural é a ascensão e entronização de Cristo (At 2:33-36; Ef 1:20-22). O reino foi inaugurado na ressurreição e entronização — não aguarda a parousia para começar, mas a parousia para ser consumado. O "já e ainda não" do reino é exatamente isso: já entronizado (Dn 7 inaugurado), ainda por vir em plenitude (Dn 7 consumado).</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 03</div>
+            <div class="resp-txt">Daniel 12:2 é o texto veterotestamentário mais explícito sobre ressurreição corporal universal — e revela dois destinos: vida eterna e vergonha eterna. João 5:28-29 reproduz quase literalmente a estrutura de Daniel 12:2: "todos os que estão nos sepulcros ouvirão a sua voz e sairão... uns para a ressurreição da vida, outros para a ressurreição do juízo." A continuidade é exata. Valorize a percepção de que o NT não inventa a ressurreição — ele a afirma como cumprimento do que Daniel já anunciou.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 04</div>
+            <div class="resp-txt">Daniel desenhou a linha no ponto onde a lealdade ao sistema exigia violação de lealdade a Deus — comer alimento impuro (Dn 1), adorar a estátua (Dn 3), interromper a oração (Dn 6). Fora dessas linhas, ele serviu com excelência, lealdade e competência. A diferença entre "servir ao poder" e "ser corrompido pelo poder" é a disposição a dizer não quando o poder cruza a linha da lealdade a Deus. Daniel nunca tornou o "não" a sua postura padrão — mas nunca hesitou quando a linha foi cruzada. Valorize alunos que conseguem nomear uma linha concreta em sua própria vida.</div>
+        </div>
+    </div>
+
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">↻</div>
+        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 e 04, o critério de qualidade é a especificidade — respostas genéricas ("Cristo é o único Rei") devem ser aprofundadas: "Como exatamente esse reino avança sem força humana — e como isso muda sua postura esta semana?" Nas Questões 02 e 03, valorize a capacidade de conectar AT e NT sem apagar a continuidade: Daniel não é superado pelo NT — é cumprido por ele. Quem percebe isso tem uma visão da unidade bíblica que sustenta a pregação por décadas.</div>
+    </div>
+
+    <div class="bloco-aval">
+        <div class="bk">Seguimento Pós-Lição</div>
+        <ul>
+            <li>Envie Daniel 12:3 no grupo da turma durante a semana com a pergunta: "Você 'ensinou a justiça a alguém' esta semana? Uma conversa, um testemunho, uma Escritura compartilhada — o que você fez que 'resplandecerá como estrela eternamente'? Compartilhe se sentir liberdade."</li>
+            <li>Proponha leitura complementar: Daniel 1 completo + Daniel 6 completo — os capítulos narrativos de Daniel antes dos proféticos. Observar como a fidelidade nas narrativas (alimento, leões) antecede e sustenta as visões dos capítulos 7-12. A escatologia de Daniel é fruto da sua vida, não da sua inteligência.</li>
+            <li>Anote alunos que demonstraram confusão entre as interpretações dispensacionalista e amilenarista — pode se beneficiar de material adicional sobre hermenêutica bíblica. O objetivo não é forçar uma posição, mas desenvolver a capacidade de distinguir o central do periférico.</li>
+            <li>Avalie se a aula produziu a percepção pastoral central: Daniel não é livro de especulação profética — é livro de coragem pastoral. O cristão que conhece o Deus de Daniel age com liberdade diante de poderes que parecem invencíveis. Esse é o fruto prático mais importante desta lição.</li>
+        </ul>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+<!-- PG P5 — MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P5 · Materiais Complementares — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 11 · Materiais Complementares</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Materiais Complementares</h2>
+
+    <div class="bloco-mat">
+        <div class="bk">Recursos Recomendados ao Professor</div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">G.K. Beale — <em>The Book of Daniel</em> (NICOT). Eerdmans. O comentário técnico de referência para Daniel. As seções sobre Daniel 2, 7 e 12 são especialmente ricas: Beale trata exaustivamente da pedra "cortada sem mãos" como imagem cristológica, da cena do Filho do Homem como entronização celestial, e de Daniel 12:2 como fundamento neotestamentário da doutrina da ressurreição. Indispensável para o professor que quer fundamentar a exegese antes de ministrar.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Iain Duguid — <em>Daniel</em> (Reformed Expository Commentary). P&amp;R Publishing. O melhor tratamento pastoral-reformado compacto de Daniel. Duguid navega as tensões hermenêuticas com clareza e bom senso pastoral — ideal para o professor que precisa de profundidade acessível. O capítulo sobre Daniel 7 (Filho do Homem) e o capítulo sobre Daniel 12 (ressurreição) são excelentes pontos de preparação para as seções II, III e as questões de reflexão.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Graeme Goldsworthy — <em>Gospel and Kingdom</em>. Paternoster Press. O capítulo sobre Daniel dentro da história do reino de Deus demonstra como os três textos de Daniel (2, 7 e 12) funcionam como eixo profético que conecta o AT ao NT. A leitura canônica que Goldsworthy oferece é o melhor antídoto contra a leitura fragmentada e sensacionalista de Daniel. Leitura breve — mas densa em implicações.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">Escola do Discípulo — <em>O Fim de Tudo! | Daniel cap 10–12</em> (YouTube — QR na pg. 10 do aluno). Exposição bíblica que trata Daniel 10-12 com fidelidade ao texto e aplicação pastoral. Ideal para recomendar aos alunos como complemento pós-aula, especialmente para consolidar a mensagem de Daniel 12 sobre ressurreição e recompensa eterna dos fiéis.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">BibleProject: <em>Daniel — Visão Geral</em> (YouTube, PT, 2 partes). O panorama visual da estrutura de Daniel mostra graficamente a divisão narrativa (cap. 1-6) e profética (cap. 7-12) do livro, e como os quatro reinos se relacionam com o reino de Deus. Ideal para usar como introdução visual à lição ou como consolidação após a exposição da tabela de reinos da pg. 5.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo site">Digital</span>
+            <span class="mat-info">thegospelcoalition.org/pt — busca "Daniel" e "Filho do Homem". Artigos de Beale, Goldsworthy e outros comentaristas reformados oferecem resumos acessíveis sobre o cumprimento cristológico de Daniel 7, a natureza progressiva da pedra de Daniel 2, e a ressurreição em Daniel 12 à luz do NT. Útil para o professor que quer consolidar a fundamentação exegética antes de ministrar — e para indicar aos alunos mais avançados.</span>
+        </div>
+    </div>
+
+    <div class="bloco-qr-prof">
+        <div class="bloco-qr-canvas" id="qrcode-licao11"></div>
+        <div class="bloco-qr-info">
+            <div class="bloco-qr-label">▶ Recurso em Vídeo — Professor</div>
+            <div class="bloco-qr-titulo">O Fim de Tudo! | Daniel cap 10–12 · Escola do Discípulo</div>
+            <div class="bloco-qr-desc">Exposição bíblica indicada para preparação do professor e para recomendar aos alunos como aprofundamento pós-aula.</div>
+            <div class="bloco-qr-url">youtube.com/watch?v=OdKwPcKDar8</div>
+        </div>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P5</span></div>
+</div>
+
+</div><!-- /area -->
+
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v2_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== QR CODE ===== */
+(function(){
+    var el = document.getElementById('qrcode-licao11');
+    if(el && typeof QRCode !== 'undefined'){
+        new QRCode(el, {
+            text: 'https://www.youtube.com/watch?v=OdKwPcKDar8',
+            width: 64,
+            height: 64,
+            colorDark: '#100818',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit() {
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el => {
+        if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul,table'))
+            el.contentEditable = edit ? 'true' : 'false';
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+</body>
+</html>
