@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0d1a">
+<link rel="manifest" href="manifest-professor.json">
+<link rel="apple-touch-icon" href="icon-professor-192.png">
+<link rel="icon" type="image/png" href="icon-professor-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
+<title>Eschaton Vol. II · Lição 12 — A Nova Aliança e a Esperança de Israel · Edição do Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{
+    /* cores base — Vol. II azul-aço (espelho do aluno lição 12) */
+    --cor:#305080;
+    --grad1:#0a1018; --grad2:#101828;
+    --ouro:#c9a84c; --ouro-claro:#e8d5a0;
+    --vermelho:#8b1a1a;
+    --ct:#2a2a2a;
+    --branco:#fdfbf7; --pergaminho:#f8f2e8; --creme:#f0e8d8; --cc:#ddd8cc;
+    /* cores exclusivas do professor — verde docente */
+    --prof:#1a6b35;
+    --prof-vivo:#27ae60;
+    --prof-claro:#e6f4ed;
+    --prof-borda:rgba(26,107,53,0.35);
+    --topo-prof:#0a1a0d;
+    /* auxiliares pedagógicos */
+    --verde-tip:#2e6b4f;
+    --verde-claro:#e6f4ed;
+    --verde-borda:rgba(46,107,79,0.35);
+    --laranja:#b85c1a;
+    --laranja-claro:#fdf0e6;
+    --laranja-borda:rgba(184,92,26,0.35);
+    --azul:#2c5f8a;
+    --azul-claro:#e8f0f8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#060c10;font-family:'EB Garamond',Georgia,serif;}
+
+/* ===== TELA DE SENHA ===== */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#040810 0%,#0a1220 60%,#040810 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:54px;height:54px;border:1px solid rgba(48,80,128,0.5);
+    transform:rotate(45deg);margin:0 auto 30px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(48,80,128,0.25);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:30px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);
+    border:1px solid rgba(48,80,128,0.35);
+    border-radius:2px;padding:12px 16px;
+    font-family:'Oswald',sans-serif;font-size:14pt;letter-spacing:6px;
+    color:#fff;text-align:center;outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(48,80,128,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.senha-btn{
+    width:100%;background:var(--prof);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+#conteudo-principal{display:none;}
+
+/* ===== PAINEL ===== */
+.painel{
+    position:fixed;top:0;left:0;right:0;z-index:9999;
+    background:linear-gradient(90deg,#030608,#060c10);
+    border-bottom:2px solid var(--prof);
+    padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.marca{font-family:'Cinzel',serif;font-size:12pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:rgba(201,168,76,0.8);letter-spacing:1px;display:block;font-weight:300;}
+.marca em{font-family:'Oswald',sans-serif;font-size:8pt;color:#888;letter-spacing:1px;display:block;font-weight:300;font-style:normal;}
+.badge-prof{
+    font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;
+    background:var(--prof);color:#fff;padding:4px 12px;border-radius:2px;
+}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#666;}
+
+/* ===== ÁREA ===== */
+.area{margin-top:60px;padding:24px 16px 80px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--pergaminho);box-shadow:0 6px 30px rgba(0,0,0,0.5);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#777;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+.lbl-prof{color:var(--prof);font-weight:600;}
+
+/* ===== CAPA ===== */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(48,80,128,0.45) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.18) 0%,transparent 45%),radial-gradient(ellipse at 55% 85%,rgba(20,40,80,0.5) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,rgba(201,168,76,1) 24px,rgba(201,168,76,1) 25px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#101828,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-size:130pt;font-weight:900;color:rgba(255,255,255,0.03);line-height:1;user-select:none;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#040810,var(--cor) 50%,#90c0ff);opacity:0.38;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.7;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+/* Faixa PROFESSOR na capa */
+.capa-prof-faixa{
+    position:absolute;top:0;right:0;z-index:10;
+    background:var(--prof);
+    font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:3px;text-transform:uppercase;
+    color:#fff;padding:5px 14px;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:17pt;font-weight:700;color:#fff;line-height:1.1;text-transform:uppercase;margin-bottom:10px;}
+.cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+
+/* ===== PÁGINAS DO ALUNO (espelho) ===== */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(48,80,128,0.15);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(48,80,128,0.055) 23px,rgba(48,80,128,0.055) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#182840;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.texto-biblico{background:#fff;border:1px solid rgba(48,80,128,0.2);border-left:4px solid var(--cor);padding:12px 14px;margin:12px 0;position:relative;z-index:1;}
+.texto-biblico-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.texto-biblico-ref::after{content:'';flex:1;height:1px;background:rgba(48,80,128,0.2);}
+.texto-biblico p{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#101828;line-height:1.7;margin-bottom:4px;text-align:left;}
+.texto-biblico .ref-final{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco-ctx{background:rgba(48,80,128,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-ctx-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bloco-teo{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-teo-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-apl{background:linear-gradient(135deg,rgba(48,80,128,0.05),rgba(201,168,76,0.06));border:1px solid rgba(48,80,128,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-apl-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.memorizar{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.memorizar-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.memorizar p{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#101828;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+ul li::before{content:'\2192' !important;position:absolute;left:0;color:var(--cor);font-size:9pt;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(48,80,128,0.2);height:20px;margin-top:3px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(48,80,128,0.2);height:22px;}
+
+/* Blocos do aluno — versão 2 */
+.bloco-aluno{position:relative;z-index:1;margin:12px 0;}
+.bloco-aluno-cabecalho{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.bloco-aluno-icone{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11pt;flex-shrink:0;}
+.bloco-aluno-titulo{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+.bloco-aluno-linha{flex:1;height:1px;opacity:0.3;}
+
+.bloco-refletir{background:rgba(48,80,128,0.06);border:1px solid rgba(48,80,128,0.18);border-radius:3px;padding:11px 13px;}
+.bloco-refletir .bloco-aluno-icone{background:rgba(48,80,128,0.12);color:var(--cor);}
+.bloco-refletir .bloco-aluno-titulo{color:var(--cor);}
+.bloco-refletir .bloco-aluno-linha{background:var(--cor);}
+.bloco-refletir .ba-pergunta{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ct);line-height:1.55;margin-bottom:8px;}
+.bloco-refletir .ba-linhas{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+.bloco-refletir .ba-lin{border-bottom:1px solid rgba(48,80,128,0.18);height:18px;}
+
+.bloco-conexao{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.28);border-left:4px solid var(--ouro);border-radius:3px;padding:11px 13px;}
+.bloco-conexao .bloco-aluno-icone{background:rgba(201,168,76,0.15);color:#8a6a20;}
+.bloco-conexao .bloco-aluno-titulo{color:#8a6a20;}
+.bloco-conexao .bloco-aluno-linha{background:var(--ouro);}
+.bloco-conexao .ba-ref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1.5px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-conexao .ba-verso{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#101828;line-height:1.6;margin-bottom:8px;}
+.bloco-conexao .ba-pergunta{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;margin-bottom:8px;}
+.bloco-conexao .ba-linhas{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+.bloco-conexao .ba-lin{border-bottom:1px solid rgba(201,168,76,0.25);height:18px;}
+
+.bloco-sabia{background:var(--creme);border:1px solid rgba(48,80,128,0.15);border-radius:3px;padding:11px 13px;}
+.bloco-sabia .bloco-aluno-icone{background:rgba(48,80,128,0.1);color:var(--cor);}
+.bloco-sabia .bloco-aluno-titulo{color:var(--cor);}
+.bloco-sabia .bloco-aluno-linha{background:var(--cor);}
+.bloco-sabia .ba-fato{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:4px;}
+.bloco-sabia .ba-fato strong{font-weight:600;color:var(--cor);}
+.bloco-sabia .ba-fonte{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;text-transform:uppercase;color:#aaa;margin-top:4px;}
+
+.bloco-pense{background:linear-gradient(135deg,rgba(48,80,128,0.06),rgba(201,168,76,0.06));border:1px dashed rgba(48,80,128,0.3);border-radius:3px;padding:11px 13px;}
+.bloco-pense .bloco-aluno-icone{background:rgba(48,80,128,0.08);color:var(--cor);}
+.bloco-pense .bloco-aluno-titulo{color:var(--cor);}
+.bloco-pense .bloco-aluno-linha{background:var(--cor);}
+.bloco-pense .ba-citacao{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#182840;line-height:1.6;border-left:3px solid var(--ouro);padding-left:10px;margin-bottom:8px;}
+.bloco-pense .ba-pergunta{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.55;margin-bottom:8px;}
+.bloco-pense .ba-linhas{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+.bloco-pense .ba-lin{border-bottom:1px solid rgba(48,80,128,0.18);height:18px;}
+
+.bloco-leve{background:rgba(139,26,26,0.04);border:1px solid rgba(139,26,26,0.2);border-radius:3px;padding:11px 13px;}
+.bloco-leve .bloco-aluno-icone{background:rgba(139,26,26,0.1);color:var(--vermelho);}
+.bloco-leve .bloco-aluno-titulo{color:var(--vermelho);}
+.bloco-leve .bloco-aluno-linha{background:var(--vermelho);}
+.bloco-leve .ba-desafio{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.6;margin-bottom:8px;}
+.bloco-leve .ba-desafio strong{font-weight:600;color:var(--vermelho);}
+.bloco-leve .ba-compromisso{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--vermelho);margin:8px 0 4px;}
+.bloco-leve .ba-linhas{display:flex;flex-direction:column;gap:16px;margin-top:6px;}
+.bloco-leve .ba-lin{border-bottom:1px solid rgba(139,26,26,0.18);height:18px;}
+
+/* QR Code bloco aluno */
+.bloco-qr{
+    position:relative;z-index:10;margin:20px 0;
+    display:flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg,rgba(48,80,128,0.05),rgba(201,168,76,0.08));
+    border:1px solid rgba(48,80,128,0.2);border-left:4px solid var(--ouro);
+    border-radius:2px;padding:12px;
+}
+.bloco-qr-canvas{flex-shrink:0;width:68px;height:68px;background:#fff;border:1px solid rgba(201,168,76,0.35);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.bloco-qr-canvas img{width:60px!important;height:60px!important;display:block!important;}
+.bloco-qr-info{flex:1;min-width:0;}
+.bloco-qr-label{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:4px;}
+.bloco-qr-titulo{font-family:'Cinzel',serif;font-size:8.5pt;font-weight:700;color:var(--ct);line-height:1.3;margin-bottom:3px;}
+.bloco-qr-desc{font-family:'EB Garamond',serif;font-size:9pt;color:#666;line-height:1.4;}
+.bloco-qr-url{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:0.5px;color:var(--cor);opacity:0.7;margin-top:3px;}
+
+/* ===== PÁGINAS DO PROFESSOR ===== */
+.int-prof{
+    padding:14mm 12mm 18mm 14mm;
+    min-height:210mm;position:relative;
+    background:#fafff8;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--topo-prof),var(--prof),var(--prof-vivo),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:36pt;font-weight:900;
+    color:rgba(26,107,53,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(26,107,53,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--prof);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--prof);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Oswald',sans-serif;font-weight:600;font-size:12pt;
+    letter-spacing:2px;text-transform:uppercase;
+    color:var(--prof);border-left:4px solid var(--prof);
+    padding-left:10px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+
+/* ===== BLOCOS EXCLUSIVOS DO PROFESSOR ===== */
+.bloco-guia{background:#f0faf3;border:1px solid var(--prof-borda);border-left:4px solid var(--prof);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-guia .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1a3d28;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:5px;}
+
+.bloco-dica{background:var(--verde-claro);border:1px solid var(--verde-borda);border-left:4px solid var(--verde-tip);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-dica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--verde-tip);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:var(--verde-tip);font-size:9pt;}
+
+.bloco-teo-prof{background:var(--laranja-claro);border:1px solid var(--laranja-borda);border-left:4px solid var(--laranja);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-teo-prof .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--laranja);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-teo-prof .bk::before{content:'◉';font-size:7pt;}
+.bloco-teo-prof p{font-family:'EB Garamond',serif;font-size:10pt;line-height:1.6;color:#3a1e08;}
+
+.alerta{background:#fff5f5;border:1px solid rgba(139,26,26,0.25);border-left:4px solid var(--vermelho);border-radius:3px;padding:8px 12px;margin:10px 0;}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:10pt;color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-debate{background:var(--azul-claro);border:1px solid rgba(44,95,138,0.25);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.6;color:#1a3050;font-style:italic;}
+
+.bloco-soc{background:#f9fcff;border:1px solid rgba(44,95,138,0.2);border-left:4px solid var(--azul);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--azul);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:var(--azul);font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:10pt;color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-tempo{background:#fafafa;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--prof);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:9.5pt;color:#444;line-height:1.45;}
+
+/* Mapa de competências */
+.bloco-mapa{background:#f5fff8;border:1px solid var(--prof-borda);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.mapa-cel{background:#fff;border:1px solid rgba(26,107,53,0.15);border-radius:2px;padding:8px 10px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--prof);margin-bottom:5px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:9pt;color:#2a3a2a;line-height:1.45;margin-bottom:0;text-align:left;}
+
+/* Hermenêutica comparada */
+.bloco-hermeneutica{background:#fffdf8;border:1px solid rgba(201,168,76,0.25);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-hermeneutica .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:8px;}
+.herm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.herm-col{background:#fff;border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:8px 10px;}
+.herm-col-tit{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:#7a5c10;margin-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:4px;}
+.herm-col p{font-family:'EB Garamond',serif;font-size:9pt;color:#3a2a05;line-height:1.45;margin-bottom:0;text-align:left;}
+
+/* Materiais */
+.bloco-mat{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.mat-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.mat-tipo.livro{background:rgba(48,80,128,0.10);color:var(--cor);}
+.mat-tipo.video{background:rgba(139,26,26,0.12);color:var(--vermelho);}
+.mat-tipo.site{background:rgba(44,95,138,0.12);color:var(--azul);}
+.mat-info{font-family:'EB Garamond',serif;font-size:9pt;color:var(--ct);line-height:1.5;}
+
+/* Fio condutor */
+.bloco-fio{background:linear-gradient(135deg,rgba(48,80,128,0.04),rgba(201,168,76,0.06));border:1px solid rgba(48,80,128,0.18);border-radius:3px;padding:10px 12px;margin:10px 0;display:flex;gap:10px;align-items:flex-start;}
+.bloco-fio-icon{font-size:14pt;color:var(--cor);flex-shrink:0;line-height:1.2;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:var(--ct);line-height:1.55;}
+.bloco-fio-txt strong{font-family:'Oswald',sans-serif;font-size:8.5pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);display:block;margin-bottom:3px;}
+
+/* Citação de autor */
+.cit-autor{background:rgba(201,168,76,0.06);border-left:3px solid var(--ouro);padding:10px 14px;margin:10px 0;font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#3a2a05;line-height:1.65;}
+.cit-autor cite{font-style:normal;font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1px;color:var(--ouro);display:block;text-align:right;margin-top:6px;}
+
+/* Tags de sensibilidade */
+.tag-sens{font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:2px;margin-left:6px;vertical-align:middle;}
+.tag-sens.debate{background:rgba(44,95,138,0.12);color:var(--azul);}
+.tag-sens.tecnico{background:rgba(184,92,26,0.12);color:var(--laranja);}
+
+/* Perfil de turma */
+.bloco-perf{background:#fafafa;border:1px solid rgba(0,0,0,0.08);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;}
+.perf-linha{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.05);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;text-transform:uppercase;background:rgba(26,107,53,0.12);color:var(--prof);padding:2px 7px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:#333;line-height:1.5;}
+
+/* Cultura contemporânea */
+.bloco-cult{background:#fffff8;border:1px solid rgba(201,168,76,0.2);border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:10pt;color:#3a2a05;line-height:1.6;}
+
+/* Respostas sugeridas */
+.bloco-resp{background:#f8fff8;border:1px solid rgba(26,107,53,0.2);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:8px;}
+.resp-item{padding:6px 0 6px 0;border-bottom:1px solid rgba(26,107,53,0.1);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--prof);margin-bottom:4px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1a3520;line-height:1.55;}
+
+/* Avaliação e seguimento */
+.bloco-aval{background:#f5fff8;border:1px solid var(--prof-borda);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--prof);margin-bottom:6px;}
+.bloco-aval ul{list-style:none;padding:0;}
+.bloco-aval ul li{font-family:'EB Garamond',serif;font-size:9.5pt;color:#1a3d28;line-height:1.55;padding:3px 0 3px 14px;position:relative;border-bottom:1px solid rgba(26,107,53,0.07);}
+.bloco-aval ul li:last-child{border-bottom:none;}
+.bloco-aval ul li::before{content:'◆';position:absolute;left:0;color:var(--prof);font-size:5pt;top:6px;}
+
+/* QR Code do professor */
+.bloco-qr-prof{position:relative;z-index:1;margin:10px 0;display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,rgba(48,80,128,0.04),rgba(201,168,76,0.06));border:1px solid rgba(48,80,128,0.18);border-left:4px solid var(--ouro);border-radius:2px;padding:10px 12px;}
+.bloco-qr-canvas{flex-shrink:0;width:68px;height:68px;background:#fff;border:2px solid rgba(201,168,76,0.35);border-radius:2px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.bloco-qr-canvas canvas,.bloco-qr-canvas img{width:64px!important;height:64px!important;display:block;}
+.bloco-qr-info{flex:1;min-width:0;}
+.bloco-qr-label{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:4px;}
+.bloco-qr-titulo{font-family:'Cinzel',serif;font-size:8.5pt;font-weight:700;color:var(--ct);line-height:1.3;margin-bottom:3px;}
+.bloco-qr-desc{font-family:'EB Garamond',serif;font-size:9pt;color:#666;line-height:1.4;}
+.bloco-qr-url{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--cor);opacity:0.7;margin-top:3px;word-break:break-all;}
+
+/* Rodapé páginas do professor */
+.rod-prof{position:absolute;bottom:0;left:0;right:0;padding:5px 12mm 5mm 14mm;display:flex;justify-content:space-between;align-items:center;background:rgba(26,107,53,0.04);}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--prof),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:7pt;color:var(--prof);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--prof);}
+
+/* PRINT */
+@media print{
+    body{background:none;}
+    #tela-senha,.painel,.lbl,.lbl-prof{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.wm-prof,.int-linhas{display:none;}
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .painel{padding:8px 10px;gap:8px;align-items:flex-start;}
+    .marca{font-size:10pt;}
+    .btn{font-size:8pt;padding:8px 12px;}
+    .area{margin-top:88px;padding:16px 10px 40px;gap:12px;}
+    .lbl{margin-left:0;}
+    .pag{width:100%;max-width:148mm;min-height:auto;}
+    .int,.int-prof{padding:12mm 5vw 16mm 5vw;min-height:auto;}
+    h2{font-size:11pt;}
+    h3{font-size:9pt;}
+    p{font-size:10pt;line-height:1.55;text-align:left;hyphens:none;}
+    .mapa-grid,.herm-grid{grid-template-columns:1fr;}
+    .rod,.rod-prof{position:relative;}
+}
+@media (max-width:480px){
+    .btn{padding:7px 10px;font-size:7.5pt;}
+    .area{margin-top:96px;}
+}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(26,107,53,0.05);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+    <div class="senha-caixa">
+        <div class="senha-icone"></div>
+        <div class="senha-titulo">ESCHATON</div>
+        <div class="senha-sub">Vol. II · Edição do Professor</div>
+        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
+        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+            onkeydown="if(event.key==='Enter')verificarSenha()">
+        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
+    </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo-principal">
+
+<div class="painel">
+    <div class="marca">ESCHATON VOL. II
+        <span>Lição 12 · A Nova Aliança e a Esperança de Israel</span>
+        <em>Edição do Professor</em>
+    </div>
+    <span class="badge-prof">✦ Professor</span>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index-professor.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- ══════════════════════════════════
+     PARTE I — PÁGINAS DO ALUNO (espelho integral)
+     ══════════════════════════════════ -->
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa da Lição</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">12</div>
+    <div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+    <div class="capa-prof-faixa">Edição do Professor</div>
+    <div class="ccon">
+        <div class="cser">Eschaton · A Palavra que Não Passará</div>
+        <div class="cref">Jeremias 31:31-34 · Ezequiel 36:24-28 · Romanos 11:25-27</div>
+        <div class="ctit">A Nova Aliança e a Esperança de Israel</div>
+        <div class="cver">
+            "Eis que vêm dias, diz o Senhor, em que farei uma nova aliança com a casa de Israel e com a casa de Judá... Porei a minha lei no seu interior, e a escreverei no seu coração; e eu serei o seu Deus, e eles serão o meu povo."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Jeremias 31:31, 33</span>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 INTRODUÇÃO -->
+<div class="lbl">Página 2 · Introdução</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">2</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>Introdução</h2>
+    <p class="cap">Em 587 a.C., Babilônia incendiava o Templo de Jerusalém e deportava o povo de Deus para o exílio. No momento de maior catástrofe da história de Israel, Jeremias recebeu a promessa mais ousada de toda a Bíblia Hebraica: Deus faria uma aliança nova — não como a que foi quebrada, mas inquebrável, escrita não em pedra, mas no coração. Essa promessa aguardou sete séculos por seu cumprimento em Cristo.</p>
+    <p>Esta lição convida ao que toda boa exegese exige: ler Jeremias 31, Ezequiel 36 e Romanos 11 como partes de uma mesma narrativa de aliança que se move do Sinai à cruz, do Templo ao Espírito, do Israel étnico ao Israel de Deus — e que ainda avança na história pela missão da Igreja até a consumação final.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Uma promessa feita na hora errada</div>
+        <p>O paradoxo de Jeremias 31 é que a promessa da Nova Aliança foi feita exatamente quando a aliança antiga havia falhado de forma irreversível. Deus não promete uma segunda chance com as mesmas condições — promete uma aliança completamente diferente, cujas condições ele mesmo cumprirá. O fracasso humano não é o fim da história de Deus com o seu povo; é o ponto de partida para uma graça ainda maior.</p>
+    </div>
+    <h3>O Fio Condutor desta Lição</h3>
+    <p>Examinaremos o contexto histórico de Jeremias 31, a estrutura das alianças bíblicas, a exegese dos quatro elementos da Nova Aliança, a sua consumação em Cristo segundo Hebreus, e o mistério do futuro de Israel segundo Romanos 11 — com as duas interpretações principais e a sua implicação para a missão cristã.</p>
+    <!-- BLOCO DO ALUNO: Para Você Refletir -->
+    <div class="bloco-aluno bloco-refletir">
+        <div class="bloco-aluno-cabecalho">
+            <div class="bloco-aluno-icone">&#9998;</div>
+            <div class="bloco-aluno-titulo">Para Você Refletir</div>
+            <div class="bloco-aluno-linha"></div>
+        </div>
+        <div class="ba-pergunta">Jeremias recebeu a promessa da Nova Aliança no momento de maior catástrofe de Israel. Você já viveu uma situação em que Deus agiu justamente quando tudo parecia perdido? O que esse padrão revela sobre o caráter de Deus?</div>
+        <div class="ba-linhas">
+            <div class="ba-lin"></div><div class="ba-lin"></div><div class="ba-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 TEXTO BÍBLICO -->
+<div class="lbl">Página 3 · Texto Bíblico</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">3</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>A Passagem-Base</h2>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Jeremias 31:31-34</div>
+        <p>"Eis que vêm dias, diz o Senhor, em que farei uma nova aliança com a casa de Israel e com a casa de Judá; não segundo a aliança que fiz com seus pais, no dia em que os tomei pela mão para os tirar da terra do Egito... Porei a minha lei no seu interior, e a escreverei no seu coração; e eu serei o seu Deus, e eles serão o meu povo. E não ensinará mais cada um ao seu próximo... pois todos me conhecerão, desde o menor deles até o maior... porque perdoarei a sua iniquidade e dos seus pecados não me lembrarei mais."</p>
+        <span class="ref-final">Jeremias 31:31-34</span>
+    </div>
+    <div class="texto-biblico">
+        <div class="texto-biblico-ref">Romanos 11:25-26</div>
+        <p>"Porque não quero, irmãos, que ignoreis este mistério, para que não presumais de vós mesmos: que o endurecimento veio em parte sobre Israel, até que a plenitude dos gentios haja entrado. E assim todo o Israel será salvo, como está escrito: Virá de Sião o Libertador, e desviará de Jacó as impiedades."</p>
+        <span class="ref-final">Romanos 11:25-26</span>
+    </div>
+    <div class="obj">
+        <div class="ot">Objetivos desta lição</div>
+        <ul>
+            <li>Examinar Jeremias 31:31-34 como promessa central da Nova Aliança</li>
+            <li>Comparar a Nova Aliança com as alianças anteriores — continuidade e superação</li>
+            <li>Analisar Romanos 11:25-27 como texto-chave sobre o futuro de Israel</li>
+            <li>Compreender como a Nova Aliança é cumprida em Cristo e aplicada pela Igreja</li>
+        </ul>
+    </div>
+    <!-- BLOCO DO ALUNO: Conexão Bíblica -->
+    <div class="bloco-aluno bloco-conexao">
+        <div class="bloco-aluno-cabecalho">
+            <div class="bloco-aluno-icone">&#9997;</div>
+            <div class="bloco-aluno-titulo">Conexão Bíblica</div>
+            <div class="bloco-aluno-linha"></div>
+        </div>
+        <div class="ba-ref">Hebreus 8:6</div>
+        <div class="ba-verso">"Mas agora obteve ele ministério tanto mais excelente, quanto é mediador de uma melhor aliança, que está confirmada em melhores promessas."</div>
+        <div class="ba-pergunta">Por que o autor de Hebreus chama Cristo de "mediador de uma melhor aliança"? De que modo essa afirmação se conecta às promessas de Jeremias 31 que você acabou de ler?</div>
+        <div class="ba-linhas">
+            <div class="ba-lin"></div><div class="ba-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 I — CONTEXTO ORIGINAL -->
+<div class="lbl">Página 4 · I — Contexto Original</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">4</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>I — O Contexto da Nova Aliança</h2>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Jeremias — A Profecia na Véspera do Exílio</div>
+        <p>Jeremias proferiu as palavras de Jeremias 31 por volta de 587 a.C. — exatamente quando Babilônia destruía Jerusalém e o Templo era incendiado. No momento de maior catástrofe nacional, Deus promete uma aliança nova e superior. O contexto é crucial: a Nova Aliança não é uma renegociação da antiga — é a sua superação radical. A aliança mosaica foi quebrada por Israel continuamente; a nova será inquebrável porque escrita no coração, não em pedra.</p>
+    </div>
+    <h3>As Alianças de Deus — Uma Estrutura</h3>
+    <p>A Bíblia apresenta uma série de alianças progressivas: com Noé (Gn 9), com Abraão (Gn 15 e 17), com Moisés e Israel (Ex 19–24), com Davi (2 Sm 7) e a Nova Aliança de Jeremias 31. Cada aliança não cancela as anteriores, mas as cumpre e supera. A Nova Aliança é a consumação de todas — o ponto para o qual todas as outras apontavam. Jesus a institui na Última Ceia: "Este cálice é a nova aliança no meu sangue" (Lc 22:20).</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ezequiel 36 — O Espírito que Capacita</div>
+        <p>Ezequiel 36:24-28 é o paralelo de Jeremias 31 — mas acrescenta o elemento do Espírito Santo: "porei o meu Espírito dentro de vós, e farei que andeis nos meus estatutos" (Ez 36:27). O que Jeremias descreve como lei escrita no coração, Ezequiel descreve como obra do Espírito. A Nova Aliança é trinitária em sua estrutura: fundada pelo Pai, estabelecida pelo Filho, aplicada pelo Espírito.</p>
+    </div>
+    <!-- BLOCO DO ALUNO: Sabia Que? -->
+    <div class="bloco-aluno bloco-sabia">
+        <div class="bloco-aluno-cabecalho">
+            <div class="bloco-aluno-icone">&#8505;</div>
+            <div class="bloco-aluno-titulo">Sabia Que?</div>
+            <div class="bloco-aluno-linha"></div>
+        </div>
+        <div class="ba-fato">A palavra hebraica <strong>berît</strong> ("aliança") aparece mais de 280 vezes no Antigo Testamento. No mundo antigo, alianças entre reis incluíam um ritual de "cortar a aliança" (em hebraico: <em>karat berît</em>) — os dois lados passavam entre os animais cortados, declarando: "que me aconteça o mesmo se eu quebrar esta aliança." Em Gênesis 15, apenas Deus passa entre as metades — assumindo a responsabilidade pelos dois lados. Esse ato prefigura o sacrifício de Cristo na Nova Aliança.</div>
+        <div class="ba-fonte">Fonte: John Walton, Ancient Near Eastern Thought and the Old Testament (2006)</div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 II — EXEGESE DA PASSAGEM -->
+<div class="lbl">Página 5 · II — Exegese da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">5</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>II — Exegese da Passagem</h2>
+    <h3>"Não segundo a aliança que fiz com seus pais" — Jr 31:32</h3>
+    <p>A Nova Aliança é explicitamente distinta da Mosaica — "não segundo." A aliança do Sinai era condicional: "se ouvirdes... serei vosso Deus." Israel a quebrou repetidamente (Jr 31:32b). A Nova Aliança tem estrutura radicalmente diferente: é Deus quem age unilateralmente — "porei", "escreverei", "serei", "perdoarei." A iniciativa e a capacitação são inteiramente divinas.</p>
+    <h3>"Porei a minha lei no seu interior" — Jr 31:33</h3>
+    <p>A lei do Sinai estava em tábuas de pedra — externa ao homem, incapaz de transformar o coração. A lei da Nova Aliança será "no interior" — o mesmo vocabulário de Ezequiel 36:27 sobre o Espírito. Paulo desenvolve esse contraste em 2 Coríntios 3:3: a Igreja é "carta de Cristo... escrita não com tinta, mas com o Espírito do Deus vivo; não em tábuas de pedra, mas em tábuas de carne, nos corações."</p>
+    <h3>"Todos me conhecerão" — Jr 31:34</h3>
+    <p>Na Nova Aliança, o conhecimento de Deus não depende de mediação sacerdotal — "não ensinará mais cada um ao seu próximo." Cada membro do povo terá acesso direto e pessoal a Deus. Isso se cumpre no sacerdócio universal dos crentes (1 Pe 2:9) e no acesso direto ao Pai pelo Filho (Ef 2:18). Na aliança antiga, o Templo e os sacerdotes eram necessários; na nova, "o Senhor Deus Todo-Poderoso e o Cordeiro são o seu templo" (Ap 21:22).</p>
+    <h3>"Dos seus pecados não me lembrarei mais" — Jr 31:34</h3>
+    <p>O fundamento da Nova Aliança é o perdão total e definitivo. Hebreus 8–10 cita Jeremias 31 três vezes para demonstrar que Cristo é o mediador da Nova e Melhor Aliança — cujo sangue oferece o que os sacrifícios animais nunca puderam: purificação permanente da consciência (Hb 9:14) e remissão definitiva dos pecados (Hb 10:17-18).</p>
+    <!-- BLOCO DO ALUNO: Pense Nisso -->
+    <div class="bloco-aluno bloco-pense">
+        <div class="bloco-aluno-cabecalho">
+            <div class="bloco-aluno-icone">&#10022;</div>
+            <div class="bloco-aluno-titulo">Pense Nisso</div>
+            <div class="bloco-aluno-linha"></div>
+        </div>
+        <div class="ba-citacao">"Porei a minha lei no seu interior" — a lei não é abolida na Nova Aliança; ela é internalizada. A obediência deixa de ser resposta ao medo externo e passa a ser fruto de uma natureza transformada.</div>
+        <div class="ba-pergunta">Qual a diferença prática entre obedecer a Deus por obrigação (lei externa) e obedecer por amor e transformação interior? Em que área da sua vida você ainda sente que obedece por obrigação, e não por desejo genuíno?</div>
+        <div class="ba-linhas">
+            <div class="ba-lin"></div><div class="ba-lin"></div><div class="ba-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 III — TEOLOGIA DA PASSAGEM -->
+<div class="lbl">Página 6 · III — Teologia da Passagem</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">6</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>III — Teologia da Passagem</h2>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que essa passagem revela sobre Deus</div>
+        <p>Deus é o Deus das alianças — ele se compromete com o seu povo de forma jurídica e pessoal, assumindo obrigações voluntárias. A Nova Aliança revela um Deus que não desiste do seu povo mesmo quando o povo o abandona: a resposta ao fracasso repetido de Israel não é o abandono, mas uma aliança nova e inquebrável, cujas condições o próprio Deus cumpre. O perdão definitivo — "dos seus pecados não me lembrarei mais" — revela um Deus cuja misericórdia supera infinitamente a sua memória das transgressões.</p>
+    </div>
+    <h3>Romanos 11 — O Mistério do Futuro de Israel</h3>
+    <p>Paulo revela em Romanos 11:25-27 um "mistério" — algo antes oculto, agora revelado. Dois elementos: (1) o endurecimento de Israel é parcial e temporário — "até que a plenitude dos gentios haja entrado"; (2) "e assim todo o Israel será salvo." A sequência é missionária: a missão entre os gentios é o mecanismo pelo qual Deus provoca ciúme em Israel (Rm 11:11) e precipita a sua conversão futura.</p>
+    <h3>O Que Significa "Todo o Israel"?</h3>
+    <p>A expressão "todo o Israel" é debatida. Para o dispensacionalismo, é a nação judaica convertida em massa na Tribulação. Para a teologia da aliança, pode ser o Israel de Deus em sua totalidade — judeus e gentios unidos em Cristo (Gl 6:16) — ou a conversão de um grande número de judeus étnicos ao evangelho ao longo da história, sem necessariamente um evento nacional específico e futuro. O que Paulo garante: Deus não rejeitou o seu povo (Rm 11:1-2).</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">A Nova Aliança e a Ceia do Senhor</div>
+        <p>Cada vez que a Igreja celebra a Ceia do Senhor — "Este cálice é a nova aliança no meu sangue" (Lc 22:20; 1 Co 11:25) — ela proclama o cumprimento de Jeremias 31 em Cristo. A Ceia não é um rito religioso arbitrário; é a celebração do coração da Nova Aliança: perdão dos pecados, comunhão com Deus e antecipação da Ceia das Bodas.</p>
+    </div>
+    <!-- BLOCO DO ALUNO: Leve para a Sua Vida -->
+    <div class="bloco-aluno bloco-leve">
+        <div class="bloco-aluno-cabecalho">
+            <div class="bloco-aluno-icone">&#10148;</div>
+            <div class="bloco-aluno-titulo">Leve para a Sua Vida</div>
+            <div class="bloco-aluno-linha"></div>
+        </div>
+        <div class="ba-desafio">A Nova Aliança promete que Deus "<strong>não se lembrará mais</strong>" dos pecados de seu povo. Não é esquecimento divino — é perdão jurídico e definitivo. Esta semana, identifique uma área em que você ainda carrega culpa como se Deus ainda a contabilizasse. Escreva Jeremias 31:34 em um lugar visível e releia diariamente.</div>
+        <div class="ba-compromisso">Meu compromisso desta semana</div>
+        <div class="ba-linhas">
+            <div class="ba-lin"></div><div class="ba-lin"></div><div class="ba-lin"></div>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 IV — AS INTERPRETAÇÕES PRINCIPAIS -->
+<div class="lbl">Página 7 · IV — As Interpretações Principais</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">7</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>IV — As Interpretações Principais</h2>
+    <h3>A Interpretação Dispensacionalista</h3>
+    <p>O dispensacionalismo mantém uma distinção permanente entre Israel étnico e a Igreja. A Nova Aliança foi prometida a Israel e terá seu cumprimento pleno com a nação judaica durante e após a Grande Tribulação — com conversão nacional em massa ao reconhecer Jesus como Messias (Zc 12:10). A Igreja participa das bênçãos espirituais da Nova Aliança, mas não é a sua destinatária primária. "Todo o Israel será salvo" de Romanos 11:26 refere-se especificamente a Israel étnico, convertido num evento futuro específico.</p>
+    <h3>A Interpretação da Teologia da Aliança</h3>
+    <p>O amilenarismo reformado vê a Igreja como o Israel espiritual — a continuação e expansão do povo de Deus, incluindo tanto judeus como gentios que creem em Cristo (Rm 2:28-29; Gl 3:29; Ef 2:11-22). A Nova Aliança foi prometida "à casa de Israel" e é cumprida na Igreja de judeus e gentios. "Todo o Israel será salvo" pode referir-se ao Israel de Deus em sua completude — ou a uma conversão histórica progressiva e significativa de judeus étnicos ao evangelho, sem necessariamente um evento nacional futuro único.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">O Que as Interpretações Têm em Comum</div>
+        <p>Independentemente da escola interpretativa, todas concordam nos pontos centrais: Deus não rejeitou o seu povo (Rm 11:1); a fidelidade divina à aliança não falha; a missão entre os gentios tem papel no plano de Deus para Israel; e a Nova Aliança é cumprida no sangue de Cristo, aplicada pelo Espírito, e celebrada na Ceia do Senhor. A divergência está no quem e no quando — não na fidelidade do Deus da aliança.</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- PG 8 CONCLUSÃO -->
+<div class="lbl">Página 8 · Conclusão</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">8</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>Conclusão</h2>
+    <p class="cap">A Nova Aliança foi prometida no momento em que a antiga havia colapsado irreversivelmente. Esse é o padrão de Deus: não remendar o que está irremediavelmente roto, mas criar algo completamente novo. "Eis que faço novas todas as coisas" (Ap 21:5) não é apenas uma promessa escatológica — é o caráter do Deus que já fez uma aliança nova quando a antiga agonizava. O cristão vive dentro dessa nova realidade desde a Pentecostes.</p>
+    <div class="bloco-teo">
+        <div class="bloco-teo-titulo">O que esta lição nos ensinou</div>
+        <p>Aprendemos que a Nova Aliança foi prometida em contexto de catástrofe e é estruturalmente diferente da Mosaica — unilateral, inquebrável, escrita no coração pelo Espírito. Vimos que seus quatro elementos — lei interior, conhecimento direto de Deus, perdão definitivo e identidade de povo — são realidades presentes para quem está em Cristo. Examinamos o mistério de Romanos 11 e as duas interpretações sobre "todo o Israel será salvo." E descobrimos que cada celebração da Ceia do Senhor é a proclamação do coração da Nova Aliança.</p>
+    </div>
+    <h3>A Certeza que Permanece</h3>
+    <p>A Nova Aliança foi prometida a um povo que havia falhado — e Deus prometeu de qualquer forma. "Ele permanece fiel, porque não pode negar-se a si mesmo" (2 Tm 2:13). A fidelidade de Deus à aliança não depende da fidelidade humana — essa é precisamente a diferença entre a aliança nova e a antiga. Para o cristão que falha, essa verdade não é permissão para pecar, mas fundamento inabalável para retornar.</p>
+    <div class="bloco-ctx">
+        <div class="bloco-ctx-titulo">Ponte para a próxima lição</div>
+        <p>A última lição desta série apresentará a Nova Criação e o estado eterno — o destino final para o qual a Nova Aliança aponta. O que estudamos hoje sobre a aliança inquebrável de Deus será o fundamento para compreender a promessa de Apocalipse 21:3: "Eis o tabernáculo de Deus com os homens... e ele será o seu Deus."</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">8</span></div>
+</div>
+
+<!-- PG 9 APLICAÇÃO DIRETA -->
+<div class="lbl">Página 9 · Aplicação Direta</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">9</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>Aplicação Direta</h2>
+    <p class="cap">A Nova Aliança tem quatro promessas para o crente: lei no coração (transformação interna), conhecimento direto de Deus (acesso pessoal), perdão definitivo (nenhuma condenação restante) e identidade de povo (pertencimento eterno). Essas não são aspirações futuras — são realidades presentes de quem está em Cristo. A pergunta não é "quando terei isso?" mas "estou vivendo à luz do que já tenho?"</p>
+    <div class="bloco-apl">
+        <div class="bloco-apl-titulo">Para esta semana</div>
+        <p>Primeiro: Jeremias 31:34 promete que Deus "não se lembrará mais" dos seus pecados. Há alguma culpa ou vergonha do passado que você carrega como se Deus ainda se lembrasse? A Nova Aliança diz explicitamente que ele não se lembra — o que muda quando você leva isso a sério? Segundo: Paulo diz que a missão entre os gentios "provoca ciúme" em Israel (Rm 11:11-14). Você já pensou que a sua fidelidade ao evangelho é parte do plano de Deus para Israel? Como isso intensifica o sentido da sua vida cristã? Terceiro: "eu serei o seu Deus, e eles serão o meu povo" — a fórmula da aliança. Em que áreas da sua vida você não tem vivido como "povo de Deus" — agindo como se fosse o seu próprio senhor?</p>
+    </div>
+    <div class="sep"><span>&#10022;</span></div>
+    <h3>Para Refletir</h3>
+    <p>A Nova Aliança foi prometida a "Israel e Judá" — um povo que havia quebrado a aliança anterior dezenas de vezes. O Deus que fez essa promessa conhecia o histórico de fracasso de Israel. Ele prometeu de qualquer forma. Como essa fidelidade de Deus diante do fracasso humano — "ele permanece fiel, porque não pode negar-se a si mesmo" (2 Tm 2:13) — sustenta a sua confiança no relacionamento com Deus quando você mesmo falha?</p>
+    <div class="memorizar">
+        <div class="memorizar-titulo">&#10022; Versículo para Memorizar</div>
+        <p>"Porei a minha lei no seu interior, e a escreverei no seu coração; e eu serei o seu Deus, e eles serão o meu povo."</p>
+        <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Jeremias 31:33</p>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">9</span></div>
+</div>
+
+<!-- PG 10 QUESTÕES -->
+<div class="lbl">Página 10 · Questões e Anotações</div>
+<div class="pag int">
+    <div class="int-linhas"></div>
+    <div class="wm">10</div>
+    <div class="ph"><span class="phl">Lição 12 · Vol. II</span><span class="pht">A Nova Aliança e a Esperança de Israel</span></div>
+    <h2>Questões para Reflexão</h2>
+    <div class="q">
+        <div class="qn">Questão 01</div>
+        <div class="qt">A Nova Aliança é explicitamente "não segundo" a Mosaica. Quais são as diferenças estruturais fundamentais entre as duas alianças — especialmente quanto à lei externa versus lei interna, e condicionalidade versus unilateralidade divina?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 02</div>
+        <div class="qt">Hebreus 8–10 cita Jeremias 31 para demonstrar que Cristo é mediador de uma aliança melhor. O que o argumento de Hebreus revela sobre a relação entre os sacrifícios do AT e o sacrifício de Cristo — tipo e antítipo?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 03</div>
+        <div class="qt">Paulo diz que a missão entre os gentios "provoca ciúme" em Israel (Rm 11:11) como parte do plano de Deus para a sua conversão futura. Como isso muda a compreensão do significado escatológico da missão cristã — especialmente entre povos que ainda não ouviram o evangelho?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="q">
+        <div class="qn">Questão 04</div>
+        <div class="qt">A promessa "dos seus pecados não me lembrarei mais" é jurídica e definitiva. Como a realidade do perdão total e permanente na Nova Aliança deve transformar a forma como o cristão lida com culpa, arrependimento e autocondenação no cotidiano?</div>
+        <div class="lr"></div><div class="lr"></div>
+    </div>
+
+    <div class="bloco-qr">
+        <div class="bloco-qr-canvas">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.youtube.com/watch?v=vAp2EQC9AgU" alt="QR Code Lição 12">
+        </div>
+        <div class="bloco-qr-info">
+            <div class="bloco-qr-label">▶ Vídeo Complementar</div>
+            <div class="bloco-qr-titulo">Uma Nova Aliança com Jesus</div>
+            <div class="bloco-qr-desc">Aponte a câmera do celular para assistir ao vídeo de aprofundamento desta lição.</div>
+            <div class="bloco-qr-url">youtube.com · Lição 12 · Eschaton Vol. II</div>
+        </div>
+    </div>
+
+    <h3 style="margin-top:12px;">Anotações</h3>
+    <div class="lins">
+        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">10</span></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
+     ══════════════════════════════════ -->
+
+<!-- PG P1 — GUIA DE CONDUÇÃO DA AULA -->
+<div class="lbl lbl-prof">Página P1 · Guia de Condução — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 12 · Guia Docente</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Guia de Condução da Aula</h2>
+
+    <div class="bloco-tempo">
+        <div class="bk">Distribuição Sugerida de Tempo · 60 minutos</div>
+        <div class="tempo-linha"><span class="tempo-min">0–8 min</span><span class="tempo-desc">Abertura e pergunta disparadora: "Você já fez uma promessa e não conseguiu cumprir? Como se sentiu? E se alguém fizesse uma promessa sabendo antecipadamente que você iria falhar — mas prometesse mesmo assim?" Deixe 2–3 respostas antes de contextualizar Jeremias 587 a.C.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">8–18 min</span><span class="tempo-desc">Leitura dos textos-base (Jr 31:31-34 e Rm 11:25-26) e apresentação da estrutura das alianças bíblicas (Noé → Abraão → Moisés → Davi → Nova). Destaque a progressão e o caráter consumatório da Nova Aliança.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">18–34 min</span><span class="tempo-desc">Exposição das seções I, II e III: contexto histórico, exegese dos quatro elementos da Nova Aliança (lei interior, conhecimento direto, perdão definitivo, identidade de povo) e teologia. Use o quadro comparativo de Hb 8–10 para mostrar como Cristo cumpre Jr 31.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">34–46 min</span><span class="tempo-desc">Seção IV — Interpretações sobre "todo o Israel". Use o bloco hermenêutico comparado (pg. P2) com equanimidade. Reforce o que as duas tradições têm em comum antes de explorar as diferenças. Nunca faça disso uma disputa.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">46–57 min</span><span class="tempo-desc">Questões de reflexão em pares ou grupos de 3. O professor circula e observa especialmente as respostas às Questões 01 e 04 — que exigem distinções teológicas precisas e aplicação pastoral concreta.</span></div>
+        <div class="tempo-linha"><span class="tempo-min">57–60 min</span><span class="tempo-desc">Versículo de memória (Jr 31:33) e oração de encerramento. Incentive o compromisso da pág. 6: identificar uma área de culpa residual e escrever Jr 31:34 em lugar visível durante a semana.</span></div>
+    </div>
+
+    <div class="bloco-guia">
+        <div class="bk">Objetivo Central da Aula</div>
+        <p>Ao final desta lição, o aluno deve ser capaz de articular três coisas: (1) a Nova Aliança não é renegociação da Mosaica — é sua superação radical, com Deus assumindo a iniciativa e a capacitação inteiramente; (2) seus quatro elementos (Jr 31:33-34) são realidades presentes para quem está em Cristo, não promessas futuras; (3) a fidelidade de Deus à aliança não depende da fidelidade humana — esse é exatamente o fundamento da confiança cristã quando o crente falha. Se o aluno sai com esses três pontos internalizados, a aula foi bem-sucedida.</p>
+    </div>
+
+    <div class="bloco-dica">
+        <div class="bk">Dica de Abertura — Pergunta Disparadora</div>
+        <p>Antes de abrir a lição, pergunte: "Se você soubesse que a pessoa com quem vai fazer um contrato vai quebrá-lo repetidamente — você ainda assinaria? Por quê?" Deixe a pergunta em suspensão. Não a responda agora. Volte a ela ao final da aula: Deus conhecia o histórico de Israel e prometeu de qualquer forma. A Nova Aliança não é um contrato bilateral — é um ato unilateral de graça soberana.</p>
+    </div>
+
+    <div class="bloco-perf">
+        <div class="bk">Perfil da Turma — O que Esperar</div>
+        <div class="perf-linha">
+            <span class="perf-tipo">Leigo</span>
+            <span class="perf-txt">Provavelmente conhece "Nova Aliança" pelo contexto da Ceia do Senhor — mas sem a profundidade de Jr 31. Ancore a lição na experiência da Ceia como ponto de partida familiar, depois aprofunde a exegese de Jeremias.</span>
+        </div>
+        <div class="perf-linha">
+            <span class="perf-tipo">Dispensacionalista</span>
+            <span class="perf-txt">Pode reagir à interpretação amilenarista de "todo o Israel" como sendo a Igreja. Valorize o consenso central (Rm 11:1 — Deus não rejeitou seu povo) antes de explorar a divergência. A questão do futuro de Israel é genuinamente aberta — não feche o que a Escritura mantém em suspensão.</span>
+        </div>
+        <div class="perf-linha">
+            <span class="perf-tipo">Estudante Avançado</span>
+            <span class="perf-txt">Pode querer aprofundar a tipologia do sistema sacrificial em Hebreus ou a distinção entre a "antiga" e a "nova" aliança em Calvino versus dispensacionalistas. Reconheça a riqueza — mas conduza o grupo de volta ao foco pastoral: a certeza do perdão como fundamento da vida cristã, não a hermenêutica das alianças como puzzle teológico.</span>
+        </div>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — HERMENÊUTICA COMPARADA E TEOLOGIA APROFUNDADA -->
+<div class="lbl lbl-prof">Página P2 · Hermenêutica Comparada — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 12 · Hermenêutica e Exegese</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Hermenêutica Comparada — Nova Aliança e Israel</h2>
+
+    <div class="bloco-hermeneutica">
+        <div class="bk">Interpretações em Paralelo — Textos Centrais</div>
+        <div class="herm-grid">
+            <div class="herm-col">
+                <div class="herm-col-tit">Dispensacionalismo</div>
+                <p><strong>Jr 31 (Nova Aliança):</strong> Prometida a Israel étnico; a Igreja participa apenas espiritualmente, indiretamente. Cumprimento pleno: nação judaica, após a Tribulação.<br><br><strong>Rm 11:26 ("todo o Israel"):</strong> Israel étnico, convertido em massa num evento futuro específico após a "plenitude dos gentios."<br><br><strong>Hb 8–10:</strong> Cristo inaugura a Nova Aliança, mas ela ainda aguarda consumação plena com Israel nacional.</p>
+            </div>
+            <div class="herm-col">
+                <div class="herm-col-tit">Teologia da Aliança</div>
+                <p><strong>Jr 31 (Nova Aliança):</strong> Cumprida na Igreja como Israel espiritual — judeus e gentios em Cristo (Ef 2:11-22; Gl 3:29). Já inaugurada na Pentecostes.<br><br><strong>Rm 11:26 ("todo o Israel"):</strong> Israel de Deus em sua completude (judeus + gentios), ou conversão histórica progressiva de judeus étnicos — sem evento nacional único futuro.<br><br><strong>Hb 8–10:</strong> Cristo cumpriu a Nova Aliança plenamente — o "obsoleto" passou, o novo está em vigor (Hb 8:13).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bloco-teo-prof">
+        <div class="bk">Exegese Aprofundada — "Não me lembrarei mais" (Jr 31:34)</div>
+        <p>O verbo hebraico <em>zakar</em> ("lembrar") em Deus não é cognitivo — é covenantal. No AT, "lembrar" significa agir em favor de alguém conforme a aliança (Gn 8:1 — "Deus lembrou-se de Noé"). A promessa de "não se lembrar mais dos pecados" não é amnésia divina — é a declaração jurídica de que Deus não atuará mais como juiz desses pecados. O perdão é forense, definitivo e irreversível. Hebreus 10:17-18 conclui: "onde há remissão destes, não há mais oferta pelo pecado." A consciência cristã que vive sob culpa residual está, na prática, negando Jr 31:34 — essa é a tensão pastoral central desta lição.</p>
+    </div>
+
+    <div class="bloco-teo-prof">
+        <div class="bk">Exegese Aprofundada — "Todos me conhecerão" (Jr 31:34)</div>
+        <p>A promessa de conhecimento universal direto de Deus é radicalmente igualitária — "desde o menor até o maior." No sistema mosaico, o acesso a Deus era hierárquico: povo → levitas → sacerdotes → sumo sacerdote → Santo dos Santos (uma vez por ano). A Nova Aliança abole essa hierarquia de acesso. 1 Pedro 2:9 ("sacerdócio real") e Efésios 2:18 ("acesso direto ao Pai pelo Filho, em um Espírito") são os textos-chave do cumprimento neotestamentário. O véu rasgado (Mt 27:51) é o símbolo físico desse acesso direto recém-inaugurado.</p>
+    </div>
+
+    <div class="alerta">
+        <div class="bk">⚠ Ponto Sensível — "Todo o Israel será salvo" (Rm 11:26)</div>
+        <p>Essa é uma das expressões mais debatidas de toda a escatologia paulina. Dispensacionalistas e amilenaristas chegam a conclusões substancialmente diferentes — e ambos têm argumentos exegéticos consistentes. Se a turma perguntar "qual a interpretação correta?", apresente honestamente as duas leituras e os seus fundamentos, reforce o que Paulo garante com certeza (Deus não rejeitou seu povo, Rm 11:1-2), e redirecione para a implicação pastoral: a missão entre os gentios e entre os judeus ambas têm significado escatológico. O objetivo não é forçar uma posição, mas ampliar o senso missionário da turma.</p>
+    </div>
+
+    <div class="bloco-cult">
+        <div class="bk">Conexão com a Cultura Contemporânea</div>
+        <p>A cultura contemporânea vive uma crise de culpa sem perdão: há consciência moral (algo "errou"), mas sem fundamento para perdão real (por quê Deus — ou quem quer que seja — "esqueceria"?). A Nova Aliança oferece exatamente o que a cultura pós-cristã não consegue oferecer: um perdão que não depende do esforço do culpado, mas da decisão do ofendido de não contabilizar mais a ofensa. O evangelho não é "tente mais" — é "está pago." Esse contraste tem força comunicativa enorme para jovens adultos que vivem sob performance e cancelamento.</p>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — MAPA DE COMPETÊNCIAS E PERGUNTAS SOCRÁTICAS -->
+<div class="lbl lbl-prof">Página P3 · Mapa de Competências e Sócrates — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 12 · Perguntas e Competências</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Mapa de Competências e Perguntas Socráticas</h2>
+
+    <div class="bloco-mapa">
+        <div class="bk">O que o Aluno Deve Ser Capaz de Fazer ao Final</div>
+        <div class="mapa-grid">
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Reconhecer</div>
+                <p>Os quatro elementos de Jr 31:33-34 (lei interior, conhecimento direto, perdão definitivo, identidade de povo) e o que cada um revela sobre a estrutura da Nova Aliança.</p>
+            </div>
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Conectar</div>
+                <p>Jr 31 com Hb 8–10 (cumprimento em Cristo), com Ez 36 (obra do Espírito), e com a Ceia do Senhor como proclamação semanal da Nova Aliança.</p>
+            </div>
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Distinguir</div>
+                <p>As abordagens dispensacionalista e amilenarista sobre "todo o Israel será salvo" — sabendo onde convergem (Rm 11:1-2) e onde divergem, sem colapsar para nenhuma por ignorância.</p>
+            </div>
+            <div class="mapa-cel">
+                <div class="mapa-cel-tit">Aplicar</div>
+                <p>A certeza do perdão da Nova Aliança à sua própria experiência de culpa residual, e o papel da sua fidelidade missionária no plano de Deus para Israel.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bloco-soc">
+        <div class="bk">Perguntas Socráticas por Seção</div>
+        <div class="soc-item">
+            <p><strong>Pg. 2 — Introdução:</strong> "Por que Deus escolheu o momento de maior catástrofe de Israel para prometer a aliança mais gloriosa? O que esse padrão diz sobre como Deus opera na história?"</p>
+            <div class="soc-espera">Espere: percepção de que o fracasso humano não é obstáculo à graça de Deus — é, muitas vezes, o ponto de partida dela.</div>
+        </div>
+        <div class="soc-item">
+            <p><strong>Pg. 4 — Contexto:</strong> "Em Gênesis 15, apenas Deus passou entre os animais. O que esse ato unilateral antecipa sobre o caráter da Nova Aliança — e sobre quem carrega o peso do rompimento da aliança?"</p>
+            <div class="soc-espera">Espere: conexão entre a unilateralidade da aliança abraâmica, a cruz como cumprimento do rito de Gn 15, e a graça soberana como fundamento da Nova Aliança.</div>
+        </div>
+        <div class="soc-item">
+            <p><strong>Pg. 5 — Exegese:</strong> "Se 'todos me conhecerão, desde o menor até o maior' já é cumprido na Nova Aliança — o que isso muda na forma como você se relaciona com Deus? Você vive como se precisasse de um intermediário humano para acessá-lo?"</p>
+            <div class="soc-espera">Espere: reflexão sobre sacerdócio universal versus dependência excessiva de pastor/líder; acesso direto a Deus em oração e Escritura.</div>
+        </div>
+        <div class="soc-item">
+            <p><strong>Pg. 7 — Interpretações:</strong> "Dispensacionalistas e amilenaristas concordam que Deus não rejeitou Israel e que a Nova Aliança é cumprida no sangue de Cristo. O que esse consenso nos diz sobre o que é central na fé e o que é posição hermenêutica — e como isso deve moldar o diálogo entre cristãos que discordam?"</p>
+            <div class="soc-espera">Espere: distinção entre dogma central (pessoa e obra de Cristo, fidelidade de Deus) e opinião escatológica; lição de humildade e ecumenismo evangélico.</div>
+        </div>
+    </div>
+
+    <div class="bloco-debate">
+        <div class="bk">Pergunta de Debate — Para Turmas Avançadas</div>
+        <p>"Se a Nova Aliança promete que 'todos me conhecerão' — por que a Igreja ainda precisa de pastores, pregadores e professores de EBD? O que permanece necessário na mediação humana quando o Espírito escreve a lei no coração de cada crente?"</p>
+    </div>
+
+    <div class="cit-autor">
+        "A Nova Aliança não é uma versão melhorada da antiga — é uma realidade totalmente diferente. A diferença não é de grau, mas de tipo: de condicional para incondicional, de external para interna, de provisória para definitiva."
+        <cite>— Adaptado de Thomas R. Schreiner, <em>Covenant and God's Purpose for the World</em></cite>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — GABARITO, AVALIAÇÃO E SEGUIMENTO -->
+<div class="lbl lbl-prof">Página P4 · Gabarito e Seguimento — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 12 · Gabarito e Avaliação</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Gabarito — Respostas Orientadoras</h2>
+
+    <div class="bloco-resp">
+        <div class="bk">Respostas Sugeridas para as Questões de Reflexão</div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 01</div>
+            <div class="resp-txt">A diferença estrutural central é a mudança de condicionalidade para unilateralidade: a aliança mosaica dependia da obediência de Israel ("se ouvirdes minha voz... sereis meu povo" — Ex 19:5); a Nova Aliança tem Deus como único agente — "porei", "escreverei", "serei", "perdoarei." A lei passa de externa (tábuas de pedra, sujeita ao esquecimento e desobediência) para interna (escrita pelo Espírito no coração, como realidade transformadora). Valorize respostas que percebem que a unilateralidade não implica passividade humana — o Espírito produz obediência genuína, não mecânica.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 02</div>
+            <div class="resp-txt">O argumento de Hebreus é tipológico: os sacrifícios animais eram "sombra" (Hb 10:1) — prefiguração que apontava para o real. O sumo sacerdote entrava no Santo dos Santos uma vez por ano com sangue alheio (Hb 9:7); Cristo entrou "uma vez por todas" com o próprio sangue (Hb 9:12), obtendo "eterna redenção." O ponto central: o tipo (sacrifícios) não pode oferecer o que o antítipo (Cristo) oferece — purificação permanente da consciência (Hb 9:14) versus purificação ritual provisória. Valorize a percepção de que Hebreus não destrói o AT — mostra que o AT sempre apontou além de si mesmo.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 03</div>
+            <div class="resp-txt">Paulo revela que a missão entre os gentios não é apenas um mandato ético — é um ato escatológico: "provoca ciúme" em Israel (Rm 11:11) e faz parte do plano de Deus para precipitar a conversão do seu povo. Isso significa que cada gentio convertido tem significado no plano de Deus para Israel, e que a missão cristã carrega uma dimensão escatológica que vai além da evangelização individual. Valorize respostas que percebem a responsabilidade coletiva e escatológica da missão — não apenas seu impacto no indivíduo convertido.</div>
+        </div>
+        <div class="resp-item">
+            <div class="resp-num">Questão 04</div>
+            <div class="resp-txt">O verbo hebraico <em>zakar</em> ("lembrar") tem conotação covenantal: "não me lembrarei" significa "não agirei mais como juiz desses pecados." O perdão da Nova Aliança é forense e definitivo — não provisório, não dependente de performance subsequente. Para o cristão, culpa residual após confissão é, na prática, uma negação de Jr 31:34. A diferença pastoral é crucial: arrependimento genuíno retorna a Deus em confiança; autocondenação persistente nega o fundamento da Nova Aliança. Valorize respostas que distinguem convicção saudável de culpa tóxica.</div>
+        </div>
+    </div>
+
+    <div class="bloco-fio">
+        <div class="bloco-fio-icon">↻</div>
+        <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Nas Questões 01 e 02, o critério de qualidade é a precisão tipológica e teológica — respostas vagas ("a Nova Aliança é melhor") devem ser aprofundadas: "Em que sentido é melhor? O que exatamente Cristo faz que os sacrifícios animais não faziam?" Nas Questões 03 e 04, valorize a capacidade de conectar doutrina à vida cotidiana — especialmente na Questão 04, onde o objetivo é que o aluno identifique concretamente uma área de culpa residual e perceba que está negando Jr 31:34.</div>
+    </div>
+
+    <div class="bloco-aval">
+        <div class="bk">Seguimento Pós-Lição</div>
+        <ul>
+            <li>Envie Jr 31:34 no grupo da turma durante a semana com a pergunta: "Você conseguiu escrever esse versículo num lugar visível? Há alguma culpa que você ainda carregava — e que, ao reler esse versículo, foi aliviada? Compartilhe se sentir liberdade."</li>
+            <li>Proponha leitura complementar: Hebreus 8–10 completo como exposição do cumprimento de Jr 31 em Cristo. Pedir que os alunos anotem todos os contrastes que o autor de Hebreus estabelece entre a aliança antiga e a nova (sacerdócio, sacrifício, tabernáculo, mediação).</li>
+            <li>Anote alunos que demonstraram confusão entre "todo o Israel" como Israel étnico versus Israel de Deus — pode se beneficiar de material adicional sobre hermenêutica das alianças e a distinção entre dispensacionalismo clássico e progressivo. O objetivo não é forçar uma posição, mas desenvolver a capacidade de distinguir o central do periférico.</li>
+            <li>Avalie se a aula produziu a percepção pastoral central: a Nova Aliança não é doutrina para ser discutida — é fundamento de vida para ser habitado. O cristão que sai sabendo que o seu perdão é definitivo e que a sua missão tem significado escatológico tem uma visão da vida radicalmente diferente. Esse é o fruto prático mais importante desta lição.</li>
+        </ul>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+<!-- PG P5 — MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P5 · Materiais Complementares — Exclusivo Professor</div>
+<div class="pag int-prof">
+    <div class="wm-prof">PROF</div>
+    <div class="ph-prof">
+        <span class="ph-prof-l">Lição 12 · Materiais Complementares</span>
+        <span class="ph-prof-r">✦ Professor</span>
+    </div>
+    <h2 class="prof">Materiais Complementares</h2>
+
+    <div class="bloco-mat">
+        <div class="bk">Recursos Recomendados ao Professor</div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Thomas R. Schreiner — <em>Covenant and God's Purpose for the World</em>. Crossway. O tratamento mais acessível e exegético das alianças bíblicas numa perspectiva reformada. O capítulo sobre a Nova Aliança trata diretamente de Jr 31, Ez 36 e Hb 8–10, mostrando a progressão do Sinai à cruz com clareza pastoral rara. Indispensável para o professor que quer dominar o argumento tipológico de Hebreus antes de ministrar.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">Peter Gentry &amp; Stephen Wellum — <em>Kingdom through Covenant</em>. Crossway. O tratamento acadêmico mais completo das alianças bíblicas disponível. As seções sobre Jr 31 e Rm 11 são exegéticas e detalhadas. Ideal para o professor que quer ir além do nível introdutório — especialmente para responder perguntas avançadas da turma sobre o futuro de Israel e a distinção entre Israel e Igreja. Obra de fôlego, mas os capítulos podem ser lidos independentemente.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo livro">Livro</span>
+            <span class="mat-info">John Owen — <em>Hebrews</em> (Exposition of Hebrews). A exposição clássica puritana de Hebreus, especialmente do capítulo 8. Owen é incomparável na exposição dos contrastes entre as duas alianças — sua leitura de "não segundo a aliança que fiz com seus pais" é um modelo de exegese contextual e aplicação pastoral. Leitura densa, mas o capítulo 8 é diretamente relevante para esta lição.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">BibleProject: <em>Covenant</em> — série completa (YouTube, PT, 5 partes). O panorama visual das alianças bíblicas mostra graficamente a progressão de Noé a Cristo, com atenção especial à Nova Aliança. Ideal para usar como introdução visual antes da lição ou para recomendar aos alunos como material pós-aula para consolidar a estrutura das alianças. Acessível, fiel ao texto e de altíssima qualidade visual.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo video">Vídeo</span>
+            <span class="mat-info">Tim Keller — <em>The New Covenant</em> (Redeemer Presbyterian, YouTube). Pregação expositiva sobre Jr 31 com aplicação pastoral ao perdão definitivo e à identidade do crente na Nova Aliança. Keller equilibra exegese e aplicação com precisão rara — especialmente a tensão entre "conhecer a Deus" como experiência subjetiva e como status objetivo covenantal. Ideal para recomendar a alunos mais avançados ou para usar como preparação do próprio professor.</span>
+        </div>
+        <div class="mat-item">
+            <span class="mat-tipo site">Digital</span>
+            <span class="mat-info">thegospelcoalition.org/pt — busca "Nova Aliança" e "Romanos 11". Artigos de Schreiner, Beale e outros comentaristas reformados oferecem resumos acessíveis sobre Jr 31 em Hebreus, a questão de "todo o Israel" em Rm 11, e a relação entre Israel e Igreja. Útil para o professor que quer consolidar a fundamentação exegética antes de ministrar — e para indicar aos alunos mais avançados como recurso pós-aula.</span>
+        </div>
+    </div>
+
+    <div class="bloco-qr-prof">
+        <div class="bloco-qr-canvas" id="qrcode-licao12"></div>
+        <div class="bloco-qr-info">
+            <div class="bloco-qr-label">▶ Recurso em Vídeo — Professor</div>
+            <div class="bloco-qr-titulo">Uma Nova Aliança com Jesus · Lição 12 · Eschaton Vol. II</div>
+            <div class="bloco-qr-desc">Vídeo complementar indicado para preparação do professor e para recomendar aos alunos como aprofundamento pós-aula sobre a Nova Aliança.</div>
+            <div class="bloco-qr-url">youtube.com/watch?v=vAp2EQC9AgU</div>
+        </div>
+    </div>
+
+    <div class="rod-prof"><span class="rt">Eschaton Vol. II · Edição do Professor</span><span class="rn">P5</span></div>
+</div>
+
+</div><!-- /area -->
+
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v2_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== QR CODE ===== */
+(function(){
+    var el = document.getElementById('qrcode-licao12');
+    if(el && typeof QRCode !== 'undefined'){
+        new QRCode(el, {
+            text: 'https://www.youtube.com/watch?v=vAp2EQC9AgU',
+            width: 64,
+            height: 64,
+            colorDark: '#101828',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit() {
+    edit = !edit;
+    document.querySelectorAll('.pag *').forEach(el => {
+        if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul,table'))
+            el.contentEditable = edit ? 'true' : 'false';
+    });
+    document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</div><!-- /conteudo-principal -->
+</body>
+</html>
