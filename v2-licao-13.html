@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0d1a">
-<link rel="manifest" href="manifest-professor.json">
-<link rel="apple-touch-icon" href="icon-professor-192.png">
-<link rel="icon" type="image/png" href="icon-professor-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Eschaton II · Prof.">
-<title>Eschaton · Lição 13 — Vivendo à Luz da Eternidade · Edição do Professor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0a0d1a" name="theme-color"/>
+<link href="manifest-professor.json" rel="manifest"/>
+<link href="icon-professor-192.png" rel="apple-touch-icon"/>
+<link href="icon-professor-192.png" rel="icon" type="image/png"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Eschaton II · Prof." name="apple-mobile-web-app-title"/>
+<title>Eschaton Vol.2 · Lição 13 — Maranata: A Igreja que Espera · Edição do Professor</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root{
@@ -201,6 +202,13 @@ p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--
 .encerramento{background:linear-gradient(135deg,rgba(32,24,8,0.96),rgba(40,30,8,0.98));border:1px solid rgba(201,168,76,0.4);border-radius:2px;padding:14px 16px;margin:14px 0;text-align:center;position:relative;z-index:1;}
 .enc-titulo{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.7);margin-bottom:10px;}
 .enc-texto{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:var(--ouro-claro);line-height:1.7;}
+
+
+
+/* Componentes da versão do aluno incorporados à edição do professor */
+.box { background: rgba(144,112,32,0.06); border: 1px solid rgba(144,112,32,0.2); border-radius: 2px; padding: 10px 12px; margin: 10px 0; }
+.box-t { font-family: 'Oswald', sans-serif; font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.intro { position: relative; z-index: 1; margin-bottom: 10px; }
 
 /* ===== PÁGINAS DO PROFESSOR ===== */
 .int-prof{
@@ -402,300 +410,320 @@ h2.prof{
 </style>
 </head>
 <body>
-
 <!-- TELA DE SENHA -->
 <div id="tela-senha">
-    <div class="senha-caixa">
-        <div class="senha-icone"></div>
-        <div class="senha-titulo">ESCHATON</div>
-        <div class="senha-sub">Vol. II · Edição do Professor</div>
-        <div class="senha-desc">Material restrito para uso docente.<br>Digite a senha para continuar.</div>
-        <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
-            onkeydown="if(event.key==='Enter')verificarSenha()">
-        <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
-        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
-        <div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
-    </div>
+<div class="senha-caixa">
+<div class="senha-icone"></div>
+<div class="senha-titulo">ESCHATON</div>
+<div class="senha-sub">Vol. II · Edição do Professor</div>
+<div class="senha-desc">Material restrito para uso docente.<br/>Digite a senha para continuar.</div>
+<input class="senha-campo" id="senha-input" onkeydown="if(event.key==='Enter')verificarSenha()" placeholder="••••••••••••" type="password"/>
+<button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+<div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+<div class="senha-rodape">Eschaton Vol. II · EBD Jovens Adultos · Acesso Restrito</div>
 </div>
-
+</div>
 <!-- CONTEÚDO PRINCIPAL -->
 <div id="conteudo-principal">
-
 <div class="painel">
-    <div class="marca">ESCHATON VOL. II
-        <span>Lição 13 · Vivendo à Luz da Eternidade</span>
-        <em>Edição do Professor · Lição Final da Série</em>
-    </div>
-    <span class="badge-prof">✦ Professor</span>
-    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
-    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
-    <a href="index.html"><button class="btn bv">&#8592; Hub</button></a>
+<div class="marca">ESCHATON VOL. II
+        <span>Lição 13 · Maranata — A Igreja que Espera</span>
+<em>Edição do Professor · Lição Final da Série</em>
 </div>
-
-<div class="area">
-
-<!-- PG 1 CAPA -->
-<div class="lbl">Página 1 · Capa</div>
+<span class="badge-prof">✦ Professor</span>
+<button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖶 Imprimir</button>
+<a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+<div class="area"><div class="lbl">Página 1 · Capa</div>
 <div class="pag capa">
-    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
-    <div class="cimg"></div><div class="clh"></div>
-    <div class="cnbg">13</div><div class="cnd">13</div>
-    <div class="capa-fim">
-        <div class="capa-fim-txt">Lição Final · Encerramento da Série</div>
-        <div class="capa-fim-linha"></div>
-    </div>
-    <div class="capa-prof-faixa">Edição do Professor</div>
-    <div class="ccon">
-        <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
-        <div class="ctit">Vivendo à Luz da Eternidade</div>
-        <div class="cver">
-            "Visto que todas essas coisas hão de se dissolver, que pessoas deveis ser vós em santo procedimento e piedade? Esperando e apressando a vinda do dia de Deus."
-            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">2 Pedro 3:11-12</span>
-        </div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Professor</span><span class="rn">1</span></div>
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="capa-borda"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">13</div>
+<div class="capa-fim">
+<div class="capa-fim-txt">Lição Final · Encerramento do Volume II</div>
+<div class="capa-fim-linha"></div>
+</div>
+<div class="cvol"><div class="cvol-num">VOL. II</div><div class="cvol-linha"></div></div>
+<div class="ccon">
+<div class="cser">Eschaton · A Palavra que Não Passará</div>
+<div class="cref">1 Coríntios 16:22 · Apocalipse 22:17–21</div>
+<div class="ctit">Maranata —<br/>A Igreja<br/>que Espera</div>
+<div class="cver">
+      "O Espírito e a esposa dizem: Vem. E aquele que ouve diga: Vem... Aquele que testifica estas coisas diz: Certamente venho sem demora. Amém! Vem, Senhor Jesus."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro-brilho);">Apocalipse 22:17,20</span>
+</div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rn">1</span></div>
 </div>
 
-<!-- PG 2 INTRODUCAO / SINTESE -->
-<div class="lbl">Página 2 · Introdução e Síntese</div>
+<div class="lbl">Página 2 · Texto Bíblico e Introdução</div>
 <div class="pag int">
-    <div class="wm">2</div>
-    <div class="ph"><span class="phl">Lição 13 · Final</span><span class="pht">Vivendo à Luz da Eternidade</span></div>
-    <h2>Introdução</h2>
-    <p class="cap">Chegamos ao fim de uma jornada de treze lições pelos grandes temas da escatologia bíblica. Estudamos sinais dos tempos, arrebatamento, tribulação, anticristo, milênio, ressurreição, juízo, inferno e nova criação. Mas toda essa teologia tem um único destino prático: transformar o modo como vivemos hoje. A escatologia que não muda a vida não entrou no coração — ficou apenas no intelecto.</p>
-    <div class="sintese">
-        <div class="sintese-titulo">O que aprendemos nas 13 lições</div>
-        <div class="sintese-item">A escatologia é o horizonte de toda a teologia — não um apêndice (L1)</div>
-        <div class="sintese-item">Os sinais dos tempos exigem vigilância, não ansiedade (L2)</div>
-        <div class="sintese-item">O arrebatamento foi dado para consolar, não para especular (L3)</div>
-        <div class="sintese-item">A Tribulação revela a justiça e a misericórdia simultâneas de Deus (L4)</div>
-        <div class="sintese-item">O Anticristo já opera como espírito — discernimento é urgente (L5)</div>
-        <div class="sintese-item">Israel e a Igreja: um único mistério da graça soberana de Deus (L6)</div>
-        <div class="sintese-item">O milênio: Cristo reina — agora e para sempre (L7)</div>
-        <div class="sintese-item">A Segunda Vinda é certa, visível e gloriosa — nenhum olho escapará (L8)</div>
-        <div class="sintese-item">A ressurreição do corpo é o fundamento de todo engajamento presente (L9)</div>
-        <div class="sintese-item">O Juízo Final libera da vingança e intensifica a missão (L10)</div>
-        <div class="sintese-item">O inferno torna a graça incompreensivelmente gloriosa (L11)</div>
-        <div class="sintese-item">O céu é renovação — não fuga — da criação que Deus ama (L12)</div>
-    </div>
-    
-    <p>A síntese desta série mostra que a escatologia não é um tema periférico, mas a moldura que dá unidade à esperança cristã. Cada lição estudada convergiu para a mesma verdade: Deus conduz a história a um fim santo, justo e glorioso.</p>
-    <p>Por isso, conhecer o fim não é satisfazer curiosidade, mas aprender a viver com propósito. A doutrina escatológica amadurece a fé quando leva o crente a abandonar tanto a ansiedade quanto a superficialidade espiritual.</p>
-
-    <div class="baluno ba-refletir">
-        <div class="baluno-tag"><span class="baluno-ico">&#9670;</span> Para você refletir</div>
-        <div class="baluno-corpo">Ao olhar a síntese das 13 lições, qual tema te impactou mais profundamente — e qual ficou apenas no intelecto sem descer ao coração? A escatologia que não transforma a vida ficou no caminho. O que ainda precisa mudar em você a partir de tudo que foi estudado?</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Professor</span><span class="rn">2</span></div>
+<div class="int-linhas"></div><div class="wm">2</div>
+<div class="ph">
+<span class="phl">Lição 13 · Final</span>
+<span class="pht">Maranata — A Igreja que Espera</span>
+</div>
+<div class="intro">
+<p class="cap">Chegamos ao ápice da nossa jornada pelo Volume II da série <em>Eschaton</em>. Após percorrermos as visões apocalípticas de João e as promessas proféticas de Daniel, esta lição final nos conduz ao coração da liturgia da Igreja Primitiva: o clamor <em>Maranata</em>. Essa não é apenas uma palavra de esperança passiva — é a identidade de um povo que vive sob a tensão teológica entre o "já" e o "ainda não".</p>
+<p>O objetivo central desta lição é mostrar que a esperança cristã não se fundamenta em cálculos cronológicos nem em especulações proféticas, mas na fidelidade <em>d'Aquele</em> que prometeu. A Igreja não espera por um evento, mas por uma <em>Pessoa</em>. O "Maranata" é, ao mesmo tempo, confissão de fé, oração e postura de vida.</p>
+<p>Enquanto o mundo se orienta pelo desespero ou pela distração, a Igreja que espera o retorno de Cristo vive de maneira distinta: trabalha com diligência no presente, ama o próximo com urgência e mantém os olhos fixos no horizonte da eternidade. Que esta última lição não apenas informe a mente, mas transforme a maneira como vivemos cada dia.</p>
+</div>
+<div class="bloco-aluno">
+<div class="bloco-aluno-titulo">Para Você Refletir — O que é Escatologia?</div>
+<p>A palavra <em>escatologia</em> vem do grego <em>eschaton</em> — "as últimas coisas". Ela não é um tema secundário da fé: ocupa os últimos capítulos da Bíblia e permeia toda a teologia cristã. Estudar escatologia não é especular sobre datas — é aprender a viver hoje à luz do que Deus prometeu para o amanhã.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">2</span></div>
 </div>
 
-<!-- PG 3 DESENVOLVIMENTO I -->
-<div class="lbl">Página 3 · Desenvolvimento I</div>
+<div class="lbl">Página 3 · Passagem-Base e Objetivos</div>
 <div class="pag int">
-    <div class="wm">3</div>
-    <div class="ph"><span class="phl">Lição 13</span><span class="pht">Vivendo à Luz da Eternidade</span></div>
-    <h2>I-A Ética Escatológica</h2>
-    <p>Pedro faz a conexão mais direta da Bíblia entre escatologia e ética: "visto que todas essas coisas hão de se dissolver, que pessoas deveis ser vós em santo procedimento e piedade?" (2 Pe 3:11). O conhecimento do fim não é informação neutra — é imperativo moral. Quem sabe como a história termina deve viver de forma diferente de quem não sabe.</p>
-    <h3>Três Atitudes Bíblicas Diante do Fim</h3>
-    <p>O Novo Testamento descreve três atitudes que a esperança escatológica deve produzir no cristão. A primeira é <strong>vigilância</strong> — "vigiai e orai" (Mt 26:41), "sede sóbrios e vigilantes" (1 Pe 5:8). Não a vigilância paranoica de quem espia o noticioso em busca de sinais, mas a vigilância espiritual de quem cuida do próprio coração e das próprias relações. A segunda é <strong>santidade</strong> — "todo aquele que tem esta esperança nele a si mesmo se purifica, assim como ele é puro" (1 Jo 3:3). A esperança da vinda de Cristo não é conforto para a mediocridade — é convocação para a semelhança com ele. A terceira é <strong>missão</strong> — "e será pregado este evangelho do reino em todo o mundo... e então virá o fim" (Mt 24:14). A escatologia é o maior motivador missionário da história da Igreja.</p>
-    <div class="bver">"Todo aquele que tem esta esperança nele a si mesmo se purifica, assim como ele é puro." <cite>1 João 3:3</cite></div>
-    
-    <p>A ética escatológica não se apoia em medo estéril, mas em responsabilidade diante de Deus. Quem sabe que Cristo voltará aprende a avaliar o presente à luz da eternidade e a ordenar a vida segundo o Reino que vem.</p>
-    <p>Essa perspectiva toca escolhas concretas: o modo de falar, de perdoar, de servir e de perseverar. A vigilância, a santidade e a missão deixam de ser conceitos abstratos e se tornam práticas diárias de fidelidade.</p>
-
-    <div class="baluno ba-biblica">
-        <div class="baluno-tag"><span class="baluno-ico">&#9998;</span> Conexão Bíblica</div>
-        <div class="baluno-corpo">Leia 2 Pedro 3:10-14 e 1 João 3:2-3 lado a lado. Como Pedro e João conectam a esperança do retorno de Cristo com a ética cotidiana? Quais verbos de ação cada autor usa — e o que eles revelam sobre a postura concreta que o cristão deve ter enquanto aguarda?</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Professor</span><span class="rn">3</span></div>
+<div class="int-linhas"></div><div class="wm">3</div>
+<div class="ph">
+<span class="phl">Lição 13 · Final</span>
+<span class="pht">Maranata — A Igreja que Espera</span>
+</div>
+<h2>A Passagem-Base</h2>
+<div class="texto-biblico">
+<div class="texto-biblico-ref">1 Coríntios 16:22</div>
+<p>"Se alguém não ama o Senhor Jesus Cristo, seja anátema. Maranata."</p>
+<span class="ref-final">1 Coríntios 16:22</span>
+</div>
+<div class="texto-biblico">
+<div class="texto-biblico-ref">Apocalipse 22:17–21</div>
+<p>"E o Espírito e a esposa dizem: Vem. E aquele que ouve diga: Vem. E aquele que tem sede venha; e aquele que quiser receba de graça a água da vida."</p>
+<p>"Eu testifico a todo aquele que ouve as palavras da profecia deste livro: Se alguém lhes acrescentar alguma coisa, Deus lançará sobre ele as pragas que estão escritas neste livro..."</p>
+<p>"Aquele que testifica estas coisas diz: Certamente venho sem demora. Amém! Vem, Senhor Jesus. A graça do Senhor Jesus Cristo seja com todos. Amém."</p>
+<span class="ref-final">Apocalipse 22:17–21</span>
+</div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Compreender o significado da palavra aramaica "Maranata" e seu peso litúrgico</li>
+<li>Examinar Apocalipse 22:17–21 como o encerramento de toda a Bíblia</li>
+<li>Identificar as quatro vozes que clamam "Vem" no final do Apocalipse</li>
+<li>Aplicar a oração "Vem, Senhor Jesus" como postura fundamental da vida cristã</li>
+</ul>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">3</span></div>
 </div>
 
-<!-- PG 4 DESENVOLVIMENTO II -->
-<div class="lbl">Página 4 · Desenvolvimento II</div>
+<div class="lbl">Página 4 · Tópico I — Contexto Original</div>
 <div class="pag int">
-    <div class="wm">4</div>
-    <div class="ph"><span class="phl">Lição 13</span><span class="pht">Vivendo à Luz da Eternidade</span></div>
-    <h2>II-Esperança que Transforma</h2>
-    <p>A palavra grega <em>elpis</em> — esperança — no Novo Testamento não significa um desejo incerto, como no português coloquial ("espero que chova"). Significa certeza antecipada de uma realidade futura garantida por Deus. E essa certeza que transforma o presente.</p>
-    <h3>Diante do Sofrimento</h3>
-    <p>Paulo afirma que "os sofrimentos do tempo presente não podem ser comparados com a glória que em nós há de ser revelada" (Rm 8:18). O crente que conhece seu destino eterno pode suportar o sofrimento presente sem ser destruído por ele. Os mártires de todas as eras morreram com esperança no rosto — não porque negavam a dor, mas porque tinham uma perspectiva que a transcendia.</p>
-    <div class="bver">"Porque para mim o viver é Cristo, e o morrer é lucro." <cite>Filipenses 1:21</cite></div>
-    <div class="sep"><span>&#10022;</span></div>
-    <h3>Diante da Morte</h3>
-    <p>A ressurreição de Cristo transforma radicalmente a relação do crente com a própria morte. Paulo zomba dela: "Onde está, ó morte, o teu aguilhão?" (1 Co 15:55). Essa não é arrogância — é a confiança de quem sabe que a morte foi vencida de dentro, por alguém que morreu e ressuscitou. O cristão não finge que a morte não existe; ele a olha nos olhos e diz: "Cristo já passou por você antes de mim."</p>
-    <h3>Diante do Trabalho</h3>
-    <p>A certeza da ressurreição e da nova criação confere significado eterno ao trabalho presente. "O vosso trabalho não é em vão no Senhor" (1 Co 15:58). Cada ato de amor, cada obra de arte, cada ato de justiça praticado em Cristo tem ressonância eterna — porque o Deus que faz novas todas as coisas não desperdiçará nada do que foi feito em seu nome e pelo seu poder.</p>
-    
-    <p>A esperança cristã redefine o sofrimento, a morte e o trabalho porque nenhum deles possui a palavra final. A promessa de Deus impede o desespero e sustenta a fidelidade mesmo quando o presente parece marcado por perdas e limitações.</p>
-    <p>Além disso, ela protege o cristão do cinismo. O que é feito no Senhor não desaparece no vazio, mas participa, por graça, da realidade futura que Deus prometeu consumar.</p>
-
-    <div class="baluno ba-sabia">
-        <div class="baluno-tag"><span class="baluno-ico">&#9654;</span> Sabia que?</div>
-        <div class="baluno-corpo">A palavra grega <em>elpis</em> (esperança) aparece 53 vezes no Novo Testamento e nunca designa um desejo incerto — sempre uma certeza antecipada. Os primeiros cristãos viviam sob perseguição romana, mas os registros históricos mostram que enfrentavam a morte com serenidade desconcertante para os contemporâneos. O filósofo Epicteto, pagão, admirava-se: "É possível, por hábito e disciplina, desprezar a morte assim." Para Paulo, não era hábito — era ressurreição.</div>
-    </div>
-
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Professor</span><span class="rn">4</span></div>
+<div class="int-linhas"></div><div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 13 · Tópico I</span><span class="pht">Maranata — A Igreja que Espera</span></div>
+<h2>I. Contexto Original — A Oração Mais Antiga da Igreja</h2>
+<p>Antes de qualquer credo, antes das grandes confissões conciliares, antes dos tratados teológicos, a Igreja tinha uma oração: <em>Maranata</em>. Essa palavra aramaica, preservada como relíquia linguística no Novo Testamento grego, revela que a fé cristã nasceu voltada para o futuro.</p>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">A Dupla Leitura do "Maranata"</div>
+<p><em>Maranata</em> pode ser lida como <em>Maran atha</em> — "Nosso Senhor vem", uma declaração de fé no retorno iminente de Cristo; ou como <em>Marana tha</em> — "Nosso Senhor, vem!", uma oração ardente pelo retorno do Rei. Ambas as leituras são teologicamente ricas: uma afirma a certeza da promessa; a outra expressa o anseio do coração.</p>
+</div>
+<h3>Apocalipse 22 — O Fim de Todo o Cânon</h3>
+<p>Apocalipse 22:17–21 é o último texto de toda a Bíblia — a última cena, a última fala, a última bênção. João encerra a revelação exatamente da mesma forma como a Igreja Primitiva encerrava cada culto dominical: com o clamor pelo retorno de Cristo. A Bíblia não termina com um regulamento nem com uma doutrina, mas com uma oração e uma promessa.</p>
+<div class="bloco-ctx">
+<div class="bloco-ctx-titulo">A Didaqué e o Uso Litúrgico</div>
+<p>A <em>Didaqué</em> (século I–II d.C.) instrui que, ao final da Ceia do Senhor, a congregação deve clamar: <em>"Maran atha!"</em> Isso significa que cada celebração eucarística era, na Igreja Primitiva, uma antecipação e um ensaio da vinda do Noivo. O domingo se tornava um ato de esperança encenada.</p>
+</div>
+<div class="bloco-aluno">
+<div class="bloco-aluno-titulo">Sabia Que? — Escatologia e Vida Diária</div>
+<p>Muitos cristãos pensam que escatologia é assunto de especialistas. Mas a Igreja Primitiva vivia e orava escatologicamente todos os dias. O "Maranata" não era reservado para seminários — era cantado nas casas, murmurado nas perseguições e celebrado na Ceia. A esperança no retorno de Cristo era o combustível da fé cotidiana.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">4</span></div>
 </div>
 
-<!-- PG 5 VISOES EM DIALOGO -->
-<div class="lbl">Página 5 · Visões em Diálogo</div>
+<div class="lbl">Página 5 · Tópico II — As Quatro Vozes</div>
 <div class="pag int">
-    <div class="wm">5</div>
-    <div class="ph"><span class="phl">Lição 13</span><span class="pht">Vivendo à Luz da Eternidade</span></div>
-    <h2>III-Visões em Diálogo</h2>
-    <p>Na lição final, as perspectivas pentecostal e reformada convergem mais do que divergem — ambas chamam o cristão a uma vida transformada pela esperança do retorno de Cristo.</p>
-    <div class="bvp">
-        <div class="vl">&#10022; Perspectiva Pentecostal</div>
-        <div class="vt">Para o pentecostalismo, a iminência do retorno de Cristo — que pode acontecer a qualquer momento — é o maior motivador para a conversão imediata, o evangelismo urgente e a vida santa. A experiência do Espírito Santo no presente é penhor e antegosto da glória vinda. A adoração exuberante e a oração intensa são respostas naturais de quem vive com o olhar fixo na volta de Cristo. A escatologia pentecostal é visceral, emocional e missionária — ela move o crente a agir com urgência porque o tempo é curto.</div>
-    </div>
-    <div class="bvr">
-        <div class="vl">&#10022; Perspectiva Reformada</div>
-        <div class="vt">Para a teologia reformada, a esperança escatológica molda uma ética de longo prazo: construir instituições justas, cuidar da criação, investir na educação e na cultura, porque o reino de Deus avança progressivamente pela pregação do evangelho e pela transformação das estruturas sociais. A escatologia reformada gera estabilidade, profundidade e engajamento — o cristão não foge do mundo esperando o arrebatamento; ele o habita com esperança, laboriosidade e responsabilidade, sabendo que seu trabalho não é em vão.</div>
-    </div>
-    <div class="sep"><span>&#10022;</span></div>
-    <p>O cristão completo precisa das duas ênfases: a urgência missionária pentecostal e a profundidade cultural reformada. A esperança do retorno de Cristo não é apenas motivo para evangelizar — é motivo para construir, criar, cuidar e amar com tudo o que temos, enquanto temos tempo.</p>
-    
-    <p>As diferentes tradições cristãs oferecem ênfases que podem se corrigir e se enriquecer mutuamente. A urgência missionária e o compromisso cultural não precisam ser rivais, mas expressões complementares de uma mesma esperança escatológica.</p>
-    <p>Uma escatologia equilibrada evita extremos e forma crentes capazes de anunciar o evangelho com fervor e, ao mesmo tempo, habitar o mundo com responsabilidade, profundidade e amor ao próximo.</p>
-
-    <div class="baluno ba-pense">
-        <div class="baluno-tag"><span class="baluno-ico">&#8857;</span> Pense nisso</div>
-        <div class="baluno-corpo">A perspectiva pentecostal enfatiza urgência — Cristo pode voltar a qualquer momento; a reformada enfatiza profundidade — o reino avança e exige construção de longo prazo. Essas ênfases parecem opostas, mas precisam coexistir. Qual delas você tende naturalmente? Que fruto concreto a ênfase oposta poderia produzir na sua vida se você a levasse a sério?</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Professor</span><span class="rn">5</span></div>
+<div class="int-linhas"></div><div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 13 · Tópico II</span><span class="pht">Maranata — A Igreja que Espera</span></div>
+<h2>II. As Quatro Vozes de Apocalipse 22</h2>
+<p>A cena final do Apocalipse é surpreendentemente coral. João não registra uma única voz, mas uma convergência de clamores vindos de distintas esferas — divina, eclesiástica e humana — todos apontando para a mesma direção: a vinda do Senhor.</p>
+<h3>1. O Espírito diz: "Vem"</h3>
+<p>O próprio Espírito Santo clama pelo retorno de Cristo. Isso nos revela uma verdade profunda: quando oramos "Vem, Senhor Jesus", não estamos apenas expressando um desejo pessoal — é o Espírito que intercede em nós e por nós com gemidos que excedem as palavras (Rm 8:26). A oração escatológica é, antes de tudo, oração trinit ária.</p>
+<h3>2. A Esposa diz: "Vem"</h3>
+<p>A Igreja — apresentada como noiva — anseia pelo seu Noivo. O amor genuíno sempre quer a presença do amado. A intensidade do clamor da Igreja pelo retorno de Cristo é, portanto, um termômetro de saúde espiritual: quanto mais a congregação ama a Cristo, mais ela o deseja. A frieza escatológica revela distância relacional.</p>
+<h3>3. O que ouve diz: "Vem"</h3>
+<p>A oração escatológica não é monopólio dos teólogos. Todo aquele que ouve a Palavra e a recebe com fé é convidado a participar do clamor. Isso transforma a esperança em movimento missionário: o cristão que espera Cristo convida outros a partilhar essa mesma espera.</p>
+<h3>4. O que tem sede: "Venha"</h3>
+<p>O convite se abre para além da comunidade crente. A água da vida é oferecida de graça a todo aquele que tem sede — um eco direto de Isaías 55:1. O clamor escatológico e o convite evangelístico se fundem: esperar o Rei é convidar outros para o seu banquete.</p>
+<div class="bloco-aluno">
+<div class="bloco-aluno-titulo">Conexão Escatológica — Você É Uma das Vozes</div>
+<p>A escatologia bíblica não é uma doutrina para observadores passivos. Você, ao ouvir e crer na Palavra, torna-se uma das vozes do clamor final. Cada vez que você ora "Vem, Senhor Jesus" e convida alguém a conhecer a Cristo, está participando do coral que encerra a história — exatamente como João descreve em Apocalipse 22.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">5</span></div>
 </div>
 
-<!-- PG 6 APLICACAO FINAL -->
-<div class="lbl">Página 6 · Conclusão e Aplicação</div>
+<div class="lbl">Página 6 · Tópico III — Síntese do Volume II</div>
 <div class="pag int">
-    <div class="wm">6</div>
-    <div class="ph"><span class="phl">Lição 13 · Final</span><span class="pht">Vivendo à Luz da Eternidade</span></div>
-    <h2>Conclusão</h2>
-    <p>Ao final desta série, a pergunta não é "qual posição milenista você adota?" ou "você é pré ou pós-tribulacional?". A pergunta é: o que mudou em você? A escatologia que entra pela cabeça e não desce ao coração é apenas erudição — pode até inflar o orgulho intelectual. A que chega ao coração muda a direção da vida.</p>
-    <div class="apl">
-        <div class="at">Desafio Final — Três Compromissos</div>
-        <p><strong>1. Vigilância:</strong> Estabeleça uma prática diária de exame de consciência e oração que reflita sua expectativa pelo retorno de Cristo — não como ritual, mas como postura de quem vive diante do Eterno. <strong>2. Santidade:</strong> Identifique uma área específica da sua vida que precisa ser alinhada com a esperança da vinda de Cristo — um relacionamento, um hábito, uma atitude. Decida hoje o que vai mudar. <strong>3. Missão:</strong> Escreva o nome de três pessoas ao seu redor que ainda não conhecem o evangelho. Ore por elas diariamente. A escatologia bíblica é o maior argumento contra a indiferença missionária.</p>
-    </div>
-    <div class="sep"><span>&#10022;</span></div>
-    <div class="encerramento">
-        <div class="enc-titulo">Eschaton · Encerramento</div>
-        <div class="enc-texto">"Aquele que testifica estas coisas diz: Certamente venho sem demora. Amém! Vem, Senhor Jesus."<br><br>Apocalipse 22:20</div>
-    </div>
-    
-    <p>Concluir esta série exige mais do que recordar conteúdos; exige resposta prática. O conhecimento adquirido precisa se converter em transformação real, afetando prioridades, hábitos e a direção da vida diante de Deus.</p>
-    <p>A escatologia bíblica chama o cristão a viver de modo intencional, com os olhos erguidos para a promessa divina e os pés firmes na obediência cotidiana. O futuro prometido por Deus é a força que sustenta a fidelidade no presente.</p>
-
-    <div class="baluno ba-vida">
-        <div class="baluno-tag"><span class="baluno-ico">&#10022;</span> Leve para a vida</div>
-        <div class="baluno-corpo">Esta é a última lição — mas não o fim da jornada. Escolha agora um dos três compromissos do desafio final (vigilância, santidade ou missão) e escreva aqui uma ação concreta e datada que você vai realizar esta semana. A escatologia que não gera compromisso ficou pelo caminho:</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Professor</span><span class="rn">6</span></div>
+<div class="int-linhas"></div><div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 13 · Tópico III</span><span class="pht">Maranata — A Igreja que Espera</span></div>
+<h2>III. O Que a Palavra Nos Ensinou</h2>
+<p>Treze lições. Treze janelas abertas para a eternidade. Cada passagem estudada ao longo deste volume foi, em última análise, um convite a viver de maneira diferente — não como quem ignora o futuro, mas como quem o conhece e deixa que ele transforme o presente.</p>
+<div class="sintese">
+<div class="sintese-titulo">Síntese das 13 Lições — Volume II</div>
+<div class="sintese-item">O Dia do Senhor é real, justo e misericordioso · clama por arrependimento (L1)</div>
+<div class="sintese-item">A apostasia começa em corações que não amam a verdade · vacine-se com a Palavra (L2)</div>
+<div class="sintese-item">Os 144.000 são o povo completo de Deus · chamados a seguir o Cordeiro (L3)</div>
+<div class="sintese-item">As trombetas são advertências progressivas · Deus age antes de consumar (L4)</div>
+<div class="sintese-item">As Duas Testemunhas profetizam, morrem e ressuscitam · o padrão do testemunho (L5)</div>
+<div class="sintese-item">A guerra cósmica já foi decidida na cruz · vencemos pelo sangue do Cordeiro (L6)</div>
+<div class="sintese-item">As taças são a ira consumada · "Está feito!" ecoa o Calvário (L7)</div>
+<div class="sintese-item">Babilônia cai "em uma hora" · nada construído sobre o mundo é permanente (L8)</div>
+<div class="sintese-item">A Ceia das Bodas é o destino eterno · o Noivo já prepara o lugar (L9)</div>
+<div class="sintese-item">O Cavaleiro vence pela Palavra · "Rei dos Reis e Senhor dos Senhores" (L10)</div>
+<div class="sintese-item">Daniel viu os reinos passarem e o de Deus permanecer · fidelidade no exílio (L11)</div>
+<div class="sintese-item">A Nova Aliança é inquebrantável · "dos seus pecados não me lembrarei mais" (L12)</div>
+</div>
+<div class="bloco-aluno">
+<div class="bloco-aluno-titulo">Lembre-se — O Estudo das Últimas Coisas Transforma o Hoje</div>
+<p>Cada lição deste volume revelou uma faceta do plano soberano de Deus sobre a história. A escatologia não nos afasta da realidade — ela nos ancora nela com mais firmeza. Quem sabe como a história termina vive com mais coragem, mais amor e mais propósito no presente. Guarde estas verdades: elas serão seu fundamento nos dias difíceis.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">6</span></div>
 </div>
 
-<!-- PG 7 QUESTOES FINAIS -->
-<div class="lbl">Página 7 · Questões Finais e Anotações</div>
+<div class="lbl">Página 7 · Tópico IV — O Espírito e a Esposa</div>
 <div class="pag int">
-    <div class="wm">7</div>
-    <div class="ph"><span class="phl">Lição 13 · Final</span><span class="pht">Vivendo à Luz da Eternidade</span></div>
-    <h2>Questões Finais da Série</h2>
-    <div class="q">
-        <div class="qn">Questão 01</div>
-        <div class="qt">Pedro pergunta: "que pessoas deveis ser vós em santo procedimento e piedade?" (2 Pe 3:11). Depois de treze lições de escatologia, como você responderia a essa pergunta com suas próprias palavras? O que mudou na sua perspectiva?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 02</div>
-        <div class="qt">Das três atitudes escatológicas — vigilância, santidade e missão — qual é a mais fácil para você viver? Qual é a mais difícil? O que impede que a mais difícil se torne real na sua vida?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 03</div>
-        <div class="qt">A perspectiva pentecostal enfatiza urgência e missão; a reformada enfatiza profundidade e engajamento cultural. Como você pode integrar essas duas ênfases em sua vida cristã de forma equilibrada e frutífera?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 04</div>
-        <div class="qt">Se Cristo voltasse amanhã, o que você lamentaria não ter feito — ou ter feito? Essa resposta é o mapa da transformação que a escatologia quer operar em você.</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="lit">
-        <div class="lt">Leituras para Continuar a Jornada</div>
-        <ul>
-            <li>N.T. Wright — Surpreendido pela Esperança (a escatologia como fundamento da vida cristã)</li>
-            <li>Anthony Hoekema — A Bíblia e o Futuro (panorama reformado completo da escatologia)</li>
-            <li>Leitura devocional final: 2 Pe 3:10-18 + 1 Jo 3:1-3 + Ap 22:12-21</li>
-        </ul>
-    </div>
-    <h3 style="margin-top:10px;">Anotações Finais</h3>
-    <div class="lins">
-        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · Fim da Série · 13 Lições</span><span class="rn">7</span></div>
+<div class="int-linhas"></div><div class="wm">7</div>
+<div class="ph">
+<span class="phl">Lição 13 · Tópico IV</span>
+<span class="pht">O Espírito e a Esposa</span>
+</div>
+<h2>IV. O Espírito e a Esposa Dizem: Vem</h2>
+<p>O encerramento do cânon bíblico ocorre com um convite apaixonado. Em Apocalipse 22:17, testemunhamos uma harmonia perfeita e sem precedentes: o Espírito Santo e a Igreja clamam juntos pelo retorno do Rei. Esse clamor uníssono revela que a esperança cristã não é um sentimento individual, mas uma convicção comunitária sustentada pelo próprio Deus.</p>
+<div class="bloco-teo">
+<div class="bloco-teo-titulo">A Tensão Teológica da Esperança</div>
+<p>A Igreja vive entre dois momentos: a primeira vinda de Cristo — que inaugurou o Reino — e a segunda vinda — que o consumará. Essa tensão entre o "já" e o "ainda não" não é angústia, mas vitalidade. É a mesma tensão que move um noivo que já escolheu a noiva e aguarda o dia do casamento: certeza e antecipação coexistem.</p>
+</div>
+<div class="box">
+<div class="box-t">A Missão da Esperança</div>
+<p>A espera da Igreja não é ociosa nem passiva. A esperança genuína é contagiosa e transformadora. Enquanto o mundo se desespera diante da incerteza, a Igreja proclama com serenidade e convicção que o Rei está voltando — e isso muda tudo: muda a forma como amamos, servimos, sofremos e morremos.</p>
+</div>
+<div class="bloco-aluno">
+<div class="bloco-aluno-titulo">Pense Nisso — O "Já" e o "Ainda Não"</div>
+<p>Uma das chaves da escatologia cristã é entender que vivemos entre dois momentos decisivos: a primeira vinda de Cristo, que trouxe salvação e inaugurou o Reino, e a segunda vinda, que consumará tudo. Você já foi salvo — esse é o "já". A glorificação plena ainda virá — esse é o "ainda não". Essa tensão não é fraqueza da fé; é o ritmo normal da vida cristã fiel.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">7</span></div>
 </div>
 
+<div class="lbl">Página 8 · Conclusão</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">8</div>
+<div class="ph"><span class="phl">Lição 13 · Conclusão</span><span class="pht">O Amém da História</span></div>
+<h2>Conclusão: O Amém da História</h2>
+<p class="cap">Ao encerrarmos este volume, a mensagem central que ecoa é esta: a Palavra de Deus não passará. Empérios passam. Sistemas filosóficos se esgotam. Civilizações se erguem e ruem. Mas aquele que disse "Certamente venho sem demora" nunca falhou em nenhuma de suas promessas — e não começará agora.</p>
+<p>O fim da Bíblia não é um ponto final, mas uma porta aberta. O último "Amém" do Apocalipse não é um encerramento resignado, mas um grito de antecipação: o melhor ainda está por vir. A Nova Jerusalém não é um consolação teológica — é a realidade mais concreta e mais permanente que existe.</p>
+<div class="bloco-teo">
+<div class="bloco-teo-titulo">A Conexão entre Fé e Esperança</div>
+<p>A fé olha para trás — para a cruz, a ressurreição, as promessas cumpridas — e encontra fundamento. A esperança olha para frente — para o retorno de Cristo, a ressurreição dos mortos, a renovação de todas as coisas — e encontra motivação. Uma fé sem esperança se torna nostalgia. Uma esperança sem fé se torna fantasia. Juntas, elas formam a vida cristã autêntica.</p>
+</div>
+<p>Que a nossa resposta diária, em cada manhã que amanhecer e em cada desafio que enfrentarmos, seja a mesma da Igreja Primitiva: <strong>Amém! Vem, Senhor Jesus!</strong></p>
+<div class="bloco-aluno">
+<div class="bloco-aluno-titulo">Leve Para a Vida — A Esperança que Transforma</div>
+<p>A escatologia cristã não é pessimismo disfaçado de espiritualidade. É a convicção de que a história tem um Senhor, que esse Senhor venceu a morte e que ele voltará para fazer novas todas as coisas. Essa esperança não paralisa — liberta. Liberta do medo do futuro, da escravidão do presente e do peso do passado. Saia desta lição com mais esperança do que entrou.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">8</span></div>
+</div>
 
-<!-- ══════════════════════════════════
-     PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
-     ══════════════════════════════════ -->
+<div class="lbl">Página 9 · Aplicação Final</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">9</div>
+<div class="ph"><span class="phl">Lição 13 · Aplicação</span><span class="pht">Maranata — A Igreja que Espera</span></div>
+<h2>Aplicação Final</h2>
+<p class="cap">A última palavra da Bíblia é uma oração: "Vem, Senhor Jesus." A teologia que não desemboca em oração e em ação ficou apenas no intelecto. O conhecimento do fim dos tempos deve produzir, antes de tudo, santidade no presente — não curiosidade especulativa sobre o futuro.</p>
+<div class="bloco-apl">
+<div class="bloco-apl-titulo">Três Compromisos Finais</div>
+<p><strong>1. Ore "Maranata" diariamente.</strong> Comece ou encerre cada dia com essa oração. Ela reorienta o coração, lembrando quem é o verdadeiro Senhor do tempo e da história.</p>
+<p><strong>2. Viva como quem espera.</strong> A esperança do retorno de Cristo deve produzir urgência no amor, na santidade e no serviço. Não vivemos como se tivéssemos todo o tempo do mundo — vivemos como quem sabe que o tempo é precioso.</p>
+<p><strong>3. Convide outros para a esperança.</strong> O clamor "Vem" é também um convite. Cada cristão que espera é um embaixador da esperança — alguém que, com sua vida e suas palavras, diz ao mundo: "Há um lugar reservado para você na Mesa do Rei."</p>
+</div>
+<h3>Perguntas para Reflexão Pessoal</h3>
+<div class="q">
+<div class="qn">Reflexão 01</div>
+<div class="qt">Como a convicção do retorno de Cristo muda a forma como você prioriza seu tempo e seus relacionamentos?</div>
+</div>
+<div class="q">
+<div class="qn">Reflexão 02</div>
+<div class="qt">Há alguém em sua vida para quem você deveria ser "a voz que convida"? O que tem impedido esse convite?</div>
+</div>
+<div class="q">
+<div class="qn">Reflexão 03</div>
+<div class="qt">Qual foi a lição ou o conceito deste volume que mais impactou sua compreensão da fé? Como você pode aplicá-lo esta semana?</div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · EBD Jovens Adultos</span><span class="rod-aluno"></span><span class="rn">9</span></div>
+</div>
 
-<!-- PG P1 — GUIA PEDAGÓGICO E PREPARAÇÃO -->
+<div class="lbl">Página 10 · Questões Finais e Encerramento</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">10</div>
+<div class="ph"><span class="phl">Lição 13 · Final</span><span class="pht">Maranata — A Igreja que Espera</span></div>
+<h2>Questões Finais do Volume II</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">O que o clamor <em>Maranata</em> revela sobre o anseio relacional da Igreja por Cristo? Por que isso é mais do que um desejo apocalíptico?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">Como as quatro vozes de Apocalipse 22 descrevem a lógica integral da missão cristã — da espiritualidade individual ao convite evangelístico?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">Como o equilíbrio entre esperar e convidar — passividade e ação — deve moldar a vida prática da Igreja e a sua vida pessoal?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">O que mudou na sua compreensão da fé após estas 13 lições do Volume II? Que verdade permanecerá com você daqui para frente?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="sep"><span>✶</span></div>
+<div class="encerramento">
+<div class="enc-titulo">Eschaton · Vol. II · Encerramento</div>
+<div class="enc-texto">
+      "Certamente venho sem demora.<br/>
+      Amém! Vem, Senhor Jesus.<br/>
+      A graça do Senhor Jesus Cristo seja com todos. Amém."<br/><br/>
+      Apocalipse 22:20–21
+    </div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. II · Fim do Volume II</span><span class="rod-aluno"></span><span class="rn">10</span></div>
+</div>
+
 <div class="lbl lbl-prof">Página P1 · Guia Pedagógico — Exclusivo Professor</div>
-<div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof"><span class="ph-prof-l">Lição 13 · Guia Pedagógico</span><span class="ph-prof-r">✦ Professor</span></div>
-    <h2 class="prof">Guia de Preparação e Condução</h2>
-    <div class="bloco-guia"><div class="bk">Objetivo docente</div><p>Conduzir a turma a perceber que a escatologia bíblica não termina em curiosidade doutrinária, mas em vigilância, santidade, missão e perseverança prática diante da promessa da volta de Cristo.</p></div>
-    <div class="bloco-tempo"><div class="bk">Sugestão de tempo</div><div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Retomada das 13 lições e identificação dos temas que mais marcaram a turma.</span></div><div class="tempo-linha"><span class="tempo-min">15 min</span><span class="tempo-desc">Exposição de 2 Pedro 3:10-14 e 1 João 3:2-3, destacando ética, esperança e purificação.</span></div><div class="tempo-linha"><span class="tempo-min">15 min</span><span class="tempo-desc">Discussão sobre vigilância, santidade e missão como respostas concretas à esperança escatológica.</span></div><div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Aplicação final com os três compromissos da página 6.</span></div></div>
-    <div class="bloco-dica"><div class="bk">Nota ao professor</div><p>Evite transformar a aula final em revisão meramente informativa. A pergunta central é pastoral: o que mudou na vida dos alunos depois da série?</p></div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
-</div>
+<div class="pag int-prof"><div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 13 · Guia Pedagógico</span><span class="ph-prof-r">✦ Professor</span></div>
+<h2 class="prof">Guia de Preparação e Condução</h2>
+<div class="bloco-guia"><div class="bk">Objetivo docente</div><p>Conduzir a turma a compreender que o clamor <em>Maranata</em> expressa amor por Cristo, esperança vigilante, perseverança e compromisso missionário. A aula deve retomar o Volume II sem transformar o encerramento em mera revisão informativa.</p></div>
+<div class="bloco-tempo"><div class="bk">Sugestão de tempo</div><div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Retomada do percurso do Volume II e apresentação da palavra <em>Maranata</em> como síntese espiritual da esperança cristã.</span></div><div class="tempo-linha"><span class="tempo-min">15 min</span><span class="tempo-desc">Exposição de 1 Coríntios 16:22 e Apocalipse 22:17-21, destacando amor, espera, convite e consumação.</span></div><div class="tempo-linha"><span class="tempo-min">15 min</span><span class="tempo-desc">Discussão sobre as quatro vozes de Apocalipse 22: Cristo, o Espírito, a Esposa e quem ouve.</span></div><div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Aplicação final: esperar, santificar-se e convidar outros a virem a Cristo.</span></div></div>
+<div class="bloco-dica"><div class="bk">Nota ao professor</div><p>Evite tratar <em>Maranata</em> apenas como fórmula litúrgica ou expressão apocalíptica. No contexto da lição, o termo deve ser apresentado como clamor relacional da Igreja que ama o Senhor e deseja sua vinda.</p></div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div></div>
 
-<!-- PG P2 — APROFUNDAMENTO -->
 <div class="lbl lbl-prof">Página P2 · Aprofundamento Teológico — Exclusivo Professor</div>
-<div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof"><span class="ph-prof-l">Lição 13 · Aprofundamento</span><span class="ph-prof-r">✦ Professor</span></div>
-    <h2 class="prof">Aprofundamento Teológico</h2>
-    <div class="bloco-teo-prof"><div class="bk">Ética escatológica</div><p>Em 2 Pedro 3, o anúncio do fim não é usado para alimentar especulação, mas para exigir santo procedimento e piedade. A doutrina do futuro funciona como critério de discernimento para o presente.</p></div>
-    <div class="bloco-teo-prof"><div class="bk">Esperança cristã</div><p>No Novo Testamento, esperança não é otimismo vago. É confiança na promessa de Deus, sustentada pela ressurreição de Cristo e voltada para a consumação da nova criação.</p></div>
-    <div class="bloco-dica"><div class="bk">Ponto de equilíbrio</div><p>Mostre que urgência missionária e responsabilidade cultural não são inimigas. A volta de Cristo motiva tanto o anúncio do evangelho quanto a fidelidade nas tarefas ordinárias.</p></div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
-</div>
+<div class="pag int-prof"><div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 13 · Aprofundamento</span><span class="ph-prof-r">✦ Professor</span></div>
+<h2 class="prof">Aprofundamento Teológico</h2>
+<div class="bloco-teo-prof"><div class="bk">Maranata</div><p>A expressão aramaica <em>Maranata</em> preserva uma das orações mais antigas da Igreja: “Vem, Senhor”. Ela une doutrina, afeto e expectativa. A Igreja não espera apenas um evento futuro; ela espera o próprio Cristo.</p></div>
+<div class="bloco-teo-prof"><div class="bk">O Espírito e a Esposa</div><p>Em Apocalipse 22, a esperança cristã não se fecha em contemplação passiva. O Espírito e a Esposa dizem “Vem”, e quem ouve é chamado a repetir o convite. A escatologia bíblica gera adoração, perseverança e missão.</p></div>
+<div class="bloco-dica"><div class="bk">Ponto de equilíbrio</div><p>Mostre que esperar a volta de Cristo não significa abandonar o mundo, mas viver nele com fidelidade. A oração “Vem, Senhor Jesus” deve produzir santidade, consolo, sobriedade e testemunho.</p></div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div></div>
 
-<!-- PG P3 — GABARITO -->
 <div class="lbl lbl-prof">Página P3 · Respostas Orientadoras — Exclusivo Professor</div>
-<div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof"><span class="ph-prof-l">Lição 13 · Questões Finais</span><span class="ph-prof-r">✦ Professor</span></div>
-    <h2 class="prof">Respostas Orientadoras</h2>
-    <div class="bloco-resp"><div class="bk">Gabarito pastoral</div><div class="resp-item"><div class="resp-num">Questão 01</div><div class="resp-txt">Resposta esperada: reconhecer que o conhecimento escatológico deve produzir santidade, sobriedade, consolo e compromisso prático.</div></div><div class="resp-item"><div class="resp-num">Questão 02</div><div class="resp-txt">Resposta aberta. Observe se o aluno identifica impedimentos concretos, como medo, distração, pecado persistente, comodismo ou falta de disciplina espiritual.</div></div><div class="resp-item"><div class="resp-num">Questão 03</div><div class="resp-txt">Resposta esperada: integrar evangelismo urgente com responsabilidade cultural, serviço, trabalho fiel e cuidado com o próximo.</div></div><div class="resp-item"><div class="resp-num">Questão 04</div><div class="resp-txt">Resposta pessoal. Use a pergunta como diagnóstico espiritual, não como instrumento de culpa.</div></div></div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
-</div>
+<div class="pag int-prof"><div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 13 · Questões Finais</span><span class="ph-prof-r">✦ Professor</span></div>
+<h2 class="prof">Respostas Orientadoras</h2>
+<div class="bloco-resp"><div class="bk">Gabarito pastoral</div><div class="resp-item"><div class="resp-num">Questão 01</div><div class="resp-txt">Resposta esperada: reconhecer que <em>Maranata</em> expressa amor, saudade, fidelidade e desejo pela presença de Cristo. Não é apenas curiosidade sobre o fim, mas anseio relacional pela consumação da comunhão com o Senhor.</div></div><div class="resp-item"><div class="resp-num">Questão 02</div><div class="resp-txt">Resposta esperada: identificar que Cristo promete vir, o Espírito sustenta o clamor, a Esposa responde em esperança e quem ouve participa do convite. A missão nasce da esperança e conduz outros à água da vida.</div></div><div class="resp-item"><div class="resp-num">Questão 03</div><div class="resp-txt">Resposta esperada: integrar espera e ação. A Igreja aguarda Cristo com vigilância, mas também convida, serve, anuncia e persevera. A esperança cristã não paralisa; orienta prioridades e práticas.</div></div><div class="resp-item"><div class="resp-num">Questão 04</div><div class="resp-txt">Resposta pessoal. O professor deve observar se o aluno consegue sintetizar aprendizados do Volume II e transformá-los em compromisso concreto de fé, santidade, consolo e testemunho.</div></div></div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div></div>
 
-<!-- PG P4 — MATERIAIS COMPLEMENTARES -->
 <div class="lbl lbl-prof">Página P4 · Materiais Complementares — Exclusivo Professor</div>
-<div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof"><span class="ph-prof-l">Lição 13 · Complementos</span><span class="ph-prof-r">✦ Professor</span></div>
-    <h2 class="prof">Materiais Complementares</h2>
-    <div class="bloco-mat"><div class="bk">Indicações de apoio</div><div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">N. T. Wright, <em>Surpreendido pela Esperança</em>: útil para conectar ressurreição, nova criação e vida cristã presente.</span></div><div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Anthony Hoekema, <em>A Bíblia e o Futuro</em>: panorama escatológico de referência para consulta do professor.</span></div><div class="mat-item"><span class="mat-tipo site">Texto bíblico</span><span class="mat-info">2 Pedro 3:10-18, 1 João 3:1-3 e Apocalipse 22:12-21 para leitura devocional e encerramento da aula.</span></div></div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
-</div>
+<div class="pag int-prof"><div class="wm-prof">PROF</div>
+<div class="ph-prof"><span class="ph-prof-l">Lição 13 · Complementos</span><span class="ph-prof-r">✦ Professor</span></div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-mat"><div class="bk">Indicações de apoio</div><div class="mat-item"><span class="mat-tipo livro">Texto bíblico</span><span class="mat-info">1 Coríntios 16:22 e Apocalipse 22:17-21 para leitura final em voz alta e oração de encerramento.</span></div><div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">Anthony Hoekema, <em>A Bíblia e o Futuro</em>: útil para organizar a esperança cristã dentro da unidade do ensino bíblico.</span></div><div class="mat-item"><span class="mat-tipo livro">Livro</span><span class="mat-info">N. T. Wright, <em>Surpreendido pela Esperança</em>: apoio para relacionar esperança futura, ressurreição e vida cristã presente.</span></div></div>
+<div class="bloco-dica"><div class="bk">Encerramento sugerido</div><p>Finalize a aula convidando a turma a ler Apocalipse 22:20 em conjunto e a responder em oração: “Amém. Vem, Senhor Jesus”.</p></div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div></div>
 
 </div><!-- /area -->
-
 <script>
 /* ===== AUTENTICAÇÃO ===== */
 const SENHA_CORRETA = 'eschaton2025';
