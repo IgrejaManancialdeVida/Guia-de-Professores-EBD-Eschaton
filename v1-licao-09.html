@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0d1020">
-<link rel="manifest" href="manifest-professor.json">
-<link rel="apple-touch-icon" href="icon-professor-192.png">
-<link rel="icon" type="image/png" href="icon-professor-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Eschaton I · Prof.">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#0d1020" name="theme-color"/>
+<link href="manifest-professor.json" rel="manifest"/>
+<link href="icon-professor-192.png" rel="apple-touch-icon"/>
+<link href="icon-professor-192.png" rel="icon" type="image/png"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Eschaton I · Prof." name="apple-mobile-web-app-title"/>
 <title>Eschaton · Lição 09 — EDIÇÃO DO PROFESSOR</title>
-
-    
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <style>
 
 :root{--cor:#2090b0;--grad1:#0a2028;--grad2:#082030;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--creme:#f5f0e8;--cc:#e0ddd8;}
@@ -723,553 +721,532 @@ h2.prof{
 </style>
 </head>
 <body>
-
 <!-- TELA DE SENHA -->
 <div id="tela-senha">
-    <div class="senha-caixa">
-        <div class="senha-icone"></div>
-        <div class="senha-titulo">Eschaton</div>
-        <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
-        <div class="senha-desc">Este material é exclusivo para docentes.<br>Insira a senha fornecida pela coordenação.</div>
-        <input class="senha-campo" id="senha-input" type="password" placeholder="••••••••"
-               maxlength="20" autocomplete="off"
-               onkeydown="if(event.key==='Enter') verificarSenha()">
-        <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
-        <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
-        <div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
-    </div>
+<div class="senha-caixa">
+<div class="senha-icone"></div>
+<div class="senha-titulo">Eschaton</div>
+<div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+<div class="senha-desc">Este material é exclusivo para docentes.<br/>Insira a senha fornecida pela coordenação.</div>
+<input autocomplete="off" class="senha-campo" id="senha-input" maxlength="20" onkeydown="if(event.key==='Enter') verificarSenha()" placeholder="••••••••" type="password"/>
+<button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+<div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+<div class="senha-rodape">Igreja Manancial de Vida · EBD Jovens Adultos</div>
 </div>
-
+</div>
 <!-- CONTEÚDO PRINCIPAL -->
 <div id="conteudo-principal">
-
 <div class="painel">
-    <div class="marca">
+<div class="marca">
         ESCHATON
         <span>Edição do Professor · Lição 09</span>
-        <em>A Ressurreição dos Mortos</em>
-    </div>
-    <span class="badge-prof">📘 Edição do Professor</span>
-    <button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
-    <button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
-    <a href="index.html"><button class="btn bv" style="border:1px solid #333">← Hub</button></a>
+<em>A Ressurreição dos Mortos</em>
 </div>
-
+<span class="badge-prof">📘 Edição do Professor</span>
+<button class="btn be" onclick="toggleEdit()">✏️ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖨️ Imprimir</button>
+<a href="index.html"><button class="btn bv" style="border:1px solid #333">← Hub</button></a>
+</div>
 <div class="area">
-<div class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()" aria-label="Abrir lição 09">
-    <img src="capa-revista.png" alt="Capa da revista Eschaton">
-    <div class="entrada-cta">Toque para entrar na lição</div>
+<div aria-label="Abrir lição 09" class="pag capa-entrada" id="capaEntradaRevista" onclick="entrarLicao()">
+<img alt="Capa da revista Eschaton" src="capa-revista.png"/>
+<div class="entrada-cta">Toque para entrar na lição</div>
 </div>
-    
 <!-- ══════════════════════════
      PARTE I — PÁGINAS DO ALUNO (com subsídios incorporados)
      ══════════════════════════ -->
-
 <!-- PG 1 — CAPA -->
 <div class="lbl">Página 1 · Capa</div>
 <div class="pag capa">
-    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
-    <div class="cimg"></div><div class="clh"></div>
-    <div class="cnbg">09</div><div class="cnd">09</div>
-    <div class="capa-prof-faixa">Edição do Professor</div>
-    <div class="ccon">
-        <div class="cser">Série · Eschaton · Estudos Escatológicos</div>
-        <div class="ctit">A Ressurreição dos Mortos</div>
-        <div class="cver">
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">09</div><div class="cnd">09</div>
+<div class="capa-prof-faixa">Edição do Professor</div>
+<div class="ccon">
+<div class="cser">Série · Eschaton · Estudos Escatológicos</div>
+<div class="ctit">A Ressurreição dos Mortos</div>
+<div class="cver">
             "Mas agora Cristo ressuscitou dentre os mortos e se tornou as primícias dos que dormem... Porque assim como todos morrem em Adão, assim também todos serão vivificados em Cristo."
             <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">1 Coríntios 15:20,22</span>
-        </div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
 </div>
-
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos · Edição do Professor</span><span class="rn">1</span></div>
+</div>
 <!-- PG 2 — INTRODUÇÃO -->
 <div class="lbl">Página 2 · Introdução</div>
 <div class="pag int">
-    <div class="wm">2</div>
-    <div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
-    <h2>Introdução</h2>
-    <p class="cap">Em uma cultura que oscila entre o medo da morte e a negação dela, a doutrina da ressurreição dos mortos é o testemunho mais radical e contracultural do cristianismo. Não é imortalidade da alma — ideia grega que desconfia do corpo. Não é reencarnação — ideia oriental que descarta o indivíduo. É ressurreição: o mesmo corpo, transformado e glorificado, reunido com o espírito para uma vida plena e eterna na nova criação de Deus.</p>
-    <div class="bver">"Porque sei que o meu Redentor vive, e que por último se levantará sobre o pó; e depois de consumida a minha pele, ainda verei a Deus na minha carne." <cite>Jó 19:25-26</cite></div>
-    <div class="obj">
-        <div class="ot">Objetivos desta lição</div>
-        <ul>
-            <li>Distinguir a ressurreição bíblica da imortalidade da alma grega e da reencarnação</li>
-            <li>Compreender Cristo como "primícia" — garantia e modelo da ressurreição dos crentes</li>
-            <li>Examinar 1 Coríntios 15 como o texto mais completo sobre a ressurreição no NT</li>
-            <li>Avaliar as perspectivas pentecostal e reformada sobre a sequência das ressurreições</li>
-        </ul>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <p>Jó 19:25-26 é um dos versículos mais antigos da Bíblia — e já confessa a ressurreição corporal com clareza surpreendente. Jó, em seu sofrimento extremo, afirma que verá Deus "na minha carne". O corpo não é obstáculo para a eternidade — é o palco dela.</p>
-    <p>A ressurreição bíblica, portanto, não é fuga do mundo material, mas sua redenção final. Deus não abandona a obra de suas mãos; antes, leva à consumação aquilo que criou e declarou bom desde o princípio. Por isso, a esperança cristã não se limita ao consolo para a alma, mas alcança a pessoa inteira.</p>
-    <p>Essa doutrina também corrige dois extremos frequentes: o materialismo, que reduz o homem ao corpo presente, e o espiritualismo, que trata o corpo como algo descartável. Nas Escrituras, o ser humano é uma unidade criada por Deus, e a salvação plena inclui a restauração dessa unidade na presença do Senhor.</p>
-    <div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Abra perguntando: "Quando vocês imaginam a vida eterna, o que enxergam — uma existência espiritual e etérea, ou um mundo físico glorificado?" As respostas revelarão o quanto a visão grega de alma imortal penetrou o imaginário cristão da turma. Use isso para introduzir a distinção bíblica desde o início.</p></div>
-    <div class="baluno ba-refletir">
-        <div class="baluno-tag"><span class="baluno-ico">&#9670;</span> Para você refletir</div>
-        <div class="baluno-corpo">A ressurreição corporal é a esperança mais radical do cristianismo. Como essa doutrina diferencia a fé cristã das demais visões sobre a morte — especialmente das ideias de imortalidade da alma e reencarnação? O que muda para você saber que Deus redimirá o seu próprio corpo?</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-    <div class="nota-prof">
-        <div class="nota-prof-tag">Nota do Professor</div>
-        <p>Este bloco funciona como diagnóstico inicial da turma. Peça que respondam individualmente antes de qualquer debate. Observe se os alunos ainda confundem ressurreição com "ir para o céu como espírito" — isso indica a presença da visão grega. Use as respostas para calibrar o nível de aprofundamento necessário na distinção do Quadro das Três Concepções (ver P3).</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+<div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
+<h2>Introdução</h2>
+<p class="cap">Em uma cultura que oscila entre o medo da morte e a negação dela, a doutrina da ressurreição dos mortos é o testemunho mais radical e contracultural do cristianismo. Não é imortalidade da alma — ideia grega que desconfia do corpo. Não é reencarnação — ideia oriental que descarta o indivíduo. É ressurreição: o mesmo corpo, transformado e glorificado, reunido com o espírito para uma vida plena e eterna na nova criação de Deus.</p>
+<div class="bver">"Porque sei que o meu Redentor vive, e que por último se levantará sobre o pó; e depois de consumida a minha pele, ainda verei a Deus na minha carne." <cite>Jó 19:25-26</cite></div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Distinguir a ressurreição bíblica da imortalidade da alma grega e da reencarnação</li>
+<li>Compreender Cristo como "primícia" — garantia e modelo da ressurreição dos crentes</li>
+<li>Examinar 1 Coríntios 15 como o texto mais completo sobre a ressurreição no NT</li>
+<li>Avaliar as perspectivas pentecostal e reformada sobre a sequência das ressurreições</li>
+</ul>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<p>Jó 19:25-26 é um dos versículos mais antigos da Bíblia — e já confessa a ressurreição corporal com clareza surpreendente. Jó, em seu sofrimento extremo, afirma que verá Deus "na minha carne". O corpo não é obstáculo para a eternidade — é o palco dela.</p>
+<p>A ressurreição bíblica, portanto, não é fuga do mundo material, mas sua redenção final. Deus não abandona a obra de suas mãos; antes, leva à consumação aquilo que criou e declarou bom desde o princípio. Por isso, a esperança cristã não se limita ao consolo para a alma, mas alcança a pessoa inteira.</p>
+<p>Essa doutrina também corrige dois extremos frequentes: o materialismo, que reduz o homem ao corpo presente, e o espiritualismo, que trata o corpo como algo descartável. Nas Escrituras, o ser humano é uma unidade criada por Deus, e a salvação plena inclui a restauração dessa unidade na presença do Senhor.</p>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Abra perguntando: "Quando vocês imaginam a vida eterna, o que enxergam — uma existência espiritual e etérea, ou um mundo físico glorificado?" As respostas revelarão o quanto a visão grega de alma imortal penetrou o imaginário cristão da turma. Use isso para introduzir a distinção bíblica desde o início.</p></div>
+<div class="baluno ba-refletir">
+<div class="baluno-tag"><span class="baluno-ico">◆</span> Para você refletir</div>
+<div class="baluno-corpo">A ressurreição corporal é a esperança mais radical do cristianismo. Como essa doutrina diferencia a fé cristã das demais visões sobre a morte — especialmente das ideias de imortalidade da alma e reencarnação? O que muda para você saber que Deus redimirá o seu próprio corpo?</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
+</div>
+<div class="nota-prof">
+<div class="nota-prof-tag">Nota do Professor</div>
+<p>Este bloco funciona como diagnóstico inicial da turma. Peça que respondam individualmente antes de qualquer debate. Observe se os alunos ainda confundem ressurreição com "ir para o céu como espírito" — isso indica a presença da visão grega. Use as respostas para calibrar o nível de aprofundamento necessário na distinção do Quadro das Três Concepções (ver P3).</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
 <!-- PG 3 — DESENVOLVIMENTO I -->
 <div class="lbl">Página 3 · Desenvolvimento I</div>
 <div class="pag int">
-    <div class="wm">3</div>
-    <div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
-    <h2>I — O Fundamento: Cristo Ressuscitado</h2>
-    <p>A doutrina da ressurreição dos mortos não é uma esperança autônoma — ela depende inteiramente da ressurreição de Cristo como seu fundamento e garantia. Paulo é categórico em 1 Coríntios 15:17-18: "se Cristo não ressuscitou, a vossa fé é vã... e também os que dormiram em Cristo estão perdidos." A ressurreição cristã não é um apêndice da fé — ela é a fé.</p>
-    <h3>Cristo: As Primícias da Ressurreição</h3>
-    <p>Paulo usa a imagem das "primícias" — a primeira porção da colheita oferecida a Deus como penhor e garantia do restante (1 Co 15:20,23). A ressurreição de Cristo não é um caso isolado, mas o início de uma colheita maior: todos os que são de Cristo ressuscitarão na sua vinda. Há uma solidariedade ontológica entre o Chefe e os membros do corpo — onde ele chegou, nós chegaremos.</p>
-    <div class="bver">"Mas agora Cristo ressuscitou dentre os mortos e se tornou as primícias dos que dormem." <cite>1 Coríntios 15:20</cite></div>
-    <h3>O Corpo Ressurreto: Continuidade e Transformação</h3>
-    <p>A analogia do grão em 1 Coríntios 15:35-44 é fundamental: o corpo ressurreto é o mesmo corpo semeado, mas gloriosamente transformado — assim como o trigo que brota não é idêntico ao grão plantado, mas é sua continuação orgânica. Há identidade pessoal real: o mesmo "eu" que viveu, sofreu e amou. E há transformação radical: de corruptível para incorruptível, de desonra para glória, de fraqueza para poder, de natural para espiritual.</p>
-    <p>A ressurreição de Cristo, portanto, não é apenas prova de seu poder, mas o padrão da esperança cristã. O túmulo vazio não anuncia apenas que Jesus venceu a morte; anuncia também que a morte perdeu seu domínio definitivo sobre todos os que lhe pertencem.</p>
-    <p>Isso significa que a esperança do crente não repousa em uma sobrevivência vaga após a morte, mas em uma promessa histórica e concreta. Assim como Cristo ressuscitou de fato, em continuidade com o corpo que foi crucificado, também os redimidos ressuscitarão em continuidade real com a sua identidade pessoal, embora plenamente transformados pela glória de Deus.</p>
-    <div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>A analogia do grão (1 Co 15:35-44) é pedagogicamente poderosa. Leve um grão e um punhado de trigo para a aula, se possível, ou esboce no quadro. A diferença visual entre o que é plantado e o que brota ajuda o aluno a entender "mesmo, mas transformado" — identidade com glorificação, sem confundir corpo glorificado com fantasma nem com simples revivificação do corpo atual.</p></div>
-    <div class="baluno ba-biblica">
-        <div class="baluno-tag"><span class="baluno-ico">&#9998;</span> Conexão Bíblica</div>
-        <div class="baluno-corpo">Leia 1 Coríntios 15:35-44. Paulo usa a imagem do grão para explicar continuidade e transformação. Quais pares de contraste ele apresenta (v. 42-44)? O que cada par revela sobre a diferença entre o corpo atual e o corpo ressurreto?</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-    <div class="nota-prof">
-        <div class="nota-prof-tag">Nota do Professor</div>
-        <p>Os quatro pares paulinos são: corruptível/incorruptível · desonra/glória · fraqueza/poder · natural/espiritual. Peça que os alunos listem os pares antes de discuti-los. Depois, conecte cada par à realidade cotidiana do corpo: doenças e envelhecimento (corruptível), limitações físicas (fraqueza), necessidades biológicas (natural). Isso ancora o contraste no concreto e evita que a discussão se torne abstrata.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+<div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
+<h2>I — O Fundamento: Cristo Ressuscitado</h2>
+<p>A doutrina da ressurreição dos mortos não é uma esperança autônoma — ela depende inteiramente da ressurreição de Cristo como seu fundamento e garantia. Paulo é categórico em 1 Coríntios 15:17-18: "se Cristo não ressuscitou, a vossa fé é vã... e também os que dormiram em Cristo estão perdidos." A ressurreição cristã não é um apêndice da fé — ela é a fé.</p>
+<h3>Cristo: As Primícias da Ressurreição</h3>
+<p>Paulo usa a imagem das "primícias" — a primeira porção da colheita oferecida a Deus como penhor e garantia do restante (1 Co 15:20,23). A ressurreição de Cristo não é um caso isolado, mas o início de uma colheita maior: todos os que são de Cristo ressuscitarão na sua vinda. Há uma solidariedade ontológica entre o Chefe e os membros do corpo — onde ele chegou, nós chegaremos.</p>
+<div class="bver">"Mas agora Cristo ressuscitou dentre os mortos e se tornou as primícias dos que dormem." <cite>1 Coríntios 15:20</cite></div>
+<h3>O Corpo Ressurreto: Continuidade e Transformação</h3>
+<p>A analogia do grão em 1 Coríntios 15:35-44 é fundamental: o corpo ressurreto é o mesmo corpo semeado, mas gloriosamente transformado — assim como o trigo que brota não é idêntico ao grão plantado, mas é sua continuação orgânica. Há identidade pessoal real: o mesmo "eu" que viveu, sofreu e amou. E há transformação radical: de corruptível para incorruptível, de desonra para glória, de fraqueza para poder, de natural para espiritual.</p>
+<p>A ressurreição de Cristo, portanto, não é apenas prova de seu poder, mas o padrão da esperança cristã. O túmulo vazio não anuncia apenas que Jesus venceu a morte; anuncia também que a morte perdeu seu domínio definitivo sobre todos os que lhe pertencem.</p>
+<p>Isso significa que a esperança do crente não repousa em uma sobrevivência vaga após a morte, mas em uma promessa histórica e concreta. Assim como Cristo ressuscitou de fato, em continuidade com o corpo que foi crucificado, também os redimidos ressuscitarão em continuidade real com a sua identidade pessoal, embora plenamente transformados pela glória de Deus.</p>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>A analogia do grão (1 Co 15:35-44) é pedagogicamente poderosa. Leve um grão e um punhado de trigo para a aula, se possível, ou esboce no quadro. A diferença visual entre o que é plantado e o que brota ajuda o aluno a entender "mesmo, mas transformado" — identidade com glorificação, sem confundir corpo glorificado com fantasma nem com simples revivificação do corpo atual.</p></div>
+<div class="baluno ba-biblica">
+<div class="baluno-tag"><span class="baluno-ico">✎</span> Conexão Bíblica</div>
+<div class="baluno-corpo">Leia 1 Coríntios 15:35-44. Paulo usa a imagem do grão para explicar continuidade e transformação. Quais pares de contraste ele apresenta (v. 42-44)? O que cada par revela sobre a diferença entre o corpo atual e o corpo ressurreto?</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
 </div>
-
+<div class="nota-prof">
+<div class="nota-prof-tag">Nota do Professor</div>
+<p>Os quatro pares paulinos são: corruptível/incorruptível · desonra/glória · fraqueza/poder · natural/espiritual. Peça que os alunos listem os pares antes de discuti-los. Depois, conecte cada par à realidade cotidiana do corpo: doenças e envelhecimento (corruptível), limitações físicas (fraqueza), necessidades biológicas (natural). Isso ancora o contraste no concreto e evita que a discussão se torne abstrata.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
 <!-- PG 4 — DESENVOLVIMENTO II -->
 <div class="lbl">Página 4 · Desenvolvimento II</div>
 <div class="pag int">
-    <div class="wm">4</div>
-    <div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
-    <h2>II — A Sequência das Ressurreições</h2>
-    <p>A Bíblia indica que a ressurreição ocorre em sequência — não como um evento único e simultâneo para todos. A questão é: qual é essa sequência, quantas ressurreições há e quando cada uma ocorre? Esse é um dos pontos de maior debate entre as tradições escatológicas.</p>
-    <h3>A Ordem Paulina: 1 Coríntios 15:23-24</h3>
-    <p>Paulo estabelece: primeiro Cristo (as primícias), depois os que são de Cristo na sua vinda, depois o fim — quando Cristo entregar o reino ao Pai. O premilenismo vê aqui duas ressurreições separadas por mil anos: a dos justos na Segunda Vinda e a dos ímpios após o milênio (cf. Ap 20:4-6). O amilenismo vê uma única ressurreição geral de todos — justos e ímpios — na vinda de Cristo.</p>
-    <div class="bver">"Porque assim como todos morrem em Adão, assim também todos serão vivificados em Cristo. Mas cada um na sua própria ordem." <cite>1 Coríntios 15:22-23</cite></div>
-    <div class="sep"><span>✦</span></div>
-    <h3>O Estado Intermediário</h3>
-    <p>O que acontece entre a morte e a ressurreição? A Bíblia afirma que os crentes que morrem estão "com Cristo" (Fp 1:23) — em estado consciente de comunhão com o Senhor, aguardando a ressurreição corporal. Esse "estado intermediário" é bom e desejável (2 Co 5:8), mas incompleto — pois o destino final do crente é a ressurreição do corpo, não apenas a sobrevivência da alma. A alma sem corpo não é o ideal bíblico — é um estado temporário de espera.</p>
-    <h3>A Ressurreição dos Ímpios</h3>
-    <p>João 5:28-29 e Daniel 12:2 afirmam claramente a ressurreição de todos — justos e ímpios. Os ímpios ressuscitarão para o julgamento e a condenação eterna. A ressurreição não é privilégio dos salvos apenas — é o destino universal da humanidade, com destinos radicalmente distintos.</p>
-    <p>Seja qual for a cronologia adotada, o ponto central permanece: a morte não terá a palavra final sobre nenhum ser humano. Todos comparecerão diante de Deus como pessoas integrais, e não como consciências desencarnadas. A ressurreição estabelece a seriedade moral da existência humana e a dignidade do corpo diante do Criador.</p>
-    <p>O estado intermediário, por sua vez, embora seja de consolo para os que morrem no Senhor, não deve ser confundido com o destino final. A esperança cristã mira além do descanso da alma na presença de Cristo; ela aguarda o dia em que o corpo também será redimido, e a comunhão com Deus será experimentada em plenitude na nova criação.</p>
-    <div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>O estado intermediário é frequentemente fonte de confusão pastoral — especialmente em contexto de luto. Clarificar que "estar com Cristo" após a morte é real e bom, mas é ainda um estado de espera, ajuda o enlutado a entender que seu ente querido está em paz e comunhão, mas que a ressurreição final ainda está por vir. Isso integra consolo e esperança futura sem separar o que Deus uniu.</p></div>
-    <div class="baluno ba-sabia">
-        <div class="baluno-tag"><span class="baluno-ico">&#9654;</span> Sabia que?</div>
-        <div class="baluno-corpo">A palavra grega <em>anastasis</em> ("ressurreição") significa literalmente "levantar-se" ou "ficar de pé novamente". No mundo antigo, quando Paulo pregou sobre a <em>anastasis</em> em Atenas (At 17:32), os filósofos gregos riram — pois a ressurreição do corpo era considerada indesejável. Para os gregos, o corpo era uma prisão da alma. O evangelho inverteu radicalmente essa visão.</div>
-    </div>
-    <div class="nota-prof">
-        <div class="nota-prof-tag">Nota do Professor</div>
-        <p>Use esta informação para ilustrar o choque cultural do evangelho com o mundo helênico — e a semelhança com o ceticismo contemporâneo. A reação de "riso" dos atenienses (At 17:32) é espelho do que muitos modernos pensam sobre o corpo ressurreto. O ponto de virada é perguntar: "Por que Deus se daria ao trabalho de ressuscitar um corpo que considera bom o suficiente para salvar?" A resposta ancora o valor da corporalidade na teologia da criação.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+<div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
+<h2>II — A Sequência das Ressurreições</h2>
+<p>A Bíblia indica que a ressurreição ocorre em sequência — não como um evento único e simultâneo para todos. A questão é: qual é essa sequência, quantas ressurreições há e quando cada uma ocorre? Esse é um dos pontos de maior debate entre as tradições escatológicas.</p>
+<h3>A Ordem Paulina: 1 Coríntios 15:23-24</h3>
+<p>Paulo estabelece: primeiro Cristo (as primícias), depois os que são de Cristo na sua vinda, depois o fim — quando Cristo entregar o reino ao Pai. O premilenismo vê aqui duas ressurreições separadas por mil anos: a dos justos na Segunda Vinda e a dos ímpios após o milênio (cf. Ap 20:4-6). O amilenismo vê uma única ressurreição geral de todos — justos e ímpios — na vinda de Cristo.</p>
+<div class="bver">"Porque assim como todos morrem em Adão, assim também todos serão vivificados em Cristo. Mas cada um na sua própria ordem." <cite>1 Coríntios 15:22-23</cite></div>
+<div class="sep"><span>✦</span></div>
+<h3>O Estado Intermediário</h3>
+<p>O que acontece entre a morte e a ressurreição? A Bíblia afirma que os crentes que morrem estão "com Cristo" (Fp 1:23) — em estado consciente de comunhão com o Senhor, aguardando a ressurreição corporal. Esse "estado intermediário" é bom e desejável (2 Co 5:8), mas incompleto — pois o destino final do crente é a ressurreição do corpo, não apenas a sobrevivência da alma. A alma sem corpo não é o ideal bíblico — é um estado temporário de espera.</p>
+<h3>A Ressurreição dos Ímpios</h3>
+<p>João 5:28-29 e Daniel 12:2 afirmam claramente a ressurreição de todos — justos e ímpios. Os ímpios ressuscitarão para o julgamento e a condenação eterna. A ressurreição não é privilégio dos salvos apenas — é o destino universal da humanidade, com destinos radicalmente distintos.</p>
+<p>Seja qual for a cronologia adotada, o ponto central permanece: a morte não terá a palavra final sobre nenhum ser humano. Todos comparecerão diante de Deus como pessoas integrais, e não como consciências desencarnadas. A ressurreição estabelece a seriedade moral da existência humana e a dignidade do corpo diante do Criador.</p>
+<p>O estado intermediário, por sua vez, embora seja de consolo para os que morrem no Senhor, não deve ser confundido com o destino final. A esperança cristã mira além do descanso da alma na presença de Cristo; ela aguarda o dia em que o corpo também será redimido, e a comunhão com Deus será experimentada em plenitude na nova criação.</p>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>O estado intermediário é frequentemente fonte de confusão pastoral — especialmente em contexto de luto. Clarificar que "estar com Cristo" após a morte é real e bom, mas é ainda um estado de espera, ajuda o enlutado a entender que seu ente querido está em paz e comunhão, mas que a ressurreição final ainda está por vir. Isso integra consolo e esperança futura sem separar o que Deus uniu.</p></div>
+<div class="baluno ba-sabia">
+<div class="baluno-tag"><span class="baluno-ico">▶</span> Sabia que?</div>
+<div class="baluno-corpo">A palavra grega <em>anastasis</em> ("ressurreição") significa literalmente "levantar-se" ou "ficar de pé novamente". No mundo antigo, quando Paulo pregou sobre a <em>anastasis</em> em Atenas (At 17:32), os filósofos gregos riram — pois a ressurreição do corpo era considerada indesejável. Para os gregos, o corpo era uma prisão da alma. O evangelho inverteu radicalmente essa visão.</div>
 </div>
-
+<div class="nota-prof">
+<div class="nota-prof-tag">Nota do Professor</div>
+<p>Use esta informação para ilustrar o choque cultural do evangelho com o mundo helênico — e a semelhança com o ceticismo contemporâneo. A reação de "riso" dos atenienses (At 17:32) é espelho do que muitos modernos pensam sobre o corpo ressurreto. O ponto de virada é perguntar: "Por que Deus se daria ao trabalho de ressuscitar um corpo que considera bom o suficiente para salvar?" A resposta ancora o valor da corporalidade na teologia da criação.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
 <!-- PG 5 — VISÕES EM DIÁLOGO -->
 <div class="lbl">Página 5 · Visões em Diálogo</div>
 <div class="pag int">
-    <div class="wm">5</div>
-    <div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
-    <h2>III — Visões em Diálogo</h2>
-    <p>Sobre a realidade da ressurreição corporal, há consenso pleno entre pentecostais e reformados. A divergência se concentra na sequência, no número e no momento das ressurreições em relação ao milênio e ao julgamento.</p>
-    <div class="bvp">
-        <div class="vl">✦ Perspectiva Pentecostal</div>
-        <div class="vt">Para o dispensacionalismo pentecostal, há múltiplas ressurreições em sequência: (1) a ressurreição de Cristo como primícias; (2) a ressurreição dos crentes no arrebatamento pré-tribulacional; (3) a ressurreição dos mártires da Tribulação ao início do milênio; (4) a ressurreição dos ímpios após o milênio para o Grande Trono Branco. A "primeira ressurreição" de Apocalipse 20:5-6 é literal e corporal — especificamente a dos mártires da Tribulação que reinarão com Cristo por mil anos. O corpo ressurreto é idêntico ao atual, mas glorificado como o de Cristo após a ressurreição.</div>
-    </div>
-    <div class="bvr">
-        <div class="vl">✦ Perspectiva Reformada</div>
-        <div class="vt">Para o amilenismo reformado, há uma única ressurreição geral de todos os mortos — justos e ímpios — na vinda de Cristo ao final da história. A "primeira ressurreição" de Apocalipse 20:5-6 é interpretada como regeneração espiritual ou como a entrada dos crentes na glória após a morte. João 5:28-29 — "todos os que estão nos sepulcros ouvirão a sua voz e sairão" — aponta para um único evento simultâneo. Hoekema, Berkhof e Murray defendem essa leitura unitária. O corpo ressurreto é o mesmo corpo de carne transformado, como o de Cristo que comeu peixe (Lc 24:42) e ainda tinha as marcas dos pregos (Jo 20:27).</div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <p>A divergência entre essas leituras não elimina o núcleo comum da fé cristã. Ambas afirmam que a ressurreição será corporal, histórica, universal e inseparável do senhorio de Cristo. A diferença está na ordem dos acontecimentos, não na realidade gloriosa prometida por Deus ao seu povo.</p>
-    <p>Por isso, o estudo desse tema deve produzir reverência e esperança, e não mera curiosidade cronológica. A finalidade pastoral da doutrina é fortalecer a perseverança dos santos, consolar os enlutados e orientar a Igreja a viver no presente à luz do futuro prometido.</p>
-    <p>Ambas as tradições afirmam com igual convicção: o corpo importa para Deus, a identidade pessoal é preservada na ressurreição, e a vida eterna não é uma existência etérea e desencarnada, mas uma vida plena, encarnada, na nova criação que Deus está preparando.</p>
-    <div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Ao encerrar o diálogo entre as tradições, ressalte o consenso teológico: independente da sequência, há identidade pessoal real, corpo glorificado, e encontro definitivo com Cristo. Isso evita que o debate cronológico eclipse a esperança que une a Igreja. Uma boa pergunta de encerramento: "O que muda na sua vida prática dependendo de qual posição você adota sobre a sequência das ressurreições?"</p></div>
-    <div class="baluno ba-pense">
-        <div class="baluno-tag"><span class="baluno-ico">&#8857;</span> Pense nisso</div>
-        <div class="baluno-corpo">Pentecostais e reformados divergem sobre o número e a ordem das ressurreições — mas afirmam com igual convicção que a ressurreição será corporal e inseparável do senhorio de Cristo. Essa convergência é suficiente para a comunhão cristã? Onde está a linha entre debate teológico legítimo e divisão desnecessária?</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-    <div class="nota-prof">
-        <div class="nota-prof-tag">Nota do Professor</div>
-        <p>Este bloco é um convite à maturidade eclesial. Oriente o debate para distinguir: (1) núcleo inegociável — ressurreição corporal, identidade preservada, senhorio de Cristo; (2) questões abertas — sequência, número, cronologia. Uma turma saudável aprende a sustentar convicções pessoais sem transformar divergências secundárias em divisão. Se houver tensão entre alunos de tradições diferentes, use isso como oportunidade pedagógica — não como problema a suprimir.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+<div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
+<h2>III — Visões em Diálogo</h2>
+<p>Sobre a realidade da ressurreição corporal, há consenso pleno entre pentecostais e reformados. A divergência se concentra na sequência, no número e no momento das ressurreições em relação ao milênio e ao julgamento.</p>
+<div class="bvp">
+<div class="vl">✦ Perspectiva Pentecostal</div>
+<div class="vt">Para o dispensacionalismo pentecostal, há múltiplas ressurreições em sequência: (1) a ressurreição de Cristo como primícias; (2) a ressurreição dos crentes no arrebatamento pré-tribulacional; (3) a ressurreição dos mártires da Tribulação ao início do milênio; (4) a ressurreição dos ímpios após o milênio para o Grande Trono Branco. A "primeira ressurreição" de Apocalipse 20:5-6 é literal e corporal — especificamente a dos mártires da Tribulação que reinarão com Cristo por mil anos. O corpo ressurreto é idêntico ao atual, mas glorificado como o de Cristo após a ressurreição.</div>
 </div>
-
+<div class="bvr">
+<div class="vl">✦ Perspectiva Reformada</div>
+<div class="vt">Para o amilenismo reformado, há uma única ressurreição geral de todos os mortos — justos e ímpios — na vinda de Cristo ao final da história. A "primeira ressurreição" de Apocalipse 20:5-6 é interpretada como regeneração espiritual ou como a entrada dos crentes na glória após a morte. João 5:28-29 — "todos os que estão nos sepulcros ouvirão a sua voz e sairão" — aponta para um único evento simultâneo. Hoekema, Berkhof e Murray defendem essa leitura unitária. O corpo ressurreto é o mesmo corpo de carne transformado, como o de Cristo que comeu peixe (Lc 24:42) e ainda tinha as marcas dos pregos (Jo 20:27).</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<p>A divergência entre essas leituras não elimina o núcleo comum da fé cristã. Ambas afirmam que a ressurreição será corporal, histórica, universal e inseparável do senhorio de Cristo. A diferença está na ordem dos acontecimentos, não na realidade gloriosa prometida por Deus ao seu povo.</p>
+<p>Por isso, o estudo desse tema deve produzir reverência e esperança, e não mera curiosidade cronológica. A finalidade pastoral da doutrina é fortalecer a perseverança dos santos, consolar os enlutados e orientar a Igreja a viver no presente à luz do futuro prometido.</p>
+<p>Ambas as tradições afirmam com igual convicção: o corpo importa para Deus, a identidade pessoal é preservada na ressurreição, e a vida eterna não é uma existência etérea e desencarnada, mas uma vida plena, encarnada, na nova criação que Deus está preparando.</p>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Ao encerrar o diálogo entre as tradições, ressalte o consenso teológico: independente da sequência, há identidade pessoal real, corpo glorificado, e encontro definitivo com Cristo. Isso evita que o debate cronológico eclipse a esperança que une a Igreja. Uma boa pergunta de encerramento: "O que muda na sua vida prática dependendo de qual posição você adota sobre a sequência das ressurreições?"</p></div>
+<div class="baluno ba-pense">
+<div class="baluno-tag"><span class="baluno-ico">⊙</span> Pense nisso</div>
+<div class="baluno-corpo">Pentecostais e reformados divergem sobre o número e a ordem das ressurreições — mas afirmam com igual convicção que a ressurreição será corporal e inseparável do senhorio de Cristo. Essa convergência é suficiente para a comunhão cristã? Onde está a linha entre debate teológico legítimo e divisão desnecessária?</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
+</div>
+<div class="nota-prof">
+<div class="nota-prof-tag">Nota do Professor</div>
+<p>Este bloco é um convite à maturidade eclesial. Oriente o debate para distinguir: (1) núcleo inegociável — ressurreição corporal, identidade preservada, senhorio de Cristo; (2) questões abertas — sequência, número, cronologia. Uma turma saudável aprende a sustentar convicções pessoais sem transformar divergências secundárias em divisão. Se houver tensão entre alunos de tradições diferentes, use isso como oportunidade pedagógica — não como problema a suprimir.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
 <!-- PG 6 — CONCLUSÃO -->
 <div class="lbl">Página 6 · Conclusão e Aplicação</div>
 <div class="pag int">
-    <div class="wm">6</div>
-    <div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
-    <h2>Conclusão</h2>
-    <p>A doutrina da ressurreição não é conforto abstrato — ela transforma concretamente o modo como o cristão lida com o corpo, com o luto, com o trabalho e com o sofrimento. Se este corpo ressuscitará, ele importa agora. Se a história tem destino, o trabalho presente tem sentido eterno. Se veremos nossos amados em Cristo novamente, o luto tem horizonte.</p>
-    <div class="apl">
-        <div class="at">Aplicação</div>
-        <p>Primeiro: reflita sobre como a cultura ao seu redor trata o corpo — como objeto de prazer descartável, como máquina de performance ou como templo do Espírito Santo que ressuscitará. Qual dessas visões molda sua relação com o próprio corpo? Segundo: visite ou escreva para alguém que está enlutado e compartilhe não apenas conforto emocional, mas a esperança concreta da ressurreição — "voltareis a ver" (Jo 16:22). Terceiro: medite em 1 Coríntios 15:58 — "sede firmes e constantes, sempre abundando na obra do Senhor, sabendo que o vosso trabalho não é em vão no Senhor."</p>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h3>Para Refletir</h3>
-    <p>N.T. Wright observa que a ressurreição de Cristo é a base para o engajamento com o mundo presente — não para o escapismo. Se o corpo ressurreto de Cristo ainda tinha as marcas dos pregos (Jo 20:27), isso sugere que a história não é descartada na eternidade, mas redimida e transformada. Como isso muda sua postura diante do sofrimento, da injustiça e do trabalho cotidiano?</p>
-    <div class="bver">"Portanto, meus amados irmãos, sede firmes e constantes, sempre abundando na obra do Senhor, sabendo que o vosso trabalho não é em vão no Senhor." <cite>1 Coríntios 15:58</cite></div>
-    <p>Na próxima lição enfrentaremos a realidade mais solene da escatologia bíblica: <strong>O Juízo Final</strong> — o Grande Trono Branco e a sentença eterna.</p>
-    <p>Concluir essa doutrina corretamente é reconhecer que a ressurreição confere densidade eterna à vida presente. O que fazemos com o corpo, com o tempo, com o sofrimento e com o serviço cristão não é irrelevante. Tudo é vivido à sombra da promessa de que Deus redimirá plenamente aquilo que hoje ainda geme.</p>
-    <p>Assim, a esperança da ressurreição não produz alienação, mas fidelidade. O cristão pode enfrentar perdas, limitações e a própria morte sem desespero, porque sabe que em Cristo sua história não termina no túmulo. O último capítulo da existência humana pertence ao Deus que ressuscita os mortos.</p>
-    <div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Na conclusão, use 1 Co 15:58 como chave de fechamento: a doutrina mais elevada da esperança cristã converge para uma exortação concretamente ética — "sede firmes e constantes". Isso demonstra que a escatologia não é fuga, mas fundamento. Se possível, peça que cada aluno formule em uma frase como a ressurreição muda algo concreto em sua semana.</p></div>
-    <div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>A citação de N.T. Wright sobre as marcas dos pregos no corpo ressurreto de Cristo é teologicamente densa e pode abrir uma conversa rica sobre redenção versus apagamento do passado. Explore: "Seus sofrimentos e cicatrizes importam a Deus — eles não serão eliminados, mas redimidos."</p></div>
-    <div class="baluno ba-vida">
-        <div class="baluno-tag"><span class="baluno-ico">&#10022;</span> Leve para a vida</div>
-        <div class="baluno-corpo">Esta semana, escolha uma atitude concreta motivada pela esperança da ressurreição: trate seu corpo com dignidade como templo que ressuscitará; consolide alguém enlutado com a esperança concreta da ressurreição; ou realize um serviço presente sabendo que ele não é vão no Senhor (1 Co 15:58). Anote aqui o que você vai fazer:</div>
-        <div class="baluno-linha"></div>
-        <div class="baluno-linha"></div>
-    </div>
-    <div class="nota-prof">
-        <div class="nota-prof-tag">Nota do Professor</div>
-        <p>Encerre a lição pedindo que cada aluno verbalize ou escreva sua escolha antes de sair. A verbalização pública aumenta significativamente o comprometimento com a ação. Nas três opções oferecidas (corpo · consolo ao enlutado · serviço), cubra as três dimensões da doutrina: antropologia, pastoral e ética. Se houver aluno em luto presente, dê atenção especial à opção do consolo — sem expô-lo sem permissão.</p>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+<div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
+<h2>Conclusão</h2>
+<p>A doutrina da ressurreição não é conforto abstrato — ela transforma concretamente o modo como o cristão lida com o corpo, com o luto, com o trabalho e com o sofrimento. Se este corpo ressuscitará, ele importa agora. Se a história tem destino, o trabalho presente tem sentido eterno. Se veremos nossos amados em Cristo novamente, o luto tem horizonte.</p>
+<div class="apl">
+<div class="at">Aplicação</div>
+<p>Primeiro: reflita sobre como a cultura ao seu redor trata o corpo — como objeto de prazer descartável, como máquina de performance ou como templo do Espírito Santo que ressuscitará. Qual dessas visões molda sua relação com o próprio corpo? Segundo: visite ou escreva para alguém que está enlutado e compartilhe não apenas conforto emocional, mas também a esperança concreta da ressurreição — "voltareis a ver" (Jo 16:22). Terceiro: medite em 1 Coríntios 15:58 — "sede firmes e constantes, sempre abundando na obra do Senhor, sabendo que o vosso trabalho não é em vão no Senhor."</p>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<h3>Para Refletir</h3>
+<p>N.T. Wright observa que a ressurreição de Cristo é a base para o engajamento com o mundo presente — não para o escapismo. Se o corpo ressurreto de Cristo ainda tinha as marcas dos pregos (Jo 20:27), isso sugere que a história não é descartada na eternidade, mas redimida e transformada. Como isso muda sua postura diante do sofrimento, da injustiça e do trabalho cotidiano?</p>
+<div class="bver">"Portanto, meus amados irmãos, sede firmes e constantes, sempre abundando na obra do Senhor, sabendo que o vosso trabalho não é em vão no Senhor." <cite>1 Coríntios 15:58</cite></div>
+<p>Na próxima lição enfrentaremos a realidade mais solene da escatologia bíblica: <strong>O Juízo Final</strong> — o Grande Trono Branco e a sentença eterna.</p>
+<p>Concluir essa doutrina corretamente é reconhecer que a ressurreição confere densidade eterna à vida presente. O que fazemos com o corpo, com o tempo, com o sofrimento e com o serviço cristão não é irrelevante. Tudo é vivido à sombra da promessa de que Deus redimirá plenamente aquilo que hoje ainda geme.</p>
+<p>Assim, a esperança da ressurreição não produz alienação, mas fidelidade. O cristão pode enfrentar perdas, limitações e a própria morte sem desespero, porque sabe que em Cristo sua história não termina no túmulo. O último capítulo da existência humana pertence ao Deus que ressuscita os mortos.</p>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>Na conclusão, use 1 Co 15:58 como chave de fechamento: a doutrina mais elevada da esperança cristã converge para uma exortação concretamente ética — "sede firmes e constantes". Isso demonstra que a escatologia não é fuga, mas fundamento. Se possível, peça que cada aluno formule em uma frase como a ressurreição muda algo concreto em sua semana.</p></div>
+<div class="bloco-dica"><div class="bk">Subsídio ao Professor</div><p>A citação de N.T. Wright sobre as marcas dos pregos no corpo ressurreto de Cristo é teologicamente densa e pode abrir uma conversa rica sobre redenção versus apagamento do passado. Explore: "Seus sofrimentos e cicatrizes importam a Deus — eles não serão eliminados, mas redimidos."</p></div>
+<div class="baluno ba-vida">
+<div class="baluno-tag"><span class="baluno-ico">✦</span> Leve para a vida</div>
+<div class="baluno-corpo">Esta semana, escolha uma atitude concreta motivada pela esperança da ressurreição: trate seu corpo com dignidade como templo que ressuscitará; consolide alguém enlutado com a esperança concreta da ressurreição; ou realize um serviço presente sabendo que ele não é vão no Senhor (1 Co 15:58). Anote aqui o que você vai fazer:</div>
+<div class="baluno-linha"></div>
+<div class="baluno-linha"></div>
+</div>
+<div class="nota-prof">
+<div class="nota-prof-tag">Nota do Professor</div>
+<p>Encerre a lição pedindo que cada aluno verbalize ou escreva sua escolha antes de sair. A verbalização pública aumenta significativamente o comprometimento com a ação. Nas três opções oferecidas (corpo · consolo ao enlutado · serviço), cubra as três dimensões da doutrina: antropologia, pastoral e ética. Se houver aluno em luto presente, dê atenção especial à opção do consolo — sem expô-lo sem permissão.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
 <!-- PG 7 — QUESTÕES -->
 <div class="lbl">Página 7 · Questões &amp; Anotações</div>
 <div class="pag int">
-    <div class="wm">7</div>
-    <div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
-    <h2>Questões para Reflexão</h2>
-    <div class="q">
-        <div class="qn">Questão 01</div>
-        <div class="qt">Qual é a diferença fundamental entre a ressurreição bíblica, a imortalidade da alma grega e a reencarnação oriental? Por que essas distinções importam para a fé cristã prática — especialmente diante do luto e da morte?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 02</div>
-        <div class="qt">Paulo usa a imagem do grão em 1 Coríntios 15:35-44 para descrever o corpo ressurreto. O que essa analogia revela sobre a relação entre o corpo atual e o corpo glorificado — continuidade e transformação ao mesmo tempo?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 03</div>
-        <div class="qt">O dispensacionalismo vê múltiplas ressurreições sequenciais; o amilenismo vê uma ressurreição geral única. Quais textos bíblicos cada posição usa? Como João 5:28-29 e Apocalipse 20:4-6 se relacionam nesse debate?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="q">
-        <div class="qn">Questão 04</div>
-        <div class="qt">Se o trabalho presente "não é em vão no Senhor" (1 Co 15:58) por causa da ressurreição, o que isso diz sobre o valor eterno de suas ações cotidianas — seu trabalho, suas relações, sua criatividade e seu serviço?</div>
-        <div class="lr"></div><div class="lr"></div>
-    </div>
-    <div class="lit">
-        <div class="lt">Leituras Complementares</div>
-        <ul>
-            <li>N.T. Wright — <em>Surpreendido pela Esperança</em> (a ressurreição como fundamento do engajamento cristão)</li>
-            <li>Anthony Hoekema — <em>A Bíblia e o Futuro</em>, cap. 11-12 (ressurreição e estado intermediário)</li>
-            <li>Leitura devocional: Jó 19:23-27 + 1 Co 15 completo + Jo 11:17-27 + Fp 3:20-21</li>
-        </ul>
-    </div>
-    <h3 style="margin-top:12px;">Anotações</h3>
-    <div class="lins">
-        <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
-    </div>
-    <div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+<div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 09</span><span class="pht">A Ressurreição dos Mortos</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">Qual é a diferença fundamental entre a ressurreição bíblica, a imortalidade da alma grega e a reencarnação oriental? Por que essas distinções importam para a fé cristã prática — especialmente diante do luto e da morte?</div>
+<div class="lr"></div><div class="lr"></div>
 </div>
-
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">Paulo usa a imagem do grão em 1 Coríntios 15:35-44 para descrever o corpo ressurreto. O que essa analogia revela sobre a relação entre o corpo atual e o corpo glorificado — continuidade e transformação ao mesmo tempo?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">O dispensacionalismo vê múltiplas ressurreições sequenciais; o amilenismo vê uma ressurreição geral única. Quais textos bíblicos cada posição usa? Como João 5:28-29 e Apocalipse 20:4-6 se relacionam nesse debate?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">Se o trabalho presente "não é em vão no Senhor" (1 Co 15:58) por causa da ressurreição, o que isso diz sobre o valor eterno de suas ações cotidianas — seu trabalho, suas relações, sua criatividade e seu serviço?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="lit">
+<div class="lt">Leituras Complementares</div>
+<ul>
+<li>N.T. Wright — <em>Surpreendido pela Esperança</em> (a ressurreição como fundamento do engajamento cristão)</li>
+<li>Anthony Hoekema — <em>A Bíblia e o Futuro</em>, cap. 11-12 (ressurreição e estado intermediário)</li>
+<li>Leitura devocional: Jó 19:23-27 + 1 Co 15 completo + Jo 11:17-27 + Fp 3:20-21</li>
+</ul>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
 <!-- ══════════════════════════════════════
      PARTE II — PÁGINAS EXCLUSIVAS DO PROFESSOR
      ══════════════════════════════════════ -->
-
 <!-- PG P1 — GUIA DO PROFESSOR -->
 <div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral da Lição</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 09 · Guia do Professor</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Visão Geral para o Professor</h2>
-    <p>Esta é uma das lições de maior impacto pastoral de toda a série. A ressurreição dos mortos não é um tema abstrato — ela é a resposta cristã direta ao luto, à fragilidade do corpo e ao medo da morte. Muitos alunos chegam com concepções sincréticas: a imortalidade da alma grega disfarçada de teologia cristã, ou uma esperança vaga de "ir para o céu" sem corpo. O professor tem a oportunidade de reconduzir a esperança ao seu eixo bíblico — concreto, histórico e encarnado.</p>
-    <div class="bloco-tempo">
-        <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
-        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: pergunta sobre a imagem da vida eterna (ver P2)</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: distinção entre ressurreição, imortalidade da alma e reencarnação</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Tópico I: Cristo como primícias + analogia do grão (use objeto visual se possível)</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — Tópico II: sequência das ressurreições + estado intermediário + ressurreição dos ímpios</span></div>
-        <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Tópico III: Visões em Diálogo — debate mediado sobre a sequência</span></div>
-        <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Conclusão: feche com 1 Co 15:58 e a aplicação ética da ressurreição</span></div>
-    </div>
-    <div class="bloco-guia">
-        <div class="bk">Objetivos Pedagógicos do Professor</div>
-        <ul>
-            <li>Corrigir a confusão entre ressurreição bíblica e imortalidade da alma grega</li>
-            <li>Fixar Cristo ressuscitado como fundamento e modelo — não apenas prova de poder</li>
-            <li>Apresentar o estado intermediário como consolo real, mas incompleto</li>
-            <li>Mostrar que a doutrina tem consequências éticas imediatas: corpo, luto, trabalho</li>
-        </ul>
-    </div>
-    <div class="alerta">
-        <div class="bk">Atenção do Professor</div>
-        <p>É comum alunos enlutados estarem presentes nesta lição. Cuide do tom: a ressurreição é esperança concreta, não consolo superficial. Evite frases como "seu ente querido virou uma estrelinha" ou "está olhando por você de cima" — elas contradizem a doutrina bíblica do estado intermediário e da ressurreição futura. Em vez disso: "Está com Cristo, em estado consciente de paz, aguardando a ressurreição final."</p>
-    </div>
-    <div class="bloco-guia">
-        <div class="bk">Leitura da Turma</div>
-        <p>Turmas mais jovens tendem a nunca ter pensado profundamente sobre a morte — para elas, a lição pode ser desconfortável no início. Turmas com membros enlutados precisam de mais gentileza no ritmo e abertura para silêncios. Em ambos os casos, o versículo âncora é 1 Co 15:58: a esperança da ressurreição não nos afasta da vida — nos torna mais firmes nela.</p>
-    </div>
-    <div class="fio-condutor">
-        <div class="bk">Fio Condutor da Série</div>
-        <p>Esta lição é o coração antropológico da série. A Lição 08 estabeleceu que Cristo voltará — a Lição 09 revela o que acontece com os corpos quando ele vier. As Lições 10 e 11 (Juízo Final e Nova Criação) pressupõem o que é aprendido aqui. Sem a ressurreição corporal, o juízo perde seu objeto e a nova criação perde seus habitantes. Mantenha essa cadeia de conexões visível para os alunos ao longo da série.</p>
-    </div>
-    <h2 class="prof">Mapa de Competências</h2>
-    <div class="mapa-comp">
-        <div class="mapa-cell mc-conhec">
-            <div class="mapa-cell-lbl">Conhecimento</div>
-            <div class="mapa-cell-txt">Distinguir ressurreição bíblica de imortalidade da alma e reencarnação; conhecer a estrutura de 1 Co 15 e os pares paulinos de contraste</div>
-        </div>
-        <div class="mapa-cell mc-habil">
-            <div class="mapa-cell-lbl">Habilidade</div>
-            <div class="mapa-cell-txt">Articular a diferença entre as tradições com textos bíblicos; aplicar a analogia do grão para explicar continuidade e transformação do corpo</div>
-        </div>
-        <div class="mapa-cell mc-atit">
-            <div class="mapa-cell-lbl">Atitude</div>
-            <div class="mapa-cell-txt">Valorizar o corpo como criação boa de Deus; enfrentar a morte e o luto com esperança concreta e encarnada, não com escapismo espiritualista</div>
-        </div>
-        <div class="mapa-cell mc-aval">
-            <div class="mapa-cell-lbl">Avaliação</div>
-            <div class="mapa-cell-txt">O aluno consegue nomear a distinção entre as três visões e citar ao menos dois textos bíblicos que fundamentam a ressurreição corporal?</div>
-        </div>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 09 · Guia do Professor</span>
+<span class="ph-prof-r">Edição Docente</span>
 </div>
-
+<h2 class="prof">Visão Geral para o Professor</h2>
+<p>Esta é uma das lições de maior impacto pastoral de toda a série. A ressurreição dos mortos não é um tema abstrato — ela é a resposta cristã direta ao luto, à fragilidade do corpo e ao medo da morte. Muitos alunos chegam com concepções sincréticas: a imortalidade da alma grega disfarçada de teologia cristã, ou uma esperança vaga de "ir para o céu" sem corpo. O professor tem a oportunidade de reconduzir a esperança ao seu eixo bíblico — concreto, histórico e encarnado.</p>
+<div class="bloco-tempo">
+<div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: pergunta sobre a imagem da vida eterna (ver P2)</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 2 — Introdução: distinção entre ressurreição, imortalidade da alma e reencarnação</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Tópico I: Cristo como primícias + analogia do grão (use objeto visual se possível)</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — Tópico II: sequência das ressurreições + estado intermediário + ressurreição dos ímpios</span></div>
+<div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Tópico III: Visões em Diálogo — debate mediado sobre a sequência</span></div>
+<div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Pg. 6 — Conclusão: feche com 1 Co 15:58 e a aplicação ética da ressurreição</span></div>
+</div>
+<div class="bloco-guia">
+<div class="bk">Objetivos Pedagógicos do Professor</div>
+<ul>
+<li>Corrigir a confusão entre ressurreição bíblica e imortalidade da alma grega</li>
+<li>Fixar Cristo ressuscitado como fundamento e modelo — não apenas prova de poder</li>
+<li>Apresentar o estado intermediário como consolo real, mas incompleto</li>
+<li>Mostrar que a doutrina tem consequências éticas imediatas: corpo, luto, trabalho</li>
+</ul>
+</div>
+<div class="alerta">
+<div class="bk">Atenção do Professor</div>
+<p>É comum alunos enlutados estarem presentes nesta lição. Cuide do tom: a ressurreição é esperança concreta, não consolo superficial. Evite frases como "seu ente querido virou uma estrelinha" ou "está olhando por você de cima" — elas contradizem a doutrina bíblica do estado intermediário e da ressurreição futura. Em vez disso: "Está com Cristo, em estado consciente de paz, aguardando a ressurreição final."</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Leitura da Turma</div>
+<p>Turmas mais jovens tendem a nunca ter pensado profundamente sobre a morte — para elas, a lição pode ser desconfortável no início. Turmas com membros enlutados precisam de mais gentileza no ritmo e abertura para silêncios. Em ambos os casos, o versículo âncora é 1 Co 15:58: a esperança da ressurreição não nos afasta da vida — nos torna mais firmes nela.</p>
+</div>
+<div class="fio-condutor">
+<div class="bk">Fio Condutor da Série</div>
+<p>Esta lição é o coração antropológico da série. A Lição 08 estabeleceu que Cristo voltará — a Lição 09 revela o que acontece com os corpos quando ele vier. As Lições 10 e 11 (Juízo Final e Nova Criação) pressupõem o que é aprendido aqui. Sem a ressurreição corporal, o juízo perde seu objeto e a nova criação perde seus habitantes. Mantenha essa cadeia de conexões visível para os alunos ao longo da série.</p>
+</div>
+<h2 class="prof">Mapa de Competências</h2>
+<div class="mapa-comp">
+<div class="mapa-cell mc-conhec">
+<div class="mapa-cell-lbl">Conhecimento</div>
+<div class="mapa-cell-txt">Distinguir ressurreição bíblica de imortalidade da alma e reencarnação; conhecer a estrutura de 1 Co 15 e os pares paulinos de contraste</div>
+</div>
+<div class="mapa-cell mc-habil">
+<div class="mapa-cell-lbl">Habilidade</div>
+<div class="mapa-cell-txt">Articular a diferença entre as tradições com textos bíblicos; aplicar a analogia do grão para explicar continuidade e transformação do corpo</div>
+</div>
+<div class="mapa-cell mc-atit">
+<div class="mapa-cell-lbl">Atitude</div>
+<div class="mapa-cell-txt">Valorizar o corpo como criação boa de Deus; enfrentar a morte e o luto com esperança concreta e encarnada, não com escapismo espiritualista</div>
+</div>
+<div class="mapa-cell mc-aval">
+<div class="mapa-cell-lbl">Avaliação</div>
+<div class="mapa-cell-txt">O aluno consegue nomear a distinção entre as três visões e citar ao menos dois textos bíblicos que fundamentam a ressurreição corporal?</div>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
 <!-- PG P2 — DINÂMICA DE ABERTURA + APROFUNDAMENTO TEOLÓGICO -->
 <div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 09 · Dinâmica &amp; Teologia</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Dinâmica de Abertura</h2>
-    <div class="bloco-debate">
-        <div class="bk">Pergunta Inicial — antes de abrir o material</div>
-        <p>"Feche os olhos e imagine a vida eterna. O que você vê? Como você está? Com ou sem corpo? Em um lugar físico ou em algo espiritual e intangível?" Após partilharem, pergunte: "De onde veio essa imagem — da Bíblia, dos filmes, ou de outra fonte?"</p>
-    </div>
-    <div class="bloco-dica">
-        <div class="bk">Como conduzir</div>
-        <ul>
-            <li>Dê 1-2 minutos para imaginação silenciosa antes de pedir respostas</li>
-            <li>Colete 4-5 descrições sem avaliar — anote palavras-chave no quadro</li>
-            <li>Pergunte: "Quantas dessas imagens têm um corpo físico glorificado? Quantas são etéreas ou espirituais?"</li>
-            <li>Use o resultado para introduzir a distinção entre ressurreição bíblica, imortalidade da alma e reencarnação</li>
-            <li>Diga: "A Bíblia tem algo muito mais concreto — e mais surpreendente — do que a maioria das imagens que surgem aqui."</li>
-        </ul>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Aprofundamento Teológico</h2>
-    <div class="bloco-teo">
-        <div class="bk">Ressurreição vs. Imortalidade da Alma — Oscar Cullmann</div>
-        <p>Em <em>Immortality of the Soul or Resurrection of the Dead?</em> (1955), Oscar Cullmann provocou escândalo ao demonstrar que a ressurreição bíblica e a imortalidade da alma grega são não apenas distintas, mas opostas. Para o grego, a morte é libertação — a alma escapa da prisão do corpo. Para o hebraico bíblico, a morte é inimiga — e a ressurreição é a sua derrota. Paulo chama a morte de "o último inimigo" (1 Co 15:26). A imortalidade da alma diz que o ser humano naturalmente sobrevive; a ressurreição diz que Deus intervém soberanamente para vencer a morte.</p>
-    </div>
-    <div class="bloco-teo">
-        <div class="bk">N.T. Wright e a Esperança Corporificada</div>
-        <p>Em <em>Surpreendido pela Esperança</em>, N.T. Wright argumenta que a ressurreição de Cristo não é apenas evento espiritual, mas físico e histórico — e que isso tem consequências radicais para o engajamento cristão com o mundo. O corpo ressurreto de Cristo ainda tinha as marcas dos pregos (Jo 20:27) e comeu peixe (Lc 24:42): era um corpo real, transformado, não um fantasma. A conclusão de Wright é que os cristãos são chamados a ser "trabalhadores da ressurreição" no mundo presente — lutando contra injustiça, pobreza e degradação como prenúncio da nova criação.</p>
-    </div>
-    <div class="bloco-teo">
-        <div class="bk">A Primeira Ressurreição em Apocalipse 20 — Debate Exegético</div>
-        <p>Ap 20:5-6 menciona a "primeira ressurreição" — e sua interpretação divide as tradições. Para o premilenismo, é a ressurreição corporal dos mártires da Tribulação que reinarão com Cristo por mil anos. Para o amilenismo (Hoekema, Beale), é a regeneração espiritual do crente — "nascido de novo" (Jo 3:3-5) — ou a entrada da alma na glória após a morte. O argumento amilenista é que João usa "ressurreição" simbolicamente ao longo do Apocalipse; o argumento premilenista é que o contexto é literalmente sobre mortos que voltaram a viver.</p>
-    </div>
-    <div class="cit-autor">
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 09 · Dinâmica &amp; Teologia</span>
+<span class="ph-prof-r">Edição Docente</span>
+</div>
+<h2 class="prof">Dinâmica de Abertura</h2>
+<div class="bloco-debate">
+<div class="bk">Pergunta Inicial — antes de abrir o material</div>
+<p>"Feche os olhos e imagine a vida eterna. O que você vê? Como você está? Com ou sem corpo? Em um lugar físico ou em algo espiritual e intangível?" Após partilharem, pergunte: "De onde veio essa imagem — da Bíblia, dos filmes, ou de outra fonte?"</p>
+</div>
+<div class="bloco-dica">
+<div class="bk">Como conduzir</div>
+<ul>
+<li>Dê 1-2 minutos para imaginação silenciosa antes de pedir respostas</li>
+<li>Colete 4-5 descrições sem avaliar — anote palavras-chave no quadro</li>
+<li>Pergunte: "Quantas dessas imagens têm um corpo físico glorificado? Quantas são etéreas ou espirituais?"</li>
+<li>Use o resultado para introduzir a distinção entre ressurreição bíblica, imortalidade da alma e reencarnação</li>
+<li>Diga: "A Bíblia tem algo muito mais concreto — e mais surpreendente — do que a maioria das imagens que surgem aqui."</li>
+</ul>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Aprofundamento Teológico</h2>
+<div class="bloco-teo">
+<div class="bk">Ressurreição vs. Imortalidade da Alma — Oscar Cullmann</div>
+<p>Em <em>Immortality of the Soul or Resurrection of the Dead?</em> (1955), Oscar Cullmann provocou escândalo ao demonstrar que a ressurreição bíblica e a imortalidade da alma grega são não apenas distintas, mas opostas. Para o grego, a morte é libertação — a alma escapa da prisão do corpo. Para o hebraico bíblico, a morte é inimiga — e a ressurreição é a sua derrota. Paulo chama a morte de "o último inimigo" (1 Co 15:26). A imortalidade da alma diz que o ser humano naturalmente sobrevive; a ressurreição diz que Deus intervém soberanamente para vencer a morte.</p>
+</div>
+<div class="bloco-teo">
+<div class="bk">N.T. Wright e a Esperança Corporificada</div>
+<p>Em <em>Surpreendido pela Esperança</em>, N.T. Wright argumenta que a ressurreição de Cristo não é apenas evento espiritual, mas físico e histórico — e que isso tem consequências radicais para o engajamento cristão com o mundo. O corpo ressurreto de Cristo ainda tinha as marcas dos pregos (Jo 20:27) e comeu peixe (Lc 24:42): era um corpo real, transformado, não um fantasma. A conclusão de Wright é que os cristãos são chamados a ser "trabalhadores da ressurreição" no mundo presente — lutando contra injustiça, pobreza e degradação como prenúncio da nova criação.</p>
+</div>
+<div class="bloco-teo">
+<div class="bk">A Primeira Ressurreição em Apocalipse 20 — Debate Exegético</div>
+<p>Ap 20:5-6 menciona a "primeira ressurreição" — e sua interpretação divide as tradições. Para o premilenismo, é a ressurreição corporal dos mártires da Tribulação que reinarão com Cristo por mil anos. Para o amilenismo (Hoekema, Beale), é a regeneração espiritual do crente — "nascido de novo" (Jo 3:3-5) — ou a entrada da alma na glória após a morte. O argumento amilenista é que João usa "ressurreição" simbolicamente ao longo do Apocalipse; o argumento premilenista é que o contexto é literalmente sobre mortos que voltaram a viver.</p>
+</div>
+<div class="cit-autor">
         "A ressurreição não é a sobrevivência do melhor de nós — é a vitória de Deus sobre tudo que ameaça destruir a sua boa criação."
         <cite>— N.T. Wright, <em>Surpreendido pela Esperança</em></cite>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Escada de Perguntas Socráticas</h2>
-    <p style="font-family:'EB Garamond',serif;font-size:9.5pt;color:#555;margin-bottom:8px;">Use esta sequência para conduzir a turma do diagnóstico inicial ao comprometimento ético, em três níveis progressivos.</p>
-    <div class="escada-socratica">
-        <div class="escada-nivel es-n1">
-            <div class="es-lbl">Nível 1 · Diagnóstico</div>
-            <div class="es-pergunta">"Quando alguém que você ama morre, o que você acredita que acontece com ele — agora, e no futuro?"</div>
-            <div class="es-resp"><strong>Resposta esperada:</strong> identificar se o aluno diferencia estado intermediário de destino final; detectar presença de visão grega ou bíblica da esperança.</div>
-        </div>
-        <div class="escada-nivel es-n2">
-            <div class="es-lbl">Nível 2 · Conceitual</div>
-            <div class="es-pergunta">"Paulo diz que 'se Cristo não ressuscitou, a vossa fé é vã.' Por que a ressurreição de Cristo é fundamento, e não apenas prova, da nossa esperança?"</div>
-            <div class="es-resp"><strong>Resposta esperada:</strong> Cristo como "primícias" — garantia ontológica da ressurreição dos crentes; solidariedade entre Cabeça e corpo; o túmulo vazio como penhor, não apenas como milagre isolado.</div>
-        </div>
-        <div class="escada-nivel es-n3">
-            <div class="es-lbl">Nível 3 · Aplicação</div>
-            <div class="es-pergunta">"Se este corpo ressuscitará transformado, o que muda no modo como você o trata hoje — e no modo como você enfrenta sofrimento, doença e limitação?"</div>
-            <div class="es-resp"><strong>Resposta esperada:</strong> cuidado com o corpo como templo; perspectiva diferente diante da dor; o trabalho e o serviço presentes não são em vão; a injustiça combatida hoje antecipa a nova criação.</div>
-        </div>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
 </div>
-
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Escada de Perguntas Socráticas</h2>
+<p style="font-family:'EB Garamond',serif;font-size:9.5pt;color:#555;margin-bottom:8px;">Use esta sequência para conduzir a turma do diagnóstico inicial ao comprometimento ético, em três níveis progressivos.</p>
+<div class="escada-socratica">
+<div class="escada-nivel es-n1">
+<div class="es-lbl">Nível 1 · Diagnóstico</div>
+<div class="es-pergunta">"Quando alguém que você ama morre, o que você acredita que acontece com ele — agora, e no futuro?"</div>
+<div class="es-resp"><strong>Resposta esperada:</strong> identificar se o aluno diferencia estado intermediário de destino final; detectar presença de visão grega ou bíblica da esperança.</div>
+</div>
+<div class="escada-nivel es-n2">
+<div class="es-lbl">Nível 2 · Conceitual</div>
+<div class="es-pergunta">"Paulo diz que 'se Cristo não ressuscitou, a vossa fé é vã.' Por que a ressurreição de Cristo é fundamento, e não apenas prova, da nossa esperança?"</div>
+<div class="es-resp"><strong>Resposta esperada:</strong> Cristo como "primícias" — garantia ontológica da ressurreição dos crentes; solidariedade entre Cabeça e corpo; o túmulo vazio como penhor, não apenas como milagre isolado.</div>
+</div>
+<div class="escada-nivel es-n3">
+<div class="es-lbl">Nível 3 · Aplicação</div>
+<div class="es-pergunta">"Se este corpo ressuscitará transformado, o que muda no modo como você o trata hoje — e no modo como você enfrenta sofrimento, doença e limitação?"</div>
+<div class="es-resp"><strong>Resposta esperada:</strong> cuidado com o corpo como templo; perspectiva diferente diante da dor; o trabalho e o serviço presentes não são em vão; a injustiça combatida hoje antecipa a nova criação.</div>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
 <!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO DE TENSÕES -->
 <div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 09 · Pedagogia</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Dicas Pedagógicas</h2>
-    <div class="bloco-dica">
-        <div class="bk">Para Tornar o Conteúdo Concreto</div>
-        <ul>
-            <li><strong>Objeto visual — o grão:</strong> leve um grão de trigo ou milho e um punhado de grãos germinados. A diferença visual entre o que é plantado e o que brota ilustra "mesmo, mas transformado" com impacto que nenhuma explicação verbal substitui.</li>
-            <li><strong>Quadro das três concepções:</strong> divida o quadro em três colunas — "Ressurreição Bíblica", "Imortalidade da Alma", "Reencarnação". Complete junto com a turma: o que cada visão diz sobre o corpo, sobre a identidade pessoal, sobre o destino final. O contraste visual é poderoso.</li>
-            <li><strong>Releitura de Jo 20:24-29:</strong> leia em voz alta a cena de Tomé tocando as marcas dos pregos. Pergunte: "Se Cristo ressurreto tinha marcas físicas, o que isso diz sobre a ressurreição de vocês?"</li>
-        </ul>
-    </div>
-    <h2 class="prof">Diferenciação por Perfil de Turma</h2>
-    <div class="dif-grid">
-        <div class="dif-cell dif-enlutado">
-            <div class="dif-tipo">Turma com enlutados</div>
-            <div class="dif-acao">Priorize Fp 1:23 e o estado intermediário antes de qualquer debate cronológico. Dê espaço para silêncio. Ancore na esperança pastoral antes de avançar para a teologia sistemática.</div>
-        </div>
-        <div class="dif-cell dif-jovem">
-            <div class="dif-tipo">Turma jovem e curiosa</div>
-            <div class="dif-acao">O debate sobre Ap 20 e a "primeira ressurreição" pode ser muito estimulante. Apresente os dois lados com respeito; encoraje pesquisa pessoal nos textos como lição de casa.</div>
-        </div>
-        <div class="dif-cell dif-mista">
-            <div class="dif-tipo">Turma mista de tradições</div>
-            <div class="dif-acao">Enfatize o consenso — ressurreição corporal, identidade preservada, corpo glorificado — antes da divergência sobre a sequência. Isso evita que o debate cronológico fragmente o que a doutrina une.</div>
-        </div>
-        <div class="dif-cell dif-ansiosa">
-            <div class="dif-tipo">Turma ansiosa ou resistente</div>
-            <div class="dif-acao">Não force o tema da morte. Use a ressurreição como entrada positiva: "O que Deus promete fazer com o seu corpo?" Redirecione o foco de perda para promessa antes de explorar a doutrina completa.</div>
-        </div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Avaliação Formativa Rápida</h2>
-    <div class="aval-form">
-        <div class="bk">Checklist de Objetivos — ao final da lição</div>
-        <div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno distingue ressurreição bíblica de imortalidade da alma e de reencarnação com pelo menos um argumento cada</div></div>
-        <div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno cita Cristo como "primícias" da ressurreição e compreende o que isso implica para a própria esperança</div></div>
-        <div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno aplica a analogia do grão para explicar continuidade e transformação do corpo ressurreto</div></div>
-        <div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno demonstra pelo menos uma implicação ética concreta da doutrina da ressurreição para o presente</div></div>
-        <div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno consegue identificar o ponto de consenso entre as tradições pentecostal e reformada sobre a ressurreição</div></div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Gestão de Tensões</h2>
-    <div class="alerta">
-        <div class="bk">Situação Comum — "Mas meu familiar falecido está em paz no céu agora, certo?"</div>
-        <p>Resposta sugerida: "Sim — e com muito mais do que paz: está na presença de Cristo (Fp 1:23), que é o maior bem possível. Mas a Bíblia nos diz que isso ainda não é tudo. O dia mais glorioso ainda está por vir: a ressurreição do corpo, quando a separação entre alma e corpo será finalmente vencida. A esperança cristã não para na morte — ela olha além dela." Isso honra o consolo sem reduzir a esperança ao estado intermediário.</p>
-    </div>
-    <div class="alerta">
-        <div class="bk">Situação Comum — "Deus vai resgatar os átomos do meu corpo antigo?"</div>
-        <p>Essa é uma questão filosófica clássica — e a Bíblia não a resolve em termos científicos. A analogia do grão (1 Co 15:35-44) é a resposta mais sábia: não é a matéria específica que garante a identidade, mas a continuidade da pessoa. Cristo ressurreto não era feito dos mesmos átomos do momento da morte — mas era inconfundivelmente ele. A identidade é mantida por Deus, não pelos átomos.</p>
-    </div>
-    <div class="bloco-guia">
-        <div class="bk">Encerramento Ideal da Aula</div>
-        <ul>
-            <li>Leia 1 Coríntios 15:58 em voz alta: "Sede firmes e constantes, sempre abundando na obra do Senhor..."</li>
-            <li>Pergunte: "Paulo termina o capítulo mais longo sobre a ressurreição com uma exortação ética. O que isso diz sobre a relação entre esperança futura e ação presente?"</li>
-            <li>Ore agradecendo pela ressurreição de Cristo como penhor e pela esperança da ressurreição futura dos corpos</li>
-            <li>Anuncie a Lição 10: <em>O Juízo Final — o Grande Trono Branco e a sentença eterna</em></li>
-        </ul>
-    </div>
-    <div class="bloco-dica">
-        <div class="bk">Sinal de Alerta</div>
-        <p>Se o debate sobre a sequência das ressurreições (premilenismo vs. amilenismo) dominar toda a aula, intervenha gentilmente: "Esse é um debate legítimo e importante — mas Paulo terminou 1 Coríntios 15 não com um cronograma, mas com uma exortação à fidelidade. Deixemos que o apóstolo defina a última palavra desta lição."</p>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 09 · Pedagogia</span>
+<span class="ph-prof-r">Edição Docente</span>
 </div>
-
+<h2 class="prof">Dicas Pedagógicas</h2>
+<div class="bloco-dica">
+<div class="bk">Para Tornar o Conteúdo Concreto</div>
+<ul>
+<li><strong>Objeto visual — o grão:</strong> leve um grão de trigo ou milho e um punhado de grãos germinados. A diferença visual entre o que é plantado e o que brota ilustra "mesmo, mas transformado" com impacto que nenhuma explicação verbal substitui.</li>
+<li><strong>Quadro das três concepções:</strong> divida o quadro em três colunas — "Ressurreição Bíblica", "Imortalidade da Alma", "Reencarnação". Complete junto com a turma: o que cada visão diz sobre o corpo, sobre a identidade pessoal, sobre o destino final. O contraste visual é poderoso.</li>
+<li><strong>Releitura de Jo 20:24-29:</strong> leia em voz alta a cena de Tomé tocando as marcas dos pregos. Pergunte: "Se Cristo ressurreto tinha marcas físicas, o que isso diz sobre a ressurreição de vocês?"</li>
+</ul>
+</div>
+<h2 class="prof">Diferenciação por Perfil de Turma</h2>
+<div class="dif-grid">
+<div class="dif-cell dif-enlutado">
+<div class="dif-tipo">Turma com enlutados</div>
+<div class="dif-acao">Priorize Fp 1:23 e o estado intermediário antes de qualquer debate cronológico. Dê espaço para silêncio. Ancore na esperança pastoral antes de avançar para a teologia sistemática.</div>
+</div>
+<div class="dif-cell dif-jovem">
+<div class="dif-tipo">Turma jovem e curiosa</div>
+<div class="dif-acao">O debate sobre Ap 20 e a "primeira ressurreição" pode ser muito estimulante. Apresente os dois lados com respeito; encoraje pesquisa pessoal nos textos como lição de casa.</div>
+</div>
+<div class="dif-cell dif-mista">
+<div class="dif-tipo">Turma mista de tradições</div>
+<div class="dif-acao">Enfatize o consenso — ressurreição corporal, identidade preservada, corpo glorificado — antes da divergência sobre a sequência. Isso evita que o debate cronológico fragmente o que a doutrina une.</div>
+</div>
+<div class="dif-cell dif-ansiosa">
+<div class="dif-tipo">Turma ansiosa ou resistente</div>
+<div class="dif-acao">Não force o tema da morte. Use a ressurreição como entrada positiva: "O que Deus promete fazer com o seu corpo?" Redirecione o foco de perda para promessa antes de explorar a doutrina completa.</div>
+</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Avaliação Formativa Rápida</h2>
+<div class="aval-form">
+<div class="bk">Checklist de Objetivos — ao final da lição</div>
+<div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno distingue ressurreição bíblica de imortalidade da alma e de reencarnação com pelo menos um argumento cada</div></div>
+<div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno cita Cristo como "primícias" da ressurreição e compreende o que isso implica para a própria esperança</div></div>
+<div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno aplica a analogia do grão para explicar continuidade e transformação do corpo ressurreto</div></div>
+<div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno demonstra pelo menos uma implicação ética concreta da doutrina da ressurreição para o presente</div></div>
+<div class="aval-check"><div class="aval-box"></div><div class="aval-txt">O aluno consegue identificar o ponto de consenso entre as tradições pentecostal e reformada sobre a ressurreição</div></div>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Gestão de Tensões</h2>
+<div class="alerta">
+<div class="bk">Situação Comum — "Mas meu familiar falecido está em paz no céu agora, certo?"</div>
+<p>Resposta sugerida: "Sim — e com muito mais do que paz: está na presença de Cristo (Fp 1:23), que é o maior bem possível. Mas a Bíblia nos diz que isso ainda não é tudo. O dia mais glorioso ainda está por vir: a ressurreição do corpo, quando a separação entre alma e corpo será finalmente vencida. A esperança cristã não para na morte — ela olha além dela." Isso honra o consolo sem reduzir a esperança ao estado intermediário.</p>
+</div>
+<div class="alerta">
+<div class="bk">Situação Comum — "Deus vai resgatar os átomos do meu corpo antigo?"</div>
+<p>Essa é uma questão filosófica clássica — e a Bíblia não a resolve em termos científicos. A analogia do grão (1 Co 15:35-44) é a resposta mais sábia: não é a matéria específica que garante a identidade, mas a continuidade da pessoa. Cristo ressurreto não era feito dos mesmos átomos do momento da morte — mas era inconfundivelmente ele. A identidade é mantida por Deus, não pelos átomos.</p>
+</div>
+<div class="bloco-guia">
+<div class="bk">Encerramento Ideal da Aula</div>
+<ul>
+<li>Leia 1 Coríntios 15:58 em voz alta: "Sede firmes e constantes, sempre abundando na obra do Senhor..."</li>
+<li>Pergunte: "Paulo termina o capítulo mais longo sobre a ressurreição com uma exortação ética. O que isso diz sobre a relação entre esperança futura e ação presente?"</li>
+<li>Ore agradecendo pela ressurreição de Cristo como penhor e pela esperança da ressurreição futura dos corpos</li>
+<li>Anuncie a Lição 10: <em>O Juízo Final — o Grande Trono Branco e a sentença eterna</em></li>
+</ul>
+</div>
+<div class="bloco-dica">
+<div class="bk">Sinal de Alerta</div>
+<p>Se o debate sobre a sequência das ressurreições (premilenismo vs. amilenismo) dominar toda a aula, intervenha gentilmente: "Esse é um debate legítimo e importante — mas Paulo terminou 1 Coríntios 15 não com um cronograma, mas com uma exortação à fidelidade. Deixemos que o apóstolo defina a última palavra desta lição."</p>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
 <!-- PG P4 — RESPOSTAS SUGERIDAS + MATERIAIS COMPLEMENTARES -->
 <div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
 <div class="pag int-prof">
-    <div class="wm-prof">PROF</div>
-    <div class="ph-prof">
-        <span class="ph-prof-l">Lição 09 · Respostas &amp; Recursos</span>
-        <span class="ph-prof-r">Edição Docente</span>
-    </div>
-    <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
-    <div class="bloco-gabarito">
-        <div class="bk">Orientação sobre o Uso do Gabarito</div>
-        <p>As respostas abaixo são <em>orientativas</em>, não prescritivas. Respostas pessoais que conectam a doutrina com experiência vivida têm igual valor teológico — às vezes mais. Valorize o aluno que cita um texto bíblico corretamente; valorize igualmente o aluno que demonstra que a doutrina tocou sua vida concreta. O critério não é reprodução do gabarito, mas evidência de que a esperança da ressurreição foi compreendida e apropriada pessoalmente.</p>
-    </div>
-    <div class="bloco-resp">
-        <div class="bk">Gabarito Orientativo</div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 01</div>
-            <div class="resp-txt">A ressurreição bíblica afirma que o mesmo corpo, transformado por Deus, é reunido à alma para vida plena e eterna — a morte é inimiga vencida. A imortalidade da alma grega afirma que a alma sobrevive naturalmente à morte do corpo, que é descartado como prisão. A reencarnação afirma que a alma migra para outro corpo, descartando a identidade individual permanente. As distinções importam pastoralmente: a ressurreição bíblica preserva identidade pessoal, valoriza o corpo presente e ancora a esperança em ação histórica de Deus — não em propriedade natural da alma.</div>
-        </div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 02</div>
-            <div class="resp-txt">A analogia do grão revela que há continuidade orgânica (o trigo que brota vem do grão semeado) sem identidade material absoluta. Aplicado ao corpo: há identidade pessoal real — o mesmo "eu" — com transformação radical. Os quatro pares de contraste de Paulo (corruptível/incorruptível; desonra/glória; fraqueza/poder; natural/espiritual) mostram que o corpo ressurreto é superior em todos os aspectos — não um corpo diferente, mas o mesmo corpo plenamente redimido. Valorize respostas que usem os quatro pares paulinos.</div>
-        </div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 03</div>
-            <div class="resp-txt">Dispensacionalismo: usa Ap 20:4-6 (mártires que "voltaram a viver" e reinaram com Cristo) para defender duas ressurreições literais separadas por mil anos. Amilenismo: usa Jo 5:28-29 ("todos os que estão nos sepulcros ouvirão sua voz e sairão") para defender uma única ressurreição geral simultânea; interpreta a "primeira ressurreição" de Ap 20 como regeneração espiritual. A tensão central: Ap 20 usa "ressurreição" em sentido corporal literal ou simbólico-espiritual? Valorize respostas que citem ambos os textos com argumentos das duas posições.</div>
-        </div>
-        <div class="resp-item">
-            <div class="resp-num">Questão 04</div>
-            <div class="resp-txt">Respostas pessoais e de consciência. Espere: o trabalho criativo tem valor eterno; o cuidado com o corpo importa; relações de amor não são descartáveis; o serviço ao próximo tem peso escatológico; a injustiça combatida hoje antecipa a nova criação. O critério de avaliação é se o aluno conectou a promessa futura da ressurreição com uma ação concreta no presente — transformando esperança em compromisso, não em passividade.</div>
-        </div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <h2 class="prof">Materiais Complementares</h2>
-    <div class="bloco-mat">
-        <div class="bk">Recursos Recomendados ao Professor</div>
-        <div class="mat-item">
-            <span class="mat-tipo livro">Livro</span>
-            <span class="mat-info">N.T. Wright — <em>Surpreendido pela Esperança</em>. Thomas Nelson (ed. PT). A obra mais acessível e completa sobre a ressurreição como fundamento da esperança e do engajamento cristão.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo livro">Livro</span>
-            <span class="mat-info">Oscar Cullmann — <em>Immortality of the Soul or Resurrection of the Dead?</em>. Wipf &amp; Stock. Clássico indispensável sobre a diferença entre ressurreição bíblica e imortalidade da alma grega.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo livro">Livro</span>
-            <span class="mat-info">Anthony Hoekema — <em>A Bíblia e o Futuro</em>, cap. 11-12. Cultura Cristã. Tratamento exegético rigoroso do estado intermediário e da ressurreição final, na perspectiva reformada.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo video">Vídeo</span>
-            <span class="mat-info">BibleProject — vídeo <em>Dia do Senhor</em> e série <em>Shalom</em>. YouTube, legendado em PT. Contextualiza a nova criação e a ressurreição dentro da narrativa bíblica integral.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo audio">Podcast</span>
-            <span class="mat-info">Ligonier Ministries — série <em>1 Coríntios 15</em> com R.C. Sproul. Spotify / ligonier.org. Exegese versículo a versículo do capítulo central sobre a ressurreição no NT.</span>
-        </div>
-        <div class="mat-item">
-            <span class="mat-tipo site">Digital</span>
-            <span class="mat-info">thegospelcoalition.org/pt — artigo "O que acontece quando morremos?" Panorama acessível do estado intermediário, da ressurreição e da nova criação para indicar aos alunos.</span>
-        </div>
-    </div>
-    <div class="sep"><span>✦</span></div>
-    <div class="bloco-seguimento">
-        <div class="bk">Seguimento Pós-Lição — Semana 3</div>
-        <div class="seg-item">
-            <div class="seg-num">1</div>
-            <div class="seg-txt">Envie uma mensagem ao grupo da turma com 1 Co 15:58 e uma pergunta de reflexão: "O que você vai fazer de diferente esta semana à luz da esperança da ressurreição?"</div>
-        </div>
-        <div class="seg-item">
-            <div class="seg-num">2</div>
-            <div class="seg-txt">Se houver aluno enlutado, faça contato pessoal durante a semana — não para dar uma aula, mas para presença pastoral. A doutrina ensinada precisa ser encarnada no cuidado.</div>
-        </div>
-        <div class="seg-item">
-            <div class="seg-num">3</div>
-            <div class="seg-txt">Prepare a abertura da Lição 10 (O Juízo Final) conectando-a com o que foi aprendido: "Se todos ressuscitarão, o que acontece depois? A Bíblia tem uma resposta solene..."</div>
-        </div>
-        <div class="seg-item">
-            <div class="seg-num">4</div>
-            <div class="seg-txt">Avalie se o Checklist de Objetivos (P3) foi cumprido. Para objetivos não alcançados, reserve os primeiros 5 minutos da Lição 10 para uma recapitulação rápida antes de avançar.</div>
-        </div>
-    </div>
-    <div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+<div class="wm-prof">PROF</div>
+<div class="ph-prof">
+<span class="ph-prof-l">Lição 09 · Respostas &amp; Recursos</span>
+<span class="ph-prof-r">Edição Docente</span>
 </div>
-
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+<div class="bloco-gabarito">
+<div class="bk">Orientação sobre o Uso do Gabarito</div>
+<p>As respostas abaixo são <em>orientativas</em>, não prescritivas. Respostas pessoais que conectam a doutrina com experiência vivida têm igual valor teológico — às vezes mais. Valorize o aluno que cita um texto bíblico corretamente; valorize igualmente o aluno que demonstra que a doutrina tocou sua vida concreta. O critério não é reprodução do gabarito, mas evidência de que a esperança da ressurreição foi compreendida e apropriada pessoalmente.</p>
+</div>
+<div class="bloco-resp">
+<div class="bk">Gabarito Orientativo</div>
+<div class="resp-item">
+<div class="resp-num">Questão 01</div>
+<div class="resp-txt">A ressurreição bíblica afirma que o mesmo corpo, transformado por Deus, é reunido à alma para vida plena e eterna — a morte é inimiga vencida. A imortalidade da alma grega afirma que a alma sobrevive naturalmente à morte do corpo, que é descartado como prisão. A reencarnação afirma que a alma migra para outro corpo, descartando a identidade individual permanente. As distinções importam pastoralmente: a ressurreição bíblica preserva identidade pessoal, valoriza o corpo presente e ancora a esperança em ação histórica de Deus — não em propriedade natural da alma.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 02</div>
+<div class="resp-txt">A analogia do grão revela que há continuidade orgânica (o trigo que brota vem do grão semeado) sem identidade material absoluta. Aplicado ao corpo: há identidade pessoal real — o mesmo "eu" — com transformação radical. Os quatro pares de contraste de Paulo (corruptível/incorruptível; desonra/glória; fraqueza/poder; natural/espiritual) mostram que o corpo ressurreto é superior em todos os aspectos — não um corpo diferente, mas o mesmo corpo plenamente redimido. Valorize respostas que usem os quatro pares paulinos.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 03</div>
+<div class="resp-txt">Dispensacionalismo: usa Ap 20:4-6 (mártires que "voltaram a viver" e reinaram com Cristo) para defender duas ressurreições literais separadas por mil anos. Amilenismo: usa Jo 5:28-29 ("todos os que estão nos sepulcros ouvirão sua voz e sairão") para defender uma única ressurreição geral simultânea; interpreta a "primeira ressurreição" de Ap 20 como regeneração espiritual. A tensão central: Ap 20 usa "ressurreição" em sentido corporal literal ou simbólico-espiritual? Valorize respostas que citem ambos os textos com argumentos das duas posições.</div>
+</div>
+<div class="resp-item">
+<div class="resp-num">Questão 04</div>
+<div class="resp-txt">Respostas pessoais e de consciência. Espere: o trabalho criativo tem valor eterno; o cuidado com o corpo importa; relações de amor não são descartáveis; o serviço ao próximo tem peso escatológico; a injustiça combatida hoje antecipa a nova criação. O critério de avaliação é se o aluno conectou a promessa futura da ressurreição com uma ação concreta no presente — transformando esperança em compromisso, não em passividade.</div>
+</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-mat">
+<div class="bk">Recursos Recomendados ao Professor</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">N.T. Wright — <em>Surpreendido pela Esperança</em>. Thomas Nelson (ed. PT). A obra mais acessível e completa sobre a ressurreição como fundamento da esperança e do engajamento cristão.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Oscar Cullmann — <em>Immortality of the Soul or Resurrection of the Dead?</em>. Wipf &amp; Stock. Clássico indispensável sobre a diferença entre ressurreição bíblica e imortalidade da alma grega.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo livro">Livro</span>
+<span class="mat-info">Anthony Hoekema — <em>A Bíblia e o Futuro</em>, cap. 11-12. Cultura Cristã. Tratamento exegético rigoroso do estado intermediário e da ressurreição final, na perspectiva reformada.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo video">Vídeo</span>
+<span class="mat-info">BibleProject — vídeo <em>Dia do Senhor</em> e série <em>Shalom</em>. YouTube, legendado em PT. Contextualiza a nova criação e a ressurreição dentro da narrativa bíblica integral.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo audio">Podcast</span>
+<span class="mat-info">Ligonier Ministries — série <em>1 Coríntios 15</em> com R.C. Sproul. Spotify / ligonier.org. Exegese versículo a versículo do capítulo central sobre a ressurreição no NT.</span>
+</div>
+<div class="mat-item">
+<span class="mat-tipo site">Digital</span>
+<span class="mat-info">thegospelcoalition.org/pt — artigo "O que acontece quando morremos?" Panorama acessível do estado intermediário, da ressurreição e da nova criação para indicar aos alunos.</span>
+</div>
+</div>
+<div class="sep"><span>✦</span></div>
+<div class="bloco-seguimento">
+<div class="bk">Seguimento Pós-Lição — Semana 3</div>
+<div class="seg-item">
+<div class="seg-num">1</div>
+<div class="seg-txt">Envie uma mensagem ao grupo da turma com 1 Co 15:58 e uma pergunta de reflexão: "O que você vai fazer de diferente esta semana à luz da esperança da ressurreição?"</div>
+</div>
+<div class="seg-item">
+<div class="seg-num">2</div>
+<div class="seg-txt">Se houver aluno enlutado, faça contato pessoal durante a semana — não para dar uma aula, mas para presença pastoral. A doutrina ensinada precisa ser encarnada no cuidado.</div>
+</div>
+<div class="seg-item">
+<div class="seg-num">3</div>
+<div class="seg-txt">Prepare a abertura da Lição 10 (O Juízo Final) conectando-a com o que foi aprendido: "Se todos ressuscitarão, o que acontece depois? A Bíblia tem uma resposta solene..."</div>
+</div>
+<div class="seg-item">
+<div class="seg-num">4</div>
+<div class="seg-txt">Avalie se o Checklist de Objetivos (P3) foi cumprido. Para objetivos não alcançados, reserve os primeiros 5 minutos da Lição 10 para uma recapitulação rápida antes de avançar.</div>
+</div>
+</div>
+<div class="rod-prof"><span class="rt">Eschaton · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
 </div><!-- /area -->
-
 <script>
 
 function entrarLicao(){
@@ -1289,7 +1266,6 @@ function toggleEdit(){
 }
 </script>
 </div><!-- /conteudo-principal -->
-
 <script>
 const SENHA_CORRETA = 'eschaton2025';
 const CHAVE_SESSION = 'eschaton_prof_v1_auth';
