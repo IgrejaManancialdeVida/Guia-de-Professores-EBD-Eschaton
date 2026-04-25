@@ -111,6 +111,7 @@ body{background:#060c10;font-family:'EB Garamond',Georgia,serif;}
     display:flex;flex-direction:column;justify-content:flex-end;
     min-height:210mm;padding:0;
     border:1.5px solid rgba(201,168,76,0.35);
+    position:relative;
 }
 .catm{
     position:absolute;inset:0;
@@ -146,6 +147,19 @@ body{background:#060c10;font-family:'EB Garamond',Georgia,serif;}
 .ctit{font-family:'Cinzel',serif;font-size:13pt;font-weight:700;color:var(--ouro-brilho);line-height:1.28;text-transform:uppercase;margin-bottom:10px;text-align:left;letter-spacing:0.6px;text-shadow:0 0 30px rgba(201,168,76,0.4),0 2px 8px rgba(0,0,0,0.8);word-spacing:normal;hyphens:none;overflow-wrap:normal;word-break:normal;max-width:100%;}
 .cref{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.7);text-transform:uppercase;margin-bottom:10px;}
 .cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro-brilho);padding-left:10px;opacity:0.95;}
+
+/* ===== CORREÇÃO MOBILE: evita sobreposição do cabeçalho absoluto sobre o título ===== */
+@media (max-width: 600px) {
+    .capa { min-height: unset; flex-direction: column; }
+    .capa-fim { position: relative; top: auto; left: auto; right: auto; z-index: 4; }
+    .cvol { position: relative; top: auto; right: auto; text-align: left; margin-bottom: 6px; }
+    .ccon { padding: 0 8mm 10mm 10mm; }
+    .ctit { font-size: 11pt; }
+    .cnbg { display: none; }
+    .cimg { display: none; }
+    .catm { display: none; }
+    .clh { display: none; }
+}
 
 /* ===== PÁGINAS DO ALUNO (espelho) ===== */
 .int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--pergaminho);}
