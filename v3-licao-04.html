@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eschaton Vol. III · Lição 04 — Portas Abertas e o Vômito de Deus [PROFESSOR]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #b05018;
+  --grad1:      #1a1008;
+  --grad2:      #281a08;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+  --ouro-brilho: drop-shadow(0 0 4px rgba(201,168,76,.45));
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #120a04; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL FIXO ─────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #080402, #120a04);
+  border-bottom: 2px solid #1D9E75;
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.marca em {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+  color: #1D9E75; letter-spacing: 2px; display: block;
+  font-weight: 400; font-style: normal; text-transform: uppercase;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+.badge-prof {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  background: #1D9E75; color: #fff;
+  padding: 0.25rem 0.625rem; border-radius: 2px;
+}
+
+/* ── ÁREA PRINCIPAL ──────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  align-self: flex-start;
+  margin-left: clamp(0.5rem, calc(50% - 74mm), calc(50% - 74mm));
+  margin-bottom: -8px;
+}
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column;
+  justify-content: flex-end; min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(176,80,24,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.2) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px);
+}
+.cfx  { position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+        background: linear-gradient(180deg, #281808, var(--cor), var(--ouro)); }
+.cnbg { position: absolute; bottom: -20px; right: -10px;
+        font-family: 'Cinzel', serif; font-size: clamp(5rem,18vw,8.125rem);
+        font-weight: 900; color: rgba(255,255,255,.03);
+        line-height: 1; user-select: none; }
+.cimg { position: absolute; top: 0; left: 0; right: 0; height: 58%;
+        background: linear-gradient(160deg, #0d0802, var(--cor) 50%, #ffb060);
+        opacity: .38; }
+.clh  { position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+        background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+        opacity: .75; }
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num   { font-family: 'Cinzel', serif; font-size: clamp(0.55rem,1.5vw,0.625rem);
+              color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.6875rem);
+  letter-spacing: 4px; color: var(--ouro);
+  text-transform: uppercase; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.875rem, 3vw, 1.125rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.15; text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.8rem, 2.2vw, 0.875rem);
+  color: var(--ouro-claro); line-height: 1.6;
+  border-left: 2px solid var(--ouro); padding-left: 10px; opacity: .9;
+}
+
+/* ── PÁGINAS INTERNAS ────────────────────────────────── */
+.int {
+  padding: clamp(8mm,4vw,14mm) clamp(6mm,3vw,12mm) 18mm clamp(8mm,4vw,14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px; left: 14mm; right: 12mm; height: 1px;
+  background: rgba(176,80,24,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(176,80,24,.045) 23px, rgba(176,80,24,.045) 24px);
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem);
+  font-weight: 900; color: rgba(0,0,0,.03);
+  line-height: 1; user-select: none; pointer-events: none;
+}
+
+/* ── CABEÇALHO DE PÁGINA ─────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem,1.5vw,0.6875rem);
+       color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic;
+       font-size: clamp(0.6rem,1.8vw,0.75rem); color: #aaa; }
+
+/* ── TÍTULOS ─────────────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(0.75rem, 2.5vw, 0.9375rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cor); border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(0.65rem, 2vw, 0.8125rem);
+  letter-spacing: 1.5px; color: #5a2808;
+  text-transform: uppercase; margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+
+/* ── PARÁGRAFOS ──────────────────────────────────────── */
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--fonte-base);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,2.875rem);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+
+/* ── BLOCO DE VERSÍCULO ──────────────────────────────── */
+.bver {
+  background: #fff;
+  border: 1px solid rgba(176,80,24,.2);
+  border-left: 4px solid var(--cor);
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: var(--fonte-base); color: #2a1004; line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(0.6rem,1.8vw,0.75rem); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+
+/* ── BLOCOS TEMÁTICOS ────────────────────────────────── */
+.bloco {
+  background: rgba(176,80,24,.05); border-radius: 2px;
+  padding: 0.625rem 0.75rem; margin: 0.625rem 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.blteo {
+  background: rgba(201,168,76,.08);
+  border-left: 3px solid var(--ouro);
+  padding: 0.625rem 0.75rem; margin: 0.625rem 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+.blapl {
+  background: linear-gradient(135deg, rgba(176,80,24,.06), rgba(201,168,76,.07));
+  border: 1px solid rgba(176,80,24,.2);
+  border-radius: 2px; padding: 0.625rem 0.75rem;
+  margin: 0.625rem 0; position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── VERSÍCULO PARA MEMORIZAR ────────────────────────── */
+.mem {
+  background: var(--creme);
+  border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 0.625rem 0.75rem;
+  margin: 0.625rem 0; text-align: center;
+  position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: #2a1004; text-align: center; line-height: 1.6;
+}
+
+/* ── OBJETIVOS ───────────────────────────────────────── */
+.obj { background: var(--creme); border-radius: 2px; padding: 0.625rem 0.75rem;
+       margin: 0.625rem 0; position: relative; z-index: 1; }
+.obj .ot {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: var(--ct); padding: 2px 0 2px 1rem;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆'; position: absolute; left: 0;
+  color: var(--cor); font-size: 0.5rem; top: 4px;
+}
+
+/* ── SEPARADOR ───────────────────────────────────────── */
+.sep {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0.75rem 0; opacity: .3; position: relative; z-index: 1;
+}
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: 0.5rem; color: var(--ouro); }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  color: var(--cor); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.qt {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: var(--ct); line-height: 1.45; margin-bottom: 5px;
+}
+.lr { border-bottom: 1px solid rgba(176,80,24,.2); height: 20px; margin-top: 3px; }
+
+/* ── RODAPÉ DE PÁGINA ────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px 12mm 6mm 14mm;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(0.45rem,1.3vw,0.56rem);
+      color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(0.6rem,1.8vw,0.75rem); color: var(--ouro); }
+
+/* ── LINHAS DE ANOTAÇÃO ──────────────────────────────── */
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px;
+        position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(176,80,24,.2); height: 22px; }
+
+/* ── BLOCOS ESPECIAIS DO ALUNO ───────────────────────── */
+.brefletir {
+  background: rgba(139,26,26,.06);
+  border: 1px solid rgba(139,26,26,.2);
+  border-top: 3px solid var(--vermelho);
+  border-radius: 0 0 2px 2px;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--vermelho); margin-bottom: 6px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(176,80,24,.07);
+  border: 1px dashed rgba(176,80,24,.3);
+  border-radius: 2px;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bpense {
+  background: var(--creme);
+  border-left: 4px solid var(--cor);
+  border-radius: 0 2px 2px 0;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bpense-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(176,80,24,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(176,80,24,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── EDIÇÃO INLINE ───────────────────────────────────── */
+[contenteditable="true"]       { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(176,80,24,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(176,80,24,.08); border-radius: 2px; }
+
+/* ════════════════════════════════════════════════════════
+   BLOCOS EXCLUSIVOS DO PROFESSOR
+   ════════════════════════════════════════════════════════ */
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientacao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+
+[class^="prof-"] {
+  border-radius: 0 0.375rem 0.375rem 0;
+  padding: 0.875rem 1rem;
+  margin: 1rem 0 1.5rem;
+  page-break-inside: avoid;
+  position: relative; z-index: 1;
+}
+[class^="prof-"] .prof-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 0.4rem;
+}
+.prof-nota-teologica  .prof-label { color: #0F6E56; }
+.prof-dica-aula       .prof-label { color: #185FA5; }
+.prof-recurso-visual  .prof-label { color: #854F0B; }
+.prof-orientacao-past .prof-label { color: #993C1D; }
+
+[class^="prof-"] p {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem; line-height: 1.7; margin: 0; color: #222;
+}
+[class^="prof-"] p + p { margin-top: 0.4rem; }
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+  [class^="prof-"] { border-radius: 0; }
+}
+
+/* ── RESPONSIVIDADE ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .painel { padding: 0.5rem 0.75rem; gap: 0.5rem; }
+  .btn    { padding: 0.375rem 0.625rem; }
+  .area   { margin-top: 56px; }
+  .ccon   { padding: 0 6mm 10mm 10mm; }
+  .rod    { padding: 6px 6mm 4mm 8mm; }
+  .rod::before { left: 6mm; right: 6mm; }
+}
+@media (max-width: 768px) {
+  .area { margin-top: 64px; }
+  .lbl  { margin-left: 0.5rem; }
+}
+@media (min-width: 1024px) {
+  .area { padding: 1.5rem 2rem 4rem; }
+}
+
+/* ── TELA DE SENHA ───────────────────────────────────── */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#0d0602 0%,#1a1008 60%,#0a0806 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:56px;height:56px;border:1px solid rgba(176,80,24,0.5);
+    transform:rotate(45deg);margin:0 auto 32px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(176,80,24,0.2);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(176,80,24,0.4);
+    border-radius:2px;padding:12px 16px;font-family:'Oswald',sans-serif;
+    font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;
+    outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(176,80,24,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{
+    width:100%;background:var(--cor);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+
+/* ── PÁGINAS DO PROFESSOR ────────────────────────────── */
+.int-prof{
+    padding:clamp(8mm,4vw,14mm) clamp(6mm,3vw,12mm) 18mm clamp(8mm,4vw,14mm);
+    min-height:210mm;position:relative;
+    background:#fdfbf7;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,#3a1808,var(--cor),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:clamp(2rem,8vw,3.25rem);font-weight:900;
+    color:rgba(176,80,24,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(176,80,24,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.3vw,0.6rem);background:var(--cor);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Cinzel',serif;font-weight:700;
+    font-size:clamp(0.75rem,2.5vw,0.9375rem);
+    letter-spacing:1px;text-transform:uppercase;
+    color:var(--cor);border-bottom:2px solid var(--cor);
+    padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+.lbl-prof{color:var(--cor);font-weight:600;}
+
+/* ── BLOCOS DAS PÁGINAS DO PROFESSOR ─────────────────── */
+.bloco-guia{
+    background:rgba(176,80,24,0.05);border:1px solid rgba(176,80,24,0.25);
+    border-left:4px solid var(--cor);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-guia .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#3a1a0a;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--cor);font-size:5pt;top:5px;}
+
+.bloco-dica{
+    background:#f0faf3;border:1px solid rgba(46,107,79,0.35);
+    border-left:4px solid #2e6b4f;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-dica .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:#2e6b4f;font-size:9pt;}
+
+.bloco-teo{
+    background:#fdf0e6;border:1px solid rgba(184,92,26,0.35);
+    border-left:4px solid #b85c1a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-teo .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:#b85c1a;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-teo .bk::before{content:'✝';font-size:8pt;}
+.bloco-teo p,.bloco-teo li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#4a2005;}
+
+.bloco-debate{
+    background:#e8f0f8;border:1px solid rgba(44,95,138,0.25);
+    border-left:4px solid #2c5f8a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2c5f8a;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.95rem);line-height:1.6;color:#1a3050;font-style:italic;margin-bottom:0;}
+
+.bloco-soc{
+    background:#f9fcff;border:1px solid rgba(44,95,138,0.2);
+    border-left:4px solid #2c5f8a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2c5f8a;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:#2c5f8a;font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-resp{
+    background:#fffdf5;border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-resp .bk::before{content:'✓';font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;padding:5px 0;border-bottom:1px solid rgba(201,168,76,0.12);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.3vw,0.6rem);color:var(--ouro);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.55;color:#4a3a10;}
+
+.bloco-tempo{
+    background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--cor);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#2a2a2a;line-height:1.3;}
+
+.bloco-mat{
+    background:var(--creme);border:1px solid rgba(0,0,0,0.08);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2a2a2a;margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;color:#fff;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+.cit-autor{
+    border:1px solid rgba(176,80,24,0.25);background:rgba(176,80,24,0.03);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+    font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#3a1a0a;line-height:1.6;
+}
+.cit-autor cite{display:block;margin-top:6px;font-size:clamp(0.55rem,1.5vw,0.6875rem);font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--cor);}
+
+.alerta{
+    background:#fff5f5;border:1px solid rgba(139,26,26,0.25);
+    border-left:4px solid var(--vermelho);border-radius:3px;
+    padding:8px 12px;margin:10px 0;
+}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-fio{
+    background:linear-gradient(135deg,rgba(176,80,24,0.04),rgba(201,168,76,0.04));
+    border:1px dashed rgba(176,80,24,0.3);border-radius:3px;
+    padding:9px 12px;margin:10px 0;display:flex;align-items:flex-start;gap:10px;
+}
+.bloco-fio-icon{font-size:14pt;flex-shrink:0;margin-top:1px;color:var(--cor);line-height:1;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);font-style:italic;color:#3a1a0a;line-height:1.55;}
+.bloco-fio-txt strong{font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:1px;color:var(--cor);text-transform:uppercase;display:block;margin-bottom:3px;}
+
+.bloco-perf{
+    background:rgba(176,80,24,0.04);border:1px solid rgba(176,80,24,0.2);
+    border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:start;padding:4px 0;border-bottom:1px solid rgba(176,80,24,0.08);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--cor);color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:1px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#2a2a2a;line-height:1.45;}
+
+.bloco-aval{
+    background:#fffef0;border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#4a3a10;}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+.bloco-mapa{background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:2px;padding:7px 9px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#333;line-height:1.4;margin-bottom:0;text-align:left;}
+
+.rod-prof{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:5px 12mm 5mm 14mm;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(176,80,24,0.04);
+}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:clamp(0.45rem,1.3vw,0.56rem);color:var(--cor);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:clamp(0.6rem,1.8vw,0.75rem);color:var(--cor);}
+
+/* ── BLOCO CONTEXTO CULTURAL ─────────────────────────── */
+.bloco-cult{
+    background:#f5f5ff;border:1px solid rgba(80,60,160,0.2);
+    border-left:4px solid #5a3ea0;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#5a3ea0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-cult .bk::before{content:'🌐';font-size:9pt;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#2a1e55;}
+
+/* tags de sensibilidade */
+.tag-sens{display:inline-block;font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1.5px;text-transform:uppercase;border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;vertical-align:middle;}
+.tag-sens.delicado{background:#fde8e8;color:#8b1a1a;}
+.tag-sens.tecnico{background:#e8f0fd;color:#1a3a8b;}
+.tag-sens.aplicacao{background:#e8fde8;color:#1a5a1a;}
+.tag-sens.debate{background:#fdf5e8;color:#8b5a1a;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+  <div class="senha-caixa">
+    <div class="senha-icone"></div>
+    <div class="senha-titulo">ESCHATON</div>
+    <div class="senha-sub">Vol. III · Edição do Professor</div>
+    <div class="senha-desc">Material restrito para uso docente.<br>Insira a senha fornecida pela coordenação.</div>
+    <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+      onkeydown="if(event.key==='Enter')verificarSenha()" autocomplete="off" maxlength="20"/>
+    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <div class="senha-rodape">Eschaton Vol. III · EBD Jovens Adultos · Acesso Restrito</div>
+  </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL (oculto até senha correta) -->
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">
+    ESCHATON VOL. III
+    <span>Lição 04 · Portas Abertas e o Vômito de Deus</span>
+    <em>✦ Edição do Professor</em>
+  </div>
+  <span class="badge-prof">Professor</span>
+  <button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨 Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">04</div>
+  <div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+  <div class="ccon">
+    <div class="cser">Eschaton · O Futuro Chegou</div>
+    <div class="cref">Apocalipse 3:7–22 · Filadélfia e Laodiceia</div>
+    <div class="ctit">Portas Abertas e o Vômito de Deus</div>
+    <div class="cver">
+      "Laodiceia considerava-se rica e era pobre. Sardes se considerava viva e estava morta. Esmirna se considerava pobre, mas era rica. Filadélfia tinha pouca força, mas Jesus colocara diante dela uma porta aberta que ninguém pode fechar."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:0.625rem;letter-spacing:1px;color:var(--ouro);">Hernandes Dias Lopes</span>
+    </div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">1</span>
+  </div>
+</div>
+
+<!-- TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">2</div>
+  <div class="ph">
+    <span class="phl">Lição 04 · Vol. III</span>
+    <span class="pht">Filadélfia e Laodiceia</span>
+  </div>
+  <h2>O Texto</h2>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 3:8 — Filadélfia</div>
+    <p>"Conheço as tuas obras. Eis que tenho posto diante de ti uma porta aberta, que ninguém pode fechar; porque tens pouca força, mas guardaste a minha palavra e não negaste o meu nome."</p>
+    <span class="ref-f">Apocalipse 3:8</span>
+  </div>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 3:15–16, 20 — Laodiceia</div>
+    <p>"Conheço as tuas obras, que não és frio nem quente. Quem dera fosses frio ou quente! Assim, porque és morno e não quente nem frio, vomitar-te-ei da minha boca… Eis que estou à porta e bato; se alguém ouvir a minha voz e abrir a porta, entrarei em sua casa e cearei com ele, e ele, comigo."</p>
+    <span class="ref-f">Apocalipse 3:15–16, 20</span>
+  </div>
+  <div class="obj">
+    <div class="ot">Objetivos desta lição</div>
+    <ul>
+      <li>Descobrir a Igreja de Filadélfia — fraca aos olhos do mundo, rica aos olhos de Cristo</li>
+      <li>Compreender as três portas abertas que Cristo coloca diante da Igreja fiel</li>
+      <li>Diagnosticar a mornicidade de Laodiceia e suas causas profundas</li>
+      <li>Responder ao convite de Cristo que bate à porta e quer entrar</li>
+    </ul>
+  </div>
+  <div class="brefletir">
+    <div class="brefletir-t">✦ Para Você Refletir</div>
+    <p>Filadélfia era fraca; Laodiceia era poderosa. Cristo elogiou a primeira e repreendeu a segunda. O que essa inversão revela sobre os critérios pelos quais Cristo avalia uma Igreja — e uma vida cristã?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>As cartas às sete igrejas (Ap 2–3) seguem um padrão literário consistente: saudação, autodescrição de Cristo, diagnóstico, advertência/elogio e promessa ao vencedor. Filadélfia e Esmirna são as únicas que não recebem repreensão. Já Laodiceia e Sardes não recebem nenhum elogio. Essa estrutura não é acidental — João quer que o leitor perceba que a avaliação de Cristo é radicalmente diferente da avaliação humana.</p>
+    <p>A antítese "fraco/fiel vs. rico/morno" é o coração teológico desta lição. Paulo articula o mesmo princípio em 1 Co 1:26-29: "Deus escolheu as coisas fracas do mundo para envergonhar as fortes." O critério de Cristo é fidelidade — não tamanho, recurso ou influência.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Abertura sugerida (5 min):</strong> escreva no quadro as duas perguntas — "Como você avaliaria uma Igreja bem-sucedida?" e "Como Cristo a avalia?" — e peça que a turma responda em pares antes de abrir o texto. O contraste entre as respostas da turma e os critérios de Cristo (Ap 3:8) é a porta de entrada da lição. Deixe a tensão instalar-se antes de resolvê-la.</p>
+    <p><strong>Tempo sugerido para esta página:</strong> 12 minutos. Leia os dois textos bíblicos em voz alta antes de avançar — o impacto auditivo da expressão "vomitar-te-ei" não deve ser subestimado.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">2</span>
+  </div>
+</div>
+
+<!-- FILADÉLFIA — A PORTA ABERTA -->
+<div class="lbl">Página 3 · Filadélfia — A Igreja da Porta Aberta</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">3</div>
+  <div class="ph">
+    <span class="phl">Lição 04 · Vol. III</span>
+    <span class="pht">A Igreja de Filadélfia</span>
+  </div>
+  <h2>Filadélfia — Pouca Força, Porta Aberta</h2>
+  <p class="cap">Filadélfia era uma cidade fundada com uma missão: ser a porta de divulgação da cultura grega na Ásia. John Stott observa que o que a cidade havia sido para a cultura helênica era agora o que a Igreja devia ser para o evangelho. Cristo aproveita esse gancho cultural para dizer: "Tenho posto diante de ti uma porta aberta que ninguém pode fechar."</p>
+  <div class="bloco">
+    <div class="bloco-t">O Contexto de Filadélfia</div>
+    <p>A cidade vivia assombrada por terremotos — o terremoto de 17 d.C. havia destruído Sardes e atingido Filadélfia. Muitos viviam em tendas fora das muralhas por medo. Para essa Igreja que vivia sob tremores constantes, Cristo promete: "Ao vencedor, fazê-lo-ei coluna no santuário do meu Deus, e daí jamais sairá." Uma coluna inabalável para quem vive sob o terror dos abalos. Além disso, a cidade havia trocado de nome para honrar o imperador. Cristo responde: os vencedores receberão o nome de Deus gravado — não o nome de César.</p>
+  </div>
+  <h3>As Três Portas Abertas — Ap 3:8</h3>
+  <p>Hernandes Dias Lopes identifica três dimensões da "porta aberta" que Cristo coloca diante de Filadélfia. A <strong>primeira porta</strong> é a oportunidade da salvação — a porta do coração aberta para receber a Cristo. A <strong>segunda porta</strong> é a oportunidade do evangelismo — o campo missionário aberto para a proclamação do evangelho. A <strong>terceira porta</strong> é a porta do Pai — a entrada para a vida eterna e a comunhão com Deus. A Igreja que guarda a Palavra e não nega o nome de Cristo tem diante de si as três portas simultaneamente abertas.</p>
+  <div class="bconexao">
+    <div class="bconexao-t">✦ Conexão Bíblica</div>
+    <p>Em Isaías 22:22, Deus diz sobre Eliaquim: "Porei sobre o seu ombro a chave da casa de Davi; ele abrirá, e ninguém fechará; fechará, e ninguém abrirá." Cristo aplica esse título a si mesmo em Ap 3:7. O que essa referência revela sobre quem detém a autoridade real sobre o acesso ao reino de Deus?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>A "porta aberta" de Ap 3:8 tem paralelo direto em 1 Co 16:9 ("uma porta grande e eficaz se me abriu") e 2 Co 2:12 ("o Senhor me abriu porta"). Paulo usa a mesma metáfora para oportunidades missionárias. John Stott, em <em>As Cartas às Sete Igrejas</em>, destaca que Filadélfia foi fundada precisamente para ser um portal cultural — Cristo transforma esse legado histórico em vocação eclesiástica. A Igreja fraca que guarda a Palavra é exatamente o instrumento que Deus usa para abrir novas fronteiras do evangelho.</p>
+    <p>A promessa de ser "coluna no templo" (Ap 3:12) é especialmente significativa para quem vivia fora das muralhas por medo de terremotos. Cristo promete estabilidade eterna exatamente àqueles acostumados à instabilidade constante. A pastoral implícita é poderosa: o sofrimento presente não contradiz a segurança futura.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual</div>
+    <p><strong>Mapa sugerido:</strong> projete ou esboce um mapa da Ásia Menor com as sete cidades das cartas (Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadélfia, Laodiceia) em ordem geográfica, formando um circuito postal. Destaque Filadélfia na rota e mostre sua posição como "porta de entrada" para o interior da Ásia. O contexto geográfico ancora o texto e reforça a metáfora da porta com naturalidade.</p>
+    <p><strong>Alternativa rápida:</strong> escreva no quadro as três portas (salvação / evangelismo / vida eterna) em colunas e peça que a turma associe versículos do Novo Testamento a cada uma. Exercício rápido de 3 minutos que ativa o engajamento antes da próxima seção.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">3</span>
+  </div>
+</div>
+
+<!-- FILADÉLFIA — FRACA MAS FIEL -->
+<div class="lbl">Página 4 · A Igreja Fraca que Tem Tudo</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">4</div>
+  <div class="ph">
+    <span class="phl">Lição 04 · Vol. III</span>
+    <span class="pht">A Igreja de Filadélfia</span>
+  </div>
+  <h2>A Igreja Fraca que Cristo Parabeniza</h2>
+  <p>A Igreja de Filadélfia não tinha fama nem recursos. Talvez fosse pequena, formada de crentes pobres e escravos. Não tinha influência política nem social na cidade. E exatamente essa Igreja — que não impressiona ninguém — recebe de Cristo o mais entusiástico elogio das sete cartas: nenhuma repreensão, apenas encorajamento e promessas.</p>
+  <div class="blteo">
+    <div class="blteo-t">O Contraste que Ilumina</div>
+    <p>Hernandes Dias Lopes faz a comparação que desmonta todas as nossas ilusões: "Laodiceia considerava-se rica e era pobre. Sardes se considerava viva e estava morta. Esmirna se considerava pobre, mas era rica. Filadélfia tinha pouca força, mas Jesus colocara diante dela uma porta aberta que ninguém pode fechar." O critério de Deus para uma Igreja é radicalmente diferente do critério humano.</p>
+  </div>
+  <h3>A Chave de Davi — Ap 3:7</h3>
+  <p>Cristo se apresenta a Filadélfia como aquele que "tem a chave de Davi, que abre e ninguém fechará, que fecha e ninguém abrirá" — referência a Isaías 22:22. A chave de Davi representa autoridade soberana sobre o reino de Deus. Nenhum inimigo — mesmo a "sinagoga de Satanás" que difamava a Igreja — podia fechar o que Cristo abriu. A Igreja fraca estava sob a proteção de um Cristo que tem todas as chaves.</p>
+  <p>Essa é a mensagem que a Igreja que se sente fraca e irrelevante precisa ouvir: a força que abre portas não é a força humana — é a chave nas mãos de Cristo. Sua fidelidade é o que faz a porta permanecer aberta.</p>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 3:11</div>
+    <p>"Venho depressa; retém o que tens, para que ninguém tome a tua coroa."</p>
+    <span class="ref-f">Apocalipse 3:11</span>
+  </div>
+  <div class="bpense">
+    <div class="bpense-t">✦ Pense Nisso</div>
+    <p>Cristo não elogia Filadélfia por seu tamanho, seus recursos ou sua influência — mas por guardar a Palavra e não negar o nome de Cristo. Quais são as duas coisas que você precisa guardar para manter a porta aberta diante de você?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>A expressão "sinagoga de Satanás" (Ap 3:9) é teologicamente delicada. João não faz uma afirmação antissemita — ele está descrevendo um grupo específico que perseguia ativamente os cristãos usando acusações religiosas, provavelmente denunciando-os às autoridades romanas como subversivos. O contexto é pastoral: Cristo garante à Igreja perseguida que seus perseguidores serão constrangidos a reconhecer o amor de Deus pela comunidade cristã. A promessa é de vindicação, não de vingança.</p>
+    <p>"Retém o que tens" (Ap 3:11) — o verbo grego <em>kratéō</em> significa segurar com firmeza, não relaxar o aperto. É uma imagem ativa, não passiva. Fidelidade não é ausência de movimento; é perseverança intencional sob pressão.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Pergunta disparadora para esta seção (3 min):</strong> "Qual Igreja você mais admira — a grande com muito recurso, ou a pequena com muita fidelidade? Por quê?" Deixe dois ou três comentários e então leia Ap 3:8 novamente. O contraste entre a admiração natural e o critério de Cristo é o ponto de virada desta página.</p>
+    <p><strong>Aplicação ao contexto brasileiro:</strong> muitas igrejas evangélicas brasileiras medem sucesso por números de membros, tamanho do templo e visibilidade midiática. Cristo avalia por fidelidade à Palavra e coragem de não negar o nome de Cristo. Pergunte à turma: "Em quais situações da vida cotidiana vocês sentem pressão para negar o nome de Cristo — no trabalho, nas redes sociais, nos relacionamentos?"</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">4</span>
+  </div>
+</div>
+
+<!-- LAODICEIA -->
+<div class="lbl">Página 5 · Laodiceia — O Diagnóstico da Mornicidade</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">5</div>
+  <div class="ph">
+    <span class="phl">Lição 04 · Vol. III</span>
+    <span class="pht">A Igreja de Laodiceia</span>
+  </div>
+  <h2>Laodiceia — A Igreja que Causa Náuseas</h2>
+  <p class="cap">Laodiceia era uma das cidades mais ricas da Ásia Menor — tão opulenta que quando o terremoto de 60 d.C. a devastou, a cidade foi reconstruída sem pedir ajuda ao senado romano. Era um poderoso centro bancário, médico e comercial. O orgulho de Laodiceia era contagioso — e os cristãos contraíram a epidemia da soberba.</p>
+  <div class="bloco">
+    <div class="bloco-t">O Diagnóstico de Cristo</div>
+    <p><strong>Falta de fervor espiritual</strong> — a Igreja não era quente nem fria, mas morna. Fritz Rienecker explica o contexto: as águas quentes medicinais de Hierápolis curavam; as águas frias e puras de Colossos refrescavam. Laodiceia não fazia nenhum dos dois — era totalmente ineficaz. <strong>Autoconfiança falsa</strong> — a Igreja dizia "estou rico e não preciso de coisa alguma", mas era pobre, nua e cega. Mendiga apesar de seus bancos, cega apesar de seus conhecimentos médicos, nua apesar de suas fábricas de tecidos. <strong>Auto-engano total</strong> — ser morno e ser cego à própria condição.</p>
+  </div>
+  <h3>Por Que Morno É Pior que Frio</h3>
+  <p>Hernandes Dias Lopes, citando Arthur Blomfield e Charles Erdman: "É mais honroso ser um ateu declarado do que ser um membro incrédulo de uma Igreja evangélica. Religião tépida provoca náuseas." Cristo tinha muito mais esperança nos publicanos e pecadores do que nos orgulhosos fariseus. Quem nunca professou a fé e tem consciência de sua falta de vida moral é muito mais fácil de ajudar do que quem se julga crente, mas não tem verdadeira vida espiritual. A indiferença espiritual é pior que a frieza.</p>
+  <p>Jonathan Edwards: "Precisamos ter luz na mente e fogo no coração. A verdade de Deus é lógica em fogo." O fervor não é fanatismo — fanatismo é um fervor irracional. O fervor genuíno une a cabeça e o coração.</p>
+  <div class="bsabia">
+    <div class="bsabia-t">✦ Sabia Que?</div>
+    <p>Laodiceia não tinha fonte de água própria — recebia água por aqueduto de fontes distantes. Ao chegar, a água quente de Hierápolis já estava morna, e a água fria de Colossos já havia esquentado. A imagem que Cristo usa para repreender a Igreja era literalmente o problema cotidiano da cidade: água que não serve para nada — nem cura nem refresca.</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>O diagnóstico triplo de Laodiceia — pobre, nua, cega — é deliberadamente irônico: a cidade era famosa por seus bancos (riqueza), sua indústria têxtil (vestuário) e sua escola médica especializada em colírio (tratamento ocular). Cristo usa os próprios orgulhos da cidade como espelho do estado espiritual da Igreja. A riqueza material não apenas não garante a riqueza espiritual — ela frequentemente a oculta, criando a ilusão de que tudo está bem.</p>
+    <p>A palavra grega para "morno" (<em>chliarós</em>) aparece apenas neste versículo no NT. O contexto geográfico da água morna de Laodiceia é confirmado por escavações arqueológicas que revelaram o sistema de aquedutos da cidade — os primeiros leitores entenderiam a metáfora imediatamente, sem necessidade de explicação.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Dinâmica de autodiagnóstico (5 min):</strong> peça que cada aluno, sem compartilhar com ninguém, trace um termômetro espiritual em seu caderno — frio, morno ou quente — e marque onde se encontra hoje. Em seguida, pergunte: "O que te levou a esse ponto? Quando foi a última vez que você estava mais quente do que agora?" Não force a partilha. O objetivo é a honestidade interior, não a performance pública.</p>
+    <p><strong>Distinção importante para a turma:</strong> o diagnóstico de "morno" não é uma questão de emoção religiosa — é uma questão de eficácia espiritual. Uma pessoa pode ter emoções intensas no culto e ainda assim ser morna na vida cotidiana. A frieza que Cristo repreende é a ineficácia — a incapacidade de curar ou de refrescar quem está ao redor.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">🤝 Orientação Pastoral</div>
+    <p>Esta seção pode gerar culpa excessiva em pessoas com histórico de perfeccionismo religioso ou ansiedade espiritual. Antes de avançar para a aplicação, reforce a graça implícita em Ap 3:19: "Eu repreendo e disciplino aqueles a quem amo." O diagnóstico severo de Cristo é um ato de amor pastoral — ele não repreende os que já abandonou. Se Cristo ainda está repreendendo, ainda há relação. Isso é fundamento para esperança, não para desespero.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">5</span>
+  </div>
+</div>
+
+<!-- APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">6</div>
+  <div class="ph">
+    <span class="phl">Lição 04 · Vol. III</span>
+    <span class="pht">Filadélfia e Laodiceia</span>
+  </div>
+  <h2>Aplicação Direta</h2>
+  <p class="cap">A carta a Laodiceia termina com um dos versículos mais inesperados do Apocalipse: Cristo — que acabou de dizer que vomitaria a Igreja — bate à porta e pede para entrar. Mesmo a Igreja que O enoja, Ele não abandona. Ele ainda bate. Ainda convida. A graça do Cristo que bate à porta da Igreja morna é o argumento mais forte contra a autossuficiência religiosa.</p>
+  <div class="blapl">
+    <div class="blapl-t">Para esta semana</div>
+    <p><strong>Para quem se identifica com Filadélfia:</strong> Você pode ter pouca força — pequena Igreja, poucos recursos, pouca influência social. Mas Cristo tem a chave. "Retém o que tens" — o que você precisa guardar nesta semana para não perder a fidelidade que tem? A fidelidade não chama atenção, mas abre portas que ninguém pode fechar. <strong>Para quem se identifica com Laodiceia:</strong> Seja honesto: sua vida espiritual tem temperatura? Quando foi a última vez que você se emocionou genuinamente diante de Deus, que orou com urgência, que evangelizou com convicção? O diagnóstico de Cristo é preciso: "não és frio nem quente." Cristo ainda está batendo à porta — a questão é se você vai abrir.</p>
+  </div>
+  <div class="sep"><span>◆</span></div>
+  <p>O conselho de Cristo a Laodiceia é um convite ao mercado espiritual: "aconselho-te que compres de mim ouro refinado no fogo… e vestes brancas… e colírio." Cristo não ordena — ele aconselha. Ele prefere dar conselhos a quem ainda tem coração para ouvir. O soberano de tudo prefere bater à porta. Até quando você vai deixá-lo esperando?</p>
+  <div class="bleve">
+    <div class="bleve-t">✦ Leve para a Vida</div>
+    <p>Esta semana, avalie honestamente a temperatura da sua vida espiritual. Escreva em uma frase como você a descreveria: quente, fria ou morna? Então use Apocalipse 3:20 como oração: abra a porta. Convide Cristo para entrar não apenas no "espaço público" da sua vida religiosa, mas no "espaço íntimo" — os hábitos, os relacionamentos, as ambições que ainda não foram entregues a ele.</p>
+    <div class="lr" style="margin-top:8px;"></div>
+    <div class="lr"></div>
+  </div>
+  <div class="mem">
+    <div class="mem-t">◆ Versículo para Memorizar</div>
+    <p>"Eis que estou à porta e bato; se alguém ouvir a minha voz e abrir a porta, entrarei em sua casa e cearei com ele, e ele, comigo."</p>
+    <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:0.625rem;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 3:20</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>Apocalipse 3:20 é frequentemente usado como versículo de apelo evangelístico — e não sem razão, pois a linguagem é universalmente acessível. No entanto, o contexto imediato é endereçado a uma Igreja, não a incrédulos. Cristo está batendo à porta de uma comunidade que já professa o seu nome. O "entrar e cear" evoca a ceia do Senhor e a intimidade da comunhão — Cristo quer ser convidado para o centro da vida eclesial, não apenas para a periferia das atividades religiosas.</p>
+    <p>O verbo grego <em>deipnéō</em> ("cear") remete à refeição principal do dia — um ato de comunhão íntima e demorada, não de visita rápida. Cristo não bate à porta para uma visita protocolar; ele quer sentar-se à mesa.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Encerramento sugerido (5–8 min):</strong> leia Ap 3:20 em voz alta e então faça um momento de silêncio de 60 segundos. Diga à turma: "Identifique mentalmente a área da sua vida — hábito, relacionamento, ambição — onde você ainda não abriu a porta para Cristo." Encerre com uma oração de entrega guiada, dando espaço para que cada pessoa faça a sua parte em silêncio. Evite transformar o encerramento em apelo emocional performático — a profundidade da Palavra já faz o trabalho.</p>
+    <p><strong>Versículo de memória:</strong> sugira que a turma use Ap 3:20 como alarme no celular para a semana — ao ouvir, parar por 30 segundos e perguntar a si mesma: "Cristo está batendo. O que está me impedindo de abrir?"</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">🤝 Orientação Pastoral</div>
+    <p>A dupla aplicação (Filadélfia / Laodiceia) é uma escolha pedagógica intencional — não force que todos se identifiquem com Laodiceia. Haverá na turma pessoas que genuinamente têm "pouca força" e estão sendo fiéis — elas precisam ouvir o encorajamento de Cristo a Filadélfia, não apenas a repreensão a Laodiceia. Pergunte ao grupo qual das duas cartas ressoa mais com eles esta semana. A diversidade de respostas enriquece o debate e acolhe realidades diferentes.</p>
+    <p>Esteja disponível após a aula para conversas individuais. A pergunta sobre a "temperatura espiritual" pode abrir portas para questões de fé mais profundas — dúvidas, crises, estagnação — que merecem acompanhamento pastoral além do contexto da EBD.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">6</span>
+  </div>
+</div>
+
+<!-- QUESTÕES E ANOTAÇÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">7</div>
+  <div class="ph">
+    <span class="phl">Lição 04 · Vol. III</span>
+    <span class="pht">Filadélfia e Laodiceia</span>
+  </div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">A Igreja de Filadélfia "tinha pouca força" aos olhos humanos, mas Cristo não tinha nenhuma repreensão para ela e prometeu uma porta aberta que ninguém fecharia. O que isso revela sobre os critérios de Cristo para avaliar uma Igreja — e como isso muda a forma como você avalia a sua própria Igreja ou grupo de jovens?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">Hernandes Dias Lopes diz que "morno é pior que frio." Por que a indiferença espiritual é mais difícil de curar do que a frieza declarada? O que é mais fácil para Cristo trabalhar — um coração que rejeita abertamente ou um que professa, mas não tem fogo?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">Cristo diz a Laodiceia que ela é "pobre, nua e cega" — exatamente o oposto do que a cidade e a Igreja pensavam de si mesmas. Como a prosperidade material pode criar uma cegueira espiritual que impede a Igreja de ver sua própria necessidade? Você vê esse padrão na Igreja evangélica brasileira hoje?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">Cristo bate à porta de uma Igreja que quase o enjoou — e pede para entrar e cear com ela. O que esse gesto revela sobre a paciência de Cristo com sua Igreja, mesmo quando ela está em estado de mornicidade grave? Como isso muda sua disposição para abrir a porta?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR -->
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula — Gabarito Orientador</div>
+    <p><strong>Q1:</strong> espere respostas que confrontem a tendência de avaliar uma Igreja por seu tamanho e visibilidade. O ponto-chave é que Cristo elogia fidelidade, não eficiência. Pergunte: "O que seria diferente no seu ministério se você avaliasse sucesso com os critérios de Cristo, não com os critérios do mercado religioso?"</p>
+    <p><strong>Q2:</strong> a indiferença é mais difícil de curar porque quem está frio sabe que está frio; quem está morno frequentemente não sente a própria mornidez. Auto-engano é o diagnóstico mais grave. Jesus tinha mais acesso ao coração dos pecadores declarados (Lc 15) do que ao dos fariseus satisfeitos (Lc 18:9-14).</p>
+    <p><strong>Q3:</strong> questão de alta relevância contextual. Encoraje respostas concretas e não apenas abstratas. Cuidado para não deixar o debate tornar-se crítica genérica à Igreja — direcione para a autoaplicação: "E na sua vida, como a prosperidade material afeta sua vida espiritual?"</p>
+    <p><strong>Q4:</strong> o centro da graça desta lição. Cristo não abandona nem a Igreja que está à beira do vômito — ele bate à porta. Essa é a misericórdia que surpreende. Encoraje respostas que reconheçam a paciência de Cristo como fundamento da disposição para arrependimento.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual — Quadro Comparativo</div>
+    <p>Encerre a aula com um quadro de duas colunas no quadro ou projetado:</p>
+    <p><strong>Filadélfia</strong> — pouca força / fidelidade à Palavra / não nega o nome / porta aberta / nenhuma repreensão / promessa de coluna inabalável.</p>
+    <p><strong>Laodiceia</strong> — autossuficiência / mornicidade / auto-engano / nenhum elogio / ameaça de ser vomitada / mas Cristo ainda bate à porta.</p>
+    <p>A visualização lado a lado reforça a inversão de valores e sela a lição na memória da turma de forma concreta e rápida.</p>
+  </div>
+
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div>
+    <div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINAS EXCLUSIVAS DO PROFESSOR — P1 a P4
+     ══════════════════════════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL DO PROFESSOR -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral da Lição</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 04 · Vol. III · Guia do Professor</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Esta lição encerra o ciclo das sete cartas com um contraste que condensa toda a teologia do Apocalipse: a Igreja fraca e fiel que tem portas abertas (Filadélfia) versus a Igreja poderosa e morna que enoja a Cristo (Laodiceia). Seu papel é o de <em>espelho pastoral</em>: conduzir a turma ao autodiagnóstico de temperatura espiritual — sem transformar o diagnóstico em culpa paralisante, mas em convite genuíno para abrir a porta a Cristo.</p>
+  <p>A tensão central da lição é a inversão de valores: fraqueza humana + fidelidade = aprovação de Cristo; riqueza humana + autossuficiência = reprovação. Mantenha esse fio ao longo de toda a exposição. A lição termina com a imagem mais graciosa do Apocalipse: Cristo batendo à porta de uma Igreja que quase O enjoou — esperando para entrar.</p>
+  <div class="bloco-mapa">
+    <div class="bk">Mapa de Competências da Lição</div>
+    <div class="mapa-grid">
+      <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar as características de Filadélfia e Laodiceia; compreender os critérios de avaliação de Cristo; contextualizar historicamente as duas cidades</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Distinguir força humana de fidelidade espiritual; diagnosticar a própria temperatura espiritual; reconhecer autossuficiência religiosa</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Valorizar fidelidade sobre visibilidade; cultivar dependência consciente de Cristo; responder ao convite de Ap 3:20 com abertura real</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno consegue identificar sua "temperatura espiritual" e nomear uma área onde Cristo ainda está batendo à porta?</p></div>
+    </div>
+  </div>
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: dinâmica sobre critérios de avaliação de uma Igreja (ver P2)</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2 — Texto bíblico, objetivos e pergunta de reflexão</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3–4 — Filadélfia: contexto, chave de Davi, três portas</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Laodiceia: diagnóstico triplo, por que morno é pior que frio</span></div>
+    <div class="tempo-linha"><span class="tempo-min">9 min</span><span class="tempo-desc">Pg. 6 — Aplicação: termômetro espiritual e Ap 3:20</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 7 — 1–2 questões em aula + encerramento com oração de Ap 3:20</span></div>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Inverter os critérios de avaliação da turma: de tamanho/recurso para fidelidade/temperatura</li>
+      <li>Conduzir o autodiagnóstico de Filadélfia ou Laodiceia sem criar julgamento entre os alunos</li>
+      <li>Culminar a lição e a série das sete cartas com a graça de Ap 3:20 — Cristo batendo à porta</li>
+      <li>Encerrar com decisão pessoal concreta: abrir uma porta específica a Cristo esta semana</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção do Professor</div>
+    <p>O diagnóstico de "morno" pode gerar culpa intensa em pessoas com perfil perfeccionista ou com histórico de ansiedade espiritual. Antes de aprofundar em Laodiceia, ancore na graça de Ap 3:19: "Eu repreendo e disciplino aqueles a quem amo." Cristo repreende porque ainda há relação — se estivesse indiferente, não estaria batendo à porta. Essa é a misericórdia implícita no diagnóstico mais severo do Apocalipse.</p>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">⇢</div>
+    <div class="bloco-fio-txt"><strong>Fio Condutor da Série Vol. III</strong>Lição 01: Cristo glorioso entre os castiçais. L02: Éfeso (amor perdido) e Esmirna (fidelidade no sofrimento). L03: Pérgamo, Tiatira, Sardes — perigos internos. Agora, L04 encerra com a tensão máxima: a Igreja mais elogiada é a mais fraca; a mais rica é a mais reprovada. Cristo fecha o ciclo das cartas batendo à porta — a última imagem é de graça, não de julgamento.</div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA DE ABERTURA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 04 · Dinâmica &amp; Teologia</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5–7 min</span></h2>
+  <div class="bloco-debate">
+    <div class="bk">O Ranking das Igrejas — antes de abrir o material</div>
+    <p>Escreva no quadro: "Classifique o que torna uma Igreja bem-sucedida — de mais a menos importante." Liste: número de membros / fidelidade à Palavra / tamanho do templo / impacto social / não negar o nome de Cristo / visibilidade nas redes. Peça que a turma vote individualmente (pode ser por levantamento de mão). Registre o resultado. Em seguida, leia Ap 3:8 — e pergunte: "Como Cristo classificaria essa lista?" O choque entre o ranking humano e o critério de Cristo é a porta de entrada da lição.</p>
+  </div>
+  <div class="bloco-dica">
+    <div class="bk">Como conduzir</div>
+    <ul>
+      <li>Não corrija o ranking da turma na abertura — deixe o texto corrigir durante a lição</li>
+      <li>Use o resultado do vote ao longo da exposição: "Vocês colocaram X em primeiro — Cristo nem menciona isso em Filadélfia"</li>
+      <li>Em turmas menores, substitua a votação por uma pergunta individual: "Se Cristo fosse avaliar sua Igreja hoje, o que Ele provavelmente elogiaria? O que Ele repreenderia?"</li>
+    </ul>
+  </div>
+  <div class="bloco-soc">
+    <div class="bk">Escada de Perguntas Socráticas</div>
+    <div class="soc-item">
+      <p>Nível 1 — Diagnóstico: "Filadélfia tinha pouca força e nenhum recurso visível — e Cristo abriu portas que ninguém fecha. Laodiceia tinha tudo e Cristo estava do lado de fora batendo. O que isso revela sobre a relação entre autossuficiência e acesso a Deus?"</p>
+      <div class="soc-espera">Espera: percepção de que a autossuficiência fecha a porta por dentro — não porque Cristo fecha, mas porque quem não precisa não abre</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 2 — Textual: "Cristo diz que preferiria que Laodiceia fosse fria a ser morna. Por que a frieza honesta é mais tratável do que a mornicidade religiosa?"</p>
+      <div class="soc-espera">Espera: quem está frio sabe que está frio; quem está morno frequentemente não percebe — o auto-engano é o diagnóstico mais grave</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 3 — Aplicação: "Ap 3:20 é endereçado a uma Igreja, não a incrédulos. O que significa para você que Cristo ainda está batendo à porta de uma comunidade que quase O enjoou?"</p>
+      <div class="soc-espera">Espera: a paciência de Cristo como fundamento da esperança; a graça implícita no diagnóstico mais severo; abertura para a decisão de abrir a porta</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+  <div class="bloco-teo">
+    <div class="bk">A Chave de Davi — Isaías 22:22 e Ap 3:7</div>
+    <p>A referência à "chave de Davi" é uma das citações veterotestamentárias mais explícitas das sete cartas. Em Is 22:22, Deus entrega a Eliaquim a chave da casa de Davi — autoridade sobre o acesso ao palácio real. Cristo aplica esse título a si mesmo: ele tem autoridade absoluta sobre quem entra no reino de Deus. A "sinagoga de Satanás" podia excluir os cristãos da sinagoga judaica — mas não podia fechar o acesso ao reino que Cristo abrira. Para a Igreja perseguida, essa é uma promessa concreta de proteção de uma autoridade superior.</p>
+  </div>
+  <div class="bloco-teo">
+    <div class="bk">A Água Morna de Laodiceia — Contexto Arqueológico</div>
+    <p>Escavações arqueológicas em Laodiceia confirmaram o sistema de aquedutos descrito pelos comentaristas: a cidade recebia água canalizada de fontes quentes de Hierápolis (a 10 km) e de fontes frias de Colossos (a 18 km). Ao percorrer os aquedutos, as águas quentes esfriavam e as frias esquentavam — chegando a Laodiceia sempre morna, mineralmente saturada e literalmente enjoativa. O primeiro leitor da carta entendia a metáfora imediatamente. Cristo usa o problema mais trivial da vida cotidiana da cidade como espelho de seu estado espiritual.</p>
+  </div>
+  <div class="cit-autor">
+    "É mais honroso ser um ateu declarado do que ser um membro incrédulo de uma Igreja evangélica. Religião tépida provoca náuseas. Cristo tinha muito mais esperança nos publicanos e pecadores do que nos orgulhosos fariseus."
+    <cite>— Hernandes Dias Lopes, <em>Apocalipse: O Futuro Chegou</em>, citando Arthur Blomfield e Charles Erdman</cite>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO DE TENSÕES -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 04 · Pedagogia &amp; Gestão</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <div class="bloco-dica">
+    <div class="bk">Para Tornar o Conteúdo Concreto</div>
+    <ul>
+      <li><strong>Quadro comparativo Filadélfia / Laodiceia:</strong> duas colunas no quadro — preenchidas ao longo da exposição com a turma. Linhas sugeridas: Situação material / Avaliação de Cristo / Elogio/Repreensão / Promessa. O contraste visual sela a inversão de valores na memória da turma.</li>
+      <li><strong>O termômetro espiritual:</strong> peça que cada aluno trace em silêncio um termômetro (frio / morno / quente) e marque onde está hoje. Não é partilhado — é diagnóstico pessoal. Pode ser o exercício mais transformador da lição se dado com tempo suficiente (3 minutos de silêncio real).</li>
+      <li><strong>Ap 3:20 como oração de encerramento:</strong> leia o versículo em voz alta e faça 60 segundos de silêncio. Convide cada pessoa a identificar mentalmente a "porta" que ainda não abriu — um hábito, um relacionamento, uma ambição. Encerre com oração de entrega guiada, sem pressão emocional performática.</li>
+    </ul>
+  </div>
+  <div class="bloco-cult">
+    <div class="bk">Conexão com a Cultura Contemporânea</div>
+    <p>O padrão de Laodiceia é talvez o mais presente na Igreja evangélica brasileira contemporânea: comunidades ricas em produção de conteúdo, estética de culto, visibilidade midiática e infraestrutura — mas com temperatura espiritual questionável. A pergunta que Cristo faz não é "sua Igreja tem quantos membros?" mas "ela cura os doentes ou refresca os sedentos?" — ou seja, ela tem eficácia espiritual real? O professor não precisa nomear igrejas; basta convidar a turma a reconhecer o padrão na própria vida.</p>
+  </div>
+  <div class="bloco-perf">
+    <div class="bk">Diferenciação por Perfil de Turma</div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Jovens urbanos</div>
+      <div class="perf-txt">Laodiceia ressoa fortemente — geração com acesso fácil a conteúdo cristão, podcasts, eventos, mas frequentemente sem prática de oração, leitura bíblica ou evangelismo. A pergunta "você tem temperatura?" pode ser mais desconfortável do que parece.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Pequenas igrejas</div>
+      <div class="perf-txt">Filadélfia é o antídoto ao complexo de inferioridade. Enfatize: a Igreja que guarda a Palavra e não nega o nome de Cristo tem a chave de Davi trabalhando a seu favor — independentemente do tamanho.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Líderes e diáconos</div>
+      <div class="perf-tipo" style="background:#5a3ea0;">Líderes</div>
+      <div class="perf-txt">Laodiceia é o risco institucional da liderança bem-sucedida: o sucesso visível pode mascarar a mornicidade espiritual. Pergunte: "O que da sua liderança é para a glória de Cristo, e o que é para a validação humana?"</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Desanimados</div>
+      <div class="perf-txt">Comece por Filadélfia. A mensagem de que Cristo elogia a Igreja que "tem pouca força" pode ser a mais necessária para quem se sente insuficiente, invisível ou sem recursos.</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Gestão de Tensões</h2>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "Isso está descrevendo a minha Igreja"</div>
+    <p>Se alguém começar a aplicar o diagnóstico de Laodiceia coletivamente à sua congregação, redirecione com delicadeza: "O texto é escrito para que cada um se pergunte: 'Sou eu quente, frio ou morno?' — não para avaliarmos a temperatura dos outros ou da nossa Igreja como instituição. O autoexame é a ferramenta; o julgamento institucional tem outro fórum." Mantenha o foco no coração individual.</p>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — Paralisia ou culpa diante do diagnóstico de Laodiceia</div>
+    <p>Se alguém demonstrar culpa intensa ao se identificar com Laodiceia, mude o ângulo imediatamente para Ap 3:20: "Cristo não está vomitando você — Ele está batendo à porta. O diagnóstico é o mais severo; a resposta de Cristo é a mais graciosa. Ele ainda bate porque ainda há relação. Isso é fundamento para esperança, não para desespero." O versículo 20 é a virada da lição — use-o pastoralmente.</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Cada aluno escolhe em silêncio: "Sou mais Filadélfia ou Laodiceia esta semana?"</li>
+      <li>Escreve no espaço de linhas: uma área da vida onde Cristo está batendo à porta e ainda não foi aberta</li>
+      <li>Leitura de Ap 3:20 em voz alta + 60 segundos de silêncio</li>
+      <li>Oração de entrega guiada: "Senhor, identifico a porta que não abri ainda. Hoje eu abro."</li>
+      <li>Anuncie: próxima lição — Apocalipse 4: a visão do trono — o fundamento de tudo o que vem a seguir</li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS SUGERIDAS + MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 04 · Respostas &amp; Recursos</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01</div>
+      <div class="resp-txt">A lição central de Filadélfia é que os critérios de Cristo são radicalmente distintos dos critérios humanos: Ele não elogia tamanho, visibilidade ou recurso — mas fidelidade à Palavra e coragem de não negar o nome de Cristo. Para a avaliação da própria Igreja: estimule respostas que distingam entre eficácia visível (produção, membros, infraestrutura) e eficácia espiritual (vidas transformadas, discípulos formados, presença real de Cristo no centro). A pergunta não é "nossa Igreja é grande?" mas "nossa Igreja guarda a Palavra e não nega o nome de Cristo?"</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02</div>
+      <div class="resp-txt">A mornicidade é mais resistente ao tratamento porque pressupõe auto-engano: quem está frio sabe que está frio e tem consciência de sua distância de Deus — é mais fácil de ajudar porque reconhece a necessidade. Quem está morno frequentemente não percebe a própria temperatura: professa fé, frequenta cultos, participa de grupos, mas sem fogo real. Jesus demonstrou esse princípio: tinha acesso muito maior ao coração dos publicanos (Lc 19) e da mulher samaritana (Jo 4) do que dos fariseus satisfeitos (Lc 18:9–14). A satisfação espiritual é o maior obstáculo à graça.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03</div>
+      <div class="resp-txt">O diagnóstico irônico de Cristo usa os próprios orgulhos de Laodiceia como espelho: a cidade famosa por seus bancos era espiritualmente pobre; a famosa por seus tecidos era espiritualmente nua; a famosa por seu colírio era espiritualmente cega. Para a Igreja brasileira: a prosperidade material pode criar a ilusão de que "estamos bem" espiritualmente — quando na verdade a dependência de Deus diminui na mesma proporção que os recursos aumentam. A autossuficiência é o maior risco de quem tem tudo. Encoraje respostas que apliquem o padrão à própria vida.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04</div>
+      <div class="resp-txt">A imagem de Cristo batendo à porta de Laodiceia é a graça mais surpreendente das sete cartas: a Igreja que Ele quase vomitou ainda é visitada por Ele — não para executar julgamento, mas para cear. A paciência de Cristo revela que o diagnóstico severo não é a palavra final: é um chamado. Para a disposição de abrir a porta: quem entende que Cristo está do lado de fora — esperando, batendo, convidando — tem um fundamento completamente diferente para o arrependimento: não é medo do julgamento, mas resposta à iniciativa graciosa de Cristo. Dê tempo de silêncio antes de abrir para partilha.</div>
+    </div>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">↻</div>
+    <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Respostas são orientativas. Em Q2 e Q4, a profundidade virá do silêncio antes da partilha — não apresse. Em Q3, cuidado para não deixar o debate tornar-se crítica genérica à Igreja; redirecione sempre para a autoaplicação. Q4 pode ser o momento mais significativo de toda a lição — é onde a graça de Cristo aterrissa concretamente.</div>
+  </div>
+  <div class="bloco-aval">
+    <div class="bk">Seguimento Pós-Lição</div>
+    <ul>
+      <li>Envie Apocalipse 3:20 no grupo da turma com a pergunta: "Qual porta você abriu para Cristo esta semana?"</li>
+      <li>Proponha leitura devocional: Ap 3:7–22; Is 22:20–22; 1 Co 1:26–29 (força fraca); Lc 18:9–14 (o fariseu e o publicano)</li>
+      <li>Anote alunos que se identificaram fortemente com Filadélfia (podem estar passando por sensação de insuficiência ou invisibilidade que merece encorajamento pastoral)</li>
+      <li>Anote alunos que demonstraram culpa intensa com o diagnóstico de Laodiceia — podem precisar de acompanhamento para não ficar na culpa sem chegar à graça de Ap 3:20</li>
+      <li>Avalie se a turma chegou ao autodiagnóstico concreto (Filadélfia / Laodiceia) e a uma decisão de abertura de porta — indicador central de aprendizado desta lição</li>
+    </ul>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">Hernandes Dias Lopes — <em>Apocalipse: O Futuro Chegou</em>. Hagnos. Capítulos sobre Filadélfia e Laodiceia. Fonte primária desta lição — perspectiva reformada com rica aplicação pastoral ao contexto brasileiro.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">John Stott — <em>As Cartas às Sete Igrejas</em>. ABU Editora. Excelente para o contexto histórico de Filadélfia como "porta de divulgação cultural" e a inversão de valores das duas cartas finais.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. Análise técnica do contexto arqueológico de Laodiceia (bancos, tecidos, colírio) e da chave de Davi como título cristológico.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">BibleProject: série <em>Apocalipse</em> (YouTube, legendado em PT). Episódio sobre as sete cartas — 8 minutos com mapa das sete cidades e síntese visual das duas cartas finais.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">Pr. Hernandes Dias Lopes — <em>A Igreja de Laodiceia</em> e <em>A Igreja de Filadélfia</em> (YouTube). Sermões diretos e aplicados — ideais para recomendar à turma como complemento pós-aula.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo site">Digital</span>
+      <span class="mat-info">thegospelcoalition.org/pt — busca "Laodiceia" ou "mornicidade espiritual". Artigos curtos sobre autossuficiência religiosa e o convite de Ap 3:20. Também: escavações de Laodiceia em laodiceiaexcavations.com para fotos do sítio arqueológico.</span>
+    </div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit() {
+  edit = !edit;
+  document.querySelectorAll('.pag *').forEach(el => {
+    if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul'))
+      el.contentEditable = edit ? 'true' : 'false';
+  });
+  document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</body>
+</html>

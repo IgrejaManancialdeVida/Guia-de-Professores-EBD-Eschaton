@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eschaton Vol. III · Lição 05 — O Trono de Deus e o Livro Selado [PROFESSOR]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #6030a0;
+  --grad1:      #100818;
+  --grad2:      #180a28;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+  --ouro-brilho: drop-shadow(0 0 4px rgba(201,168,76,.45));
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #080510; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL ──────────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #040208, #080510);
+  border-bottom: 2px solid #1D9E75;
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.marca em {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+  color: #1D9E75; letter-spacing: 2px; display: block;
+  font-weight: 400; font-style: normal; text-transform: uppercase;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+.badge-prof {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  background: #1D9E75; color: #fff;
+  padding: 0.25rem 0.625rem; border-radius: 2px;
+}
+
+/* ── ÁREA ────────────────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  align-self: flex-start;
+  margin-left: clamp(0.5rem, calc(50% - 74mm), calc(50% - 74mm));
+  margin-bottom: -8px;
+}
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column;
+  justify-content: flex-end; min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(96,48,160,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px);
+}
+.cfx  { position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+        background: linear-gradient(180deg, #180a28, var(--cor), var(--ouro)); }
+.cnbg { position: absolute; bottom: -20px; right: -10px;
+        font-family: 'Cinzel', serif; font-size: clamp(5rem,18vw,8.125rem);
+        font-weight: 900; color: rgba(255,255,255,.03); line-height: 1; user-select: none; }
+.cimg { position: absolute; top: 0; left: 0; right: 0; height: 58%;
+        background: linear-gradient(160deg, #060210, var(--cor) 50%, #c090ff);
+        opacity: .38; }
+.clh  { position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+        background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+        opacity: .75; }
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num   { font-family: 'Cinzel', serif; font-size: clamp(0.55rem,1.5vw,0.625rem);
+              color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.6875rem);
+  letter-spacing: 4px; color: var(--ouro);
+  text-transform: uppercase; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.875rem, 3vw, 1.125rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.15; text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.8rem, 2.2vw, 0.875rem);
+  color: var(--ouro-claro); line-height: 1.6;
+  border-left: 2px solid var(--ouro); padding-left: 10px; opacity: .9;
+}
+
+/* ── PÁGINAS INTERNAS ────────────────────────────────── */
+.int {
+  padding: clamp(8mm,4vw,14mm) clamp(6mm,3vw,12mm) 18mm clamp(8mm,4vw,14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px; left: 14mm; right: 12mm; height: 1px;
+  background: rgba(96,48,160,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(96,48,160,.045) 23px, rgba(96,48,160,.045) 24px);
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem);
+  font-weight: 900; color: rgba(0,0,0,.03);
+  line-height: 1; user-select: none; pointer-events: none;
+}
+
+/* ── CABEÇALHO ───────────────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem,1.5vw,0.6875rem);
+       color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic;
+       font-size: clamp(0.6rem,1.8vw,0.75rem); color: #aaa; }
+
+/* ── TÍTULOS ─────────────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(0.75rem, 2.5vw, 0.9375rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cor); border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(0.65rem, 2vw, 0.8125rem);
+  letter-spacing: 1.5px; color: #301860;
+  text-transform: uppercase; margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+
+/* ── PARÁGRAFOS ──────────────────────────────────────── */
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--fonte-base);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,2.875rem);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+
+/* ── VERSÍCULOS ──────────────────────────────────────── */
+.bver {
+  background: #fff; border: 1px solid rgba(96,48,160,.2);
+  border-left: 4px solid var(--cor);
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: var(--fonte-base); color: #180830; line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(0.6rem,1.8vw,0.75rem); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+
+/* ── BLOCOS ──────────────────────────────────────────── */
+.bloco {
+  background: rgba(96,48,160,.05); border-radius: 2px;
+  padding: 0.625rem 0.75rem; margin: 0.625rem 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.blteo {
+  background: rgba(201,168,76,.08);
+  border-left: 3px solid var(--ouro);
+  padding: 0.625rem 0.75rem; margin: 0.625rem 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+.blapl {
+  background: linear-gradient(135deg, rgba(96,48,160,.05), rgba(201,168,76,.07));
+  border: 1px solid rgba(96,48,160,.2);
+  border-radius: 2px; padding: 0.625rem 0.75rem;
+  margin: 0.625rem 0; position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── BLOCOS ESPECIAIS DO ALUNO ───────────────────────── */
+.brefletir {
+  background: rgba(96,48,160,.06);
+  border: 1px solid rgba(96,48,160,.2);
+  border-top: 3px solid var(--cor);
+  border-radius: 0 0 2px 2px;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(96,48,160,.07);
+  border: 1px dashed rgba(96,48,160,.3);
+  border-radius: 2px;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bpense {
+  background: var(--creme);
+  border-left: 4px solid var(--cor);
+  border-radius: 0 2px 2px 0;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bpense-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(96,48,160,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(96,48,160,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── MEMORIZAR ───────────────────────────────────────── */
+.mem {
+  background: var(--creme);
+  border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 0.625rem 0.75rem;
+  margin: 0.625rem 0; text-align: center;
+  position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: #180830; text-align: center; line-height: 1.6;
+}
+
+/* ── OBJETIVOS ───────────────────────────────────────── */
+.obj { background: var(--creme); border-radius: 2px; padding: 0.625rem 0.75rem;
+       margin: 0.625rem 0; position: relative; z-index: 1; }
+.obj .ot {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: var(--ct); padding: 2px 0 2px 1rem;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆'; position: absolute; left: 0;
+  color: var(--cor); font-size: 0.5rem; top: 4px;
+}
+
+/* ── SEPARADOR ───────────────────────────────────────── */
+.sep {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0.75rem 0; opacity: .3; position: relative; z-index: 1;
+}
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: 0.5rem; color: var(--ouro); }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  color: var(--cor); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.qt {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: var(--ct); line-height: 1.45; margin-bottom: 5px;
+}
+.lr { border-bottom: 1px solid rgba(96,48,160,.2); height: 20px; margin-top: 3px; }
+
+/* ── RODAPÉ ──────────────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px 12mm 6mm 14mm;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(0.45rem,1.3vw,0.56rem);
+      color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(0.6rem,1.8vw,0.75rem); color: var(--ouro); }
+
+/* ── LINHAS ──────────────────────────────────────────── */
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px;
+        position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(96,48,160,.2); height: 22px; }
+
+/* ── EDIÇÃO ──────────────────────────────────────────── */
+[contenteditable="true"]       { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(96,48,160,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(96,48,160,.08); border-radius: 2px; }
+
+/* ════════════════════════════════════════════════════════
+   BLOCOS EXCLUSIVOS DO PROFESSOR
+   ════════════════════════════════════════════════════════ */
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientacao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+
+[class^="prof-"] {
+  border-radius: 0 0.375rem 0.375rem 0;
+  padding: 0.875rem 1rem;
+  margin: 1rem 0 1.5rem;
+  page-break-inside: avoid;
+  position: relative; z-index: 1;
+}
+[class^="prof-"] .prof-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 0.4rem;
+}
+.prof-nota-teologica  .prof-label { color: #0F6E56; }
+.prof-dica-aula       .prof-label { color: #185FA5; }
+.prof-recurso-visual  .prof-label { color: #854F0B; }
+.prof-orientacao-past .prof-label { color: #993C1D; }
+
+[class^="prof-"] p {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem; line-height: 1.7; margin: 0; color: #222;
+}
+[class^="prof-"] p + p { margin-top: 0.4rem; }
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+  [class^="prof-"] { border-radius: 0; }
+}
+
+/* ── RESPONSIVIDADE ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .painel { padding: 0.5rem 0.75rem; gap: 0.5rem; }
+  .btn    { padding: 0.375rem 0.625rem; }
+  .area   { margin-top: 56px; }
+  .ccon   { padding: 0 6mm 10mm 10mm; }
+  .rod    { padding: 6px 6mm 4mm 8mm; }
+  .rod::before { left: 6mm; right: 6mm; }
+}
+@media (max-width: 768px) {
+  .area { margin-top: 64px; }
+  .lbl  { margin-left: 0.5rem; }
+}
+@media (min-width: 1024px) {
+  .area { padding: 1.5rem 2rem 4rem; }
+}
+
+/* ── TELA DE SENHA ───────────────────────────────────── */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#040210 0%,#100820 60%,#060410 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:56px;height:56px;border:1px solid rgba(96,48,160,0.5);
+    transform:rotate(45deg);margin:0 auto 32px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(96,48,160,0.2);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(96,48,160,0.4);
+    border-radius:2px;padding:12px 16px;font-family:'Oswald',sans-serif;
+    font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;
+    outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(96,48,160,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{
+    width:100%;background:var(--cor);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+
+/* ── PÁGINAS DO PROFESSOR ────────────────────────────── */
+.int-prof{
+    padding:clamp(8mm,4vw,14mm) clamp(6mm,3vw,12mm) 18mm clamp(8mm,4vw,14mm);
+    min-height:210mm;position:relative;
+    background:#fdfbf7;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,#1a0838,var(--cor),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:clamp(2rem,8vw,3.25rem);font-weight:900;
+    color:rgba(96,48,160,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(96,48,160,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.3vw,0.6rem);background:var(--cor);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Cinzel',serif;font-weight:700;
+    font-size:clamp(0.75rem,2.5vw,0.9375rem);
+    letter-spacing:1px;text-transform:uppercase;
+    color:var(--cor);border-bottom:2px solid var(--cor);
+    padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+.lbl-prof{color:var(--cor);font-weight:600;}
+
+/* ── BLOCOS DAS PÁGINAS DO PROFESSOR ─────────────────── */
+.bloco-guia{
+    background:rgba(96,48,160,0.05);border:1px solid rgba(96,48,160,0.25);
+    border-left:4px solid var(--cor);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-guia .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#180a30;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--cor);font-size:5pt;top:5px;}
+
+.bloco-dica{
+    background:#f0faf3;border:1px solid rgba(46,107,79,0.35);
+    border-left:4px solid #2e6b4f;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-dica .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:#2e6b4f;font-size:9pt;}
+
+.bloco-teo{
+    background:#fdf0e6;border:1px solid rgba(184,92,26,0.35);
+    border-left:4px solid #b85c1a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-teo .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:#b85c1a;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-teo .bk::before{content:'✝';font-size:8pt;}
+.bloco-teo p,.bloco-teo li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#4a2005;}
+
+.bloco-debate{
+    background:#e8f0f8;border:1px solid rgba(44,95,138,0.25);
+    border-left:4px solid #2c5f8a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2c5f8a;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.95rem);line-height:1.6;color:#1a3050;font-style:italic;margin-bottom:0;}
+
+.bloco-soc{
+    background:#f9fcff;border:1px solid rgba(44,95,138,0.2);
+    border-left:4px solid #2c5f8a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2c5f8a;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:#2c5f8a;font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-resp{
+    background:#fffdf5;border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-resp .bk::before{content:'✓';font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;padding:5px 0;border-bottom:1px solid rgba(201,168,76,0.12);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.3vw,0.6rem);color:var(--ouro);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.55;color:#4a3a10;}
+
+.bloco-tempo{
+    background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--cor);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#2a2a2a;line-height:1.3;}
+
+.bloco-mat{
+    background:var(--creme);border:1px solid rgba(0,0,0,0.08);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2a2a2a;margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;color:#fff;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+.cit-autor{
+    border:1px solid rgba(96,48,160,0.25);background:rgba(96,48,160,0.03);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+    font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#180a30;line-height:1.6;
+}
+.cit-autor cite{display:block;margin-top:6px;font-size:clamp(0.55rem,1.5vw,0.6875rem);font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--cor);}
+
+.alerta{
+    background:#fff5f5;border:1px solid rgba(139,26,26,0.25);
+    border-left:4px solid var(--vermelho);border-radius:3px;
+    padding:8px 12px;margin:10px 0;
+}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-fio{
+    background:linear-gradient(135deg,rgba(96,48,160,0.04),rgba(201,168,76,0.04));
+    border:1px dashed rgba(96,48,160,0.3);border-radius:3px;
+    padding:9px 12px;margin:10px 0;display:flex;align-items:flex-start;gap:10px;
+}
+.bloco-fio-icon{font-size:14pt;flex-shrink:0;margin-top:1px;color:var(--cor);line-height:1;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);font-style:italic;color:#180a30;line-height:1.55;}
+.bloco-fio-txt strong{font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:1px;color:var(--cor);text-transform:uppercase;display:block;margin-bottom:3px;}
+
+.bloco-perf{
+    background:rgba(96,48,160,0.04);border:1px solid rgba(96,48,160,0.2);
+    border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:start;padding:4px 0;border-bottom:1px solid rgba(96,48,160,0.08);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--cor);color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:1px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#2a2a2a;line-height:1.45;}
+
+.bloco-aval{
+    background:#fffef0;border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#4a3a10;}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+.bloco-mapa{background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:2px;padding:7px 9px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#333;line-height:1.4;margin-bottom:0;text-align:left;}
+
+.rod-prof{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:5px 12mm 5mm 14mm;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(96,48,160,0.04);
+}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:clamp(0.45rem,1.3vw,0.56rem);color:var(--cor);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:clamp(0.6rem,1.8vw,0.75rem);color:var(--cor);}
+
+/* ── BLOCO CONTEXTO CULTURAL ─────────────────────────── */
+.bloco-cult{
+    background:#f5f5ff;border:1px solid rgba(80,60,160,0.2);
+    border-left:4px solid #5a3ea0;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#5a3ea0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-cult .bk::before{content:'🌐';font-size:9pt;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#2a1e55;}
+
+/* tags de sensibilidade */
+.tag-sens{display:inline-block;font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1.5px;text-transform:uppercase;border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;vertical-align:middle;}
+.tag-sens.delicado{background:#fde8e8;color:#8b1a1a;}
+.tag-sens.tecnico{background:#e8f0fd;color:#1a3a8b;}
+.tag-sens.aplicacao{background:#e8fde8;color:#1a5a1a;}
+.tag-sens.debate{background:#fdf5e8;color:#8b5a1a;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+  <div class="senha-caixa">
+    <div class="senha-icone"></div>
+    <div class="senha-titulo">ESCHATON</div>
+    <div class="senha-sub">Vol. III · Edição do Professor</div>
+    <div class="senha-desc">Material restrito para uso docente.<br>Insira a senha fornecida pela coordenação.</div>
+    <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+      onkeydown="if(event.key==='Enter')verificarSenha()" autocomplete="off" maxlength="20"/>
+    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <div class="senha-rodape">Eschaton Vol. III · EBD Jovens Adultos · Acesso Restrito</div>
+  </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL (oculto até senha correta) -->
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">
+    ESCHATON VOL. III
+    <span>Lição 05 · O Trono de Deus e o Livro Selado</span>
+    <em>✦ Edição do Professor</em>
+  </div>
+  <span class="badge-prof">Professor</span>
+  <button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨 Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">05</div>
+  <div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+  <div class="ccon">
+    <div class="cser">Eschaton · O Futuro Chegou</div>
+    <div class="cref">Apocalipse 4:1 — 5:14</div>
+    <div class="ctit">O Trono de Deus e o Livro Selado</div>
+    <div class="cver">
+      "Somente quando miramos todas as coisas, inclusive nossas tribulações, desde o aspecto do trono, é que obtemos um verdadeiro discernimento da história."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:0.625rem;letter-spacing:1px;color:var(--ouro);">William Hendriksen — citado por H. D. Lopes</span>
+    </div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">1</span>
+  </div>
+</div>
+
+<!-- TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">2</div>
+  <div class="ph">
+    <span class="phl">Lição 05 · Vol. III</span>
+    <span class="pht">O Trono e o Livro</span>
+  </div>
+  <h2>O Texto</h2>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 4:1-2</div>
+    <p>"Depois destas coisas, vi uma porta aberta no céu, e a primeira voz que eu ouvira... dizia: Sobe aqui, e mostrar-te-ei as coisas que devem acontecer depois destas. Imediatamente, fui arrebatado no espírito; e eis um trono posto no céu, com alguém assentado nele."</p>
+    <span class="ref-f">Apocalipse 4:1-2</span>
+  </div>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 5:4-5, 12</div>
+    <p>"E eu chorava muito, porque não foi achado ninguém digno de abrir o livro, nem de olhar para ele. E um dos anciãos me disse: Não chores; eis que o Leão da tribo de Judá, a Raiz de Davi, venceu para abrir o livro e os seus sete selos... Digno é o Cordeiro que foi morto, de receber o poder, a riqueza, a sabedoria, a força, a honra, a glória e o louvor."</p>
+    <span class="ref-f">Apocalipse 5:4-5, 12</span>
+  </div>
+  <div class="obj">
+    <div class="ot">Objetivos desta lição</div>
+    <ul>
+      <li>Compreender a função estratégica de Apocalipse 4–5 no plano do livro inteiro</li>
+      <li>Examinar o Trono de Deus como a sala de comando do universo</li>
+      <li>Identificar por que só o Cordeiro é digno de abrir o livro da história</li>
+      <li>Aplicar a soberania de Deus sobre a história à coragem cristã no presente</li>
+    </ul>
+  </div>
+  <div class="brefletir">
+    <div class="brefletir-t">✦ Para Você Refletir</div>
+    <p>Deus revela o trono antes de revelar os julgamentos e as tribulações. Por que a ordem importa? O que muda quando você vê quem governa antes de ver o que acontece?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — PG. 2 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>Apocalipse 4–5 é a dobradiça de todo o livro: as cartas às sete igrejas (Ap 1–3) olham para a terra; os selos, trombetas e taças (Ap 6–16) olham para a história em movimento. Entre os dois blocos, Deus posiciona a visão do trono como fundamento hermenêutico de tudo que vem depois. Sem o trono, os julgamentos parecem caos. Com o trono, eles revelam soberania.</p>
+    <p>O gênero literário de Ap 4–5 é o da "liturgia celeste" — João descreve o culto do céu como modelo e fundamento do culto da terra. A Igreja perseguida que adora no domingo está participando, por antecipação, da adoração descrita em Apocalipse 5.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Abertura sugerida (5 min):</strong> pergunte à turma — "Quando você assiste às notícias ou lê as redes sociais, qual é o sentimento predominante: controle ou descontrole, esperança ou desespero?" Registre as respostas no quadro. Depois leia Ap 4:2 — "eis um trono posto no céu, com alguém assentado nele" — e diga: "Esta lição é a resposta bíblica a tudo que você acabou de descrever." A tensão entre a realidade percebida e o trono de Deus é a porta de entrada da aula.</p>
+    <p><strong>Tempo sugerido para esta página:</strong> 10 minutos. Leia os dois textos bíblicos em voz alta, com pausa entre eles. O choro de João (5:4) e o "Não chores" do ancião (5:5) merecem ser ouvidos — não apenas lidos.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">2</span>
+  </div>
+</div>
+
+<!-- O TRONO — SALA DE COMANDO -->
+<div class="lbl">Página 3 · O Trono — A Sala de Comando</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">3</div>
+  <div class="ph">
+    <span class="phl">Lição 05 · Vol. III</span>
+    <span class="pht">O Trono de Deus</span>
+  </div>
+  <h2>O Trono — A Sala de Comando do Universo</h2>
+  <p class="cap">A mensagem central do Apocalipse é mostrar para a noiva perseguida que o seu Deus está no trono do universo. Antes de revelar os julgamentos, as tribulações e as guerras cósmicas, Deus abre o céu e mostra o trono. A ordem é deliberada: você precisa ver quem está no trono antes de ver o que acontece na terra.</p>
+  <div class="bloco">
+    <div class="bloco-t">As Três Portas do Início do Apocalipse</div>
+    <p>Hernandes Dias Lopes identifica três portas em sequência no início do Apocalipse: A <strong>porta da oportunidade</strong> (3:8) — a porta aberta que ninguém pode fechar, colocada diante de Filadélfia. A <strong>porta do coração humano</strong> (3:20) — Cristo que bate e pede para entrar. E agora, a <strong>porta da revelação</strong> (4:1) — uma porta aberta no céu, pela qual João entra para ver o trono. As três portas juntas descrevem o caminho completo da fé: oportunidade → acolhimento → revelação.</p>
+  </div>
+  <h3>O que João Vê no Trono</h3>
+  <p>João descreve o Entronizado com imagens de pedras preciosas — jaspe, sárdio, esmeralda — não porque Deus é uma pedra, mas porque a linguagem humana é insuficiente para descrever a glória divina. O trono é cercado de um arco-íris — o mesmo sinal da aliança com Noé. No centro de toda a glória e do julgamento, Deus permanece o Deus da aliança e da misericórdia.</p>
+  <p>William Hendriksen: "Somente quando miramos todas as coisas, inclusive nossas tribulações, desde o aspecto do trono, é que obtemos um verdadeiro discernimento da história." O trono não é um detalhe decorativo do Apocalipse — é a chave hermenêutica de todo o livro. Quem vê o trono, vê a história com olhos diferentes.</p>
+  <div class="bsabia">
+    <div class="bsabia-t">✦ Sabia Que?</div>
+    <p>O arco-íris ao redor do trono (Ap 4:3) remete diretamente a Gênesis 9:13-16 — o sinal da aliança que Deus fez com Noé e "com toda criatura viva". João, escrevendo para uma Igreja sob perseguição, situa o trono do julgamento dentro do arco da misericórdia. O juízo de Deus nunca é separado da sua fidelidade à aliança.</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — PG. 3 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>A descrição do trono em Ap 4 é deliberadamente construída a partir de Ezequiel 1 e Isaías 6. João não inventa uma teofania nova — ele reconstrói as grandes teofanias do AT para dizer: o mesmo Deus que falou a Ezequiel no exílio babilônico e a Isaías no templo fala agora à Igreja exilada em Patmos. A continuidade é pastoral: é o mesmo Deus, o mesmo trono, a mesma soberania.</p>
+    <p>Os vinte e quatro anciãos (Ap 4:4) representam provavelmente a totalidade do povo de Deus — 12 tribos de Israel + 12 apóstolos. Sua presença ao redor do trono antecipa Apocalipse 21:12-14. A adoração celeste não é apenas angélica — é a adoração do povo redimido de todos os tempos.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual</div>
+    <p><strong>Diagrama das três portas:</strong> esboce no quadro três portas numeradas em sequência — (1) Porta da oportunidade: Ap 3:8; (2) Porta do coração: Ap 3:20; (3) Porta da revelação: Ap 4:1. Abaixo de cada porta, escreva o movimento correspondente: <em>oportunidade → acolhimento → revelação</em>. O diagrama visual reforça a estrutura progressiva e prepara a turma para entender por que o trono aparece aqui, e não antes.</p>
+    <p><strong>Alternativa:</strong> mostre uma imagem do Pantocrator bizantino — Cristo entronizado — como representação histórica da visão de Apocalipse 4–5. Disponível no Google Imagens: "Pantocrator Monreale" ou "Deus Pai Trono Byzantine". A arte sacra medieval foi profundamente moldada por Apocalipse 4.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">3</span>
+  </div>
+</div>
+
+<!-- O LIVRO SELADO E O CORDEIRO -->
+<div class="lbl">Página 4 · O Livro Selado e o Cordeiro Digno</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">4</div>
+  <div class="ph">
+    <span class="phl">Lição 05 · Vol. III</span>
+    <span class="pht">O Livro e o Cordeiro</span>
+  </div>
+  <h2>O Livro Selado — Para Onde Caminha a História?</h2>
+  <p>Deus tem na mão direita um livro selado com sete selos. Fritz Rienecker: este livro contém os decretos de Deus, o pleno relato do que ele determinou soberanamente quanto ao destino do mundo. O livro da história está na mão de Deus — não nas mãos dos presidentes, dos generais, dos filósofos nem dos futurologistas.</p>
+  <div class="blteo">
+    <div class="blteo-t">A Crise de João e Nossa Crise</div>
+    <p>Ninguém foi achado digno de abrir o livro — nem no céu, nem na terra, nem debaixo da terra. João chora. Hernandes Dias Lopes escreve: "A crise de João é a crise da impotência de todos nós. Olhamos ao redor e vemos o mundo em pé de guerra, o mal triunfando, a violência crescendo, o terrorismo ameaçando... e nossa reação é também chorar." O mundo sem o Cordeiro é um livro lacrado. Só Deus pode dar sentido à história e à vida.</p>
+  </div>
+  <h3>O Cordeiro em Pé — Digno de Abrir</h3>
+  <p>João chora — e um dos anciãos diz: "Não chores; o Leão da tribo de Judá venceu." João se vira esperando ver um leão e vê um Cordeiro "como imolado" — com as marcas da morte — mas em pé. Morto e ressurreto. Imolado e vitorioso. Esse paradoxo é o coração do evangelho: a fraqueza da cruz é o caminho da vitória. O Cordeiro que parecia derrotado é o único ser em todo o universo digno de conduzir a história ao seu destino.</p>
+  <h3>O Oratório do Universo — Ap 5:9-13</h3>
+  <p>Quando o Cordeiro toma o livro, o universo inteiro irrompe em adoração em sequência crescente: os quatro seres viventes e os vinte e quatro anciãos cantam o cântico novo; milhões de anjos se unem; depois "toda criatura que há no céu, na terra, debaixo da terra e no mar" — toda a criação entoa o louvor final. É o oratório máximo da história: Deus e o Cordeiro recebem conjuntamente a adoração de tudo o que existe.</p>
+  <div class="bconexao">
+    <div class="bconexao-t">✦ Conexão Bíblica</div>
+    <p>Em Daniel 7:13-14, o "Filho do homem" recebe do "Ancião de Dias" domínio, glória e um reino eterno sobre todos os povos. Apocalipse 5 é o cumprimento dramático dessa cena: o Cordeiro que foi morto recebe o livro das mãos do Entronizado e toda a criação reconhece a transferência de autoridade. O que isso revela sobre a relação entre o sofrimento de Cristo e a sua soberania universal?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — PG. 4 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>O "livro selado com sete selos" tem paralelo em práticas jurídicas romanas: testamentos eram selados com sete selos e só podiam ser abertos por herdeiros legítimos. Cristo, como herdeiro de todas as coisas (Hb 1:2), é o único com direito legal de abrir o testamento da criação. Não é apenas competência moral — é autoridade herdada e conquistada pelo sangue.</p>
+    <p>O paradoxo "Leão / Cordeiro" (Ap 5:5-6) é o símbolo cristológico mais denso do NT. O Leão (poder, realeza davídica) e o Cordeiro imolado (humildade, sacrifício expiatório) não são duas fases sequenciais — são a identidade simultânea e permanente do Cristo ressurreto. Quem reina é quem foi morto. Quem foi morto reina.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Pergunta disparadora — o choro de João (5 min):</strong> "Há alguma situação na sua vida ou no mundo em que você sente que não há ninguém digno de resolver — que está simplesmente além do alcance humano?" Deixe dois ou três comentários. Então leia Ap 5:5: "Não chores." O movimento da impotência para o "Não chores" é o movimento que Apocalipse 5 propõe à Igreja em todos os séculos. A pergunta não é "quem pode resolver?" — é "você sabe o nome do único que pode?"</p>
+    <p><strong>Distinção importante:</strong> "como imolado" (Ap 5:6) indica que as marcas da morte são permanentes no Cristo glorificado — ele não as escondeu após a ressurreição (cf. Jo 20:27). O Cristo que reina é o Cristo que foi ferido. Para a turma: o sofrimento não desaparece da história de quem reina — ele é transfigurado em autoridade.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual</div>
+    <p><strong>Quadro do oratório crescente de Ap 5:9-13:</strong> esboce quatro círculos concêntricos no quadro, do menor ao maior — (1) Seres viventes e anciãos; (2) Miríades de anjos; (3) Toda criatura no céu, na terra, debaixo da terra e no mar; (4) Toda a criação. A imagem de círculos que se expandem mostra visualmente a sequência crescente do louvor e reforça a universalidade da adoração ao Cordeiro. Pode também ser feita com papel e caneta pelos próprios alunos.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">4</span>
+  </div>
+</div>
+
+<!-- MENSAGEM PARA HOJE -->
+<div class="lbl">Página 5 · Mensagem para Hoje</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">5</div>
+  <div class="ph">
+    <span class="phl">Lição 05 · Vol. III</span>
+    <span class="pht">O Trono e a História</span>
+  </div>
+  <h2>A Mensagem para Hoje</h2>
+  <div class="blteo">
+    <div class="blteo-t">Dois Erros sobre a História</div>
+    <p>Hernandes Dias Lopes apresenta as duas visões humanistas da história que Apocalipse 4–5 confronta. A visão cíclica grega: a história não se move para nenhuma meta — "o que é, é; o que foi, será." Não há esperança, não há redenção. A visão existencialista: a história é uma sucessão de fatos sem significado. Albert Camus: "os ratos voltarão." As coisas não vão mudar. Ambas são visões sem trono — e por isso são visões sem esperança.</p>
+  </div>
+  <h3>O Trono Responde a Cada Crise</h3>
+  <p>A relevância de Apocalipse 4 é imediata e concreta: quando o Brasil está em crise política, quando a violência parece incontrolável, quando a Igreja é marginalizada, quando você está sofrendo pessoalmente e parece que Deus não responde — a resposta bíblica não é uma explicação filosófica. É uma visão: olha para o trono. O Entronizado não saiu de lá. Ele ainda governa.</p>
+  <p>Hernandes Dias Lopes: "Não importa quão temíveis ou incontroláveis as forças do mal pareçam agir na terra, elas não podem frustrar os desígnios de Deus nem vencer a Igreja, pois Deus está governando o universo, do seu trono. O destino da noiva não está nas mãos dos homens, mas nas mãos de Deus."</p>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 5:12</div>
+    <p>"Digno é o Cordeiro que foi morto, de receber o poder, a riqueza, a sabedoria, a força, a honra, a glória e o louvor."</p>
+    <span class="ref-f">Apocalipse 5:12</span>
+  </div>
+  <div class="bpense">
+    <div class="bpense-t">✦ Pense Nisso</div>
+    <p>Quando João chora, ele não está chorando porque perdeu a fé — está chorando porque sente o peso real da impotência humana diante da história. A adoração de Apocalipse 5 não nasce da negação do sofrimento, mas do reconhecimento de quem, apesar de tudo, ainda conduz a história. Qual é o "livro lacrado" da sua vida — a situação que parece sem sentido e sem condutor — que você precisa entregar nas mãos do Cordeiro?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — PG. 5 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>As duas visões da história citadas por Lopes — a cíclica grega e o existencialismo de Camus — são exatamente as duas filosofias que dominam o imaginário pós-moderno brasileiro: o fatalismo ("sempre foi assim, sempre será") e o niilismo prático ("não adianta, nada muda"). Apocalipse 4–5 é a resposta bíblica direta às duas: a história tem um Senhor (contra o fatalismo) e move-se para um destino (contra o niilismo). O trono não é decoração — é o fundamento ontológico da esperança cristã.</p>
+    <p>A expressão "sete atributos" em Ap 5:12 (poder, riqueza, sabedoria, força, honra, glória, louvor) é a resposta ao sete selos: o que o livro lacrado contém é exatamente o que o Cordeiro merece receber. A entrega do livro é o início do reinado pleno de Cristo sobre a história.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Dinâmica da pergunta dupla (5 min):</strong> escreva no quadro as duas visões — "A história não vai a lugar nenhum" (cíclica) e "A história não tem sentido" (existencialista) — e pergunte: "Qual dessas duas você ouve mais nas pessoas ao redor? Qual delas às vezes habita seu próprio coração?" Deixe dois ou três comentários honestos. Então leia Ap 5:12 em voz alta. O contraste entre o desespero das filosofias e o louvor do universo ao Cordeiro é a resposta mais poderosa possível — e ela vem da Palavra, não da argumentação racional.</p>
+    <p><strong>Atenção pastoral:</strong> a pergunta sobre o "livro lacrado" do bloco "Pense Nisso" pode ativar dor real — luto, doença, injustiça, relacionamento destruído. Dê espaço para silêncio antes de seguir. Não resolva a dor com teologia rápida. O objetivo não é explicar o sofrimento, mas mostrar que há um Condutor.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">🤝 Orientação Pastoral</div>
+    <p>Esta seção tem potencial de alto impacto emocional — especialmente para jovens adultos que vivem crises de sentido (carreira, relacionamentos, saúde mental, fé). A afirmação de Lopes — "o destino da noiva não está nas mãos dos homens, mas nas mãos de Deus" — é simultaneamente a mais reconfortante e a mais desafiadora da lição: ela exige abrir mão do controle. Não force a entrega — deixe a Palavra do trono fazer o trabalho. A sua função é criar espaço para que a turma ouça Ap 4:2 como se ouvisse pela primeira vez.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">5</span>
+  </div>
+</div>
+
+<!-- APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">6</div>
+  <div class="ph">
+    <span class="phl">Lição 05 · Vol. III</span>
+    <span class="pht">O Trono e o Cordeiro</span>
+  </div>
+  <h2>Aplicação Direta</h2>
+  <p class="cap">João estava exilado em Patmos — preso, isolado, sofrendo — quando Deus abriu o céu e mostrou o trono. Deus não abriu o céu para mudar as circunstâncias de João; abriu para mudar sua perspectiva sobre as circunstâncias. O trono de Deus não elimina o sofrimento — dá sentido a ele e coragem para atravessá-lo.</p>
+  <div class="blapl">
+    <div class="blapl-t">Para esta semana</div>
+    <p><strong>Primeiro:</strong> Hernandes Dias Lopes diz que há três grandes portas no início do Apocalipse: a porta da oportunidade (3:8), a porta do coração (3:20) e a porta da revelação (4:1). Você já passou pelas três? Há alguma das três portas que ainda está fechada para você? <strong>Segundo:</strong> o livro da história está na mão direita de Deus — não na mão dos políticos, dos poderosos nem do diabo. Identifique uma situação concreta em sua vida ou no mundo ao redor onde você precisa "ver o trono" antes de interpretar os fatos. Como mudar a perspectiva muda a postura? <strong>Terceiro:</strong> o oratório de Apocalipse 5 descreve toda a criação adorando o Cordeiro. Sua adoração pessoal reflete essa consciência — de que Cristo é digno de receber poder, riqueza, sabedoria, força, honra, glória e louvor? O que impede sua adoração de alcançar essa profundidade?</p>
+  </div>
+  <div class="bleve">
+    <div class="bleve-t">✦ Leve para a Vida</div>
+    <p>Esta semana, escolha uma notícia ou situação que está gerando ansiedade em você — política, familiar, financeira ou de saúde. Antes de reagir com preocupação, pause e leia Apocalipse 4:2: "Eis um trono posto no céu, com alguém assentado nele." Deixe a imagem do trono ser o seu filtro antes do seu comentário, da sua decisão ou da sua oração.</p>
+    <div class="lr" style="margin-top:8px;"></div>
+    <div class="lr"></div>
+  </div>
+  <div class="mem">
+    <div class="mem-t">◆ Versículo para Memorizar</div>
+    <p>"Digno és de tomar o livro e abrir-lhe os selos, porque foste morto e com o teu sangue compraste para Deus os que procedem de toda tribo, língua, povo e nação."</p>
+    <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:0.625rem;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 5:9</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — PG. 6 -->
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Encerramento com o oratório (5–8 min):</strong> encerre a aula lendo Apocalipse 5:12-13 em voz alta, lentamente, como se fosse uma proclamação. Então convide a turma a repetir em uníssono apenas a frase: "Digno é o Cordeiro." Faça isso três vezes, com pausas. O que for repetido corporalmente será lembrado — e a liturgia de Apocalipse 5 foi feita exatamente para ser vivida, não apenas estudada.</p>
+    <p><strong>Para o versículo de memória:</strong> sugira que a turma use Ap 5:9 como oração de gratidão ao longo da semana — especialmente em momentos de ansiedade sobre o futuro. "Foste morto e compraste" é o fundamento da confiança no Condutor da história.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">🤝 Orientação Pastoral</div>
+    <p>A pergunta sobre as "três portas" pode revelar pessoas que ainda não passaram pela segunda porta — a do coração (Ap 3:20). Esteja atento para oportunidades de conversa individual após a aula. A EBD sobre o Apocalipse pode ser, inesperadamente, o momento em que alguém abre a porta para Cristo pela primeira vez. Não force — apenas esteja disponível.</p>
+    <p>A questão sobre o que "impede a adoração de alcançar essa profundidade" é existencialmente honesta. Pecado não confessado, distância emocional de Deus, exaustão espiritual e decepções não processadas são respostas comuns. Acolha sem julgar. O trono não intimida os que chegam humildemente — ele acolhe.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">6</span>
+  </div>
+</div>
+
+<!-- QUESTÕES E ANOTAÇÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">7</div>
+  <div class="ph">
+    <span class="phl">Lição 05 · Vol. III</span>
+    <span class="pht">O Trono e o Livro</span>
+  </div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">Hernandes Dias Lopes diz que a mensagem central do Apocalipse é mostrar para a noiva perseguida que seu Deus está no trono do universo. Por que Deus revela o trono (Ap 4) antes de revelar os julgamentos, as tribulações e as guerras (Ap 6 em diante)? O que muda quando você vê o trono antes de ver os dramas?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">O livro da história estava na mão direita de Deus, e ninguém foi achado digno de abri-lo. João chora. A crise de João é "a crise da impotência de todos nós", diz Lopes. Como a impotência diante dos dramas da história — violência, corrupção, sofrimento sem explicação — pode ser um caminho para a adoração, em vez de para o desespero?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">João esperava ver um leão e viu um cordeiro "como imolado" — morto e ressurreto, com as marcas da cruz. Por que o Cordeiro imolado é o único digno de abrir o livro? O que há na morte e ressurreição de Cristo que o habilita para conduzir a história ao seu destino final?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">O cântico dos anciãos diz que Cristo "compraste para Deus os que procedem de toda tribo, língua, povo e nação." A redenção é universal em alcance. Como essa visão global da Igreja — de todas as culturas, línguas e povos adorando juntos — muda sua visão da missão e da diversidade dentro da Igreja?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — PG. 7 -->
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula — Gabarito Orientador</div>
+    <p><strong>Q1:</strong> a ordem trono → julgamentos é pedagógica: sem ver quem governa, os julgamentos parecem caos; com o trono como filtro, eles revelam soberania moral. Espere respostas que percebam que a perspectiva muda a interpretação — não os fatos em si. "Ver o trono primeiro" é o que distingue a fé cristã do fatalismo e do desespero.</p>
+    <p><strong>Q2:</strong> a questão mais pastoral desta lição. A impotência pode levar ao desespero (eu não consigo, ninguém consegue, portanto nada tem sentido) ou à adoração (eu não consigo, mas o Cordeiro pode, portanto ele é digno de toda a glória). O choro de João (Ap 5:4) é honesto — não é falta de fé, é reconhecimento da limitação humana. A adoração nasce exatamente aí.</p>
+    <p><strong>Q3:</strong> o ponto central: não é a força do Leão que habilita Cristo a abrir o livro, mas o sangue do Cordeiro. A autoridade de Cristo sobre a história vem da cruz, não da conquista. Isso inverte toda a lógica de poder do mundo — e é o fundamento da teologia da cruz em Paulo (1 Co 1:18-25).</p>
+    <p><strong>Q4:</strong> questão missionária. A redenção "de toda tribo, língua, povo e nação" é o fundamento bíblico da missão transcultural. Encoraje respostas que conectem a visão de Ap 5:9 com o cotidiano da turma: diversidade na própria Igreja, preconceito encoberto, visão estreita da missão. O oratório do céu é o modelo da Igreja na terra.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual — Linha do Tempo</div>
+    <p>Esboce no quadro uma linha do tempo simplificada de Apocalipse: <em>Ap 1–3 (Cartas às sete igrejas) → Ap 4–5 (O Trono e o Cordeiro) → Ap 6–16 (Selos, trombetas e taças) → Ap 17–20 (Julgamento final) → Ap 21–22 (Nova Criação)</em>. Circule em destaque Ap 4–5 e escreva ao lado: "FUNDAÇÃO — tudo que vem depois é interpretado a partir daqui." A linha do tempo ancora a lição no contexto do livro inteiro e prepara a turma para as lições seguintes.</p>
+  </div>
+
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div>
+    <div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINAS EXCLUSIVAS DO PROFESSOR — P1 a P4
+     ══════════════════════════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL DO PROFESSOR -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral da Lição</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 05 · Vol. III · Guia do Professor</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Esta lição é a dobradiça de todo o Apocalipse. Após as sete cartas (Ap 1–3) que olhavam para a terra, Deus abre o céu e mostra o trono — o fundamento hermenêutico de tudo que vem depois. Seu papel é o de <em>guia da perspectiva</em>: conduzir a turma a enxergar as circunstâncias da vida — pessoais, políticas, históricas — a partir do trono, e não o trono a partir das circunstâncias.</p>
+  <p>O fio condutor desta lição é a <em>inversão de perspectiva</em>: a maioria das pessoas vê os eventos primeiro e tenta encaixar Deus depois. Apocalipse 4–5 inverte a ordem — Deus mostra o trono antes dos eventos para que a fé seja fundamento, não conclusão. A beleza da lição está no paradoxo do Cordeiro: o mais fraco é o mais digno, o imolado é o soberano.</p>
+  <div class="bloco-mapa">
+    <div class="bk">Mapa de Competências da Lição</div>
+    <div class="mapa-grid">
+      <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar a função estratégica de Ap 4–5 no Apocalipse; compreender os elementos da visão do trono; reconhecer o paradoxo Leão/Cordeiro e sua base cristológica</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Distinguir as duas visões humanistas da história e a resposta bíblica; usar o trono como filtro hermenêutico para interpretar os eventos presentes</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Cultivar a perspectiva do trono diante das crises; adorar o Cordeiro com consciência da sua soberania universal; entregar o "livro lacrado" pessoal nas mãos do Cordeiro</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno consegue nomear seu "livro lacrado" pessoal e expressar confiança no Cordeiro como Condutor da história — não abstratamente, mas com um caso concreto?</p></div>
+    </div>
+  </div>
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: pergunta sobre notícias e sensação de controle/descontrole (ver P2)</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2 — Texto bíblico, objetivos e reflexão inicial</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — O Trono: sala de comando, três portas, o que João vê</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — O livro selado, o choro de João, o Cordeiro imolado, oratório</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 5 — Mensagem para hoje: dois erros, o trono responde</span></div>
+    <div class="tempo-linha"><span class="tempo-min">9 min</span><span class="tempo-desc">Pg. 6–7 — Aplicação, versículo, 1–2 questões + encerramento com Ap 5:12</span></div>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Mostrar que a visão do trono em Ap 4 é intencional e estratégica — não decorativa</li>
+      <li>Conduzir a turma do desespero pastoral (choro de João) à adoração (oratório de Ap 5)</li>
+      <li>Fazer a turma identificar seu "livro lacrado" pessoal e entregá-lo ao Cordeiro</li>
+      <li>Encerrar com o oratório de Ap 5:12 como experiência litúrgica corporativa</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção do Professor</div>
+    <p>Esta lição tem alto potencial de impacto emocional — especialmente para jovens adultos em crise de sentido (carreira, relacionamentos, saúde mental, fé). A pergunta sobre o "livro lacrado" pode ativar dor real: luto, doença não curada, injustiça sem resolução, relacionamento destruído. Não resolva a dor com teologia rápida. O objetivo não é explicar o sofrimento — é mostrar que há um Condutor. Dê espaço real ao silêncio.</p>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">⇢</div>
+    <div class="bloco-fio-txt"><strong>Fio Condutor da Série Vol. III</strong>L01: Cristo glorioso entre os castiçais. L02: Éfeso e Esmirna. L03: Pérgamo, Tiatira, Sardes. L04: Filadélfia e Laodiceia. Agora L05 faz a grande transição: da terra para o céu, das cartas para a visão, da exortação para a contemplação. O trono é o fundamento de tudo que vem a seguir — selos, trombetas, taças e nova criação.</div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA DE ABERTURA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 05 · Dinâmica &amp; Teologia</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5–7 min</span></h2>
+  <div class="bloco-debate">
+    <div class="bk">O Noticiário e o Trono — antes de abrir o material</div>
+    <p>Pergunte à turma: "Quando você assiste às notícias ou abre as redes sociais, qual é o sentimento predominante — controle ou descontrole? Esperança ou desespero?" Registre as respostas no quadro sem comentar. Depois leia apenas Ap 4:2 em voz alta: <em>"Eis um trono posto no céu, com alguém assentado nele."</em> Diga: "Esta lição é a resposta bíblica a tudo que vocês acabaram de descrever." A tensão entre a realidade percebida e o trono de Deus é a porta de entrada da aula.</p>
+  </div>
+  <div class="bloco-dica">
+    <div class="bk">Como conduzir</div>
+    <ul>
+      <li>Não resolva a tensão na abertura — deixe o trono resolver ao longo da exposição</li>
+      <li>Anote literalmente as palavras da turma no quadro — use-as ao longo da aula: "Alguém disse 'descontrole' — Ap 4 responde exatamente a isso"</li>
+      <li>Se a turma for muito homogênea nas respostas, provoque: "E quando você está em crise pessoal — não política, mas íntima — o que você sente?"</li>
+    </ul>
+  </div>
+  <div class="bloco-soc">
+    <div class="bk">Escada de Perguntas Socráticas</div>
+    <div class="soc-item">
+      <p>Nível 1 — Diagnóstico: "Por que Deus revela o trono (Ap 4) antes de revelar os julgamentos (Ap 6)? O que mudaria na nossa leitura do Apocalipse se começasse direto nos selos?"</p>
+      <div class="soc-espera">Espera: percepção de que sem o trono, os julgamentos parecem caos; com o trono como filtro, eles revelam soberania moral — a ordem importa pedagogicamente</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 2 — Textual: "João esperava ver um leão — e viu um cordeiro 'como imolado', em pé. O que há nessa imagem que nenhuma filosofia humana poderia inventar?"</p>
+      <div class="soc-espera">Espera: a inversão radical — poder através da fraqueza, vitória através da morte, soberania através do sacrifício; o Cristo que reina é o Cristo que foi ferido</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 3 — Aplicação: "Identifique um 'livro lacrado' em sua vida — uma situação que parece sem sentido e sem condutor. O que muda quando você a coloca nas mãos do Cordeiro, e não nas suas?"</p>
+      <div class="soc-espera">Espera: movimento da impotência para a confiança; abertura para compartilhar ou para o silêncio orante — ambos são válidos e pastoralmente ricos</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+  <div class="bloco-teo">
+    <div class="bk">A Liturgia Celeste como Modelo da Liturgia Terrestre</div>
+    <p>O gênero literário de Ap 4–5 é o da "liturgia celeste" — João descreve o culto do céu como modelo e fundamento do culto da terra. Os elementos presentes no trono (louvor contínuo, prostrações, cânticos, oferendas de incenso como orações) são os mesmos elementos do culto cristão primitivo. A Igreja perseguida que adora no domingo não está fazendo algo menor que o culto celestial — está participando, por antecipação, da adoração descrita em Apocalipse 5. Para a turma: cada culto é um ensaio da eternidade.</p>
+  </div>
+  <div class="bloco-teo">
+    <div class="bk">O Livro Selado — Testamento e Decreto</div>
+    <p>Comentaristas identificam dois paralelos para o "livro selado com sete selos": (1) testamentos romanos, selados com sete selos e abertos apenas por herdeiros legítimos — Cristo como herdeiro de todas as coisas (Hb 1:2) é o único com direito legal de abri-lo; (2) decretos reais do mundo antigo, selados e entregues ao executor autorizado. Ambas as imagens convergem: o livro contém o decreto soberano de Deus sobre o destino da criação, e somente o Cordeiro — por sua morte e ressurreição — tem autoridade para executá-lo.</p>
+  </div>
+  <div class="cit-autor">
+    "Somente quando miramos todas as coisas, inclusive nossas tribulações, desde o aspecto do trono, é que obtemos um verdadeiro discernimento da história."
+    <cite>— William Hendriksen, citado por Hernandes Dias Lopes, <em>Apocalipse: O Futuro Chegou</em></cite>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO DE TENSÕES -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 05 · Pedagogia &amp; Gestão</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <div class="bloco-dica">
+    <div class="bk">Para Tornar o Conteúdo Concreto</div>
+    <ul>
+      <li><strong>Linha do tempo do Apocalipse:</strong> esboce no quadro — Ap 1–3 (Cartas) → Ap 4–5 (Trono e Cordeiro) → Ap 6–16 (Selos, trombetas, taças) → Ap 17–20 (Julgamento final) → Ap 21–22 (Nova Criação). Circule Ap 4–5 e escreva: "FUNDAÇÃO — tudo é interpretado daqui." Ancora a lição no contexto do livro e prepara para as próximas lições.</li>
+      <li><strong>Diagrama das três portas:</strong> esboce três portas em sequência — (1) Oportunidade: Ap 3:8; (2) Coração: Ap 3:20; (3) Revelação: Ap 4:1. O diagrama conecta a lição 04 à 05 e mostra o movimento progressivo da fé: oportunidade → acolhimento → revelação.</li>
+      <li><strong>Oratório corporativo de encerramento:</strong> leia Ap 5:12 em voz alta, lentamente. Convide a turma a repetir em uníssono: "Digno é o Cordeiro." Três vezes, com pausas. O que for repetido corporalmente será lembrado — a liturgia de Ap 5 foi feita para ser vivida.</li>
+    </ul>
+  </div>
+  <div class="bloco-cult">
+    <div class="bk">Conexão com a Cultura Contemporânea</div>
+    <p>As duas visões da história citadas por Lopes (cíclica grega e existencialismo de Camus) são exatamente as que dominam o imaginário pós-moderno brasileiro: o fatalismo ("sempre foi assim, sempre será — muda quem governa, não muda nada") e o niilismo prático ("não adianta, nada tem sentido"). Apocalipse 4–5 é a resposta direta às duas: a história tem um Senhor (contra o fatalismo) e move-se para um destino (contra o niilismo). O professor não precisa fazer aula de filosofia — basta mostrar que o trono é a resposta que o coração humano mais precisou e menos esperava.</p>
+  </div>
+  <div class="bloco-perf">
+    <div class="bk">Diferenciação por Perfil de Turma</div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Em crise de fé</div>
+      <div class="perf-txt">Para quem está questionando a soberania de Deus diante do sofrimento, a visão do trono não é uma resposta fácil — é uma âncora. Enfatize: João também chorou antes de ver o Cordeiro. A fé honesta inclui o choro de Ap 5:4.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Jovens politizados</div>
+      <div class="perf-txt">Ap 4–5 é radicalmente político: há um rei que governa acima de todos os governantes. A soberania de Deus não é alienação — é o fundamento do engajamento sem desespero. Cristo não é opção política; é o único soberano legítimo da história.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Adoradores ativos</div>
+      <div class="perf-txt">Para quem já tem prática de adoração, Ap 4–5 aprofunda a teologia do culto: o que fazemos no domingo é participação antecipada na liturgia celeste. Isso eleva a consciência da adoração de sentimento para participação cósmica.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Racionais/céticos</div>
+      <div class="perf-txt">Use o argumento intelectual de Lopes: as duas alternativas (fatalismo e niilismo) são logicamente insatisfatórias. Ap 4–5 oferece uma terceira opção — não ingênua, mas fundamentada na morte e ressurreição de Cristo como evento histórico.</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Gestão de Tensões</h2>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "Se Deus está no trono, por que permite tanto sofrimento?"</div>
+    <p>É a pergunta mais honesta que esta lição pode gerar. Não a resolva com teologia rápida. Responda com a própria estrutura de Ap 5: "João faz exatamente essa pergunta ao chorar — e a resposta não é uma explicação, mas uma visão: o Cordeiro imolado. Cristo não está distante do sofrimento — ele foi o maior sofredor da história, e é exatamente isso que o habilita a conduzir a história ao seu destino." Convide à confiança, não à resignação.</p>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — O "livro lacrado" pessoal muito doloroso</div>
+    <p>Se alguém compartilhar um "livro lacrado" muito pesado (luto recente, doença grave, abuso, crise de fé profunda), não prossiga imediatamente com a exposição. Acolha, agradeça a honestidade, ore brevemente — e ofereça conversa individual após a aula. Às vezes a EBD é o lugar onde alguém finalmente fala de uma dor real. Esteja disponível para esse momento.</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Cada aluno identifica em silêncio seu "livro lacrado" pessoal — situação que parece sem condutor</li>
+      <li>Leitura pausada de Ap 5:5: "Não chores; o Leão da tribo de Judá venceu..."</li>
+      <li>Oratório corporativo: leia Ap 5:12 e convide a repetir "Digno é o Cordeiro" três vezes</li>
+      <li>Oração de entrega: "Senhor, coloco nas suas mãos o que está além do meu alcance"</li>
+      <li>Anuncie: próxima lição — Apocalipse 6: a abertura dos selos — agora interpretada a partir do trono</li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS SUGERIDAS + MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 05 · Respostas &amp; Recursos</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01</div>
+      <div class="resp-txt">A ordem trono → julgamentos é pedagógica e pastoral: sem ver quem governa, os selos e trombetas parecem caos arbitrário; com o trono como filtro, eles revelam soberania moral em movimento. Estimule respostas que percebam que a perspectiva não muda os fatos — muda a interpretação e a postura diante deles. "Ver o trono primeiro" distingue a fé cristã do fatalismo (nada muda) e do desespero (ninguém governa). Quem tem o trono como filtro pode engajar o mundo com esperança real, não ingênua.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02</div>
+      <div class="resp-txt">A questão mais pastoral desta lição. O choro de João é honesto — não é falta de fé, é reconhecimento da limitação humana diante do incontrolável. A impotência pode levar ao desespero ("ninguém pode, portanto nada tem sentido") ou à adoração ("eu não posso, mas o Cordeiro pode, portanto ele é digno de toda a glória"). A adoração de Ap 5 não nasce da negação do sofrimento, mas do reconhecimento de quem, apesar de tudo, ainda conduz. Dê tempo de silêncio antes de abrir para partilha — as respostas mais honestas precisam de espaço para emergir.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03</div>
+      <div class="resp-txt">O ponto central e mais contracultural da lição: não é a força do Leão que habilita Cristo, mas o sangue do Cordeiro. A autoridade de Cristo sobre a história vem da cruz, não da conquista. Isso inverte toda lógica de poder — o imolado é o soberano, o morto reina. Para a turma: o Cristo que conduz a história é o mesmo que conhece o sofrimento por dentro (cf. Hb 4:15). Estimule respostas que conectem a dignidade do Cordeiro com a esperança pessoal — não é um rei distante, é um Cordeiro ferido que reina.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04</div>
+      <div class="resp-txt">Questão missionária de alto impacto. A redenção "de toda tribo, língua, povo e nação" é o fundamento bíblico da missão transcultural e o critério da universalidade da Igreja. Para a visão da missão: a Igreja local não é o destino da fé — é o ponto de partida de uma adoração que alcança todas as culturas. Para a diversidade interna: o oratório do céu é radicalmente multicultural; preconceito étnico, cultural ou socioeconômico dentro da Igreja contradiz a visão de Ap 5:9. Encoraje respostas concretas sobre a própria Igreja e o próprio coração.</div>
+    </div>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">↻</div>
+    <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>Em Q2, o silêncio antes da partilha é pedagogicamente essencial — não o corte. Em Q3, o paradoxo Leão/Cordeiro é o coração da lição; se a turma não chegou lá sozinha, articule-o com calma após as respostas. Q4 pode gerar debate sobre diversidade que vale o tempo — é exatamente onde Ap 5:9 precisa aterrissar na vida real da turma.</div>
+  </div>
+  <div class="bloco-aval">
+    <div class="bk">Seguimento Pós-Lição</div>
+    <ul>
+      <li>Envie Apocalipse 4:2 no grupo da turma com a pergunta: "Qual situação desta semana você está filtrando pelo trono antes de reagir?"</li>
+      <li>Proponha leitura devocional: Ap 4–5 (completo); Ez 1:1-28 (a teofania de Ezequiel); Is 6:1-8 (Isaías diante do trono); Dn 7:9-14 (o Ancião de Dias e o Filho do Homem)</li>
+      <li>Anote alunos que compartilharam um "livro lacrado" pesado — merecem acompanhamento pastoral além da EBD</li>
+      <li>Avalie se a turma chegou à entrega concreta do "livro lacrado" nas mãos do Cordeiro — indicador central de aprendizado desta lição</li>
+    </ul>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">Hernandes Dias Lopes — <em>Apocalipse: O Futuro Chegou</em>. Hagnos. Capítulos sobre Apocalipse 4 e 5. Fonte primária desta lição — especialmente as seções sobre o trono como sala de comando e o oratório do universo.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">William Hendriksen — <em>Mais que Vencedores</em>. Fiel. A frase citada por Lopes vem desta obra clássica; o capítulo sobre Ap 4–5 é especialmente rico para o professor que quer aprofundar a função do trono como chave hermenêutica.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">G.K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. Análise técnica dos paralelos com Ez 1 e Is 6; o simbolismo dos quatro seres viventes e dos vinte e quatro anciãos; o paradoxo Leão/Cordeiro em profundidade.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">BibleProject: série <em>Apocalipse</em> (YouTube, legendado em PT). Episódio sobre Ap 4–5 — visão geral do trono e do Cordeiro com ilustrações. Excelente para usar como aquecimento ou indicar à turma pós-aula.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">Pr. Hernandes Dias Lopes — <em>O Trono de Deus</em> e <em>O Livro Selado</em> (YouTube). Sermões pastoralmente densos — ideais para recomendar aos alunos que se identificaram com o choro de João ou com o "livro lacrado".</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo site">Digital</span>
+      <span class="mat-info">thegospelcoalition.org/pt — busca "soberania de Deus história" ou "Apocalipse trono". Artigos que conectam a visão do trono com a vivência cotidiana da fé. Também: imagens do Pantocrator bizantino ("Pantocrator Monreale" no Google) para ancoragem visual da visão de Ap 4.</span>
+    </div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit() {
+  edit = !edit;
+  document.querySelectorAll('.pag *').forEach(el => {
+    if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul'))
+      el.contentEditable = edit ? 'true' : 'false';
+  });
+  document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eschaton Vol. III · Lição 02 — Perder o Amor e Ser Fiel até a Morte [PROFESSOR]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #a03218;
+  --grad1:      #180a08;
+  --grad2:      #280a08;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #120504; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL FIXO ─────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #080202, #120504);
+  border-bottom: 2px solid #1D9E75;
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.marca em {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+  color: #1D9E75; letter-spacing: 2px; display: block;
+  font-weight: 400; font-style: normal; text-transform: uppercase;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+.badge-prof {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  background: #1D9E75; color: #fff;
+  padding: 0.25rem 0.625rem; border-radius: 2px;
+}
+
+/* ── ÁREA PRINCIPAL ──────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  align-self: flex-start;
+  margin-left: clamp(0.5rem, calc(50% - 74mm), calc(50% - 74mm));
+  margin-bottom: -8px;
+}
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column;
+  justify-content: flex-end; min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(160,50,24,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px);
+}
+.cfx  { position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+        background: linear-gradient(180deg, #280808, var(--cor), var(--ouro)); }
+.cnbg { position: absolute; bottom: -20px; right: -10px;
+        font-family: 'Cinzel', serif; font-size: clamp(5rem,18vw,8.125rem);
+        font-weight: 900; color: rgba(255,255,255,.03);
+        line-height: 1; user-select: none; }
+.cimg { position: absolute; top: 0; left: 0; right: 0; height: 58%;
+        background: linear-gradient(160deg, #0d0402, var(--cor) 50%, #ff8050);
+        opacity: .38; }
+.clh  { position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+        background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+        opacity: .75; }
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num   { font-family: 'Cinzel', serif; font-size: clamp(0.55rem,1.5vw,0.625rem);
+              color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.6875rem);
+  letter-spacing: 4px; color: var(--ouro);
+  text-transform: uppercase; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.875rem, 3vw, 1.125rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.15; text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.8rem, 2.2vw, 0.875rem);
+  color: var(--ouro-claro); line-height: 1.6;
+  border-left: 2px solid var(--ouro); padding-left: 10px; opacity: .9;
+}
+
+/* ── PÁGINAS INTERNAS ────────────────────────────────── */
+.int {
+  padding: clamp(8mm,4vw,14mm) clamp(6mm,3vw,12mm) 18mm clamp(8mm,4vw,14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px; left: 14mm; right: 12mm; height: 1px;
+  background: rgba(160,50,24,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(160,50,24,.045) 23px, rgba(160,50,24,.045) 24px);
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem);
+  font-weight: 900; color: rgba(0,0,0,.03);
+  line-height: 1; user-select: none; pointer-events: none;
+}
+
+/* ── CABEÇALHO DE PÁGINA ─────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem,1.5vw,0.6875rem);
+       color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic;
+       font-size: clamp(0.6rem,1.8vw,0.75rem); color: #aaa; }
+
+/* ── TÍTULOS ─────────────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(0.75rem, 2.5vw, 0.9375rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cor); border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(0.65rem, 2vw, 0.8125rem);
+  letter-spacing: 1.5px; color: #5a1a0a;
+  text-transform: uppercase; margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+
+/* ── PARÁGRAFOS ──────────────────────────────────────── */
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--fonte-base);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,2.875rem);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+
+/* ── BLOCO DE VERSÍCULO ──────────────────────────────── */
+.bver {
+  background: #fff;
+  border: 1px solid rgba(160,50,24,.2);
+  border-left: 4px solid var(--cor);
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: var(--fonte-base); color: #2a0a04; line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(0.6rem,1.8vw,0.75rem); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+
+/* ── BLOCOS TEMÁTICOS ────────────────────────────────── */
+.bloco {
+  background: rgba(160,50,24,.05); border-radius: 2px;
+  padding: 0.625rem 0.75rem; margin: 0.625rem 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.blteo {
+  background: rgba(201,168,76,.08);
+  border-left: 3px solid var(--ouro);
+  padding: 0.625rem 0.75rem; margin: 0.625rem 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+.blapl {
+  background: linear-gradient(135deg, rgba(160,50,24,.06), rgba(201,168,76,.07));
+  border: 1px solid rgba(160,50,24,.2);
+  border-radius: 2px; padding: 0.625rem 0.75rem;
+  margin: 0.625rem 0; position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── VERSÍCULO PARA MEMORIZAR ────────────────────────── */
+.mem {
+  background: var(--creme);
+  border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 0.625rem 0.75rem;
+  margin: 0.625rem 0; text-align: center;
+  position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: #2a0a04; text-align: center; line-height: 1.6;
+}
+
+/* ── OBJETIVOS ───────────────────────────────────────── */
+.obj { background: var(--creme); border-radius: 2px; padding: 0.625rem 0.75rem;
+       margin: 0.625rem 0; position: relative; z-index: 1; }
+.obj .ot {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: var(--ct); padding: 2px 0 2px 1rem;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆'; position: absolute; left: 0;
+  color: var(--cor); font-size: 0.5rem; top: 4px;
+}
+
+/* ── SEPARADOR ───────────────────────────────────────── */
+.sep {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0.75rem 0; opacity: .3; position: relative; z-index: 1;
+}
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: 0.5rem; color: var(--ouro); }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  color: var(--cor); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.qt {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.8rem,2.2vw,0.9rem);
+  color: var(--ct); line-height: 1.45; margin-bottom: 5px;
+}
+.lr { border-bottom: 1px solid rgba(160,50,24,.2); height: 20px; margin-top: 3px; }
+
+/* ── RODAPÉ DE PÁGINA ────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px 12mm 6mm 14mm;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(0.45rem,1.3vw,0.56rem);
+      color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(0.6rem,1.8vw,0.75rem); color: var(--ouro); }
+
+/* ── LINHAS DE ANOTAÇÃO ──────────────────────────────── */
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px;
+        position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(160,50,24,.2); height: 22px; }
+
+/* ── BLOCOS ESPECIAIS ────────────────────────────────── */
+.brefletir {
+  background: rgba(139,26,26,.06);
+  border: 1px solid rgba(139,26,26,.2);
+  border-top: 3px solid var(--vermelho);
+  border-radius: 0 0 2px 2px;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--vermelho); margin-bottom: 6px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(160,50,24,.07);
+  border: 1px dashed rgba(160,50,24,.3);
+  border-radius: 2px;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bpense {
+  background: var(--creme);
+  border-left: 4px solid var(--cor);
+  border-radius: 0 2px 2px 0;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bpense-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(160,50,24,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(160,50,24,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 0.625rem 0.75rem; margin: 0.75rem 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6875rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ════════════════════════════════════════════════════════
+   BLOCOS EXCLUSIVOS DO PROFESSOR
+   ════════════════════════════════════════════════════════ */
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientacao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+
+[class^="prof-"] {
+  border-radius: 0 0.375rem 0.375rem 0;
+  padding: 0.875rem 1rem;
+  margin: 1rem 0 1.5rem;
+  page-break-inside: avoid;
+  position: relative; z-index: 1;
+}
+[class^="prof-"] .prof-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 0.4rem;
+}
+.prof-nota-teologica  .prof-label { color: #0F6E56; }
+.prof-dica-aula       .prof-label { color: #185FA5; }
+.prof-recurso-visual  .prof-label { color: #854F0B; }
+.prof-orientacao-past .prof-label { color: #993C1D; }
+
+[class^="prof-"] p {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem; line-height: 1.7; margin: 0; color: #222;
+}
+[class^="prof-"] p + p { margin-top: 0.4rem; }
+
+/* ── EDIÇÃO INLINE ───────────────────────────────────── */
+[contenteditable="true"]       { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(160,50,24,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(160,50,24,.08); border-radius: 2px; }
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+  [class^="prof-"] { border-radius: 0; }
+}
+
+/* ── RESPONSIVIDADE ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .painel { padding: 0.5rem 0.75rem; gap: 0.5rem; }
+  .btn    { padding: 0.375rem 0.625rem; }
+  .area   { margin-top: 56px; }
+  .ccon   { padding: 0 6mm 10mm 10mm; }
+  .rod    { padding: 6px 6mm 4mm 8mm; }
+  .rod::before { left: 6mm; right: 6mm; }
+}
+@media (max-width: 768px) {
+  .area { margin-top: 60px; }
+  .lbl  { margin-left: 0.5rem; }
+}
+@media (min-width: 1024px) {
+  .area { padding: 1.5rem 2rem 4rem; }
+}
+
+/* ── TELA DE SENHA ───────────────────────────────────── */
+#tela-senha{
+    position:fixed;inset:0;z-index:99999;
+    background:linear-gradient(160deg,#0d0404 0%,#1a0808 60%,#0a0806 100%);
+    display:flex;align-items:center;justify-content:center;
+}
+.senha-caixa{text-align:center;max-width:360px;padding:0 24px;width:100%;}
+.senha-icone{
+    width:56px;height:56px;border:1px solid rgba(160,50,24,0.5);
+    transform:rotate(45deg);margin:0 auto 32px;position:relative;
+}
+.senha-icone::after{content:'';position:absolute;inset:10px;background:rgba(160,50,24,0.2);}
+.senha-titulo{font-family:'Cinzel',serif;font-size:18pt;font-weight:900;color:#fff;letter-spacing:6px;text-transform:uppercase;margin-bottom:6px;}
+.senha-sub{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;}
+.senha-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:11pt;color:rgba(255,255,255,0.4);margin-bottom:32px;line-height:1.6;}
+.senha-campo{
+    width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(160,50,24,0.4);
+    border-radius:2px;padding:12px 16px;font-family:'Oswald',sans-serif;
+    font-size:14pt;letter-spacing:6px;color:#fff;text-align:center;
+    outline:none;transition:border-color 0.2s;margin-bottom:12px;
+}
+.senha-campo:focus{border-color:rgba(160,50,24,0.9);}
+.senha-campo.erro{border-color:#8b1a1a;animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.senha-btn{
+    width:100%;background:var(--cor);border:none;color:#fff;
+    font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:3px;
+    text-transform:uppercase;padding:12px;cursor:pointer;border-radius:2px;transition:filter 0.2s;
+}
+.senha-btn:hover{filter:brightness(1.25);}
+.senha-erro{font-family:'EB Garamond',serif;font-size:10pt;color:#c0392b;margin-top:10px;opacity:0;transition:opacity 0.3s;font-style:italic;}
+.senha-erro.vis{opacity:1;}
+.senha-rodape{margin-top:40px;font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.15);}
+#conteudo-principal{display:none;}
+
+/* ── PÁGINAS DO PROFESSOR ────────────────────────────── */
+.int-prof{
+    padding:clamp(8mm,4vw,14mm) clamp(6mm,3vw,12mm) 18mm clamp(8mm,4vw,14mm);
+    min-height:210mm;position:relative;
+    background:#fdfbf7;
+}
+.int-prof::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,#3a0808,var(--cor),var(--ouro),transparent);
+}
+.wm-prof{
+    position:absolute;bottom:12mm;right:8mm;
+    font-family:'Cinzel',serif;font-size:clamp(2rem,8vw,3.25rem);font-weight:900;
+    color:rgba(160,50,24,0.06);line-height:1;
+    user-select:none;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+}
+.ph-prof{
+    margin-bottom:14px;padding-bottom:10px;
+    border-bottom:1px solid rgba(160,50,24,0.2);
+    display:flex;justify-content:space-between;align-items:baseline;
+}
+.ph-prof-l{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.ph-prof-r{font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.3vw,0.6rem);background:var(--cor);color:#fff;padding:2px 8px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;}
+
+h2.prof{
+    font-family:'Cinzel',serif;font-weight:700;
+    font-size:clamp(0.75rem,2.5vw,0.9375rem);
+    letter-spacing:1px;text-transform:uppercase;
+    color:var(--cor);border-bottom:2px solid var(--cor);
+    padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;
+}
+.lbl-prof{color:var(--cor);font-weight:600;}
+
+/* ── BLOCOS DAS PÁGINAS DO PROFESSOR ─────────────────── */
+.bloco-guia{
+    background:rgba(160,50,24,0.05);border:1px solid rgba(160,50,24,0.25);
+    border-left:4px solid var(--cor);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-guia .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-guia .bk::before{content:'▶';font-size:6pt;}
+.bloco-guia p,.bloco-guia li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#3a1a0a;}
+.bloco-guia ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-guia ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-guia ul li::before{content:'◆';position:absolute;left:0;color:var(--cor);font-size:5pt;top:5px;}
+
+.bloco-dica{
+    background:#f0faf3;border:1px solid rgba(46,107,79,0.35);
+    border-left:4px solid #2e6b4f;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-dica .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:#2e6b4f;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-dica .bk::before{content:'✦';font-size:7pt;}
+.bloco-dica p,.bloco-dica li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#1e4535;}
+.bloco-dica ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-dica ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-dica ul li::before{content:'→';position:absolute;left:0;color:#2e6b4f;font-size:9pt;}
+
+.bloco-teo{
+    background:#fdf0e6;border:1px solid rgba(184,92,26,0.35);
+    border-left:4px solid #b85c1a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-teo .bk{
+    font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);
+    letter-spacing:2px;text-transform:uppercase;color:#b85c1a;margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+}
+.bloco-teo .bk::before{content:'✝';font-size:8pt;}
+.bloco-teo p,.bloco-teo li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#4a2005;}
+
+.bloco-debate{
+    background:#e8f0f8;border:1px solid rgba(44,95,138,0.25);
+    border-left:4px solid #2c5f8a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-debate .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2c5f8a;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-debate .bk::before{content:'💬';font-size:9pt;}
+.bloco-debate p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.95rem);line-height:1.6;color:#1a3050;font-style:italic;margin-bottom:0;}
+
+.bloco-soc{
+    background:#f9fcff;border:1px solid rgba(44,95,138,0.2);
+    border-left:4px solid #2c5f8a;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-soc .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2c5f8a;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-soc .bk::before{content:'💬';font-size:9pt;}
+.bloco-soc .soc-item{padding:5px 0 5px 14px;border-bottom:1px solid rgba(44,95,138,0.08);position:relative;}
+.bloco-soc .soc-item:last-child{border-bottom:none;}
+.bloco-soc .soc-item::before{content:'→';position:absolute;left:0;color:#2c5f8a;font-size:9pt;top:5px;}
+.bloco-soc .soc-item p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#1a3050;line-height:1.5;margin-bottom:2px;}
+.bloco-soc .soc-espera{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1px;color:#5a7aa0;text-transform:uppercase;margin-top:1px;}
+
+.bloco-resp{
+    background:#fffdf5;border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-resp .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-resp .bk::before{content:'✓';font-size:9pt;font-weight:900;}
+.resp-item{margin-bottom:8px;padding:5px 0;border-bottom:1px solid rgba(201,168,76,0.12);}
+.resp-item:last-child{border-bottom:none;}
+.resp-num{font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.3vw,0.6rem);color:var(--ouro);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;}
+.resp-txt{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.55;color:#4a3a10;}
+
+.bloco-tempo{
+    background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-tempo .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-tempo .bk::before{content:'◷';font-size:9pt;}
+.tempo-linha{display:flex;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.06);}
+.tempo-linha:last-child{border-bottom:none;}
+.tempo-min{font-family:'Oswald',sans-serif;font-size:9pt;font-weight:600;color:var(--cor);min-width:42px;flex-shrink:0;}
+.tempo-desc{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#2a2a2a;line-height:1.3;}
+
+.bloco-mat{
+    background:var(--creme);border:1px solid rgba(0,0,0,0.08);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-mat .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#2a2a2a;margin-bottom:8px;}
+.mat-item{padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;gap:10px;align-items:flex-start;}
+.mat-item:last-child{border-bottom:none;}
+.mat-tipo{font-family:'Oswald',sans-serif;font-size:7pt;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;flex-shrink:0;margin-top:2px;color:#fff;white-space:nowrap;}
+.mat-tipo.livro{background:#555;}
+.mat-tipo.video{background:#8b1a1a;}
+.mat-tipo.audio{background:#2e6b4f;}
+.mat-tipo.site{background:#3b5e8a;}
+.mat-info{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#444;line-height:1.4;}
+.mat-info em{font-style:italic;color:#666;}
+
+.cit-autor{
+    border:1px solid rgba(160,50,24,0.25);background:rgba(160,50,24,0.03);
+    border-radius:3px;padding:10px 12px;margin:10px 0;
+    font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#3a1a0a;line-height:1.6;
+}
+.cit-autor cite{display:block;margin-top:6px;font-size:clamp(0.55rem,1.5vw,0.6875rem);font-style:normal;font-family:'Oswald',sans-serif;letter-spacing:1px;color:var(--cor);}
+
+.alerta{
+    background:#fff5f5;border:1px solid rgba(139,26,26,0.25);
+    border-left:4px solid var(--vermelho);border-radius:3px;
+    padding:8px 12px;margin:10px 0;
+}
+.alerta .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:var(--vermelho);margin-bottom:4px;}
+.alerta p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);color:#5a1010;line-height:1.55;margin-bottom:0;}
+
+.bloco-fio{
+    background:linear-gradient(135deg,rgba(160,50,24,0.04),rgba(201,168,76,0.04));
+    border:1px dashed rgba(160,50,24,0.3);border-radius:3px;
+    padding:9px 12px;margin:10px 0;display:flex;align-items:flex-start;gap:10px;
+}
+.bloco-fio-icon{font-size:14pt;flex-shrink:0;margin-top:1px;color:var(--cor);line-height:1;}
+.bloco-fio-txt{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);font-style:italic;color:#3a1a0a;line-height:1.55;}
+.bloco-fio-txt strong{font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:1px;color:var(--cor);text-transform:uppercase;display:block;margin-bottom:3px;}
+
+.bloco-perf{
+    background:rgba(160,50,24,0.04);border:1px solid rgba(160,50,24,0.2);
+    border-left:4px solid var(--cor);border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-perf .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-perf .bk::before{content:'◈';font-size:8pt;}
+.perf-linha{display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:start;padding:4px 0;border-bottom:1px solid rgba(160,50,24,0.08);}
+.perf-linha:last-child{border-bottom:none;}
+.perf-tipo{font-family:'Oswald',sans-serif;font-size:7pt;background:var(--cor);color:#fff;padding:2px 6px;border-radius:1px;letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:1px;}
+.perf-txt{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#2a2a2a;line-height:1.45;}
+
+.bloco-aval{
+    background:#fffef0;border:1px solid rgba(201,168,76,0.3);
+    border-left:4px solid var(--ouro);border-radius:3px;padding:10px 12px;margin:10px 0;
+}
+.bloco-aval .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-aval .bk::before{content:'📋';font-size:8pt;}
+.bloco-aval p,.bloco-aval li{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#4a3a10;}
+.bloco-aval ul{list-style:none;padding:0;margin-top:4px;}
+.bloco-aval ul li{padding:2px 0 2px 14px;position:relative;}
+.bloco-aval ul li::before{content:'□';position:absolute;left:0;color:var(--ouro);font-size:8pt;top:3px;}
+
+.bloco-mapa{background:#f8f8f8;border:1px solid rgba(0,0,0,0.1);border-radius:3px;padding:10px 12px;margin:10px 0;}
+.bloco-mapa .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#444;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.bloco-mapa .bk::before{content:'🗺';font-size:9pt;}
+.mapa-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
+.mapa-cel{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:2px;padding:7px 9px;}
+.mapa-cel-tit{font-family:'Oswald',sans-serif;font-size:7pt;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:4px;}
+.mapa-cel p{font-family:'EB Garamond',serif;font-size:clamp(0.75rem,2vw,0.875rem);color:#333;line-height:1.4;margin-bottom:0;text-align:left;}
+
+.rod-prof{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:5px 12mm 5mm 14mm;
+    display:flex;justify-content:space-between;align-items:center;
+    background:rgba(160,50,24,0.04);
+}
+.rod-prof::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rod-prof .rt{font-family:'Oswald',sans-serif;font-size:clamp(0.45rem,1.3vw,0.56rem);color:var(--cor);letter-spacing:1px;text-transform:uppercase;}
+.rod-prof .rn{font-family:'Cinzel',serif;font-size:clamp(0.6rem,1.8vw,0.75rem);color:var(--cor);}
+
+/* ── BLOCO CONTEXTO CULTURAL ─────────────────────────── */
+.bloco-cult{
+    background:#f5f5ff;border:1px solid rgba(80,60,160,0.2);
+    border-left:4px solid #5a3ea0;border-radius:3px;
+    padding:10px 12px;margin:10px 0;
+}
+.bloco-cult .bk{font-family:'Oswald',sans-serif;font-size:clamp(0.55rem,1.5vw,0.6875rem);letter-spacing:2px;text-transform:uppercase;color:#5a3ea0;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.bloco-cult .bk::before{content:'🌐';font-size:9pt;}
+.bloco-cult p{font-family:'EB Garamond',serif;font-size:clamp(0.8rem,2.2vw,0.9rem);line-height:1.6;color:#2a1e55;}
+
+/* tags de sensibilidade */
+.tag-sens{display:inline-block;font-family:'Oswald',sans-serif;font-size:6.5pt;letter-spacing:1.5px;text-transform:uppercase;border-radius:1px;padding:2px 7px;margin:2px 3px 2px 0;vertical-align:middle;}
+.tag-sens.delicado{background:#fde8e8;color:#8b1a1a;}
+.tag-sens.tecnico{background:#e8f0fd;color:#1a3a8b;}
+.tag-sens.aplicacao{background:#e8fde8;color:#1a5a1a;}
+.tag-sens.debate{background:#fdf5e8;color:#8b5a1a;}
+</style>
+</head>
+<body>
+
+<!-- TELA DE SENHA -->
+<div id="tela-senha">
+  <div class="senha-caixa">
+    <div class="senha-icone"></div>
+    <div class="senha-titulo">ESCHATON</div>
+    <div class="senha-sub">Vol. III · Edição do Professor</div>
+    <div class="senha-desc">Material restrito para uso docente.<br>Insira a senha fornecida pela coordenação.</div>
+    <input type="password" class="senha-campo" id="senha-input" placeholder="••••••••••••"
+      onkeydown="if(event.key==='Enter')verificarSenha()" autocomplete="off" maxlength="20"/>
+    <button class="senha-btn" onclick="verificarSenha()">Acessar</button>
+    <div class="senha-erro" id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <div class="senha-rodape">Eschaton Vol. III · EBD Jovens Adultos · Acesso Restrito</div>
+  </div>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL (oculto até senha correta) -->
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">
+    ESCHATON VOL. III
+    <span>Lição 02 · Perder o Amor e Ser Fiel até a Morte</span>
+    <em>✦ Edição do Professor</em>
+  </div>
+  <span class="badge-prof">Professor</span>
+  <button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨 Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<div class="area">
+
+<!-- CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">02</div>
+  <div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+  <div class="ccon">
+    <div class="cser">Eschaton · O Futuro Chegou</div>
+    <div class="cref">Apocalipse 2:1-11 · Éfeso e Esmirna</div>
+    <div class="ctit">Perder o Amor e Ser Fiel até a Morte</div>
+    <div class="cver">
+      "Pureza de doutrina e lealdade não podem nunca ser substitutos para o amor. Uma esposa pode ser fiel ao marido em todos os seus deveres e, no entanto, não mais amá-lo."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:0.625rem;letter-spacing:1px;color:var(--ouro);">Hernandes Dias Lopes — sobre Éfeso</span>
+    </div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">1</span>
+  </div>
+</div>
+
+<!-- TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">2</div>
+  <div class="ph">
+    <span class="phl">Lição 02 · Vol. III</span>
+    <span class="pht">Éfeso e Esmirna</span>
+  </div>
+  <h2>O Texto</h2>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 2:4-5 — Éfeso</div>
+    <p>"Tenho, porém, contra ti que abandonaste o teu primeiro amor. Lembra-te, pois, de onde caíste, arrepende-te e pratica as primeiras obras; caso contrário, virei a ti e removerei o teu candeeiro do seu lugar, se não te arrependeres."</p>
+    <span class="ref-f">Apocalipse 2:4-5</span>
+  </div>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 2:10 — Esmirna</div>
+    <p>"Não temas as coisas que tens de sofrer... Se tu fores fiel até a morte, dar-te-ei a coroa da vida. Quem tem ouvidos, ouça o que o Espírito diz às igrejas. O vencedor não sofrerá dano da segunda morte."</p>
+    <span class="ref-f">Apocalipse 2:10-11</span>
+  </div>
+  <div class="obj">
+    <div class="ot">Objetivos desta lição</div>
+    <ul>
+      <li>Identificar as três virtudes elogiadas por Cristo em Éfeso — e o pecado que as anulou</li>
+      <li>Compreender o que é "perder o primeiro amor" e como isso acontece nas igrejas hoje</li>
+      <li>Examinar a situação da Igreja de Esmirna — pobre, difamada e fiel até a morte</li>
+      <li>Aplicar o chamado de Cristo à renovação do amor e à coragem diante do sofrimento</li>
+    </ul>
+  </div>
+  <div class="brefletir">
+    <div class="brefletir-t">✦ Para Você Refletir</div>
+    <p>Cristo conhece as obras, o trabalho e a perseverança de cada igreja — mas também o estado do coração. Qual é a diferença entre servir a Deus por amor e servir por obrigação? Você consegue identificar esse contraste na sua própria caminhada?</p>
+  </div>
+
+  <!-- ── BLOCOS DO PROFESSOR ── -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>As sete cartas do Apocalipse (caps. 2–3) seguem um padrão literário consistente: identificação do remetente com atributos cristológicos, conhecimento das obras da igreja, elogio, repreensão (quando há), chamado ao arrependimento, promessa ao vencedor. Esse padrão é pedagógico: Cristo não fala sobre as igrejas — Ele fala <em>às</em> igrejas, como Senhor presente e conhecedor.</p>
+    <p>O "primeiro amor" de Éfeso (gr. <em>tēn agapēn sou tēn prōtēn</em>) refere-se à intensidade e à motivação do amor inicial — o amor que impulsionava toda a ação. A perda não é de crença, mas de afeto. George Ladd (Commentary on Revelation) distingue entre o amor como <em>sentimento</em> e o amor como <em>motivação de vida</em>: Éfeso perdeu o segundo.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Abertura sugerida (5 min):</strong> pergunte à turma: "Como era sua relação com Deus quando você se converteu? O que você fazia que hoje não faz mais?" Deixe dois ou três responderem. Isso cria o estado emocional certo para a lição — nostalgia espiritual produtiva, não culpa paralisante.</p>
+    <p><strong>Tempo sugerido para esta página:</strong> 8 minutos. Leia os versículos em voz alta antes de prosseguir.</p>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">2</span>
+  </div>
+</div>
+
+<!-- ÉFESO — AS TRÊS VIRTUDES E O PECADO FATAL -->
+<div class="lbl">Página 3 · Éfeso — As Três Virtudes e o Pecado Fatal</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">3</div>
+  <div class="ph">
+    <span class="phl">Lição 02 · Vol. III</span>
+    <span class="pht">A Igreja de Éfeso</span>
+  </div>
+  <h2>Éfeso — A Igreja Fiel que Perdeu o Amor</h2>
+  <p class="cap">Éfeso era a maior, a mais rica e a mais importante cidade da Ásia Menor — chamada "a feira das vaidades" do mundo antigo. A Igreja de Éfeso tinha uma história gloriosa: Paulo pregou ali por três anos, Timóteo foi seu pastor, depois o próprio João. Quarenta anos depois, Jesus envia uma carta à segunda geração de crentes. E o diagnóstico é perturbador.</p>
+  <div class="bloco">
+    <div class="bloco-t">As Três Grandes Virtudes de Éfeso</div>
+    <p><strong>1. Fiel na doutrina</strong> — odiava as obras dos nicolaítas, rejeitava os falsos apóstolos, não tolerava heresia. Era uma Igreja de discernimento espiritual. <strong>2. Operosa na obra</strong> — o trabalho grego é <em>kopos</em>: trabalho que faz suar, que deixa exausto. Não era uma Igreja de espectadores passivos. <strong>3. Perseverante nas tribulações</strong> — enfrentava a perseguição do culto ao imperador e as seduções dos falsos mestres sem desanimar.</p>
+  </div>
+  <h3>O Pecado que Anulou Tudo — Ap 2:4</h3>
+  <p>Depois de três elogios, Cristo diz: "Tenho, porém, contra ti que abandonaste o teu primeiro amor." George Ladd observa: a luta contra os falsos mestres e o ódio pelas heresias trouxeram endurecimento — a tal ponto que levaram ao esquecimento da virtude suprema que é o amor. A Igreja de Éfeso trocou o amor pela ortodoxia. Tinha a verdade — mas sem calor. Tinha doutrina — mas sem devoção. Tinha compromisso — mas sem afeição.</p>
+  <p>Hernandes Dias Lopes usa uma imagem precisa: "Uma esposa pode ser fiel ao marido em todos os seus deveres e, no entanto, não mais amá-lo." A fidelidade sem amor é o casamento morto. A ortodoxia sem amor é a Igreja morta.</p>
+  <div class="bconexao">
+    <div class="bconexao-t">✦ Conexão Bíblica</div>
+    <p>Em 1 Coríntios 13:1-3, Paulo afirma que sem amor nada vale — nem falar línguas, nem profetizar, nem ter fé que move montanhas. Compare essa passagem com o diagnóstico de Cristo a Éfeso. O que elas revelam juntas sobre o lugar central do amor na vida cristã?</p>
+  </div>
+
+  <!-- ── BLOCOS DO PROFESSOR ── -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>Os nicolaítas (Ap 2:6) são mencionados em Éfeso e Pérgamo. Embora sua identidade exata seja debatida, a maioria dos comentaristas (Beale, Aune, Osborne) os associa a um grupo que promovia acomodação ao paganismo — participação em festas idólatras e imoralidade sexual como forma de "liberdade cristã". O ódio de Éfeso pelos nicolaítas era teologicamente correto; o problema não era o que ela odiava, mas o que havia deixado de amar.</p>
+    <p>O kopos grego (v.2) é distinto de <em>ergon</em> (trabalho comum): indica esforço exaustivo, labuta. Paulo usa o mesmo termo em 1 Ts 1:3 ("labor do amor"). A ironia é que Éfeso tinha o kopos sem o amor que deveria sustentá-lo.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual</div>
+    <p><strong>Mapa sugerido:</strong> mostre a localização de Éfeso na costa oeste da atual Turquia. Destaque: (1) o templo de Ártemis, (2) a biblioteca de Celso, (3) o teatro com capacidade de 25 mil pessoas. Isso ancora a grandiosidade cultural que essa Igreja navegava com fidelidade doutrinária — tornando a perda do amor ainda mais trágica.</p>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">3</span>
+  </div>
+</div>
+
+<!-- ÉFESO — O DIAGNÓSTICO PARA HOJE -->
+<div class="lbl">Página 4 · O Diagnóstico para a Igreja Hoje</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">4</div>
+  <div class="ph">
+    <span class="phl">Lição 02 · Vol. III</span>
+    <span class="pht">A Igreja de Éfeso Hoje</span>
+  </div>
+  <h2>A Igreja de Éfeso Hoje</h2>
+  <div class="blteo">
+    <div class="blteo-t">A Palavra de Hernandes Dias Lopes para o Brasil</div>
+    <p>"A igreja evangélica brasileira precisa aprender com a Igreja de Éfeso. As pessoas hoje buscam a experiência e não a verdade. Elas não querem pensar, querem sentir. Elas não querem doutrina, querem novidades, revelações, sonhos e visões. O que determina o rumo da Igreja não é mais a Palavra de Deus, mas o gosto dos consumidores."</p>
+  </div>
+  <p>Mas Lopes também aponta o perigo oposto: a Igreja que tem a verdade sem o amor. Uma Igreja pode estar doutrinariamente correta, detestar a heresia, trabalhar arduamente — e ainda assim ter perdido o calor do amor a Cristo e ao próximo. Quando isso acontece, Cristo não elogia: Ele ameaça remover o candeeiro. Uma Igreja sem amor deixou de ser Igreja.</p>
+  <h3>O Remédio de Cristo — Ap 2:5</h3>
+  <p>Cristo dá três imperativos: <strong>Lembra-te</strong> — onde você estava antes, qual era a qualidade do seu relacionamento com Deus. <strong>Arrepende-te</strong> — não é sentimentalismo, é decisão de mudar. <strong>Pratica as primeiras obras</strong> — volta ao que fazias quando o amor era fresco: oração fervorosa, devocionais, generosidade, evangelismo por amor genuíno às pessoas.</p>
+  <div class="sep"><span>◆</span></div>
+  <p>Se a Igreja não obedecer, Cristo virá e removerá o candeeiro do seu lugar. Uma Igreja sem amor é um candeeiro apagado — pode ainda funcionar como instituição, mas perdeu sua função de iluminar o mundo. Cristo não tolera indefinidamente uma Igreja que O honra nos lábios, mas cujo coração está longe dEle.</p>
+  <div class="bsabia">
+    <div class="bsabia-t">✦ Sabia Que?</div>
+    <p>Éfeso era o centro do culto à deusa Ártemis — seu templo estava entre as sete maravilhas do mundo antigo. A cidade inteira girava em torno dessa adoração. Uma Igreja que mantinha a pureza doutrinária nesse ambiente era extraordinária — o que torna a perda do amor ainda mais trágica e irônica.</p>
+  </div>
+
+  <!-- ── BLOCOS DO PROFESSOR ── -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>Os três imperativos de Ap 2:5 — <em>mnēmoneue</em> (lembra-te), <em>metanoēson</em> (arrepende-te), <em>poiēson</em> (pratica) — estão no aoristo, indicando ação definitiva, não processo gradual. Cristo não está pedindo uma tentativa — está ordenando uma decisão. O arrependimento bíblico (<em>metanoia</em>) é mudança de mente que resulta em mudança de comportamento, não apenas sentimento de culpa.</p>
+    <p>A ameaça de remover o candeeiro (<em>kinēsō tēn lychnian sou</em>) é historicamente verificável: a cidade de Éfeso na Antiguidade Tardia perdeu progressivamente sua vitalidade cristã e hoje é um sítio arqueológico na Turquia. A Igreja que abandona o amor pode sobreviver institucionalmente, mas perde sua função profética no mundo.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Pergunta disparadora:</strong> "Há alguma diferença entre uma Igreja que defende a verdade e uma Igreja que ama? Como você descreveria uma Igreja que tem as duas coisas — e como seria uma que tem só uma delas?" Permita 3–4 respostas antes de conectar com o texto.</p>
+    <p><strong>Atenção:</strong> evite que a discussão sobre "experiência vs. doutrina" vire um debate sobre estilos de culto. Redirecione sempre para a questão do coração: a motivação por trás da prática.</p>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">4</span>
+  </div>
+</div>
+
+<!-- ESMIRNA — FIEL ATÉ A MORTE -->
+<div class="lbl">Página 5 · Esmirna — Fiel até a Morte</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">5</div>
+  <div class="ph">
+    <span class="phl">Lição 02 · Vol. III</span>
+    <span class="pht">A Igreja de Esmirna</span>
+  </div>
+  <h2>Esmirna — A Igreja que Não Tinha Nada</h2>
+  <p class="cap">Para a Igreja de Éfeso, Cristo não tinha apenas elogios. Para a Igreja de Esmirna, Cristo não tinha nenhuma repreensão. De todas as sete cartas, apenas Esmirna e Filadélfia recebem apenas elogios. E a Igreja de Esmirna não tinha nada aos olhos do mundo.</p>
+  <div class="bloco">
+    <div class="bloco-t">O Que a Igreja de Esmirna Enfrentava</div>
+    <p><strong>Tribulação</strong> — perseguição intensa, pressão constante. <strong>Pobreza</strong> — materialmente pobre; mas Cristo diz "és rico." A riqueza espiritual invisível supera qualquer prosperidade material. <strong>Difamação</strong> — era caluniada pela sinagoga dos que "dizem ser judeus e não são." A Igreja sofria calúnias religiosas por não se dobrar ao sistema. <strong>Prisão iminente</strong> — alguns serão presos e provados por dez dias. E o martírio estava à vista.</p>
+  </div>
+  <h3>A Coragem que Cristo Pede</h3>
+  <p>A palavra de Cristo a Esmirna é uma das mais belas e mais duras do Apocalipse: "Não temas as coisas que tens de sofrer... Se fores fiel até a morte, dar-te-ei a coroa da vida." Cristo não promete livrar Esmirna do sofrimento — promete acompanhá-la dentro dele e coroá-la depois.</p>
+  <p>Hernandes Dias Lopes observa que a lealdade era uma virtude que os habitantes de Esmirna conheciam bem: a cidade tinha se comprometido com Roma quando Roma ainda era fraca, e manteve essa lealdade até Roma se tornar o império mais poderoso do mundo. Cristo usa essa cultura da lealdade para dizer: a verdadeira lealdade não é a Roma, mas a Mim.</p>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 2:11</div>
+    <p>"O vencedor não sofrerá dano da segunda morte."</p>
+    <span class="ref-f">Apocalipse 2:11</span>
+  </div>
+  <div class="bpense">
+    <div class="bpense-t">✦ Pense Nisso</div>
+    <p>Cristo disse a Esmirna que ela era rica — apesar da pobreza material, da perseguição e da difamação. Que tipo de riqueza é essa? Como você definiria "ser rico" aos olhos de Cristo no contexto da sua vida hoje?</p>
+  </div>
+
+  <!-- ── BLOCOS DO PROFESSOR ── -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>A "sinagoga de Satanás" (Ap 2:9) é uma expressão dura que não deve ser lida como antissemitismo, mas como uma afirmação teológica: grupos que usam a religião para perseguir o povo de Deus traem a identidade que reivindicam. No contexto do século I, algumas sinagogas em Esmirna colaboravam com as autoridades romanas para denunciar cristãos — ação que contradiz a vocação de Abraão de ser bênção às nações.</p>
+    <p>Os "dez dias" (v.10) são provavelmente simbólicos (como em Dn 1:12-15), indicando um período limitado e determinado por Deus — não uma eternidade. A mensagem: o sofrimento tem prazo; a fidelidade tem recompensa eterna. A "coroa da vida" (<em>stephanos tēs zōēs</em>) é a coroa do atleta vencedor — não a coroa real (<em>diadēma</em>) — indicando conquista mediante esforço.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">🤝 Orientação Pastoral</div>
+    <p>Esta seção tem alto potencial de impacto para jovens adultos que vivem perseguição familiar por sua fé, dificuldades financeiras ou isolamento social por suas convicções. Não minimize nem romantize o sofrimento: Cristo não diz "vai ficar bem logo" — Ele diz "sou fiel, e você também pode ser." A diferença é crucial.</p>
+    <p>Se houver alguém na turma passando por situação de luto, doença ou crise, este texto pode falar profundamente. Abra espaço para silêncio após a leitura de Ap 2:10. O silêncio é parte da pedagogia.</p>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">5</span>
+  </div>
+</div>
+
+<!-- APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">6</div>
+  <div class="ph">
+    <span class="phl">Lição 02 · Vol. III</span>
+    <span class="pht">Éfeso e Esmirna Hoje</span>
+  </div>
+  <h2>Aplicação Direta</h2>
+  <p class="cap">Duas igrejas, dois perigos opostos, dois chamados urgentes. A Igreja de Éfeso nos adverte: é possível ter a verdade e perder o amor — e isso é fatal. A Igreja de Esmirna nos encoraja: é possível não ter nada e ainda assim ser rica, fiel e recompensada — a segunda morte não tem poder sobre quem é fiel até a primeira.</p>
+  <div class="blapl">
+    <div class="blapl-t">Para esta semana</div>
+    <p><strong>Para quem se identifica com Éfeso:</strong> Faça o exame de Apocalipse 2:5. <em>Lembra-te:</em> quando foi a última vez que você acordou com anseio por Cristo, orou com lágrimas ou evangelizou com amor genuíno pelas pessoas? <em>Arrepende-te:</em> tome a decisão — não espere sentir o amor primeiro; pratique os primeiros atos de amor e os sentimentos voltarão. <em>Pratica:</em> escolha uma ação concreta de renovação do amor a Cristo esta semana — um tempo prolongado de oração, um gesto de serviço, uma conversa espiritual genuína.<br><br><strong>Para quem se identifica com Esmirna:</strong> Quais são suas "tribulações, pobreza e difamações" atuais? Cristo diz que você é rico no que realmente importa. Sua fidelidade nesse contexto tem peso eterno — e a coroa da vida é a resposta de Cristo.</p>
+  </div>
+  <div class="bleve">
+    <div class="bleve-t">✦ Leve para a Vida</div>
+    <p>Esta semana, escreva uma carta honesta a Cristo — como se você fosse a sua própria igreja. O que Ele elogiaria em você? O que Ele repreenderia? Qual seria o Seu chamado para os próximos dias? Use Apocalipse 2:4-5 como guia e deixe que a Palavra fale ao seu coração.</p>
+    <div class="lr" style="margin-top:8px;"></div>
+    <div class="lr"></div>
+  </div>
+  <div class="mem">
+    <div class="mem-t">◆ Versículo para Memorizar</div>
+    <p>"Não temas as coisas que tens de sofrer... Se fores fiel até a morte, dar-te-ei a coroa da vida."</p>
+    <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:0.625rem;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 2:10</p>
+  </div>
+
+  <!-- ── BLOCOS DO PROFESSOR ── -->
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula</div>
+    <p><strong>Encerramento sugerido (8 min):</strong> peça que cada participante escolha em silêncio: "Hoje, sou mais Éfeso ou Esmirna?" Depois, convide quem quiser a compartilhar — sem pressão. Encerre com oração usando as palavras de Ap 2:10 como base: "Senhor, que possamos ser fiéis até ao fim."</p>
+    <p>A distinção "Para quem se identifica com Éfeso / Para quem se identifica com Esmirna" é um recurso poderoso de personalização. Deixe que a turma se autoidentifique — não rotule ninguém.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">🤝 Orientação Pastoral</div>
+    <p>A aplicação da carta a si mesmo é um exercício de introspecção espiritual profunda. Para turmas menos acostumadas à reflexão escrita, ofereça perguntas estruturadas: "Qual seria o elogio de Cristo? Qual seria a advertência? Qual seria o seu chamado?" Valide a honestidade — mesmo respostas difíceis são sinais de saúde espiritual.</p>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">6</span>
+  </div>
+</div>
+
+<!-- QUESTÕES E ANOTAÇÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">7</div>
+  <div class="ph">
+    <span class="phl">Lição 02 · Vol. III</span>
+    <span class="pht">Éfeso e Esmirna</span>
+  </div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">A Igreja de Éfeso era doutrinariamente correta, trabalhadora e perseverante — mas havia abandonado o primeiro amor. Qual é a diferença prática entre uma Igreja (ou crente) que tem verdade sem amor, e um que tem amor sem verdade? Qual dos dois perigos você considera mais grave para a Igreja brasileira hoje?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">Hernandes Dias Lopes diagnostica: "O que determina o rumo da Igreja não é mais a Palavra de Deus, mas o gosto dos consumidores." Você reconhece esse padrão na Igreja evangélica brasileira? Quais são os sintomas específicos que ele identifica — e você acrescentaria outros?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">Cristo diz a Esmirna que é pobre materialmente, mas rica espiritualmente. Nossa cultura associa bênção de Deus à prosperidade material. Como a carta a Esmirna desafia essa noção — e o que significa ser "rico" aos olhos de Cristo para a sua vida concreta?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">"Se fores fiel até a morte, dar-te-ei a coroa da vida." Cristo não prometeu a Esmirna livramento do sofrimento — prometeu acompanhá-la dentro dele. Qual é a diferença entre uma fé que busca ser livrada do sofrimento e uma fé que é fiel dentro do sofrimento? O que essa distinção muda na sua própria esperança?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+
+  <!-- ── BLOCOS DO PROFESSOR ── -->
+  <div class="prof-dica-aula">
+    <div class="prof-label">💡 Dica de Aula — Gabarito Orientador</div>
+    <p><strong>Q1:</strong> espere respostas que reconheçam a tensão entre verdade e amor. O ponto central: os dois são inseparáveis — verdade sem amor é arrogância; amor sem verdade é sentimentalismo. Éfeso tinha um sem o outro. Ambos os perigos são reais na Igreja brasileira.</p>
+    <p><strong>Q2:</strong> questão contextualmente rica. Estimule exemplos concretos: pregação motivacional sem exegese, cultos espetáculo, teologia da prosperidade, influenciadores gospel. Cuidado para não virar crítica genérica — o foco é o diagnóstico, não o julgamento.</p>
+    <p><strong>Q3:</strong> o contraste pobreza material / riqueza espiritual é culturalmente explosivo no contexto brasileiro. Não deixe a conversa cair em dualismo platônico (matéria ruim, espírito bom). A riqueza de Esmirna é relacional — ela tinha Cristo. E isso tem consequências práticas.</p>
+    <p><strong>Q4:</strong> a distinção entre fé que busca livramento e fé que é fiel <em>dentro</em> do sofrimento é o núcleo teológico da carta a Esmirna. Espere respostas pessoais e vulneráveis. Dê tempo e espaço — não apresse. Esta questão pode ser o momento mais significativo da aula.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual — Mapa das Sete Igrejas</div>
+    <p>Mostre um mapa com as sete igrejas do Apocalipse em ordem geográfica (Éfeso → Esmirna → Pérgamo → Tiatira → Sardes → Filadélfia → Laodiceia). A rota forma um arco que percorria as principais cidades da Ásia Menor — uma rota de correio existente no século I. Isso reforça que as cartas eram circulares, destinadas a toda a rede de igrejas, não apenas às mencionadas.</p>
+  </div>
+
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div>
+    <div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span>
+    <span class="rn">7</span>
+  </div>
+</div>
+
+</div><!-- /area -->
+
+
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINAS EXCLUSIVAS DO PROFESSOR — P1 a P4
+     ══════════════════════════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL DO PROFESSOR -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral da Lição</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 02 · Vol. III · Guia do Professor</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Esta lição entra nas sete cartas do Apocalipse — a seção mais aplicada e pastoralmente rica de todo o livro. Seu papel aqui é o de <em>médico espiritual</em>: conduzir o aluno pelo diagnóstico preciso de Cristo a duas igrejas reais, e convidar a turma a se reconhecer em um dos dois perfis — o de Éfeso (verdade sem amor) ou o de Esmirna (pobreza com fidelidade).</p>
+  <p>A tensão central da lição é terapêutica: não se trata de teoria, mas de exame de coração. Prepare-se para conduzir momentos de silêncio, vulnerabilidade e decisão pastoral.</p>
+  <div class="bloco-mapa">
+    <div class="bk">Mapa de Competências da Lição</div>
+    <div class="mapa-grid">
+      <div class="mapa-cel"><div class="mapa-cel-tit">Conhecimento</div><p>Identificar o padrão literário das sete cartas; analisar as virtudes e o pecado de Éfeso; descrever a situação de Esmirna</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Habilidade</div><p>Contrastar verdade sem amor e amor sem verdade; aplicar os três imperativos de Ap 2:5 à vida pessoal e comunitária</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Atitude</div><p>Cultivar renovação do primeiro amor; desenvolver coragem e fidelidade diante do sofrimento à semelhança de Esmirna</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Avaliação</div><p>O aluno consegue nomear sua realidade atual: mais Éfeso ou mais Esmirna? E o que Cristo lhe diz em resposta?</p></div>
+    </div>
+  </div>
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: dinâmica do primeiro amor — o que mudou? (ver P2)</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2 — Texto bíblico, objetivos e abertura socrática</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — Éfeso: as três virtudes e o pecado fatal</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 4 — O diagnóstico para hoje e o remédio de Cristo</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 5 — Esmirna: a Igreja que não tinha nada</span></div>
+    <div class="tempo-linha"><span class="tempo-min">9 min</span><span class="tempo-desc">Pg. 6-7 — Aplicação, versículo e 1-2 questões em aula</span></div>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Criar autodiagnóstico espiritual genuíno — Éfeso ou Esmirna — em cada aluno</li>
+      <li>Mostrar que perder o amor é tão grave quanto perder a doutrina</li>
+      <li>Apresentar a fidelidade de Esmirna como modelo de coragem para jovens sob pressão</li>
+      <li>Conduzir os três imperativos de Ap 2:5 como decisão prática, não sentimentalismo</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção do Professor</div>
+    <p>Evite que a lição se torne uma crítica genérica à Igreja brasileira ou um debate sobre estilos de culto. O foco é o coração de cada aluno presente. A pergunta central é: <em>você ama a Cristo — ou apenas serve a ele?</em> Mantenha a tensão nessa direção até o encerramento.</p>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">⇢</div>
+    <div class="bloco-fio-txt"><strong>Fio Condutor com a Lição 01</strong>Na lição anterior, vimos o Cristo glorioso que anda no meio dos castiçais. Agora Ele fala a partir dessa posição de autoridade e conhecimento. As cartas às igrejas não são opiniões — são diagnósticos do Senhor que conhece tudo. Relembre esse fundamento antes de entrar nas cartas.</div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA DE ABERTURA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 02 · Dinâmica &amp; Teologia</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5 min</span></h2>
+  <div class="bloco-debate">
+    <div class="bk">O Primeiro Amor — antes de abrir o material</div>
+    <p>Pergunte à turma: "Como era sua relação com Deus quando você se converteu ou quando sua fé ficou mais viva? O que você fazia que hoje não faz mais?" Deixe dois ou três responderem em voz alta. Registre palavras-chave no quadro. Essa abertura cria nostalgia espiritual produtiva — o estado emocional certo para receber o diagnóstico de Cristo a Éfeso.</p>
+  </div>
+  <div class="bloco-dica">
+    <div class="bk">Como conduzir</div>
+    <ul>
+      <li>Não julgue as respostas — valide cada uma com um aceno ou "obrigado"</li>
+      <li>Se ninguém responder, conte sua própria história brevemente — isso libera o grupo</li>
+      <li>Depois de 2–3 respostas, diga: "Cristo tinha uma lista parecida sobre Éfeso. Vamos ver o que Ele disse."</li>
+      <li>A transição da dinâmica para o texto deve ser fluida — o texto é a resposta à experiência narrada</li>
+    </ul>
+  </div>
+  <div class="bloco-soc">
+    <div class="bk">Escada de Perguntas Socráticas</div>
+    <div class="soc-item">
+      <p>Nível 1 — Diagnóstico: "Qual é a diferença entre fazer algo por amor e fazer por obrigação? Como você reconhece essa diferença na sua própria vida espiritual?"</p>
+      <div class="soc-espera">Espera: percepção de que é possível manter todas as práticas religiosas com a motivação errada — e que Cristo percebe a diferença</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 2 — Textual: "Éfeso tinha três grandes virtudes — doutrina, trabalho e perseverança. Por que Cristo ainda assim ameaçou remover seu candeeiro?"</p>
+      <div class="soc-espera">Espera: compreensão de que virtudes sem amor são insuficientes; que o amor não é apenas mais uma virtude — é a motivação de todas as outras</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 3 — Aplicação: "Se Cristo escrevesse uma carta para você hoje — como escreveu para Éfeso — qual seria o elogio e qual seria a repreensão?"</p>
+      <div class="soc-espera">Espera: autoavaliação honesta e personalizada; abertura para receber os três imperativos de Ap 2:5 como chamado pessoal, não como crítica abstrata</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+  <div class="bloco-teo">
+    <div class="bk">O Padrão Literário das Sete Cartas</div>
+    <p>Cada carta segue uma estrutura consistente: (1) identificação do remetente com atributos cristológicos de Ap 1; (2) <em>"Conheço as tuas obras"</em> — o Cristo onisciente presente; (3) elogio; (4) repreensão (quando há); (5) imperativo; (6) promessa ao vencedor. Esse padrão não é apenas literário — é pastoral: Cristo não fala <em>sobre</em> as igrejas, mas <em>às</em> igrejas, como Senhor presente. A lição toda deve ser conduzida nessa segunda pessoa: Cristo fala a <em>você</em>.</p>
+  </div>
+  <div class="bloco-teo">
+    <div class="bk">O Primeiro Amor — Agapē Prōtē (Ap 2:4)</div>
+    <p>O "primeiro amor" (<em>tēn agapēn sou tēn prōtēn</em>) não é simplesmente o amor que se tinha no início, mas a <em>intensidade e a motivação</em> que esse amor tinha. George Ladd distingue entre amor como sentimento e amor como motivação de vida: Éfeso perdeu o segundo. O problema não era falta de emoção — era que o amor havia deixado de ser o motor da ação. Éfeso ainda agia; havia perdido o porquê.</p>
+  </div>
+  <div class="cit-autor">
+    "Pureza de doutrina e lealdade não podem nunca ser substitutos para o amor. Uma esposa pode ser fiel ao marido em todos os seus deveres e, no entanto, não mais amá-lo."
+    <cite>— Hernandes Dias Lopes, <em>Apocalipse: O Futuro Chegou</em> — sobre Éfeso</cite>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO DE TENSÕES -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 02 · Pedagogia &amp; Gestão</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <div class="bloco-dica">
+    <div class="bk">Para Tornar o Conteúdo Concreto</div>
+    <ul>
+      <li><strong>Mapa de Éfeso:</strong> mostre a localização de Éfeso na costa oeste da atual Turquia. Destaque o templo de Ártemis (uma das sete maravilhas do mundo), a biblioteca de Celso e o teatro de 25 mil lugares. A grandiosidade do contexto torna o pecado de Éfeso ainda mais irônico — e mais real.</li>
+      <li><strong>Mapa das sete igrejas:</strong> mostre a rota circular das sete igrejas. Explique que era uma rota de correio existente no século I — as cartas circulavam entre todas as igrejas. Cada igreja lia as cartas das outras também.</li>
+      <li><strong>Leitura em contraste:</strong> peça dois alunos — um lê 1 Co 13:1-3 (sem amor, nada vale), o outro lê Ap 2:2-5 (elogios + repreensão de Éfeso). O paralelo paulino ilumina a crise efésiana de forma poderosa.</li>
+    </ul>
+  </div>
+  <div class="bloco-cult">
+    <div class="bk">Conexão com a Cultura Contemporânea</div>
+    <p>O perfil de Éfeso é surpreendentemente comum no evangelicalismo contemporâneo: igrejas teologicamente sólidas, bem organizadas, que combatem heresias — mas cujos membros oram com frieza, evangelizam por dever e adoram por hábito. A lição não é para criticar outras igrejas: é um convite ao exame de coração. A pergunta que ficará ecoando após a aula deve ser: <em>"Quando foi a última vez que eu amei a Cristo?"</em></p>
+  </div>
+  <div class="bloco-perf">
+    <div class="bk">Diferenciação por Perfil de Turma</div>
+    <div class="perf-linha">
+      <div class="perf-tipo">18–22 anos</div>
+      <div class="perf-txt">Enfatize o contraste: muitos têm fervor emocional sem ancoragem doutrinária (risco oposto ao de Éfeso). Mostre que o Apocalipse pede os dois — verdade e amor. Nem um nem o outro é suficiente sozinho.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">25–35 anos</div>
+      <div class="perf-txt">Éfeso ressoa mais com essa faixa — servindo há anos, comprometidos, mas com o coração frio. Os imperativos de Ap 2:5 são uma decisão adulta: não espere sentir; pratica e os sentimentos virão.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Sob pressão</div>
+      <div class="perf-txt">Esmirna fala diretamente a quem sofre perseguição familiar, dificuldade financeira ou isolamento por convicção. Não romantize: Cristo acompanha no sofrimento, não livra imediatamente.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Desanimada</div>
+      <div class="perf-txt">Comece por Esmirna antes de Éfeso. A mensagem de que "você é rico" quando parece pobre pode reacender o ânimo — e prepara o coração para receber o diagnóstico de Éfeso com esperança, não culpa.</div>
+    </div>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Gestão de Tensões</h2>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "Isso está me condenando, não encorajando"</div>
+    <p>Se alguém demonstrar culpa excessiva com o diagnóstico de Éfeso, ancore nos três imperativos: Cristo não condena — Ele chama. O fato de Ele ainda escrever a carta é evidência de que ainda há tempo. Diga: "Cristo não removeu o candeeiro de Éfeso ainda — Ele enviou a carta primeiro. Essa carta é graça, não sentença."</p>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — Debate sobre experiência vs. doutrina</div>
+    <p>Se a discussão derivar para "igrejas carismáticas vs. reformadas" ou estilos de culto, redirecione: "Éfeso não era nem mais nem menos carismática — era uma igreja que havia perdido o amor. Isso pode acontecer em qualquer tradição. O que Cristo pergunta não é sobre o estilo — é sobre o coração."</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Peça que cada aluno escolha em silêncio: "Hoje, sou mais Éfeso ou Esmirna?"</li>
+      <li>Convide quem quiser a compartilhar brevemente — sem pressão nem julgamento</li>
+      <li>Ore usando Ap 2:10 como base: "Senhor, que sejamos fiéis até ao fim"</li>
+      <li>Anuncie a próxima lição: Pérgamo e Tiatira — quando a Igreja se acomoda ao mundo</li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS SUGERIDAS + MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 02 · Respostas &amp; Recursos</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01</div>
+      <div class="resp-txt">Verdade sem amor = arrogância, julgamento, frieza; o crente sabe muito, mas não atrai ninguém a Cristo. Amor sem verdade = sentimentalismo, vulnerabilidade à heresia, incapacidade de discernimento. Os dois perigos são reais; o Apocalipse e Paulo (1 Co 13 + Ef 4:15) pedem os dois juntos. Estimule a turma a reconhecer qual tendência predomina em cada um — sem comparações com outros.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02</div>
+      <div class="resp-txt">O diagnóstico de Lopes é contextualmente preciso. Sintomas concretos esperados: pregações motivacionais sem exegese, cultos centrados em experiência emocional, teologia da prosperidade, influenciadores gospel com mais seguidores do que formação, consumismo espiritual. Cuidado para não virar crítica genérica — o foco é o diagnóstico, não o julgamento de outras igrejas.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03</div>
+      <div class="resp-txt">A riqueza de Esmirna é relacional e escatológica: ela tinha Cristo — e isso tem peso eterno. Não é dualismo (matéria ruim, espírito bom): Cristo não ignora a pobreza real. Mas Ele recontextualiza: quem tem a coroa da vida já possui o que não se perde. Para o aluno: o que você tem que nenhuma crise financeira pode tirar? Estimule respostas concretas — fé, comunidade, esperança, o próprio Cristo.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04</div>
+      <div class="resp-txt">A distinção é teológica e existencial: fé que busca livramento presume que Deus é bom somente se me livra; fé que é fiel dentro do sofrimento confia que Deus é bom mesmo quando não livra. Esmirna não foi liberta imediatamente — foi coroada depois. Essa distinção muda a esperança: de "Deus vai me tirar daqui" para "Deus está comigo aqui, e o que vem depois é maior do que o que estou vivendo agora." Esta questão pode ser o momento mais significativo da aula — dê tempo.</div>
+    </div>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">↻</div>
+    <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong>As respostas são orientativas, não definitivas. Valorize especificidade e honestidade acima de correção teológica perfeita. Afirme publicamente qualquer resposta que mostre que o aluno aplicou o texto à própria vida — isso é sinal de que a Palavra aterrisou.</div>
+  </div>
+  <div class="bloco-aval">
+    <div class="bk">Seguimento Pós-Lição</div>
+    <ul>
+      <li>Envie Apocalipse 2:4-5 no grupo da turma com a pergunta: "Qual dos três imperativos você está praticando esta semana?"</li>
+      <li>Proponha leitura devocional: Ap 2:1-11 + 1 Co 13:1-13 + Fp 2:1-5</li>
+      <li>Anote alunos que se identificaram fortemente com Esmirna — podem estar passando por sofrimento real que merece atenção pastoral individual</li>
+      <li>Avalie se a turma conseguiu o autodiagnóstico (Éfeso ou Esmirna) — esse é o indicador central de aprendizado desta lição</li>
+    </ul>
+  </div>
+  <div class="sep"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">Hernandes Dias Lopes — <em>Apocalipse: O Futuro Chegou</em>. Hagnos. Capítulos sobre Éfeso e Esmirna. Fonte primária desta lição — perspectiva reformada acessível com rica aplicação pastoral ao contexto brasileiro.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">George Eldon Ladd — <em>A Commentary on the Revelation of John</em>. Eerdmans. Excelente comentário exegético em inglês — especialmente útil para o professor que quer aprofundar o significado do "primeiro amor" e dos três imperativos de Ap 2:5.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">Grant Osborne — <em>Apocalipse</em> (Comentário Vida Nova do NT). Vida Nova. Em português, com atenção ao contexto histórico de Éfeso (templo de Ártemis, nicolaítas) e de Esmirna (lealdade a Roma, sinagoga).</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">BibleProject: série <em>Apocalipse</em> (YouTube, legendado em PT). Episódio sobre as sete cartas — recurso visual de 8 minutos ideal para passar como aquecimento ou encerramento.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">Pr. Hernandes Dias Lopes — <em>A Igreja de Éfeso</em> (YouTube). Mensagem pastoral direta — ideal para recomendar aos alunos como complemento pós-aula, especialmente para os que se identificaram com o diagnóstico de Éfeso.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo site">Digital</span>
+      <span class="mat-info">thegospelcoalition.org/pt — busca "Éfeso Apocalipse" ou "primeiro amor". Artigos curtos e fundamentados sobre a perda do primeiro amor e seus antídotos práticos.</span>
+    </div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_auth';
+
+function verificarSenha() {
+    const input = document.getElementById('senha-input');
+    const erro  = document.getElementById('senha-erro');
+    const val   = input.value.trim().toLowerCase();
+    if (val === SENHA_CORRETA) {
+        sessionStorage.setItem(CHAVE_SESSION, '1');
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+        input.classList.remove('erro');
+        erro.classList.remove('vis');
+    } else {
+        input.classList.add('erro');
+        erro.classList.add('vis');
+        input.value = '';
+        setTimeout(() => input.classList.remove('erro'), 400);
+    }
+}
+(function(){
+    if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+        document.getElementById('tela-senha').style.display = 'none';
+        document.getElementById('conteudo-principal').style.display = 'block';
+    }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit() {
+  edit = !edit;
+  document.querySelectorAll('.pag *').forEach(el => {
+    if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul'))
+      el.contentEditable = edit ? 'true' : 'false';
+  });
+  document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</body>
+</html>
