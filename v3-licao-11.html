@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eschaton Vol. III · Lição 11 — A Igreja Selada, Perseguida e Glorificada · Professor</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #905020;
+  --grad1:      #181008;
+  --grad2:      #281808;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --prof-verde: #1D9E75;
+  --prof-azul:  #378ADD;
+  --prof-coral: #D85A30;
+  --prof-amber: #BA7517;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #040a02; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL ──────────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #020602, #040a02);
+  border-bottom: 1px solid rgba(29,158,117,.4);
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+
+/* ── ÁREA ────────────────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+  margin: 0 auto;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  width: min(148mm, 100%);
+  align-self: center;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: -0.5rem;
+}
+.lbl-prof { color: var(--prof-verde); }
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(144,80,32,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px
+  );
+}
+.cfx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg, #281808, var(--cor), var(--ouro));
+}
+.cnbg {
+  position: absolute; bottom: -20px; right: -10px;
+  font-family: 'Cinzel', serif; font-size: clamp(80pt, 22vw, 130pt);
+  font-weight: 900; color: rgba(255,255,255,.03); line-height: 1;
+  user-select: none;
+}
+.cimg {
+  position: absolute; top: 0; left: 0; right: 0; height: 58%;
+  background: linear-gradient(160deg, #0d0804, var(--cor) 50%, #ffc080);
+  opacity: .38;
+}
+.clh {
+  position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .75;
+}
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num { font-family: 'Cinzel', serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 4px; color: var(--ouro); text-transform: uppercase;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif; font-size: clamp(12pt, 3.5vw, 17pt);
+  font-weight: 700; color: #fff; line-height: 1.1;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ouro-claro);
+  line-height: 1.6; border-left: 2px solid var(--ouro);
+  padding-left: 10px; opacity: .9;
+}
+
+/* ── INTERIOR ALUNO ──────────────────────────────────── */
+.int {
+  padding: clamp(8mm, 5vw, 14mm) clamp(6mm, 4vw, 12mm) 18mm clamp(8mm, 4vw, 14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px;
+  left: clamp(8mm, 4vw, 14mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px; background: rgba(144,80,32,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(144,80,32,.045) 23px, rgba(144,80,32,.045) 24px
+  );
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem);
+  font-weight: 900; color: rgba(0,0,0,.03); line-height: 1;
+  user-select: none; pointer-events: none;
+}
+
+/* ── INTERIOR PROFESSOR ──────────────────────────────── */
+.int-prof {
+  padding: clamp(8mm,5vw,14mm) clamp(6mm,4vw,12mm) 18mm clamp(8mm,4vw,14mm);
+  min-height: 210mm; position: relative; background: #f4f8f5;
+}
+.int-prof::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--prof-verde), #a8e0cc 60%, transparent);
+}
+.int-prof::after {
+  content: ''; position: absolute; top: 6px;
+  left: clamp(8mm,4vw,14mm); right: clamp(6mm,4vw,12mm);
+  height: 1px; background: rgba(29,158,117,.2);
+}
+.wm-prof {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(28pt,8vw,42pt);
+  font-weight: 900; color: rgba(29,158,117,.07); line-height: 1;
+  user-select: none; pointer-events: none; letter-spacing: 4px;
+}
+
+/* ── CABEÇALHOS ──────────────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem, 1.5vw, 0.7rem); color: #aaa; }
+.ph-prof {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 2px solid rgba(29,158,117,.3);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.ph-prof-l { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.5vw,0.625rem); color: var(--prof-verde); letter-spacing: 2px; text-transform: uppercase; }
+.ph-prof-r { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem,1.5vw,0.7rem); color: #7aaa95; }
+
+/* ── TIPOGRAFIA GERAL ────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(10pt, 3vw, 13pt); letter-spacing: 1px;
+  text-transform: uppercase; color: var(--cor);
+  border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h2.prof {
+  font-family: 'Cinzel', serif; font-size: clamp(10pt,3vw,12pt);
+  color: var(--prof-verde); border-bottom: 2px solid var(--prof-verde);
+  letter-spacing: 1px; text-transform: uppercase; padding-bottom: 6px;
+  margin-bottom: 12px; margin-top: 16px; line-height: 1.2;
+}
+h2.prof:first-of-type { margin-top: 4px; }
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(8pt, 2.5vw, 10pt); letter-spacing: 1.5px;
+  color: #503010; text-transform: uppercase;
+  margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(28pt, 8vw, 38pt);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+
+/* ── BLOCOS ALUNO ────────────────────────────────────── */
+.bver {
+  background: #fff; border: 1px solid rgba(144,80,32,.2);
+  border-left: 4px solid var(--cor);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt); color: #281808;
+  line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(8pt, 2vw, 9pt); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+.bloco {
+  background: rgba(144,80,32,.05); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.blteo {
+  background: rgba(201,168,76,.08); border-left: 3px solid var(--ouro);
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+.blapl {
+  background: linear-gradient(135deg, rgba(144,80,32,.05), rgba(201,168,76,.07));
+  border: 1px solid rgba(144,80,32,.2); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.mem {
+  background: var(--creme); border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 10px 12px; margin: 10px 0;
+  text-align: center; position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: #281808;
+  text-align: center; line-height: 1.6;
+}
+.obj {
+  background: var(--creme); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.obj .ot {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); padding: 2px 0 2px 14px;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆'; position: absolute; left: 0; color: var(--cor);
+  font-size: clamp(6pt, 1.5vw, 8pt); top: 4px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(144,80,32,.07);
+  border: 1px dashed rgba(144,80,32,.3);
+  border-radius: 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.brefletir {
+  background: rgba(144,80,32,.06);
+  border: 1px solid rgba(144,80,32,.2);
+  border-top: 3px solid var(--cor);
+  border-radius: 0 0 2px 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(144,80,32,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(144,80,32,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.tabela-wrap { overflow-x: auto; margin: 10px 0; position: relative; z-index: 1; }
+.tabela { width: 100%; border-collapse: collapse; font-size: clamp(8pt, 2.2vw, 9pt); }
+.tabela th {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cor); background: rgba(144,80,32,.07);
+  padding: 5px 7px; border-bottom: 2px solid var(--cor); text-align: left;
+}
+.tabela td {
+  font-family: 'EB Garamond', serif; font-size: clamp(8.5pt, 2.2vw, 9.5pt);
+  color: var(--ct); padding: 4px 7px;
+  border-bottom: 1px solid rgba(144,80,32,.1);
+  vertical-align: top; line-height: 1.4;
+}
+.tabela tr:last-child td { border-bottom: none; }
+.tabela td:first-child { font-family: 'Oswald', sans-serif; font-weight: 600; color: var(--cor); white-space: nowrap; }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+.qt { font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ct); line-height: 1.45; margin-bottom: 5px; }
+.lr { border-bottom: 1px solid rgba(144,80,32,.2); height: 20px; margin-top: 3px; }
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(144,80,32,.2); height: 22px; }
+
+/* ── BLOCOS PROFESSOR ────────────────────────────────── */
+[class^="prof-"] {
+  border-radius: 0 0.375rem 0.375rem 0; padding: 0.875rem 1rem;
+  margin: 1rem 0 1.5rem; page-break-inside: avoid;
+  position: relative; z-index: 1;
+}
+[class^="prof-"] .prof-label {
+  font-size: clamp(0.55rem,1.5vw,0.7rem); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem;
+}
+[class^="prof-"] p { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin: 0; }
+[class^="prof-"] ul { padding-left: 1rem; margin-top: .4rem; }
+[class^="prof-"] ul li { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin-bottom: .3rem; }
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientaçao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+.prof-nota-teologica  .prof-label { color: #1D9E75; }
+.prof-dica-aula       .prof-label { color: #378ADD; }
+.prof-recurso-visual  .prof-label { color: #BA7517; }
+.prof-orientaçao-past .prof-label { color: #D85A30; }
+.prof-reflexao {
+  border: 1px solid rgba(144,80,32,.2); border-left: 4px solid var(--cor);
+  background: rgba(144,80,32,.04); border-radius: 0 .375rem .375rem 0;
+  padding: .875rem 1rem; margin: .75rem 0 1.25rem;
+  page-break-inside: avoid; position: relative; z-index: 1;
+}
+.prof-reflexao .prof-label {
+  font-size: clamp(.55rem,1.5vw,.7rem); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; color: var(--cor);
+}
+.prof-reflexao p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+
+/* ── COMPONENTES PROFESSOR ───────────────────────────── */
+.bk { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.7rem); letter-spacing: 2px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .5rem; font-weight: 600; }
+.bloco-mapa, .bloco-dica, .bloco-perf { background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.mapa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .625rem; margin-top: .5rem; }
+.mapa-cel { background: rgba(255,255,255,.7); border-radius: 3px; padding: .5rem .75rem; }
+.mapa-cel-tit { font-family: 'Oswald', sans-serif; font-size: clamp(.5rem,1.5vw,.625rem); letter-spacing: 1px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .25rem; }
+.mapa-cel p, .bloco-fio-txt, .tempo-desc { font-size: clamp(.78rem,2vw,.9rem); line-height: 1.55; margin: 0; text-align: left; }
+.bloco-tempo { background: rgba(55,138,221,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.tempo-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .375rem; }
+.tempo-min { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.75rem); color: var(--prof-azul); font-weight: 600; min-width: 3rem; flex-shrink: 0; }
+.bloco-guia, .bloco-teo { background: rgba(201,168,76,.07); border-left: 3px solid var(--ouro); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-guia ul, .bloco-dica ul { padding-left: 1rem; }
+.bloco-guia ul li, .bloco-dica ul li { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; margin-bottom: .25rem; color: var(--ct); }
+.alerta { background: #fdf3ee; border-left: 4px solid var(--prof-coral); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.alerta .bk { color: var(--prof-coral); }
+.alerta p, .bloco-teo p, .bloco-debate p, .bloco-cult p, .bloco-soc p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; color: var(--ct); }
+.bloco-fio { display: flex; gap: .75rem; align-items: flex-start; background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-fio-icon { font-size: 1.2rem; color: var(--prof-verde); flex-shrink: 0; line-height: 1.3; }
+.bloco-debate { background: rgba(55,138,221,.07); border-left: 3px solid var(--prof-azul); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-soc { background: rgba(201,168,76,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.soc-item { border-bottom: 1px solid rgba(201,168,76,.2); padding-bottom: .625rem; margin-bottom: .625rem; }
+.soc-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.soc-espera { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.78rem,2vw,.85rem); color: #555; line-height: 1.55; padding-left: .75rem; border-left: 2px solid rgba(201,168,76,.4); }
+.bloco-cult { background: rgba(186,117,23,.07); border-left: 3px solid var(--prof-amber); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: .75rem 0; }
+.perf-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .625rem; padding-bottom: .625rem; border-bottom: 1px solid rgba(48,96,32,.12); }
+.perf-linha:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.perf-tipo { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); letter-spacing: 1px; text-transform: uppercase; color: var(--cor); font-weight: 600; min-width: 6rem; flex-shrink: 0; padding-top: .15rem; }
+.perf-txt { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; color: var(--ct); }
+.bloco-resp { background: rgba(255,255,255,.6); border: 1px solid rgba(29,158,117,.2); border-radius: 4px; padding: .75rem 1rem; margin: .75rem 0; }
+.resp-q { margin-bottom: .75rem; padding-bottom: .75rem; border-bottom: 1px solid rgba(29,158,117,.15); }
+.resp-q:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.resp-num { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); color: var(--prof-verde); letter-spacing: 1px; text-transform: uppercase; margin-bottom: .25rem; }
+.resp-txt { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.65; color: var(--ct); }
+
+/* ── BADGE E MARCA PROFESSOR ─────────────────────────── */
+.badge-prof { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem,1.5vw,0.6rem); letter-spacing: 2px; text-transform: uppercase; background: var(--prof-verde); color: #fff; padding: 0.25rem 0.625rem; border-radius: 2px; }
+.marca em { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.3vw,0.6rem); color: var(--prof-verde); letter-spacing: 2px; display: block; font-weight: 400; font-style: normal; text-transform: uppercase; }
+
+/* ── SEP PROFESSOR ───────────────────────────────────── */
+.sep-prof { display: flex; align-items: center; gap: 10px; margin: 14px 0; opacity: .5; position: relative; z-index: 1; }
+.sep-prof::before, .sep-prof::after { content: ''; flex: 1; height: 1px; background: var(--prof-verde); }
+.sep-prof span { font-size: clamp(6pt,1.5vw,8pt); color: var(--prof-verde); }
+
+/* ── RODAPÉ ──────────────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px clamp(6mm, 4vw, 12mm) 6mm clamp(8mm, 4vw, 14mm);
+  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0;
+  left: clamp(6mm, 4vw, 12mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rod-prof {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px clamp(6mm,4vw,12mm) 6mm clamp(8mm,4vw,14mm);
+  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+}
+.rod-prof::before {
+  content: ''; position: absolute; top: 0;
+  left: clamp(6mm,4vw,12mm); right: clamp(6mm,4vw,12mm);
+  height: 1px;
+  background: linear-gradient(90deg, var(--prof-verde), #a8e0cc, transparent);
+  opacity: .4;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(6pt, 1.5vw, 7pt); color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(8pt, 2vw, 9pt); color: var(--ouro); }
+
+/* ── EDIÇÃO ──────────────────────────────────────────── */
+[contenteditable="true"] { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(144,80,32,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(144,80,32,.08); border-radius: 2px; }
+
+/* ── TELA DE SENHA ───────────────────────────────────── */
+#tela-senha {
+  position: fixed; inset: 0; z-index: 99999;
+  background: linear-gradient(160deg, #040a02, #0a1408);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+  padding: 1.5rem;
+}
+.senha-box { background: rgba(255,255,255,.04); border: 1px solid rgba(201,168,76,.25); border-radius: 4px; padding: clamp(1.5rem,5vw,2.5rem); width: min(380px, 100%); text-align: center; }
+.senha-logo { font-family: 'Cinzel', serif; font-size: clamp(1rem, 3vw, 1.3rem); color: var(--ouro); letter-spacing: 4px; margin-bottom: .25rem; }
+.senha-sub { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem, 1.5vw, .7rem); color: var(--prof-verde); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.senha-label { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem, 1.8vw, .75rem); color: #888; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: .5rem; }
+#senha-input { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(201,168,76,.3); border-radius: 2px; padding: .625rem .875rem; font-family: 'Oswald', sans-serif; font-size: clamp(.8rem,2vw,.9rem); color: #fff; letter-spacing: 3px; text-align: center; outline: none; transition: border-color .2s, background .2s; }
+#senha-input:focus { border-color: var(--ouro); background: rgba(201,168,76,.07); }
+#senha-input.erro { border-color: var(--prof-coral); animation: shake .35s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+#senha-erro { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.7rem); color: var(--prof-coral); letter-spacing: 1px; margin-top: .5rem; display: none; }
+#senha-erro.vis { display: block; }
+.senha-btn { margin-top: 1rem; width: 100%; background: var(--prof-verde); color: #fff; border: none; border-radius: 2px; cursor: pointer; font-family: 'Oswald', sans-serif; font-size: clamp(.65rem,2vw,.8rem); letter-spacing: 2px; text-transform: uppercase; padding: .6rem 1.25rem; transition: filter .2s; }
+.senha-btn:hover { filter: brightness(1.15); }
+#conteudo-principal { display: none; }
+
+/* ── CAPA DE ENTRADA ─────────────────────────────────── */
+#capaEntradaRevista {
+  position: fixed; inset: 0; z-index: 10000;
+  background: linear-gradient(160deg, #0d0804 0%, #181008 40%, #281808 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; transition: opacity .6s ease;
+  padding: 2rem;
+}
+#capaEntradaRevista.saindo { opacity: 0; pointer-events: none; }
+body.licao-iniciada #capaEntradaRevista { display: none; }
+.cv-atm { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 30% 70%, rgba(144,80,32,.45) 0%, transparent 50%), radial-gradient(ellipse at 75% 20%, rgba(201,168,76,.18) 0%, transparent 45%); }
+.cv-grd { position: absolute; inset: 0; pointer-events: none; opacity: .02; background-image: repeating-linear-gradient(45deg, rgba(201,168,76,.8) 0px, transparent 1px, transparent 28px, rgba(201,168,76,.8) 29px); }
+.cv-fx { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; pointer-events: none; background: linear-gradient(180deg, #281808, var(--cor), var(--ouro)); }
+.cv-corpo { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 480px; gap: 1.2rem; }
+.cv-serie { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.6875rem); letter-spacing: 4px; color: var(--ouro); text-transform: uppercase; opacity: .75; }
+.cv-num { font-family: 'Cinzel', serif; font-size: clamp(.6rem,2vw,.75rem); color: rgba(201,168,76,.45); letter-spacing: 4px; text-transform: uppercase; }
+.cv-tema { font-family: 'Cinzel', serif; font-weight: 700; font-size: clamp(1.1rem,4vw,1.6rem); color: #fff; line-height: 1.2; text-transform: uppercase; letter-spacing: 1px; }
+.cv-tema-sub { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(.6rem,1.8vw,.75rem); color: rgba(201,168,76,.6); letter-spacing: 3px; text-transform: uppercase; }
+.cv-divisor { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--ouro), transparent); opacity: .5; }
+.cv-frase { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.85rem,2.2vw,1rem); color: var(--ouro-claro); line-height: 1.7; opacity: .9; border-left: 2px solid rgba(201,168,76,.4); padding-left: 1rem; text-align: left; max-width: 400px; }
+.cv-ref { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(.55rem,1.5vw,.65rem); color: rgba(201,168,76,.55); letter-spacing: 2px; text-transform: uppercase; text-align: right; width: 100%; max-width: 400px; }
+.cv-cta { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.75rem); letter-spacing: 3px; text-transform: uppercase; color: #fff; background: var(--cor); border: none; padding: .6rem 1.8rem; cursor: pointer; border-radius: 2px; transition: all .2s; }
+.cv-cta:hover { background: var(--ouro); color: #111; }
+.cv-rodape { position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center; pointer-events: none; }
+.cv-rodape-sub { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(.5rem,1.3vw,.6rem); color: rgba(255,255,255,.2); letter-spacing: 3px; text-transform: uppercase; }
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  #tela-senha { display: none !important; }
+  #conteudo-principal { display: block !important; }
+  #capaEntradaRevista, .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+  .prof-nota-teologica, .prof-dica-aula, .prof-recurso-visual, .prof-orientaçao-past, .prof-reflexao { page-break-inside: avoid; }
+}
+@media (max-width: 480px) { .mapa-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div id="tela-senha">
+<div class="senha-box">
+<div class="senha-logo">ESCHATON VOL. III</div>
+<div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+<label class="senha-label" for="senha-input">Senha de acesso</label>
+<input autocomplete="off" id="senha-input" type="password"/>
+<div id="senha-erro">Senha incorreta. Tente novamente.</div>
+<button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+</div>
+</div>
+<div id="conteudo-principal">
+<div class="painel">
+<div class="marca">ESCHATON VOL. III<span>Lição 11 · A Igreja Selada, Perseguida e Glorificada</span><em>Edição do Professor</em></div>
+<span class="badge-prof">Docente</span>
+<button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖶 Imprimir</button>
+<a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+<!-- CAPA DE ENTRADA -->
+<div aria-label="Abrir lição 11" id="capaEntradaRevista" onclick="entrarLicao()" role="button" tabindex="0">
+<div class="cv-atm"></div><div class="cv-grd"></div><div class="cv-fx"></div>
+<div class="cv-corpo">
+<div class="cv-serie">Eschaton · O Futuro Chegou</div>
+<div class="cv-num">Vol. III · Lição 11</div>
+<div class="cv-tema">A Igreja Selada, Perseguida e Glorificada</div>
+<div class="cv-tema-sub">Apocalipse 11:1-19</div>
+<div class="cv-divisor"></div>
+<div class="cv-frase">"Quem você é? Santuário de Deus ou átrio exterior? Onde você estará quando a sétima trombeta tocar?"</div>
+<div class="cv-ref">Hernandes Dias Lopes</div>
+<button class="cv-cta" onclick="entrarLicao()">Abrir Lição</button>
+</div>
+<div class="cv-rodape"><div class="cv-rodape-sub">Jovens Adultos · Lição 11 · Professor</div></div>
+</div>
+<div class="area">
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">11</div>
+<div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+<div class="ccon">
+<div class="cser">Eschaton · O Futuro Chegou</div>
+<div class="cref">Apocalipse 11:1-19</div>
+<div class="ctit">A Igreja Selada, Perseguida e Glorificada</div>
+<div class="cver">
+  "O capítulo 11 de Apocalipse revela de forma viva a missão da igreja no mundo: sua proteção, proclamação, perseguição, triunfo e, então, o surgimento triunfante e vitorioso do Reino de Deus."
+  <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Hernandes Dias Lopes</span>
+</div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+<!-- PG 2 TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 11 · Vol. III</span><span class="pht">Ap 11:1-4 · 11:15</span></div><div class="prof-dica-aula"><div class="prof-label">Dica ao Professor</div><p>Este capítulo tem quatro movimentos claramente demarcados: (1) santuário medido, (2) duas testemunhas, (3) perseguição e ressurreição, (4) sétima trombeta. Apresentar essa estrutura no início da aula ajudará os alunos a orientar-se ao longo da exposição.</p></div>
+<h2>O Texto</h2>
+<div class="bver">
+<div class="bver-ref">Apocalipse 11:1-2</div>
+<p>"Foi-me dada uma vara semelhante a uma vara de medir, com esta ordem: Levanta-te e mede o santuário de Deus, o altar e os que nele adoram. Mas o átrio exterior ao santuário deixa-o de fora e não o meças, porque foi entregue aos gentios, os quais pisarão a cidade santa por quarenta e dois meses."</p>
+<span class="ref-f">Apocalipse 11:1-2</span>
+</div>
+<div class="bver">
+<div class="bver-ref">Apocalipse 11:3-4</div>
+<p>"E farei que as minhas duas testemunhas profetizem durante mil duzentos e sessenta dias, vestidas de pano de saco. Estas são as duas oliveiras e os dois candeeiros que estão em pé diante do Senhor da terra."</p>
+<span class="ref-f">Apocalipse 11:3-4</span>
+</div>
+<div class="bver">
+<div class="bver-ref">Apocalipse 11:15</div>
+<p>"Ao toque da sétima trombeta, soaram grandes vozes no céu, dizendo: O reino do mundo passou a ser de nosso Senhor e do seu Cristo, e ele reinará pelos séculos dos séculos."</p>
+<span class="ref-f">Apocalipse 11:15</span>
+</div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Compreender o que representa o santuário medido — a proteção espiritual da Igreja</li>
+<li>Identificar as duas testemunhas como símbolo da Igreja proclamando o evangelho</li>
+<li>Entender a perseguição da Igreja, sua aparente derrota e sua ressurreição gloriosa</li>
+<li>Contemplar a sétima trombeta: o anúncio do reinado eterno de Cristo</li>
+</ul>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+<!-- PG 3 O SANTUÁRIO MEDIDO -->
+<div class="lbl">Página 3 · O Santuário Medido</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 11 · Vol. III</span><span class="pht">A Igreja Protegida</span></div>
+<h2>A Igreja como Santuário de Deus</h2>
+<p class="cap">O capítulo 11 de Apocalipse é o interlúdio final antes do toque da sétima trombeta. Começa com uma visão incomum: João recebe uma vara de medir e a ordem de mensurar o santuário. Hernandes Dias Lopes explica que essa imagem não fala de um templo físico a ser reconstruído em Jerusalém — ela é um símbolo poderoso da proteção divina sobre toda a Igreja verdadeira.</p><div class="prof-nota-teologica"><div class="prof-label">Nota Teológica</div><p>Lopes apresenta cinco argumentos para sustentar que o santuário é espiritual e não físico: (a) o NT ensina que o santuário de Deus é a Igreja (1 Co 3:16); (b) o santuário representa os adoradores, não o edifício; (c) tanto o santuário como o átrio exterior referem-se a pessoas; (d) todos os salvos são contados, selados e protegidos (7:4; 22:4); (e) essa interpretação concorda com o simbolismo de Ezequiel 43 e 47. Use esses pontos caso a turma questione a interpretação literal dispensacionalista.</p></div>
+<h3>O que significa medir o santuário? — Ap 11:1-2</h3>
+<div class="bloco">
+<div class="bloco-t">O Santuário = A Igreja Verdadeira</div>
+<p>Conforme o contexto de Apocalipse 21:15 e do Antigo Testamento (Ez 40:5; Zc 2:1), medir significa apartar o povo de Deus para total segurança. Deus não perde nenhum dos seus. Lopes afirma que o Novo Testamento ensina com clareza: o santuário de Deus é a Igreja, e não um prédio. O Espírito de Deus habita em seu povo (1 Co 3:16-17; Ef 2:21).</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">O Átrio Exterior = Os Cristãos Nominais</div>
+<p>A proteção não se estende a todos os que se dizem cristãos. O átrio exterior representa os membros mundanos da Igreja — aqueles que amam o mundo e, por isso, ficam sem a cobertura divina no juízo. A fronteira não é denominação; é adoração genuína em espírito e em verdade.</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">Os 42 Meses = Toda a Era da Igreja</div>
+<p>O período de 42 meses — e seu equivalente de 1.260 dias — não deve ser lido literalmente. Lopes demonstra que esse número simbólico representa todo o período entre a primeira e a segunda vinda de Cristo: o tempo em que os ímpios perseguem a Igreja e em que as testemunhas de Deus proclamam o evangelho. A perseguição torna-se mais intensa à medida que o fim se aproxima.</p>
+</div>
+<div class="blteo">
+<div class="blteo-t">A Voz de Hernandes Dias Lopes</div>
+<p>"Todos os salvos são contados, selados e protegidos. Tanto o contar, como o selar e o medir são figuras da proteção da Igreja. A Igreja na terra é o santuário espiritual simbolizado pelo santuário terreno de Israel."</p>
+</div>
+<div class="brefletir">
+<div class="brefletir-t">✦ Para Você Refletir</div>
+<p>A medição divide entre os que adoram a Deus genuinamente e os que estão no átrio exterior. Você está dentro ou fora do santuário? Não pelo nome que carrega, mas pela adoração que oferece.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+<!-- PG 4 AS DUAS TESTEMUNHAS -->
+<div class="lbl">Página 4 · As Duas Testemunhas</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 11 · Vol. III</span><span class="pht">A Igreja Proclamando</span></div>
+<h2>As Duas Testemunhas: A Igreja em Missão</h2>
+<p>Após ver a Igreja como santuário — o povo que adora a Deus —, João vê a mesma Igreja sob outra figura: as duas testemunhas. A Igreja é o povo que fala a Deus na adoração e fala aos homens na proclamação. Dois papéis. Um único povo.</p><div class="prof-nota-teologica"><div class="prof-label">Nota Teológica — Quatro Posições sobre as Testemunhas</div>
+<ul style="padding-left:1rem;margin-top:.4rem;">
+<li style="font-size:clamp(.82rem,2.2vw,.9rem);line-height:1.7;margin-bottom:.3rem;"><strong>Enoque e Elias:</strong> baseada no fato de que ambos foram levados sem morrer.</li>
+<li style="font-size:clamp(.82rem,2.2vw,.9rem);line-height:1.7;margin-bottom:.3rem;"><strong>Moisés e Elias:</strong> baseada no simbolismo dos milagres de v. 5-6 e na Transfiguração.</li>
+<li style="font-size:clamp(.82rem,2.2vw,.9rem);line-height:1.7;margin-bottom:.3rem;"><strong>AT e NT (Martyn Lloyd-Jones):</strong> as duas testemunhas representam ambos os Testamentos.</li>
+<li style="font-size:clamp(.82rem,2.2vw,.9rem);line-height:1.7;"><strong>A Igreja (posição reformada, adotada por Lopes):</strong> as testemunhas são o povo de Deus em missão missionária ao longo de toda a história.</li>
+</ul>
+</div>
+<div class="bloco">
+<div class="bloco-t">Quem são as duas testemunhas?</div>
+<p>Algumas tradições as identificam com Enoque e Elias, ou com Moisés e Elias. Mas Lopes adota a interpretação reformada: as duas testemunhas representam o testemunho da Igreja diante do mundo durante toda a era evangélica. Moisés e Elias — a Lei e os Profetas — simbolizam o povo inteiro de Deus. Dois é o número legal do testemunho válido (Lc 10:1; Dt 19:15).</p>
+</div>
+<h3>Quatro Traços das Duas Testemunhas — Ap 11:4-6</h3>
+<div class="tabela-wrap">
+<table class="tabela">
+<thead><tr><th>Símbolo</th><th>Significado</th></tr></thead>
+<tbody>
+<tr><td>Duas oliveiras e dois candeeiros</td><td>Proclamação da Palavra no poder do Espírito (Zc 4:1-7)</td></tr>
+<tr><td>Fogo da boca</td><td>O juízo de Deus anunciado pela Igreja aos ímpios (Jr 5:14)</td></tr>
+<tr><td>Fechar o céu sem chuva</td><td>Autoridade profética como a de Elias — intercessão e proclamação</td></tr>
+<tr><td>Converter água em sangue</td><td>Autoridade como a de Moisés — as pragas sobre os que rejeitam a mensagem</td></tr>
+</tbody>
+</table>
+</div>
+<div class="blteo">
+<div class="blteo-t">A Igreja: Indestrutível Até Cumprir Sua Missão — v. 7</div>
+<p>Lopes assegura: a Igreja será indestrutível enquanto sua obra não estiver concluída. Satanás não pode deter o avanço do evangelho nem impedir que os eleitos sejam salvos. As testemunhas são preservadas até o fim do testemunho. A proclamação do evangelho é aquilo que mantém a Igreja de pé.</p>
+</div>
+<div class="bconexao">
+<div class="bconexao-t">✦ Conexão Bíblica</div>
+<p>Compare Apocalipse 11:3-4 com Zacarias 4:1-7 e Lucas 10:1. As duas oliveiras em Zacarias eram Josué e Zorobabel, que restauraram Israel proclamando a Palavra no poder do Espírito. Jesus envia os discípulos de dois a dois. O padrão se repete: a missão da Igreja sempre acontece no poder do Espírito e em comunidade.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+<!-- PG 5 PERSEGUIÇÃO E TRIUNFO -->
+<div class="lbl">Página 5 · Perseguição e Triunfo</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 11 · Vol. III</span><span class="pht">Martírio e Ressurreição</span></div>
+<h2>Da Perseguição ao Triunfo Eterno</h2>
+<p class="cap">A visão das testemunhas não termina em glória — termina em morte. A besta que sobe do abismo faz guerra contra elas e as vence. O mundo celebra. Mas o júbilo é prematuro. Deus sempre tem a última palavra.</p><div class="prof-orientaçao-past"><div class="prof-label">Orientação Pastoral</div><p>Ao tratar da perseguição e da aparente morte da Igreja, não suavize a seriedade do texto. Lopes cita exemplos históricos reais: a Noite de São Bartolomeu (1572), a Revolução Francesa (1789) e a Revolução Russa (1917). A Igreja genuinamente parece morta em certos momentos históricos — mas sempre ressurge. Isso dará coragem à turma diante da hostilidade cultural atual.</p></div>
+<h3>A Perseguição e a Morte — Ap 11:7-10</h3>
+<p>Lopes explica que o espírito do anticristo sempre esteve no mundo (1 Jo 2:18). Nos últimos tempos, esse espírito se incarnará na pessoa da besta e perseguirá a Igreja com violência sem precedentes. O mundo — representado pela grande cidade simbólica que inclui todos os povos, tribos e nações hostis a Deus — vai festejar o aparente silenciamento da Igreja. Missões foram interrompidas. Igrejas foram fechadas. Muitas vezes, a Igreja pareceu morta.</p>
+<div class="bsabia">
+<div class="bsabia-t">✦ Sabia Que?</div>
+<p>A palavra grega traduzida como "testemunhas" é <em>martyria</em> — raiz de "mártir". Para os cristãos do primeiro século, ser testemunha e estar disposto a morrer eram realidades inseparáveis. Proclamar o evangelho sempre implicou o risco da vida.</p>
+</div>
+<h3>A Ressurreição Gloriosa — Ap 11:11-12</h3>
+<p>Três dias e meio após a aparente morte, o fôlego de vida de Deus entra nas testemunhas — e elas se levantam. A ressurreição da Igreja no fim dos tempos, em conexão com a segunda vinda de Cristo, será visível para o mundo inteiro. Não há arrebatamento secreto: Cristo desce e a Igreja sobe na mesma nuvem de glória (1 Ts 4:16-17; 1 Co 15:52).</p>
+<div class="blteo">
+<div class="blteo-t">A Advertência de Hernandes Dias Lopes</div>
+<p>"O mundo vai festejar seu massacre sobre a Igreja, achando que está livre dela e de sua mensagem. Mas a Igreja ressurgirá, ascenderá e assentará no trono para julgar o mundo. Os acusados são transformados em terror dos acusadores."</p>
+</div>
+<div class="bpense">
+<div class="bpense-t">✦ Pense Nisso</div>
+<p>Ezequiel 37 descreve um vale de ossos secos que recebe vida. No século XVIII, a Igreja na Inglaterra pareceu um cadáver. O Grande Avivamento mudou a história. Onde você vê a Igreja aparentemente morta hoje? E onde você vê sinais de ressurreição?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+<!-- PG 6 APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 11 · Vol. III</span><span class="pht">Santuário e Testemunha</span></div>
+<h2>Aplicação Direta</h2>
+<p class="cap">Apocalipse 11 apresenta a Igreja com duas vocações inseparáveis: adorar a Deus (santuário) e proclamar a Palavra (testemunha). Uma não existe sem a outra. A proteção de Deus está sobre aqueles que adoram genuinamente — e quem adora genuinamente não consegue calar o que viu e ouviu.</p>
+<div class="blapl">
+<div class="blapl-t">Para esta semana</div>
+<p><strong>Primeiro:</strong> Hernandes Dias Lopes distingue o santuário medido do átrio exterior. A fronteira não é denominação, frequência ou título cristão — é adoração em espírito e em verdade. Há áreas de sua vida onde você habita no "átrio exterior" — participando da forma religiosa sem a realidade interior? O que precisaria mudar? <strong>Segundo:</strong> As duas testemunhas proclamam vestidas de pano de saco — sinal de luto e urgência. A Igreja proclama o evangelho não porque a vida é fácil, mas porque o tempo é curto e a necessidade é urgente. Com que urgência você tem tratado o testemunho cristão em sua rotina semanal? <strong>Terceiro:</strong> A sétima trombeta anuncia que o reino do mundo passou a ser do Senhor e do seu Cristo. Essa certeza deveria mudar a forma como você enfrenta as dificuldades desta semana. Qual problema, à luz desse reinado eterno, você pode encarar com uma perspectiva diferente?</p>
+</div>
+<div class="mem">
+<div class="mem-t">◆ Versículo para Memorizar</div>
+<p>"O reino do mundo passou a ser de nosso Senhor e do seu Cristo, e ele reinará pelos séculos dos séculos."</p>
+<p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 11:15</p>
+</div>
+<div class="bleve">
+<div class="bleve-t">✦ Leve para a Vida</div>
+<p>Esta semana, identifique duas pessoas ao seu redor que ainda não conhecem o evangelho. Ore por elas todos os dias — com a urgência de quem sabe que o tempo é curto e o Rei está vindo. Interceder é a primeira forma de testemunhar.</p>
+<div class="lr" style="margin-top:8px;"></div>
+<div class="lr"></div>
+</div>
+<div class="prof-reflexao"><div class="prof-label">Pergunta de Fechamento</div><p>Peça que cada aluno escreva em silêncio duas respostas: (1) Em que área específica sou "átrio exterior" em vez de adorador genuíno? (2) Qual pessoa ao meu redor precisa ouvir o evangelho e ainda não ouviu de mim? Após um momento de silêncio, ore por cada aluno nominalmente, cobrindo as duas perguntas.</p></div><div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+<!-- PG 7 QUESTÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 11 · Vol. III</span><span class="pht">A Igreja Selada, Perseguida e Glorificada</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">Hernandes Dias Lopes distingue o santuário medido do átrio exterior — ambos dentro do espaço religioso, mas apenas um sob proteção divina. O que esse contraste diz sobre o perigo do nominalismo cristão? Como a Igreja pode cultivar adoração genuína em vez de mera participação formal?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">As duas testemunhas representam a Igreja em missão durante toda a era evangélica. Lopes afirma que a Igreja é indestrutível enquanto não cumprir cabalmente sua missão. Como essa certeza deve moldar a postura da Igreja diante da perseguição, da hostilidade cultural e das tentativas de silenciá-la?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">O mundo celebra a aparente morte das testemunhas — mas seu gozo é prematuro. Lopes cita exemplos históricos: a Noite de São Bartolomeu, a Revolução Francesa, a perseguição soviética. Como o conhecimento da ressurreição final da Igreja pode sustentar a fé de um cristão que vive em contexto de hostilidade intensa ao evangelho?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">A sétima trombeta proclama que o reino do mundo passou a ser do Senhor e do seu Cristo (v. 15). Os ímpios estão furiosos; os santos, em adoração. Como a certeza do reinado eterno de Cristo deve transformar a forma como o cristão enfrenta as pressões, injustiças e sofrimentos desta vida presente?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+<!-- PG 8 GUIA DO PROFESSOR -->
+<div class="lbl lbl-prof">Página 8 · Guia do Professor</div>
+<div class="pag int-prof">
+<div class="ph-prof"><div class="ph-prof-l">PROF · Lição 11 · Guia Geral</div><div class="ph-prof-r">Edição Docente</div></div>
+<div class="wm-prof">PROF</div>
+<h2 class="prof">Mapa de Competências da Lição</h2>
+<div class="bloco-mapa"><div class="bk">Competências a Desenvolver</div><div class="mapa-grid">
+<div class="mapa-cel"><div class="mapa-cel-tit">Compreensão Bíblica</div><p>Identificar os quatro movimentos de Apocalipse 11: santuário medido, duas testemunhas, perseguição/ressurreição e sétima trombeta.</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Discernimento Teológico</div><p>Distinguir a interpretação reformada das duas testemunhas das interpretações dispensacionalistas e literais; compreender os 42 meses como símbolo temporal.</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Aplicação Pastoral</div><p>Conduzir a turma a autoexaminar sua posição — santuário ou átrio exterior — e a identificar pessoas para proclamação do evangelho.</p></div>
+<div class="mapa-cel"><div class="mapa-cel-tit">Formação Espiritual</div><p>Cultivar a certeza escatológica do reinado eterno de Cristo como fundamento de coragem e missão no presente.</p></div>
+</div></div>
+<div class="bloco-tempo"><div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+<div class="tempo-linha"><div class="tempo-min">5 min</div><div class="tempo-desc">Abertura: "Se o mundo te silenciasse hoje, quem estaria comemorando? E quem estaria de luto?"</div></div>
+<div class="tempo-linha"><div class="tempo-min">10 min</div><div class="tempo-desc">O santuário medido: o que significa medir? Santuário vs. átrio exterior. Os 42 meses (Ap 11:1-2).</div></div>
+<div class="tempo-linha"><div class="tempo-min">12 min</div><div class="tempo-desc">As duas testemunhas: quatro posições, quatro traços simbólicos. A Igreja indestrutível até cumprir sua missão (Ap 11:3-7).</div></div>
+<div class="tempo-linha"><div class="tempo-min">10 min</div><div class="tempo-desc">Perseguição, morte e ressurreição das testemunhas. Exemplos históricos. A sétima trombeta (Ap 11:8-19).</div></div>
+<div class="tempo-linha"><div class="tempo-min">8 min</div><div class="tempo-desc">Discussão das questões e aplicação: quem sou — santuário ou átrio? E qual nome escreverei para interceder?</div></div>
+<div class="tempo-linha"><div class="tempo-min">5 min</div><div class="tempo-desc">Encerramento: oração com o versículo de memória (Ap 11:15) — cada aluno intercede por uma pessoa não convertida.</div></div>
+</div>
+<div class="alerta"><div class="bk">Atenção do Professor</div><p>Evite que a aula se perca em debates sobre a identidade literal das testemunhas ou sobre se o santuário será reconstruído em Jerusalém. Lopes é claro na interpretação simbólica e reformada. O foco deve ser o chamado da Igreja: adorar e proclamar — com urgência, porque a sétima trombeta está próxima.</p></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">8</div></div>
+</div>
+<!-- PG 9 DINÂMICA & TEOLOGIA -->
+<div class="lbl lbl-prof">Página 9 · Dinâmica &amp; Teologia</div>
+<div class="pag int-prof">
+<div class="ph-prof"><div class="ph-prof-l">PROF · Lição 11 · Dinâmica &amp; Teologia</div><div class="ph-prof-r">Edição Docente</div></div>
+<div class="wm-prof">PROF</div>
+<h2 class="prof">Dinâmica de Abertura 5–7 min</h2>
+<div class="bloco-debate"><div class="bk">Santuário ou Átrio?</div><p>Peça que os alunos respondam em papel (anonimamente): "Há uma área da minha vida onde sou mais 'átrio exterior' do que santuário genuíno." Recolha os papéis dobrados, embaralhe e leia alguns aleatoriamente — sem identificar autores. Use as respostas para introduzir a distinção de Lopes entre o santuário medido e o átrio entregue aos gentios.</p></div>
+<div class="bloco-guia"><div class="bk">Como Conduzir</div><ul>
+<li>Garanta o anonimato: a dinâmica só funciona se os alunos se sentirem seguros para ser honestos.</li>
+<li>Não transforme as respostas em julgamento — use-as para gerar empatia e autoconhecimento coletivo.</li>
+<li>Conecte cada resposta com a pergunta final de Lopes: "Quem você é? Santuário de Deus ou átrio exterior?"</li>
+</ul></div>
+<h2 class="prof">Aprofundamento Teológico</h2>
+<div class="bloco-teo"><div class="bk">Os Interlúdios em Apocalipse como Estrutura Pastoral</div><p>Apocalipse usa interlúdios estrategicamente: entre o 6º e 7º selo (Ap 7) e entre a 6ª e 7ª trombeta (Ap 10-11). Cada interlúdio traz mensagem de conforto e comissão à Igreja antes do próximo movimento do juízo. O capítulo 11 é o segundo e último interlúdio antes do toque da sétima trombeta — que encerra a segunda grande seção do livro (8-11). Isso revela o propósito pastoral do Apocalipse: a escatologia serve à perseverança da Igreja, não à satisfação da curiosidade especulativa.</p></div>
+<div class="bloco-teo"><div class="bk">A Ressurreição das Testemunhas e o Arrebatamento</div><p>Lopes é explícito: não há arrebatamento secreto em Apocalipse 11. Cristo desce, a Igreja sobe — publicamente, na mesma nuvem de glória, visível ao mundo inteiro (1 Ts 4:16-17; 1 Co 15:52). Isso é consistente com a teologia amilenarista e pós-milenarista, e contrasta com o dispensacionalismo clássico. O professor deve abordar esse ponto sem criar contenda desnecessária, mas com clareza: o texto não sustenta um rapto secreto.</p></div>
+<div class="bloco-cult"><div class="bk">Conexão com a Cultura Contemporânea</div><p>O mundo celebra o silenciamento da Igreja em múltiplos contextos contemporâneos: redes sociais, legislação restritiva, pressão cultural sobre o ensino cristão de família e gênero. Para jovens adultos, isso não é abstrato — é cotidiano. A certeza de que a Igreja é indestrutível até cumprir sua missão é pastoral e mobilizadora, não meramente doutrinária.</p></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">9</div></div>
+</div>
+<!-- PG 10 PEDAGOGIA & GESTÃO -->
+<div class="lbl lbl-prof">Página 10 · Pedagogia &amp; Gestão</div>
+<div class="pag int-prof">
+<div class="ph-prof"><div class="ph-prof-l">PROF · Lição 11 · Pedagogia &amp; Gestão</div><div class="ph-prof-r">Edição Docente</div></div>
+<div class="wm-prof">PROF</div>
+<h2 class="prof">Dicas Pedagógicas</h2>
+<div class="bloco-dica"><div class="bk">Para Tornar o Conteúdo Concreto</div><ul>
+<li>Esboce no quadro a estrutura do capítulo 11 antes de iniciar: (1) Santuário, (2) Testemunhas, (3) Perseguição/Ressurreição, (4) Sétima Trombeta. Isso ajuda a turma a acompanhar os movimentos sem se perder.</li>
+<li>Use exemplos históricos reais de perseguição à Igreja: Noite de São Bartolomeu, Revolução Russa, Igreja sob regimes marxistas. Pergunte: "O mundo pensou que tinha vencido — e o que aconteceu depois?"</li>
+<li>Retome a analogia da lição anterior: na lição 10, a Igreja comeu a Palavra; na lição 11, a Igreja proclama a Palavra ao mundo como testemunha. Um movimento é interior; o outro é exterior.</li>
+<li>Encerre com o versículo de memória cantado ou recitado em conjunto: Ap 11:15 é uma das afirmações mais triunfais do NT e cria um encerramento memorável.</li>
+</ul></div>
+<div class="bloco-perf"><div class="bk">Diferenciação por Perfil de Turma</div>
+<div class="perf-linha"><div class="perf-tipo">Iniciantes</div><div class="perf-txt">Foque nos dois símbolos principais: santuário (quem adora a Deus) e testemunhas (quem proclama a Deus). Simplifique a discussão dos 42 meses para "todo o tempo da Igreja na terra."</div></div>
+<div class="perf-linha"><div class="perf-tipo">Maduros</div><div class="perf-txt">Aprofunde a hermenêutica do simbolismo numérico (42 meses = 1.260 dias = 3,5 anos = tempo, tempos e meio tempo) e o debate sobre as quatro posições das testemunhas. Explore a estrutura dos interlúdios em Apocalipse.</div></div>
+<div class="perf-linha"><div class="perf-tipo">Sensíveis</div><div class="perf-txt">A seção sobre perseguição pode tocar em experiências pessoais de exclusão ou rejeição por causa da fé. Conduza com cuidado pastoral — reconheça a dor real sem reduzir o chamado ao testemunho.</div></div>
+</div>
+<h2 class="prof">Gestão de Tensões</h2>
+<div class="alerta"><div class="bk">Situação Comum — "O templo será literalmente reconstruído?"</div><p>Responda com os cinco argumentos de Lopes: o NT ensina que o santuário de Deus é a Igreja (1 Co 3:16); o santuário em Ap 11 representa os adoradores, não um edifício. Transforme a curiosidade em aplicação: "Quem somos nós como santuário vivo de Deus?"</p></div>
+<div class="alerta"><div class="bk">Situação Comum — "Quem são realmente as duas testemunhas?"</div><p>Apresente as quatro posições honestamente, indique a preferência de Lopes pela interpretação reformada, e redirecione: a questão mais urgente não é a identidade, mas o chamado — a Igreja é chamada a ser testemunha fiel, independentemente da interpretação.</p></div>
+<div class="bloco-fio"><div class="bloco-fio-icon">→</div><div class="bloco-fio-txt"><strong>Encerramento ideal:</strong> "Deus mediu o santuário para nos proteger. Deus comissionou as testemunhas para nos enviar. E Deus fará a sétima trombeta tocar para nos glorificar. Nossa parte é adorar genuinamente e proclamar fielmente — enquanto ainda há tempo."</div></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">10</div></div>
+</div>
+<!-- PG 11 RESPOSTAS & RECURSOS -->
+<div class="lbl lbl-prof">Página 11 · Respostas &amp; Recursos</div>
+<div class="pag int-prof">
+<div class="ph-prof"><div class="ph-prof-l">PROF · Lição 11 · Respostas &amp; Recursos</div><div class="ph-prof-r">Edição Docente</div></div>
+<div class="wm-prof">PROF</div>
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+<div class="bloco-resp"><div class="bk">Gabarito Orientativo</div>
+<div class="resp-q"><div class="resp-num">Questão 01</div><div class="resp-txt">O nominalismo é exatamente a condição do átrio exterior: presença formal sem adoração genuína. O perigo é que a participação religiosa externa pode mascarar a ausência de relacionamento real com Deus. A resposta deve apontar para práticas que cultivam a interioridade: oração, meditação bíblica, comunhão genuína — não apenas frequência e regularidade litúrgica.</div></div>
+<div class="resp-q"><div class="resp-num">Questão 02</div><div class="resp-txt">A certeza de que a Igreja é indestrutível até cumprir sua missão é o fundamento bíblico do martírio corajoso. A Igreja não pode ser silenciada antes da hora. Isso deve gerar ousadia na proclamação diante da hostilidade cultural: o testemunho é protegido por Deus até ser completado. Silenciar-se voluntariamente seria a única traição possível — a perseguição não pode fazê-lo.</div></div>
+<div class="resp-q"><div class="resp-num">Questão 03</div><div class="resp-txt">O padrão histórico de morte e ressurreição da Igreja — Noite de São Bartolomeu, Revolução Russa, avivamentos pós-perseguição — é a aplicação prática da teologia de Ap 11. O conhecimento desse padrão não elimina a dor da perseguição, mas impede o desespero. A Igreja que sabe que ressurgirá pode suportar o inverno sem abandonar a esperança da primavera.</div></div>
+<div class="resp-q"><div class="resp-num">Questão 04</div><div class="resp-txt">O reinado eterno de Cristo relativiza todas as pressões temporais: sofrimentos, injustiças e fracassos são reais, mas provisórios. A raiva dos ímpios (v. 18) contrastada com a adoração dos santos revela duas formas de processar o presente: com fúria por não controlar o futuro, ou com gratidão por saber quem controla. A certeza escatológica é a fundação da saúde emocional e espiritual cristã.</div></div>
+</div>
+<h2 class="prof">Seguimento Pós-Lição</h2>
+<div class="bloco-soc">
+<div class="soc-item"><p><strong>Durante a semana:</strong> incentive cada aluno a orar diariamente pelos dois nomes que escreveu na aplicação — pessoas não convertidas ao seu redor.</p><div class="soc-espera">Objetivo: transformar a teologia das duas testemunhas em intercesão missionária concreta e semanal.</div></div>
+<div class="soc-item"><p><strong>Na próxima aula:</strong> retome a pergunta sobre o santuário e o átrio. "Houve algo esta semana onde você viveu mais no santuário — em adoração genuína? E onde foi mais átrio exterior?"</p><div class="soc-espera">Objetivo: criar continuidade reflexiva entre as lições e desenvolver hábito de autoexame espiritual.</div></div>
+</div>
+<h2 class="prof">Materiais Complementares</h2>
+<div class="bloco-guia"><div class="bk">Recursos Recomendados ao Professor</div><ul>
+<li>Leitura-base: Apocalipse 11:1-19; Ezequiel 40:5; Zacarias 2:1-2 e 4:1-7; Lucas 10:1; Deuteronômio 19:15.</li>
+<li>Conexões NT: 1 Coríntios 3:16-17 (Igreja como santuário); 1 Tessalonicenses 4:16-17 (ressurreição pública); 1 Coríntios 15:52.</li>
+<li>Paralelo estrutural: compare Apocalipse 11 com Apocalipse 7 — os dois interlúdios do livro. Identifique o padrão: proteção → missão → perseguição → triunfo.</li>
+<li>Exemplos históricos de perseguição e ressurreição da Igreja: Noite de São Bartolomeu (1572), Revolução Francesa (1789), Avivamento Metodista no século XVIII, perseguição soviética e crescimento da Igreja na China pós-1949.</li>
+<li>Para aprofundamento da interpretação das duas testemunhas: compare Meredith Kline, William Hendriksen e G.K. Beale com a posição dispensacionalista de John Walvoord.</li>
+</ul></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">11</div></div>
+</div>
+</div>
+<script>
+function entrarLicao(){
+  const capa = document.getElementById('capaEntradaRevista');
+  if (capa) capa.classList.add('saindo');
+  setTimeout(() => document.body.classList.add('licao-iniciada'), 550);
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit(){
+    edit=!edit;
+    document.querySelectorAll('.pag *').forEach(el=>{
+        if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul,table'))
+            el.contentEditable=edit?'true':'false';
+    });
+    document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+
+/* ===== AUTENTICAÇÃO PROFESSOR ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_l11_auth';
+function verificarSenha() {
+  const input = document.getElementById('senha-input');
+  const erro  = document.getElementById('senha-erro');
+  const val   = input.value.trim().toLowerCase();
+  if (val === SENHA_CORRETA) {
+    sessionStorage.setItem(CHAVE_SESSION, '1');
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+    input.classList.remove('erro'); erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro'); erro.classList.add('vis'); input.select();
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('senha-input');
+  if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+  }
+  if (input) input.addEventListener('keydown', e => { if (e.key === 'Enter') verificarSenha(); });
+});
+</script>
+</div>
+</body>
+</html>
