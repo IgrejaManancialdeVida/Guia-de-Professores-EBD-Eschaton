@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eschaton Vol. III · Lição 09 — Ascensão e Queda da Grande Meretriz [PROFESSOR]</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Oswald:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #905020;
+  --grad1:      #181008;
+  --grad2:      #281808;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+  --ouro-brilho: drop-shadow(0 0 4px rgba(201,168,76,.45));
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #110a04; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL ──────────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #080602, #110a04);
+  border-bottom: 1px solid rgba(144,80,32,.5);
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+
+/* ── ÁREA ────────────────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+  margin: 0 auto;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  width: min(148mm, 100%);
+  align-self: center;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: -0.5rem;
+}
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(144,80,32,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px
+  );
+}
+.cfx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg, #281808, var(--cor), var(--ouro));
+}
+.cnbg {
+  position: absolute; bottom: -20px; right: -10px;
+  font-family: 'Cinzel', serif; font-size: clamp(80pt, 22vw, 130pt);
+  font-weight: 900; color: rgba(255,255,255,.03); line-height: 1;
+  user-select: none;
+}
+.cimg {
+  position: absolute; top: 0; left: 0; right: 0; height: 58%;
+  background: linear-gradient(160deg, #0d0804, var(--cor) 50%, #ffc080);
+  opacity: .38;
+}
+.clh {
+  position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .75;
+}
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num { font-family: 'Cinzel', serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 4px; color: var(--ouro); text-transform: uppercase;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif; font-size: clamp(12pt, 3.5vw, 17pt);
+  font-weight: 700; color: #fff; line-height: 1.1;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ouro-claro);
+  line-height: 1.6; border-left: 2px solid var(--ouro);
+  padding-left: 10px; opacity: .9;
+}
+
+/* ── INTERIOR ────────────────────────────────────────── */
+.int {
+  padding: clamp(8mm, 5vw, 14mm) clamp(6mm, 4vw, 12mm) 18mm clamp(8mm, 4vw, 14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px;
+  left: clamp(8mm, 4vw, 14mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px; background: rgba(144,80,32,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(144,80,32,.045) 23px, rgba(144,80,32,.045) 24px
+  );
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem);
+  font-weight: 900; color: rgba(0,0,0,.03); line-height: 1;
+  user-select: none; pointer-events: none;
+}
+
+/* ── CABEÇALHO DA PÁGINA ─────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem, 1.5vw, 0.7rem); color: #aaa; }
+
+/* ── TIPOGRAFIA ──────────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(10pt, 3vw, 13pt); letter-spacing: 1px;
+  text-transform: uppercase; color: var(--cor);
+  border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(8pt, 2.5vw, 10pt); letter-spacing: 1.5px;
+  color: #503010; text-transform: uppercase;
+  margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(28pt, 8vw, 38pt);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+
+/* ── BLOCOS DE CONTEÚDO ──────────────────────────────── */
+.bver {
+  background: #fff; border: 1px solid rgba(144,80,32,.2);
+  border-left: 4px solid var(--cor);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt); color: #281808;
+  line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(8pt, 2vw, 9pt); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+
+.bloco {
+  background: rgba(144,80,32,.05); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+.blteo {
+  background: rgba(201,168,76,.08); border-left: 3px solid var(--ouro);
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+
+.blapl {
+  background: linear-gradient(135deg, rgba(144,80,32,.05), rgba(201,168,76,.07));
+  border: 1px solid rgba(144,80,32,.2); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+.mem {
+  background: var(--creme); border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 10px 12px; margin: 10px 0;
+  text-align: center; position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: #281808;
+  text-align: center; line-height: 1.6;
+}
+
+.obj {
+  background: var(--creme); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.obj .ot {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); padding: 2px 0 2px 14px;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆';
+  position: absolute; left: 0; color: var(--cor);
+  font-size: clamp(6pt, 1.5vw, 8pt); top: 4px;
+}
+
+/* ── TABELA ──────────────────────────────────────────── */
+.tabela-wrap { overflow-x: auto; margin: 10px 0; position: relative; z-index: 1; }
+.tabela { width: 100%; border-collapse: collapse; font-size: clamp(8pt, 2.2vw, 9pt); }
+.tabela th {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cor); background: rgba(144,80,32,.07);
+  padding: 5px 7px; border-bottom: 2px solid var(--cor); text-align: left;
+}
+.tabela td {
+  font-family: 'EB Garamond', serif; font-size: clamp(8.5pt, 2.2vw, 9.5pt);
+  color: var(--ct); padding: 4px 7px;
+  border-bottom: 1px solid rgba(144,80,32,.1);
+  vertical-align: top; line-height: 1.4;
+}
+.tabela tr:last-child td { border-bottom: none; }
+.tabela td:first-child {
+  font-family: 'Oswald', sans-serif; font-weight: 600;
+  color: var(--cor); white-space: nowrap;
+}
+
+/* ── BLOCOS ESPECIAIS ────────────────────────────────── */
+.brefletir {
+  background: rgba(144,80,32,.06);
+  border: 1px solid rgba(144,80,32,.2);
+  border-top: 3px solid var(--cor);
+  border-radius: 0 0 2px 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(144,80,32,.07);
+  border: 1px dashed rgba(144,80,32,.3);
+  border-radius: 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bpense {
+  background: var(--creme);
+  border-left: 4px solid var(--cor);
+  border-radius: 0 2px 2px 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bpense-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(144,80,32,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(144,80,32,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── SEPARADOR ───────────────────────────────────────── */
+.sep {
+  display: flex; align-items: center; gap: 10px;
+  margin: 12px 0; opacity: .3; position: relative; z-index: 1;
+}
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: clamp(6pt, 1.5vw, 8pt); color: var(--ouro); }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: var(--cor); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
+}
+.qt {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); line-height: 1.45; margin-bottom: 5px;
+}
+.lr { border-bottom: 1px solid rgba(144,80,32,.2); height: 20px; margin-top: 3px; }
+
+/* ── LINHAS DE ANOTAÇÃO ──────────────────────────────── */
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(144,80,32,.2); height: 22px; }
+
+/* ── RODAPÉ ──────────────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px clamp(6mm, 4vw, 12mm) 6mm clamp(8mm, 4vw, 14mm);
+  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0;
+  left: clamp(6mm, 4vw, 12mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(6pt, 1.5vw, 7pt); color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(8pt, 2vw, 9pt); color: var(--ouro); }
+
+/* ── EDIÇÃO ──────────────────────────────────────────── */
+[contenteditable="true"] { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(144,80,32,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(144,80,32,.08); border-radius: 2px; }
+
+
+/* ── CAPA DE ENTRADA ─────────────────────────────────── */
+#capaEntradaRevista {
+  position: fixed; inset: 0; z-index: 10000;
+  background: linear-gradient(160deg, #0d0804 0%, #181008 40%, #281808 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; transition: opacity .6s ease;
+  padding: 2rem;
+}
+#capaEntradaRevista.saindo { opacity: 0; pointer-events: none; }
+body.licao-iniciada #capaEntradaRevista { display: none; }
+.cv-atm {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(144,80,32,.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cv-grd {
+  position: absolute; inset: 0; pointer-events: none; opacity: .02;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px);
+}
+.cv-fx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px; pointer-events: none;
+  background: linear-gradient(180deg, #281808, var(--cor), var(--ouro));
+}
+.cv-corpo {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; max-width: 480px; gap: 1.2rem;
+}
+.cv-serie {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.55rem,1.5vw,.6875rem);
+  letter-spacing: 4px; color: var(--ouro);
+  text-transform: uppercase; opacity: .75;
+}
+.cv-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.6rem,2vw,.75rem);
+  color: rgba(201,168,76,.45); letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.cv-tema {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(1.1rem,4vw,1.6rem);
+  color: #fff; line-height: 1.2;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.cv-tema-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.6rem,1.8vw,.75rem);
+  color: rgba(201,168,76,.6); letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.cv-divisor {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+  opacity: .5;
+}
+.cv-frase {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(.85rem,2.2vw,1rem);
+  color: var(--ouro-claro); line-height: 1.7; opacity: .9;
+  border-left: 2px solid rgba(201,168,76,.4);
+  padding-left: 1rem; text-align: left; max-width: 400px;
+}
+.cv-ref {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.55rem,1.5vw,.65rem);
+  color: rgba(201,168,76,.55); letter-spacing: 2px;
+  text-transform: uppercase; text-align: right;
+  width: 100%; max-width: 400px;
+}
+.cv-cta {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.6rem,1.8vw,.75rem);
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #fff; background: var(--cor);
+  border: none; padding: .6rem 1.8rem; cursor: pointer;
+  border-radius: 2px; transition: all .2s;
+}
+.cv-cta:hover { background: var(--ouro); color: #111; }
+.cv-rodape {
+  position: absolute; bottom: 1.5rem; left: 0; right: 0;
+  text-align: center; pointer-events: none;
+}
+.cv-rodape-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.5rem,1.3vw,.6rem);
+  color: rgba(255,255,255,.2); letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  #capaEntradaRevista, #capaEntradaRevista, .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+}
+
+/* ── RESPONSIVIDADE ──────────────────────────────────── */
+@media (max-width: 480px) {
+  .tabela td:first-child { white-space: normal; }
+  .cver { font-size: 9pt; }
+}
+@media (max-width: 600px) {
+  .tabela-wrap { -webkit-overflow-scrolling: touch; }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   EDIÇÃO DO PROFESSOR
+   ══════════════════════════════════════════════════════ */
+:root {
+  --prof-verde:  #1D9E75;
+  --prof-azul:   #378ADD;
+  --prof-amber:  #BA7517;
+  --prof-coral:  #D85A30;
+}
+#tela-senha {
+  position: fixed; inset: 0; z-index: 99999;
+  background: linear-gradient(160deg, #040a02, #0a1408);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+  padding: 1.5rem;
+}
+.senha-box { background: rgba(255,255,255,.04); border: 1px solid rgba(201,168,76,.25); border-radius: 4px; padding: clamp(1.5rem,5vw,2.5rem); width: min(380px, 100%); text-align: center; }
+.senha-logo { font-family: 'Cinzel', serif; font-size: clamp(1rem, 3vw, 1.3rem); color: var(--ouro); letter-spacing: 4px; margin-bottom: .25rem; }
+.senha-sub { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem, 1.5vw, .7rem); color: var(--prof-verde); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.senha-label { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem, 1.8vw, .75rem); color: #888; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: .5rem; }
+#senha-input { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(201,168,76,.3); border-radius: 2px; padding: .625rem .875rem; font-family: 'Oswald', sans-serif; font-size: clamp(.8rem,2vw,.9rem); color: #fff; letter-spacing: 3px; text-align: center; outline: none; transition: border-color .2s, background .2s; }
+#senha-input:focus { border-color: var(--ouro); background: rgba(201,168,76,.07); }
+#senha-input.erro { border-color: var(--prof-coral); animation: shake .35s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+#senha-erro { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.7rem); color: var(--prof-coral); letter-spacing: 1px; margin-top: .5rem; display: none; }
+#senha-erro.vis { display: block; }
+.senha-btn { margin-top: 1rem; width: 100%; background: var(--prof-verde); color: #fff; border: none; border-radius: 2px; cursor: pointer; font-family: 'Oswald', sans-serif; font-size: clamp(.65rem,2vw,.8rem); letter-spacing: 2px; text-transform: uppercase; padding: .6rem 1.25rem; transition: filter .2s; }
+.senha-btn:hover { filter: brightness(1.15); }
+#conteudo-principal { display: none; }
+.badge-prof { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem,1.5vw,0.6rem); letter-spacing: 2px; text-transform: uppercase; background: var(--prof-verde); color: #fff; padding: 0.25rem 0.625rem; border-radius: 2px; }
+.marca em { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.3vw,0.6rem); color: var(--prof-verde); letter-spacing: 2px; display: block; font-weight: 400; font-style: normal; text-transform: uppercase; }
+.lbl-prof { color: var(--prof-verde); }
+[class^="prof-"] { border-radius: 0 0.375rem 0.375rem 0; padding: 0.875rem 1rem; margin: 1rem 0 1.5rem; page-break-inside: avoid; position: relative; z-index: 1; }
+[class^="prof-"] .prof-label { font-size: clamp(0.55rem,1.5vw,0.7rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
+[class^="prof-"] p { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin: 0; }
+[class^="prof-"] ul { padding-left: 1rem; margin-top: .4rem; }
+[class^="prof-"] ul li { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin-bottom: .3rem; }
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientaçao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+.prof-nota-teologica  .prof-label { color: #1D9E75; }
+.prof-dica-aula       .prof-label { color: #378ADD; }
+.prof-recurso-visual  .prof-label { color: #BA7517; }
+.prof-orientaçao-past .prof-label { color: #D85A30; }
+.prof-reflexao { border: 1px solid rgba(144,80,32,.2); border-left: 4px solid var(--cor); background: rgba(144,80,32,.04); border-radius: 0 .375rem .375rem 0; padding: .875rem 1rem; margin: .75rem 0 1.25rem; page-break-inside: avoid; position: relative; z-index: 1; }
+.prof-reflexao .prof-label { font-size: clamp(.55rem,1.5vw,.7rem); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; color: var(--cor); }
+.prof-reflexao p  { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+.int-prof { padding: clamp(8mm,5vw,14mm) clamp(6mm,4vw,12mm) 18mm clamp(8mm,4vw,14mm); min-height: 210mm; position: relative; background: #f4f8f5; }
+.int-prof::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--prof-verde), #a8e0cc 60%, transparent); }
+.int-prof::after { content: ''; position: absolute; top: 6px; left: clamp(8mm,4vw,14mm); right: clamp(6mm,4vw,12mm); height: 1px; background: rgba(29,158,117,.2); }
+.wm-prof { position: absolute; bottom: 14mm; right: 10mm; font-family: 'Cinzel', serif; font-size: clamp(28pt,8vw,42pt); font-weight: 900; color: rgba(29,158,117,.07); line-height: 1; user-select: none; pointer-events: none; letter-spacing: 4px; }
+.ph-prof { margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid rgba(29,158,117,.3); display: flex; justify-content: space-between; align-items: baseline; position: relative; z-index: 1; }
+.ph-prof-l { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.5vw,0.625rem); color: var(--prof-verde); letter-spacing: 2px; text-transform: uppercase; }
+.ph-prof-r { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem,1.5vw,0.7rem); color: #7aaa95; }
+h2.prof { font-family: 'Cinzel', serif; font-size: clamp(10pt,3vw,12pt); color: var(--prof-verde); border-bottom: 2px solid var(--prof-verde); letter-spacing: 1px; text-transform: uppercase; padding-bottom: 6px; margin-bottom: 12px; margin-top: 16px; line-height: 1.2; }
+h2.prof:first-of-type { margin-top: 4px; }
+.sep-prof { display: flex; align-items: center; gap: 10px; margin: 14px 0; opacity: .5; position: relative; z-index: 1; }
+.sep-prof::before, .sep-prof::after { content: ''; flex: 1; height: 1px; background: var(--prof-verde); }
+.sep-prof span { font-size: clamp(6pt,1.5vw,8pt); color: var(--prof-verde); }
+.rod-prof { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px clamp(6mm,4vw,12mm) 6mm clamp(8mm,4vw,14mm); display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+.rod-prof::before { content: ''; position: absolute; top: 0; left: clamp(6mm,4vw,12mm); right: clamp(6mm,4vw,12mm); height: 1px; background: linear-gradient(90deg, var(--prof-verde), #a8e0cc, transparent); opacity: .4; }
+.bk { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.7rem); letter-spacing: 2px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .5rem; font-weight: 600; }
+.bloco-mapa, .bloco-dica, .bloco-perf { background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.mapa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .625rem; margin-top: .5rem; }
+.mapa-cel { background: rgba(255,255,255,.7); border-radius: 3px; padding: .5rem .75rem; }
+.mapa-cel-tit { font-family: 'Oswald', sans-serif; font-size: clamp(.5rem,1.5vw,.625rem); letter-spacing: 1px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .25rem; }
+.mapa-cel p, .bloco-fio-txt, .tempo-desc { font-size: clamp(.78rem,2vw,.9rem); line-height: 1.55; margin: 0; text-align: left; }
+.bloco-tempo { background: rgba(55,138,221,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.tempo-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .375rem; }
+.tempo-min { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.75rem); color: var(--prof-azul); font-weight: 600; min-width: 3rem; flex-shrink: 0; }
+.bloco-guia, .bloco-teo { background: rgba(201,168,76,.07); border-left: 3px solid var(--ouro); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-guia ul, .bloco-dica ul { padding-left: 1rem; }
+.bloco-guia ul li, .bloco-dica ul li { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; margin-bottom: .25rem; color: var(--ct); }
+.alerta { background: #fdf3ee; border-left: 4px solid var(--prof-coral); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.alerta .bk { color: var(--prof-coral); }
+.alerta p, .bloco-teo p, .bloco-debate p, .bloco-cult p, .bloco-soc p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; color: var(--ct); }
+.bloco-fio { display: flex; gap: .75rem; align-items: flex-start; background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-fio-icon { font-size: 1.2rem; color: var(--prof-verde); flex-shrink: 0; line-height: 1.3; }
+.bloco-debate { background: rgba(55,138,221,.07); border-left: 3px solid var(--prof-azul); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-soc { background: rgba(201,168,76,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.soc-item { border-bottom: 1px solid rgba(201,168,76,.2); padding-bottom: .625rem; margin-bottom: .625rem; }
+.soc-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.soc-espera { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.78rem,2vw,.85rem); color: #555; line-height: 1.55; padding-left: .75rem; border-left: 2px solid rgba(201,168,76,.4); }
+.bloco-cult { background: rgba(186,117,23,.07); border-left: 3px solid var(--prof-amber); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: .75rem 0; }
+.perf-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .625rem; padding-bottom: .625rem; border-bottom: 1px solid rgba(48,96,32,.12); }
+.perf-linha:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.perf-tipo { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); letter-spacing: 1px; text-transform: uppercase; color: var(--cor); font-weight: 600; min-width: 6rem; flex-shrink: 0; padding-top: .15rem; }
+.perf-txt { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; color: var(--ct); }
+.bloco-resp { background: rgba(255,255,255,.6); border: 1px solid rgba(29,158,117,.2); border-radius: 4px; padding: .75rem 1rem; margin: .75rem 0; }
+.resp-q { margin-bottom: .75rem; padding-bottom: .75rem; border-bottom: 1px solid rgba(29,158,117,.15); }
+.resp-q:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.resp-num { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); color: var(--prof-verde); letter-spacing: 1px; text-transform: uppercase; margin-bottom: .25rem; }
+.resp-txt { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.65; color: var(--ct); }
+@media print { #tela-senha { display: none !important; } #conteudo-principal { display: block !important; } .prof-nota-teologica, .prof-dica-aula, .prof-recurso-visual, .prof-orientaçao-past, .prof-reflexao { page-break-inside: avoid; } }
+@media (max-width: 480px) { .mapa-grid { grid-template-columns: 1fr; } }
+
+</style>
+</head>
+<body>
+<div id="tela-senha"><div class="senha-box"><div class="senha-logo">ESCHATON VOL. III</div><div class="senha-sub">Edição do Professor · Acesso Restrito</div><label class="senha-label" for="senha-input">Senha de acesso</label><input autocomplete="off" id="senha-input" type="password"/><div id="senha-erro">Senha incorreta. Tente novamente.</div><button class="senha-btn" onclick="verificarSenha()">Entrar</button></div></div><div id="conteudo-principal"><div class="painel">
+<div class="marca">ESCHATON VOL. III<span>Lição 09 · Ascensão e Queda da Grande Meretriz</span><em>Edição do Professor</em></div><span class="badge-prof">Docente</span>
+<button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+<button class="btn bi" onclick="window.print()">🖶 Imprimir</button>
+<a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+<!-- CAPA DE ENTRADA -->
+<div aria-label="Abrir lição 09" id="capaEntradaRevista" onclick="entrarLicao()" role="button" tabindex="0">
+<div class="cv-atm"></div>
+<div class="cv-grd"></div>
+<div class="cv-fx"></div>
+<div class="cv-corpo">
+<div class="cv-serie">Eschaton · O Futuro Chegou</div>
+<div class="cv-num">Vol. III · Lição 09</div>
+<div class="cv-tema">Ascensão e Queda da Grande Meretriz</div>
+<div class="cv-tema-sub">Apocalipse 17:1-18 · 18:1-24</div>
+<div class="cv-divisor"></div>
+<div class="cv-frase">"Vejam o adorno, a riqueza, a luxúria, a própria devassidão do mundo. É toda a sedução da grande meretriz."</div>
+<div class="cv-ref">Martyn Lloyd-Jones — citado por H. D. Lopes</div>
+<button class="cv-cta" onclick="entrarLicao()">Abrir Lição</button>
+</div>
+<div class="cv-rodape">
+<div class="cv-rodape-sub">Jovens Adultos · Lição 09</div>
+</div>
+</div>
+<div class="area">
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">09</div>
+<div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+<div class="ccon">
+<div class="cser">Eschaton · O Futuro Chegou</div>
+<div class="cref">Apocalipse 17:1-18 · 18:1-24</div>
+<div class="ctit">Ascensão e Queda da Grande Meretriz</div>
+<div class="cver">
+            "Vejam o adorno, a riqueza, a luxúria, a própria devassidão do mundo. É toda a sedução da grande meretriz. Mas logo em seguida leiam o que lhe acontecerá. Leiam como será destruída total e absolutamente. Oh, se ao menos compreendêssemos esse ensino, jamais nos sentiríamos tentados pelo mundanismo!"
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Martyn Lloyd-Jones — citado por H. D. Lopes</span>
+</div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+<!-- PG 2 TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 09 · Vol. III</span><span class="pht">Ap 17-18</span></div>
+<h2>O Texto</h2>
+<div class="bver">
+<div class="bver-ref">Apocalipse 17:1-2, 14</div>
+<p>"Vem, mostrar-te-ei o juízo da grande meretriz que está assentada sobre muitas águas; com a qual se prostituíram os reis da terra, e os que habitam a terra se embriagaram com o vinho da sua prostituição... Estes guerrearão contra o Cordeiro, mas o Cordeiro os vencerá, porque é o Senhor dos senhores e o Rei dos reis."</p>
+<span class="ref-f">Apocalipse 17:1-2, 14</span>
+</div>
+<div class="bver">
+<div class="bver-ref">Apocalipse 18:4-5</div>
+<p>"E ouvi outra voz do céu, que dizia: Sai dela, povo meu, para que não sejais partícipes dos seus pecados, e para que não recebais das suas pragas. Porque os seus pecados se acumularam até o céu, e Deus se lembrou das suas iniquidades."</p>
+<span class="ref-f">Apocalipse 18:4-5</span>
+</div>
+<div class="obj">
+<div class="ot">Objetivos desta Lição</div>
+<ul>
+<li>Compreender quem é a grande Babilônia — seu significado simbólico e histórico;</li>
+<li>Examinar as seis características da meretriz segundo Hernandes Dias Lopes;</li>
+<li>Entender as quatro vozes da queda — condenação, separação, lamentação e celebração;</li>
+<li>Aplicar o chamado “Sai dela, povo meu” à vida de separação do mundo hoje.</li>
+</ul>
+</div>
+<div class="prof-dica-aula"><div class="prof-label">Dica de Aula</div><p>Antes de explicar os símbolos, peça que a turma identifique formas atuais de sedução cultural: consumo, status, prazer, segurança e aprovação pública. Em seguida, conecte as respostas ao chamado bíblico para sair de Babilônia.</p></div>
+<div class="brefletir">
+<div class="brefletir-t">✦ Para Você Refletir</div>
+<p>O chamado “Sai dela, povo meu” não começa no fim da história; ele confronta a vida cristã agora. Que formas de Babilônia têm mais força sobre você hoje: consumo, status, prazer, aprovação pública, poder ou segurança financeira?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+<!-- PG 3 QUEM E BABILÔNIA -->
+<div class="lbl">Página 3 · Quem é a Grande Babilônia?</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 09 · Vol. III</span><span class="pht">A Grande Meretriz</span></div>
+<h2>Quem é a Grande Babilônia?</h2>
+<p class="cap">Babilônia é mais um símbolo do que um lugar. Hernandes Dias Lopes: ela refere-se a Babilônia dos tempos de Babel, a Babilônia de Nabucodonosor — a senhora do mundo; a Roma dos Césares; a Roma dos papas; e a todos os impérios do mundo que se levantaram contra Deus e Sua Igreja. É a Babilônia atemporal — o mundo como centro de sedução em qualquer época.</p>
+<div class="bloco">
+<div class="bloco-t">Dois Símbolos em Contraste</div>
+<p>Em Apocalipse 17, Babilônia é a grande meretriz, em contraste com a Noiva do Cordeiro — a Igreja verdadeira. Em Apocalipse 18, Babilônia é a cidade da luxúria, a morada dos demônios, em contraste com a Nova Jerusalém, a cidade santa. Dois contrastes absolutos: meretriz × noiva; Babilônia × Jerusalém. Não há meio-termo.</p>
+</div>
+<div class="prof-nota-teologica"><div class="prof-label">Nota Teológica</div><p>Explique que Babilônia funciona como símbolo teológico do sistema humano organizado em oposição a Deus. Não reduza o texto a uma cidade, denominação ou instituição isolada.</p></div>
+<h3>As Seis Características da Meretriz — Ap 17</h3>
+<p><strong>1. Influência mundial</strong> — presente em todos os povos. Onde Deus tem uma Igreja verdadeira, Satanás levanta sua sinagoga. <strong>2. Riqueza ostentosa</strong> — vestes de escarlate, ouro, pedras preciosas. "O copo é de ouro, mas no interior do copo há devassidão." <strong>3. Sedução universal</strong> — prostituiu-se com os reis da terra, embriagou todos os habitantes. Heresias, liberalismo e sincretismo são expressões dessa sedução. <strong>4. Violência sanguinária</strong> — "embriagada com o sangue dos santos e dos mártires de Jesus." Seduz e mata. Atrai e destrói. <strong>5. Arrogância religiosa</strong> — "em sua testa estava escrito: Mistério, a Grande Babilônia." <strong>6. Aliada da besta</strong> — a religião falsa a serviço do poder político; em primeiro plano a mulher fascinante, no fundo os dentes arreganhados da besta.</p>
+<div class="bconexao">
+<div class="bconexao-t">✦ Conexão Bíblica</div>
+<p>Compare Apocalipse 18:4 com 1 João 2:15-17. O chamado para sair de Babilônia não é isolamento físico, mas ruptura espiritual com o amor ao mundo. Como essa conexão ajuda a distinguir presença missionária no mundo de participação nos pecados do mundo?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+<!-- PG 4 AS QUATRO VOZES DA QUEDA -->
+<div class="lbl">Página 4 · As Quatro Vozes da Queda</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 09 · Vol. III</span><span class="pht">A Queda de Babilônia</span></div>
+<h2>As Quatro Vozes da Queda — Ap 18</h2>
+<p>Warren Wiersbe identifica quatro vozes que sintetizam o capítulo 18 — a narrativa da queda de Babilônia.</p>
+<div class="bloco">
+<div class="bloco-t">1. A Voz da Condenação — Ap 18:1-3</div>
+<p>A queda de Babilônia é um fato consumado nos decretos de Deus — declarada antes mesmo de acontecer (14:8; 17:16). Ela se torna morada de demônios enquanto a Igreja é a habitação de Deus. Sua queda é em razão de sua devassidão moral, espiritual e econômica: intoxicou o mundo todo, escravizou os homens ao dinheiro e ao prazer.</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">2. A Voz da Separação — Ap 18:4-8</div>
+<p>"Sai dela, povo meu" — o chamado de Deus e urgente. Sair não é geográfico: é não participar dos seus pecados, não ser enganado por suas seduções. Hernandes Dias Lopes: "Não ganhamos o mundo sendo igual a ele." As razões: para não ser cúmplice de seus pecados; para não participar dos flagelos; para não ser colhido com ela no juízo repentino. A Babilônia semeou — vai colher.</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">3. A Voz de Lamentação — Ap 18:9-19</div>
+<p>Três grupos choram ao ver a queda: <strong>Os reis</strong> — políticos que se renderam às tentações do poder. <strong>Os mercadores</strong> — empresários que colocaram o coração nas mercadorias; 30 artigos de luxo listados por João, terminando com "escravos e almas humanas." <strong>Os marinheiros</strong> — os que lucraram com o sistema. Todos gritam: "Ai, ai, a grande cidade!" Mas ninguém se arrepende — somente lamentam a perda do prazer.</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">4. A Voz de Celebração — Ap 18:20</div>
+<p>"Alegra-te sobre ela, o céu, e vós, os santos, os apóstolos e os profetas; porque Deus os vingou a vós dela." Enquanto o mundo chora a perda de seus prazeres, o céu celebra a vitória da justiça de Deus. A Igreja perseguida é finalmente vindicada.</p>
+</div>
+<div class="prof-recurso-visual"><div class="prof-label">Recurso Visual</div><p>Use quatro setas no quadro: condenação, separação, lamentação e celebração. Isso ajuda os alunos a acompanharem Apocalipse 18 sem perder a progressão do argumento.</p></div>
+<div class="bsabia">
+<div class="bsabia-t">✦ Sabia Que?</div>
+<p>Babilônia aparece na Bíblia desde Gênesis 11 como símbolo de uma humanidade organizada em autonomia contra Deus. Em Apocalipse, esse símbolo chega ao seu clímax: uma cidade sedutora, religiosa, econômica e política, que promete segurança, mas caminha para ruína repentina.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+<!-- PG 5 MENSAGEM PARA HOJE -->
+<div class="lbl">Página 5 · Mensagem para Hoje</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 09 · Vol. III</span><span class="pht">Babilônia Hoje</span></div>
+<h2>Babilônia Ainda Está de Pé</h2>
+<p class="cap">Hernandes Dias Lopes usa as palavras de Martyn Lloyd-Jones como espelho para o presente: "Vejam o adorno, a riqueza, a luxúria, a própria devassidão do mundo. É toda a sedução da grande meretriz que chama e atrai reis, príncipes, ricos mercadores e igualmente pessoas comuns." O que Lloyd-Jones descrevia no século XX é o que as redes sociais, o consumismo, a cultura do entretenimento e o materialismo contemporâneo exibem com ainda mais intensidade hoje.</p>
+<div class="blteo">
+<div class="blteo-t">A Advertência de Hernandes Dias Lopes</div>
+<p>"O sistema do mundo intoxicou as pessoas do mundo inteiro, levando-as a adorarem o dinheiro e se prostrarem diante de outros deuses. O dinheiro é o maior senhor de escravos do mundo. Ele é mais do que uma moeda; ele é um deus. Os homens embriagados pelo espírito da Babilônia amaram o mundo e as coisas que há no mundo." E o próprio perfil traçado pelo apóstolo João em 1 João 2:15-17: a concupiscência da carne, a concupiscência dos olhos e a soberba da vida.</p>
+</div>
+<div class="prof-orientaçao-past"><div class="prof-label">Orientação Pastoral</div><p>Ao tratar de mundanismo, evite tom moralista. Aponte para o coração: Babilônia seduz quando algo criado recebe o amor, a confiança e a obediência que pertencem ao Cordeiro.</p></div>
+<h3>A Besta Se Volta Contra a Meretriz</h3>
+<p>Um elemento perturbador de Apocalipse 17 — que Lopes destaca com cuidado: no fim, a própria besta se volta contra a meretriz para destruí-la (17:16). O poder político que a Igreja falsa usou para se fortalecer vai um dia despi-la, ridicularizá-la e destruí-la. Adolf Pohl: "Em primeiro plano a mulher fascinante, no fundo os dentes arreganhados da besta, caso os seres humanos se tornem atrevidos demais." A Igreja que se alia ao poder do mundo para ganhar influência será, eventualmente, devorada por ele.</p>
+<div class="bver">
+<div class="bver-ref">Apocalipse 17:14</div>
+<p>"Estes guerrearão contra o Cordeiro, mas o Cordeiro os vencerá, porque é o Senhor dos senhores e o Rei dos reis."</p>
+<span class="ref-f">Apocalipse 17:14</span>
+</div>
+<div class="bpense">
+<div class="bpense-t">✦ Pense Nisso</div>
+<p>A sedução de Babilônia raramente parece perigosa no começo. Ela se apresenta como beleza, influência, conforto e oportunidade. O perigo está em amar o que ela oferece mais do que a fidelidade ao Cordeiro. Qual desejo legítimo pode estar se tornando um ídolo em sua vida?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+<!-- PG 6 APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 09 · Vol. III</span><span class="pht">Sai Dela, Povo Meu</span></div>
+<h2>Aplicação Direta</h2>
+<p class="cap">O chamado "Sai dela, povo meu" (18:4) não é geográfico — é espiritual. Hernandes Dias Lopes: "Sair da Babilônia significa não participar dos seus pecados, não ser enganado por suas tentações e seduções." A pergunta para cada crente não é "onde estou?" mas "de que estou participando?"</p>
+<div class="blapl">
+<div class="blapl-t">Para esta semana</div>
+<p>Primeiro: Hernandes Dias Lopes cita Martyn Lloyd-Jones: "Oh, se ao menos compreendêssemos esse ensino, jamais nos sentiríamos tentados outra vez pelo mundanismo." Que forma específica de "Babilônia" — riqueza, status, prazer, poder, entretenimento, consumismo — tem o maior apelo sedutor na sua vida hoje? Que "vinho da Babilônia" tem te embriagado? Segundo: A Babilônia usa duas armas — sedução e perseguição. "Quando o diabo não consegue desanimar o povo de Deus por meio de perseguição, ele tem conseguido afastá-lo por meio das seduções do mundo" (Lloyd-Jones). De qual dessas duas armas você é mais vulnerável? Terceiro: O chamado "Sai dela" tem quatro razões (18:4-8): não ser cúmplice dos pecados; não participar dos flagelos; entender o critério do julgamento divino; e urgência diante do juízo repentino. Qual dessas razões tem mais peso para você hoje?</p>
+</div>
+<div class="prof-reflexao"><div class="prof-label">Pergunta de Fechamento</div><p>Peça que cada aluno escreva uma área concreta em que precisa obedecer ao chamado “Sai dela”. Oriente respostas específicas, não genéricas.</p></div>
+<div class="mem">
+<div class="mem-t">◆ Versículo para Memorizar</div>
+<p>"Sai dela, povo meu, para que não sejais partícipes dos seus pecados, e para que não recebais das suas pragas."</p>
+<p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 18:4</p>
+</div>
+<div class="bleve">
+<div class="bleve-t">✦ Leve para a Vida</div>
+<p>Durante esta semana, escolha uma área concreta em que você percebe sedução do mundo: dinheiro, imagem, entretenimento, poder, prazer ou aprovação. Escreva uma decisão prática que expresse o chamado de Apocalipse 18:4: “Sai dela, povo meu”.</p>
+<div class="lr" style="margin-top:8px;"></div>
+<div class="lr"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+<!-- PG 7 QUESTÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 09 · Vol. III</span><span class="pht">A Grande Meretriz</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">Hernandes Dias Lopes diz que a Babilônia e "atemporal" — é o mundo como centro de sedução anticristã em qualquer época. Quais são as formas específicas em que a "grande Babilônia" se manifesta na sociedade e cultura brasileira contemporânea? Como ela se disfarça de algo atraente, legítimo e até espiritual?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">A Babilônia usa sedução e perseguição. Martyn Lloyd-Jones diz que "quando o diabo não consegue desanimar o povo de Deus pela perseguição, ele tem conseguido afastá-lo pelas seduções." Como a prosperidade, o conforto e o entretenimento podem fazer o que a perseguição nunca conseguiria — afastar cristãos do discipulado radical?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">No fim, a besta se volta contra a meretriz (17:16) — o poder político destrói a religião que usou. Lopes diz que "a Igreja que se alia ao poder do mundo para ganhar influência será devorada por ele." Como essa dinâmica se repete ao longo da história? Como a Igreja deve se posicionar em relação ao poder político para não repetir o erro da meretriz?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">O lamento dos reis, mercadores e marinheiros e 100% focado na perda dos prazeres — nenhum se arrepende. Como a incapacidade de se arrepender diante do julgamento revela o estado do coração que amou Babilônia? O que isso nos ensina sobre a necessidade de cultivar o arrependimento como hábito diário, agora, antes que o coração endureça?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<div class="lbl lbl-prof">Página 8 · Guia do Professor</div>
+<div class="pag int-prof"><div class="ph-prof"><div class="ph-prof-l">PROF · Lição 09 · Guia Geral</div><div class="ph-prof-r">Edição Docente</div></div><div class="wm-prof">PROF</div>
+<h2 class="prof">Mapa de Competências da Lição</h2>
+<div class="bloco-mapa"><div class="bk">Competências a Desenvolver</div><div class="mapa-grid"><div class="mapa-cel"><div class="mapa-cel-tit">Compreensão Bíblica</div><p>Identificar Babilônia como símbolo do sistema mundano em oposição a Deus, conforme Apocalipse 17–18.</p></div><div class="mapa-cel"><div class="mapa-cel-tit">Discernimento Teológico</div><p>Distinguir a Noiva do Cordeiro da grande meretriz, evitando leituras reducionistas ou sensacionalistas.</p></div><div class="mapa-cel"><div class="mapa-cel-tit">Aplicação Pastoral</div><p>Conduzir a classe ao exame de vínculos com consumo, poder, prazer, status e aprovação social.</p></div><div class="mapa-cel"><div class="mapa-cel-tit">Formação Espiritual</div><p>Fortalecer uma vida cristã presente no mundo, mas separada de seus pecados e idolatrias.</p></div></div></div>
+<div class="bloco-tempo"><div class="bk">Estrutura de Tempo Sugerida — 50 min</div><div class="tempo-linha"><div class="tempo-min">5 min</div><div class="tempo-desc">Abertura com a pergunta: “Que formas de Babilônia seduzem a igreja hoje?”</div></div><div class="tempo-linha"><div class="tempo-min">12 min</div><div class="tempo-desc">Exposição de Apocalipse 17: a meretriz, a besta e a oposição ao Cordeiro.</div></div><div class="tempo-linha"><div class="tempo-min">12 min</div><div class="tempo-desc">Exposição de Apocalipse 18: as quatro vozes da queda.</div></div><div class="tempo-linha"><div class="tempo-min">10 min</div><div class="tempo-desc">Aplicação: o chamado “Sai dela, povo meu”.</div></div><div class="tempo-linha"><div class="tempo-min">8 min</div><div class="tempo-desc">Discussão das questões e aplicação pessoal.</div></div><div class="tempo-linha"><div class="tempo-min">3 min</div><div class="tempo-desc">Oração final por discernimento, arrependimento e fidelidade.</div></div></div>
+<div class="alerta"><div class="bk">Atenção do Professor</div><p>Não transforme a aula em identificação especulativa de Babilônia. O foco do texto é denunciar o sistema sedutor e rebelde contra Deus, chamando o povo de Deus à separação fiel.</p></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">8</div></div></div>
+<div class="lbl lbl-prof">Página 9 · Dinâmica &amp; Teologia</div>
+<div class="pag int-prof"><div class="ph-prof"><div class="ph-prof-l">PROF · Lição 09 · Dinâmica &amp; Teologia</div><div class="ph-prof-r">Edição Docente</div></div><div class="wm-prof">PROF</div>
+<h2 class="prof">Dinâmica de Abertura 5–7 min</h2><div class="bloco-debate"><div class="bk">O Que Babilônia Promete?</div><p>Peça que os alunos completem a frase: “A cultura ao nosso redor promete felicidade se tivermos...”. Agrupe as respostas em categorias: dinheiro, prazer, imagem, poder, segurança e aprovação. Depois leia Apocalipse 18:4.</p></div>
+<div class="bloco-guia"><div class="bk">Como Conduzir</div><ul><li>Evite respostas genéricas como “o mundo está perdido”.</li><li>Peça exemplos concretos, mas sem exposição pessoal desnecessária.</li><li>Mostre que o problema não é possuir bens, mas ser possuído por eles.</li></ul></div>
+<h2 class="prof">Aprofundamento Teológico</h2><div class="bloco-teo"><div class="bk">Babilônia como Sistema</div><p>Babilônia representa o mundo organizado em autonomia contra Deus: sedução religiosa, poder político, economia idolátrica e perseguição aos santos. Ela é histórica e simbólica ao mesmo tempo.</p></div><div class="bloco-teo"><div class="bk">Separação sem Isolamento</div><p>“Sai dela” não exige fuga física da sociedade, mas recusa de participação nos pecados de Babilônia. A igreja permanece em missão, mas não compartilha a idolatria do sistema.</p></div><div class="bloco-cult"><div class="bk">Conexão com a Cultura Contemporânea</div><p>Redes sociais, consumo, culto à imagem e busca por influência podem funcionar como liturgias de Babilônia quando formam desejos e lealdades contrários ao Cordeiro.</p></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">9</div></div></div>
+<div class="lbl lbl-prof">Página 10 · Pedagogia &amp; Gestão</div>
+<div class="pag int-prof"><div class="ph-prof"><div class="ph-prof-l">PROF · Lição 09 · Pedagogia &amp; Gestão</div><div class="ph-prof-r">Edição Docente</div></div><div class="wm-prof">PROF</div>
+<h2 class="prof">Dicas Pedagógicas</h2><div class="bloco-dica"><div class="bk">Para Tornar o Conteúdo Concreto</div><ul><li>Use uma tabela com dois lados: Babilônia e Nova Jerusalém.</li><li>Mostre os quatro grupos de Apocalipse 18: voz do anjo, povo de Deus, reis/mercadores/marinheiros e céu.</li><li>Retome o versículo para memorizar antes da aplicação.</li><li>Peça decisões práticas, não apenas opiniões sobre a sociedade.</li></ul></div>
+<div class="bloco-perf"><div class="bk">Diferenciação por Perfil de Turma</div><div class="perf-linha"><div class="perf-tipo">Iniciantes</div><div class="perf-txt">Explique os símbolos centrais: meretriz, Babilônia, besta, Cordeiro e Noiva.</div></div><div class="perf-linha"><div class="perf-tipo">Maduros</div><div class="perf-txt">Explore a tensão entre presença missionária no mundo e separação espiritual do sistema.</div></div><div class="perf-linha"><div class="perf-tipo">Sensíveis</div><div class="perf-txt">Evite expor alunos por hábitos de consumo ou entretenimento. Conduza a reflexão para arrependimento e graça.</div></div></div>
+<h2 class="prof">Gestão de Tensões</h2><div class="alerta"><div class="bk">Situação Comum — “Então tudo no mundo é pecado?”</div><p>Responda distinguindo criação e sistema. Deus criou o mundo bom; Babilônia é o uso idolátrico da criação contra Deus.</p></div><div class="alerta"><div class="bk">Situação Comum — “Devemos nos retirar da sociedade?”</div><p>Mostre que o chamado é para não participar dos pecados de Babilônia. A igreja é enviada ao mundo, mas não deve ser moldada por ele.</p></div>
+<div class="bloco-fio"><div class="bloco-fio-icon">→</div><div class="bloco-fio-txt"><strong>Encerramento ideal:</strong> “Babilônia promete vida, mas entrega juízo. O Cordeiro chama seu povo para fidelidade, separação e esperança na cidade que permanece.”</div></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">10</div></div></div>
+<div class="lbl lbl-prof">Página 11 · Respostas &amp; Recursos</div>
+<div class="pag int-prof"><div class="ph-prof"><div class="ph-prof-l">PROF · Lição 09 · Respostas &amp; Recursos</div><div class="ph-prof-r">Edição Docente</div></div><div class="wm-prof">PROF</div>
+<h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2><div class="bloco-resp"><div class="bk">Gabarito Orientativo</div><div class="resp-q"><div class="resp-num">Questão 01</div><div class="resp-txt">A resposta deve apontar manifestações concretas de Babilônia: consumismo, idolatria política, culto à imagem, busca de status e espiritualidade a serviço do poder.</div></div><div class="resp-q"><div class="resp-num">Questão 02</div><div class="resp-txt">A prosperidade pode anestesiar a vigilância espiritual. O conforto não é pecado em si, mas se torna perigoso quando substitui obediência, missão e dependência de Deus.</div></div><div class="resp-q"><div class="resp-num">Questão 03</div><div class="resp-txt">A igreja deve evitar instrumentalizar ou ser instrumentalizada pelo poder político. Sua lealdade final pertence ao Cordeiro, não a projetos de domínio terreno.</div></div><div class="resp-q"><div class="resp-num">Questão 04</div><div class="resp-txt">O lamento sem arrependimento revela um coração que ama os benefícios de Babilônia mais do que a justiça de Deus. A aplicação deve enfatizar arrependimento diário e vigilância.</div></div></div>
+<h2 class="prof">Seguimento Pós-Lição</h2><div class="bloco-soc"><div class="soc-item"><p><strong>Durante a semana:</strong> incentive os alunos a revisarem uma prática concreta de consumo, entretenimento, imagem ou ambição.</p><div class="soc-espera">Objetivo: transformar a doutrina em discernimento prático.</div></div><div class="soc-item"><p><strong>Na próxima aula:</strong> retome a pergunta: “Que decisão concreta expressou o chamado ‘Sai dela’ nesta semana?”</p><div class="soc-espera">Objetivo: conectar escatologia, santidade e discipulado.</div></div></div>
+<h2 class="prof">Materiais Complementares</h2><div class="bloco-guia"><div class="bk">Recursos Recomendados ao Professor</div><ul><li>Quadro comparativo: Babilônia × Nova Jerusalém.</li><li>Leitura auxiliar: Apocalipse 17:1-18; 18:1-24; 1 João 2:15-17.</li><li>Conexão bíblica: Gênesis 11:1-9; Jeremias 51:6; 2 Coríntios 6:14-18.</li></ul></div>
+<div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">11</div></div></div>
+
+</div><script>
+function entrarLicao(){
+  const capa = document.getElementById('capaEntradaRevista');
+  if (capa) capa.classList.add('saindo');
+  setTimeout(() => document.body.classList.add('licao-iniciada'), 550);
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit(){
+    edit=!edit;
+    document.querySelectorAll('.pag *').forEach(el=>{
+        if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul,table'))
+            el.contentEditable=edit?'true':'false';
+    });
+    document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+
+/* ===== AUTENTICAÇÃO PROFESSOR ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_l09_auth';
+function verificarSenha() {
+  const input = document.getElementById('senha-input');
+  const erro  = document.getElementById('senha-erro');
+  const val   = input.value.trim().toLowerCase();
+  if (val === SENHA_CORRETA) {
+    sessionStorage.setItem(CHAVE_SESSION, '1');
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+    input.classList.remove('erro'); erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro'); erro.classList.add('vis'); input.select();
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('senha-input');
+  if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+  }
+  if (input) input.addEventListener('keydown', e => { if (e.key === 'Enter') verificarSenha(); });
+});
+
+</script>
+</div></body>
+</html>
