@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eschaton Vol. III · Lição 07 — O Dragão Ataca a Igreja [PROFESSOR]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #306020;
+  --grad1:      #0a1408;
+  --grad2:      #102008;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+  --ouro-brilho: drop-shadow(0 0 4px rgba(201,168,76,.45));
+  /* cores professor */
+  --prof-verde:  #1D9E75;
+  --prof-azul:   #378ADD;
+  --prof-amber:  #BA7517;
+  --prof-coral:  #D85A30;
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #060e04; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ══════════════════════════════════════════════════════
+   TELA DE SENHA
+   ══════════════════════════════════════════════════════ */
+#tela-senha {
+  position: fixed; inset: 0; z-index: 99999;
+  background: linear-gradient(160deg, #040a02, #0a1408);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+  padding: 1.5rem;
+}
+.senha-box {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 4px; padding: clamp(1.5rem,5vw,2.5rem);
+  width: min(380px, 100%); text-align: center;
+}
+.senha-logo {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--ouro); letter-spacing: 4px;
+  margin-bottom: .25rem;
+}
+.senha-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.55rem, 1.5vw, .7rem);
+  color: var(--prof-verde); letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 1.5rem;
+}
+.senha-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.6rem, 1.8vw, .75rem);
+  color: #888; letter-spacing: 2px; text-transform: uppercase;
+  display: block; margin-bottom: .5rem;
+}
+#senha-input {
+  width: 100%; background: rgba(255,255,255,.06);
+  border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: .625rem .875rem;
+  font-family: 'Oswald', sans-serif; font-size: clamp(.8rem,2vw,.9rem);
+  color: #fff; letter-spacing: 3px; text-align: center;
+  outline: none; transition: border-color .2s, background .2s;
+}
+#senha-input:focus { border-color: var(--ouro); background: rgba(201,168,76,.07); }
+#senha-input.erro { border-color: var(--prof-coral); animation: shake .35s; }
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
+}
+#senha-erro {
+  font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.7rem);
+  color: var(--prof-coral); letter-spacing: 1px; margin-top: .5rem;
+  display: none;
+}
+#senha-erro.vis { display: block; }
+.senha-btn {
+  margin-top: 1rem; width: 100%;
+  background: var(--prof-verde); color: #fff;
+  border: none; border-radius: 2px; cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.65rem,2vw,.8rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: .6rem 1.25rem; transition: filter .2s;
+}
+.senha-btn:hover { filter: brightness(1.15); }
+
+/* ── PAINEL ──────────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #030802, #060e04);
+  border-bottom: 2px solid var(--prof-verde);
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.marca em {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.3vw, 0.6rem);
+  color: var(--prof-verde); letter-spacing: 2px; display: block;
+  font-weight: 400; font-style: normal; text-transform: uppercase;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+.badge-prof {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem,1.5vw,0.6rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  background: var(--prof-verde); color: #fff;
+  padding: 0.25rem 0.625rem; border-radius: 2px;
+}
+
+/* ── ÁREA ────────────────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  align-self: flex-start;
+  margin-left: clamp(0px, calc(50% - 74mm), 999px);
+  margin-bottom: -0.5rem;
+}
+.lbl-prof { color: var(--prof-verde); }
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(48,96,32,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px
+  );
+}
+.cfx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg, #102008, var(--cor), var(--ouro));
+}
+.cnbg {
+  position: absolute; bottom: -20px; right: -10px;
+  font-family: 'Cinzel', serif; font-size: clamp(80pt, 22vw, 130pt);
+  font-weight: 900; color: rgba(255,255,255,.03); line-height: 1;
+  user-select: none;
+}
+.cimg {
+  position: absolute; top: 0; left: 0; right: 0; height: 58%;
+  background: linear-gradient(160deg, #040a02, var(--cor) 50%, #80d040);
+  opacity: .38;
+}
+.clh {
+  position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .75;
+}
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num { font-family: 'Cinzel', serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 4px; color: var(--ouro); text-transform: uppercase;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif; font-size: clamp(12pt, 3.5vw, 17pt);
+  font-weight: 700; color: #fff; line-height: 1.1;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ouro-claro);
+  line-height: 1.6; border-left: 2px solid var(--ouro);
+  padding-left: 10px; opacity: .9;
+}
+
+/* ── INTERIOR ALUNO ──────────────────────────────────── */
+.int {
+  padding: clamp(8mm, 5vw, 14mm) clamp(6mm, 4vw, 12mm) 18mm clamp(8mm, 4vw, 14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px;
+  left: clamp(8mm, 4vw, 14mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px; background: rgba(48,96,32,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(48,96,32,.045) 23px, rgba(48,96,32,.045) 24px
+  );
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(36pt, 10vw, 52pt);
+  font-weight: 900; color: rgba(0,0,0,.03); line-height: 1;
+  user-select: none; pointer-events: none;
+}
+
+/* ── INTERIOR PROFESSOR ──────────────────────────────── */
+.int-prof {
+  padding: clamp(8mm,5vw,14mm) clamp(6mm,4vw,12mm) 18mm clamp(8mm,4vw,14mm);
+  min-height: 210mm; position: relative;
+  background: #f4f8f5;
+}
+.int-prof::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--prof-verde), #a8e0cc 60%, transparent);
+}
+.int-prof::after {
+  content: ''; position: absolute; top: 6px;
+  left: clamp(8mm,4vw,14mm); right: clamp(6mm,4vw,12mm);
+  height: 1px; background: rgba(29,158,117,.2);
+}
+.wm-prof {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(28pt,8vw,42pt);
+  font-weight: 900; color: rgba(29,158,117,.07); line-height: 1;
+  user-select: none; pointer-events: none; letter-spacing: 4px;
+}
+
+/* ── CABEÇALHO ───────────────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem, 1.5vw, 0.7rem); color: #aaa; }
+.ph-prof {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 2px solid rgba(29,158,117,.3);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.ph-prof-l { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.5vw,0.625rem); color: var(--prof-verde); letter-spacing: 2px; text-transform: uppercase; }
+.ph-prof-r { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem,1.5vw,0.7rem); color: #7aaa95; }
+
+/* ── TIPOGRAFIA ALUNO ────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(10pt, 3vw, 13pt); letter-spacing: 1px;
+  text-transform: uppercase; color: var(--cor);
+  border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(8pt, 2.5vw, 10pt); letter-spacing: 1.5px;
+  color: #183010; text-transform: uppercase;
+  margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(28pt, 8vw, 38pt);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+h2.prof {
+  font-family: 'Cinzel', serif; font-size: clamp(10pt,3vw,12pt);
+  color: var(--prof-verde); border-bottom: 2px solid var(--prof-verde);
+  letter-spacing: 1px; text-transform: uppercase;
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 16px; line-height: 1.2;
+}
+h2.prof:first-of-type { margin-top: 4px; }
+
+/* ── BLOCOS ALUNO ────────────────────────────────────── */
+.bver {
+  background: #fff; border: 1px solid rgba(48,96,32,.2);
+  border-left: 4px solid var(--cor);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt); color: #102008;
+  line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(8pt, 2vw, 9pt); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+.bloco {
+  background: rgba(48,96,32,.05); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.blteo {
+  background: rgba(201,168,76,.08); border-left: 3px solid var(--ouro);
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+.blapl {
+  background: linear-gradient(135deg, rgba(48,96,32,.05), rgba(201,168,76,.07));
+  border: 1px solid rgba(48,96,32,.2); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.mem {
+  background: var(--creme); border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 10px 12px; margin: 10px 0;
+  text-align: center; position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: #102008;
+  text-align: center; line-height: 1.6;
+}
+.obj {
+  background: var(--creme); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.obj .ot {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); padding: 2px 0 2px 14px;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆';
+  position: absolute; left: 0; color: var(--cor);
+  font-size: clamp(6pt, 1.5vw, 8pt); top: 4px;
+}
+
+/* ── BLOCOS ESPECIAIS DO ALUNO ───────────────────────── */
+.brefletir {
+  background: rgba(48,96,32,.06);
+  border: 1px solid rgba(48,96,32,.2);
+  border-top: 3px solid var(--cor);
+  border-radius: 0 0 2px 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(48,96,32,.07);
+  border: 1px dashed rgba(48,96,32,.3);
+  border-radius: 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bpense {
+  background: var(--creme);
+  border-left: 4px solid var(--cor);
+  border-radius: 0 2px 2px 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bpense-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(48,96,32,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(48,96,32,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── SEPARADOR ───────────────────────────────────────── */
+.sep {
+  display: flex; align-items: center; gap: 10px;
+  margin: 12px 0; opacity: .3; position: relative; z-index: 1;
+}
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: clamp(6pt, 1.5vw, 8pt); color: var(--ouro); }
+.sep-prof {
+  display: flex; align-items: center; gap: 10px;
+  margin: 14px 0; opacity: .5; position: relative; z-index: 1;
+}
+.sep-prof::before, .sep-prof::after { content: ''; flex: 1; height: 1px; background: var(--prof-verde); }
+.sep-prof span { font-size: clamp(6pt,1.5vw,8pt); color: var(--prof-verde); }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: var(--cor); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
+}
+.qt {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); line-height: 1.45; margin-bottom: 5px;
+}
+.lr { border-bottom: 1px solid rgba(48,96,32,.2); height: 20px; margin-top: 3px; }
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(48,96,32,.2); height: 22px; }
+
+/* ── RODAPÉ ──────────────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px clamp(6mm,4vw,12mm) 6mm clamp(8mm,4vw,14mm);
+  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0;
+  left: clamp(6mm,4vw,12mm); right: clamp(6mm,4vw,12mm);
+  height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rod-prof {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px clamp(6mm,4vw,12mm) 6mm clamp(8mm,4vw,14mm);
+  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+}
+.rod-prof::before {
+  content: ''; position: absolute; top: 0;
+  left: clamp(6mm,4vw,12mm); right: clamp(6mm,4vw,12mm);
+  height: 1px;
+  background: linear-gradient(90deg, var(--prof-verde), #a8e0cc, transparent);
+  opacity: .4;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(6pt,1.5vw,7pt); color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(8pt,2vw,9pt); color: var(--ouro); }
+
+/* ══════════════════════════════════════════════════════
+   BLOCOS DO PROFESSOR (inline nas páginas do aluno)
+   ══════════════════════════════════════════════════════ */
+[class^="prof-"] {
+  border-radius: 0 0.375rem 0.375rem 0;
+  padding: 0.875rem 1rem;
+  margin: 1rem 0 1.5rem;
+  page-break-inside: avoid;
+  position: relative; z-index: 1;
+}
+[class^="prof-"] .prof-label {
+  font-size: clamp(0.55rem,1.5vw,0.7rem);
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.07em; margin-bottom: 0.4rem;
+}
+[class^="prof-"] p { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin: 0; }
+[class^="prof-"] ul { padding-left: 1rem; margin-top: .4rem; }
+[class^="prof-"] ul li { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin-bottom: .3rem; }
+
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientacao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+.prof-nota-teologica  .prof-label { color: #1D9E75; }
+.prof-dica-aula       .prof-label { color: #378ADD; }
+.prof-recurso-visual  .prof-label { color: #BA7517; }
+.prof-orientacao-past .prof-label { color: #D85A30; }
+
+/* blocos de reflexão */
+.prof-reflexao {
+  border: 1px solid rgba(48,96,32,.2); border-left: 4px solid var(--cor);
+  background: rgba(48,96,32,.04); border-radius: 0 .375rem .375rem 0;
+  padding: .875rem 1rem; margin: .75rem 0 1.25rem;
+  page-break-inside: avoid; position: relative; z-index: 1;
+}
+.prof-reflexao .prof-label { font-size: clamp(.55rem,1.5vw,.7rem); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; color: var(--cor); }
+.prof-reflexao p  { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+
+/* ══════════════════════════════════════════════════════
+   PÁGINAS EXCLUSIVAS DO PROFESSOR
+   ══════════════════════════════════════════════════════ */
+.bk {
+  font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.7rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--prof-verde); margin-bottom: .5rem; font-weight: 600;
+}
+.bloco-mapa { background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.mapa-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: .625rem; margin-top: .5rem; }
+.mapa-cel   { background: rgba(255,255,255,.7); border-radius: 3px; padding: .5rem .75rem; }
+.mapa-cel-tit { font-family: 'Oswald', sans-serif; font-size: clamp(.5rem,1.5vw,.625rem); letter-spacing: 1px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .25rem; }
+.mapa-cel p { font-size: clamp(.78rem,2vw,.85rem); line-height: 1.55; margin: 0; text-align: left; }
+@media (max-width: 480px) { .mapa-grid { grid-template-columns: 1fr; } }
+
+.bloco-tempo { background: rgba(55,138,221,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.tempo-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .375rem; }
+.tempo-min   { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.75rem); color: var(--prof-azul); font-weight: 600; min-width: 3rem; flex-shrink: 0; }
+.tempo-desc  { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.55; color: var(--ct); }
+
+.bloco-guia { background: rgba(201,168,76,.07); border-left: 3px solid var(--ouro); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-guia ul { padding-left: 1rem; }
+.bloco-guia ul li { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; margin-bottom: .25rem; color: var(--ct); }
+
+.alerta { background: #fdf3ee; border-left: 4px solid var(--prof-coral); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.alerta .bk { color: var(--prof-coral); }
+.alerta p   { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; color: var(--ct); }
+
+.bloco-fio { display: flex; gap: .75rem; align-items: flex-start; background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-fio-icon { font-size: 1.2rem; color: var(--prof-verde); flex-shrink: 0; line-height: 1.3; }
+.bloco-fio-txt  { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.65; color: var(--ct); }
+
+.bloco-debate { background: rgba(55,138,221,.07); border-left: 3px solid var(--prof-azul); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-debate p  { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+.bloco-dica  { background: rgba(48,96,32,.05); border-radius: 4px; padding: .75rem 1rem; margin: .75rem 0; }
+.bloco-dica ul   { padding-left: 1rem; }
+.bloco-dica ul li{ font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; margin-bottom: .25rem; color: var(--ct); }
+.bloco-soc  { background: rgba(201,168,76,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.soc-item   { border-bottom: 1px solid rgba(201,168,76,.2); padding-bottom: .625rem; margin-bottom: .625rem; }
+.soc-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.soc-item p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.65; margin: 0 0 .3rem; }
+.soc-espera { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.78rem,2vw,.85rem); color: #555; line-height: 1.55; padding-left: .75rem; border-left: 2px solid rgba(201,168,76,.4); }
+
+.bloco-teo  { background: rgba(29,158,117,.05); border-left: 3px solid var(--prof-verde); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: .75rem 0; }
+.bloco-teo p{ font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+.cit-autor  { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.85rem,2.2vw,.95rem); line-height: 1.7; color: #444; border-left: 2px solid var(--ouro); padding-left: .875rem; margin: 1rem 0; }
+.cit-autor cite { display: block; font-style: normal; font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.65rem); letter-spacing: 1px; color: var(--ouro); margin-top: .375rem; }
+
+.bloco-cult { background: rgba(186,117,23,.07); border-left: 3px solid var(--prof-amber); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: .75rem 0; }
+.bloco-cult p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+
+.bloco-perf { background: rgba(48,96,32,.04); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.perf-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .625rem; padding-bottom: .625rem; border-bottom: 1px solid rgba(48,96,32,.12); }
+.perf-linha:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.perf-tipo  { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); letter-spacing: 1px; text-transform: uppercase; color: var(--cor); font-weight: 600; min-width: 6rem; flex-shrink: 0; padding-top: .15rem; }
+.perf-txt   { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; color: var(--ct); }
+
+.bloco-resp { background: rgba(255,255,255,.6); border: 1px solid rgba(29,158,117,.15); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.resp-item  { border-bottom: 1px solid rgba(29,158,117,.12); padding-bottom: .75rem; margin-bottom: .75rem; }
+.resp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.resp-num   { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.65rem); letter-spacing: 2px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .25rem; }
+.resp-txt   { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.65; color: var(--ct); }
+
+.bloco-aval { background: rgba(201,168,76,.07); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-aval ul { padding-left: 1rem; }
+.bloco-aval ul li { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; margin-bottom: .25rem; }
+
+.bloco-mat  { background: rgba(255,255,255,.5); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.mat-item   { display: flex; gap: .625rem; align-items: flex-start; margin-bottom: .5rem; padding-bottom: .5rem; border-bottom: 1px solid rgba(29,158,117,.1); }
+.mat-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.mat-tipo   { font-family: 'Oswald', sans-serif; font-size: clamp(.5rem,1.5vw,.6rem); letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; padding: .15rem .45rem; white-space: nowrap; }
+.mat-tipo.livro { background: rgba(48,96,32,.12); color: var(--cor); }
+.mat-tipo.video { background: rgba(216,90,48,.12); color: var(--prof-coral); }
+.mat-tipo.site  { background: rgba(29,158,117,.12); color: var(--prof-verde); }
+.mat-info   { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.55; color: var(--ct); }
+
+.tag-sens {
+  font-family: 'Oswald', sans-serif; font-size: clamp(.5rem,1.5vw,.6rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  border-radius: 2px; padding: .15rem .5rem;
+  vertical-align: middle; margin-left: .4rem;
+}
+.tag-sens.debate  { background: rgba(55,138,221,.15); color: var(--prof-azul); }
+.tag-sens.tecnico { background: rgba(29,158,117,.15); color: var(--prof-verde); }
+
+/* ── EDIÇÃO ──────────────────────────────────────────── */
+[contenteditable="true"] { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(48,96,32,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(48,96,32,.08); border-radius: 2px; }
+
+
+/* ── CAPA DE ENTRADA ─────────────────────────────────── */
+#capaEntradaRevista {
+  position: fixed; inset: 0; z-index: 10000;
+  background: linear-gradient(160deg, #080e06 0%, #0a1408 40%, #102008 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; transition: opacity .6s ease;
+  padding: 2rem;
+}
+#capaEntradaRevista.saindo { opacity: 0; pointer-events: none; }
+body.licao-iniciada #capaEntradaRevista { display: none; }
+.cv-atm {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(48,96,32,.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cv-grd {
+  position: absolute; inset: 0; pointer-events: none; opacity: .02;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px);
+}
+.cv-fx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px; pointer-events: none;
+  background: linear-gradient(180deg, #102008, var(--cor), var(--ouro));
+}
+.cv-corpo {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; max-width: 480px; gap: 1.2rem;
+}
+.cv-serie {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.55rem,1.5vw,.6875rem);
+  letter-spacing: 4px; color: var(--ouro);
+  text-transform: uppercase; opacity: .75;
+}
+.cv-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.6rem,2vw,.75rem);
+  color: rgba(201,168,76,.45); letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.cv-tema {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(1.1rem,4vw,1.6rem);
+  color: #fff; line-height: 1.2;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.cv-tema-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.6rem,1.8vw,.75rem);
+  color: rgba(201,168,76,.6); letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.cv-divisor {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+  opacity: .5;
+}
+.cv-frase {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(.85rem,2.2vw,1rem);
+  color: var(--ouro-claro); line-height: 1.7; opacity: .9;
+  border-left: 2px solid rgba(201,168,76,.4);
+  padding-left: 1rem; text-align: left; max-width: 400px;
+}
+.cv-ref {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.55rem,1.5vw,.65rem);
+  color: rgba(201,168,76,.55); letter-spacing: 2px;
+  text-transform: uppercase; text-align: right;
+  width: 100%; max-width: 400px;
+}
+.cv-cta {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.6rem,1.8vw,.75rem);
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #fff; background: var(--cor);
+  border: none; padding: .6rem 1.8rem; cursor: pointer;
+  border-radius: 2px; transition: all .2s;
+}
+.cv-cta:hover { background: var(--ouro); color: #111; }
+.cv-rodape {
+  position: absolute; bottom: 1.5rem; left: 0; right: 0;
+  text-align: center; pointer-events: none;
+}
+.cv-rodape-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.5rem,1.3vw,.6rem);
+  color: rgba(255,255,255,.2); letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  .painel, .lbl, #tela-senha { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+}
+
+@media (max-width: 480px) {
+  .tabela td:first-child { white-space: normal; }
+  .mapa-grid { grid-template-columns: 1fr; }
+  .perf-tipo { min-width: 5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     TELA DE SENHA
+     ══════════════════════════════════════════════════════ -->
+<div id="tela-senha">
+  <div class="senha-box">
+    <div class="senha-logo">ESCHATON VOL. III</div>
+    <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+    <label class="senha-label" for="senha-input">Senha de acesso</label>
+    <input type="password" id="senha-input" placeholder="••••••••••••"
+           onkeydown="if(event.key==='Enter')verificarSenha()">
+    <div id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <button class="senha-btn" onclick="verificarSenha()">Acessar Edição Docente</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     CONTEÚDO PRINCIPAL
+     ══════════════════════════════════════════════════════ -->
+<div id="conteudo-principal" style="display:none;">
+
+<div class="painel">
+  <div class="marca">ESCHATON VOL. III<span>Lição 07 · O Dragão Ataca a Igreja</span><em>Edição do Professor</em></div>
+  <span class="badge-prof">Docente</span>
+  <button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖨 Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<!-- CAPA DE ENTRADA -->
+<div aria-label="Abrir lição 07" id="capaEntradaRevista" onclick="entrarLicao()" role="button" tabindex="0">
+<div class="cv-atm"></div>
+<div class="cv-grd"></div>
+<div class="cv-fx"></div>
+<div class="cv-corpo">
+<div class="cv-serie">Escháton · O Futuro Chegou</div>
+<div class="cv-num">Vol. III · Lição 07</div>
+<div class="cv-tema">O Dragão Ataca a Igreja</div>
+<div class="cv-tema-sub">Apocalipse 12:1-18 · 13:1-18</div>
+<div class="cv-divisor"></div>
+<div class="cv-frase">"Quando a Igreja sofre aflições, jamais é a Igreja em si que está em jogo. O dragão sempre visa atingir o Cristo na Igreja. A luta é pelo Cristo na Igreja e, em decorrência, pelo testemunho desse Cristo."</div>
+<div class="cv-ref">Adolf Pohl — citado por H. D. Lopes</div>
+<button class="cv-cta" onclick="entrarLicao()">Abrir Lição</button>
+</div>
+<div class="cv-rodape">
+<div class="cv-rodape-sub">Jovens Adultos · Lição 07</div>
+</div>
+</div>
+
+<div class="area">
+
+<!-- CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div>
+  <div class="cgrd"></div>
+  <div class="cfx"></div>
+  <div class="cimg"></div>
+  <div class="clh"></div>
+  <div class="cnbg">07</div>
+  <div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+  <div class="ccon">
+    <div class="cser">Eschaton · O Futuro Chegou</div>
+    <div class="cref">Apocalipse 12:1-18 · 13:1-18</div>
+    <div class="ctit">O Dragão Ataca a Igreja</div>
+    <div class="cver">
+      "Quando a Igreja sofre aflições, jamais é a Igreja em si que está em jogo. O dragão sempre visa atingir o Cristo na Igreja. A luta é pelo Cristo na Igreja e, em decorrência, pelo testemunho desse Cristo."
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.5vw,0.625rem);letter-spacing:1px;color:var(--ouro);">Adolf Pohl — citado por H. D. Lopes</span>
+    </div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">1</span>
+  </div>
+</div>
+
+<!-- TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+  <div class="int-linhas"></div>
+  <div class="wm">2</div>
+  <div class="ph">
+    <span class="phl">Lição 07 · Vol. III</span>
+    <span class="pht">O Dragão e a Igreja</span>
+  </div>
+  <h2>O Texto</h2>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 12:7-9, 11</div>
+    <p>"E houve peleja no céu: Miguel e os seus anjos pelejavam contra o dragão; e o dragão pelejava, e os seus anjos, e não prevaleceram, e o seu lugar não foi mais achado no céu. E foi lançado fora o grande dragão, a antiga serpente, chamada o Diabo e Satanás, o sedutor de todo o mundo… E eles o venceram pelo sangue do Cordeiro e pela palavra do seu testemunho; e não amaram as suas vidas até a morte."</p>
+    <span class="ref-f">Apocalipse 12:7-9, 11</span>
+  </div>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 13:7-8</div>
+    <p>"E foi-lhe permitido fazer guerra contra os santos e vencê-los; e foi-lhe dado poder sobre toda tribo, língua e nação. E adoraram-no todos os que habitam na terra, cujos nomes não estão escritos no livro da vida do Cordeiro."</p>
+    <span class="ref-f">Apocalipse 13:7-8</span>
+  </div>
+  <div class="obj">
+    <div class="ot">Objetivos desta Lição</div>
+    <ul>
+      <li>Compreender a estrutura de Apocalipse 12 — as três lutas do dragão e suas três derrotas;</li>
+      <li>Identificar as oito características do dragão descritas por Hernandes Dias Lopes;</li>
+      <li>Examinar as duas bestas de Apocalipse 13 — o poder político e o religioso a serviço do mal;</li>
+      <li>Aplicar as três armas da vitória da Igreja sobre o dragão.</li>
+    </ul>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — Pg. 2 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica</div>
+    <p>Os dois textos-âncora desta lição (Ap 12:7-9,11 e 13:7-8) formam um arco dramático deliberado: da vitória de Miguel sobre o dragão no céu (derrota cósmica do acusador) à aparente vitória das bestas sobre os santos na terra. A tensão é proposital — João quer que a Igreja saiba que a derrota aparente na história é o pano de fundo de uma vitória já consumada no céu. O professor deve sustentar essa tensão sem resolvê-la prematuramente.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">🎯 Dica de Aula — Abertura (5 min)</div>
+    <p>Antes de abrir o material, pergunte: <em>"Quando você ou alguém que você conhece sofreu por causa da fé, qual foi a primeira interpretação que veio à mente — Deus me abandonou, ou o inimigo está me atacando?"</em> Registre as respostas. Use-as como âncoras ao longo da aula: a lição inteira é uma resposta a essa pergunta. Ap 12 diz que a perseguição contra a Igreja é, no fundo, uma guerra contra Cristo — e Cristo já venceu.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">2</span>
+  </div>
+</div>
+
+<!-- A MULHER E O DRAGÃO -->
+<div class="lbl">Página 3 · A Mulher e o Dragão Vermelho</div>
+<div class="pag int">
+  <div class="int-linhas"></div>
+  <div class="wm">3</div>
+  <div class="ph">
+    <span class="phl">Lição 07 · Vol. III</span>
+    <span class="pht">A Mulher e o Dragão</span>
+  </div>
+  <h2>A Mulher, o Dragão e o Filho Varão</h2>
+  <p class="cap">Apocalipse 12 revela o conflito cósmico por trás de toda a história da Igreja. O dragão realiza três lutas — contra Deus e Seu Messias (v.1-6), contra Miguel (v.7-12), e contra a mulher (v.13-18) — e sai derrotado nas três. A Igreja que sofre precisa ver esse quadro completo para entender que seu sofrimento não é abandono; é a fúria de um inimigo já derrotado.</p>
+  <div class="bloco">
+    <div class="bloco-t">A Mulher — Símbolo da Igreja</div>
+    <p>A mulher vestida do sol, com a lua debaixo dos pés e uma coroa de doze estrelas, representa a Igreja — o povo de Deus em ambas as dispensações. Hernandes Dias Lopes destaca seis aspectos: ela é <strong>gloriosa</strong> (vestida do sol — reflete a beleza de Cristo); exerce <strong>domínio</strong> (lua debaixo dos pés — autoridade espiritual em Cristo); é <strong>vitoriosa</strong> (coroa de doze estrelas); sua missão é <strong>dar à luz o Messias</strong>; é protegida por Deus <strong>no deserto</strong>; é <strong>sustentada</strong> no período de tribulação (1.260 dias).</p>
+  </div>
+  <h3>O Verdadeiro Alvo do Dragão</h3>
+  <p>Adolf Pohl, citado por Lopes, faz uma observação decisiva: "Quando a Igreja sofre aflições, jamais é a Igreja em si que está em jogo. O dragão sempre visa atingir o Cristo na Igreja. A luta é pelo Cristo na Igreja e, em decorrência, pelo testemunho desse Cristo." É por isso que Cristo perguntou a Saulo: "Por que me persegues?" — não "por que persegues a minha Igreja?" A luta é contra Cristo; a Igreja é o campo de batalha, não o alvo final.</p>
+  <div class="bconexao">
+    <div class="bconexao-t">✦ Conexão Bíblica</div>
+    <p>Compare Apocalipse 12:11 com Romanos 8:33-34. O acusador acusa os irmãos, mas Cristo morreu, ressuscitou e intercede por eles. A vitória da Igreja não nasce da força moral dos santos, mas da obra objetiva do Cordeiro. Como essa conexão muda a forma de lidar com culpa, acusação e intimidação espiritual?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — Pg. 3 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica — A Mulher como Igreja</div>
+    <p>A identificação da mulher como a Igreja (e não apenas como Israel ou como Maria) é a leitura predominante na tradição reformada e amilenista — seguida por Lopes. O fundamento está na coroa de doze estrelas (doze tribos + doze apóstolos = Israel e Igreja unificados em Cristo) e na fuga para o deserto por 1.260 dias (período simbólico da era da Igreja inteira). O professor deve nomear essa interpretação sem dogmatismo: "Lopes lê a mulher como o povo de Deus em todas as eras. Outros a identificam como Israel. O ponto pastoral é idêntico: o povo de Deus é protegido por Deus mesmo no deserto."</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">🎯 Dica de Aula — 10 min</div>
+    <p>Use a citação de Pohl como eixo central: <em>"O dragão sempre visa atingir o Cristo na Igreja."</em> Pergunte à turma: <em>"Se a perseguição que você sofre é, no fundo, contra Cristo — o que muda na sua resposta? Você se sente menos sozinho ou mais responsável?"</em> Esse deslocamento de perspectiva é o coração pedagógico desta página. A resposta de Saulo (que perseguia a Igreja e ouviu "por que me persegues?") é o exemplo bíblico mais imediato — use-o.</p>
+  </div>
+  <div class="prof-reflexao">
+    <div class="prof-label">💬 Para Você Refletir</div>
+    <p>A Igreja que sofre precisa de dois movimentos simultâneos: (1) reconhecer a dimensão espiritual da perseguição — ela é contra Cristo, não apenas contra você; (2) não usar essa verdade como anestesia — o sofrimento é real, o custo é real. A lição não romantiza a perseguição; ela a enquadra dentro da soberania de Cristo. Como o professor você deve acolher ambas as dimensões.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">3</span>
+  </div>
+</div>
+
+<!-- AS OITO CARACTERÍSTICAS DO DRAGÃO -->
+<div class="lbl">Página 4 · As Oito Características do Dragão</div>
+<div class="pag int">
+  <div class="int-linhas"></div>
+  <div class="wm">4</div>
+  <div class="ph">
+    <span class="phl">Lição 07 · Vol. III</span>
+    <span class="pht">O Dragão Descrito</span>
+  </div>
+  <h2>O Retrato do Inimigo</h2>
+  <p>Hernandes Dias Lopes descreve o dragão em oito características — não para inflar seu poder, mas para que a Igreja o conheça e não seja surpreendida por suas táticas.</p>
+  <div class="bloco">
+    <div class="bloco-t">As Oito Características do Dragão</div>
+    <p><strong>1. Pessoal</strong> — não é energia negativa nem mito; é um anjo caído, com vontade, planos e sentimentos. <strong>2. Influência universal</strong> — sete cabeças (poder universal), dez chifres (capacidade destruidora), sete diademas (governo universal). <strong>3. Destruidor</strong> — vermelho: assassino, sanguinário. <strong>4. Sedutor</strong> — disfarce, dúvida, inversão da Palavra de Deus; "a serpente de Gênesis 3 é o dragão de Apocalipse 12." <strong>5. Acusador incessante</strong> — acusa os irmãos dia e noite sem descansar, sem tirar férias. <strong>6. Opositor</strong> — Satanás significa "adversário"; se opôs a Moisés, a Josué, a Paulo. <strong>7. Cheio de cólera</strong> — irado porque foi expulso do céu, porque não pôde destruir o Filho, porque a Igreja é protegida. <strong>8. LIMITADO</strong> — limitado em espaço (expulso do céu), em tempo (pouco lhe resta), em poder (é vencido por Cristo, pelos anjos e pela Igreja).</p>
+  </div>
+  <div class="blteo">
+    <div class="blteo-t">A Advertência de Hernandes Dias Lopes</div>
+    <p>"Hoje muitos superenfatizam o poder do diabo. A demonologia está em alta. Mas o diabo foi vencido por Jesus (12:5), é vencido pelos anjos (12:7-8) e pela Igreja (12:11). Ele é uma serpente golpeada na cabeça que está no estertor da morte — furiosa, mas já condenada."</p>
+  </div>
+  <div class="bsabia">
+    <div class="bsabia-t">✦ Sabia Que?</div>
+    <p>O nome Satanás significa adversário, e diabo significa acusador. Apocalipse 12 reúne as duas ações: ele se opõe ao povo de Deus e o acusa diante de Deus. A cena mostra que a acusação não é neutra; ela é uma arma espiritual. Por isso, a resposta bíblica não é autodefesa, mas o sangue do Cordeiro e o testemunho fiel.</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — Pg. 4 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica — A 8.ª Característica: o Limite</div>
+    <p>A oitava característica — o dragão é <em>limitado</em> — é teologicamente a mais importante e pedagogicamente a mais contracultural. Em ambientes pentecostais e carismáticos, onde a demonologia ocupa muito espaço, nomear os limites do dragão pode parecer minimização. Na verdade, é exatamente o oposto: dizer que o dragão é limitado é dizer que Cristo é soberano. O professor deve apresentar a oitava característica com ênfase deliberada — ela é a que muda a postura da turma de medo para vigilância sóbria.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">🎯 Dica de Aula — As Oito Características</div>
+    <p>Leia as oito características em voz alta e devagar. Após a oitava (LIMITADO), pause e pergunte: <em>"Qual dessas oito características mais surpreende você? E qual delas você menos aplica na sua vida prática?"</em> Normalmente a primeira surpresa é a 8.ª (o limite do dragão); a menos aplicada costuma ser a 5.ª (o acusador incessante) — porque muitos cristãos vivem sob acusação sem identificar sua origem. Conecte ao bloco do aluno "Sabia Que?" e à resposta bíblica: sangue do Cordeiro, não autodefesa.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">❤ Orientação Pastoral — Acusação e Culpa</div>
+    <p>A 5.ª característica — o dragão como acusador incessante — tem alto potencial de impacto emocional para alunos que vivem sob culpa crônica, vergonha ou sensação de indignidade espiritual. Não apresse a resposta teológica. Nomeie primeiro: <em>"Se você carrega uma voz que diz 'você não é bom o suficiente', 'Deus não pode te usar', 'seu passado te desqualifica' — essa é a voz do acusador, não de Deus."</em> A resposta de Ap 12:10-11 vem depois: o escritório de acusação foi fechado pelo sangue do Cordeiro. Dê espaço real a esse movimento pastoral antes de prosseguir para o conteúdo.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">4</span>
+  </div>
+</div>
+
+<!-- AS DUAS BESTAS E AS TRÊS ARMAS -->
+<div class="lbl">Página 5 · As Duas Bestas e as Três Armas da Vitória</div>
+<div class="pag int">
+  <div class="int-linhas"></div>
+  <div class="wm">5</div>
+  <div class="ph">
+    <span class="phl">Lição 07 · Vol. III</span>
+    <span class="pht">As Bestas e a Vitória</span>
+  </div>
+  <h2>As Duas Bestas — Ap 13</h2>
+  <p>Derrotado em suas confrontações diretas, o dragão levanta dois agentes para atacar a Igreja. A <strong>primeira besta</strong> (do mar) — horrível, de sete cabeças — representa o poder político perseguidor: Roma no século I, e todo sistema de governo que exige lealdade absoluta e persegue os cristãos. É a "mão de Satanás." A <strong>segunda besta</strong> (da terra), disfarçada como cordeiro, falando como dragão — representa as religiões e filosofias falsas que seduzem: é a "mente do diabo." Ela faz a humanidade adorar a primeira besta.</p>
+  <div class="bloco">
+    <div class="bloco-t">A Marca da Besta — 666</div>
+    <p>O número 666 é o número do homem — aquele que está sempre aquém da perfeição de Deus (simbolizada pelo 7). Hernandes Dias Lopes rejeita interpretações literalistas de microchips e sistemas digitais: a marca da besta é a lealdade a qualquer sistema que exige adoração e compete com Cristo pelo senhorio. A questão sempre foi e sempre será: quem é o Senhor?</p>
+  </div>
+  <h2 style="margin-top:14px;">As Três Armas da Vitória — Ap 12:11</h2>
+  <p><strong>1. O sangue do Cordeiro</strong> — não é o conhecimento do Cordeiro nem a crença intelectual, mas o sangue. O sacrifício de Cristo na cruz desfez toda a possibilidade de Satanás triunfar. As acusações do dragão não têm nenhuma base legal diante da obra do Calvário. <strong>2. A palavra do testemunho</strong> — a Igreja vence quando testemunha de Cristo mesmo sob perseguição. Lopes é severo: "Não é a Igreja que hiberna que será vencedora." A Igreja vitoriosa é a que testemunha. <strong>3. Não amar a vida até a morte</strong> — a disposição ao martírio. Somente o sangue do Cordeiro derrota o dragão — o sangue dos mártires não. Mas a disposição de morrer pelo Cordeiro é a evidência de que o Cordeiro é amado acima da própria vida.</p>
+  <div class="bpense">
+    <div class="bpense-t">✦ Pense Nisso</div>
+    <p>As três armas de Apocalipse 12:11 não são técnicas de domínio espiritual; são marcas de fidelidade cristã. O sangue do Cordeiro aponta para a cruz, a palavra do testemunho aponta para a confissão pública de Cristo, e não amar a vida até a morte aponta para uma lealdade que não negocia o senhorio de Jesus. Qual dessas três áreas mais confronta sua vida hoje?</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — Pg. 5 -->
+  <div class="prof-nota-teologica">
+    <div class="prof-label">📖 Nota Teológica — As Duas Bestas</div>
+    <p>A identificação da primeira besta com Roma (poder político) e da segunda com o falso profeta (poder religioso a serviço do poder político) é a leitura historicista clássica — Lopes, Hendriksen, Beale. O professor deve nomear isso sem polêmica: a interpretação futurista vê um anticristo individual no futuro; a historicista vê uma realidade recorrente em toda a história da Igreja. Ambas convergem no ponto pastoral: todo sistema que exige lealdade absoluta e compete com Cristo é a besta — Roma foi o protótipo, não o único exemplo.</p>
+  </div>
+  <div class="prof-dica-aula">
+    <div class="prof-label">🎯 Dica de Aula — As Três Armas (10 min)</div>
+    <p>Após apresentar as três armas, pergunte à turma: <em>"Das três — sangue do Cordeiro, palavra do testemunho, não amar a vida — qual é a mais fácil de afirmar teologicamente e a mais difícil de viver concretamente?"</em> Normalmente a primeira é a mais fácil de afirmar (doutrina da expiação), a segunda é a mais desconfortável na prática (testemunho público) e a terceira é a mais radical (disposição ao martírio). Conecte à pergunta do aluno no "Pense Nisso": qual dessas três mais confronta sua vida hoje? Dê 30 segundos de reflexão silenciosa antes da partilha.</p>
+  </div>
+  <div class="prof-recurso-visual">
+    <div class="prof-label">🗺 Recurso Visual</div>
+    <p>Esboce no quadro uma "trindade invertida": Dragão (imita o Pai) → Primeira besta (imita o Filho, recebe adoração) → Segunda besta / falso profeta (imita o Espírito Santo, aponta para a primeira besta). Esse esboço, usado por G. K. Beale e explicado por Lopes, mostra que o dragão e as bestas são uma paródia satânica da Trindade — o que explica a intensidade do engano. Isso âncora visualmente a interpretação e torna o 666 mais compreensível: é o homem tentando ser Deus, sempre aquém da perfeição divina.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">5</span>
+  </div>
+</div>
+
+<!-- APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+  <div class="int-linhas"></div>
+  <div class="wm">6</div>
+  <div class="ph">
+    <span class="phl">Lição 07 · Vol. III</span>
+    <span class="pht">O Dragão Ataca a Igreja</span>
+  </div>
+  <h2>Aplicação Direta</h2>
+  <p class="cap">Hernandes Dias Lopes termina o capítulo com uma declaração que é o núcleo da esperança cristã: "Embora o dragão seja grande, vermelho, sedutor, temido, ele está derrotado. A vitória está assegurada. Caminhamos não para um final trágico ou incerto. Caminhamos para a consumação gloriosa de Cristo e de Sua noiva."</p>
+  <div class="blapl">
+    <div class="blapl-t">Para esta semana</div>
+    <p>Primeiro: Adolf Pohl diz que o dragão "sempre visa atingir o Cristo na Igreja." Quando você é perseguido, difamado ou marginalizado por causa da fé, a batalha não é contra você — é contra o Cristo em você. Como essa perspectiva muda sua coragem e sua resposta à perseguição ou pressão social? Segundo: O dragão acusa "os irmãos dia e noite sem cessar" (Ap 12:10). Há acusações que você carrega sobre si mesmo — de que não é bom o suficiente, que Deus não pode te usar, que seu passado te desqualifica? Apocalipse 12:10-11 diz que esse escritório de acusação foi fechado pelo sangue do Cordeiro. Terceiro: Lopes diz que "não é a Igreja que hiberna que será vencedora." Há alguma forma de testemunho que você tem evitado por medo? O que seria dar a "palavra do seu testemunho" esta semana?</p>
+  </div>
+  <div class="mem">
+    <div class="mem-t">◆ Versículo para Memorizar</div>
+    <p>"E eles o venceram pelo sangue do Cordeiro e pela palavra do seu testemunho; e não amaram as suas vidas até a morte."</p>
+    <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:clamp(0.5rem,1.5vw,0.625rem);letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 12:11</p>
+  </div>
+
+  <!-- BLOCOS DO PROFESSOR — Pg. 6 -->
+  <div class="prof-reflexao">
+    <div class="prof-label">💡 Pense Nisso</div>
+    <p>A declaração final de Lopes — "caminhamos para a consumação gloriosa de Cristo e de Sua noiva" — é escatologia pastoral, não evasão. A esperança do fim glorioso não anula o sofrimento presente; ela o ressignifica. A Igreja que sabe para onde vai atravessa o presente com uma coragem diferente. Esta lição deve terminar não com a análise do inimigo, mas com a certeza do destino. O professor deve encerrar com essa virada: do retrato do dragão à glória do Cordeiro.</p>
+  </div>
+  <div class="prof-reflexao">
+    <div class="prof-label">🌱 Leve para a Vida…</div>
+    <p>Sugira à turma que escreva, nos próximos sete dias, as três respostas da aplicação — uma por dia — como oração: (1) "Senhor, a luta contra mim é contra o Cristo em mim — eu não luto sozinho." (2) "Senhor, o escritório de acusação foi fechado pelo Teu sangue — eu não devo ao acusador nenhuma resposta." (3) "Senhor, o que seria o meu testemunho fiel esta semana?" Traga os relatos para a próxima aula como abertura. Esse ciclo replica a estrutura das três armas de Ap 12:11 na vida prática diária.</p>
+  </div>
+  <div class="prof-orientacao-past">
+    <div class="prof-label">❤ Orientação Pastoral — Perseguição Real</div>
+    <p>Para turmas em ambientes de pressão religiosa real (família não cristã, ambiente de trabalho hostil, contexto cultural adverso), a aplicação desta página pode despertar experiências dolorosas concretas. Não resolva com otimismo pastoral apressado. Valide primeiro: <em>"A perseguição descrita aqui não é metáfora para alguns de vocês — é a semana passada."</em> Depois enquadre com Lopes: o dragão está furioso porque está derrotado. A fúria de um inimigo já condenado tem prazo de validade — o Cordeiro garante isso.</p>
+  </div>
+
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">6</span>
+  </div>
+</div>
+
+<!-- QUESTÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+  <div class="int-linhas"></div>
+  <div class="wm">7</div>
+  <div class="ph">
+    <span class="phl">Lição 07 · Vol. III</span>
+    <span class="pht">O Dragão e a Igreja</span>
+  </div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">Adolf Pohl diz que o dragão "sempre visa atingir o Cristo na Igreja" — não a Igreja em si. O sofrimento e a perseguição da Igreja são, no fundo, uma luta contra Cristo. Como esse entendimento muda a forma como a Igreja (e você individualmente) deve responder à perseguição — com medo ou com testemunho?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">Hernandes Dias Lopes adverte contra a "superênfase no poder do diabo" — demonologia em alta. Como você equilibra o reconhecimento sério da realidade espiritual do inimigo com a certeza de que ele já foi vencido e está "no estertor da morte"? Qual dos dois extremos (ignorar o diabo ou superenfatizá-lo) é mais perigoso para a vida cristã prática?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">A segunda besta (falso profeta) representa as religiões e filosofias falsas que fazem a humanidade adorar o poder político. Como você identifica essa dinâmica — religião a serviço do poder — na Igreja e na sociedade brasileira hoje? Quais são os sinais de que uma Igreja se tornou "falso profeta" de um sistema político ou cultural?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">As três armas de Apocalipse 12:11 são: sangue do Cordeiro, palavra do testemunho e não amar a vida até a morte. Lopes diz que "não é a Igreja que hiberna que será vencedora." Em que situações sua Igreja ou você pessoalmente tem "hibernado" — suspendido o testemunho por medo das consequências?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div>
+    <div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod">
+    <span class="rt">Eschaton Vol. III · Edição do Professor</span>
+    <span class="rn">7</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     PÁGINAS EXCLUSIVAS DO PROFESSOR — P1 a P4
+     ══════════════════════════════════════════════════════ -->
+
+<!-- PG P1 — VISÃO GERAL DO PROFESSOR -->
+<div class="lbl lbl-prof">Página P1 · Guia do Professor — Visão Geral da Lição</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 07 · Vol. III · Guia do Professor</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Visão Geral para o Professor</h2>
+  <p>Esta lição é a continuação natural da Lição 06. Se a Lição 06 mostrou o Cordeiro abrindo os selos — governando a história de dentro —, a Lição 07 mostra o dragão respondendo com fúria: ele ataca a Igreja porque não pode atacar o Cordeiro diretamente. O eixo se desloca do governante soberano (o Cordeiro) para o inimigo derrotado (o dragão). Seu papel como professor é conduzir a turma do retrato assustador do dragão à certeza de que ele já está condenado — e que a vitória da Igreja é garantida pelas três armas de Ap 12:11.</p>
+  <p>O fio condutor desta lição é a <em>fúria do derrotado</em>: o dragão ataca com toda a sua força exatamente porque foi expulso do céu, porque não destruiu o Filho e porque sabe que o tempo é curto (Ap 12:12). Essa fúria explica a intensidade da perseguição — e também sua limitação. O professor que souber sustentar essa tensão conduzirá a turma a uma postura de vigilância sóbria, não de medo paralisante.</p>
+  <div class="bloco-mapa">
+    <div class="bk">Mapa de Competências da Lição</div>
+    <div class="mapa-grid">
+      <div class="mapa-cel">
+        <div class="mapa-cel-tit">Conhecimento</div>
+        <p>Identificar as três lutas do dragão e suas três derrotas em Ap 12; reconhecer as oito características do dragão segundo Lopes; distinguir as duas bestas de Ap 13 e seus papéis; compreender as três armas da vitória de Ap 12:11</p>
+      </div>
+      <div class="mapa-cel">
+        <div class="mapa-cel-tit">Habilidade</div>
+        <p>Identificar a acusação do dragão como arma espiritual e respondê-la com o sangue do Cordeiro; distinguir entre medo paralisante e vigilância sóbria; reconhecer sistemas modernos que exigem lealdade absoluta competindo com Cristo</p>
+      </div>
+      <div class="mapa-cel">
+        <div class="mapa-cel-tit">Atitude</div>
+        <p>Responder à perseguição com testemunho, não com medo; rejeitar a acusação do dragão pela obra do Calvário; manter lealdade a Cristo como único Senhor diante de sistemas que exigem adoração alternativa</p>
+      </div>
+      <div class="mapa-cel">
+        <div class="mapa-cel-tit">Avaliação</div>
+        <p>O aluno consegue nomear uma acusação que carrega e aplicar Ap 12:10-11 a ela? Consegue identificar uma situação de "hibernação" do testemunho e formular uma resposta concreta para esta semana?</p>
+      </div>
+    </div>
+  </div>
+  <div class="bloco-tempo">
+    <div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><span class="tempo-min">5 min</span><span class="tempo-desc">Abertura: pergunta sobre perseguição e interpretação — abandono de Deus ou ataque do inimigo?</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 2 — Texto bíblico, objetivos e orientação inicial</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 3 — A mulher e o dragão: a Igreja como alvo indireto; o verdadeiro alvo é Cristo</span></div>
+    <div class="tempo-linha"><span class="tempo-min">10 min</span><span class="tempo-desc">Pg. 4 — As oito características do dragão: ênfase na 5.ª (acusador) e na 8.ª (limitado)</span></div>
+    <div class="tempo-linha"><span class="tempo-min">8 min</span><span class="tempo-desc">Pg. 5 — As duas bestas e as três armas da vitória; reflexão sobre qual arma confronta mais</span></div>
+    <div class="tempo-linha"><span class="tempo-min">9 min</span><span class="tempo-desc">Pg. 6–7 — Aplicação, versículo, 1–2 questões e encerramento com a declaração de Lopes</span></div>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Objetivos Pedagógicos do Professor</div>
+    <ul>
+      <li>Conduzir a turma do retrato do dragão à certeza de sua derrota — não deixar a aula terminar no inimigo</li>
+      <li>Fazer a turma identificar uma acusação pessoal e aplicar Ap 12:10-11 a ela concretamente</li>
+      <li>Nomear uma situação de "hibernação" do testemunho e formular uma resposta para esta semana</li>
+      <li>Encerrar com a declaração de Lopes sobre a consumação gloriosa como âncora escatológica da esperança</li>
+    </ul>
+  </div>
+  <div class="alerta">
+    <div class="bk">Atenção do Professor</div>
+    <p>Esta lição tem dois pontos de alto potencial emocional: (1) a acusação do dragão — a 5.ª característica pode ativar culpa, vergonha e sensação de indignidade em alunos que carregam peso espiritual crônico; (2) a questão sobre a "Igreja falso profeta" (Q3) tem alto potencial de tensão política em turmas com posições polarizadas. Em ambos os casos: não resolva com teologia rápida. Dê espaço real ao silêncio e à acusação antes de apresentar a resposta bíblica. A resposta é poderosa — mas precisa de espaço para aterrissar.</p>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">⇢</div>
+    <div class="bloco-fio-txt"><strong>Fio Condutor da Série Vol. III</strong> — L01: Cristo glorioso entre os castiçais. L02: Éfeso e Esmirna. L03: Pérgamo, Tiatira, Sardes. L04: Filadélfia e Laodiceia. L05: O Trono e o Cordeiro. L06: Os selos — o Cordeiro governa a história. Agora L07 mostra a resposta do inimigo derrotado: o dragão atacando a Igreja porque não pode atacar o Cordeiro. Sem L05 (o Trono) e L06 (os selos), L07 seria apenas aterrorizante. Com o Trono e os selos como fundamento, L07 é o retrato de um inimigo já condenado fazendo barulho.</div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P1</span></div>
+</div>
+
+<!-- PG P2 — DINÂMICA DE ABERTURA + APROFUNDAMENTO TEOLÓGICO -->
+<div class="lbl lbl-prof">Página P2 · Dinâmica de Abertura &amp; Aprofundamento Teológico</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 07 · Dinâmica &amp; Teologia</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dinâmica de Abertura <span class="tag-sens debate">5–7 min</span></h2>
+  <div class="bloco-debate">
+    <div class="bk">O Dragão na Sua Rua</div>
+    <p>Antes de abrir o material, pergunte: <em>"Pense em um momento em que alguém — ou algum sistema — tentou silenciar sua fé ou forçar sua lealdade a algo que não era Cristo. O que você sentiu: que Deus tinha falhado com você, ou que algo maior estava em jogo?"</em> Registre as respostas sem comentar. Depois leia Ap 12:12 em voz alta: <em>"Ai dos que habitam na terra e no mar! Porque o diabo desceu até vós, cheio de grande ira, sabendo que tem pouco tempo."</em> Diga: "O dragão ataca com toda a força exatamente porque sabe que perdeu. Esta lição é sobre como a Igreja vence não por ter mais força — mas por pertencer ao Cordeiro que já venceu."</p>
+  </div>
+  <div class="bloco-dica">
+    <div class="bk">Como Conduzir</div>
+    <ul>
+      <li>Não resolva a tensão da abertura — deixe a lição resolvê-la progressivamente, chegando às três armas de Ap 12:11</li>
+      <li>Anote as experiências de perseguição ou pressão mencionadas — use-as ao longo da aula: "Alguém mencionou pressão no trabalho — essa é exatamente a primeira besta de Ap 13"</li>
+      <li>Se a turma for resistente à ideia de "perseguição", provoque: <em>"E a pressão de não falar sobre Jesus por medo de parecer fanático — isso conta como silenciamento?"</em></li>
+    </ul>
+  </div>
+  <div class="bloco-soc">
+    <div class="bk">Escada de Perguntas Socráticas</div>
+    <div class="soc-item">
+      <p>Nível 1 — Diagnóstico: "Se o dragão ataca a Igreja porque odeia Cristo — e não a Igreja em si —, o que isso diz sobre o valor que Cristo atribui à Igreja? Por que o dragão se importa tanto com ela?"</p>
+      <div class="soc-espera">Espera: a Igreja é o corpo de Cristo, o templo do Espírito, a noiva do Cordeiro — destruir a Igreja seria, simbolicamente, uma vitória sobre Cristo. O dragão se importa exatamente porque Deus se importa. Isso inverte a narrativa: a perseguição não é sinal de abandono, mas de que a Igreja importa ao inimigo porque importa a Deus.</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 2 — Textual: "Lopes adverte contra a superênfase no poder do diabo. Mas Apocalipse 12–13 dá ao dragão e às bestas uma descrição extremamente poderosa. Como Lopes equilibra essa tensão — e como você a equilibra na sua vida espiritual?"</p>
+      <div class="soc-espera">Espera: o equilíbrio está na 8.ª característica — o dragão é limitado em espaço, tempo e poder. A descrição intensa serve para que a Igreja o conheça e não seja surpreendida; não para que o tema. O equilíbrio bíblico é: "Sede sóbrios e vigilantes" (1 Pe 5:8) — nem ignorância nem terror.</div>
+    </div>
+    <div class="soc-item">
+      <p>Nível 3 — Aplicação: "As três armas de Ap 12:11 — sangue do Cordeiro, palavra do testemunho, não amar a vida — são todas relacionadas a Christ, não a técnicas espirituais. O que isso diz sobre a natureza da vitória cristã sobre o inimigo?"</p>
+      <div class="soc-espera">Espera: a vitória cristã não é produzida pela Igreja — é recebida e aplicada. O sangue do Cordeiro é dado, o testemunho é resposta a uma graça recebida, e a disposição ao martírio é fruto de um amor que supera o amor pela própria vida. A Igreja não vence por ser forte — vence por pertencer ao que já venceu.</div>
+    </div>
+  </div>
+  <div class="sep-prof"><span>✦</span></div>
+  <h2 class="prof">Aprofundamento Teológico <span class="tag-sens tecnico">para enriquecer</span></h2>
+  <div class="bloco-teo">
+    <div class="bk">A Trindade Invertida — Dragão, Bestas e Paródia Satânica</div>
+    <p>G. K. Beale e Lopes identificam em Ap 12–13 uma paródia satânica da Trindade: o dragão imita o Pai (origem da autoridade), a primeira besta imita o Filho (recebe adoração, tem uma ferida mortal que sara), e a segunda besta / falso profeta imita o Espírito Santo (aponta para a primeira besta, faz sinais e maravilhas). Isso explica a intensidade do engano: a imitação é suficientemente boa para enganar os que não têm o nome escrito no livro da vida. O professor não precisa desenvolver isso com a turma, mas deve saber que o 666 se encaixa aqui: o homem tentando ser Deus, sempre aquém da perfeição do 7.</p>
+  </div>
+  <div class="bloco-teo">
+    <div class="bk">O "Pouco Tempo" do Dragão — Ap 12:12</div>
+    <p>A expressão "sabendo que tem pouco tempo" é teologicamente crucial para Lopes e Hendriksen: o dragão sabe que sua condenação é certa e irreversível. Sua fúria não é sinal de força — é sinal de desespero. Para a Igreja perseguida, isso é libertador: o perseguidor tem prazo de validade. A fúria mais intensa é a que precede a derrota final. O professor pode conectar isso ao clamor dos mártires em Ap 6:10 ("até quando?") — a resposta implícita de Ap 12:12 é: não muito tempo.</p>
+  </div>
+  <div class="cit-autor">
+    "O dragão está furioso porque está derrotado. A intensidade do ataque não é prova de seu poder — é prova de seu desespero. A Igreja que entende isso caminha com uma coragem que o inimigo não consegue explicar."
+    <cite>— Hernandes Dias Lopes, paráfrase pastoral de <em>Apocalipse: O Futuro Chegou</em></cite>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P2</span></div>
+</div>
+
+<!-- PG P3 — DICAS PEDAGÓGICAS & GESTÃO DE TENSÕES -->
+<div class="lbl lbl-prof">Página P3 · Dicas Pedagógicas &amp; Gestão de Tensões</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 07 · Pedagogia &amp; Gestão</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <div class="bloco-dica">
+    <div class="bk">Para Tornar o Conteúdo Concreto</div>
+    <ul>
+      <li><strong>As oito características em lista visual:</strong> escreva as oito no quadro em ordem, terminando com LIMITADO em letras maiores e diferente cor. O efeito visual da 8.ª sendo diferente âncora a mensagem: o retrato do dragão termina com o seu limite, não com o seu poder. Pergunte: "Qual dessas oito você mais sente presente na sua vida? E qual você mais esquece?"</li>
+      <li><strong>A trindade invertida:</strong> se o tempo permitir, esboce o triângulo Dragão / Primeira besta / Segunda besta com as paralelas à Trindade. Isso explica o 666 de forma teológica e desfaz interpretações literalistas populares sobre microchips e sistemas digitais.</li>
+      <li><strong>As três armas como oração:</strong> termine a aula convidando a turma a orar as três armas em primeira pessoa: "Senhor, eu vejo pela Tua obra no Calvário, confesso Cristo diante dos homens e declaro que o Teu senhorio vale mais do que minha segurança." Isso replica o padrão litúrgico de Ap 12:11.</li>
+    </ul>
+  </div>
+  <div class="bloco-cult">
+    <div class="bk">Conexão com a Cultura Contemporânea</div>
+    <p>O dragão, as bestas e o 666 são imagens amplamente conhecidas na cultura popular — filmes de terror, músicas de rock, jogos e memes. O professor pode usar isso como ponto de entrada: <em>"Qual imagem você já viu na cultura sobre o 666 ou as bestas do Apocalipse?"</em> Após as respostas, contraste com Lopes: "O 666 não é um código futuro em microchips — é o retrato do homem tentando ser Deus, sempre aquém do 7 perfeito. A marca da besta não é tecnologia — é lealdade a um sistema que compete com Cristo." A correção do literalismo popular é o ponto de maior impacto intelectual desta aula.</p>
+  </div>
+  <div class="bloco-perf">
+    <div class="bk">Diferenciação por Perfil de Turma</div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Sob pressão espiritual</div>
+      <div class="perf-txt">Para quem sente acusação, culpa ou intimidação espiritual crônica, a 5.ª característica é a entrada pastoral. Nomeie a acusação: "O dragão acusa dia e noite. Essa voz que diz que você não presta — não é de Deus." A resposta de Ap 12:10-11 é a cura: o escritório de acusação foi fechado pelo sangue do Cordeiro.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Com medo de perseguição</div>
+      <div class="perf-txt">Para quem teme o futuro ou vive em contexto de pressão religiosa real, a chave é a 8.ª característica (limite do dragão) e Ap 12:12 ("tem pouco tempo"). O dragão está com prazo: a fúria intensa é prova de desespero, não de vitória. A Igreja atravessa o fogo protegida, não poupada.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Demonologia inflada</div>
+      <div class="perf-txt">Para turmas onde o diabo tem mais atenção do que Cristo, a advertência de Lopes é o ponto de virada: "superenfatizar o poder do diabo é teologia desequilibrada." A 8.ª característica (LIMITADO) deve ser dita com clareza e firmeza. A solução não é ignorar o inimigo — é mantê-lo em seu lugar correto: derrotado.</div>
+    </div>
+    <div class="perf-linha">
+      <div class="perf-tipo">Politicamente polarizados</div>
+      <div class="perf-txt">A Q3 (Igreja como "falso profeta" de sistemas políticos) tem alto potencial de tensão. Aborde sem nomear partidos: "A segunda besta é toda religião que usa o nome de Cristo para legitimar o poder humano." Deixe a turma aplicar — não aplique por ela. O critério bíblico é claro: quando a Igreja perde a independência profética, torna-se instrumento da besta, não do Cordeiro.</div>
+    </div>
+  </div>
+  <div class="sep-prof"><span>✦</span></div>
+  <h2 class="prof">Gestão de Tensões</h2>
+  <div class="alerta">
+    <div class="bk">Situação Comum — "O 666 é o microchip / PIX / identidade digital"</div>
+    <p>É a interpretação literalista mais comum em turmas brasileiras. Não descarte com ironia — descarte com exegese: "Lopes e a tradição reformada leem o 666 como número simbólico — o homem tentando ser Deus, sempre abaixo do 7 perfeito. A marca da besta no século I era a obrigação de adorar o imperador para participar do comércio — o paralelo hoje não é tecnologia, mas lealdade." Redirecione: "A pergunta da besta sempre foi e sempre será: quem é o Senhor?"</p>
+  </div>
+  <div class="alerta">
+    <div class="bk">Situação Comum — Debate sobre o "Arrebatamento"</div>
+    <p>Se alguém questionar a ausência do arrebatamento pré-tribulacional como proteção contra as bestas, responda com Lopes: "A Igreja não é tirada do conflito — é protegida dentro dele. Os mártires de Ap 6 não foram arrebatados antes da tribulação; foram sustentados dentro dela e chegaram vestidos de branco. A proteção não é ausência do fogo — é presença de Cristo no fogo." Redirecione para as três armas de Ap 12:11 — que são instrumentos para quem <em>está</em> na tribulação, não para quem foi removido dela.</p>
+  </div>
+  <div class="bloco-guia">
+    <div class="bk">Encerramento Ideal da Aula</div>
+    <ul>
+      <li>Cada aluno identifica em silêncio uma acusação que carrega — e a entrega simbolicamente ao sangue do Cordeiro</li>
+      <li>Leitura pausada de Ap 12:11 em voz alta — devagar, com pausa após cada arma</li>
+      <li>Oração das três armas em primeira pessoa: sangue do Cordeiro, testemunho, lealdade acima da vida</li>
+      <li>Declaração de encerramento de Lopes: "Caminhamos para a consumação gloriosa de Cristo e de Sua noiva" — repetir em uníssono</li>
+      <li>Anuncie: próxima lição — Apocalipse 14: o Cordeiro no Monte Sião — a contracena gloriosa ao dragão e às bestas</li>
+    </ul>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P3</span></div>
+</div>
+
+<!-- PG P4 — RESPOSTAS SUGERIDAS + MATERIAIS COMPLEMENTARES -->
+<div class="lbl lbl-prof">Página P4 · Respostas Sugeridas &amp; Materiais Complementares</div>
+<div class="pag int-prof">
+  <div class="wm-prof">PROF</div>
+  <div class="ph-prof">
+    <span class="ph-prof-l">Lição 07 · Respostas &amp; Recursos</span>
+    <span class="ph-prof-r">Edição Docente</span>
+  </div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp">
+    <div class="bk">Gabarito Orientativo</div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 01</div>
+      <div class="resp-txt">A chave desta resposta é o deslocamento de perspectiva: a perseguição não é abandono de Deus — é evidência de que a Igreja importa ao dragão porque importa ao Cordeiro. Estimule respostas que percebam que "responder com testemunho" não é ingenuidade heroica — é a estratégia bíblica. A pergunta de Cristo a Saulo ("por que me persegues?") é o modelo: quem persegue a Igreja está, sem saber, atacando o Cordeiro. Isso muda a postura do perseguido: não é ele quem está em jogo; é Cristo que está sendo contestado.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 02</div>
+      <div class="resp-txt">O equilíbrio bíblico está em 1 Pedro 5:8 — "sede sóbrios e vigilantes." Sobriedade sem vigilância produz ingenuidade; vigilância sem sobriedade produz medo paralisante. Lopes aponta o equilíbrio: conhecer o inimigo (as oito características) para não ser surpreendido, sem perder a certeza de que ele é limitado e condenado. Estimule respostas que identifiquem em qual dos extremos a turma tende: ignorância do inimigo (mais comum em tradições liberais) ou superênfase no inimigo (mais comum em tradições pentecostais).</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 03</div>
+      <div class="resp-txt">Esta é a questão com maior potencial de debate e tensão. O critério bíblico para identificar a segunda besta é: uma religião ou filosofia que aponta a lealdade humana para um poder político ou cultural em vez de para Cristo. Historicamente: a Igreja imperial de Constantino (séc. IV), as Igrejas nacionais que legitimaram o nazismo (séc. XX), e qualquer Igreja que hoje usa o nome de Cristo para legitimar agenda política. No Brasil, o professor deve deixar a turma aplicar — não aplicar por ela. O sinal mais claro é a perda da independência profética: quando a Igreja não pode criticar o poder que apoia, tornou-se sua serva.</div>
+    </div>
+    <div class="resp-item">
+      <div class="resp-num">Questão 04</div>
+      <div class="resp-txt">A questão mais diretamente aplicada da lição. A "hibernação" do testemunho inclui: silêncio sobre a fé no ambiente de trabalho por medo de julgamento, ausência de postura pública sobre questões morais por busca de aprovação social, evitação de conversas sobre Cristo em relacionamentos próximos por medo da rejeição. Estimule respostas concretas — não genéricas. O objetivo é que cada aluno nomeie uma situação específica e formule uma resposta concreta a partir das três armas de Ap 12:11: o que o sangue do Cordeiro garante nessa situação? Qual seria o testemunho fiel?</div>
+    </div>
+  </div>
+  <div class="bloco-fio">
+    <div class="bloco-fio-icon">↻</div>
+    <div class="bloco-fio-txt"><strong>Como Usar o Gabarito</strong> — Em Q1, a virada de "perseguição como abandono" para "perseguição como contestação a Cristo" é o coração da lição — se a turma não chegou lá sozinha, articule-a com calma. Em Q3, nunca aplique por eles — dê o critério (perda de independência profética) e deixe a turma nomear. Em Q4, o silêncio de 30 segundos antes da partilha é pedagogicamente essencial — as respostas mais honestas precisam de espaço para emergir.</div>
+  </div>
+  <div class="bloco-aval">
+    <div class="bk">Seguimento Pós-Lição</div>
+    <ul>
+      <li>Envie Ap 12:11 no grupo da turma com a pergunta: "Qual das três armas você aplicou esta semana — e em qual situação?"</li>
+      <li>Proponha leitura devocional: Ap 12–13 (completo); 1 Pe 5:8-11 (sobriedade e vigilância); Dn 3:13-30 (resistência à besta — os três hebreus); Jo 15:18-21 (o mundo odeou Cristo antes de nos odiar)</li>
+      <li>Anote alunos que compartilharam experiências de perseguição ou acusação crônica — merecem acompanhamento pastoral além da EBD</li>
+      <li>Avalie se a turma chegou à afirmação: "O dragão ataca porque está derrotado" — indicador central de aprendizado desta lição</li>
+    </ul>
+  </div>
+  <div class="sep-prof"><span>✦</span></div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <div class="bloco-mat">
+    <div class="bk">Recursos Recomendados ao Professor</div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">Hernandes Dias Lopes — <em>Apocalipse: O Futuro Chegou</em>. Hagnos. Capítulos sobre Apocalipse 12 e 13. Fonte primária desta lição — especialmente as oito características do dragão, a advertência contra a superênfase demonológica, as duas bestas e a declaração final sobre a consumação gloriosa.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">William Hendriksen — <em>Mais que Vencedores</em>. Fiel. Análise da mulher como Israel/Igreja, do dragão como paródia satânica e das três armas de Ap 12:11. O capítulo sobre Ap 12 é especialmente denso na teologia do "pouco tempo" do dragão e na segurança pastoral da Igreja selada.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo livro">Livro</span>
+      <span class="mat-info">G. K. Beale — <em>The Book of Revelation</em> (NIGTC). Eerdmans. Análise técnica da trindade invertida (dragão / bestas como paródia da Trindade); o 666 como número do homem aquém da perfeição divina; o falso profeta como sistema religioso a serviço do poder político.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">BibleProject: série <em>Apocalipse</em> (YouTube, legendado em PT). Episódio sobre Ap 12–13 — visualização do dragão, das bestas e do conflito cósmico. Excelente para usar como aquecimento ou indicar à turma pós-aula para fixação visual dos conceitos.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo video">Vídeo</span>
+      <span class="mat-info">Pr. Hernandes Dias Lopes — <em>O Dragão e a Igreja</em> e <em>As Duas Bestas</em> (YouTube). Sermões com a mesma base exegética desta lição — ideais para recomendar aos alunos que querem aprofundar a interpretação historicista de Ap 12–13 e as três armas de Ap 12:11.</span>
+    </div>
+    <div class="mat-item">
+      <span class="mat-tipo site">Digital</span>
+      <span class="mat-info">opendoors.org.br — dados atualizados sobre perseguição religiosa global. Para contextualizar a realidade da "primeira besta" no mundo contemporâneo: governos que perseguem cristãos, exigem lealdade absoluta ou proíbem o testemunho público. Também: thegospelcoalition.org/pt — artigos sobre sofrimento, perseguição e testemunho fiel em contextos hostis.</span>
+    </div>
+  </div>
+  <div class="rod-prof"><span class="rt">Eschaton Vol. III · Edição do Professor</span><span class="rn">P4</span></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+function entrarLicao(){
+  const capa = document.getElementById('capaEntradaRevista');
+  if (capa) capa.classList.add('saindo');
+  setTimeout(() => document.body.classList.add('licao-iniciada'), 550);
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+/* ===== AUTENTICAÇÃO ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_l07_auth';
+
+function verificarSenha() {
+  const input = document.getElementById('senha-input');
+  const erro  = document.getElementById('senha-erro');
+  const val   = input.value.trim().toLowerCase();
+  if (val === SENHA_CORRETA) {
+    sessionStorage.setItem(CHAVE_SESSION, '1');
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+    input.classList.remove('erro');
+    erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro');
+    erro.classList.add('vis');
+    input.value = '';
+    setTimeout(() => input.classList.remove('erro'), 400);
+  }
+}
+(function(){
+  if (sessionStorage.getItem(CHAVE_SESSION) === '1') {
+    document.getElementById('tela-senha').style.display = 'none';
+    document.getElementById('conteudo-principal').style.display = 'block';
+  }
+})();
+
+/* ===== EDIÇÃO ===== */
+let edit = false;
+const TAGS = ['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit() {
+  edit = !edit;
+  document.querySelectorAll('.pag *').forEach(el => {
+    if (TAGS.includes(el.tagName) && !el.querySelector('div,p,h2,h3,ul,table'))
+      el.contentEditable = edit ? 'true' : 'false';
+  });
+  document.getElementById('etxt').textContent = edit ? 'Concluir' : 'Editar';
+}
+</script>
+</body>
+</html>
