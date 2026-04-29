@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eschaton Vol. III · Lição 10 — O Prelúdio da Sétima Trombeta</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #905020;
+  --grad1:      #181008;
+  --grad2:      #281808;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f8f0e0;
+  --creme:      #f0e4cc;
+  --cc:         #ddd0c0;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+  --ouro-brilho: drop-shadow(0 0 4px rgba(201,168,76,.45));
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #110a04; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL ──────────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #080602, #110a04);
+  border-bottom: 1px solid rgba(144,80,32,.5);
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 0.875rem);
+  color: var(--ouro); letter-spacing: 3px; margin-right: auto;
+}
+.marca span {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.55rem, 1.5vw, 0.68rem);
+  color: #666; letter-spacing: 1px; display: block; font-weight: 300;
+}
+.btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  border: none; cursor: pointer;
+  padding: 0.44rem 1rem; border-radius: 2px;
+  transition: all .2s; white-space: nowrap;
+}
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+
+/* ── ÁREA ────────────────────────────────────────────── */
+.area {
+  margin-top: 64px;
+  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag {
+  width: min(148mm, 100%);
+  min-height: 210mm;
+  background: var(--perg);
+  box-shadow: 0 6px 30px rgba(0,0,0,.6);
+  position: relative; overflow: hidden;
+  page-break-after: always; flex-shrink: 0;
+  margin: 0 auto;
+}
+.lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: #555; letter-spacing: 2px; text-transform: uppercase;
+  width: min(148mm, 100%);
+  align-self: center;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: -0.5rem;
+}
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa {
+  background: linear-gradient(160deg, var(--grad1), var(--grad2));
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 210mm; padding: 0;
+}
+.catm {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 22% 60%, rgba(144,80,32,.5) 0%, transparent 55%),
+    radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cgrd {
+  position: absolute; inset: 0; opacity: .025;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px
+  );
+}
+.cfx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg, #281808, var(--cor), var(--ouro));
+}
+.cnbg {
+  position: absolute; bottom: -20px; right: -10px;
+  font-family: 'Cinzel', serif; font-size: clamp(80pt, 22vw, 130pt);
+  font-weight: 900; color: rgba(255,255,255,.03); line-height: 1;
+  user-select: none;
+}
+.cimg {
+  position: absolute; top: 0; left: 0; right: 0; height: 58%;
+  background: linear-gradient(160deg, #0d0804, var(--cor) 50%, #ffc080);
+  opacity: .38;
+}
+.clh {
+  position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .75;
+}
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num { font-family: 'Cinzel', serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 4px; color: var(--ouro); text-transform: uppercase;
+  margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+}
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit {
+  font-family: 'Cinzel', serif; font-size: clamp(12pt, 3.5vw, 17pt);
+  font-weight: 700; color: #fff; line-height: 1.1;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; color: rgba(201,168,76,.6);
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.cver {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ouro-claro);
+  line-height: 1.6; border-left: 2px solid var(--ouro);
+  padding-left: 10px; opacity: .9;
+}
+
+/* ── INTERIOR ────────────────────────────────────────── */
+.int {
+  padding: clamp(8mm, 5vw, 14mm) clamp(6mm, 4vw, 12mm) 18mm clamp(8mm, 4vw, 14mm);
+  min-height: 210mm; position: relative; background: var(--perg);
+}
+.int::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent);
+}
+.int::after {
+  content: ''; position: absolute; top: 6px;
+  left: clamp(8mm, 4vw, 14mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px; background: rgba(144,80,32,.15);
+}
+.int-linhas {
+  position: absolute; inset: 0; top: 20mm; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 23px,
+    rgba(144,80,32,.045) 23px, rgba(144,80,32,.045) 24px
+  );
+  z-index: 0;
+}
+.wm {
+  position: absolute; bottom: 14mm; right: 10mm;
+  font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem);
+  font-weight: 900; color: rgba(0,0,0,.03); line-height: 1;
+  user-select: none; pointer-events: none;
+}
+
+/* ── CABEÇALHO DA PÁGINA ─────────────────────────────── */
+.ph {
+  margin-bottom: 14px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--cc);
+  display: flex; justify-content: space-between; align-items: baseline;
+  position: relative; z-index: 1;
+}
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem, 1.5vw, 0.7rem); color: #aaa; }
+
+/* ── TIPOGRAFIA ──────────────────────────────────────── */
+h2 {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(10pt, 3vw, 13pt); letter-spacing: 1px;
+  text-transform: uppercase; color: var(--cor);
+  border-bottom: 2px solid var(--cor);
+  padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px;
+  line-height: 1.2; position: relative; z-index: 1;
+}
+h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 400;
+  font-size: clamp(8pt, 2.5vw, 10pt); letter-spacing: 1.5px;
+  color: #503010; text-transform: uppercase;
+  margin-bottom: 6px; margin-top: 12px;
+  position: relative; z-index: 1;
+}
+p {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt);
+  line-height: 1.65; color: var(--ct);
+  text-align: justify; margin-bottom: 9px;
+  hyphens: auto; position: relative; z-index: 1;
+}
+.cap::first-letter {
+  font-family: 'Cinzel', serif; font-size: clamp(28pt, 8vw, 38pt);
+  font-weight: 900; float: left; margin-right: 5px;
+  color: var(--cor); line-height: .82; padding-top: 2px;
+}
+
+/* ── BLOCOS DE CONTEÚDO ──────────────────────────────── */
+.bver {
+  background: #fff; border: 1px solid rgba(144,80,32,.2);
+  border-left: 4px solid var(--cor);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bver-ref {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bver p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9.5pt, 2.5vw, 10.5pt); color: #281808;
+  line-height: 1.7; margin: 0;
+}
+.bver .ref-f {
+  font-size: clamp(8pt, 2vw, 9pt); font-style: normal;
+  color: var(--ouro); font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px; display: block; text-align: right; margin-top: 4px;
+}
+
+.bloco {
+  background: rgba(144,80,32,.05); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.bloco-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+.blteo {
+  background: rgba(201,168,76,.08); border-left: 3px solid var(--ouro);
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blteo-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #8a6a20; margin-bottom: 6px;
+}
+
+.blapl {
+  background: linear-gradient(135deg, rgba(144,80,32,.05), rgba(201,168,76,.07));
+  border: 1px solid rgba(144,80,32,.2); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.blapl-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+.mem {
+  background: var(--creme); border: 1px solid rgba(201,168,76,.3);
+  border-radius: 2px; padding: 10px 12px; margin: 10px 0;
+  text-align: center; position: relative; z-index: 1;
+}
+.mem-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--ouro); margin-bottom: 6px;
+}
+.mem p {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(9pt, 2.5vw, 10pt); color: #281808;
+  text-align: center; line-height: 1.6;
+}
+
+.obj {
+  background: var(--creme); border-radius: 2px;
+  padding: 10px 12px; margin: 10px 0;
+  position: relative; z-index: 1;
+}
+.obj .ot {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.obj ul { list-style: none; padding: 0; }
+.obj ul li {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); padding: 2px 0 2px 14px;
+  position: relative; line-height: 1.4;
+}
+.obj ul li::before {
+  content: '◆';
+  position: absolute; left: 0; color: var(--cor);
+  font-size: clamp(6pt, 1.5vw, 8pt); top: 4px;
+}
+
+/* ── TABELA ──────────────────────────────────────────── */
+.tabela-wrap { overflow-x: auto; margin: 10px 0; position: relative; z-index: 1; }
+.tabela { width: 100%; border-collapse: collapse; font-size: clamp(8pt, 2.2vw, 9pt); }
+.tabela th {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--cor); background: rgba(144,80,32,.07);
+  padding: 5px 7px; border-bottom: 2px solid var(--cor); text-align: left;
+}
+.tabela td {
+  font-family: 'EB Garamond', serif; font-size: clamp(8.5pt, 2.2vw, 9.5pt);
+  color: var(--ct); padding: 4px 7px;
+  border-bottom: 1px solid rgba(144,80,32,.1);
+  vertical-align: top; line-height: 1.4;
+}
+.tabela tr:last-child td { border-bottom: none; }
+.tabela td:first-child {
+  font-family: 'Oswald', sans-serif; font-weight: 600;
+  color: var(--cor); white-space: nowrap;
+}
+
+/* ── BLOCOS ESPECIAIS ────────────────────────────────── */
+.brefletir {
+  background: rgba(144,80,32,.06);
+  border: 1px solid rgba(144,80,32,.2);
+  border-top: 3px solid var(--cor);
+  border-radius: 0 0 2px 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.brefletir-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bconexao {
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.35);
+  border-left: 4px solid var(--ouro);
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bconexao-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #7a5c10; margin-bottom: 6px;
+}
+.bsabia {
+  background: rgba(144,80,32,.07);
+  border: 1px dashed rgba(144,80,32,.3);
+  border-radius: 2px;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bsabia-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bpense {
+  background: var(--creme);
+  border-left: 4px solid var(--cor);
+  border-radius: 0 2px 2px 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bpense-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+.bleve {
+  background: linear-gradient(135deg, rgba(144,80,32,.08), rgba(201,168,76,.1));
+  border: 1px solid rgba(144,80,32,.25);
+  border-bottom: 3px solid var(--ouro);
+  border-radius: 2px 2px 0 0;
+  padding: 10px 12px; margin: 12px 0;
+  position: relative; z-index: 1;
+}
+.bleve-t {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--cor); margin-bottom: 6px;
+}
+
+/* ── SEPARADOR ───────────────────────────────────────── */
+.sep {
+  display: flex; align-items: center; gap: 10px;
+  margin: 12px 0; opacity: .3; position: relative; z-index: 1;
+}
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: clamp(6pt, 1.5vw, 8pt); color: var(--ouro); }
+
+/* ── QUESTÕES ────────────────────────────────────────── */
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn {
+  font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem);
+  color: var(--cor); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px;
+}
+.qt {
+  font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt);
+  color: var(--ct); line-height: 1.45; margin-bottom: 5px;
+}
+.lr { border-bottom: 1px solid rgba(144,80,32,.2); height: 20px; margin-top: 3px; }
+
+/* ── LINHAS DE ANOTAÇÃO ──────────────────────────────── */
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(144,80,32,.2); height: 22px; }
+
+/* ── RODAPÉ ──────────────────────────────────────────── */
+.rod {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 6px clamp(6mm, 4vw, 12mm) 6mm clamp(8mm, 4vw, 14mm);
+  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+}
+.rod::before {
+  content: ''; position: absolute; top: 0;
+  left: clamp(6mm, 4vw, 12mm); right: clamp(6mm, 4vw, 12mm);
+  height: 1px;
+  background: linear-gradient(90deg, var(--cor), var(--ouro), transparent);
+  opacity: .3;
+}
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(6pt, 1.5vw, 7pt); color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(8pt, 2vw, 9pt); color: var(--ouro); }
+
+/* ── EDIÇÃO ──────────────────────────────────────────── */
+[contenteditable="true"] { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(144,80,32,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(144,80,32,.08); border-radius: 2px; }
+
+/* ── CAPA DE ENTRADA ─────────────────────────────────── */
+#capaEntradaRevista {
+  position: fixed; inset: 0; z-index: 10000;
+  background: linear-gradient(160deg, #0d0804 0%, #181008 40%, #281808 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; transition: opacity .6s ease;
+  padding: 2rem;
+}
+#capaEntradaRevista.saindo { opacity: 0; pointer-events: none; }
+body.licao-iniciada #capaEntradaRevista { display: none; }
+.cv-atm {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(144,80,32,.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 20%, rgba(201,168,76,.18) 0%, transparent 45%);
+}
+.cv-grd {
+  position: absolute; inset: 0; pointer-events: none; opacity: .02;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(201,168,76,.8) 0px, transparent 1px,
+    transparent 28px, rgba(201,168,76,.8) 29px);
+}
+.cv-fx {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px; pointer-events: none;
+  background: linear-gradient(180deg, #281808, var(--cor), var(--ouro));
+}
+.cv-corpo {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; max-width: 480px; gap: 1.2rem;
+}
+.cv-serie {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.55rem,1.5vw,.6875rem);
+  letter-spacing: 4px; color: var(--ouro);
+  text-transform: uppercase; opacity: .75;
+}
+.cv-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.6rem,2vw,.75rem);
+  color: rgba(201,168,76,.45); letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.cv-tema {
+  font-family: 'Cinzel', serif; font-weight: 700;
+  font-size: clamp(1.1rem,4vw,1.6rem);
+  color: #fff; line-height: 1.2;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.cv-tema-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.6rem,1.8vw,.75rem);
+  color: rgba(201,168,76,.6); letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.cv-divisor {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+  opacity: .5;
+}
+.cv-frase {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(.85rem,2.2vw,1rem);
+  color: var(--ouro-claro); line-height: 1.7; opacity: .9;
+  border-left: 2px solid rgba(201,168,76,.4);
+  padding-left: 1rem; text-align: left; max-width: 400px;
+}
+.cv-ref {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.55rem,1.5vw,.65rem);
+  color: rgba(201,168,76,.55); letter-spacing: 2px;
+  text-transform: uppercase; text-align: right;
+  width: 100%; max-width: 400px;
+}
+.cv-cta {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(.6rem,1.8vw,.75rem);
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #fff; background: var(--cor);
+  border: none; padding: .6rem 1.8rem; cursor: pointer;
+  border-radius: 2px; transition: all .2s;
+}
+.cv-cta:hover { background: var(--ouro); color: #111; }
+.cv-rodape {
+  position: absolute; bottom: 1.5rem; left: 0; right: 0;
+  text-align: center; pointer-events: none;
+}
+.cv-rodape-sub {
+  font-family: 'Oswald', sans-serif; font-weight: 300;
+  font-size: clamp(.5rem,1.3vw,.6rem);
+  color: rgba(255,255,255,.2); letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  body { background: none; }
+  #capaEntradaRevista, .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+}
+@media (max-width: 480px) {
+  .ctit { font-size: clamp(11pt, 4vw, 14pt); }
+  .cver { font-size: 9pt; }
+}
+</style>
+</head>
+<body>
+
+<div class="painel">
+  <div class="marca">ESCHATON VOL. III<span>Lição 10 · O Prelúdio da Sétima Trombeta</span></div>
+  <button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖶 Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<!-- CAPA DE ENTRADA -->
+<div aria-label="Abrir lição 10" id="capaEntradaRevista" onclick="entrarLicao()" role="button" tabindex="0">
+<div class="cv-atm"></div>
+<div class="cv-grd"></div>
+<div class="cv-fx"></div>
+<div class="cv-corpo">
+  <div class="cv-serie">Eschaton · O Futuro Chegou</div>
+  <div class="cv-num">Vol. III · Lição 10</div>
+  <div class="cv-tema">O Prelúdio da Sétima Trombeta</div>
+  <div class="cv-tema-sub">Apocalipse 10:1-11</div>
+  <div class="cv-divisor"></div>
+  <div class="cv-frase">"É impossível comer o livro e ficar calado. É impossível guardar essa boa nova apenas para nós."</div>
+  <div class="cv-ref">Hernandes Dias Lopes</div>
+  <button class="cv-cta" onclick="entrarLicao()">Abrir Lição</button>
+</div>
+<div class="cv-rodape">
+  <div class="cv-rodape-sub">Jovens Adultos · Lição 10</div>
+</div>
+</div>
+
+<div class="area">
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+<div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+<div class="cimg"></div><div class="clh"></div>
+<div class="cnbg">10</div>
+<div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+<div class="ccon">
+<div class="cser">Eschaton · O Futuro Chegou</div>
+<div class="cref">Apocalipse 10:1-11</div>
+<div class="ctit">O Prelúdio da Sétima Trombeta</div>
+<div class="cver">
+  "É impossível comer o livro e ficar calado. É impossível guardar essa boa nova apenas para nós. O anjo comissionou João a profetizar novamente. Sua obra ainda não tinha terminado."
+  <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Hernandes Dias Lopes</span>
+</div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 TEXTO BÍBLICO -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">2</div>
+<div class="ph"><span class="phl">Lição 10 · Vol. III</span><span class="pht">Ap 10:1-11</span></div>
+<h2>O Texto</h2>
+<div class="bver">
+<div class="bver-ref">Apocalipse 10:1-2</div>
+<p>"Vi ainda outro anjo forte descer do céu, envolto em nuvem, e o arco-íris estava sobre a sua cabeça; o seu rosto era como o sol, e os seus pés, como colunas de fogo. E tinha na mão um livrinho aberto. Pôs o pé direito sobre o mar e o esquerdo sobre a terra."</p>
+<span class="ref-f">Apocalipse 10:1-2</span>
+</div>
+<div class="bver">
+<div class="bver-ref">Apocalipse 10:9-10</div>
+<p>"Fui ao anjo, pedindo-lhe que me desse o livrinho. Ele me disse: Toma-o e come-o; ele te amarguará o estômago, mas em tua boca será doce como mel. Tomei o livrinho da mão do anjo e o comi; era doce como mel na minha boca, mas quando o comi, amargou-me o estômago."</p>
+<span class="ref-f">Apocalipse 10:9-10</span>
+</div>
+<div class="obj">
+<div class="ot">Objetivos desta lição</div>
+<ul>
+<li>Compreender o interlúdio de Apocalipse 10 entre a sexta e a sétima trombeta</li>
+<li>Conhecer os oito traços do anjo forte e seu significado teológico</li>
+<li>Entender a experiência de comer o livrinho — o que é doce e o que é amargo no evangelho</li>
+<li>Aplicar o chamado ao profetizar: a igreja que come a Palavra não pode ficar em silêncio</li>
+</ul>
+</div>
+<div class="brefletir">
+<div class="brefletir-t">✦ Para Você Refletir</div>
+<p>Você já experimentou o evangelho como algo ao mesmo tempo doce e amargo? Doce na salvação recebida, amargo ao ver a condição dos que o rejeitam. Como essa tensão molda sua motivação para falar de Cristo?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 O ANJO FORTE -->
+<div class="lbl">Página 3 · O Anjo Forte</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">3</div>
+<div class="ph"><span class="phl">Lição 10 · Vol. III</span><span class="pht">O Anjo Forte</span></div>
+<h2>A Descrição do Anjo Forte</h2>
+<p class="cap">Estamos entre a sexta e a sétima trombeta. Soaram seis — e aguardamos a última, a mais terrível. Hernandes Dias Lopes observa que, assim como entre o sexto e o sétimo selo houve uma mensagem de consolo para a Igreja, agora, entre a sexta e a sétima trombeta, há um interlúdio: a cena do anjo forte com o livrinho aberto. Uma mistura de doce e amargo.</p>
+
+<h3>Os Oito Traços do Anjo — Ap 10:1-5</h3>
+<div class="bloco">
+<div class="bloco-t">1 · Envolto em nuvem</div>
+<p>Nuvens identificam a presença de Deus — conduziram Israel no deserto, cobriram o Sinai, receberam Cristo na Ascensão. A nuvem aqui fala de santidade e juízo iminente (Sf 1:15).</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">2 · Arco-íris sobre a cabeça</div>
+<p>O arco-íris envolve o trono de Deus (Ap 4:3) — símbolo da aliança e da misericórdia. O trono de Deus é trono de misericórdia antes de ser trono de juízo. "Deus se lembra da sua misericórdia na sua ira."</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">3 · Rosto como o sol · 4 · Pés como colunas de fogo</div>
+<p>Estas são as mesmas descrições de Cristo glorificado em Apocalipse 1:16 e 1:15. Onde ele pisa, queima e purifica. Seu rosto — ninguém pode encarar.</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">5 · Um livrinho aberto na mão · 6 · Pé direito no mar, esquerdo na terra</div>
+<p>O livrinho está aberto — seu conteúdo é conhecido. A postura, com os pés sobre o mar e sobre a terra, é a de um conquistador universal reivindicando toda a criação. Somente a Cristo pertence essa herança (Sl 2:6-9).</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">7 · Voz como rugido de leão · 8 · Sete trovões respondem</div>
+<p>O rugido do leão é voz de juiz. O leão é rei dos animais — quando ele ruge, tudo se cala. Quando Cristo bradar, todos ouvirão. Os sete trovões são avisos da ira que se aproxima. João os ouve, mas não pode escrevê-los: há dimensões do juízo que Deus não revelou — e isso nos chama à humildade.</p>
+</div>
+
+<div class="bconexao">
+<div class="bconexao-t">✦ Conexão Bíblica</div>
+<p>Compare Apocalipse 10:1 com Apocalipse 1:13-16. As semelhanças entre o anjo forte e a descrição de Cristo glorificado são notáveis. Lopes alerta: no Apocalipse, anjos são sempre anjos — Cristo nunca é chamado de anjo. Mas esse anjo vem direto da presença de Cristo e reflete sua glória.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 A DECLARAÇÃO DO ANJO -->
+<div class="lbl">Página 4 · A Declaração do Anjo</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">4</div>
+<div class="ph"><span class="phl">Lição 10 · Vol. III</span><span class="pht">Não Haverá Mais Demora</span></div>
+<h2>A Declaração: Não Haverá Mais Demora</h2>
+<p>Com gesto solene — levantando a mão direita ao céu —, o anjo faz um juramento pelo Deus criador. A declaração é de alcance universal: "já não haverá mais demora" (v. 6). O fim do prazo chegou.</p>
+
+<div class="bloco">
+<div class="bloco-t">Por que Deus demorou?</div>
+<p>Hernandes Dias Lopes explica que Deus tem adiado o seu julgamento para que os pecadores perdidos tenham tempo de se arrependem (2 Pe 3:1-9). As seis primeiras trombetas são avisos — oportunidades. Mas agora o homem chegou a um ponto tal de endurecimento que não há mais possibilidade de arrependimento. A paciência de Deus tem limite.</p>
+</div>
+<div class="bloco">
+<div class="bloco-t">O Mistério de Deus Será Revelado — v. 7</div>
+<p>Quando a sétima trombeta tocar, o mistério de Deus será desvendado. Esse "mistério" tem a ver com o velho problema do mal no mundo: por que Deus parece demorar? Por que o mal prospera? A resposta é que Deus está permitindo o mal amadurecer até o mundo estar pronto para o juízo. No dia da sétima trombeta, esse silêncio terá resposta definitiva.</p>
+</div>
+
+<div class="blteo">
+<div class="blteo-t">A Advertência de Hernandes Dias Lopes</div>
+<p>"Não haverá mais prazo, mais tempo, mais demora para o arrependimento e a conversão. O juízo está chegando. No confronto de Deus com os seus inimigos, a vitória de Deus será esmagadora. A história avança para o inevitável triunfo de Deus, e ainda que pareça que o mal esteja florescendo, não é possível que no fim ele triunfe."</p>
+</div>
+
+<div class="bsabia">
+<div class="bsabia-t">✦ Sabia Que?</div>
+<p>A palavra grega usada em "não haverá mais demora" é <em>chronos</em> — tempo. O juramento do anjo não é apenas que o juízo será rápido, mas que o período de espera — as oportunidades de arrependimento — chegou ao fim. Nenhum cristão deve interpretar o silêncio de Deus como indiferença: é graça em forma de prazo.</p>
+</div>
+
+<div class="bpense">
+<div class="bpense-t">✦ Pense Nisso</div>
+<p>Os ímpios escarneceram da demora de Deus (2 Pe 3:4). Os santos martirizados clamavam: "Até quando, Senhor?" (Ap 6:10). A demora de Deus é sofrimento para os perseguidos e oportunidade para os perdidos. Como você sustenta a fé durante os períodos em que Deus parece silencioso?</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 COMER O LIVRINHO -->
+<div class="lbl">Página 5 · Comer o Livrinho</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">5</div>
+<div class="ph"><span class="phl">Lição 10 · Vol. III</span><span class="pht">Doce e Amargo</span></div>
+<h2>A Ordem: Come e Profetiza</h2>
+<p class="cap">João recebe uma ordem que já ecoou antes na história dos profetas: coma o livrinho. Jeremias comeu (Jr 15:16). Ezequiel comeu (Ez 2:9–3:4). Ambos pregaram depois. Comer não é ler — é assimilar, encarnar, fazer da Palavra parte da própria vida interior.</p>
+
+<h3>O Livrinho é Doce — e Amargo — Ap 10:9-10</h3>
+<p>Lopes descreve o contraste: o livrinho era doce como mel na boca, mas amargou o estômago. Por quê? <strong>Doce:</strong> não existe nada mais doce do que o evangelho de Cristo. A salvação, a graça, o perdão, a adoção — são puras doçuras. <strong>Amargo:</strong> logo que alguém se torna cristão, começam os problemas. Perseguição, sofrimento, a dor de ver outros rejeitarem o evangelho. O próprio Jesus chorou sobre Jerusalém. Jeremias chorava. Paulo igualmente. O evangelho é doce quando experimentado, amargo quando vemos as implicações para os que o rejeitam.</p>
+
+<div class="bloco">
+<div class="bloco-t">A Palavra como Alimento</div>
+<p>A Palavra de Deus é comparada a comida. Ela é pão (Mt 4:4), leite (1 Pe 2:2), carne (1 Co 3:1-2) e mel (Sl 119:103). "Ai do pregador e do professor que ensina a Palavra sem encarná-la em sua própria vida." Só quando nos apropriamos da Palavra é que podemos proclamar as promessas — e os juízos — de Deus com fervor genuíno.</p>
+</div>
+
+<h3>A Missão Continua — Ap 10:11</h3>
+<p>Após comer, João recebe a comissão renovada: "É necessário que profetizes de novo sobre muitos povos, nações, línguas e reis." O fim está próximo — mas antes, o evangelho precisa ser proclamado. A proximidade do juízo não é razão para calar: é razão para urgência.</p>
+
+<div class="bconexao">
+<div class="bconexao-t">✦ Conexão Bíblica</div>
+<p>Compare Apocalipse 10:11 com Mateus 24:14: "Este evangelho do reino será pregado em todo o mundo em testemunho a todas as nações; e então virá o fim." A missão da Igreja não é especular sobre os sete trovões — é pregar enquanto há tempo.</p>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 APLICAÇÃO -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">6</div>
+<div class="ph"><span class="phl">Lição 10 · Vol. III</span><span class="pht">Come e Profetiza</span></div>
+<h2>Aplicação Direta</h2>
+<p class="cap">O interlúdio de Apocalipse 10 não é uma pausa no drama — é uma palavra ao coração da Igreja. Entre um juízo e outro, Deus instrui seu servo: come a Palavra antes de pregá-la. A urgência do fim não anula a missão; ela a intensifica.</p>
+
+<div class="blapl">
+<div class="blapl-t">Para esta semana</div>
+<p><strong>Primeiro:</strong> Hernandes Dias Lopes afirma que "quem não come o livro não pode pregar o livro." Você tem comido a Palavra de Deus — assimilado, meditado, deixado que ela transforme sua vida interior — ou apenas a lido superficialmente? Que prática concreta de meditação bíblica você pode cultivar esta semana? <strong>Segundo:</strong> O evangelho é doce quando recebemos, amargo quando vemos os que o rejeitam. Você carrega essa amargura saudável — essa compaixão pelos perdidos que moveu Jesus ao choro — ou o conforto do evangelho anestesiou sua visão dos que ainda não o conhecem? <strong>Terceiro:</strong> João foi comissionado a profetizar de novo — sobre muitos povos, nações, línguas e reis. Qual pessoa específica ao seu redor precisa ouvir de você uma palavra do evangelho esta semana?</p>
+</div>
+
+<div class="mem">
+<div class="mem-t">◆ Versículo para Memorizar</div>
+<p>"E me disse: É necessário que profetizes de novo sobre muitos povos, nações, línguas e reis."</p>
+<p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 10:11</p>
+</div>
+
+<div class="bleve">
+<div class="bleve-t">✦ Leve para a Vida</div>
+<p>Esta semana, escolha um trecho bíblico curto — cinco versículos — e pratique "comer" a Palavra: leia devagar, ore sobre ela, escreva o que ela significa para sua vida e compartilhe com alguém o que descobriu. Comer vem antes de proclamar.</p>
+<div class="lr" style="margin-top:8px;"></div>
+<div class="lr"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 QUESTÕES -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+<div class="int-linhas"></div><div class="wm">7</div>
+<div class="ph"><span class="phl">Lição 10 · Vol. III</span><span class="pht">O Prelúdio da Sétima Trombeta</span></div>
+<h2>Questões para Reflexão</h2>
+<div class="q">
+<div class="qn">Questão 01</div>
+<div class="qt">Hernandes Dias Lopes diz que "a paciência de Deus tem limite" e que o soar das seis trombetas representa as oportunidades de arrependimento que Deus concedeu. Como você concilia a paciência de Deus (2 Pe 3:9) com a certeza do juízo final? De que forma essa tensão deve moldar a evangelização da Igreja?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 02</div>
+<div class="qt">João é proibido de escrever o conteúdo dos sete trovões. Lopes observa que "não devemos especular o que Deus não nos revelou." Como a tendência de especular sobre aspectos não revelados do futuro pode desviar a Igreja de sua missão principal? Que critério usar para distinguir estudo sério de profecia e especulação irresponsável?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 03</div>
+<div class="qt">O livrinho é doce na boca e amargo no estômago. Lopes identifica essa amargura como a dor de ver as implicações do evangelho sobre os que o rejeitam. Você sente essa amargura saudável? Como a perda dessa dor — o endurecimento diante da condição dos perdidos — pode embotar a proclamação cristã?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<div class="q">
+<div class="qn">Questão 04</div>
+<div class="qt">"É impossível comer o livro e ficar calado" (Lopes). Por que a assimilação genuína da Palavra necessariamente leva à proclamação? Que conexão existe entre a qualidade da vida devocional pessoal e a eficácia do testemunho cristão diante dos outros?</div>
+<div class="lr"></div><div class="lr"></div>
+</div>
+<h3 style="margin-top:12px;">Anotações</h3>
+<div class="lins">
+<div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+</div>
+<div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+</div>
+<script>
+function entrarLicao(){
+  const capa = document.getElementById('capaEntradaRevista');
+  if (capa) capa.classList.add('saindo');
+  setTimeout(() => document.body.classList.add('licao-iniciada'), 550);
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit(){
+    edit=!edit;
+    document.querySelectorAll('.pag *').forEach(el=>{
+        if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul,table'))
+            el.contentEditable=edit?'true':'false';
+    });
+    document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+</script>
+</body>
+</html>
