@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Eschaton Vol. III · Apresentação — O Livro Aberto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
@@ -85,6 +85,38 @@ p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--
 [contenteditable="true"]{outline:none;cursor:text;}
 [contenteditable="true"]:hover{background:rgba(192,52,26,0.05);border-radius:2px;}
 [contenteditable="true"]:focus{background:rgba(192,52,26,0.08);border-radius:2px;}
+
+
+/* === AJUSTES MOBILE ===
+   Mantém o formato A5 para impressão e adapta a leitura na tela do celular. */
+@media screen and (max-width: 768px){
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{background:#120806;overflow-x:hidden;}
+    .painel{position:sticky;top:0;padding:calc(8px + env(safe-area-inset-top)) 10px 8px;gap:8px;justify-content:center;}
+    .marca{flex:0 0 100%;margin-right:0;text-align:center;font-size:10pt;letter-spacing:2px;line-height:1.15;}
+    .marca span{font-size:7pt;margin-top:2px;}
+    .btn{flex:1 1 0;min-width:88px;padding:8px 8px;font-size:8pt;letter-spacing:1px;}
+    .painel a{flex:1 1 0;text-decoration:none;}.painel a .btn{width:100%;}
+    .area{margin-top:0;padding:14px 10px 34px;gap:14px;align-items:stretch;}
+    .lbl{margin:6px 0 -6px;align-self:center;font-size:7pt;letter-spacing:1.5px;color:rgba(255,255,255,0.45);}
+    .pag{width:100%;max-width:148mm;min-height:auto;margin:0 auto;border-radius:8px;overflow:hidden;box-shadow:0 5px 22px rgba(0,0,0,0.45);page-break-after:auto;}
+    .capa{min-height:calc(100svh - 132px);padding:0;}.cvol{top:18px;right:18px;}.cvol-num{font-size:7.5pt;letter-spacing:2px;}
+    .ccon{padding:0 22px 28px 28px;}.cser{font-size:7pt;letter-spacing:2.4px;margin-bottom:12px;gap:8px;}.cser::before{width:16px;}
+    .ctit{font-size:clamp(18pt,7vw,25pt);line-height:1.08;}.cautor{font-size:7.5pt;letter-spacing:1.5px;}.cver{font-size:10.5pt;line-height:1.55;padding-left:9px;}
+    .cnbg{font-size:82pt;right:-8px;bottom:-8px;}.clh{left:24px;right:24px;}
+    .int{min-height:auto;padding:24px 18px 20px;}.int::after{left:18px;right:18px;}.int-linhas{display:none;}.wm{display:none;}
+    .ph{align-items:flex-start;gap:3px;flex-direction:column;margin-bottom:12px;padding-bottom:8px;}.phl{font-size:7pt;letter-spacing:1.6px;}.pht{font-size:8.5pt;}
+    h2{font-size:clamp(15pt,5.4vw,20pt);letter-spacing:.5px;line-height:1.15;margin-bottom:12px;}h3{font-size:10pt;letter-spacing:1px;margin-top:14px;}
+    p{font-size:clamp(12pt,4.2vw,14pt);line-height:1.62;text-align:left;hyphens:none;margin-bottom:10px;}.cap::first-letter{font-size:34pt;margin-right:6px;}
+    .bver,.bloco,.blteo,.blapl,.mem,.obj{padding:12px 13px;margin:12px 0;border-radius:4px;}.bver p,.mem p,.qt,.obj ul li{font-size:clamp(11.5pt,4vw,13pt);line-height:1.55;}
+    .bloco-t,.blteo-t,.blapl-t,.mem-t,.obj .ot,.qn{font-size:7.5pt;letter-spacing:1.6px;}.sep{margin:14px 0;}.lr{height:24px;}
+    .rod{position:relative;bottom:auto;left:auto;right:auto;margin-top:18px;padding:10px 0 0;}.rod::before{left:0;right:0;}.rt{font-size:6.8pt;letter-spacing:.8px;}.rn{font-size:9pt;}
+}
+@media screen and (max-width: 420px){
+    .area{padding-left:8px;padding-right:8px;}.painel{padding-left:8px;padding-right:8px;}.btn{min-width:76px;font-size:7.4pt;padding:8px 6px;}.marca{font-size:9.2pt;}
+    .pag{border-radius:6px;}.int{padding:22px 15px 18px;}.ccon{padding:0 18px 24px 22px;}.cver{font-size:10pt;}.phl{letter-spacing:1.2px;}h2{font-size:16pt;}p{font-size:12.5pt;}.rt{max-width:78%;}
+}
+
 @media print{
     body{background:none;}
     .painel,.lbl{display:none!important;}
