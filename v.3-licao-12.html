@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eschaton Vol. III · Lição 12 — O Céu Novo, a Terra Nova e a Nova Jerusalém · Professor</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --cor:        #304878;
+  --grad1:      #080c18;
+  --grad2:      #0e1428;
+  --ouro:       #c9a84c;
+  --ouro-claro: #e8d5a0;
+  --vermelho:   #8b1a1a;
+  --ct:         #2a2a2a;
+  --branco:     #fdfbf7;
+  --perg:       #f0f2fa;
+  --creme:      #dce2f5;
+  --cc:         #b8c4e0;
+  --prof-verde: #1D9E75;
+  --prof-azul:  #378ADD;
+  --prof-coral: #D85A30;
+  --prof-amber: #BA7517;
+  --fonte-base: clamp(0.95rem, 2.2vw, 1.05rem);
+  --ouro-brilho: drop-shadow(0 0 4px rgba(201,168,76,.45));
+}
+
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #04060e; font-family: 'EB Garamond', Georgia, serif; }
+img  { max-width: 100%; height: auto; display: block; }
+
+/* ── PAINEL ──────────────────────────────────────────── */
+.painel {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #040610, #080c18);
+  border-bottom: 1px solid rgba(48,72,120,.5);
+  padding: 0.625rem 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.marca { font-family: 'Cinzel', serif; font-size: clamp(0.7rem, 2vw, 0.875rem); color: var(--ouro); letter-spacing: 3px; margin-right: auto; }
+.marca span { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem, 1.5vw, 0.68rem); color: #666; letter-spacing: 1px; display: block; font-weight: 300; }
+.marca em { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.3vw,0.6rem); color: var(--prof-verde); letter-spacing: 2px; display: block; font-weight: 400; font-style: normal; text-transform: uppercase; }
+.btn { font-family: 'Oswald', sans-serif; font-size: clamp(0.6rem, 1.8vw, 0.75rem); letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer; padding: 0.44rem 1rem; border-radius: 2px; transition: all .2s; white-space: nowrap; }
+.be { background: transparent; color: var(--ouro); border: 1px solid rgba(201,168,76,.4); }
+.be:hover { background: var(--ouro); color: #111; }
+.bi { background: var(--vermelho); color: #fff; }
+.bi:hover { filter: brightness(1.2); }
+.bv { background: transparent; color: #666; border: 1px solid #333; font-size: clamp(0.55rem,1.5vw,0.7rem); }
+.bv:hover { color: #fff; border-color: #555; }
+.badge-prof { font-family: 'Oswald', sans-serif; font-size: clamp(0.55rem,1.5vw,0.6rem); letter-spacing: 2px; text-transform: uppercase; background: var(--prof-verde); color: #fff; padding: 0.25rem 0.625rem; border-radius: 2px; }
+
+/* ── ÁREA ────────────────────────────────────────────── */
+.area { margin-top: 64px; padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem) 3.75rem; display: flex; flex-direction: column; align-items: center; gap: clamp(0.75rem, 2vw, 1rem); }
+
+/* ── PÁGINAS ─────────────────────────────────────────── */
+@page { size: A5 portrait; margin: 0; }
+.pag { width: min(148mm, 100%); min-height: 210mm; background: var(--perg); box-shadow: 0 6px 30px rgba(0,0,0,.6); position: relative; overflow: hidden; page-break-after: always; flex-shrink: 0; margin: 0 auto; }
+.lbl { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: #555; letter-spacing: 2px; text-transform: uppercase; width: min(148mm, 100%); align-self: center; margin-left: 0; margin-right: 0; margin-bottom: -0.5rem; }
+.lbl-prof { color: var(--prof-verde); }
+
+/* ── CAPA ────────────────────────────────────────────── */
+.capa { background: linear-gradient(160deg, var(--grad1), var(--grad2)); display: flex; flex-direction: column; justify-content: flex-end; min-height: 210mm; padding: 0; }
+.catm { position: absolute; inset: 0; background: radial-gradient(ellipse at 22% 60%, rgba(48,72,120,.55) 0%, transparent 55%), radial-gradient(ellipse at 78% 20%, rgba(201,168,76,.18) 0%, transparent 45%); }
+.cgrd { position: absolute; inset: 0; opacity: .025; background-image: repeating-linear-gradient(45deg, rgba(201,168,76,.8) 0px, transparent 1px, transparent 28px, rgba(201,168,76,.8) 29px); }
+.cfx { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: linear-gradient(180deg, #0e1428, var(--cor), var(--ouro)); }
+.cnbg { position: absolute; bottom: -20px; right: -10px; font-family: 'Cinzel', serif; font-size: clamp(80pt, 22vw, 130pt); font-weight: 900; color: rgba(255,255,255,.03); line-height: 1; user-select: none; }
+.cimg { position: absolute; top: 0; left: 0; right: 0; height: 58%; background: linear-gradient(160deg, #050810, var(--cor) 50%, #80a0ff); opacity: .38; }
+.clh { position: absolute; top: 55%; left: 12mm; right: 12mm; height: 1px; background: linear-gradient(90deg, var(--cor), var(--ouro), transparent); opacity: .75; }
+.cvol { position: absolute; top: 14mm; right: 12mm; z-index: 4; text-align: right; }
+.cvol-num { font-family: 'Cinzel', serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--ouro); letter-spacing: 3px; opacity: .7; }
+.cvol-linha { width: 40px; height: 1px; background: rgba(201,168,76,.4); margin: 4px 0 0 auto; }
+.ccon { position: relative; z-index: 3; padding: 0 12mm 14mm 18mm; }
+.cser { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 4px; color: var(--ouro); text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.cser::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.ctit { font-family: 'Cinzel', serif; font-size: clamp(12pt, 3.5vw, 17pt); font-weight: 700; color: #fff; line-height: 1.1; text-transform: uppercase; margin-bottom: 10px; }
+.cref { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; color: rgba(201,168,76,.6); text-transform: uppercase; margin-bottom: 10px; }
+.cver { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ouro-claro); line-height: 1.6; border-left: 2px solid var(--ouro); padding-left: 10px; opacity: .9; }
+
+/* ── INTERIOR ALUNO ──────────────────────────────────── */
+.int { padding: clamp(8mm, 5vw, 14mm) clamp(6mm, 4vw, 12mm) 18mm clamp(8mm, 4vw, 14mm); min-height: 210mm; position: relative; background: var(--perg); }
+.int::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--cor), var(--ouro) 60%, transparent); }
+.int::after { content: ''; position: absolute; top: 6px; left: clamp(8mm, 4vw, 14mm); right: clamp(6mm, 4vw, 12mm); height: 1px; background: rgba(48,72,120,.15); }
+.int-linhas { position: absolute; inset: 0; top: 20mm; pointer-events: none; background-image: repeating-linear-gradient(transparent, transparent 23px, rgba(48,72,120,.045) 23px, rgba(48,72,120,.045) 24px); z-index: 0; }
+.wm { position: absolute; bottom: 14mm; right: 10mm; font-family: 'Cinzel', serif; font-size: clamp(2rem,8vw,3.25rem); font-weight: 900; color: rgba(0,0,0,.03); line-height: 1; user-select: none; pointer-events: none; }
+
+/* ── INTERIOR PROFESSOR ──────────────────────────────── */
+.int-prof { padding: clamp(8mm,5vw,14mm) clamp(6mm,4vw,12mm) 18mm clamp(8mm,4vw,14mm); min-height: 210mm; position: relative; background: #f4f8f5; }
+.int-prof::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--prof-verde), #a8e0cc 60%, transparent); }
+.int-prof::after { content: ''; position: absolute; top: 6px; left: clamp(8mm,4vw,14mm); right: clamp(6mm,4vw,12mm); height: 1px; background: rgba(29,158,117,.2); }
+.wm-prof { position: absolute; bottom: 14mm; right: 10mm; font-family: 'Cinzel', serif; font-size: clamp(28pt,8vw,42pt); font-weight: 900; color: rgba(29,158,117,.07); line-height: 1; user-select: none; pointer-events: none; letter-spacing: 4px; }
+
+/* ── CABEÇALHOS ──────────────────────────────────────── */
+.ph { margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--cc); display: flex; justify-content: space-between; align-items: baseline; position: relative; z-index: 1; }
+.phl { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; }
+.pht { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem, 1.5vw, 0.7rem); color: #aaa; }
+.ph-prof { margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid rgba(29,158,117,.3); display: flex; justify-content: space-between; align-items: baseline; position: relative; z-index: 1; }
+.ph-prof-l { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem,1.5vw,0.625rem); color: var(--prof-verde); letter-spacing: 2px; text-transform: uppercase; }
+.ph-prof-r { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(0.55rem,1.5vw,0.7rem); color: #7aaa95; }
+
+/* ── TIPOGRAFIA ──────────────────────────────────────── */
+h2 { font-family: 'Cinzel', serif; font-weight: 700; font-size: clamp(10pt, 3vw, 13pt); letter-spacing: 1px; text-transform: uppercase; color: var(--cor); border-bottom: 2px solid var(--cor); padding-bottom: 6px; margin-bottom: 12px; margin-top: 4px; line-height: 1.2; position: relative; z-index: 1; }
+h2.prof { font-family: 'Cinzel', serif; font-size: clamp(10pt,3vw,12pt); color: var(--prof-verde); border-bottom: 2px solid var(--prof-verde); letter-spacing: 1px; text-transform: uppercase; padding-bottom: 6px; margin-bottom: 12px; margin-top: 16px; line-height: 1.2; }
+h2.prof:first-of-type { margin-top: 4px; }
+h3 { font-family: 'Oswald', sans-serif; font-weight: 400; font-size: clamp(8pt, 2.5vw, 10pt); letter-spacing: 1.5px; color: #1a2c4a; text-transform: uppercase; margin-bottom: 6px; margin-top: 12px; position: relative; z-index: 1; }
+p { font-family: 'EB Garamond', serif; font-size: clamp(9.5pt, 2.5vw, 10.5pt); line-height: 1.65; color: var(--ct); text-align: justify; margin-bottom: 9px; hyphens: auto; position: relative; z-index: 1; }
+.cap::first-letter { font-family: 'Cinzel', serif; font-size: clamp(28pt, 8vw, 38pt); font-weight: 900; float: left; margin-right: 5px; color: var(--cor); line-height: .82; padding-top: 2px; }
+
+/* ── BLOCOS ALUNO ────────────────────────────────────── */
+.bver { background: #fff; border: 1px solid rgba(48,72,120,.2); border-left: 4px solid var(--cor); padding: 10px 12px; margin: 12px 0; position: relative; z-index: 1; }
+.bver-ref { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.bver p { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(9.5pt, 2.5vw, 10.5pt); color: #0e1428; line-height: 1.7; margin: 0; }
+.bver .ref-f { font-size: clamp(8pt, 2vw, 9pt); font-style: normal; color: var(--ouro); font-family: 'Oswald', sans-serif; letter-spacing: 1px; display: block; text-align: right; margin-top: 4px; }
+.bloco { background: rgba(48,72,120,.05); border-radius: 2px; padding: 10px 12px; margin: 10px 0; position: relative; z-index: 1; }
+.bloco-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.blteo { background: rgba(201,168,76,.08); border-left: 3px solid var(--ouro); padding: 10px 12px; margin: 10px 0; position: relative; z-index: 1; }
+.blteo-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: #8a6a20; margin-bottom: 6px; }
+.blapl { background: linear-gradient(135deg, rgba(48,72,120,.05), rgba(201,168,76,.07)); border: 1px solid rgba(48,72,120,.2); border-radius: 2px; padding: 10px 12px; margin: 10px 0; position: relative; z-index: 1; }
+.blapl-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.mem { background: var(--creme); border: 1px solid rgba(201,168,76,.3); border-radius: 2px; padding: 10px 12px; margin: 10px 0; text-align: center; position: relative; z-index: 1; }
+.mem-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--ouro); margin-bottom: 6px; }
+.mem p { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(9pt, 2.5vw, 10pt); color: #0e1428; text-align: center; line-height: 1.6; }
+.obj { background: var(--creme); border-radius: 2px; padding: 10px 12px; margin: 10px 0; position: relative; z-index: 1; }
+.obj .ot { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.obj ul { list-style: none; padding: 0; }
+.obj ul li { font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ct); padding: 2px 0 2px 14px; position: relative; line-height: 1.4; }
+.obj ul li::before { content: '◆'; position: absolute; left: 0; color: var(--cor); font-size: clamp(6pt, 1.5vw, 8pt); top: 4px; }
+.brefletir { background: rgba(48,72,120,.06); border: 1px solid rgba(48,72,120,.2); border-top: 3px solid var(--cor); border-radius: 0 0 2px 2px; padding: 10px 12px; margin: 12px 0; position: relative; z-index: 1; }
+.brefletir-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.bconexao { background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.35); border-left: 4px solid var(--ouro); padding: 10px 12px; margin: 12px 0; position: relative; z-index: 1; }
+.bconexao-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: #7a5c10; margin-bottom: 6px; }
+.bsabia { background: rgba(48,72,120,.07); border: 1px dashed rgba(48,72,120,.3); border-radius: 2px; padding: 10px 12px; margin: 12px 0; position: relative; z-index: 1; }
+.bsabia-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.bpense { background: var(--creme); border-left: 4px solid var(--cor); border-radius: 0 2px 2px 0; padding: 10px 12px; margin: 12px 0; position: relative; z-index: 1; }
+.bpense-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.bleve { background: linear-gradient(135deg, rgba(48,72,120,.08), rgba(201,168,76,.1)); border: 1px solid rgba(48,72,120,.25); border-bottom: 3px solid var(--ouro); border-radius: 2px 2px 0 0; padding: 10px 12px; margin: 12px 0; position: relative; z-index: 1; }
+.bleve-t { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); letter-spacing: 2px; text-transform: uppercase; color: var(--cor); margin-bottom: 6px; }
+.sep { display: flex; align-items: center; gap: 10px; margin: 12px 0; opacity: .3; position: relative; z-index: 1; }
+.sep::before, .sep::after { content: ''; flex: 1; height: 1px; background: var(--cor); }
+.sep span { font-size: clamp(6pt, 1.5vw, 8pt); color: var(--ouro); }
+.q { margin-bottom: 14px; position: relative; z-index: 1; }
+.qn { font-family: 'Oswald', sans-serif; font-size: clamp(0.5rem, 1.5vw, 0.625rem); color: var(--cor); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+.qt { font-family: 'EB Garamond', serif; font-size: clamp(9pt, 2.5vw, 10pt); color: var(--ct); line-height: 1.45; margin-bottom: 5px; }
+.lr { border-bottom: 1px solid rgba(48,72,120,.2); height: 20px; margin-top: 3px; }
+.lins { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; position: relative; z-index: 1; }
+.lin  { border-bottom: 1px solid rgba(48,72,120,.2); height: 22px; }
+
+/* ── BLOCOS PROFESSOR ────────────────────────────────── */
+[class^="prof-"] { border-radius: 0 0.375rem 0.375rem 0; padding: 0.875rem 1rem; margin: 1rem 0 1.5rem; page-break-inside: avoid; position: relative; z-index: 1; }
+[class^="prof-"] .prof-label { font-size: clamp(0.55rem,1.5vw,0.7rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.4rem; }
+[class^="prof-"] p { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin: 0; }
+[class^="prof-"] ul { padding-left: 1rem; margin-top: .4rem; }
+[class^="prof-"] ul li { font-size: clamp(0.82rem,2.2vw,0.9rem); line-height: 1.7; margin-bottom: .3rem; }
+.prof-nota-teologica  { border-left: 4px solid #1D9E75; background: #f0faf6; }
+.prof-dica-aula       { border-left: 4px solid #378ADD; background: #f0f6fd; }
+.prof-recurso-visual  { border-left: 4px solid #BA7517; background: #fdf7ed; }
+.prof-orientaçao-past { border-left: 4px solid #D85A30; background: #fdf3ee; }
+.prof-nota-teologica  .prof-label { color: #1D9E75; }
+.prof-dica-aula       .prof-label { color: #378ADD; }
+.prof-recurso-visual  .prof-label { color: #BA7517; }
+.prof-orientaçao-past .prof-label { color: #D85A30; }
+.prof-reflexao { border: 1px solid rgba(48,72,120,.2); border-left: 4px solid var(--cor); background: rgba(48,72,120,.04); border-radius: 0 .375rem .375rem 0; padding: .875rem 1rem; margin: .75rem 0 1.25rem; page-break-inside: avoid; position: relative; z-index: 1; }
+.prof-reflexao .prof-label { font-size: clamp(.55rem,1.5vw,.7rem); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; color: var(--cor); }
+.prof-reflexao p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; }
+
+/* ── COMPONENTES PROFESSOR ───────────────────────────── */
+.bk { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.7rem); letter-spacing: 2px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .5rem; font-weight: 600; }
+.bloco-mapa, .bloco-dica, .bloco-perf { background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.mapa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .625rem; margin-top: .5rem; }
+.mapa-cel { background: rgba(255,255,255,.7); border-radius: 3px; padding: .5rem .75rem; }
+.mapa-cel-tit { font-family: 'Oswald', sans-serif; font-size: clamp(.5rem,1.5vw,.625rem); letter-spacing: 1px; text-transform: uppercase; color: var(--prof-verde); margin-bottom: .25rem; }
+.mapa-cel p, .bloco-fio-txt, .tempo-desc { font-size: clamp(.78rem,2vw,.9rem); line-height: 1.55; margin: 0; text-align: left; }
+.bloco-tempo { background: rgba(55,138,221,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.tempo-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .375rem; }
+.tempo-min { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.75rem); color: var(--prof-azul); font-weight: 600; min-width: 3rem; flex-shrink: 0; }
+.bloco-guia, .bloco-teo { background: rgba(201,168,76,.07); border-left: 3px solid var(--ouro); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-guia ul, .bloco-dica ul { padding-left: 1rem; }
+.bloco-guia ul li, .bloco-dica ul li { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; margin-bottom: .25rem; color: var(--ct); }
+.alerta { background: #fdf3ee; border-left: 4px solid var(--prof-coral); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.alerta .bk { color: var(--prof-coral); }
+.alerta p, .bloco-teo p, .bloco-debate p, .bloco-cult p, .bloco-soc p { font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.7; margin: 0; color: var(--ct); }
+.bloco-fio { display: flex; gap: .75rem; align-items: flex-start; background: rgba(29,158,117,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-fio-icon { font-size: 1.2rem; color: var(--prof-verde); flex-shrink: 0; line-height: 1.3; }
+.bloco-debate { background: rgba(55,138,221,.07); border-left: 3px solid var(--prof-azul); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: 1rem 0; }
+.bloco-soc { background: rgba(201,168,76,.06); border-radius: 4px; padding: .75rem 1rem; margin: 1rem 0; }
+.soc-item { border-bottom: 1px solid rgba(201,168,76,.2); padding-bottom: .625rem; margin-bottom: .625rem; }
+.soc-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.soc-espera { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.78rem,2vw,.85rem); color: #555; line-height: 1.55; padding-left: .75rem; border-left: 2px solid rgba(201,168,76,.4); }
+.bloco-cult { background: rgba(186,117,23,.07); border-left: 3px solid var(--prof-amber); border-radius: 0 4px 4px 0; padding: .75rem 1rem; margin: .75rem 0; }
+.perf-linha { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .625rem; padding-bottom: .625rem; border-bottom: 1px solid rgba(48,96,32,.12); }
+.perf-linha:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.perf-tipo { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); letter-spacing: 1px; text-transform: uppercase; color: var(--cor); font-weight: 600; min-width: 6rem; flex-shrink: 0; padding-top: .15rem; }
+.perf-txt { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.6; color: var(--ct); }
+.bloco-resp { background: rgba(255,255,255,.6); border: 1px solid rgba(29,158,117,.2); border-radius: 4px; padding: .75rem 1rem; margin: .75rem 0; }
+.resp-q { margin-bottom: .75rem; padding-bottom: .75rem; border-bottom: 1px solid rgba(29,158,117,.15); }
+.resp-q:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.resp-num { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.68rem); color: var(--prof-verde); letter-spacing: 1px; text-transform: uppercase; margin-bottom: .25rem; }
+.resp-txt { font-family: 'EB Garamond', serif; font-size: clamp(.82rem,2.2vw,.9rem); line-height: 1.65; color: var(--ct); }
+
+/* ── RODAPÉS ─────────────────────────────────────────── */
+.rod { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px clamp(6mm, 4vw, 12mm) 6mm clamp(8mm, 4vw, 14mm); display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+.rod::before { content: ''; position: absolute; top: 0; left: clamp(6mm, 4vw, 12mm); right: clamp(6mm, 4vw, 12mm); height: 1px; background: linear-gradient(90deg, var(--cor), var(--ouro), transparent); opacity: .3; }
+.rod-prof { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px clamp(6mm,4vw,12mm) 6mm clamp(8mm,4vw,14mm); display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+.rod-prof::before { content: ''; position: absolute; top: 0; left: clamp(6mm,4vw,12mm); right: clamp(6mm,4vw,12mm); height: 1px; background: linear-gradient(90deg, var(--prof-verde), #a8e0cc, transparent); opacity: .4; }
+.rt { font-family: 'Oswald', sans-serif; font-size: clamp(6pt, 1.5vw, 7pt); color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+.rn { font-family: 'Cinzel', serif; font-size: clamp(8pt, 2vw, 9pt); color: var(--ouro); }
+
+/* ── EDIÇÃO ──────────────────────────────────────────── */
+[contenteditable="true"] { outline: none; cursor: text; }
+[contenteditable="true"]:hover { background: rgba(48,72,120,.05); border-radius: 2px; }
+[contenteditable="true"]:focus { background: rgba(48,72,120,.08); border-radius: 2px; }
+
+/* ── TELA DE SENHA ───────────────────────────────────── */
+#tela-senha { position: fixed; inset: 0; z-index: 99999; background: linear-gradient(160deg, #05070f, #080c18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; padding: 1.5rem; }
+.senha-box { background: rgba(255,255,255,.04); border: 1px solid rgba(201,168,76,.25); border-radius: 4px; padding: clamp(1.5rem,5vw,2.5rem); width: min(380px, 100%); text-align: center; }
+.senha-logo { font-family: 'Cinzel', serif; font-size: clamp(1rem, 3vw, 1.3rem); color: var(--ouro); letter-spacing: 4px; margin-bottom: .25rem; }
+.senha-sub { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem, 1.5vw, .7rem); color: var(--prof-verde); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.senha-label { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem, 1.8vw, .75rem); color: #888; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: .5rem; }
+#senha-input { width: 100%; background: rgba(255,255,255,.06); border: 1px solid rgba(201,168,76,.3); border-radius: 2px; padding: .625rem .875rem; font-family: 'Oswald', sans-serif; font-size: clamp(.8rem,2vw,.9rem); color: #fff; letter-spacing: 3px; text-align: center; outline: none; transition: border-color .2s, background .2s; }
+#senha-input:focus { border-color: var(--ouro); background: rgba(201,168,76,.07); }
+#senha-input.erro { border-color: var(--prof-coral); animation: shake .35s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+#senha-erro { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.7rem); color: var(--prof-coral); letter-spacing: 1px; margin-top: .5rem; display: none; }
+#senha-erro.vis { display: block; }
+.senha-btn { margin-top: 1rem; width: 100%; background: var(--prof-verde); color: #fff; border: none; border-radius: 2px; cursor: pointer; font-family: 'Oswald', sans-serif; font-size: clamp(.65rem,2vw,.8rem); letter-spacing: 2px; text-transform: uppercase; padding: .6rem 1.25rem; transition: filter .2s; }
+.senha-btn:hover { filter: brightness(1.15); }
+#conteudo-principal { display: none; }
+
+/* ── CAPA DE ENTRADA ─────────────────────────────────── */
+#capaEntradaRevista { position: fixed; inset: 0; z-index: 10000; background: linear-gradient(160deg, #05070f 0%, #080c18 40%, #0e1428 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: opacity .6s ease; padding: 2rem; }
+#capaEntradaRevista.saindo { opacity: 0; pointer-events: none; }
+body.licao-iniciada #capaEntradaRevista { display: none; }
+.cv-atm { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 30% 70%, rgba(48,72,120,.45) 0%, transparent 50%), radial-gradient(ellipse at 75% 20%, rgba(201,168,76,.18) 0%, transparent 45%); }
+.cv-grd { position: absolute; inset: 0; pointer-events: none; opacity: .02; background-image: repeating-linear-gradient(45deg, rgba(201,168,76,.8) 0px, transparent 1px, transparent 28px, rgba(201,168,76,.8) 29px); }
+.cv-fx { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; pointer-events: none; background: linear-gradient(180deg, #0e1428, var(--cor), var(--ouro)); }
+.cv-corpo { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 480px; gap: 1.2rem; }
+.cv-serie { font-family: 'Oswald', sans-serif; font-size: clamp(.55rem,1.5vw,.6875rem); letter-spacing: 4px; color: var(--ouro); text-transform: uppercase; opacity: .75; }
+.cv-num { font-family: 'Cinzel', serif; font-size: clamp(.6rem,2vw,.75rem); color: rgba(201,168,76,.45); letter-spacing: 4px; text-transform: uppercase; }
+.cv-tema { font-family: 'Cinzel', serif; font-weight: 700; font-size: clamp(1.1rem,4vw,1.6rem); color: #fff; line-height: 1.2; text-transform: uppercase; letter-spacing: 1px; }
+.cv-tema-sub { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(.6rem,1.8vw,.75rem); color: rgba(201,168,76,.6); letter-spacing: 3px; text-transform: uppercase; }
+.cv-divisor { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--ouro), transparent); opacity: .5; }
+.cv-frase { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(.85rem,2.2vw,1rem); color: var(--ouro-claro); line-height: 1.7; opacity: .9; border-left: 2px solid rgba(201,168,76,.4); padding-left: 1rem; text-align: left; max-width: 400px; }
+.cv-ref { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(.55rem,1.5vw,.65rem); color: rgba(201,168,76,.55); letter-spacing: 2px; text-transform: uppercase; text-align: right; width: 100%; max-width: 400px; }
+.cv-cta { font-family: 'Oswald', sans-serif; font-size: clamp(.6rem,1.8vw,.75rem); letter-spacing: 3px; text-transform: uppercase; color: #fff; background: var(--cor); border: none; padding: .6rem 1.8rem; cursor: pointer; border-radius: 2px; transition: all .2s; }
+.cv-cta:hover { background: var(--ouro); color: #111; }
+.cv-rodape { position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center; pointer-events: none; }
+.cv-rodape-sub { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: clamp(.5rem,1.3vw,.6rem); color: rgba(255,255,255,.2); letter-spacing: 3px; text-transform: uppercase; }
+
+/* ── IMPRESSÃO ───────────────────────────────────────── */
+@media print {
+  #tela-senha { display: none !important; }
+  #conteudo-principal { display: block !important; }
+  #capaEntradaRevista, .painel, .lbl { display: none !important; }
+  .area { margin-top: 0; padding: 0; gap: 0; }
+  .pag  { box-shadow: none; page-break-after: always; page-break-inside: avoid; }
+  .wm, .int-linhas { display: none; }
+  [class^="prof-"], .prof-reflexao, .alerta { page-break-inside: avoid; }
+}
+@media (max-width: 480px) { .mapa-grid { grid-template-columns: 1fr; } .cver { font-size: 9pt; } }
+</style>
+</head>
+<body>
+
+<!-- ── TELA DE SENHA ─────────────────────────────────── -->
+<div id="tela-senha">
+  <div class="senha-box">
+    <div class="senha-logo">ESCHATON VOL. III</div>
+    <div class="senha-sub">Edição do Professor · Acesso Restrito</div>
+    <label class="senha-label" for="senha-input">Senha de acesso</label>
+    <input autocomplete="off" id="senha-input" type="password"/>
+    <div id="senha-erro">Senha incorreta. Tente novamente.</div>
+    <button class="senha-btn" onclick="verificarSenha()">Entrar</button>
+  </div>
+</div>
+
+<!-- ── CONTEÚDO PRINCIPAL ────────────────────────────── -->
+<div id="conteudo-principal">
+
+<div class="painel">
+  <div class="marca">ESCHATON VOL. III<span>Lição 12 · O Céu Novo, a Terra Nova e a Nova Jerusalém</span><em>Edição do Professor</em></div>
+  <span class="badge-prof">Docente</span>
+  <button class="btn be" onclick="toggleEdit()">✎ <span id="etxt">Editar</span></button>
+  <button class="btn bi" onclick="window.print()">🖶 Imprimir</button>
+  <a href="index.html"><button class="btn bv">← Hub</button></a>
+</div>
+
+<!-- CAPA DE ENTRADA -->
+<div aria-label="Abrir lição 12" id="capaEntradaRevista" onclick="entrarLicao()" role="button" tabindex="0">
+  <div class="cv-atm"></div><div class="cv-grd"></div><div class="cv-fx"></div>
+  <div class="cv-corpo">
+    <div class="cv-serie">Eschaton · O Futuro Chegou</div>
+    <div class="cv-num">Vol. III · Lição 12</div>
+    <div class="cv-tema">O Céu Novo, a Terra Nova e a Nova Jerusalém</div>
+    <div class="cv-tema-sub">A recriação gloriosa em Apocalipse 21</div>
+    <div class="cv-divisor"></div>
+    <div class="cv-frase">«Vi um novo céu e uma nova terra; porque o primeiro céu e a primeira terra se foram, e o mar já não existia. E vi a cidade santa, a nova Jerusalém, que descia do céu da parte de Deus, adornada como uma noiva ataviada para o seu esposo.»</div>
+    <div class="cv-ref">Apocalipse 21:1-2</div>
+    <button class="cv-cta" onclick="entrarLicao()">Abrir Lição</button>
+  </div>
+  <div class="cv-rodape"><div class="cv-rodape-sub">Jovens Adultos · Lição 12</div></div>
+</div>
+
+<div class="area">
+
+<!-- ══ PG 1 CAPA ══════════════════════════════════════ -->
+<div class="lbl">Página 1 · Capa</div>
+<div class="pag capa">
+  <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+  <div class="cimg"></div><div class="clh"></div>
+  <div class="cnbg">12</div>
+  <div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+  <div class="ccon">
+    <div class="cser">Eschaton · O Futuro Chegou</div>
+    <div class="cref">Apocalipse 21:1-27 · 22:1-5</div>
+    <div class="ctit">O Céu Novo, a Terra Nova e a Nova Jerusalém</div>
+    <div class="cver">
+      «Vi um novo céu e uma nova terra; porque o primeiro céu e a primeira terra se foram, e o mar já não existia. E vi a cidade santa, a nova Jerusalém, que descia do céu da parte de Deus, adornada como uma noiva ataviada para o seu esposo.»
+      <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Apocalipse 21:1-2</span>
+    </div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- ══ PG 2 TEXTO BÍBLICO ════════════════════════════ -->
+<div class="lbl">Página 2 · Texto Bíblico</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">2</div>
+  <div class="ph"><span class="phl">Lição 12 · Vol. III</span><span class="pht">Ap 21–22</span></div>
+  <h2>O Texto</h2>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 21:1-4</div>
+    <p>«Vi um novo céu e uma nova terra; porque o primeiro céu e a primeira terra se foram, e o mar já não existia. E vi a cidade santa, a nova Jerusalém, que descia do céu da parte de Deus, adornada como uma noiva ataviada para o seu esposo. E ouvi uma grande voz do trono, que dizia: Eis o tabernáculo de Deus com os homens [...] e enxugará Deus toda a lágrima dos seus olhos, e não haverá mais morte, nem pranto, nem clamor, nem dor; porque as primeiras coisas já passaram.»</p>
+    <span class="ref-f">Apocalipse 21:1-4</span>
+  </div>
+  <div class="bver">
+    <div class="bver-ref">Apocalipse 22:3-5</div>
+    <p>«E não haverá mais maldição alguma. E o trono de Deus e do Cordeiro estará nela, e os seus servos o servirão, e contemplarão a sua face, e o seu nome estará nas suas testas. Não haverá mais noite, e não precisarão de luz de candeia, nem de luz do sol, porque o Senhor Deus os iluminará; e reinarão pelos séculos dos séculos.»</p>
+    <span class="ref-f">Apocalipse 22:3-5</span>
+  </div>
+  <div class="obj">
+    <div class="ot">Objetivos desta Lição</div>
+    <ul>
+      <li>Compreender o que significa a renovação do cosmos — novo céu, nova terra — e sua distinção da destruição total;</li>
+      <li>Conhecer as doze características da Nova Jerusalém segundo Hernandes Dias Lopes;</li>
+      <li>Entender a Nova Jerusalém como noiva, cidade e povo — uma imagem tríplice do estado glorioso da Igreja;</li>
+      <li>Aplicar a esperança da nova criação ao cotidiano presente com esperança, santidade e missão.</li>
+    </ul>
+  </div>
+  <div class="prof-dica-aula"><div class="prof-label">Dica de Aula</div><p>Inicie perguntando: «Se você pudesse descrever um mundo sem dor, sem morte e sem lágrimas — como seria?» Deixe a turma responder livremente. Depois leia Apocalipse 21:3-4 devagar, em voz alta, e mostre que o que a turma imaginou é apenas a sombra do que Deus já prometeu. Isso cria expectativa e enraizamento bíblico antes da exposição.</p></div>
+  <div class="brefletir">
+    <div class="brefletir-t">✦ Para Você Refletir</div>
+    <p>Hernandes Dias Lopes encerra o estudo de Apocalipse 21 com sete perguntas: «Você já é um habitante dessa cidade santa? Onde você colocou o seu coração? A qual Igreja você pertence? Qual é o seu destino?» Antes de estudar, responda honestamente: para onde está apontando a direção da sua vida hoje?</p>
+  </div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- ══ PG 3 A NOVA CRIAÇÃO ═══════════════════════════ -->
+<div class="lbl">Página 3 · A Nova Criação</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">3</div>
+  <div class="ph"><span class="phl">Lição 12 · Vol. III</span><span class="pht">Ap 21:1-8</span></div>
+  <h2>A Nova Criação — Ap 21:1-8</h2>
+  <p class="cap">O capítulo 21 é o clímax luminoso de todo o Apocalipse. Após o juízo do Grande Trono Branco, o universo não é abolido — é renovado. Hernandes Dias Lopes, com apoio em 2 Pedro 3:10 e Romanos 8:21, afirma que «a terra não será destruída, mas transformada». A obra de Cristo não é apenas salvar almas individuais: é recriar tudo o que o pecado corrompeu.</p>
+  <div class="bloco">
+    <div class="bloco-t">Novo Céu e Nova Terra — O Que Muda?</div>
+    <p>O «mar» que desaparece (21:1) não é simplesmente o oceano: na linguagem do Apocalipse, o mar representa caos, separação e morte (o dragão saiu do mar, 13:1). Sua ausência anuncia que toda força de desordem foi abolida. A nova criação não tem mais espaço para o que separa o ser humano de Deus.</p>
+  </div>
+  <div class="prof-nota-teologica"><div class="prof-label">Nota Teológica</div><p>A distinção entre <em>kainós</em> (novo em qualidade) e <em>neos</em> (novo em origem) é exegeticamente relevante e teologicamente decisiva. Ela sustenta toda a visão de Lopes de que a nova criação é transformação, não substituição. Compare com Romanos 8:19-21, onde a criação «geme» esperando ser «libertada» — não descartada. Essa é a base bíblica para o cuidado cristão com o mundo presente.</p></div>
+  <div class="bloco">
+    <div class="bloco-t">As Cinco Declarações do Trono — Ap 21:3-5</div>
+    <p>Uma grande voz do trono proclama a nova realidade em cinco afirmações: <strong>1.</strong> «Eis o tabernáculo de Deus com os homens» — Deus habita plenamente com sua criação; <strong>2.</strong> «Enxugará toda lágrima» — toda dor tem fim; <strong>3.</strong> «Não haverá mais morte» — o último inimigo é vencido; <strong>4.</strong> «Nem pranto, nem clamor, nem dor» — o sofrimento é abolido; <strong>5.</strong> «As primeiras coisas já passaram» — a era da quebra terminou. E Deus acrescenta: «Eis que faço novas todas as coisas.» Não um conserto parcial — uma recriação total.</p>
+  </div>
+  <div class="bconexao">
+    <div class="bconexao-t">✦ Conexão Bíblica</div>
+    <p>Compare Apocalipse 21:3-4 com Isaías 25:8 e 65:17-19. O profeta anunciou séculos antes que Deus «enxugaria as lágrimas» e criaria «novos céus e nova terra». O que esse cumprimento perfeito ensina sobre a fidelidade de Deus às suas promessas ao longo de toda a história da redenção?</p>
+  </div>
+  <div class="bsabia">
+    <div class="bsabia-t">✦ Sabia Que?</div>
+    <p>A palavra grega para «novo» em «novo céu e nova terra» é <em>kainós</em> — que significa novo em qualidade, renovado — não <em>neos</em> (novo em tempo ou origem). Isso confirma que Deus não descarta a criação: Ele a transforma, elevando-a a um estado de glória que jamais conheceu.</p>
+  </div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- ══ PG 4 A NOVA JERUSALÉM I ══════════════════════ -->
+<div class="lbl">Página 4 · As Doze Características da Nova Jerusalém (I–V)</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">4</div>
+  <div class="ph"><span class="phl">Lição 12 · Vol. III</span><span class="pht">Ap 21:9-27</span></div>
+  <h2>As Doze Características da Nova Jerusalém</h2>
+  <p>Hernandes Dias Lopes estrutura sua exposição de Apocalipse 21:9–22:5 em doze características que revelam a natureza da Nova Jerusalém — que é simultaneamente uma noiva, uma cidade e um povo.</p>
+  <div class="prof-recurso-visual"><div class="prof-label">Recurso Visual</div><p>Escreva no quadro as doze características numeradas, deixando-as visíveis durante toda a aula. À medida que expõe cada uma, marque um «✓» ao lado. Isso ajuda a turma a perceber a estrutura intencional de Lopes e a não se perder na riqueza dos detalhes simbólicos do texto.</p></div>
+  <div class="bloco">
+    <div class="bloco-t">1. Bela por Fora — Reflete a Glória de Deus — v. 11</div>
+    <p>João tenta descrever a glória da cidade com o único recurso possível: pedras preciosas. A <em>shekiná</em> de Deus, que habitou no Santo dos Santos do Templo, agora resplandece sobre a Igreja glorificada para sempre. Como a lua reflete a luz do sol, a Igreja refletirá a glória do Senhor — sem eclipse, sem ocaso.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">2. Bela por Dentro — v. 19-20</div>
+    <p>Os fundamentos da cidade são ornados com doze espécies de pedras preciosas. Nada feio existe no interior dessa Igreja. Nada escondido. Nada varrido para debaixo do tapete. Ela pode ser submetida à mais profunda investigação — e resiste.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">3. Aberta a Todos — v. 13, 25</div>
+    <p>A cidade tem doze portas para todos os quadrantes. Não há preconceito nem acepção de pessoas: «pobres e ricos, doutores e analfabetos, religiosos e ateus, homens e mulheres». São remidos de toda tribo, povo, língua e nação. O Noivo convida. A noiva convida. Quem tem sede recebe a água da vida.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">4. Não Aberta a Tudo — v. 12, 27</div>
+    <p>Embora as portas estejam abertas, em cada porta há um anjo. A muralha demarca a santidade da cidade — separa o puro do impuro. «Não entrará nela coisa alguma impura, nem o que pratica abominação e mentira, mas somente os que estão inscritos no Livro da Vida do Cordeiro» (v. 27). A Igreja gloriosa é aberta a todos, mas não aberta a tudo.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">5. Fundada sobre a Verdade — v. 14</div>
+    <p>Os doze fundamentos têm os nomes dos doze apóstolos. A Nova Jerusalém não está edificada sobre visões subjetivas, tradições humanas ou revelações extrabíblicas. Está sobre o fundamento dos apóstolos — a Palavra revelada, as Escrituras. Ela é logocêntrica: centrada no Logos eterno.</p>
+  </div>
+  <div class="prof-orientaçao-past"><div class="prof-label">Orientação Pastoral</div><p>A tensão entre as características 3 e 4 — aberta a todos, não aberta a tudo — é um dos pontos mais aplicáveis desta lição à vida da Igreja local. Use-a para perguntar: «Nossa comunidade é hospitaleira com pessoas de toda procedência? E ao mesmo tempo mantém a integridade doutrinária e ética?» Evite que a discussão caia em generalização: o objetivo é reflexão concreta sobre a prática eclesiástica.</p></div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- ══ PG 5 A NOVA JERUSALÉM II ═════════════════════ -->
+<div class="lbl">Página 5 · Características VI–XII da Nova Jerusalém</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">5</div>
+  <div class="ph"><span class="phl">Lição 12 · Vol. III</span><span class="pht">Ap 21–22</span></div>
+  <h2>A Nova Jerusalém — Continuação</h2>
+  <div class="bloco">
+    <div class="bloco-t">6. Espaço para Todos os Remidos — v. 15-17</div>
+    <p>A cidade é cúbica perfeita: 12.000 estádios (aproximadamente 2.200 km) em cada dimensão. Lopes observa que na Nova Jerusalém o Monte Everest desapareceria mais de duzentas e quarenta vezes. Não há bairros ricos nem pobres. «Toda a cidade é igual. Não há casebres nessa cidade. Existem mansões, feitas não por mãos humanas.» Deus é o arquiteto e fundador dessa cidade (Hb 11:10).</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">7. Vida em Total Integridade — v. 18, 21b</div>
+    <p>A praça da cidade — o lugar central da vida comunitária — é de ouro puro como vidro transparente. Não há nada escondido. Não há vida dupla. A integridade é a base de todos os relacionamentos nessa cidade. O que se vive em público é idêntico ao que se vive em particular.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">8. Plena Comunhão com Deus — v. 22</div>
+    <p>Na Nova Jerusalém não há templo — porque a distinção entre o espaço sagrado e o espaço comum é abolida. A Igreja habitará em Deus e Deus habitará na Igreja. A vida no céu não será marcada por religiosidade, mas por comunhão direta e permanente com Deus.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">9. Manifestação Plena da Glória de Deus — v. 23-24</div>
+    <p>Não haverá sol nem lua: a glória de Deus a ilumina, e o Cordeiro é sua lâmpada. Os reis da terra trazem sua glória e honra para ela — não para ser servida por eles, mas para servir ao REI dos reis. A Igreja glorificada está inteiramente a serviço do Rei, e não dos poderes da terra.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">10. O Paraíso Restaurado — O Rio da Vida — 22:1-2</div>
+    <p>O jardim perdido no Éden é o jardim reconquistado no céu. No Éden, o homem foi impedido de comer da árvore da vida. Na Nova Jerusalém, a árvore da vida dá frutos para as nações e suas folhas servem para cura. O único rio que flui do trono de Deus e do Cordeiro simboliza a vida eterna — abundante, pura e gratuita.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">11. Onde Está o Trono de Deus — 22:3-4</div>
+    <p>O trono fala de soberania. Os servos o servem com prazer: «Nosso trabalho será deleitoso.» Contemplarão sua face — a aspiração máxima de todo crente. O nome de Deus estará na testa de cada habitante: identidade, pertença, intimidade definitiva. O céu não é inatividade — é serviço apaixonado ao Senhor.</p>
+  </div>
+  <div class="bloco">
+    <div class="bloco-t">12. Os Remidos Reinarão com Cristo Eternamente — 22:5</div>
+    <p>Deus não apenas salva seus filhos para o céu — salva-os para o trono. «Nós seremos não apenas servos no céu, mas também reis. Reinaremos com o Senhor para sempre e sempre. Cristo vai compartilhar com sua noiva sua glória, sua autoridade e seu poder» (Lopes).</p>
+  </div>
+  <div class="prof-nota-teologica"><div class="prof-label">Nota Teológica</div><p>A ausência de templo (característica 8) é teologicamente carregada: significa que a distinção culto-cotidiano, sagrado-secular, é eliminada na nova criação. Toda a vida será adoração. Toda atividade, serviço. Isso tem implicações para a teologia do trabalho e da vocação já no presente: o crente não divide a vida entre «o religioso» e «o resto».</p></div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- ══ PG 6 APLICAÇÃO ═════════════════════════════════ -->
+<div class="lbl">Página 6 · Aplicação</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">6</div>
+  <div class="ph"><span class="phl">Lição 12 · Vol. III</span><span class="pht">A Esperança que Transforma o Presente</span></div>
+  <h2>Aplicação Direta</h2>
+  <p class="cap">A visão da Nova Jerusalém não é evasão da realidade — é a realidade mais profunda que existe, capaz de transformar o modo como se vive o presente. Hernandes Dias Lopes observa que «o conhecimento de que vamos morar no céu deve mudar nossa vida aqui e agora». A esperança bíblica não paralisa: ela envia.</p>
+  <div class="blteo">
+    <div class="blteo-t">A Nova Jerusalém é Noiva, Cidade e Povo</div>
+    <p>Lopes destaca a tríplice imagem da Nova Jerusalém: ela é uma <strong>noiva</strong> (relação íntima com o Cordeiro), uma <strong>cidade</strong> (comunidade organizada e gloriosa) e um <strong>povo</strong> (os remidos de todos os séculos e nações). O céu não é um estado solitário e nebuloso — é plenitude relacional: com Deus, com os irmãos e com a criação renovada.</p>
+  </div>
+  <div class="prof-reflexao"><div class="prof-label">Pergunta de Fechamento</div><p>Antes da aplicação individual, faça esta pergunta coletiva: «Qual das doze características da Nova Jerusalém mais ilumina ou confronta a realidade da nossa Igreja local hoje?» Deixe dois ou três responderem. Isso move a escatologia do abstrato para o concreto eclesial — que é exatamente o que Lopes propõe.</p></div>
+  <div class="blapl">
+    <div class="blapl-t">Para esta semana</div>
+    <p><strong>Primeiro:</strong> A Nova Jerusalém é «bela por dentro» — sem nada escondido. Que área da sua vida ainda carece de integridade entre o público e o privado? A esperança dessa cidade deve produzir hoje o que será pleno lá. <strong>Segundo:</strong> A cidade é «aberta a todos» mas «não aberta a tudo». Como você tem equilibrado a abertura missionária — receber todo tipo de pessoa — com a fidelidade à santidade do evangelho? <strong>Terceiro:</strong> Lopes pergunta: «Onde você colocou o seu coração: na Nova Jerusalém ou na grande Babilônia?» Que desejos, hábitos ou prioridades revelam onde está o coração de fato? Como a visão do céu pode reorientá-los?</p>
+  </div>
+  <div class="mem">
+    <div class="mem-t">◆ Versículo para Memorizar</div>
+    <p>«E enxugará Deus toda a lágrima dos seus olhos, e não haverá mais morte, nem pranto, nem clamor, nem dor; porque as primeiras coisas já passaram.»</p>
+    <p style="font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);margin-top:6px;">Apocalipse 21:4</p>
+  </div>
+  <div class="bleve">
+    <div class="bleve-t">✦ Leve para a Vida</div>
+    <p>Esta semana, medite diariamente em uma das doze características da Nova Jerusalém — uma por dia. Pergunte-se: como essa característica desafia ou consola a minha situação hoje? Anote abaixo uma palavra que resuma o que mais despertou esperança em você nesta lição.</p>
+    <div class="lr" style="margin-top:8px;"></div>
+    <div class="lr"></div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- ══ PG 7 QUESTÕES ══════════════════════════════════ -->
+<div class="lbl">Página 7 · Questões e Anotações</div>
+<div class="pag int">
+  <div class="int-linhas"></div><div class="wm">7</div>
+  <div class="ph"><span class="phl">Lição 12 · Vol. III</span><span class="pht">A Nova Jerusalém</span></div>
+  <h2>Questões para Reflexão</h2>
+  <div class="q">
+    <div class="qn">Questão 01</div>
+    <div class="qt">Lopes afirma que a terra não será destruída, mas transformada — usando o termo grego <em>kainós</em> (novo em qualidade). Como essa distinção entre destruição e renovação muda a forma como o cristão deve encarar o mundo natural, o cuidado da criação e a cultura humana? O que significa ter esperança em uma nova criação, e não no abandono desta?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 02</div>
+    <div class="qt">A Nova Jerusalém é «aberta a todos» mas «não aberta a tudo». Há anjos nas portas, e o que é impuro não entra. Como essa imagem corrige dois erros comuns na Igreja: o fechamento elitista que exclui pessoas, e o relativismo que aceita todo comportamento? Como a santidade e a hospitalidade coexistem sem que uma destrua a outra?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 03</div>
+    <div class="qt">Na Nova Jerusalém não há templo (21:22) — a distinção entre sagrado e secular é abolida. O que isso revela sobre a natureza da adoração e da vida cristã na eternidade? E como essa perspectiva pode transformar a forma como o crente vê seu trabalho, seus relacionamentos e seus momentos comuns já hoje?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <div class="q">
+    <div class="qn">Questão 04</div>
+    <div class="qt">Lopes conclui: «Deus nos salvou não apenas para irmos para o céu, mas para reinarmos com Ele no céu. Seremos não apenas servos, mas também reis.» Como essa visão de participação ativa e digna na glória eterna muda o modo como o crente enfrenta a humilhação, o anonimato e o sofrimento nesta vida? De que modo o reinado futuro deveria reorientar as ambições presentes?</div>
+    <div class="lr"></div><div class="lr"></div>
+  </div>
+  <h3 style="margin-top:12px;">Anotações</h3>
+  <div class="lins">
+    <div class="lin"></div><div class="lin"></div><div class="lin"></div><div class="lin"></div>
+  </div>
+  <div class="rod"><span class="rt">Eschaton Vol. III · EBD Jovens Adultos</span><span class="rn">7</span></div>
+</div>
+
+<!-- ══ PG 8 GUIA DO PROFESSOR ════════════════════════ -->
+<div class="lbl lbl-prof">Página 8 · Guia do Professor</div>
+<div class="pag int-prof">
+  <div class="ph-prof"><div class="ph-prof-l">PROF · Lição 12 · Guia Geral</div><div class="ph-prof-r">Edição Docente</div></div>
+  <div class="wm-prof">PROF</div>
+  <h2 class="prof">Mapa de Competências da Lição</h2>
+  <div class="bloco-mapa"><div class="bk">Competências a Desenvolver</div>
+    <div class="mapa-grid">
+      <div class="mapa-cel"><div class="mapa-cel-tit">Compreensão Bíblica</div><p>Entender a nova criação de Apocalipse 21-22 como renovação qualitativa do cosmos, não descarte, a partir da exegese de Lopes.</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Discernimento Teológico</div><p>Identificar as doze características da Nova Jerusalém e sua tríplice natureza: noiva, cidade e povo — sem reduzir o símbolo ao literalismo ou ao espiritualismo vago.</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Aplicação Pastoral</div><p>Conectar a esperança escatológica com a vida presente: integridade, hospitalidade com santidade, e ambições reorientadas pelo reinado futuro.</p></div>
+      <div class="mapa-cel"><div class="mapa-cel-tit">Formação Espiritual</div><p>Cultivar uma esperança bíblica concreta e encarnada que gera missão, cuidado da criação e compromisso com a integridade pessoal e comunitária.</p></div>
+    </div>
+  </div>
+  <div class="bloco-tempo"><div class="bk">Estrutura de Tempo Sugerida — 50 min</div>
+    <div class="tempo-linha"><div class="tempo-min">5 min</div><div class="tempo-desc">Abertura: «Descreva um mundo sem dor, morte ou lágrimas.» Depois leia Ap 21:3-4 em voz alta.</div></div>
+    <div class="tempo-linha"><div class="tempo-min">10 min</div><div class="tempo-desc">A nova criação: <em>kainós</em> vs. <em>neos</em>, o desaparecimento do mar, as cinco declarações do trono (Ap 21:1-8).</div></div>
+    <div class="tempo-linha"><div class="tempo-min">15 min</div><div class="tempo-desc">As doze características da Nova Jerusalém — percorra com agilidade, aprofundando nos pontos 3-4 (aberta/não aberta), 8 (sem templo) e 12 (reinado eterno).</div></div>
+    <div class="tempo-linha"><div class="tempo-min">8 min</div><div class="tempo-desc">Aplicação: a tríplice imagem (noiva, cidade, povo) e os três pontos práticos para a semana.</div></div>
+    <div class="tempo-linha"><div class="tempo-min">7 min</div><div class="tempo-desc">Discussão de uma ou duas questões de reflexão — escolha as mais pertinentes para o perfil da turma.</div></div>
+    <div class="tempo-linha"><div class="tempo-min">5 min</div><div class="tempo-desc">Versículo de memória e oração final de encerramento da série Eschaton Vol. III.</div></div>
+  </div>
+  <div class="alerta"><div class="bk">Atenção do Professor — Lição Final do Volume</div><p>Esta é a última lição do Volume III. Além de concluir o estudo de Apocalipse, é a oportunidade de recapitular a jornada da série: do juízo ao trono; da Babilônia à Nova Jerusalém; do dragão ao Cordeiro. Reserve ao menos 2 minutos para fazer essa recapitulação antes da oração final — ela fecha o arco narrativo e teológico de toda a série.</p></div>
+  <div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">8</div></div>
+</div>
+
+<!-- ══ PG 9 DINÂMICA & TEOLOGIA ═══════════════════════ -->
+<div class="lbl lbl-prof">Página 9 · Dinâmica &amp; Teologia</div>
+<div class="pag int-prof">
+  <div class="ph-prof"><div class="ph-prof-l">PROF · Lição 12 · Dinâmica &amp; Teologia</div><div class="ph-prof-r">Edição Docente</div></div>
+  <div class="wm-prof">PROF</div>
+  <h2 class="prof">Dinâmica de Abertura — 5 a 7 min</h2>
+  <div class="bloco-debate"><div class="bk">O Mundo que Você Sonha</div><p>Peça que cada aluno escreva em um papel: «Uma coisa que eu gostaria que não existisse neste mundo.» Colha as respostas de três ou quatro participantes sem julgamento. Depois leia Apocalipse 21:4 pausadamente — «não haverá mais morte, nem pranto, nem clamor, nem dor» — e pergunte: «O que você escreveu está coberto por essa promessa?» Isso ancora as esperanças pessoais na revelação bíblica e cria engajamento emocional genuíno antes da exposição.</p></div>
+  <div class="bloco-guia"><div class="bk">Como Conduzir</div><ul>
+    <li>Valide as respostas com respeito — pessoas podem mencionar luto, doença, injustiça. A promessa de Deus alcança tudo isso.</li>
+    <li>Evite minimizar o sofrimento presente com pressa escatológica; permita que a promessa fale com peso antes de avançar.</li>
+    <li>Se a turma for numerosa, faça o exercício em duplas antes de coletar as respostas.</li>
+  </ul></div>
+  <h2 class="prof">Aprofundamento Teológico</h2>
+  <div class="bloco-teo"><div class="bk">Nova Criação: Entre o Éden e a Nova Jerusalém</div><p>A narrativa bíblica vai do jardim (Gn 1-2) ao jardim-cidade (Ap 21-22). O Éden era paraíso sem templo — Deus caminhava com Adão. A Nova Jerusalém é cidade sem templo — Deus habita plenamente. No meio, o templo foi a solução temporária para a brecha do pecado. Cristo é o templo definitivo (Jo 2:19-21) que torna possível a Nova Jerusalém sem templo. Apresente esse arco para a turma: é a spinha dorsal narrativa de toda a Bíblia.</p></div>
+  <div class="bloco-teo"><div class="bk">Noiva, Cidade e Povo — Três Imagens, Uma Realidade</div><p>A Igreja é chamada de «noiva» (relação de amor com Cristo), «cidade» (comunidade organizada com fundamentos, portas e muros) e «povo» (os remidos de toda tribo e nação). Nenhuma das três imagens é suficiente sozinha. Juntas, revelam que o estado glorioso é: íntimo (noiva), comunitário (povo) e ordenado (cidade). O individualismo espiritual não tem lugar na Nova Jerusalém.</p></div>
+  <div class="bloco-cult"><div class="bk">Conexão com a Cultura Contemporânea</div><p>A ideia de «o céu» é frequentemente esvaziada na cultura popular — nuvens, harpas, tédio eterno. A Nova Jerusalém é o antídoto: uma cidade vibrante, com rio, árvore, trabalho deleitoso, serviço, reinado e contemplação. Use isso para confrontar o estigma de que a esperança cristã é escapismo. A Nova Jerusalém é o projeto mais ambicioso da história — e é obra de Deus, não dos homens.</p></div>
+  <div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">9</div></div>
+</div>
+
+<!-- ══ PG 10 PEDAGOGIA & GESTÃO ═══════════════════════ -->
+<div class="lbl lbl-prof">Página 10 · Pedagogia &amp; Gestão</div>
+<div class="pag int-prof">
+  <div class="ph-prof"><div class="ph-prof-l">PROF · Lição 12 · Pedagogia &amp; Gestão</div><div class="ph-prof-r">Edição Docente</div></div>
+  <div class="wm-prof">PROF</div>
+  <h2 class="prof">Dicas Pedagógicas</h2>
+  <div class="bloco-dica"><div class="bk">Para Tornar o Conteúdo Concreto</div><ul>
+    <li>Liste as doze características no quadro e marque à medida que avança — isso organiza visualmente a lição e evita que a turma se perca.</li>
+    <li>Destaque o contraste entre a Babilônia (lição anterior) e a Nova Jerusalém: orgulho vs. glória refletida; opressão vs. comunidade; caos vs. ordem perfeita.</li>
+    <li>Use a distinção <em>kainós / neos</em> como chave hermenêutica: a nova criação não descarta, transforma — e isso tem implicações para o cuidado com o mundo presente.</li>
+    <li>No encerramento, peça que cada aluno escolha a característica da Nova Jerusalém que mais o impactou e compartilhe em uma palavra ou frase curta.</li>
+  </ul></div>
+  <div class="bloco-perf"><div class="bk">Diferenciação por Perfil de Turma</div>
+    <div class="perf-linha"><div class="perf-tipo">Iniciantes</div><div class="perf-txt">Foque nas cinco declarações do trono (Ap 21:3-5) e em três ou quatro características da Nova Jerusalém mais visualmente concretas (bela por fora, aberta a todos, rio da vida, reinado eterno). Mantenha próximo da experiência emocional.</div></div>
+    <div class="perf-linha"><div class="perf-tipo">Maduros</div><div class="perf-txt">Explore a teologia da nova criação (<em>kainós</em>), o arco Éden-templo-Nova Jerusalém, a ausência de templo como cumprimento cristológico (Jo 2:19-21) e as implicações para a teologia do trabalho e da vocação.</div></div>
+    <div class="perf-linha"><div class="perf-tipo">Sensíveis</div><div class="perf-txt">A promessa de «enxugar toda lágrima» pode tocar lutos presentes. Permita o silêncio e a emoção. A esperança bíblica não nega a dor presente — ela a endereça com a promessa do Deus que pessoalmente enxuga cada lágrima.</div></div>
+  </div>
+  <h2 class="prof">Gestão de Tensões</h2>
+  <div class="alerta"><div class="bk">Situação Comum — «O céu vai ser literalmente assim?»</div><p>Responda com equilíbrio: o Apocalipse usa linguagem simbólica para descrever realidades que excedem o vocabulário humano. O que é certo: será melhor, mais glorioso e mais real do que qualquer imagem pode capturar. O símbolo não diminui a realidade — ela aponta para além do que palavras alcançam.</p></div>
+  <div class="alerta"><div class="bk">Situação Comum — «E a questão ambiental? Isso justifica descuidar do planeta?»</div><p>Ao contrário. A nova criação é <em>kainós</em> — transformação, não descarte. Deus redime a criação. Isso fundamenta o cuidado com o mundo presente: o cristão não é indiferente à criação porque sabe que ela será renovada, não destruída. Use Romanos 8:19-21 como base.</p></div>
+  <div class="bloco-fio"><div class="bloco-fio-icon">→</div><div class="bloco-fio-txt"><strong>Encerramento ideal — Lição Final do Volume:</strong> «Toda a série ESCHATON nos conduziu de um julgamento a uma promessa. Do dragão ao Cordeiro. Da Babilônia à Nova Jerusalém. E no centro de tudo: o trono de Deus e do Cordeiro. É para esse trono que a história está marchando — e é a esse Rei que a Igreja serve hoje, enquanto aguarda aquele dia.»</div></div>
+  <div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">10</div></div>
+</div>
+
+<!-- ══ PG 11 RESPOSTAS & RECURSOS ════════════════════ -->
+<div class="lbl lbl-prof">Página 11 · Respostas &amp; Recursos</div>
+<div class="pag int-prof">
+  <div class="ph-prof"><div class="ph-prof-l">PROF · Lição 12 · Respostas &amp; Recursos</div><div class="ph-prof-r">Edição Docente</div></div>
+  <div class="wm-prof">PROF</div>
+  <h2 class="prof">Respostas Sugeridas — Questões da Pg. 7</h2>
+  <div class="bloco-resp"><div class="bk">Gabarito Orientativo</div>
+    <div class="resp-q"><div class="resp-num">Questão 01</div><div class="resp-txt">Se a criação será renovada (<em>kainós</em>), não descartada, o cristão tem razão teológica para cuidar dela: o que Deus vai resgatar merece nosso cuidado agora. A esperança na nova criação não gera indiferença ao mundo presente — ela gera responsabilidade. Cultura, arte, trabalho e criação têm valor porque serão redimidos, não abolidos.</div></div>
+    <div class="resp-q"><div class="resp-num">Questão 02</div><div class="resp-txt">A hospitalidade radical (portas abertas a todos) e a santidade estrutural (anjos nas portas, muros que separam) não se contradizem: elas coexistem na Nova Jerusalém como modelo para a Igreja presente. O erro relativista abre tudo; o erro elitista fecha para as pessoas. A Igreja saudável abre as portas para todos e mantém os fundamentos que definem quem é a cidade.</div></div>
+    <div class="resp-q"><div class="resp-num">Questão 03</div><div class="resp-txt">A ausência de templo não é empobrecimento — é cumprimento. Cristo, o verdadeiro templo (Jo 2:19-21), tornou possível que toda a existência seja sagrada. Para o crente hoje: o trabalho, a mesa, os relacionamentos e o descanso são arena de adoração. A vida não se divide entre o sagrado e o secular; tudo é oferecido a Deus.</div></div>
+    <div class="resp-q"><div class="resp-num">Questão 04</div><div class="resp-txt">Saber que seremos reis reorienta o sofrimento presente: a humilhação não é o destino final. A ambição de reconhecimento mundano perde força diante da herança eterna. E a dignidade dos que hoje são invisíveis é assegurada: no Reino, todos os remidos reinarão. Isso gera paciência, dignidade e missão — não resignação passiva.</div></div>
+  </div>
+  <h2 class="prof">Seguimento e Encerramento do Volume III</h2>
+  <div class="bloco-soc">
+    <div class="soc-item"><p><strong>Prática da semana:</strong> meditar em uma das doze características da Nova Jerusalém por dia (12 dias de meditação), perguntando como cada uma consola ou desafia a situação presente.</p><div class="soc-espera">Objetivo: integrar a escatologia à espiritualidade devocional cotidiana.</div></div>
+    <div class="soc-item"><p><strong>Encerramento do volume:</strong> considere uma reunião ou momento de celebração com a turma — um agape simples, um tempo de testemunhos sobre o que a série ESCHATON produziu espiritualmente, e uma oração de consagração coletiva.</p><div class="soc-espera">Objetivo: transformar a conclusão da série em experiência comunitária formativa.</div></div>
+    <div class="soc-item"><p><strong>Próximo volume:</strong> se houver continuidade, o volume IV pode aprofundar a ética escatológica — como a esperança da Nova Jerusalém transforma o agir cristão no mundo presente (trabalho, justiça, família, cultura).</p></div>
+  </div>
+  <h2 class="prof">Materiais Complementares</h2>
+  <div class="bloco-guia"><div class="bk">Recursos Recomendados ao Professor</div><ul>
+    <li>Leitura auxiliar: Apocalipse 21:1–22:5; Isaías 65:17-25; Romanos 8:18-25; 2 Pedro 3:10-13.</li>
+    <li>Para aprofundar a nova criação: N. T. Wright, <em>Surpreendido pela Esperança</em> — especialmente os capítulos sobre a ressurreição do cosmos.</li>
+    <li>Para o arco Éden-templo-Nova Jerusalém: G. K. Beale, <em>The Temple and the Church's Mission</em> (em inglês) ou o resumo em <em>A Teologia Bíblica do NT</em>.</li>
+    <li>Conexão visual: mapa comparativo Éden (Gn 2) vs. Nova Jerusalém (Ap 21-22) — rios, árvore da vida, presença de Deus, sem maldição.</li>
+  </ul></div>
+  <div class="rod-prof"><div class="rt">Eschaton Vol. III · Professor</div><div class="rn">11</div></div>
+</div>
+
+</div><!-- /area -->
+</div><!-- /conteudo-principal -->
+
+<script>
+function entrarLicao(){
+  const capa = document.getElementById('capaEntradaRevista');
+  if (capa) capa.classList.add('saindo');
+  setTimeout(() => document.body.classList.add('licao-iniciada'), 550);
+  window.scrollTo({top:0, behavior:'instant'});
+}
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM','TD','TH'];
+function toggleEdit(){
+  edit=!edit;
+  document.querySelectorAll('.pag *').forEach(el=>{
+    if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul,table'))
+      el.contentEditable=edit?'true':'false';
+  });
+  document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+
+/* ===== AUTENTICAÇÃO PROFESSOR ===== */
+const SENHA_CORRETA = 'eschaton2025';
+const CHAVE_SESSION = 'eschaton_prof_v3_l12_auth';
+function verificarSenha(){
+  const input = document.getElementById('senha-input');
+  const erro  = document.getElementById('senha-erro');
+  const val   = input.value.trim().toLowerCase();
+  if(val === SENHA_CORRETA){
+    sessionStorage.setItem(CHAVE_SESSION,'1');
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+    input.classList.remove('erro'); erro.classList.remove('vis');
+  } else {
+    input.classList.add('erro'); erro.classList.add('vis'); input.select();
+  }
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const input = document.getElementById('senha-input');
+  if(sessionStorage.getItem(CHAVE_SESSION)==='1'){
+    document.getElementById('tela-senha').style.display='none';
+    document.getElementById('conteudo-principal').style.display='block';
+  }
+  if(input) input.addEventListener('keydown',e=>{ if(e.key==='Enter') verificarSenha(); });
+});
+</script>
+</body>
+</html>
