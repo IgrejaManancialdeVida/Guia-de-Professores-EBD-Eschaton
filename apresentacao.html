@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eschaton Vol. III · Apresentação — O Livro Aberto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--cor:#c0341a;--grad1:#1a0e0a;--grad2:#280e08;--ouro:#c9a84c;--ouro-claro:#e8d5a0;--vermelho:#8b1a1a;--ct:#2a2a2a;--branco:#fdfbf7;--perg:#f8f0e0;--creme:#f0e4cc;--cc:#ddd0c0;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#120806;font-family:'EB Garamond',Georgia,serif;}
+.painel{position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(90deg,#080402,#120806);border-bottom:1px solid rgba(192,52,26,0.5);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.marca{font-family:'Cinzel',serif;font-size:11pt;color:var(--ouro);letter-spacing:3px;margin-right:auto;}
+.marca span{font-family:'Oswald',sans-serif;font-size:7.5pt;color:#666;letter-spacing:1px;display:block;font-weight:300;}
+.btn{font-family:'Oswald',sans-serif;font-size:9pt;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;padding:7px 16px;border-radius:2px;transition:all 0.2s;white-space:nowrap;}
+.be{background:transparent;color:var(--ouro);border:1px solid rgba(201,168,76,0.4);}.be:hover{background:var(--ouro);color:#111;}
+.bi{background:var(--vermelho);color:#fff;}.bi:hover{filter:brightness(1.2);}
+.bv{background:transparent;color:#666;border:1px solid #333;font-size:8pt;}.bv:hover{color:#fff;border-color:#555;}
+.area{margin-top:60px;padding:24px 16px 60px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+@page{size:A5 portrait;margin:0;}
+.pag{width:148mm;min-height:210mm;background:var(--perg);box-shadow:0 6px 30px rgba(0,0,0,0.6);position:relative;overflow:hidden;page-break-after:always;flex-shrink:0;}
+.lbl{font-family:'Oswald',sans-serif;font-size:8pt;color:#555;letter-spacing:2px;text-transform:uppercase;align-self:flex-start;margin-left:calc(50% - 74mm);margin-bottom:-8px;}
+/* CAPA ESPECIAL — APRESENTACAO */
+.capa{background:linear-gradient(160deg,var(--grad1),var(--grad2));display:flex;flex-direction:column;justify-content:flex-end;min-height:210mm;padding:0;}
+.catm{position:absolute;inset:0;background:radial-gradient(ellipse at 22% 60%,rgba(192,52,26,0.55) 0%,transparent 55%),radial-gradient(ellipse at 78% 20%,rgba(201,168,76,0.18) 0%,transparent 45%),radial-gradient(ellipse at 50% 88%,rgba(80,20,10,0.5) 0%,transparent 50%);}
+.cgrd{position:absolute;inset:0;opacity:0.025;background-image:repeating-linear-gradient(45deg,rgba(201,168,76,0.8) 0px,transparent 1px,transparent 28px,rgba(201,168,76,0.8) 29px);}
+.cfx{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#280808,var(--cor),var(--ouro));}
+.cnbg{position:absolute;bottom:-10px;right:-10px;font-family:'Cinzel',serif;font-size:100pt;font-weight:900;color:rgba(255,255,255,0.035);line-height:1;user-select:none;letter-spacing:-2px;}
+.cimg{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#0d0402,var(--cor) 50%,#ff9060);opacity:0.4;}
+.clh{position:absolute;top:55%;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.8;}
+.cvol{position:absolute;top:14mm;right:12mm;z-index:4;text-align:right;}
+.cvol-num{font-family:'Cinzel',serif;font-size:8pt;color:var(--ouro);letter-spacing:3px;opacity:0.7;}
+.cvol-linha{width:40px;height:1px;background:rgba(201,168,76,0.4);margin:4px 0 0 auto;}
+.ccon{position:relative;z-index:3;padding:0 12mm 14mm 18mm;}
+.cser{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:4px;color:var(--ouro);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cser::before{content:'';display:block;width:20px;height:1px;background:var(--ouro);}
+.ctit{font-family:'Cinzel',serif;font-size:15pt;font-weight:700;color:#fff;line-height:1.15;text-transform:uppercase;margin-bottom:8px;}
+.cautor{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;color:rgba(201,168,76,0.7);text-transform:uppercase;margin-bottom:10px;}
+.cver{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:var(--ouro-claro);line-height:1.6;border-left:2px solid var(--ouro);padding-left:10px;opacity:0.9;}
+/* PAGINAS INTERNAS */
+.int{padding:14mm 12mm 18mm 14mm;min-height:210mm;position:relative;background:var(--perg);}
+.int::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--cor),var(--ouro) 60%,transparent);}
+.int::after{content:'';position:absolute;top:6px;left:14mm;right:12mm;height:1px;background:rgba(192,52,26,0.15);}
+.int-linhas{position:absolute;inset:0;top:20mm;pointer-events:none;background-image:repeating-linear-gradient(transparent,transparent 23px,rgba(192,52,26,0.045) 23px,rgba(192,52,26,0.045) 24px);z-index:0;}
+.wm{position:absolute;bottom:14mm;right:10mm;font-family:'Cinzel',serif;font-size:52pt;font-weight:900;color:rgba(0,0,0,0.03);line-height:1;user-select:none;pointer-events:none;}
+.ph{margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cc);display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:1;}
+.phl{font-family:'Oswald',sans-serif;font-size:7.5pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;}
+.pht{font-family:'EB Garamond',serif;font-style:italic;font-size:8.5pt;color:#aaa;}
+h2{font-family:'Cinzel',serif;font-weight:700;font-size:13pt;letter-spacing:1px;text-transform:uppercase;color:var(--cor);border-bottom:2px solid var(--cor);padding-bottom:6px;margin-bottom:12px;margin-top:4px;line-height:1.2;position:relative;z-index:1;}
+h3{font-family:'Oswald',sans-serif;font-weight:400;font-size:10pt;letter-spacing:1.5px;color:#5a1a0a;text-transform:uppercase;margin-bottom:6px;margin-top:12px;position:relative;z-index:1;}
+p{font-family:'EB Garamond',serif;font-size:10.5pt;line-height:1.65;color:var(--ct);text-align:justify;margin-bottom:9px;hyphens:auto;position:relative;z-index:1;}
+.cap::first-letter{font-family:'Cinzel',serif;font-size:38pt;font-weight:900;float:left;margin-right:5px;color:var(--cor);line-height:0.82;padding-top:2px;}
+.bver{background:#fff;border:1px solid rgba(192,52,26,0.2);border-left:4px solid var(--cor);padding:10px 12px;margin:12px 0;position:relative;z-index:1;}
+.bver-ref{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.bver p{font-family:'EB Garamond',serif;font-style:italic;font-size:10.5pt;color:#2a0a04;line-height:1.7;margin:0;}
+.bver .ref-f{font-size:9pt;font-style:normal;color:var(--ouro);font-family:'Oswald',sans-serif;letter-spacing:1px;display:block;text-align:right;margin-top:4px;}
+.bloco{background:rgba(192,52,26,0.05);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.bloco-t{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.blteo{background:rgba(201,168,76,0.08);border-left:3px solid var(--ouro);padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.blteo-t{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:#8a6a20;margin-bottom:6px;}
+.blapl{background:linear-gradient(135deg,rgba(192,52,26,0.06),rgba(201,168,76,0.07));border:1px solid rgba(192,52,26,0.2);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.blapl-t{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.mem{background:var(--creme);border:1px solid rgba(201,168,76,0.3);border-radius:2px;padding:10px 12px;margin:10px 0;text-align:center;position:relative;z-index:1;}
+.mem-t{font-family:'Oswald',sans-serif;font-size:7.5pt;letter-spacing:2px;text-transform:uppercase;color:var(--ouro);margin-bottom:6px;}
+.mem p{font-family:'EB Garamond',serif;font-style:italic;font-size:10pt;color:#2a0a04;text-align:center;line-height:1.6;}
+.obj{background:var(--creme);border-radius:2px;padding:10px 12px;margin:10px 0;position:relative;z-index:1;}
+.obj .ot{font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--cor);margin-bottom:6px;}
+.obj ul{list-style:none;padding:0;}
+.obj ul li{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+.obj ul li::before{content:'&#9670;';position:absolute;left:0;color:var(--cor);font-size:7pt;top:4px;}
+.sep{display:flex;align-items:center;gap:10px;margin:12px 0;opacity:0.3;position:relative;z-index:1;}
+.sep::before,.sep::after{content:'';flex:1;height:1px;background:var(--cor);}
+.sep span{font-size:8pt;color:var(--ouro);}
+.q{margin-bottom:14px;position:relative;z-index:1;}
+.qn{font-family:'Oswald',sans-serif;font-size:8pt;color:var(--cor);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.qt{font-family:'EB Garamond',serif;font-size:10pt;color:var(--ct);line-height:1.45;margin-bottom:5px;}
+.lr{border-bottom:1px solid rgba(192,52,26,0.2);height:20px;margin-top:3px;}
+.rod{position:absolute;bottom:0;left:0;right:0;padding:6px 12mm 6mm 14mm;display:flex;justify-content:space-between;align-items:center;z-index:2;}
+.rod::before{content:'';position:absolute;top:0;left:12mm;right:12mm;height:1px;background:linear-gradient(90deg,var(--cor),var(--ouro),transparent);opacity:0.3;}
+.rt{font-family:'Oswald',sans-serif;font-size:7pt;color:#aaa;letter-spacing:1px;text-transform:uppercase;}
+.rn{font-family:'Cinzel',serif;font-size:9pt;color:var(--ouro);}
+.lins{display:flex;flex-direction:column;gap:18px;margin-top:10px;position:relative;z-index:1;}
+.lin{border-bottom:1px solid rgba(192,52,26,0.2);height:22px;}
+[contenteditable="true"]{outline:none;cursor:text;}
+[contenteditable="true"]:hover{background:rgba(192,52,26,0.05);border-radius:2px;}
+[contenteditable="true"]:focus{background:rgba(192,52,26,0.08);border-radius:2px;}
+@media print{
+    body{background:none;}
+    .painel,.lbl{display:none!important;}
+    .area{margin-top:0;padding:0;gap:0;}
+    .pag{box-shadow:none;page-break-after:always;page-break-inside:avoid;}
+    .wm,.int-linhas{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="painel">
+    <div class="marca">ESCHATON VOL. III<span>Apresentação &middot; O Livro Aberto</span></div>
+    <button class="btn be" onclick="toggleEdit()">&#9998; <span id="etxt">Editar</span></button>
+    <button class="btn bi" onclick="window.print()">&#128438; Imprimir</button>
+    <a href="index.html"><button class="btn bv">&#8592; Hub</button></a>
+</div>
+<div class="area">
+
+<!-- PG 1 CAPA -->
+<div class="lbl">Página 1 &middot; Capa</div>
+<div class="pag capa">
+    <div class="catm"></div><div class="cgrd"></div><div class="cfx"></div>
+    <div class="cimg"></div><div class="clh"></div>
+    <div class="cnbg">&#9670;</div>
+    <div class="cvol"><div class="cvol-num">VOL. III</div><div class="cvol-linha"></div></div>
+    <div class="ccon">
+        <div class="cser">Eschaton &middot; O Futuro Chegou</div>
+        <div class="cautor">Baseado em Hernandes Dias Lopés</div>
+        <div class="ctit">Apresentação — O Livro Aberto</div>
+        <div class="cver">
+            "O livro de Apocalipse não está desconectado do restánte da Bíblia. Ao contrário, faz uso frequente do Antigo Testámento. De todos os livros da Bíblia, ele tem a maior visão panoramica da história e do controle máximo que Deus tem sobre ela."
+            <span style="display:block;margin-top:4px;font-style:normal;font-family:'Oswald',sans-serif;font-size:8pt;letter-spacing:1px;color:var(--ouro);">Walter Elwell — citado por H. D. Lopés</span>
+        </div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; EBD Jovens Adultos</span><span class="rn">1</span></div>
+</div>
+
+<!-- PG 2 O QUE E O APOCALIPSE -->
+<div class="lbl">Página 2 &middot; O Que e o Apocalipse</div>
+<div class="pag int">
+    <div class="int-linhas"></div><div class="wm">2</div>
+    <div class="ph"><span class="phl">Apresentação &middot; Vol. III</span><span class="pht">O Livro Aberto</span></div>
+    <h2>O Que e o Apocalipse?</h2>
+    <p class="cap">Apocalipse é incomparavelmente formoso — formoso em estilo, em propósito e em significado. De todos os livros da Bíblia, ele tem a maior visão panoramica da história e do controle máximo que Deus tem sobre ela. Porém, para a maioria das péssoas hoje, o Apocalipse é um livro fechado. Elas nunca o leem, por medo ou por pensarem que não conseguirão entendê-lo.</p>
+    <div class="bver">
+        <div class="bver-ref">Apocalipse 1:1</div>
+        <p>"Revelação de Jesus Cristo, a qual Deus lhe deu para mostrar aos seus servos as coisas que brevemente devem acontecer."</p>
+        <span class="ref-f">Apocalipse 1:1</span>
+    </div>
+    <h3>Tres Concepcoes Equivocadas</h3>
+    <p><strong>1. Um livro de catástrofe.</strong> A palavra "apocalipse" tornou-se sinônimo de tragédia na cultura popular. Mas Apocalipse não fala de caos — fala da Pessoa e do plano vitorioso e triunfante de Cristo e de Sua Igrejá. O último capítulo da história não será o triunfo do mal, mas a retumbante vitória do Cordeiro.</p>
+    <p><strong>2. Um livro sobre o futuro distante.</strong> Apocalipse e prático e urgente. Foi dado para ajudar o povo de Deus no presente. Contém exortações a fe, paciência, obediencia, oração e vigilância — não apenas informações sobre o futuro.</p>
+    <p><strong>3. Um livro de João.</strong> O próprio texto o corrige: e a "Revelação de Jesus Cristo" — não de João. Jesus é o autor e o protagonista. Você não pode separar a profecia da pessoa de Jesus.</p>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; EBD Jovens Adultos</span><span class="rn">2</span></div>
+</div>
+
+<!-- PG 3 O AUTOR E O CONTEXTO -->
+<div class="lbl">Página 3 &middot; Autor e Contexto</div>
+<div class="pag int">
+    <div class="int-linhas"></div><div class="wm">3</div>
+    <div class="ph"><span class="phl">Apresentação &middot; Vol. III</span><span class="pht">O Livro Aberto</span></div>
+    <h2>O Autor e o Contexto Historico</h2>
+    <div class="bloco">
+        <div class="bloco-t">João em Patmos</div>
+        <p>Domiciano, o "segundo Nero", baniu João para a ilha de Patmos, uma colônia penal romana. Ali os prisioneiros perdiam todos os seus direitos civis e eram obrigados a trabalhar nas minas, vestindo trapos. Roma pôde banir João para uma ilha solitária, mas não pôde impedir que ele visse o céu aberto. E enquanto a Igrejá era massacrada e perseguida, João recebeu a revelação do Noivo glorioso da Igrejá, o Senhor absoluto dos céus e da terra, em total controle da história.</p>
+    </div>
+    <h3>Por que Sete Igrejás?</h3>
+    <p>As sete igrejás da Ásia Menor (Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadélfia e Laodiceia) não sao apenas comunidades históricas do século I. Elas representam todo o espectro das condições da Igrejá em todas as épocas — da Igrejá que perdeu o primeiro amor a Igrejá fiel até a morte, da Igrejá morna a Igrejá de porta aberta. Você reconhecera sua própria Igrejá em pelo menos uma dessas sete cartas.</p>
+    <h3>Como Ler o Apocalipse</h3>
+    <p>O Apocalipse usa linguagem simbólica e apocaliptica que seus leitores do século I reconheciam. Os números têm significado teológico: 7 (plenitude), 12 (povo de Deus), 1000 (multidão imensa). As imagens sao emprestádas do Antigo Testámento — dos 404 versículos do Apocalipse, 278 contêm referências às Escrituras judaicas. Ler o Apocalipse sem conhecer o AT e como assistir ao último episodio de uma série sem ter visto os anteriores.</p>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; EBD Jovens Adultos</span><span class="rn">3</span></div>
+</div>
+
+<!-- PG 4 ESTRUTURA DO LIVRO -->
+<div class="lbl">Página 4 &middot; Estrutura do Livro</div>
+<div class="pag int">
+    <div class="int-linhas"></div><div class="wm">4</div>
+    <div class="ph"><span class="phl">Apresentação &middot; Vol. III</span><span class="pht">O Livro Aberto</span></div>
+    <h2>A Estrutura do Apocalipse</h2>
+    <p>Hernandes Dias Lopés segue a interpretacao amilenista — o Apocalipse e composto de sete seções paralelas que descrevem o mesmo período (entre as duas vindas de Cristo) de ângulos e ênfases distintas, com intensidade crescente. Não e uma linha do tempo sequencial, mas uma espiral ascendente que termina sempre no mesmo ponto: a vitória de Cristo e o julgamento dos ímpios.</p>
+    <div class="bloco">
+        <div class="bloco-t">As Sete Secoes Paralelas</div>
+        <p><strong>1. Ap 1-3:</strong> Cristo glorificado e as cartas as sete igrejás &middot; <strong>2. Ap 4-7:</strong> O trono de Deus, os selos e os selados &middot; <strong>3. Ap 8-11:</strong> As sete trombetas e as duas testemunhas &middot; <strong>4. Ap 12-14:</strong> O dragão, as bestás e os 144.000 &middot; <strong>5. Ap 15-16:</strong> As sete taças da ira &middot; <strong>6. Ap 17-19:</strong> A queda da Babilônia e a vitória do Cordeiro &middot; <strong>7. Ap 20-22:</strong> O milenio, o juízo final e a nova criação</p>
+    </div>
+    <h3>A Grande Mensagem do Livro</h3>
+    <p>O objetivo do Apocalipse não e nos dar uma tabela do tempo do fim, mas revelar-nos o Noivo glorioso da Igrejá, o supremo conquistador. Cristo veio ao mundo como Servo sofredor — com o rosto cheio de sangue, as mãos pregadas na cruz. No Apocalipse, o Pai o revela de forma radicalmente diferente: cabelos alvos como neve, olhos como chama de fogo, pés de bronze polido, voz de muitas águas, rosto brilhando como o sol. E este Cristo glorioso que segura a Igrejá em suas mãos e conduz a história ao seu desfecho magnífico.</p>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; EBD Jovens Adultos</span><span class="rn">4</span></div>
+</div>
+
+<!-- PG 5 SOBRE HERNANDES DIAS LOPES -->
+<div class="lbl">Página 5 &middot; Sobre o Autor</div>
+<div class="pag int">
+    <div class="int-linhas"></div><div class="wm">5</div>
+    <div class="ph"><span class="phl">Apresentação &middot; Vol. III</span><span class="pht">O Livro Aberto</span></div>
+    <h2>Sobre Hernandes Dias Lopés</h2>
+    <div class="blteo">
+        <div class="blteo-t">O Autor destá Série</div>
+        <p>O reverendo Hernandes Dias Lopés e pastor da Primeira Igrejá Presbiteriana de Vitória, Espírito Santo, desde 1985. Bacharel em Teologia pelo Seminário Presbiteriano do Sul e Doutor em Ministério pelo Reformed Theological Seminary de Jackson, Mississippi, EUA. Conferencista e escritor prolífico, com mais de 30 livros publicados. Seu comentário sobre o Apocalipse — "O Futuro Chegou" — e uma obra que combina rigor exegético, teologia reformada e aplicação pastoral direta para a Igrejá brasileira contemporanea.</p>
+    </div>
+    <h3>A Perspectiva Teológica deste Volume</h3>
+    <p>Hernandes Dias Lopés escreve a partir de uma perspectiva reformada e amilenista, o que significa que o Apocalipse descreve o período inteiro entre as duas vindas de Cristo, não um período escatológico futuro especifico. Os símbolos do livro sao interpretados a luz de todo o cânon bíblico, especialmente os profetas do AT. A cada lição, o enfase e prático: como o Apocalipse fala a Igrejá brasileira de hoje?</p>
+    <h3>Como Usar Esta Série</h3>
+    <p>Este Volume III é o terceiro de uma série de tres abordagens ao Apocalipse. O Volume I tratou dos temas de forma acadêmica e comparativa (perspectivas pentecostal e reformada). O Volume II abordou passagens-chave de forma exegética. Este Volume III é uma leitura pastoral e aplicada, guiada pela voz de Hernandes Dias Lopés — perto do texto, perto da Igrejá, perto da vida cotidiana.</p>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; EBD Jovens Adultos</span><span class="rn">5</span></div>
+</div>
+
+<!-- PG 6 INTRODUCAO PARA O PROFESSOR -->
+<div class="lbl">Página 6 &middot; Para o Professor</div>
+<div class="pag int">
+    <div class="int-linhas"></div><div class="wm">6</div>
+    <div class="ph"><span class="phl">Apresentação &middot; Vol. III</span><span class="pht">O Livro Aberto</span></div>
+    <h2>Palavra ao Professor</h2>
+    <p class="cap">Você está prestes a conduzir um dos estudos mais urgentes e transformadores que pode oferecer aos jovens adultos: o livro de Apocalipse. Hernandes Dias Lopés diz que o objetivo do Apocalipse e alertar os crentes para estárem preparados para a segunda vinda de Cristo. Essa não e uma informacao acadêmica — e um chamado que muda a forma de viver.</p>
+    <div class="blapl">
+        <div class="blapl-t">Orientações Pedagógicas</div>
+        <p><strong>Tempo:</strong> Cada lição foi planejáda para 45-60 minutos de aula. As sete páginas incluem capa, texto bíblico, contexto, exposicao e aplicação. Você pode imprimir apenas as páginas 2-7 para uso em sala. <strong>Formato:</strong> Inicie cada lição lendo o texto bíblico em voz alta (página 2). Reserve os últimos 15 minutos para as questões da página 7 — elas sao péssoais e devem ser respondidas individualmente antes da discussao em grupo. <strong>Aplicação:</strong> Esta série e deliberadamente pastoral. Não se contente com o debaté teológico — conduza os alunos a decisões praticas e compromissos concretos.</p>
+    </div>
+    <div class="sep"><span>&#9670;</span></div>
+    <p>"O livro de Apocalipse tem uma mensagem atual, urgente e desafiadora para a geração contemporanea. O futuro chegou e aponta com absoluta segurança a vitória retumbante de Cristo e da Sua Igrejá sobre todo o mal. Sua vida não será a mesma depois da leitura deste livro."</p>
+    <p style="text-align:right;font-style:italic;font-size:9.5pt;color:#888;position:relative;z-index:1;">— Hernandes Dias Lopés</p>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; EBD Jovens Adultos</span><span class="rn">6</span></div>
+</div>
+
+<!-- PG 7 PLANO DE ESTUDOS -->
+<div class="lbl">Página 7 &middot; Plano de Estudos</div>
+<div class="pag int">
+    <div class="int-linhas"></div><div class="wm">7</div>
+    <div class="ph"><span class="phl">Apresentação &middot; Vol. III</span><span class="pht">O Livro Aberto</span></div>
+    <h2>Plano de Treze Semanas</h2>
+    <div class="bloco" style="margin-bottom:8px;">
+        <div class="bloco-t">Módulo I — O Cristo Glorioso e suas Cartas (L01-04)</div>
+        <p><strong>L01:</strong> Ap 1 — A apresentação majestosa do Noivo da Igrejá &middot; <strong>L02:</strong> Ap 2:1-11 — Éfeso e Esmirna: o primeiro amor e a fidelidade até a morte &middot; <strong>L03:</strong> Ap 2:12-3:6 — Pérgamo e Sardes: mistura e morte espiritual &middot; <strong>L04:</strong> Ap 3:7-22 — Filadélfia e Laodiceia: porta aberta e mornidão</p>
+    </div>
+    <div class="bloco" style="margin-bottom:8px;">
+        <div class="bloco-t">Módulo II — O Trono, os Julgamentos e a Guerra Cósmica (L05-08)</div>
+        <p><strong>L05:</strong> Ap 4-5 — O trono e o Cordeiro digno &middot; <strong>L06:</strong> Ap 6-7 — Os selos e os selados &middot; <strong>L07:</strong> Ap 12-13 — O dragão ataca a Igrejá &middot; <strong>L08:</strong> Ap 14-16 — Os salvos, os julgados e as taças</p>
+    </div>
+    <div class="bloco" style="margin-bottom:8px;">
+        <div class="bloco-t">Módulo III — A Vitória Final e a Nova Criacao (L09-13)</div>
+        <p><strong>L09:</strong> Ap 17-18 — A queda da Babilônia &middot; <strong>L10:</strong> Ap 19 — A Ceia das Bodas e o Rei dos Reis &middot; <strong>L11:</strong> Ap 20 — O milenio e o Juizo Final &middot; <strong>L12:</strong> Ap 21-22:5 — A Nova Jerusalém &middot; <strong>L13:</strong> Ap 22:6-21 — Os desafios dos cidadãos do eterno</p>
+    </div>
+    <h3 style="margin-top:12px;">Questões de Preparação</h3>
+    <div class="q">
+        <div class="qn">Para Refletir Antes de Começar</div>
+        <div class="qt">O que você já conhece do livro de Apocalipse? Quais perguntas você traz para esta série que espera que sejám respondidas ao longo das 13 semanas?</div>
+        <div class="lr"></div><div class="lr"></div><div class="lr"></div>
+    </div>
+    <div class="rod"><span class="rt">Eschaton Vol. III &middot; Apresentação</span><span class="rn">7</span></div>
+</div>
+
+</div>
+<script>
+let edit=false;
+const TAGS=['P','H2','H3','DIV','LI','CITE','SPAN','STRONG','EM'];
+function toggleEdit(){
+    edit=!edit;
+    document.querySelectorAll('.pag *').forEach(el=>{
+        if(TAGS.includes(el.tagName)&&!el.querySelector('div,p,h2,h3,ul'))
+            el.contentEditable=edit?'true':'false';
+    });
+    document.getElementById('etxt').textContent=edit?'Concluir':'Editar';
+}
+</script>
+</body>
+</html>
